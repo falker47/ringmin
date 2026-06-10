@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ringmin"
+version = "0.1.0"
+description = "Exact solver for the minimum central circle problem"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "scipy",
+  "mpmath",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+speed = ["numba"]
+test = ["pytest"]
+
+[project.scripts]
+ringmin = "ringmin.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

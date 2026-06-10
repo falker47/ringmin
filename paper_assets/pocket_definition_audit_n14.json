@@ -1,0 +1,91 @@
+[
+  {
+    "R": 21.555973521385166,
+    "R_definition": "R_chain of Supnick({2,...,14})",
+    "max_pocket": 1.6729942846514383,
+    "name": "current_pocket_supnick_subset",
+    "subset": "{2,...,14}",
+    "tour": [
+      2,
+      13,
+      4,
+      11,
+      6,
+      9,
+      8,
+      7,
+      10,
+      5,
+      12,
+      3,
+      14
+    ]
+  },
+  {
+    "R": 21.608878017060427,
+    "R_definition": "R_chain of Supnick({3,...,14})",
+    "max_pocket": 1.7421176702599988,
+    "name": "supnick_3_to_14_circle2_free_float",
+    "subset": "{3,...,14}",
+    "tour": [
+      3,
+      13,
+      5,
+      11,
+      7,
+      9,
+      8,
+      10,
+      6,
+      12,
+      4,
+      14
+    ]
+  },
+  {
+    "R": 21.665395182196608,
+    "R_definition": "heuristic R_full",
+    "max_pocket": 1.6437695158131373,
+    "name": "legacy_max_pocket",
+    "subset": "{1,...,14}",
+    "tour": [
+      14.0,
+      3.0,
+      13.0,
+      2.0,
+      9.0,
+      1.0,
+      8.0,
+      7.0,
+      10.0,
+      6.0,
+      11.0,
+      5.0,
+      12.0,
+      4.0
+    ]
+  },
+  {
+    "R": 21.096647019598727,
+    "R_definition": "heuristic R_chain",
+    "max_pocket": 1.6353519209219372,
+    "name": "heuristic_full_order_at_R_chain",
+    "subset": "{1,...,14}",
+    "tour": [
+      14.0,
+      3.0,
+      13.0,
+      2.0,
+      9.0,
+      1.0,
+      8.0,
+      7.0,
+      10.0,
+      6.0,
+      11.0,
+      5.0,
+      12.0,
+      4.0
+    ]
+  }
+]

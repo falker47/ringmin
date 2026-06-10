@@ -1,0 +1,392 @@
+{
+  "R": "9.9799073858538101",
+  "R_chain_float64": 9.87120641300432,
+  "R_float64": 9.97990738585381,
+  "R_mpmath_30": "9.97990738586347760966552641468",
+  "R_mpmath_full": "9.9799073858634776096655264146826765652998890915932",
+  "binding_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 10,
+      "radius_j": 2,
+      "slack": -4.061195824078823e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 9,
+      "kind": "wrap",
+      "radius_i": 10,
+      "radius_j": 3,
+      "slack": 4.0607517348689726e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 2,
+      "radius_j": 9,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 4,
+      "slack": -5.551115123125783e-16
+    },
+    {
+      "adjacent": true,
+      "i": 3,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 7,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": false,
+      "i": 4,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 6,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 5,
+      "slack": -6.661338147750939e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 8,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 8,
+      "j": 9,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 3,
+      "slack": -4.0603076456591225e-12
+    }
+  ],
+  "binding_pairs_legacy_note": "binding_pairs is an alias of essential_tight_pairs",
+  "certified": true,
+  "enumerated_chain": 181440,
+  "essential_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 10,
+      "radius_j": 2,
+      "slack": -4.061195824078823e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 9,
+      "kind": "wrap",
+      "radius_i": 10,
+      "radius_j": 3,
+      "slack": 4.0607517348689726e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 2,
+      "radius_j": 9,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 4,
+      "slack": -5.551115123125783e-16
+    },
+    {
+      "adjacent": true,
+      "i": 3,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 7,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": false,
+      "i": 4,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 6,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 5,
+      "slack": -6.661338147750939e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 8,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 8,
+      "j": 9,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 3,
+      "slack": -4.0603076456591225e-12
+    }
+  ],
+  "evaluated_full": 1024,
+  "fallback_used": false,
+  "floating_circles": [
+    1
+  ],
+  "floating_constraint_slacks": [
+    {
+      "forward_slack": 2.618956587877823,
+      "i": 0,
+      "j": 5,
+      "radius_i": 10,
+      "radius_j": 1,
+      "wrap_slack": 2.8035918685418744
+    },
+    {
+      "forward_slack": 2.2155366042051137,
+      "i": 1,
+      "j": 5,
+      "radius_i": 2,
+      "radius_j": 1,
+      "wrap_slack": 3.5731608122120755
+    },
+    {
+      "forward_slack": 1.473678901337769,
+      "i": 2,
+      "j": 5,
+      "radius_i": 9,
+      "radius_j": 1,
+      "wrap_slack": 3.9721477166767403
+    },
+    {
+      "forward_slack": 0.8136321038829064,
+      "i": 3,
+      "j": 5,
+      "radius_i": 4,
+      "radius_j": 1,
+      "wrap_slack": 4.821003899335679
+    },
+    {
+      "forward_slack": 0.04673527092503088,
+      "i": 4,
+      "j": 5,
+      "radius_i": 7,
+      "radius_j": 1,
+      "wrap_slack": 5.456444124150836
+    },
+    {
+      "forward_slack": 2.7755575615628914e-16,
+      "i": 5,
+      "j": 6,
+      "radius_i": 1,
+      "radius_j": 6,
+      "wrap_slack": 5.539214337562173
+    },
+    {
+      "forward_slack": 0.7452033312770845,
+      "i": 5,
+      "j": 7,
+      "radius_i": 1,
+      "radius_j": 5,
+      "wrap_slack": 4.836984580977701
+    },
+    {
+      "forward_slack": 1.4815493280479637,
+      "i": 5,
+      "j": 8,
+      "radius_i": 1,
+      "radius_j": 8,
+      "wrap_slack": 3.9908809119736595
+    },
+    {
+      "forward_slack": 2.248628304231472,
+      "i": 5,
+      "j": 9,
+      "radius_i": 1,
+      "radius_j": 3,
+      "wrap_slack": 3.4521574571439193
+    }
+  ],
+  "floating_definition": "c is floating iff there exists an optimal configuration where c touches only the central circle; implemented by inflating all pairwise theta constraints involving c by 1e-9 at R_full and checking STN feasibility",
+  "mpmath_binding_structure_verified": true,
+  "mpmath_digits": 50,
+  "mpmath_max_abs_essential_slack": "4.9999999995093987084e-41",
+  "n": 10,
+  "ordering": [
+    10,
+    2,
+    9,
+    4,
+    7,
+    1,
+    6,
+    5,
+    8,
+    3
+  ],
+  "positions": [
+    0.0,
+    0.5864944636714551,
+    1.15691676733746,
+    1.911368257394361,
+    2.612536786280877,
+    3.0492750132577675,
+    3.4212604980664745,
+    4.144977041997253,
+    4.936201874884713,
+    5.589103090391337
+  ],
+  "recovered_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 10,
+      "radius_j": 2,
+      "slack": -4.061195824078823e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 9,
+      "kind": "wrap",
+      "radius_i": 10,
+      "radius_j": 3,
+      "slack": 4.0607517348689726e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 2,
+      "radius_j": 9,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 4,
+      "slack": -5.551115123125783e-16
+    },
+    {
+      "adjacent": true,
+      "i": 3,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 7,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": false,
+      "i": 4,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 6,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 5,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 6,
+      "slack": 2.7755575615628914e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 5,
+      "slack": -6.661338147750939e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 8,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 8,
+      "j": 9,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 3,
+      "slack": -4.0603076456591225e-12
+    }
+  ],
+  "runtime_seconds": 4.014814899997873,
+  "stage_a_seconds": 2.9283596000022953,
+  "stage_b_candidates": 1024,
+  "stage_b_seconds": 1.0864529999998922,
+  "values": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
+}

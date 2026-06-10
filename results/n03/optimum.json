@@ -1,0 +1,125 @@
+{
+  "R": "0.26086956521739135",
+  "R_chain_float64": 0.26086956521739135,
+  "R_float64": 0.26086956521739135,
+  "R_mpmath_30": "0.260869565217391304347826086957",
+  "R_mpmath_full": "0.26086956521739130434782608695652173913042528971809",
+  "binding_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 1,
+      "slack": 8.881784197001252e-16
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 2,
+      "kind": "wrap",
+      "radius_i": 3,
+      "radius_j": 2,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 2,
+      "slack": -2.220446049250313e-16
+    }
+  ],
+  "binding_pairs_legacy_note": "binding_pairs is an alias of essential_tight_pairs",
+  "certified": true,
+  "enumerated_chain": 1,
+  "essential_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 1,
+      "slack": 8.881784197001252e-16
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 2,
+      "kind": "wrap",
+      "radius_i": 3,
+      "radius_j": 2,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 2,
+      "slack": -2.220446049250313e-16
+    }
+  ],
+  "evaluated_full": 1,
+  "fallback_used": true,
+  "floating_circles": [],
+  "floating_constraint_slacks": [],
+  "floating_definition": "c is floating iff there exists an optimal configuration where c touches only the central circle; implemented by inflating all pairwise theta constraints involving c by 1e-9 at R_full and checking STN feasibility",
+  "mpmath_binding_structure_verified": true,
+  "mpmath_digits": 50,
+  "mpmath_max_abs_essential_slack": "5.0000000000439516504e-41",
+  "n": 3,
+  "ordering": [
+    3,
+    1,
+    2
+  ],
+  "positions": [
+    0.0,
+    2.048014971811299,
+    4.033803751476601
+  ],
+  "recovered_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 1,
+      "slack": 8.881784197001252e-16
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 2,
+      "kind": "wrap",
+      "radius_i": 3,
+      "radius_j": 2,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 2,
+      "slack": -2.220446049250313e-16
+    }
+  ],
+  "runtime_seconds": 0.46877500000118744,
+  "stage_a_seconds": 0.24676840000029188,
+  "stage_b_candidates": 1,
+  "stage_b_seconds": 0.2220041999971727,
+  "values": [
+    1,
+    2,
+    3
+  ]
+}

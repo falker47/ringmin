@@ -1,0 +1,180 @@
+{
+  "R_chain": 21.096647019598727,
+  "R_full": 21.665395182196608,
+  "best_restart_count": 67,
+  "cache_size": 101383,
+  "essential_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 14,
+      "radius_j": 3,
+      "slack": -3.858857677840888e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 13,
+      "kind": "wrap",
+      "radius_i": 14,
+      "radius_j": 4,
+      "slack": 3.860023412016744e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 13,
+      "slack": -6.106226635438361e-16
+    },
+    {
+      "adjacent": false,
+      "i": 2,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 13,
+      "radius_j": 9,
+      "slack": -5.551115123125783e-16
+    },
+    {
+      "adjacent": false,
+      "i": 4,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 8,
+      "slack": 3.3306690738754696e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 7,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 10,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 8,
+      "j": 9,
+      "kind": "forward",
+      "radius_i": 10,
+      "radius_j": 6,
+      "slack": 2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 9,
+      "j": 10,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 11,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 10,
+      "j": 11,
+      "kind": "forward",
+      "radius_i": 11,
+      "radius_j": 5,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 11,
+      "j": 12,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 12,
+      "slack": 4.440892098500626e-16
+    },
+    {
+      "adjacent": true,
+      "i": 12,
+      "j": 13,
+      "kind": "forward",
+      "radius_i": 12,
+      "radius_j": 4,
+      "slack": -3.860411990075363e-12
+    }
+  ],
+  "floating_circles": [
+    2,
+    1
+  ],
+  "label": "NON-EXHAUSTIVE",
+  "n": 14,
+  "ordering": [
+    14,
+    3,
+    13,
+    2,
+    9,
+    1,
+    8,
+    7,
+    10,
+    6,
+    11,
+    5,
+    12,
+    4
+  ],
+  "pocket_supnick_subset": 1.6729942846514383,
+  "realized_hosting_pockets": [
+    {
+      "floater": 2,
+      "host_indices": [
+        2,
+        4
+      ],
+      "host_pair": [
+        13,
+        9
+      ],
+      "pocket_radius": 2.0133420119573833
+    },
+    {
+      "floater": 1,
+      "host_indices": [
+        4,
+        6
+      ],
+      "host_pair": [
+        9,
+        8
+      ],
+      "pocket_radius": 1.674634596523301
+    }
+  ],
+  "runtime_seconds": 886.1335747999983,
+  "schema": {
+    "artifact": "heuristic_n14_18",
+    "fields": {
+      "pocket_supnick_subset": {
+        "definition": "Maximum Descartes pocket radius over adjacent pairs of the Supnick maximum tour on the subset {2,...,n}, evaluated at that subset tour's own adjacent-chain radius R_chain(Supnick({2,...,n})).",
+        "note": "This is a free-float criterion for adding circle 1 to the Supnick {2,...,n} tour. It is not evaluated on the heuristic full n-circle order and not evaluated at the heuristic R_full."
+      },
+      "realized_hosting_pockets": {
+        "definition": "For each floating circle in the heuristic full order, skip adjacent floating circles to find the essential bridged nonfloating pair (a,b), then report the Descartes pocket radius of (a,b) at the heuristic full radius R_full."
+      }
+    },
+    "label": "NON-EXHAUSTIVE",
+    "legacy_max_pocket_note": "The retired max_pocket field used a different subset/tour and radius: it was the maximum adjacent-pair Descartes pocket of the reported heuristic full {1,...,n} order, evaluated at that order's heuristic R_full. The new pocket_supnick_subset field uses the Supnick {2,...,n} tour and evaluates at R_chain(Supnick({2,...,n})); for n=14 this changed 1.643769515813 to 1.672994284651. The discrepancy is therefore not merely a different R; the evaluated tour/subset also changed."
+  }
+}

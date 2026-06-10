@@ -1,0 +1,354 @@
+{
+  "R": "7.7267265526059123",
+  "R_chain_float64": 7.704854578588725,
+  "R_float64": 7.726726552605912,
+  "R_mpmath_30": "7.72672655261128921886246177604",
+  "R_mpmath_full": "7.7267265526112892188624617760416744957346291992229",
+  "binding_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 2,
+      "slack": -2.7712276917668532e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 8,
+      "kind": "wrap",
+      "radius_i": 9,
+      "radius_j": 3,
+      "slack": 2.7711166694643907e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 2,
+      "radius_j": 8,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": false,
+      "i": 2,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 5,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 4,
+      "j": 5,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 6,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 5,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 4,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 7,
+      "slack": 4.440892098500626e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 3,
+      "slack": -2.7713387140693158e-12
+    }
+  ],
+  "binding_pairs_legacy_note": "binding_pairs is an alias of essential_tight_pairs",
+  "certified": true,
+  "enumerated_chain": 20160,
+  "essential_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 2,
+      "slack": -2.7712276917668532e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 8,
+      "kind": "wrap",
+      "radius_i": 9,
+      "radius_j": 3,
+      "slack": 2.7711166694643907e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 2,
+      "radius_j": 8,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": false,
+      "i": 2,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 5,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 4,
+      "j": 5,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 6,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 5,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 4,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 7,
+      "slack": 4.440892098500626e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 3,
+      "slack": -2.7713387140693158e-12
+    }
+  ],
+  "evaluated_full": 1024,
+  "fallback_used": false,
+  "floating_circles": [
+    1
+  ],
+  "floating_constraint_slacks": [
+    {
+      "forward_slack": 1.3342760527538906,
+      "i": 0,
+      "j": 3,
+      "radius_i": 9,
+      "radius_j": 1,
+      "wrap_slack": 3.945178084490048
+    },
+    {
+      "forward_slack": 0.8497655133099833,
+      "i": 1,
+      "j": 3,
+      "radius_i": 2,
+      "radius_j": 1,
+      "wrap_slack": 4.816986121149498
+    },
+    {
+      "forward_slack": 0.011625575081379458,
+      "i": 2,
+      "j": 3,
+      "radius_i": 8,
+      "radius_j": 1,
+      "wrap_slack": 5.29618262913623
+    },
+    {
+      "forward_slack": 2.220446049250313e-16,
+      "i": 3,
+      "j": 4,
+      "radius_i": 1,
+      "radius_j": 5,
+      "wrap_slack": 5.427971411123973
+    },
+    {
+      "forward_slack": 0.8307417869871673,
+      "i": 3,
+      "j": 5,
+      "radius_i": 1,
+      "radius_j": 6,
+      "wrap_slack": 4.5495835254229595
+    },
+    {
+      "forward_slack": 1.6770064809356784,
+      "i": 3,
+      "j": 6,
+      "radius_i": 1,
+      "radius_j": 4,
+      "wrap_slack": 3.8101174437296175
+    },
+    {
+      "forward_slack": 2.432765416043232,
+      "i": 3,
+      "j": 7,
+      "radius_i": 1,
+      "radius_j": 7,
+      "wrap_slack": 2.9081964117959664
+    },
+    {
+      "forward_slack": 3.290314490911193,
+      "i": 3,
+      "j": 8,
+      "radius_i": 1,
+      "radius_j": 3,
+      "wrap_slack": 2.2729100976909944
+    }
+  ],
+  "floating_definition": "c is floating iff there exists an optimal configuration where c touches only the central circle; implemented by inflating all pairwise theta constraints involving c by 1e-9 at R_full and checking STN feasibility",
+  "mpmath_binding_structure_verified": true,
+  "mpmath_digits": 50,
+  "mpmath_max_abs_essential_slack": "4.9999999988412075308e-41",
+  "n": 9,
+  "ordering": [
+    9,
+    2,
+    8,
+    1,
+    5,
+    6,
+    4,
+    7,
+    3
+  ],
+  "positions": [
+    0.0,
+    0.6781592880516785,
+    1.3368275111593464,
+    1.8361416377217141,
+    2.2637485857495205,
+    3.1183134220936113,
+    3.9111788099145377,
+    4.74001879343514,
+    5.4864364879216065
+  ],
+  "recovered_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 2,
+      "slack": -2.7712276917668532e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 8,
+      "kind": "wrap",
+      "radius_i": 9,
+      "radius_j": 3,
+      "slack": 2.7711166694643907e-12
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 2,
+      "radius_j": 8,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": false,
+      "i": 2,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 5,
+      "slack": -1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 3,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 5,
+      "slack": 2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 4,
+      "j": 5,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 6,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 5,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 4,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 7,
+      "slack": 4.440892098500626e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 3,
+      "slack": -2.7713387140693158e-12
+    }
+  ],
+  "runtime_seconds": 1.2525620000014897,
+  "stage_a_seconds": 0.5278940000025614,
+  "stage_b_candidates": 1024,
+  "stage_b_seconds": 0.7246655000017199,
+  "values": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

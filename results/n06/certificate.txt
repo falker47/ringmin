@@ -1,0 +1,12 @@
+n=6
+certified=True
+R_full=2.7949195188969247
+ordering=[6, 1, 5, 3, 4, 2]
+enumerated_chain=60
+evaluated_full=60
+stage_b_candidates=60
+fallback_used=True
+runtime_seconds=0.926581
+stage_a_seconds=0.336045
+stage_b_seconds=0.590534
+certificate_semantics=global optimality certified up to absolute tolerance 1e-10 in R; bisection rel. tol 1e-12/1e-13; values of the found binding structure verified to 50 digits via mpmath.

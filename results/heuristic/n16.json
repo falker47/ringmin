@@ -1,0 +1,200 @@
+{
+  "R_chain": 28.75766401741715,
+  "R_full": 29.194988498141065,
+  "best_restart_count": 18,
+  "cache_size": 127976,
+  "essential_pairs": [
+    {
+      "adjacent": false,
+      "i": 0,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 16,
+      "radius_j": 4,
+      "slack": -4.8145376574382226e-12
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 15,
+      "kind": "wrap",
+      "radius_i": 16,
+      "radius_j": 3,
+      "slack": 4.815703391614079e-12
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 14,
+      "slack": -9.992007221626409e-16
+    },
+    {
+      "adjacent": true,
+      "i": 3,
+      "j": 4,
+      "kind": "forward",
+      "radius_i": 14,
+      "radius_j": 6,
+      "slack": 3.885780586188048e-16
+    },
+    {
+      "adjacent": true,
+      "i": 4,
+      "j": 5,
+      "kind": "forward",
+      "radius_i": 6,
+      "radius_j": 12,
+      "slack": -5.551115123125783e-17
+    },
+    {
+      "adjacent": true,
+      "i": 5,
+      "j": 6,
+      "kind": "forward",
+      "radius_i": 12,
+      "radius_j": 8,
+      "slack": -4.440892098500626e-16
+    },
+    {
+      "adjacent": true,
+      "i": 6,
+      "j": 7,
+      "kind": "forward",
+      "radius_i": 8,
+      "radius_j": 10,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 7,
+      "j": 8,
+      "kind": "forward",
+      "radius_i": 10,
+      "radius_j": 9,
+      "slack": 1.6653345369377348e-16
+    },
+    {
+      "adjacent": false,
+      "i": 8,
+      "j": 10,
+      "kind": "forward",
+      "radius_i": 9,
+      "radius_j": 11,
+      "slack": 1.1102230246251565e-16
+    },
+    {
+      "adjacent": true,
+      "i": 10,
+      "j": 11,
+      "kind": "forward",
+      "radius_i": 11,
+      "radius_j": 7,
+      "slack": 4.440892098500626e-16
+    },
+    {
+      "adjacent": true,
+      "i": 11,
+      "j": 12,
+      "kind": "forward",
+      "radius_i": 7,
+      "radius_j": 13,
+      "slack": -8.326672684688674e-16
+    },
+    {
+      "adjacent": true,
+      "i": 12,
+      "j": 13,
+      "kind": "forward",
+      "radius_i": 13,
+      "radius_j": 5,
+      "slack": 6.106226635438361e-16
+    },
+    {
+      "adjacent": true,
+      "i": 13,
+      "j": 14,
+      "kind": "forward",
+      "radius_i": 5,
+      "radius_j": 15,
+      "slack": 5.551115123125783e-17
+    },
+    {
+      "adjacent": true,
+      "i": 14,
+      "j": 15,
+      "kind": "forward",
+      "radius_i": 15,
+      "radius_j": 3,
+      "slack": -4.815980947370235e-12
+    }
+  ],
+  "floating_circles": [
+    1,
+    2
+  ],
+  "label": "NON-EXHAUSTIVE",
+  "n": 16,
+  "ordering": [
+    16,
+    1,
+    4,
+    14,
+    6,
+    12,
+    8,
+    10,
+    9,
+    2,
+    11,
+    7,
+    13,
+    5,
+    15,
+    3
+  ],
+  "pocket_supnick_subset": 1.9333919387276097,
+  "realized_hosting_pockets": [
+    {
+      "floater": 1,
+      "host_indices": [
+        0,
+        2
+      ],
+      "host_pair": [
+        16,
+        4
+      ],
+      "pocket_radius": 1.4897000911605265
+    },
+    {
+      "floater": 2,
+      "host_indices": [
+        8,
+        10
+      ],
+      "host_pair": [
+        9,
+        11
+      ],
+      "pocket_radius": 2.0112653037282735
+    }
+  ],
+  "runtime_seconds": 1619.1979282999964,
+  "schema": {
+    "artifact": "heuristic_n14_18",
+    "fields": {
+      "pocket_supnick_subset": {
+        "definition": "Maximum Descartes pocket radius over adjacent pairs of the Supnick maximum tour on the subset {2,...,n}, evaluated at that subset tour's own adjacent-chain radius R_chain(Supnick({2,...,n})).",
+        "note": "This is a free-float criterion for adding circle 1 to the Supnick {2,...,n} tour. It is not evaluated on the heuristic full n-circle order and not evaluated at the heuristic R_full."
+      },
+      "realized_hosting_pockets": {
+        "definition": "For each floating circle in the heuristic full order, skip adjacent floating circles to find the essential bridged nonfloating pair (a,b), then report the Descartes pocket radius of (a,b) at the heuristic full radius R_full."
+      }
+    },
+    "label": "NON-EXHAUSTIVE",
+    "legacy_max_pocket_note": "The retired max_pocket field used a different subset/tour and radius: it was the maximum adjacent-pair Descartes pocket of the reported heuristic full {1,...,n} order, evaluated at that order's heuristic R_full. The new pocket_supnick_subset field uses the Supnick {2,...,n} tour and evaluates at R_chain(Supnick({2,...,n})); for n=14 this changed 1.643769515813 to 1.672994284651. The discrepancy is therefore not merely a different R; the evaluated tour/subset also changed."
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "R": "0.84445358956085559",
+  "R_chain_float64": 0.8444535895608556,
+  "R_float64": 0.8444535895608556,
+  "R_mpmath_30": "0.844453589560855604347528524674",
+  "R_mpmath_full": "0.84445358956085560434752852467389130754437082037604",
+  "binding_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 1,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 3,
+      "kind": "wrap",
+      "radius_i": 4,
+      "radius_j": 2,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 3,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 2,
+      "slack": 0.0
+    }
+  ],
+  "binding_pairs_legacy_note": "binding_pairs is an alias of essential_tight_pairs",
+  "certified": true,
+  "enumerated_chain": 3,
+  "essential_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 1,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 3,
+      "kind": "wrap",
+      "radius_i": 4,
+      "radius_j": 2,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 3,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 2,
+      "slack": 0.0
+    }
+  ],
+  "evaluated_full": 3,
+  "fallback_used": true,
+  "floating_circles": [],
+  "floating_constraint_slacks": [],
+  "floating_definition": "c is floating iff there exists an optimal configuration where c touches only the central circle; implemented by inflating all pairwise theta constraints involving c by 1e-9 at R_full and checking STN feasibility",
+  "mpmath_binding_structure_verified": true,
+  "mpmath_digits": 50,
+  "mpmath_max_abs_essential_slack": "4.9999999995093987084e-41",
+  "n": 4,
+  "ordering": [
+    4,
+    1,
+    3,
+    2
+  ],
+  "positions": [
+    0.0,
+    1.4659224771775272,
+    2.8822583441467957,
+    4.550565704793156
+  ],
+  "recovered_tight_pairs": [
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 1,
+      "kind": "forward",
+      "radius_i": 4,
+      "radius_j": 1,
+      "slack": -2.220446049250313e-16
+    },
+    {
+      "adjacent": true,
+      "i": 0,
+      "j": 3,
+      "kind": "wrap",
+      "radius_i": 4,
+      "radius_j": 2,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 1,
+      "j": 2,
+      "kind": "forward",
+      "radius_i": 1,
+      "radius_j": 3,
+      "slack": 0.0
+    },
+    {
+      "adjacent": true,
+      "i": 2,
+      "j": 3,
+      "kind": "forward",
+      "radius_i": 3,
+      "radius_j": 2,
+      "slack": 0.0
+    }
+  ],
+  "runtime_seconds": 0.7394208999976399,
+  "stage_a_seconds": 0.27654790000087814,
+  "stage_b_candidates": 3,
+  "stage_b_seconds": 0.4628698999986227,
+  "values": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

@@ -1,0 +1,12 @@
+n=13
+certified=True
+R_full=18.317563047197659
+ordering=[13, 3, 1, 12, 2, 10, 6, 8, 7, 9, 5, 11, 4]
+enumerated_chain=239500800
+evaluated_full=1024
+stage_b_candidates=1024
+fallback_used=False
+runtime_seconds=6482.310996
+stage_a_seconds=6479.565563
+stage_b_seconds=2.745429
+certificate_semantics=global optimality certified up to absolute tolerance 1e-10 in R; bisection rel. tol 1e-12/1e-13; values of the found binding structure verified to 50 digits via mpmath.

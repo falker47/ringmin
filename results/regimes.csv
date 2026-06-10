@@ -1,0 +1,12 @@
+n,floaters,delta,chain==subset_opt,chain==interleave,max_pocket_subset_interleave,supnick_subset_valid
+3,[],,,True,,
+4,[],,,True,0.189292729586,
+5,[],,,True,0.375683643223,
+6,[],,,True,0.554518145249,
+7,[],0.165803022091,False,True,0.698283791286,
+8,[1],0.040796490822,False,False,0.858132123149,True
+9,[1],0.005318513227,False,False,0.987513434642,True
+10,[1],-0.000000000010,True,True,1.138930638649,True
+11,[1],-0.000000000014,True,True,1.262376773711,True
+12,[1],-0.000000000016,True,True,1.408945248654,True
+13,[1],-0.000000000020,True,False,1.529639122797,False
