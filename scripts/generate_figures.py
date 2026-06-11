@@ -22,7 +22,8 @@ def main() -> int:
     opt: list[float] = []
     worst: list[float] = []
     asymptote: list[float] = []
-    for n in range(3, 14):
+    certified_stop = 14
+    for n in range(3, certified_stop + 1):
         payload = json.loads((ROOT / "results" / f"n{n:02d}" / "optimum.json").read_text(encoding="utf-8"))
         result = full_radius(tuple(payload["ordering"]), R_chain=payload["R_chain_float64"])
         draw_result(result, figures / f"n{n:02d}.png")

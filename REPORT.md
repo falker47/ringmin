@@ -16,6 +16,7 @@ Certificate semantics: global optimality certified up to absolute tolerance 1e-1
 | 11 | 12.4887204871876588517468786264 | [11, 2, 10, 4, 8, 6, 7, 1, 5, 9, 3] | [1] | True |
 | 12 | 15.2588704304484933617250043503 | [12, 2, 11, 4, 9, 6, 7, 8, 5, 1, 10, 3] | [1] | True |
 | 13 | 18.3175630472173206282821941532 | [13, 3, 1, 12, 2, 10, 6, 8, 7, 9, 5, 11, 4] | [1] | True |
+| 14 | 21.6653951822145150956462891793 | [14, 3, 13, 2, 9, 8, 7, 10, 6, 11, 5, 1, 12, 4] | [2, 1] | True |
 
 ## Regimes
 | n | floaters | delta | chain==subset_opt | chain==interleave | max_pocket_subset_interleave | supnick_subset_valid |
@@ -31,6 +32,7 @@ Certificate semantics: global optimality certified up to absolute tolerance 1e-1
 | 11 | [1] | -0.000000000014 | True | True | 1.262376773711 | True |
 | 12 | [1] | -0.000000000016 | True | True | 1.408945248654 | True |
 | 13 | [1] | -0.000000000020 | True | False | 1.529639122797 | False |
+| 14 | [2, 1] |  |  | False | 1.672994284651 |  |
 
 ## Supnick Validity
 | kind | n | R_chain | valid | violated_pairs |
@@ -41,6 +43,7 @@ Certificate semantics: global optimality certified up to absolute tolerance 1e-1
 | subset | 11 | 12.488720487187 | True | [] |
 | subset | 12 | 15.258870430449 | True | [] |
 | subset | 13 | 18.277543500174 | False | [[13, 12]] |
+| subset | 14 | 21.555973521385 | False | [[14, 13]] |
 | full | 3 | 0.260869565217 | True | [] |
 | full | 4 | 0.844453589561 | True | [] |
 | full | 5 | 1.695494081203 | True | [] |
@@ -52,6 +55,7 @@ Certificate semantics: global optimality certified up to absolute tolerance 1e-1
 | full | 11 | 12.083823333752 | False | [[11, 10]] |
 | full | 12 | 14.689904246415 | False | [[12, 11]] |
 | full | 13 | 17.552989325445 | False | [[13, 12], [13, 11]] |
+| full | 14 | 20.660148822554 | False | [[14, 13], [14, 12]] |
 
 ## High Precision
 | n | R_mpmath_30 | max_abs_essential_slack | binding_verified |
@@ -67,6 +71,7 @@ Certificate semantics: global optimality certified up to absolute tolerance 1e-1
 | 11 | 12.4887204871876588517468786264 | 4.9999999999103134149e-41 | True |
 | 12 | 15.2588704304484933617250043503 | 5.0000000000439516504e-41 | True |
 | 13 | 18.3175630472173206282821941532 | 4.9999999991084840018e-41 | True |
+| 14 | 21.6653951822145150956462891793 | 4.9999999985739310598e-41 | True |
 
 ## Patterns
 | n | certified_R | interleave_R_full | sequential_R_full | zigzag_R_full | worst_order_R_chain | worst_order_R_full | worst_order_full_differs |
@@ -82,3 +87,8 @@ Certificate semantics: global optimality certified up to absolute tolerance 1e-1
 | 11 | 12.488720487174 | 12.669098445392 | 13.505083359128 | 12.728796800403 | 13.880577932626 | 13.880577932626 | False |
 | 12 | 15.258870430432 | 15.472803129641 | 16.553728901557 | 15.533366571603 | 17.016408238128 | 17.016408238128 | False |
 | 13 | 18.317563047198 | 18.616172454228 | 19.917245167512 | 18.661506558497 | 20.472039120681 | 20.472039120681 | False |
+| 14 | 21.665395182192 | 22.101898633920 | 23.596189462435 | 22.144067075484 | 24.247291190092 | 24.247291190092 | False |
+| 15 | 25.290151636714 | 25.856030679700 | 27.590991056823 | 25.924081919541 | 28.342000288518 | 28.342000288518 | False |
+| 16 | 29.194988498141 | 29.864231024549 | 31.901987090683 | 29.928938511465 | 32.756022334220 | 32.756022334220 | False |
+| 17 | 33.394425022062 | 34.137969715195 | 36.529446960821 | 34.231298551910 | 37.489233291550 | 37.489233291550 | False |
+| 18 | 37.870755667393 | 38.747180454944 | 41.487527250479 | 38.786872995257 | 42.541527273519 | 42.541527273519 | False |

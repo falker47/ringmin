@@ -17,7 +17,7 @@ from ringmin.highprec import full_radius_mp, pair_slack_mp, recover_positions_mp
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--start", type=int, default=3)
-    parser.add_argument("--stop", type=int, default=13)
+    parser.add_argument("--stop", type=int, default=14)
     parser.add_argument("--digits", type=int, default=50)
     args = parser.parse_args()
 

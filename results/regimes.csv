@@ -10,3 +10,4 @@ n,floaters,delta,chain==subset_opt,chain==interleave,max_pocket_subset_interleav
 11,[1],-0.000000000014,True,True,1.262376773711,True
 12,[1],-0.000000000016,True,True,1.408945248654,True
 13,[1],-0.000000000020,True,False,1.529639122797,False
+14,"[2, 1]",,,False,1.672994284651,

@@ -17,7 +17,7 @@ from ringmin.patterns import interleave, sequential, supnick_min_tour, zigzag
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--start", type=int, default=3)
-    parser.add_argument("--stop", type=int, default=13)
+    parser.add_argument("--stop", type=int, default=18)
     parser.add_argument("--chain-only", action="store_true")
     args = parser.parse_args()
 

@@ -20,13 +20,22 @@ from ringmin.evaluator import full_radius
 
 
 def payload_from_existing(payload: dict[str, object]) -> dict[str, object]:
-    order = tuple(int(x) for x in payload["ordering"])
-    R_chain = float(payload["R_chain"])
+    n = int(payload["n"])
+    certified_path = ROOT / "results" / f"n{n:02d}" / "optimum.json"
+    certified_payload: dict[str, object] | None = None
+    if certified_path.exists():
+        candidate = json.loads(certified_path.read_text(encoding="utf-8"))
+        if candidate.get("certified") is True:
+            certified_payload = candidate
+
+    source = certified_payload if certified_payload is not None else payload
+    order = tuple(int(x) for x in source["ordering"])
+    R_chain = float(source["R_chain_float64"] if certified_payload is not None else source["R_chain"])
     result = full_radius(order, R_chain=R_chain)
     refreshed = {
         "schema": HEURISTIC_SCHEMA,
-        "n": int(payload["n"]),
-        "label": "NON-EXHAUSTIVE",
+        "n": n,
+        "label": "CERTIFIED" if certified_payload is not None else "NON-EXHAUSTIVE",
         "R_full": result.R_full,
         "R_chain": result.R_chain,
         "ordering": [int(x) for x in result.order],
@@ -44,11 +53,15 @@ def payload_from_existing(payload: dict[str, object]) -> dict[str, object]:
             }
             for pair in result.essential_tight_pairs
         ],
-        "pocket_supnick_subset": pocket_supnick_subset(int(payload["n"])),
+        "pocket_supnick_subset": pocket_supnick_subset(n),
         "realized_hosting_pockets": realized_hosting_pockets(result),
-        "best_restart_count": int(payload["best_restart_count"]),
-        "runtime_seconds": float(payload["runtime_seconds"]),
-        "cache_size": int(payload["cache_size"]),
+        "best_restart_count": "" if certified_payload is not None else int(payload["best_restart_count"]),
+        "runtime_seconds": (
+            float(certified_payload["runtime_seconds"])
+            if certified_payload is not None
+            else float(payload["runtime_seconds"])
+        ),
+        "cache_size": "" if certified_payload is not None else int(payload["cache_size"]),
     }
     return refreshed
 

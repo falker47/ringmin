@@ -13,6 +13,7 @@ CERT_STATEMENT = (
     "bisection rel. tol 1e-12/1e-13; values of the found binding structure "
     "verified to 50 digits via mpmath."
 )
+CERTIFIED_STOP = 14
 
 
 def markdown_table(rows: list[dict[str, object]], columns: list[str]) -> str:
@@ -29,7 +30,7 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def update_certificates() -> None:
-    for n in range(3, 14):
+    for n in range(3, CERTIFIED_STOP + 1):
         path = ROOT / "results" / f"n{n:02d}" / "certificate.txt"
         text = path.read_text(encoding="utf-8") if path.exists() else ""
         lines = [line for line in text.splitlines() if not line.startswith("certificate_semantics=")]
@@ -41,7 +42,7 @@ def main() -> int:
     update_certificates()
 
     summary_rows: list[dict[str, object]] = []
-    for n in range(3, 14):
+    for n in range(3, CERTIFIED_STOP + 1):
         payload = json.loads((ROOT / "results" / f"n{n:02d}" / "optimum.json").read_text(encoding="utf-8"))
         summary_rows.append(
             {
@@ -114,7 +115,7 @@ def main() -> int:
     ]
     (ROOT / "REPORT.md").write_text("\n".join(report), encoding="utf-8")
     print(f"wrote {ROOT / 'REPORT.md'}")
-    print("updated certificates n03..n13")
+    print(f"updated certificates n03..n{CERTIFIED_STOP:02d}")
     return 0
 
 

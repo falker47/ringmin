@@ -8,6 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+CERTIFIED_STOP = 14
+
 
 def main() -> int:
     heuristic_rows: dict[int, dict[str, str]] = {}
@@ -19,7 +21,7 @@ def main() -> int:
 
     rows: list[dict[str, object]] = []
     for n in range(3, 19):
-        if n <= 13:
+        if n <= CERTIFIED_STOP:
             payload = json.loads((ROOT / "results" / f"n{n:02d}" / "optimum.json").read_text())
             R = float(payload["R_float64"])
             label = "CERTIFIED"

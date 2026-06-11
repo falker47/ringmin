@@ -63,7 +63,7 @@ def violated_pairs_at_chain(order: tuple[int, ...], tol: float = 1e-10) -> list[
 
 def main() -> int:
     validity_rows: list[dict[str, object]] = []
-    for kind, start, stop in (("subset", 8, 13), ("full", 3, 13)):
+    for kind, start, stop in (("subset", 8, 14), ("full", 3, 14)):
         for n in range(start, stop + 1):
             values = tuple(range(2, n + 1)) if kind == "subset" else tuple(range(1, n + 1))
             order = tuple(int(x) for x in interleave(values))
@@ -100,7 +100,7 @@ def main() -> int:
             subset_rows[int(row["n"])] = row
 
     regimes: list[dict[str, object]] = []
-    for n in range(3, 14):
+    for n in range(3, 15):
         optimum = json.loads((ROOT / "results" / f"n{n:02d}" / "optimum.json").read_text(encoding="utf-8"))
         order = tuple(optimum["ordering"])
         floaters = tuple(optimum["floating_circles"])

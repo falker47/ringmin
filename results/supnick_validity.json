@@ -131,6 +131,43 @@
     ]
   },
   {
+    "R_chain": "21.555973521385",
+    "kind": "subset",
+    "n": 14,
+    "order": [
+      14,
+      2,
+      13,
+      4,
+      11,
+      6,
+      9,
+      8,
+      7,
+      10,
+      5,
+      12,
+      3
+    ],
+    "valid_at_chain_R": false,
+    "violated_pairs": [
+      [
+        14,
+        13
+      ]
+    ],
+    "violation_details": [
+      {
+        "forward_slack": -0.0630197075383343,
+        "i": 0,
+        "j": 2,
+        "radius_i": 14,
+        "radius_j": 13,
+        "wrap_slack": 4.7659226184278936
+      }
+    ]
+  },
+  {
     "R_chain": "0.260869565217",
     "kind": "full",
     "n": 3,
@@ -421,6 +458,56 @@
         "radius_i": 13,
         "radius_j": 11,
         "wrap_slack": -0.013676432713937814
+      }
+    ]
+  },
+  {
+    "R_chain": "20.660148822554",
+    "kind": "full",
+    "n": 14,
+    "order": [
+      14,
+      1,
+      13,
+      3,
+      11,
+      5,
+      9,
+      7,
+      8,
+      6,
+      10,
+      4,
+      12,
+      2
+    ],
+    "valid_at_chain_R": false,
+    "violated_pairs": [
+      [
+        14,
+        13
+      ],
+      [
+        14,
+        12
+      ]
+    ],
+    "violation_details": [
+      {
+        "forward_slack": -0.27023188798255415,
+        "i": 0,
+        "j": 2,
+        "radius_i": 14,
+        "radius_j": 13,
+        "wrap_slack": 4.929282919753335
+      },
+      {
+        "forward_slack": 4.7502092224562675,
+        "i": 0,
+        "j": 12,
+        "radius_i": 14,
+        "radius_j": 12,
+        "wrap_slack": -0.04889150318440283
       }
     ]
   }
