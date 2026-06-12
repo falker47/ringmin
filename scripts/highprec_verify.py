@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -14,6 +15,18 @@ sys.path.insert(0, str(ROOT / "src"))
 from ringmin.highprec import full_radius_mp, pair_slack_mp, recover_positions_mp
 
 
+def git_hash() -> str:
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except Exception:
+        return "unknown"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--start", type=int, default=3)
@@ -22,6 +35,7 @@ def main() -> int:
     args = parser.parse_args()
 
     rows: list[dict[str, object]] = []
+    commit_hash = git_hash()
     for n in range(args.start, args.stop + 1):
         path = ROOT / "results" / f"n{n:02d}" / "optimum.json"
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -41,6 +55,11 @@ def main() -> int:
         payload["mpmath_digits"] = args.digits
         payload["mpmath_max_abs_essential_slack"] = mp.nstr(max_abs_essential_slack, 20)
         payload["mpmath_binding_structure_verified"] = bool(max_abs_essential_slack < mp.mpf("1e-25"))
+        payload["R_source"] = (
+            "float64 certified search incumbent, re-solved by independent mpmath STN "
+            f"bisection at {args.digits} digits"
+        )
+        payload["generation_commit_hash"] = commit_hash
         path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         rows.append(
             {

@@ -4,6 +4,7 @@
   "R_float64": 12.488720487173751,
   "R_mpmath_30": "12.4887204871876588517468786264",
   "R_mpmath_full": "12.488720487187658851746878626395326371224092717057",
+  "R_source": "float64 certified search incumbent, re-solved by independent mpmath STN bisection at 50 digits",
   "binding_pairs": [
     {
       "adjacent": true,
@@ -279,6 +280,7 @@
     }
   ],
   "floating_definition": "c is floating iff there exists an optimal configuration where c touches only the central circle; implemented by inflating all pairwise theta constraints involving c by 1e-9 at R_full and checking STN feasibility",
+  "generation_commit_hash": "fea000523a1ec4193d8ba9c4637563fd65e86d1a",
   "mpmath_binding_structure_verified": true,
   "mpmath_digits": 50,
   "mpmath_max_abs_essential_slack": "4.9999999999103134149e-41",

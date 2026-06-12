@@ -1,0 +1,100 @@
+{
+  "bound_version": "lb3",
+  "canonicalization_rule": "largest radius fixed at position 0; enumerate permutations of remaining radii; keep only orders with position1 < last position to quotient reflection",
+  "complete": true,
+  "completeness_condition": "complete iff every prefix heap retained all orders or its kth retained LB is >= threshold; global top-excluded guard is the minimum prefix kth LB",
+  "content_sha256_excluding_hash": "fdee626ea29c56b50fd0e144145c1543a775f176aa12cd0625d845e5aba286c6",
+  "definition": "canonical orders with float64 LB < incumbent_R_float64 + 2e-10",
+  "enumeration_count_matches": true,
+  "expected_total_canonical_orders": 360,
+  "float64_lb_error_guard": "1e-11",
+  "frontier_size": 1,
+  "generation_commit_hash": "fea000523a1ec4193d8ba9c4637563fd65e86d1a",
+  "global_heap_covers_threshold": true,
+  "incumbent_R_float64": 4.153189553743813,
+  "incumbent_R_mpmath": "4.1531895537438124651386385820248308245080589957445",
+  "k": 20000,
+  "margin": 2e-10,
+  "n": 7,
+  "orders": [
+    {
+      "R_chain_float64": 4.153189553743813,
+      "lower_bound_float64": 4.153189553743813,
+      "order": [
+        7,
+        1,
+        6,
+        3,
+        4,
+        5,
+        2
+      ],
+      "stage_b_evaluated": true
+    }
+  ],
+  "prefix_coverage": [
+    {
+      "count": 120,
+      "covered": true,
+      "frontier_count": 1,
+      "max_retained_lb": "4.4395644016160354",
+      "prefix": 1,
+      "retained": 120,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 96,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "4.496843126944075",
+      "prefix": 2,
+      "retained": 96,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 72,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "4.5220785337377141",
+      "prefix": 3,
+      "retained": 72,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 48,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "4.5333838921323011",
+      "prefix": 4,
+      "retained": 48,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 24,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "4.537467833561907",
+      "prefix": 5,
+      "retained": 24,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 0,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "",
+      "prefix": 6,
+      "retained": 0,
+      "top_excluded_guard_float64": ""
+    }
+  ],
+  "progress_log": "results\\checkpoints\\progress_n07_lb3.log",
+  "progress_log_complete": true,
+  "progress_log_missing_prefixes": [],
+  "stage_a_checkpoint_source": "results/checkpoints/stage_a_nNN_lb3_p*.pkl",
+  "stage_b_candidates": 360,
+  "stage_b_checkpoint_source": "results/checkpoints/stage_b_n07_lb3.pkl",
+  "threshold_float64": 4.153189553943813,
+  "top_excluded_guard_float64": "",
+  "total_canonical_orders": 360
+}

@@ -1,0 +1,80 @@
+{
+  "bound_version": "lb3",
+  "canonicalization_rule": "largest radius fixed at position 0; enumerate permutations of remaining radii; keep only orders with position1 < last position to quotient reflection",
+  "complete": true,
+  "completeness_condition": "complete iff every prefix heap retained all orders or its kth retained LB is >= threshold; global top-excluded guard is the minimum prefix kth LB",
+  "content_sha256_excluding_hash": "9ad193bfd86ea40d77dfe5efb2bb8172a04589573c5078b380303cb832378128",
+  "definition": "canonical orders with float64 LB < incumbent_R_float64 + 2e-10",
+  "enumeration_count_matches": true,
+  "expected_total_canonical_orders": 12,
+  "float64_lb_error_guard": "1e-11",
+  "frontier_size": 1,
+  "generation_commit_hash": "fea000523a1ec4193d8ba9c4637563fd65e86d1a",
+  "global_heap_covers_threshold": true,
+  "incumbent_R_float64": 1.6954940812027108,
+  "incumbent_R_mpmath": "1.695494081202710813513280173714346189676154199625",
+  "k": 20000,
+  "margin": 2e-10,
+  "n": 5,
+  "orders": [
+    {
+      "R_chain_float64": 1.6954940812027108,
+      "lower_bound_float64": 1.6954940812027108,
+      "order": [
+        5,
+        1,
+        4,
+        3,
+        2
+      ],
+      "stage_b_evaluated": true
+    }
+  ],
+  "prefix_coverage": [
+    {
+      "count": 6,
+      "covered": true,
+      "frontier_count": 1,
+      "max_retained_lb": "1.7556673299869163",
+      "prefix": 1,
+      "retained": 6,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 4,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "1.773716508752504",
+      "prefix": 2,
+      "retained": 4,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 2,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "1.7785509498841745",
+      "prefix": 3,
+      "retained": 2,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 0,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "",
+      "prefix": 4,
+      "retained": 0,
+      "top_excluded_guard_float64": ""
+    }
+  ],
+  "progress_log": "results\\checkpoints\\progress_n05_lb3.log",
+  "progress_log_complete": true,
+  "progress_log_missing_prefixes": [],
+  "stage_a_checkpoint_source": "results/checkpoints/stage_a_nNN_lb3_p*.pkl",
+  "stage_b_candidates": 12,
+  "stage_b_checkpoint_source": "results/checkpoints/stage_b_n05_lb3.pkl",
+  "threshold_float64": 1.6954940814027109,
+  "top_excluded_guard_float64": "",
+  "total_canonical_orders": 12
+}

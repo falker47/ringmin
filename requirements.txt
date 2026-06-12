@@ -1,0 +1,7 @@
+# Reproducibility environment used for the M6 submission gate.
+# Python: 3.14.3
+numpy==2.4.3
+scipy==1.17.1
+mpmath==1.3.0
+matplotlib==3.10.9
+pytest==9.0.2

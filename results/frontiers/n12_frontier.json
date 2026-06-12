@@ -1,0 +1,302 @@
+{
+  "bound_version": "lb3",
+  "canonicalization_rule": "largest radius fixed at position 0; enumerate permutations of remaining radii; keep only orders with position1 < last position to quotient reflection",
+  "complete": true,
+  "completeness_condition": "complete iff every prefix heap retained all orders or its kth retained LB is >= threshold; global top-excluded guard is the minimum prefix kth LB",
+  "content_sha256_excluding_hash": "b95fc3e454672eda024562eeee715eea98fc33e55d1ad3ec1b601af3c28066c9",
+  "definition": "canonical orders with float64 LB < incumbent_R_float64 + 2e-10",
+  "enumeration_count_matches": true,
+  "expected_total_canonical_orders": 19958400,
+  "float64_lb_error_guard": "1e-11",
+  "frontier_size": 9,
+  "generation_commit_hash": "fea000523a1ec4193d8ba9c4637563fd65e86d1a",
+  "global_heap_covers_threshold": true,
+  "incumbent_R_float64": 15.258870430432122,
+  "incumbent_R_mpmath": "15.258870430448493361725004350349384363766128661408",
+  "k": 20000,
+  "margin": 2e-10,
+  "n": 12,
+  "orders": [
+    {
+      "R_chain_float64": 14.928221329609979,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        9,
+        6,
+        7,
+        1,
+        8,
+        5,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 14.953993319691026,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        9,
+        1,
+        6,
+        7,
+        8,
+        5,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.00731125935543,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        9,
+        6,
+        7,
+        8,
+        5,
+        1,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.052756024247845,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        9,
+        6,
+        1,
+        7,
+        8,
+        5,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.0839990069808,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        9,
+        6,
+        7,
+        8,
+        1,
+        5,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.092253128592812,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        1,
+        4,
+        9,
+        6,
+        7,
+        8,
+        5,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.14928967681433,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        1,
+        9,
+        6,
+        7,
+        8,
+        5,
+        10,
+        3
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.216710503226079,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        1,
+        3,
+        10,
+        5,
+        8,
+        7,
+        6,
+        9,
+        4,
+        11,
+        2
+      ],
+      "stage_b_evaluated": true
+    },
+    {
+      "R_chain_float64": 15.255430496177691,
+      "lower_bound_float64": 15.258870430448493,
+      "order": [
+        12,
+        2,
+        11,
+        4,
+        9,
+        6,
+        7,
+        8,
+        5,
+        10,
+        1,
+        3
+      ],
+      "stage_b_evaluated": true
+    }
+  ],
+  "prefix_coverage": [
+    {
+      "count": 3628800,
+      "covered": true,
+      "frontier_count": 1,
+      "max_retained_lb": "15.419934561655769",
+      "prefix": 1,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.419934561655769"
+    },
+    {
+      "count": 3265920,
+      "covered": true,
+      "frontier_count": 8,
+      "max_retained_lb": "15.362742958546509",
+      "prefix": 2,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.362742958546509"
+    },
+    {
+      "count": 2903040,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.410477997614723",
+      "prefix": 3,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.410477997614723"
+    },
+    {
+      "count": 2540160,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.459613517848499",
+      "prefix": 4,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.459613517848499"
+    },
+    {
+      "count": 2177280,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.511353547105816",
+      "prefix": 5,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.511353547105816"
+    },
+    {
+      "count": 1814400,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.572968351979068",
+      "prefix": 6,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.572968351979068"
+    },
+    {
+      "count": 1451520,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.647391485949985",
+      "prefix": 7,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.647391485949985"
+    },
+    {
+      "count": 1088640,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.730109327454105",
+      "prefix": 8,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.730109327454105"
+    },
+    {
+      "count": 725760,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.816389338794341",
+      "prefix": 9,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.816389338794341"
+    },
+    {
+      "count": 362880,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "15.922426688665478",
+      "prefix": 10,
+      "retained": 20000,
+      "top_excluded_guard_float64": "15.922426688665478"
+    },
+    {
+      "count": 0,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "",
+      "prefix": 11,
+      "retained": 0,
+      "top_excluded_guard_float64": ""
+    }
+  ],
+  "progress_log": "results\\checkpoints\\progress_n12_lb3.log",
+  "progress_log_complete": true,
+  "progress_log_missing_prefixes": [],
+  "stage_a_checkpoint_source": "results/checkpoints/stage_a_nNN_lb3_p*.pkl",
+  "stage_b_candidates": 1024,
+  "stage_b_checkpoint_source": "results/checkpoints/stage_b_n12_lb3.pkl",
+  "threshold_float64": 15.258870430632122,
+  "top_excluded_guard_float64": "15.362742958546509",
+  "total_canonical_orders": 19958400
+}

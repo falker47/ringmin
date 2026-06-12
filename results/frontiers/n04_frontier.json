@@ -1,0 +1,70 @@
+{
+  "bound_version": "lb3",
+  "canonicalization_rule": "largest radius fixed at position 0; enumerate permutations of remaining radii; keep only orders with position1 < last position to quotient reflection",
+  "complete": true,
+  "completeness_condition": "complete iff every prefix heap retained all orders or its kth retained LB is >= threshold; global top-excluded guard is the minimum prefix kth LB",
+  "content_sha256_excluding_hash": "97b75bf05339a95b8bb134cb18febcdc77e36b185a8241785fd0253ac975eb81",
+  "definition": "canonical orders with float64 LB < incumbent_R_float64 + 2e-10",
+  "enumeration_count_matches": true,
+  "expected_total_canonical_orders": 3,
+  "float64_lb_error_guard": "1e-11",
+  "frontier_size": 1,
+  "generation_commit_hash": "fea000523a1ec4193d8ba9c4637563fd65e86d1a",
+  "global_heap_covers_threshold": true,
+  "incumbent_R_float64": 0.8444535895608556,
+  "incumbent_R_mpmath": "0.84445358956085560434752852467389130754437082037604",
+  "k": 20000,
+  "margin": 2e-10,
+  "n": 4,
+  "orders": [
+    {
+      "R_chain_float64": 0.8444535895608556,
+      "lower_bound_float64": 0.8444535895608556,
+      "order": [
+        4,
+        1,
+        3,
+        2
+      ],
+      "stage_b_evaluated": true
+    }
+  ],
+  "prefix_coverage": [
+    {
+      "count": 2,
+      "covered": true,
+      "frontier_count": 1,
+      "max_retained_lb": "0.86162470630997867",
+      "prefix": 1,
+      "retained": 2,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 1,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "0.86728164025472387",
+      "prefix": 2,
+      "retained": 1,
+      "top_excluded_guard_float64": ""
+    },
+    {
+      "count": 0,
+      "covered": true,
+      "frontier_count": 0,
+      "max_retained_lb": "",
+      "prefix": 3,
+      "retained": 0,
+      "top_excluded_guard_float64": ""
+    }
+  ],
+  "progress_log": "results\\checkpoints\\progress_n04_lb3.log",
+  "progress_log_complete": true,
+  "progress_log_missing_prefixes": [],
+  "stage_a_checkpoint_source": "results/checkpoints/stage_a_nNN_lb3_p*.pkl",
+  "stage_b_candidates": 3,
+  "stage_b_checkpoint_source": "results/checkpoints/stage_b_n04_lb3.pkl",
+  "threshold_float64": 0.8444535897608556,
+  "top_excluded_guard_float64": "",
+  "total_canonical_orders": 3
+}
