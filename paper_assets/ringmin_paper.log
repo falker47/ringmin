@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.13)  12 JUN 2026 02:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.13)  12 JUN 2026 10:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -341,31 +341,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-Overfull \hbox (16.73761pt too wide) in paragraph at lines 134--135
-\OT1/cmr/m/n/10.95 stated in [[], Sec. 2], says that on Sup-nick ma-tri-ces the min-i-mum TSP tour is $\OMS/cmsy/m/n/10.95 h\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 5\OML/cmm/m/it/10.95 ; [] ; n; [] ; \OT1/cmr/m/n/10.95 6\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2\OMS/cmsy/m/n/10.95 i$
- []
-
-[4]
+{c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\le' on input line 173.
+(hyperref)                removing `\le' on input line 176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 176.
 
 [5] [6]
-Overfull \hbox (54.53726pt too wide) in paragraph at lines 250--251
-[]\OT1/cmr/bx/n/10.95 Conjecture 13. $\OML/cmm/m/it/10.95 R[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 ) = [][]1 + \OML/cmm/m/it/10.95 o\OT1/cmr/m/n/10.95 (1)[]$\OT1/cmr/m/it/10.95 . Em-pir-i-cally the deficit $\OML/cmm/m/it/10.95 n[]=\OT1/cmr/m/n/10.95 8 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 R\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 )$ \OT1/cmr/m/it/10.95 equals $\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 52\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 64\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 74\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 81\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 83$
+Overfull \hbox (54.53726pt too wide) in paragraph at lines 257--258
+[]\OT1/cmr/bx/n/10.95 Conjecture 14. $\OML/cmm/m/it/10.95 R[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 ) = [][]1 + \OML/cmm/m/it/10.95 o\OT1/cmr/m/n/10.95 (1)[]$\OT1/cmr/m/it/10.95 . Em-pir-i-cally the deficit $\OML/cmm/m/it/10.95 n[]=\OT1/cmr/m/n/10.95 8 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 R\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 )$ \OT1/cmr/m/it/10.95 equals $\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 52\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 64\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 74\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 81\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 83$
  []
 
 [7]
-Overfull \hbox (26.01617pt too wide) in paragraph at lines 277--283
+Overfull \hbox (26.01617pt too wide) in paragraph at lines 284--290
  [][] 
  []
 
@@ -375,15 +370,15 @@ Overfull \hbox (30.70029pt too wide) in paragraph at lines 26--48
  []
 
 )
-<paper_assets/figures/radii_vs_n.png, id=163, 496.254pt x 323.7696pt>
+<paper_assets/figures/radii_vs_n.png, id=181, 496.254pt x 323.7696pt>
 File: paper_assets/figures/radii_vs_n.png Graphic file (type png)
 <use paper_assets/figures/radii_vs_n.png>
-Package pdftex.def Info: paper_assets/figures/radii_vs_n.png  used on input line 287.
+Package pdftex.def Info: paper_assets/figures/radii_vs_n.png  used on input line 294.
 (pdftex.def)             Requested size: 355.13353pt x 231.69606pt.
-<paper_assets/figures/n14.png, id=165, 459.6372pt x 459.3963pt>
+<paper_assets/figures/n14.png, id=183, 459.6372pt x 459.3963pt>
 File: paper_assets/figures/n14.png Graphic file (type png)
 <use paper_assets/figures/n14.png>
-Package pdftex.def Info: paper_assets/figures/n14.png  used on input line 288.
+Package pdftex.def Info: paper_assets/figures/n14.png  used on input line 295.
 (pdftex.def)             Requested size: 273.18285pt x 273.03926pt.
  [8] [9] [10 <./paper_assets/figures/radii_vs_n.png> <./paper_assets/figures/n14.png>] (paper_assets/ringmin_paper.aux)
  ***********
@@ -394,18 +389,18 @@ Package rerunfilecheck Info: File `ringmin_paper.out' has not changed.
 (rerunfilecheck)             Checksum: EB21AA9B88A30F693B9A282A67480F78;1444.
  ) 
 Here is how much of TeX's memory you used:
- 10173 strings out of 469514
- 156831 string characters out of 5467647
- 577774 words of memory out of 5000000
- 38647 multiletter control sequences out of 15000+600000
+ 10176 strings out of 469514
+ 156866 string characters out of 5467647
+ 577787 words of memory out of 5000000
+ 38648 multiletter control sequences out of 15000+600000
  643577 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,2063b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,2496b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.600pk> <c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/Users/Falker/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on paper_assets/ringmin_paper.pdf (10 pages, 556523 bytes).
+Output written on paper_assets/ringmin_paper.pdf (10 pages, 561228 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 317 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  75 words of extra memory for PDF output out of 10000 (max. 10000000)
 
