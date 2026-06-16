@@ -49,8 +49,11 @@ regenerate the long-run certificates.
 python -m pip install -r requirements.txt
 python -m pip install -e ".[test]"
 python -m pytest
-python verify.py --start 3 --stop 8
+python verify.py --start 3 --stop 8 --skip-frontier
 ```
+
+The smoke verifier skips the frontier/progress-log audit because
+`results/checkpoints/` is intentionally not tracked in git.
 
 If a LaTeX distribution with `pdflatex` is available, compile the paper with:
 

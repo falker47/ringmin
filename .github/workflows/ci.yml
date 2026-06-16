@@ -27,4 +27,4 @@ jobs:
         run: python -m pytest
 
       - name: Run verifier smoke test
-        run: python verify.py --start 3 --stop 8
+        run: python verify.py --start 3 --stop 8 --skip-frontier
