@@ -28,10 +28,9 @@
 
 ## arXiv Category Decision
 
-- [ ] Choose primary category: `math.MG`, `math.CO`, or `cs.CG`.
-- [ ] `math.MG`: strongest for the circle-tangency problem statement and geometric feasibility.
-- [ ] `math.CO`: strongest for the Supnick/anti-Monge TSP theorem and exhaustive ordering certificate.
-- [ ] `cs.CG`: plausible if emphasizing computational geometry and certified search, but likely less natural as the primary category.
+- [ ] Primary target: `math.MG`.
+- [ ] Use the `math.CO`-framed email for Monge/Supnick/TSP researchers.
+- [ ] Consider `cs.CG` only if a computational-geometry endorser recommends it.
 - [ ] Prepare a one-sentence category rationale for the endorsement email.
 
 ## GitHub-Facing Recommendations

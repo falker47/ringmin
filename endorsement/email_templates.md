@@ -6,7 +6,7 @@ Subject: arXiv endorsement request for a discrete-geometry paper
 
 Dear [Recipient Name],
 
-I am an independent researcher preparing to submit a short paper to arXiv in [proposed category]. The paper studies the problem of arranging circles of radii `1,2,...,n` around a central circle with minimum central radius. It proves a Supnick/anti-Monge chain-ordering result and certifies global optima for `n <= 14` with independent verifier artifacts.
+I am an independent researcher preparing to submit a paper to arXiv in [proposed category]. The paper studies the problem of arranging circles of radii `1,2,...,n` around a central circle with minimum central radius. It proves a Supnick/anti-Monge chain-ordering result, certifies global optima for `n <= 14` with independent verifier artifacts, and treats larger-`n` behavior as heuristic or conjectural.
 
 PDF: [paper PDF link]
 Repository: [repository link]
@@ -50,7 +50,7 @@ PDF: [paper PDF link]
 Repository: [repository link]
 Endorsement code/link: [arXiv endorsement code/link]
 
-The request is only for arXiv endorsement, not peer review. The repository includes an independent verifier and reproducibility artifacts for the certified finite computations.
+The request is only for arXiv endorsement, not peer review. The submission separates the proved chain-ordering component, certified finite computations for `n <= 14`, and heuristic or conjectural larger-`n` behavior.
 
 Thank you again for considering it.
 
