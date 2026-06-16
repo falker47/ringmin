@@ -9,9 +9,18 @@ enumeration of cyclic orderings. The fixed-order feasibility oracle is a
 high-precision Simple Temporal Network check over all pairwise angular
 constraints; chain-only values are used only as lower bounds.
 
+## Endorser-Facing Summary
+
+This project studies a finite geometric optimization problem about arranging
+circles of radii `1,2,...,n` around a central circle while minimizing the
+central radius. The paper proves that the chain-ordering lower-bound problem is
+a fixed Supnick/anti-Monge TSP, then uses explicit certificate artifacts and an
+independent verifier to certify global optima for `3 <= n <= 14`. Results for
+larger `n` are reported only as heuristic evidence and conjectural structure.
+
 ## Environment
 
-The submission-gate environment was:
+The submission-gate environment is pinned in `requirements.txt` and was:
 
 - Python `3.14.3`
 - `numpy==2.4.3`
@@ -25,6 +34,29 @@ Install:
 ```bash
 python -m pip install -r requirements.txt
 python -m pip install -e ".[test]"
+```
+
+`pyproject.toml` intentionally leaves runtime dependencies unpinned for normal
+editable development; use `requirements.txt` for the exact submission
+reproduction environment.
+
+## Quick Verification
+
+These checks are intended for a quick local or CI smoke test. They do not
+regenerate the long-run certificates.
+
+```bash
+python -m pip install -r requirements.txt
+python -m pip install -e ".[test]"
+python -m pytest
+python verify.py --start 3 --stop 8
+```
+
+If a LaTeX distribution with `pdflatex` is available, compile the paper with:
+
+```bash
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=paper_assets paper_assets/ringmin_paper.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=paper_assets paper_assets/ringmin_paper.tex
 ```
 
 ## Certified Results
@@ -93,7 +125,11 @@ n=14 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=11 total=
 The n=14 frontier was extracted from the existing `K=50000` checkpoint heaps;
 no Stage-A rerun was needed.
 
-## Regeneration Commands
+## Full Certification And Regeneration
+
+The following commands are for full audit or artifact regeneration. They are not
+CI checks: the certified sweeps, especially `n=13` and `n=14`, are long-running
+jobs.
 
 Run tests:
 
@@ -106,6 +142,12 @@ Regenerate certified searches:
 ```bash
 python scripts/sweep_certified.py --start 3 --stop 13 --k 20000 --workers 8 --resume
 powershell -ExecutionPolicy Bypass -File scripts/start_detached_sweep.ps1 -Start 14 -Stop 14 -K 50000 -Workers 8 -Resume
+```
+
+Run the full independent certificate verifier:
+
+```bash
+python verify.py --start 3 --stop 14
 ```
 
 Regenerate high-precision values and certificate metadata:
@@ -171,12 +213,11 @@ under `results/frontiers/` are the portable pruning certificates.
 
 ## Workflow And AI Assistance
 
-The project was built in an AI-assisted workflow. The author directed the work,
-selected final claims, and performed final review. Claude provided research
-design, mathematical argument development, and supervision of the computational
-plan. Codex implemented the solver, verifier, scripts, tests, and repository
-artifacts under that supervision. All certified numerical claims are backed by
-the independent `verify.py` verifier and the saved result artifacts.
+The project was built in an AI-assisted workflow under the author's direction
+and final review. AI assistance supported research design, mathematical
+argument development, software implementation, tests, scripts, and repository
+artifacts. All certified numerical claims are backed by the independent
+`verify.py` verifier and the saved result artifacts.
 
 ## Layout
 

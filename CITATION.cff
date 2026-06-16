@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or its certificate artifacts, please cite it as below."
+title: "Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima"
+authors:
+  - family-names: "Falconi"
+    given-names: "Maurizio"
+repository-code: "https://github.com/falker47/ringmin"
+url: "https://github.com/falker47/ringmin"
+license: "MIT"
+version: "0.1.0"
+preferred-citation:
+  type: article
+  title: "Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima"
+  authors:
+    - family-names: "Falconi"
+      given-names: "Maurizio"
+  year: 2026
+  url: "https://github.com/falker47/ringmin"
