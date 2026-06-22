@@ -21,7 +21,7 @@
 \title{Arranging circles of radii $1,2,\dots,n$ around a central circle:\\
 a Supnick TSP and certified finite optima}
 \author{Maurizio Falconi\thanks{Independent researcher, Parma, Italy. \texttt{maurizio.falconi47@gmail.com}}}
-\date{June 2026 --- v4.5 (submission)}
+\date{June 2026 --- v0.2 (submission)}
 
 \begin{document}
 \maketitle
@@ -82,7 +82,7 @@ We report certified optima, binding structures and floating sets for all $n\le 1
 Three levels of certainty are kept explicit throughout. \emph{Proved}: Lemmas~\ref{lem:angular} and~\ref{lem:supermodular}, Theorem~\ref{thm:A}, and the chain-level statement of Proposition~\ref{prop:worst}. \emph{Certified computation} (exhaustive search with explicitly stated numerical guards, independently re-checkable from the repository): Tables~\ref{tab:main} and~\ref{tab:worst}, the realizability statements of Propositions~\ref{prop:break1}--\ref{prop:break3} on their stated finite ranges, and the three seam-failure computations. \emph{Heuristic or conjectural}: Table~\ref{tab:heur}, Conjecture~\ref{conj:cascade}, and Conjecture~\ref{conj:asym}.
 
 \paragraph{Related work.}
-Supnick's fixed-tour theorem \cite{supnick} and the Monge/Supnick taxonomy of polynomially solvable TSPs are surveyed in \cite{bdvvw}. Circle packing literature concerns containers (packing circles \emph{inside} regions, see e.g.\ \cite{hifi}); the present problem --- ordering unequal circles \emph{around} a central one --- appears not to have been treated. The tangency mechanics are governed by Descartes' Circle Theorem \cite{descartes-ref}. To our knowledge the link between Supnick matrices and rings of tangent circles is new.
+Supnick's fixed-tour theorem \cite{supnick} and the Monge/Supnick taxonomy of polynomially solvable TSPs are surveyed in \cite{bdvvw}. Classical circle-packing theory often fixes tangency or combinatorial data and studies realizations by mutually tangent, non-overlapping circles; Stephenson's monograph is a standard reference for the broader theory \cite{stephenson}. Recent work of Mathews and Zymaris gives Descartes-type algebraic equations for circle-packing configurations, including flower and triangulated-disc settings \cite{mathews-zymaris-spinors,mathews-zymaris-algebraic}. Such algebraic equations could in principle encode configurations related to the rings considered here. The present paper asks a different optimization question: with boundary radii fixed, choose the cyclic order around a central circle and then check all pairwise angular non-overlap constraints. The method therefore exploits the Supnick/anti-Monge ordering structure and STN feasibility checks, rather than solving a prescribed tangency pattern. Packing circles inside containers is a separate optimization literature; see e.g.\ \cite{hifi}. The local tangency computations use Descartes' Circle Theorem \cite{descartes-ref}.
 
 \section{The model}\label{sec:model}
 
@@ -273,6 +273,9 @@ The problem and the pyramid conjecture are due to Dan \cite{mse}; Rei Henigman's
 \bibitem{uq} The UQ Project, \emph{Unsolved Questions} benchmark, question 295. \url{https://uq.stanford.edu/question/295} (accessed June 2026).
 \bibitem{supnick} F. Supnick, \emph{Extreme Hamiltonian lines}, Annals of Mathematics (2) \textbf{66} (1957), 179--201.
 \bibitem{bdvvw} R.E. Burkard, V.G. De\u{\i}neko, R. van Dal, J.A.A. van der Veen, G.J. Woeginger, \emph{Well-solvable special cases of the TSP: a survey}, SIAM Review \textbf{40}(3) (1998), 496--546.
+\bibitem{stephenson} K. Stephenson, \emph{Introduction to Circle Packing: The Theory of Discrete Analytic Functions}, Cambridge University Press, 2005.
+\bibitem{mathews-zymaris-spinors} D.V. Mathews, O. Zymaris, \emph{Spinors and Descartes' Theorem}, arXiv:2310.11701, 2023.
+\bibitem{mathews-zymaris-algebraic} D.V. Mathews, O. Zymaris, \emph{An algebraic approach to circle packing}, arXiv:2504.14593, 2025.
 \bibitem{descartes-ref} J.C. Lagarias, C.L. Mallows, A.R. Wilks, \emph{Beyond the Descartes circle theorem}, Amer. Math. Monthly \textbf{109} (2002), 338--361.
 \bibitem{hifi} M. Hifi, R. M'Hallah, \emph{A literature review on circle and sphere packing problems: models and methodologies}, Advances in Operations Research (2009).
 \end{thebibliography}
