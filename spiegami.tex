@@ -1,0 +1,312 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Configurazione margini (leggermente più ampi per recuperare spazio laterale)
+\geometry{a4paper, margin=2.2cm, top=2.2cm, bottom=2.2cm}
+
+% Definizione colori (Palette Slate & Navy)
+\definecolor{navy}{HTML}{1A365D}      % Blu scuro accademico
+\definecolor{slate}{HTML}{2B6CB0}     % Blu ardesia
+\definecolor{charcoal}{HTML}{2D3748}  % Grigio scuro per il testo principale
+\definecolor{softgray}{HTML}{F7FAFC}  % Sfondo grigio chiaro per i box
+\definecolor{bordergray}{HTML}{E2E8F0}% Bordo grigio
+\definecolor{accent}{HTML}{C53030}    % Rosso scuro per evidenziare elementi importanti
+
+% Impostazioni font
+\renewcommand{\familydefault}{\sfdefault} % Sans-serif per un look moderno e pulito
+
+% Spaziatura tra paragrafi ridotta per maggiore compattezza
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+
+% Impostazioni collegamenti ipertestuali
+\hypersetup{
+    colorlinks=true,
+    linkcolor=slate,
+    filecolor=slate,      
+    urlcolor=slate,
+    pdftitle={Il problema della collana di cerchi tangenti},
+    pdfpagemode=UseNone,
+}
+
+% Custom blockquote compatto
+\newcommand{\customquote}[1]{
+  \par\smallskip\noindent
+  \colorbox{softgray}{
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+      \vspace{0.4em}
+      \hspace{0.8em}%
+      {\color{slate}\vrule width 3pt}%
+      \hspace{0.8em}%
+      \begin{minipage}{\dimexpr\textwidth-2\fboxsep-3pt-1.6em\relax}
+        \color{charcoal}\itshape\small #1
+      \end{minipage}%
+      \vspace{0.4em}
+    \end{minipage}
+  }\par\smallskip
+}
+
+% Custom key callout box compatto
+\newcommand{\custombox}[2]{
+  \par\smallskip\noindent
+  \colorbox{softgray}{
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+      \vspace{0.5em}
+      \hspace{0.8em}%
+      \begin{minipage}{\dimexpr\textwidth-2\fboxsep-1.6em\relax}
+        {\color{navy}\textbf{\normalsize #1}} \\[0.2em]
+        \color{charcoal}\small #2
+      \end{minipage}%
+      \vspace{0.5em}
+    \end{minipage}
+  }\par\smallskip
+}
+
+\begin{document}
+\color{charcoal}
+
+% Intestazione Titolo
+\begin{center}
+    \vspace*{0.1cm}
+    {\color{navy}\LARGE\bfseries Il problema della collana di cerchi tangenti \par}
+    \vspace{0.4em}
+    {\color{slate}\normalsize\itshape Una guida semplice, non tecnica, alla mia ricerca su cerchi di raggi $1, 2, \dots, n$ attorno a un cerchio centrale minimo. \par}
+    \vspace{0.6em}
+    \hrule height 0.8pt
+    \vspace{0.6em}
+\end{center}
+
+Questa guida spiega l'idea senza entrare nei dettagli matematici del paper. L'obiettivo è rendere chiaro il problema, perché non è solo un disegno geometrico, quale struttura matematica compare, e che cosa è stato effettivamente certificato.
+
+% Sezione 1
+\pdfbookmark[1]{1. Il puzzle di partenza}{sec:puzzle}
+{\color{navy}\section*{1. Il puzzle di partenza}}
+
+Immagina di avere un cerchio centrale, di raggio ancora da scegliere, che chiamiamo $R$. Attorno a questo cerchio vuoi disporre una serie di cerchi esterni, tutti di dimensioni diverse:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item un cerchio di raggio 1;
+    \item un cerchio di raggio 2;
+    \item un cerchio di raggio 3;
+    \item e così via, fino a un cerchio di raggio $n$.
+\end{itemize}
+
+Tutti i cerchi esterni devono toccare il cerchio centrale dall'esterno e non devono sovrapporsi tra loro.
+
+\custombox{\color{accent}Domanda chiave}{
+    In quale ordine devo disporre i cerchi esterni per rendere il cerchio centrale $R$ il più piccolo possibile?
+}
+
+A prima vista sembra un puzzle geometrico. La parte interessante è capire perché un ordine possa essere migliore di un altro.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.38\textwidth]{figures/n06.png}
+    \vspace{-0.5em}
+    \caption{\small Esempio di collana completa e regolare per $n=6$. Tutti i cerchi esterni di raggio $1, 2, \dots, 6$ sono tangenti al cerchio centrale $R$ e adiacenti tra loro nell'ordine ottimale.}
+    \label{fig:n06}
+\end{figure}
+
+% Sezione 2
+\pdfbookmark[1]{2. Lo spazio angolare: perché l'ordine conta}{sec:angoli}
+{\color{navy}\section*{2. Lo spazio angolare: perché l'ordine conta}}
+
+Ogni cerchio esterno tocca il cerchio centrale. Il suo centro non sta esattamente sulla stessa circonferenza degli altri: un cerchio di raggio $i$ ha il centro a distanza $R+i$ dal centro principale. Però tutti i centri possono essere descritti con un angolo attorno al centro.
+
+Se due cerchi esterni sono vicini nell'ordine, devono avere abbastanza distanza angolare per non sovrapporsi. Quindi ogni coppia di cerchi consecutivi \textbf{consuma} un certo angolo attorno al centro:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item due cerchi piccoli consumano poco angolo;
+    \item due cerchi grandi consumano più angolo;
+    \item un cerchio piccolo vicino a uno grande consuma una quantità intermedia.
+\end{itemize}
+
+Il giro completo attorno al cerchio centrale misura sempre 360 gradi, cioè $2\pi$ radianti. Per chiudere la collana, la somma degli angoli richiesti dai cerchi consecutivi deve arrivare a quel giro completo.
+
+Qui entra in gioco $R$:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item se il cerchio centrale è grande, i cerchi esterni sono più lontani dal centro e gli angoli richiesti diventano più piccoli;
+    \item se il cerchio centrale è piccolo, i cerchi esterni sono più stretti attorno al centro e gli angoli richiesti diventano più grandi.
+\end{itemize}
+
+Quindi minimizzare il raggio centrale significa cercare l'ordine dei cerchi che riesce a chiudere il giro usando lo spazio angolare nel modo più efficiente possibile.
+
+% Sezione 3
+\pdfbookmark[1]{3. Il collegamento inatteso: il commesso viaggiatore}{sec:tsp}
+{\color{navy}\section*{3. Il collegamento inatteso: il commesso viaggiatore}}
+
+A questo punto la geometria incontra l'ottimizzazione combinatoria.
+
+Esiste un problema classico chiamato \textbf{Travelling Salesman Problem}, o \textbf{problema del commesso viaggiatore}. Dice così: date alcune città e le distanze tra ogni coppia di città, qual è il giro più breve che visita tutte le città una volta sola e poi torna al punto di partenza?
+
+Nel mio problema:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item le \textbf{città} sono i cerchi di raggio $1, 2, \dots, n$;
+    \item il \textbf{costo} di mettere due cerchi vicini non è una distanza stradale, ma l'angolo minimo necessario per farli stare vicini senza sovrapporsi;
+    \item scegliere l'ordine dei cerchi significa scegliere un ciclo che passa da tutti i cerchi.
+\end{itemize}
+
+Quindi la domanda diventa simile a questa: qual è il ciclo di cerchi che minimizza la somma degli angoli tra vicini?
+
+% Sezione 4
+\pdfbookmark[1]{4. La scorciatoia: anti-Monge e Supnick}{sec:supnick}
+{\color{navy}\section*{4. La scorciatoia: anti-Monge e Supnick}}
+
+Il problema del commesso viaggiatore, in generale, è difficile: se gli oggetti aumentano, il numero di ordini possibili cresce molto rapidamente.
+
+Nel mio caso, però, la tabella dei costi non è casuale. La tabella che dice quanto angolo consuma ogni coppia di cerchi ha una struttura regolare chiamata \textbf{anti-Monge}.
+
+In modo intuitivo, anti-Monge significa che i costi seguono una regolarità forte: non sono numeri sparsi a caso, ma dipendono in modo ordinato dalle dimensioni dei cerchi.
+
+Qui entra \textbf{Supnick}.
+
+Supnick è associato a un risultato classico sul commesso viaggiatore in casi speciali. L'idea, detta senza formalismi, è questa: quando la matrice dei costi ha una struttura regolare del tipo giusto, non serve provare tutte le permutazioni. Si può riconoscere direttamente un ordine ottimale della catena.
+
+Nel mio problema la matrice degli angoli ha proprio questa struttura. Quindi l'ordine ottimale della catena non è un'intuizione grafica: viene spiegato dalla struttura \textbf{Supnick/anti-Monge}.
+
+\customquote{
+    \textbf{Primo contributo} \\
+    Ho collegato il problema geometrico a una struttura di ottimizzazione combinatoria. L'ordine "a piramide" della catena è giustificato da Supnick e dalla struttura anti-Monge della matrice degli angoli.
+}
+
+% Sezione 5
+\pdfbookmark[1]{5. La geometria reale: quando la catena si rompe}{sec:breakdown}
+{\color{navy}\section*{5. La geometria reale: quando la catena si rompe}}
+
+Fin qui sembrerebbe tutto risolto. Ma c'è una seconda difficoltà.
+
+L'equazione della catena controlla solo i cerchi consecutivi: il primo con il secondo, il secondo con il terzo, e così via. Nella figura reale, però, anche due cerchi non vicini nell'ordine potrebbero finire per sovrapporsi.
+
+Da \textbf{$n=8$} succede un fenomeno inatteso: la collana ideale non è più realizzabile nel modo più semplice. Il cerchio più piccolo, quello di raggio 1, può restare tangente al cerchio centrale, ma non riesce più a funzionare come anello della catena principale tra due cerchi più grandi.
+
+In pratica viene espulso dalla catena principale. Per questo lo chiamo \textbf{cerchio flottante}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.38\textwidth]{figures/n08.png}
+    \vspace{-0.5em}
+    \caption{\small Configurazione ottimale per $n=8$. Il cerchio di raggio 1 (in basso a destra) si stacca dal contatto laterale con uno dei vicini (il cerchio di raggio 8), diventando un "cerchio flottante" per consentire al cerchio centrale di essere il più piccolo possibile.}
+    \label{fig:n08}
+\end{figure}
+
+Per valori più grandi di $n$, anche il cerchio di raggio 2 può diventare flottante. I dati suggeriscono una cascata: man mano che il sistema cresce, i cerchi più piccoli vengono progressivamente spinti fuori dalla catena principale.
+
+\customquote{
+    \textbf{Secondo contributo} \\
+    Ho descritto il breakdown della collana: l'ordine ottimale della catena è importante, ma la geometria completa può rompere quella catena e produrre cerchi flottanti.
+}
+
+% Sezione 6
+\pdfbookmark[1]{6. Il controllo di coerenza: tutte le coppie, non solo i vicini}{sec:stn}
+{\color{navy}\section*{6. Il controllo di coerenza: tutte le coppie, non solo i vicini}}
+
+Per trovare la vera configurazione ottimale non basta controllare i vicini. Bisogna controllare \textbf{tutte le coppie di cerchi}.
+
+Il metodo è questo:
+\begin{enumerate}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item assegno a ogni cerchio un angolo, cioè una posizione attorno al centro;
+    \item per ogni coppia di cerchi calcolo la distanza angolare minima necessaria per non sovrapporsi;
+    \item ottengo un sistema di vincoli del tipo: \textit{"questi due cerchi devono essere separati almeno da questo angolo"};
+    \item verifico se esiste una scelta degli angoli che soddisfa tutti i vincoli contemporaneamente.
+\end{enumerate}
+
+Se i vincoli sono compatibili, la configurazione è realizzabile. Se si contraddicono, quell'ordine o quel raggio centrale sono impossibili.
+
+Tecnicamente questa parte è modellata come un sistema di vincoli angolari, equivalente a un \textbf{Simple Temporal Network}. Intuitivamente è un controllo di coerenza geometrica: posso davvero mettere tutti i cerchi attorno al centro senza sovrapporli?
+
+% Sezione 7
+\pdfbookmark[1]{7. Che cosa significa "ottimo globale certificato"}{sec:certificazione}
+{\color{navy}\section*{7. Che cosa significa "ottimo globale certificato"}}
+
+Per i casi da \textbf{$n=3$} fino a \textbf{$n=14$}, il lavoro certifica l'ottimo globale. Questo significa una cosa precisa: per ciascuno di quei valori di $n$ è stata trovata la miglior configurazione possibile, non solo una configurazione buona.
+
+Il punto difficile è che gli ordini possibili sono tantissimi. Per $n=14$, gli ordini ciclici distinti sono dell'ordine dei miliardi ($\approx 3.11 \times 10^9$).
+
+La certificazione funziona così:
+\begin{enumerate}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item \textbf{Limiti inferiori.} Per ogni ordine si calcola un limite ottimistico: un valore sotto il quale quell'ordine non potrà mai scendere. Se questo limite è già peggiore della miglior soluzione trovata, l'ordine viene scartato con certezza.
+    \item \textbf{Verifica geometrica completa.} Gli ordini ancora competitivi vengono controllati con tutti i vincoli angolari tra coppie di cerchi.
+    \item \textbf{Verificatore indipendente.} I risultati vengono ricontrollati con un verificatore separato, ad alta precisione, per ridurre il rischio di errori numerici o bug del solver principale.
+\end{enumerate}
+
+Quindi il metodo non dice solo: "ho trovato questa configurazione". Dice anche: "tutte le altre configurazioni sono state controllate oppure escluse perché non possono batterla".
+
+\customquote{
+    \textbf{Terzo contributo} \\
+    Ho certificato gli ottimi globali per i primi casi non banali, da $n=3$ a $n=14$, con codice e dati riproducibili.
+}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.40\textwidth]{figures/n14.png}
+    \vspace{-0.5em}
+    \caption{\small La configurazione ottimale globale certificata per $n=14$. I cerchi più piccoli (1, 2, 3 e 4) sono ormai tutti parzialmente o totalmente staccati lateralmente (flottanti).}
+    \label{fig:n14}
+\end{figure}
+
+% Sezione 8
+\pdfbookmark[1]{8. Il rapporto con la teoria dei circle packings}{sec:descartes}
+{\color{navy}\section*{8. Il rapporto con la teoria dei circle packings}}
+
+Questo problema si collega anche alla teoria classica dei \textbf{circle packings}, cioè l'impacchettamento di cerchi tangenti.
+
+Un riferimento naturale è il teorema di Descartes, che riguarda quattro cerchi mutuamente tangenti: se conosci tre curvature, puoi ricavare la quarta. La curvatura, in questo contesto, è essenzialmente l'inverso del raggio.
+
+Daniel Mathews mi ha fatto notare che, in linea di principio, equazioni di circle packing più generali potrebbero essere usate per trovare il raggio centrale. Però sarebbe un calcolo molto pesante, per due motivi:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item la teoria classica spesso parte da uno schema di contatti già fissato, mentre qui l'ordine dei cerchi deve essere scelto;
+    \item da un certo punto in poi compaiono cerchi flottanti, quindi anche lo schema di tangenza cambia.
+\end{itemize}
+
+Il mio metodo è più mirato per questo problema: prima isola la struttura dell'ordine con Supnick/anti-Monge, poi verifica la geometria completa con i vincoli angolari.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/radii_vs_n.png}
+    \vspace{-0.5em}
+    \caption{\small Andamento del raggio centrale minimo $R$ in funzione del numero di cerchi esterni $n$. Si notano i cambi di pendenza dovuti all'insorgere dei cerchi flottanti.}
+    \label{fig:radii_vs_n}
+\end{figure}
+
+% Sezione 9
+\pdfbookmark[1]{9. I tre contributi in una pagina}{sec:contributi}
+{\color{navy}\section*{9. I tre contributi in una pagina}}
+
+\begin{enumerate}
+    \setlength{\itemsep}{0.2em}
+    \setlength{\parskip}{0pt}
+    \item \textbf{Contributo teorico} \\
+    Ho collegato la geometria dei cerchi al problema del commesso viaggiatore, mostrando che la catena ottimale è governata da Supnick e dalla struttura anti-Monge.
+    \item \textbf{Contributo geometrico} \\
+    Ho descritto il momento in cui la collana si rompe: da $n=8$ il cerchio più piccolo può diventare flottante, e il fenomeno sembra propagarsi.
+    \item \textbf{Contributo computazionale} \\
+    Ho certificato gli ottimi globali per $n=3,\dots,14$ con un metodo verificabile e dati riproducibili.
+\end{enumerate}
+
+\hrule
+\vspace{0.5em}
+
+\custombox{In sintesi}{
+    Ho studiato come disporre cerchi di raggi crescenti attorno a un cerchio centrale minimo. Ho mostrato che l'ordine ottimale della catena è regolato da una struttura Supnick/anti-Monge, ho descritto come la geometria reale rompa questa catena producendo cerchi flottanti, e ho certificato gli ottimi globali per i primi casi non banali.
+}
+
+\end{document}
