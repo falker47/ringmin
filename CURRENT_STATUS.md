@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=d90495981414e18344585c446ad8b68bf8276f54
+task_base_head=b49d0fa604eab7aa6b7d64dbfa27d85e3785a2f6
 observed_on=2026-08-04
 phase=post-arXiv-v1 active research
 ```
@@ -12,76 +12,77 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260804__radius3_seam_onset
+task=TASK-20260804__radius4_seam_onset
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective
 
-Prove or refute the proposed exact radius-3 Supnick seam onset `s_3=17` by
-reusing the fixed-`k` persistence theorem and closing the exact endpoint
-bridge at `n=16,17`, preferentially with the rational separator `R=32`.
+Prove or refute the proposed exact radius-4 formal Supnick seam onset
+`s_4=21` by reusing `research/FIXED_K_SUPNICK_SEAM.md` without repeating its
+general proof and closing only `n=20,21`, preferably at `R=50`.
 
 ### Mathematical outcome
 
-**Status:** `PROVED`; task state `READY_FOR_REVIEW` after the post-review
-domain correction, exact reruns, and complete final-diff audit.
+**Status:** `PROVED`; task state `READY_FOR_REVIEW` after exact reruns,
+independent reviews, and complete final-diff audit.
 
-For `R_{3,n}=R_chain(sigma*_{3,n})`, where `sigma*_{3,n}` is the
-chain-minimizing Supnick cycle on `{3,...,n}`, the exact classification is
-
-```text
-theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
-    > theta_{R_{3,n}}(n,n-1)       for 5 <= n <= 16,
-
-theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
-    < theta_{R_{3,n}}(n,n-1)       for every n >= 17.
-```
-
-Thus the exact first strict radius-3 seam obstruction is `s_3=17`. The new
-endpoint arithmetic proves
+For `R_{4,n}=R_chain(sigma*_{4,n})`, where `sigma*_{4,n}` is the
+chain-minimizing Supnick cycle on `{4,...,n}`, the exact classification is
 
 ```text
-R_{3,16} < 32 < T_{3,16},
-T_{3,17} < 32 < R_{3,17}.
+theta_{R_{4,n}}(n,4) + theta_{R_{4,n}}(4,n-1)
+    > theta_{R_{4,n}}(n,n-1)       for 6 <= n <= 20,
+
+theta_{R_{4,n}}(n,4) + theta_{R_{4,n}}(4,n-1)
+    < theta_{R_{4,n}}(n,n-1)       for every n >= 21.
 ```
 
-The threshold bounds use rational square comparisons. The chain bounds cover
-every adjacent edge and use termwise rational bounds on the arcsine arguments
-with exact final margins. The all-`n` quantifiers then follow from the
-already-proved root growth, threshold decrease, no-threshold range, and
-persistence theorem.
+Thus the exact first strict radius-4 formal seam obstruction is `s_4=21`.
+The new endpoint arithmetic proves
 
-This theorem concerns one formal Supnick seam only. It does not determine
-`R*(n)`, prove full feasibility before the onset, or establish that circle `3`
-floats in any or every global optimum.
+```text
+R_{4,20} < 50 < T_{4,20},
+T_{4,21} < 50 < R_{4,21}.
+```
+
+The threshold sides use positive rational square margins. The root sides
+audit all `17` and `18` adjacent edges with exact rational bounds; the
+all-`n` quantifiers then follow from the already-proved fixed-`k`
+no-threshold range, sign criterion, root growth, and threshold decrease.
+
+This theorem concerns one formal Supnick seam only. It does not prove full
+fixed-order feasibility, determine `R*(n)`, classify a global contact graph,
+or establish that circle `4` floats in any or every global optimum.
 
 ### Allowed delta
 
-- `research/RADIUS3_SEAM_ONSET.md`;
-- `ops/TASK-20260804__radius3_seam_onset/*`;
+- `research/RADIUS4_SEAM_ONSET.md`;
+- `ops/TASK-20260804__radius4_seam_onset/*`;
 - `PROJECT_KNOWLEDGE.md`;
 - `research/NEXT_RESEARCH_STEPS.md`;
 - this file.
 
 ### Verification completed
 
-- exact stdlib-only checker through `n=250`: exit `0`; `62,594` explicit
-  rational/order gates passed with numerical diagnostics skipped;
-- optimized stdlib-only checker through `n=250`: exit `0`; the same `62,594`
-  gates and output passed under `python -O -S`;
-- opt-in checker diagnostic for `n=5..120` at 60/100 digits: exit `0`; signs,
-  root/threshold comparisons, opposing monotonicities, and precision
-  stability passed; first raw-deficit increase observed at `(40,41)`;
-- task-local/production convention comparison for `n=5..200`: exit `0`;
-  `392` comparisons passed while the checker itself retained zero production
+- exact stdlib-only checker through `n=250`: exit `0`; `184478` explicit
+  `Fraction`/order gates passed with numerical diagnostics skipped;
+- optimized/no-site exact checker through `n=250`: exit `0`; identical gates
+  and output under `python -B -O -S`;
+- opt-in `NUMERICAL_DIAGNOSTIC_ONLY` scan for `n=6..120` at 60/100 digits:
+  exit `0`; precision stability, endpoint signs, threshold domain, and
+  opposing monotonicities passed;
+- task-local/production convention comparison for `n=6..250`: exit `0`;
+  `490` comparisons passed while the checker retained zero production
   imports;
-- AST audit: exit `0`; zero `ast.Assert` nodes and zero `ringmin` imports;
-- `python -m pytest -p no:cacheprovider`: exit `0`; `12 passed in 29.90s`;
-- three fresh independent read-only reviews rechecked the proof, checker, and
-  dossier; one omitted real-domain qualifier for `asin` and two dossier
-  consistency issues were corrected, while the checker audit found no defect.
+- AST audit: exit `0`; zero `ast.Assert` nodes, float literals, and `ringmin`
+  imports;
+- in-memory wrong-margin mutation was rejected at the intended exact gate;
+- `python -m pytest -p no:cacheprovider`: exit `0`; `12 passed in 30.40s`;
+- independent threshold, table, proof, and checker reviews recomputed every
+  new margin and found no mathematical defect. One direct-positivity gate was
+  made more explicit and both exact modes passed again.
 
 ### Completion gates
 
@@ -93,25 +94,27 @@ floats in any or every global optimum.
   trailing-whitespace checks passed for all eight paths;
 - final `git diff --check`: exit `0`, no output;
 - explicit protected-path status: exit `0`, no output;
-- the incidental task-local Python cache was removed; no protected or
-  generated path remains in the delta;
-- the dossier records exact commands, outputs, corrections, negative
-  evidence, limitations, and handoff.
+- the task directory contains exactly its four intended files; no cache or
+  generated output remains;
+- the dossier records commands, diagnostics, negative evidence, reviews,
+  limitations, and manual handoff.
 
 ### Residual limitations
 
 - This theorem is post-arXiv-v1 work; the historical paper remains unchanged.
-- A positive radius-3 seam deficit is not a proof of full realizability.
-- A negative seam deficit neither constructs a replacement chain nor says
-  what happens in global optima.
-- The finite high-precision scan is diagnostic only; the proof is the two
-  proof notes and their exact inequalities.
-- Hosted CI, global certificate frontiers, and `verify.py` are unrelated to
-  this proof-note/checker delta and are not claimed inspected.
+- A positive radius-4 formal seam deficit is not a proof of full feasibility.
+- A negative deficit neither constructs a replacement chain nor says what
+  happens in global optima.
+- Every floating-point scan in this task is labeled diagnostic only; the
+  proof is the fixed-`k` theorem plus the exact endpoint note.
+- Hosted CI, certificate frontiers, `verify.py`, and paper builds are
+  unrelated to this proof-note/checker delta and were not run.
 
 ## Exactly one next atomic task after acceptance
 
-Prove or refute the finite diagnostic candidate `s_4=21` by establishing an
-exact endpoint bridge for `R_{4,n}` and `T_{4,n}` at `n=20,21`, reusing the
-fixed-`k` theorem and making no claim about `R*(n)`, full feasibility, or
-global floating circles.
+Run a bounded two-precision diagnostic localization for the radius-5 formal
+seam on `21<=n<=80`, stopping at the first stable root/threshold sign change
+or the end of the range, and search for a common rational endpoint separator
+with denominator at most `1000`. This next task may nominate a candidate
+`s_5`; it must not claim an exact theorem or anything about full feasibility,
+`R*(n)`, or floating circles.

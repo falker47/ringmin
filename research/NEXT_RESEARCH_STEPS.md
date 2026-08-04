@@ -12,11 +12,11 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first three precise transitions and the general fixed-radius persistence
+The first four precise transitions and the general fixed-radius persistence
 mechanism have now been converted into exact theorems. The next work should
-reuse that architecture for the finite endpoint bridge at radius `4`, without
-repeating the monotonicity proof or expanding experiments or certification
-range.
+localize the radius-5 endpoint candidate in a bounded diagnostic task before
+posing a separate exact proof, without guessing a general onset formula or
+expanding the certification range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -90,11 +90,11 @@ T_{k,n} = 1/kappa_{k,n}.
 The thresholds strictly decrease to `k`, so `R_{k,n}-T_{k,n}` strictly
 increases to infinity. Therefore every fixed radius has a finite first strict
 seam obstruction, the obstruction persists thereafter, and equality can
-occur at most once. The theorem does not determine the exact onset for
-`k>=3` and makes no global-optimum or floating-circle claim.
+occur at most once. The theorem by itself does not determine an exact onset
+and makes no global-optimum or floating-circle claim.
 
-The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2,3`
-onsets follow by combining it with the endpoint bridges in the three
+The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2,3,4`
+onsets follow by combining it with the endpoint bridges in the four
 specialized proof notes.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
@@ -127,11 +127,12 @@ elementary strict bounds with exact margins. Finite high-precision roots are
 diagnostic only. The result concerns one formal seam and makes no claim about
 `R*(n)`, full feasibility, or floating circles in global optima.
 
-## Priority 1 — Radius-4 all-`n` seam obstruction
+## Resolved Priority 1 — Radius-4 all-`n` seam obstruction
 
-The next atomic target is the exact finite onset on `{4,...,n}`. Let
-`R_{4,n}=R_chain(sigma*_{4,n})`. The existing independent finite diagnostic
-suggests, but does not prove, the classification
+**Status:** proved after arXiv v1.
+
+For the chain-optimal Supnick cycle on `{4,...,n}`, with
+`R_{4,n}=R_chain(sigma*_{4,n})`, the exact classification is
 
 ```text
 theta_{R_{4,n}}(n,4) + theta_{R_{4,n}}(4,n-1)
@@ -141,15 +142,36 @@ theta_{R_{4,n}}(n,4) + theta_{R_{4,n}}(4,n-1)
     < theta_{R_{4,n}}(n,n-1)       for every n >= 21.
 ```
 
-The general theorem already supplies the no-threshold range `6<=n<=16`, the
-positive threshold domain `n>=17`, opposing monotonicities, and persistence.
-Prove or refute only the missing exact endpoint bridge at `n=20,21`, finding
-a rational separator or isolating the one explicit inequality that fails.
-A finite scan remains diagnostic, and the result must stay confined to the
-formal radius-4 seam.
+Thus `s_4=21`. The proof in `research/RADIUS4_SEAM_ONSET.md` reuses the
+general fixed-`k` theorem and closes both endpoints with the exact rational
+separator
 
-Expected value: one bounded endpoint theorem extending the exact onset
-sequence without guessing a general formula from finitely many radii.
+```text
+R_{4,20} < 50 < T_{4,20},
+T_{4,21} < 50 < R_{4,21}.
+```
+
+The threshold inequalities are rational square comparisons. The chain
+inequalities audit all `17` and `18` adjacent edges with rational termwise
+bounds and exact elementary bounds for `pi`. Finite high-precision roots are
+diagnostic only. The result concerns one formal seam and makes no claim about
+`R*(n)`, full feasibility, or floating circles in global optima.
+
+## Priority 1 — Radius-5 diagnostic endpoint localization
+
+The next atomic task is diagnostic, not theorem-producing. For
+`R_{5,n}=R_chain(sigma*_{5,n})`, scan only `21<=n<=80` at two high precisions,
+using the fixed-`k` theorem's exact threshold formula and independently
+reconstructed Supnick edges. Stop at the first precision-stable change from
+`R_{5,n}<T_{5,n}` to `R_{5,n}>T_{5,n}`, or report that no crossing occurs in
+the bounded range. Search for one rational separator of the two adjacent
+endpoint pairs with denominator at most `1000`, or report that none exists
+under that bound.
+
+The output may nominate a candidate `s_5` and separator for a later exact
+task, but must remain labeled numerical diagnostic. It must not update the
+exact knowledge ledger, infer a general formula from `s_1,...,s_4`, or make
+any full-feasibility, global-optimum, or floating-circle claim.
 
 ## Deferred priority 2 — Rigorous leading asymptotics
 
