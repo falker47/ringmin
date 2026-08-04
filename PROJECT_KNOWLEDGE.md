@@ -106,9 +106,10 @@ the first strict-obstruction index `s_k` exists; all earlier deficits are
 positive except for a possible equality at `s_k-1`.
 
 This theorem does not give a formula for `s_k`. Specialized exact endpoint
-bridges now recover `s_1=8`, `s_2=13`, `s_3=17`, and `s_4=21`; exact onsets
-for `k>=5` remain open. It concerns only the formal seam `(n,k,n-1)` and has no
-implication for `R*(n)` or floating circles in global optima.
+bridges now recover `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, and `s_5=25`;
+exact onsets for `k>=6` remain open. It concerns only the formal seam
+`(n,k,n-1)` and has no implication for `R*(n)` or floating circles in global
+optima.
 
 **Source:** `research/FIXED_K_SUPNICK_SEAM.md`; diagnostic algebra,
 convention, and finite high-precision checks are recorded in
@@ -244,6 +245,43 @@ in any or every global optimum.
 and separate finite diagnostics are recorded in
 `ops/TASK-20260804__radius4_seam_onset/`.
 
+### Exact all-`n` radius-5 seam onset
+
+**Status:** exact theorem, proved after arXiv v1.
+
+Let `sigma*_{5,n}` be the chain-optimal Supnick order on `{5,...,n}` and let
+`R_{5,n}=R_chain(sigma*_{5,n})`. Then
+
+```text
+theta_{R_{5,n}}(n,5) + theta_{R_{5,n}}(5,n-1)
+    > theta_{R_{5,n}}(n,n-1)       for 7 <= n <= 24,
+
+theta_{R_{5,n}}(n,5) + theta_{R_{5,n}}(5,n-1)
+    < theta_{R_{5,n}}(n,n-1)       for every n >= 25.
+```
+
+Thus the exact first strict radius-5 formal seam obstruction is `s_5=25`.
+The proof reuses the general fixed-`k` theorem without repeating it and closes
+only the endpoint bridge at the rational separator `R=75`:
+
+```text
+R_{5,24} < 75 < T_{5,24},
+T_{5,25} < 75 < R_{5,25}.
+```
+
+The threshold comparisons use explicit sign gates and rational square
+margins. The chain comparisons audit all `20` and `21` adjacent edges with
+rational termwise arcsine bounds and exact polynomial/integral comparisons
+with `pi`; finite high-precision roots remain diagnostic only.
+
+This theorem concerns one formal shifted Supnick seam. It does not prove full
+feasibility through `n=24`, determine `R*(n)`, or prove that circle `5` floats
+in any or every global optimum.
+
+**Source:** `research/RADIUS5_SEAM_ONSET.md`; exact stdlib/`Fraction` checker
+gates and separate finite diagnostics are recorded in
+`ops/TASK-20260804__radius5_seam_onset/`.
+
 ## Computer-certified finite results
 
 **Status:** computer-certified finite results reported by the paper and artifact chain, and independently reproduced by the full verifier in this bootstrap checkout; not all-`n` theorems.
@@ -308,18 +346,18 @@ For every fixed integer radius `k>=1`, the general theorem above now proves
 that the formal Supnick necklace on `{k,...,n}` eventually becomes
 unrealizable across the seam `(n,k,n-1)` and remains obstructed thereafter.
 It does not by itself identify any exact onset. Specialized endpoint notes
-now prove `s_1=8`, `s_2=13`, `s_3=17`, and `s_4=21`; exact onsets for `k>=5`
-remain open.
+now prove `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, and `s_5=25`; exact onsets
+for `k>=6` remain open.
 
 The stronger claim that circle `k` eventually floats in global optima, with
 recurring paid-then-free regimes, remains conjectural.
 
 The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with
 finite published scope. The post-v1 theorems above prove the exact all-`n`
-onsets `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, and eventual persistent seam
-failure for every fixed radius. Exact onset classifications for radii
-`5,6,...` remain unresolved. Every assertion about eventual floating in
-global optima also remains conjectural.
+onsets `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`, and eventual
+persistent seam failure for every fixed radius. Exact onset classifications
+for radii `6,7,...` remain unresolved. Every assertion about eventual
+floating in global optima also remains conjectural.
 
 ### Asymptotics
 
@@ -341,8 +379,8 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Determine exact seam onsets `s_k` for `k>=5`, beginning with a bounded
-   diagnostic localization for `s_5` before posing a separate exact endpoint
+1. Determine exact seam onsets `s_k` for `k>=6`, beginning with a bounded
+   diagnostic localization for `s_6` before posing a separate exact endpoint
    proof; the general existence and persistence theorem must not be mistaken
    for an exact onset classification.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
@@ -366,7 +404,9 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
   before `n=17` or that radius `3` floats in any or every global optimum.
 - The all-`n` radius-4 seam obstruction does not prove full realizability
   before `n=21` or that radius `4` floats in any or every global optimum.
-- The general fixed-`k` seam theorem does not identify `s_k` for `k>=5`,
+- The all-`n` radius-5 seam obstruction does not prove full realizability
+  before `n=25` or that radius `5` floats in any or every global optimum.
+- The general fixed-`k` seam theorem does not identify `s_k` for `k>=6`,
   prove full realizability before `s_k`, or imply that radius `k` floats in
   any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.

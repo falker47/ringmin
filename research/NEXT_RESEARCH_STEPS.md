@@ -12,9 +12,9 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first four precise transitions and the general fixed-radius persistence
+The first five precise transitions and the general fixed-radius persistence
 mechanism have now been converted into exact theorems. The next work should
-localize the radius-5 endpoint candidate in a bounded diagnostic task before
+localize the radius-6 endpoint candidate in a bounded diagnostic task before
 posing a separate exact proof, without guessing a general onset formula or
 expanding the certification range.
 
@@ -93,8 +93,8 @@ seam obstruction, the obstruction persists thereafter, and equality can
 occur at most once. The theorem by itself does not determine an exact onset
 and makes no global-optimum or floating-circle claim.
 
-The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2,3,4`
-onsets follow by combining it with the endpoint bridges in the four
+The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2,3,4,5`
+onsets follow by combining it with the endpoint bridges in the five
 specialized proof notes.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
@@ -157,20 +157,51 @@ bounds and exact elementary bounds for `pi`. Finite high-precision roots are
 diagnostic only. The result concerns one formal seam and makes no claim about
 `R*(n)`, full feasibility, or floating circles in global optima.
 
-## Priority 1 — Radius-5 diagnostic endpoint localization
+## Resolved Priority 1 — Radius-5 all-`n` seam obstruction
+
+**Status:** proved after arXiv v1.
+
+For the chain-optimal Supnick cycle on `{5,...,n}`, with
+`R_{5,n}=R_chain(sigma*_{5,n})`, the exact classification is
+
+```text
+theta_{R_{5,n}}(n,5) + theta_{R_{5,n}}(5,n-1)
+    > theta_{R_{5,n}}(n,n-1)       for 7 <= n <= 24,
+
+theta_{R_{5,n}}(n,5) + theta_{R_{5,n}}(5,n-1)
+    < theta_{R_{5,n}}(n,n-1)       for every n >= 25.
+```
+
+Thus `s_5=25`. The proof in `research/RADIUS5_SEAM_ONSET.md` reuses the
+general fixed-`k` theorem and closes both endpoints with the exact rational
+separator
+
+```text
+R_{5,24} < 75 < T_{5,24},
+T_{5,25} < 75 < R_{5,25}.
+```
+
+The threshold inequalities use explicit sign gates and rational square
+margins. The chain inequalities audit all `20` and `21` adjacent edges with
+rational termwise arcsine bounds and exact polynomial/integral comparisons
+with `pi`. Finite high-precision roots are diagnostic only. The result
+concerns one formal seam and makes no claim about `R*(n)`, full feasibility,
+or floating circles in global optima.
+
+## Priority 1 — Radius-6 diagnostic endpoint localization
 
 The next atomic task is diagnostic, not theorem-producing. For
-`R_{5,n}=R_chain(sigma*_{5,n})`, scan only `21<=n<=80` at two high precisions,
-using the fixed-`k` theorem's exact threshold formula and independently
-reconstructed Supnick edges. Stop at the first precision-stable change from
-`R_{5,n}<T_{5,n}` to `R_{5,n}>T_{5,n}`, or report that no crossing occurs in
-the bounded range. Search for one rational separator of the two adjacent
-endpoint pairs with denominator at most `1000`, or report that none exists
-under that bound.
+`R_{6,n}=R_chain(sigma*_{6,n})`, scan only `25<=n<=100` at two high
+precisions, using the fixed-`k` theorem's exact threshold formula and
+independently reconstructed Supnick edges. Stop at the first precision-stable
+change from `R_{6,n}<T_{6,n}` to `R_{6,n}>T_{6,n}`, or report that no crossing
+occurs in the bounded range. Search for one rational separator of the two
+adjacent endpoint pairs with denominator at most `1000`, or report that none
+exists under that bound.
 
-The output may nominate a candidate `s_5` and separator for a later exact
+The output may nominate a candidate `s_6` and separator for a later exact
 task, but must remain labeled numerical diagnostic. It must not update the
-exact knowledge ledger, infer a general formula from `s_1,...,s_4`, or make
+exact knowledge ledger, infer a general formula from `s_1,...,s_5`, or make
 any full-feasibility, global-optimum, or floating-circle claim.
 
 ## Deferred priority 2 — Rigorous leading asymptotics
