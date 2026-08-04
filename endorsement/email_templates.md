@@ -1,4 +1,9 @@
-# Endorsement Email Templates
+# Endorsement Email Templates (Archived)
+
+> **Archived pre-publication material.** Endorsement is complete and arXiv v1
+> is public as [arXiv:2607.28654](https://arxiv.org/abs/2607.28654). These
+> templates are retained only as process history and should not be used for the
+> published paper.
 
 ## `math.MG` Template
 

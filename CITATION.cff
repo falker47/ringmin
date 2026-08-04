@@ -7,7 +7,7 @@ authors:
 repository-code: "https://github.com/falker47/ringmin"
 url: "https://github.com/falker47/ringmin"
 license: "MIT"
-version: "0.1.0"
+version: "1.0-arxiv-v1"
 preferred-citation:
   type: article
   title: "Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima"
@@ -15,4 +15,8 @@ preferred-citation:
     - family-names: "Falconi"
       given-names: "Maurizio"
   year: 2026
-  url: "https://github.com/falker47/ringmin"
+  url: "https://arxiv.org/abs/2607.28654"
+  identifiers:
+    - type: other
+      value: "arXiv:2607.28654"
+      description: "arXiv identifier"

@@ -1,4 +1,9 @@
-# Endorsement Summary
+# Endorsement Summary (Archived)
+
+> **Archived pre-publication material.** Endorsement is complete, and arXiv v1
+> is public as [arXiv:2607.28654](https://arxiv.org/abs/2607.28654) in `cs.CG`.
+> No further endorsement action or credential is needed. The material below is
+> retained as a historical record of the pre-publication process.
 
 ## Problem Statement
 

@@ -1,5 +1,11 @@
 # Submission Review Report
 
+> **Historical note.** The pre-publication findings below are retained as a
+> process record. arXiv v1 is now public as
+> [arXiv:2607.28654](https://arxiv.org/abs/2607.28654); see
+> [Post-ArXiv publication repo update](#post-arxiv-publication-repo-update) at
+> the end for current status and remaining manual tasks.
+
 Date: 2026-06-16
 
 ## 1. Executive Verdict
@@ -284,3 +290,69 @@ Date: 2026-06-16
    - The PDF was regenerated successfully.
    - The repo is ready for human visual PDF inspection.
    - No known technical blockers remain before `v0.1-submission`; the remaining gate is human visual review and final acceptance of the intentional working-tree changes.
+
+## Post-arXiv publication repo update
+
+Date: 2026-08-04
+
+1. **Files changed.**
+   - `README.md`: added the public arXiv v1 link, exact citation, `How to cite`
+     section, and explicit certified-versus-heuristic scope; retained the
+     reproducibility framing.
+   - `CITATION.cff`: added the arXiv URL and identifier to the preferred
+     citation, updated the planned arXiv-v1 version, and retained the repository
+     URL. No DOI was added.
+   - `ENDORSEMENT_SUMMARY.md`, `SUBMISSION_CHECKLIST.md`, and
+     `endorsement/email_templates.md`: marked as archived pre-publication
+     material and linked to the public paper/current follow-up document.
+   - `SUBMISSION_REVIEW_REPORT.md`: added a historical-status pointer and this
+     post-publication report.
+
+2. **Files created.**
+   - `docs/post_arxiv_tasks.md`
+   - `docs/math_stackexchange_answer_draft.md`
+   - `docs/release_notes_arxiv_v1.md`
+
+3. **Commands run.**
+   - `python -m pytest`
+   - `python verify.py --start 3 --stop 8 --skip-frontier`
+   - `git diff --check` (with a per-command `safe.directory` override required
+     by the sandbox ownership boundary; no Git configuration was changed)
+   - YAML parsing and required-field assertions for `CITATION.cff`
+   - Git status/diff scope checks and SHA-256 checks for the paper source/PDF
+   - A credential-safe, filename-only repository scan followed by inspection of
+     generic keyword hits without displaying any possible value
+
+4. **Command results.**
+   - `python -m pytest`: PASS, `12 passed in 43.25s`.
+   - `python verify.py --start 3 --stop 8 --skip-frontier`: PASS for every
+     `n=3..8`; incumbent and local checks passed, and frontier checks were
+     skipped as requested.
+   - `git diff --check`: PASS (no output).
+   - `CITATION.cff`: PASS for YAML parsing and required repository/arXiv
+     metadata assertions. A full `cffconvert` validator was not installed.
+   - Protected-scope Git diff: no changes under `results/`, `paper_assets/`,
+     `src/`, or `verify.py`.
+
+5. **Paper source/PDF.**
+   - `paper_assets/ringmin_paper.tex` and `paper_assets/ringmin_paper.pdf` were
+     left unchanged. Their SHA-256 hashes remained, respectively,
+     `5042D01B0F0F54ED3BADEAA494CD24411AA58A2AA2C865B3F02ABB27FCBCC60A`
+     and `38E7AF6331180307D17D199EB78FBC01A1DD8539266E136F6A405A8174E2C8C4`.
+
+6. **Sensitive-material audit.**
+   - No concrete sensitive token, credential, or code value was found. The only
+     keyword hits were generic historical checklist wording and bracketed
+     placeholders; no sensitive value required removal or redaction.
+
+7. **Remaining manual tasks.**
+   - Create tag `v1.0-arxiv-v1` at the reviewed arXiv-v1 repository commit.
+   - Create the GitHub release from that tag, titled
+     `v1.0-arxiv-v1 — arXiv v1 published`, and link the arXiv page.
+   - If desired, delete only the accidental incomplete arXiv draft if it still
+     exists; do not unsubmit or alter the published paper.
+   - Review and post the Math StackExchange answer draft manually.
+   - Send the thank-you email to Daniel V. Mathews manually.
+
+No tag, GitHub release, Math StackExchange post, arXiv UI action, or email was
+created or sent in this update.

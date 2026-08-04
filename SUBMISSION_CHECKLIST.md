@@ -1,4 +1,10 @@
-# Submission Checklist
+# Submission Checklist (Archived)
+
+> **Archived pre-publication material.** Endorsement and submission are
+> complete, and arXiv v1 is public as
+> [arXiv:2607.28654](https://arxiv.org/abs/2607.28654) in `cs.CG`. The unchecked
+> items below are retained only as process history; current follow-up items are
+> listed in `docs/post_arxiv_tasks.md`.
 
 ## Pre-Submission Repo Checks
 

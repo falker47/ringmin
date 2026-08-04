@@ -4,15 +4,28 @@ Exact solver and certificate artifacts for the minimum central circle problem:
 circles of radii `1,2,...,n` are externally tangent to a central circle, and the
 goal is to minimize the central radius `R`.
 
-> 🇮🇹 Per una spiegazione semplice e non tecnica del problema e dei risultati del paper, consulta il documento [SPIEGAMI.md](file:///c:/Users/Falker/Desktop/Code/circle/ringmin/SPIEGAMI.md).
+**Paper (arXiv v1):** [arXiv:2607.28654](https://arxiv.org/abs/2607.28654)
 
+**Citation:** Maurizio Falconi, Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima, arXiv:2607.28654 [cs.CG], 2026.
 
-The repository certifies the global optimum for `n=3..14` by exhaustive
-enumeration of cyclic orderings. The fixed-order feasibility oracle is a
-high-precision Simple Temporal Network check over all pairwise angular
-constraints; chain-only values are used only as lower bounds.
+The public arXiv v1 is accompanied here by the solver code, independent
+verifier, certificate artifacts, and paper source/PDF. The repository certifies
+the global optimum for `n=3..14` by exhaustive enumeration of cyclic orderings.
+Larger-`n` behavior remains heuristic and conjectural. The fixed-order
+feasibility oracle is a high-precision Simple Temporal Network check over all
+pairwise angular constraints; chain-only values are used only as lower bounds.
 
-## Endorser-Facing Summary
+> 🇮🇹 Per una spiegazione semplice e non tecnica del problema e dei risultati del paper, consulta il documento [SPIEGAMI.md](SPIEGAMI.md).
+
+## How to cite
+
+Please cite the public arXiv version as:
+
+> Maurizio Falconi, Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima, arXiv:2607.28654 [cs.CG], 2026.
+
+Machine-readable citation metadata is available in `CITATION.cff`.
+
+## Mathematical scope
 
 This project studies a finite geometric optimization problem about arranging
 circles of radii `1,2,...,n` around a central circle while minimizing the
