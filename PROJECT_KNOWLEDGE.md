@@ -71,6 +71,49 @@ Consequences:
 
 ## Proved post-arXiv-v1 results
 
+### General fixed-radius Supnick seam persistence
+
+**Status:** exact theorem, proved after arXiv v1.
+
+Fix any integer `k>=1`. For `n>=k+2`, let `sigma*_{k,n}` be the
+chain-minimizing Supnick order on `{k,...,n}`, let
+`R_{k,n}=R_chain(sigma*_{k,n})`, and define
+
+```text
+Delta_{k,n}
+  = theta_{R_{k,n}}(n,k) + theta_{R_{k,n}}(k,n-1)
+    - theta_{R_{k,n}}(n,n-1).
+```
+
+The neighbors of `k` in this order are `n-1,n`. The root `R_{k,n}` exists
+uniquely, strictly increases with `n`, and tends to infinity. The Descartes
+comparison has no positive threshold for `k+2<=n<=4k`, where
+`Delta_{k,n}>0`. Its exact positive domain is `n>=4k+1`, with
+
+```text
+kappa_{k,n}
+  = 1/k + 1/n + 1/(n-1)
+    - 2 sqrt((2n+k-1)/(k n(n-1))),
+T_{k,n} = 1/kappa_{k,n}.
+```
+
+On that domain, `Delta_{k,n}<0` exactly when `R_{k,n}>T_{k,n}`. The roots
+`R_{k,n}` strictly increase while `T_{k,n}` strictly decreases to `k`, so
+`R_{k,n}-T_{k,n}` strictly increases to infinity. Consequently a strict
+formal seam obstruction occurs eventually for every fixed `k`, persists
+thereafter, and equality can occur for at most one integer. Equivalently,
+the first strict-obstruction index `s_k` exists; all earlier deficits are
+positive except for a possible equality at `s_k-1`.
+
+This theorem does not give a formula for `s_k`. The existing exact endpoint
+bridges recover `s_1=8` and `s_2=13`; exact onsets for `k>=3` remain open.
+It concerns only the formal seam `(n,k,n-1)` and has no implication for
+`R*(n)` or floating circles in global optima.
+
+**Source:** `research/FIXED_K_SUPNICK_SEAM.md`; diagnostic algebra,
+convention, and finite high-precision checks are recorded in
+`ops/TASK-20260804__fixed_k_supnick_seam/`.
+
 ### Exact all-`n` radius-1 seam threshold
 
 **Status:** exact theorem, proved after arXiv v1.
@@ -186,11 +229,23 @@ Reported patterns include:
 
 ### Floating cascade
 
-**Status:** conjecture.
+**Status:** mixed exact theorem and conjecture.
 
-For each fixed small radius `k`, the reduced Supnick necklace is conjectured eventually to become unrealizable and circle `k` is conjectured eventually to float, with recurring paid-then-free regimes.
+For every fixed integer radius `k>=1`, the general theorem above now proves
+that the formal Supnick necklace on `{k,...,n}` eventually becomes
+unrealizable across the seam `(n,k,n-1)` and remains obstructed thereafter.
+It does not identify the exact onset `s_k` for `k>=3`.
 
-The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with finite published scope. The post-v1 theorems above now prove the radius-1 seam failure for every `n>=8` and the radius-2 seam failure for every `n>=13`. The analogous all-`n` claims for radii `3,4,...`, and every assertion about eventual floating in global optima, remain conjectural.
+The stronger claim that circle `k` eventually floats in global optima, with
+recurring paid-then-free regimes, remains conjectural.
+
+The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with
+finite published scope. The post-v1 theorems above prove the exact all-`n`
+onsets `s_1=8`, `s_2=13`, and eventual persistent seam failure for every
+fixed radius. Exact onset classifications for radii `3,4,...` remain
+unresolved; the reported radius-3 onset `17` is not promoted to an exact
+theorem here. Every assertion about eventual floating in global optima also
+remains conjectural.
 
 ### Asymptotics
 
@@ -212,7 +267,10 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Generalize the exact radius-1 and radius-2 obstructions to radius `k>=3`, beginning with the all-`n` radius-3 seam statement, without assuming the observed onset sequence has a closed form.
+1. Determine exact seam onsets `s_k` for `k>=3`, beginning with a rigorous
+   endpoint proof or refutation of the proposed radius-3 onset `s_3=17`; the
+   general existence and persistence theorem must not be mistaken for this
+   finite classification.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
@@ -230,5 +288,8 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
 - The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
 - The all-`n` radius-2 seam obstruction does not prove that radius `2` floats in any or every global optimum.
+- The general fixed-`k` seam theorem does not identify `s_k` for `k>=3`,
+  prove full realizability before `s_k`, or imply that radius `k` floats in
+  any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
 - Generated README/report/table agreement does not replace source and verifier agreement.

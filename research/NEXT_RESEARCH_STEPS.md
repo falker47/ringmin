@@ -12,10 +12,11 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first two precise conjectural transitions have now been converted into
-all-`n` theorems. The next work should test the same comparison architecture
-at the radius-3 seam before attempting a general radius-`k` theorem or
-expanding experiments or certification range.
+The first two precise transitions and the general fixed-radius persistence
+mechanism have now been converted into exact theorems. The next work should
+use that general theorem to settle the finite endpoint bridge for the proposed
+radius-3 onset, without repeating the already-proved monotonicity architecture
+or expanding experiments or certification range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -70,9 +71,35 @@ angular deficit is not monotone.
 This result concerns only the formal shifted Supnick seam; it does not
 establish a global optimum or floating behavior.
 
+## Resolved Priority 1 — General fixed-radius seam persistence
+
+**Status:** proved after arXiv v1.
+
+For every fixed integer `k>=1`, the canonical chain-minimizing Supnick order
+on `{k,...,n}` has `n-1,n` as the neighbors of `k`. Its chain root
+`R_{k,n}` strictly increases to infinity. The seam comparison has an exact
+positive Descartes-threshold domain `n>=4k+1`, with
+
+```text
+kappa_{k,n}
+  = 1/k + 1/n + 1/(n-1)
+    - 2 sqrt((2n+k-1)/(k n(n-1))),
+T_{k,n} = 1/kappa_{k,n}.
+```
+
+The thresholds strictly decrease to `k`, so `R_{k,n}-T_{k,n}` strictly
+increases to infinity. Therefore every fixed radius has a finite first strict
+seam obstruction, the obstruction persists thereafter, and equality can
+occur at most once. The theorem does not determine the exact onset for
+`k>=3` and makes no global-optimum or floating-circle claim.
+
+The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2`
+onsets follow by combining it with the endpoint bridges in the two earlier
+proof notes.
+
 ## Priority 1 — Radius-3 all-`n` seam obstruction
 
-The next atomic target is the direct analogue on `{3,...,n}`. Let
+The next atomic target is the exact finite onset on `{3,...,n}`. Let
 `sigma_{3,n}*` be the chain-optimal Supnick cyclic order on that set and let
 
 ```text
@@ -90,14 +117,18 @@ theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
     < theta_{R_{3,n}}(n,n-1)       for every n >= 17.
 ```
 
-The task must derive the twice-shifted Supnick convention, the radius-3
-Descartes threshold and its physical domain, all root and threshold
-monotonicities, and exact bounds on both sides of the proposed crossing. It
-must not assume a general formula from the observed onsets `8,13,17`, and it
-must preserve the distinction between a formal seam obstruction and floating
-behavior in global optima.
+The general theorem already supplies the shifted convention, the exact
+physical domain `n>=13`, strict growth of `R_{3,n}`, strict decrease of
+`T_{3,n}`, and persistence after a crossing. This task should prove or refute
+only the missing exact endpoint inequalities at `n=16,17` (or isolate the
+single explicit endpoint lemma that fails), using exact rational or
+interval-safe bounds. A finite scan is diagnostic only. The task must not
+infer the onset from the observed sequence `8,13,17`, and it must preserve the
+distinction between a formal seam obstruction and floating behavior in global
+optima.
 
-Expected value: a rigorous route toward the cascade conjecture.
+Expected value: the first exact onset beyond the two existing specialized
+proof notes, now reduced to a bounded endpoint problem.
 
 ## Deferred priority 2 — Rigorous leading asymptotics
 
