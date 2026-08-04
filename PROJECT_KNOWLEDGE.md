@@ -69,6 +69,34 @@ Consequences:
 
 **Source:** `paper_assets/ringmin_paper.tex` and generated appendix tables.
 
+## Proved post-arXiv-v1 results
+
+### Exact all-`n` radius-1 seam threshold
+
+**Status:** exact theorem, proved after arXiv v1.
+
+Let `sigma_n*` be the chain-minimizing Supnick order on `{1,...,n}` and `R_n=R_chain(sigma_n*)`. Then
+
+```text
+theta_{R_n}(n,1) + theta_{R_n}(1,n-1)
+    > theta_{R_n}(n,n-1)       for 3 <= n <= 7,
+
+theta_{R_n}(n,1) + theta_{R_n}(1,n-1)
+    < theta_{R_n}(n,n-1)       for every n >= 8.
+```
+
+Thus the formal full Supnick necklace has an exact radius-1 seam obstruction from `n=8` onward. The proof makes the Supnick edge set parity-explicit, proves the chain roots `R_n` strictly increase, derives an explicit Descartes threshold
+
+```text
+T_n = 1 / (1 + 1/n + 1/(n-1) - 2 sqrt(2/(n-1))),
+```
+
+proves `T_n` strictly decreases on the relevant range, and closes the crossing with exact rational bounds at `n=7,8`.
+
+This theorem concerns one formal chain and one seam. It does not determine `R*(n)`, prove that circle `1` floats in any or every global optimum, or prove another cascade level.
+
+**Source:** `research/RADIUS1_SEAM_OBSTRUCTION.md`; diagnostic evidence and exact arithmetic checks are recorded in `ops/TASK-20260804__radius1_seam_obstruction/`.
+
 ## Computer-certified finite results
 
 **Status:** computer-certified finite results reported by the paper and artifact chain, and independently reproduced by the full verifier in this bootstrap checkout; not all-`n` theorems.
@@ -131,7 +159,7 @@ Reported patterns include:
 
 For each fixed small radius `k`, the reduced Supnick necklace is conjectured eventually to become unrealizable and circle `k` is conjectured eventually to float, with recurring paid-then-free regimes.
 
-Observed seam-failure onsets in the paper are `8,13,17` for circles `1,2,3`; only the explicitly stated finite cases retain their published proof/certification status.
+The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with finite published scope. The post-v1 theorem above now proves the radius-1 seam failure for every `n>=8`. The analogous all-`n` claims for radii `2,3,...`, and every assertion about eventual floating in global optima, remain conjectural.
 
 ### Asymptotics
 
@@ -153,8 +181,8 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Prove analytically, for all relevant `n`, the seam-obstruction inequalities underlying the first finite regime transitions; the missing step is monotonic control in `n`.
-2. Generalize the obstruction to radius `k` and prove or refute the floating-cascade conjecture.
+1. Generalize the exact radius-1 obstruction to radius `k>1`, beginning with the all-`n` radius-2 seam statement, without assuming the observed onset sequence has a closed form.
+2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
 5. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
@@ -169,5 +197,6 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - `--skip-frontier` does not verify global pruning.
 - A best-known heuristic is not certified.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
+- The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
 - Generated README/report/table agreement does not replace source and verifier agreement.
