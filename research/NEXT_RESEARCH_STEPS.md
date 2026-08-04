@@ -12,11 +12,11 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first two precise transitions and the general fixed-radius persistence
+The first three precise transitions and the general fixed-radius persistence
 mechanism have now been converted into exact theorems. The next work should
-use that general theorem to settle the finite endpoint bridge for the proposed
-radius-3 onset, without repeating the already-proved monotonicity architecture
-or expanding experiments or certification range.
+reuse that architecture for the finite endpoint bridge at radius `4`, without
+repeating the monotonicity proof or expanding experiments or certification
+range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -93,21 +93,16 @@ seam obstruction, the obstruction persists thereafter, and equality can
 occur at most once. The theorem does not determine the exact onset for
 `k>=3` and makes no global-optimum or floating-circle claim.
 
-The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2`
-onsets follow by combining it with the endpoint bridges in the two earlier
-proof notes.
+The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact `k=1,2,3`
+onsets follow by combining it with the endpoint bridges in the three
+specialized proof notes.
 
-## Priority 1 — Radius-3 all-`n` seam obstruction
+## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
 
-The next atomic target is the exact finite onset on `{3,...,n}`. Let
-`sigma_{3,n}*` be the chain-optimal Supnick cyclic order on that set and let
+**Status:** proved after arXiv v1.
 
-```text
-R_{3,n} = R_chain(sigma_{3,n}*).
-```
-
-Prove or refute, with exact threshold-domain and endpoint checks, the proposed
-classification
+For the chain-optimal Supnick cycle on `{3,...,n}`, with
+`R_{3,n}=R_chain(sigma*_{3,n})`, the exact classification is
 
 ```text
 theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
@@ -117,18 +112,44 @@ theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
     < theta_{R_{3,n}}(n,n-1)       for every n >= 17.
 ```
 
-The general theorem already supplies the shifted convention, the exact
-physical domain `n>=13`, strict growth of `R_{3,n}`, strict decrease of
-`T_{3,n}`, and persistence after a crossing. This task should prove or refute
-only the missing exact endpoint inequalities at `n=16,17` (or isolate the
-single explicit endpoint lemma that fails), using exact rational or
-interval-safe bounds. A finite scan is diagnostic only. The task must not
-infer the onset from the observed sequence `8,13,17`, and it must preserve the
-distinction between a formal seam obstruction and floating behavior in global
-optima.
+Thus `s_3=17`. The proof in `research/RADIUS3_SEAM_ONSET.md` reuses the
+general fixed-`k` theorem and closes both endpoints with the exact rational
+separator
 
-Expected value: the first exact onset beyond the two existing specialized
-proof notes, now reduced to a bounded endpoint problem.
+```text
+R_{3,16} < 32 < T_{3,16},
+T_{3,17} < 32 < R_{3,17}.
+```
+
+The threshold inequalities are rational square comparisons. The chain
+inequalities use rational termwise bounds on every arcsine argument and
+elementary strict bounds with exact margins. Finite high-precision roots are
+diagnostic only. The result concerns one formal seam and makes no claim about
+`R*(n)`, full feasibility, or floating circles in global optima.
+
+## Priority 1 — Radius-4 all-`n` seam obstruction
+
+The next atomic target is the exact finite onset on `{4,...,n}`. Let
+`R_{4,n}=R_chain(sigma*_{4,n})`. The existing independent finite diagnostic
+suggests, but does not prove, the classification
+
+```text
+theta_{R_{4,n}}(n,4) + theta_{R_{4,n}}(4,n-1)
+    > theta_{R_{4,n}}(n,n-1)       for 6 <= n <= 20,
+
+theta_{R_{4,n}}(n,4) + theta_{R_{4,n}}(4,n-1)
+    < theta_{R_{4,n}}(n,n-1)       for every n >= 21.
+```
+
+The general theorem already supplies the no-threshold range `6<=n<=16`, the
+positive threshold domain `n>=17`, opposing monotonicities, and persistence.
+Prove or refute only the missing exact endpoint bridge at `n=20,21`, finding
+a rational separator or isolating the one explicit inequality that fails.
+A finite scan remains diagnostic, and the result must stay confined to the
+formal radius-4 seam.
+
+Expected value: one bounded endpoint theorem extending the exact onset
+sequence without guessing a general formula from finitely many radii.
 
 ## Deferred priority 2 — Rigorous leading asymptotics
 
