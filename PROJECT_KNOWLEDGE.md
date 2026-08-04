@@ -97,6 +97,37 @@ This theorem concerns one formal chain and one seam. It does not determine `R*(n
 
 **Source:** `research/RADIUS1_SEAM_OBSTRUCTION.md`; diagnostic evidence and exact arithmetic checks are recorded in `ops/TASK-20260804__radius1_seam_obstruction/`.
 
+### Exact all-`n` radius-2 seam threshold
+
+**Status:** exact theorem, proved after arXiv v1.
+
+Let `sigma*_{2,n}` be the chain-optimal Supnick order on `{2,...,n}` and let
+`R_{2,n}=R_chain(sigma*_{2,n})`. Then
+
+```text
+theta_{R_{2,n}}(n,2) + theta_{R_{2,n}}(2,n-1)
+    > theta_{R_{2,n}}(n,n-1)       for 4 <= n <= 12,
+
+theta_{R_{2,n}}(n,2) + theta_{R_{2,n}}(2,n-1)
+    < theta_{R_{2,n}}(n,n-1)       for every n >= 13.
+```
+
+Thus the formal shifted Supnick necklace has an exact radius-2 seam
+obstruction from `n=13` onward. The proof gives the shifted parity-explicit
+edge and closure formulas, proves that `R_{2,n}` strictly increases, shows
+that the positive radius-2 Descartes threshold exists exactly for `n>=9` and
+strictly decreases, and closes the crossing with exact rational bounds at
+`n=12,13`. The raw angular deficit is not monotone and is not used as a
+comparison quantity.
+
+This theorem concerns one formal chain and one seam. It does not determine
+`R*(n)`, prove that circle `2` floats in any or every global optimum, or prove
+the remaining radius-`k` cascade.
+
+**Source:** `research/RADIUS2_SEAM_THRESHOLD.md`; diagnostic evidence and
+exact arithmetic checks are recorded in
+`ops/TASK-20260804__radius2_seam_threshold/`.
+
 ## Computer-certified finite results
 
 **Status:** computer-certified finite results reported by the paper and artifact chain, and independently reproduced by the full verifier in this bootstrap checkout; not all-`n` theorems.
@@ -159,7 +190,7 @@ Reported patterns include:
 
 For each fixed small radius `k`, the reduced Supnick necklace is conjectured eventually to become unrealizable and circle `k` is conjectured eventually to float, with recurring paid-then-free regimes.
 
-The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with finite published scope. The post-v1 theorem above now proves the radius-1 seam failure for every `n>=8`. The analogous all-`n` claims for radii `2,3,...`, and every assertion about eventual floating in global optima, remain conjectural.
+The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with finite published scope. The post-v1 theorems above now prove the radius-1 seam failure for every `n>=8` and the radius-2 seam failure for every `n>=13`. The analogous all-`n` claims for radii `3,4,...`, and every assertion about eventual floating in global optima, remain conjectural.
 
 ### Asymptotics
 
@@ -181,7 +212,7 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Generalize the exact radius-1 obstruction to radius `k>1`, beginning with the all-`n` radius-2 seam statement, without assuming the observed onset sequence has a closed form.
+1. Generalize the exact radius-1 and radius-2 obstructions to radius `k>=3`, beginning with the all-`n` radius-3 seam statement, without assuming the observed onset sequence has a closed form.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
@@ -198,5 +229,6 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - A best-known heuristic is not certified.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
 - The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
+- The all-`n` radius-2 seam obstruction does not prove that radius `2` floats in any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
 - Generated README/report/table agreement does not replace source and verifier agreement.

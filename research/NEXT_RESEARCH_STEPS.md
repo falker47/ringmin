@@ -12,7 +12,10 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first precise conjectural transition has now been converted into an all-`n` theorem. The next work should test whether its comparison method survives the radius-2 seam before expanding experiments or certification range.
+The first two precise conjectural transitions have now been converted into
+all-`n` theorems. The next work should test the same comparison architecture
+at the radius-3 seam before attempting a general radius-`k` theorem or
+expanding experiments or certification range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -37,24 +40,62 @@ The reverse strict inequality holds for `3<=n<=7`, so the exact onset is `n=8`. 
 
 This result concerns only the formal Supnick seam; it does not establish a global optimum or universal floating behavior.
 
-## Priority 1 — Radius-2 all-`n` seam obstruction
+## Resolved Priority 1 — Radius-2 all-`n` seam obstruction
 
-The next atomic target is the direct analogue on `{2,...,n}`. Let `sigma_{2,n}*` be the chain-optimal Supnick cyclic order on that set and let
+**Status:** proved after arXiv v1.
+
+Let `sigma_{2,n}*` be the chain-optimal Supnick cyclic order on `{2,...,n}`
+and let
 
 ```text
 R_{2,n} = R_chain(sigma_{2,n}*).
 ```
 
-Prove or refute, with an exact lower-side threshold check, that
+The theorem now proved is
 
 ```text
 theta_{R_{2,n}}(n,2) + theta_{R_{2,n}}(2,n-1)
-    < theta_{R_{2,n}}(n,n-1)
+    > theta_{R_{2,n}}(n,n-1)       for 4 <= n <= 12,
+
+theta_{R_{2,n}}(n,2) + theta_{R_{2,n}}(2,n-1)
+    < theta_{R_{2,n}}(n,n-1)       for every n >= 13.
 ```
 
-for every integer `n>=13`.
+The proof is in `research/RADIUS2_SEAM_THRESHOLD.md`. It derives the shifted
+Supnick convention and closure sums, proves that the implicit roots increase,
+identifies the exact radius-2 threshold domain `n>=9`, proves that the
+threshold decreases, and closes `n=12,13` by rational inequalities. The raw
+angular deficit is not monotone.
 
-The task must establish the precise Supnick convention on `{2,...,n}`, derive the radius-2 Descartes threshold, determine whether the delete-largest monotonicity argument still supplies the needed comparison, and avoid assuming that the observed onset sequence `8,13,17,...` follows a closed form. It must preserve the distinction between a formal seam obstruction and floating behavior in global optima.
+This result concerns only the formal shifted Supnick seam; it does not
+establish a global optimum or floating behavior.
+
+## Priority 1 — Radius-3 all-`n` seam obstruction
+
+The next atomic target is the direct analogue on `{3,...,n}`. Let
+`sigma_{3,n}*` be the chain-optimal Supnick cyclic order on that set and let
+
+```text
+R_{3,n} = R_chain(sigma_{3,n}*).
+```
+
+Prove or refute, with exact threshold-domain and endpoint checks, the proposed
+classification
+
+```text
+theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
+    > theta_{R_{3,n}}(n,n-1)       for 5 <= n <= 16,
+
+theta_{R_{3,n}}(n,3) + theta_{R_{3,n}}(3,n-1)
+    < theta_{R_{3,n}}(n,n-1)       for every n >= 17.
+```
+
+The task must derive the twice-shifted Supnick convention, the radius-3
+Descartes threshold and its physical domain, all root and threshold
+monotonicities, and exact bounds on both sides of the proposed crossing. It
+must not assume a general formula from the observed onsets `8,13,17`, and it
+must preserve the distinction between a formal seam obstruction and floating
+behavior in global optima.
 
 Expected value: a rigorous route toward the cascade conjecture.
 
