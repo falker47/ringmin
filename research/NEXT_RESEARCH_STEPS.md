@@ -12,9 +12,9 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first six precise transitions and the general fixed-radius persistence
+The first seven precise transitions and the general fixed-radius persistence
 mechanism have now been converted into exact theorems. The next work should
-localize the radius-7 endpoint candidate in a bounded diagnostic task before
+localize the radius-8 endpoint candidate in a bounded diagnostic task before
 posing a separate exact proof, without guessing a general onset formula or
 expanding the certification range.
 
@@ -94,8 +94,8 @@ occur at most once. The theorem by itself does not determine an exact onset
 and makes no global-optimum or floating-circle claim.
 
 The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact
-`k=1,2,3,4,5,6` onsets follow by combining it with the endpoint bridges in
-the six specialized proof notes.
+`k=1,2,3,4,5,6,7` onsets follow by combining it with the endpoint bridges in
+the seven specialized proof notes.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
 
@@ -219,21 +219,52 @@ high-precision roots are diagnostic only. The result concerns one formal
 seam and makes no claim about `R*(n)`, full feasibility, or floating circles
 in global optima.
 
-## Priority 1 — Radius-7 diagnostic endpoint localization
+## Resolved Priority 1 — Radius-7 all-`n` seam obstruction
+
+**Status:** proved after arXiv v1.
+
+For the chain-optimal Supnick cycle on `{7,...,n}`, with
+`R_{7,n}=R_chain(sigma*_{7,n})`, the exact classification is
+
+```text
+theta_{R_{7,n}}(n,7) + theta_{R_{7,n}}(7,n-1)
+    > theta_{R_{7,n}}(n,n-1)       for 9 <= n <= 33,
+
+theta_{R_{7,n}}(n,7) + theta_{R_{7,n}}(7,n-1)
+    < theta_{R_{7,n}}(n,n-1)       for every n >= 34.
+```
+
+Thus `s_7=34`. The proof in `research/RADIUS7_SEAM_ONSET.md` reuses the
+general fixed-`k` theorem and closes both endpoints with the exact rational
+separator
+
+```text
+R_{7,33} < 140 < T_{7,33},
+T_{7,34} < 140 < R_{7,34}.
+```
+
+The threshold inequalities use explicit sign gates and exact rational square
+comparisons. The chain inequalities audit all `27` and `28` adjacent edges
+with strict rational termwise arcsine bounds and exact comparisons with
+`pi`. Finite high-precision roots are diagnostic only. The result concerns
+one formal seam and makes no claim about `R*(n)`, full feasibility, contact
+graphs, or floating circles in global optima.
+
+## Priority 1 — Radius-8 diagnostic endpoint localization
 
 The next atomic task is diagnostic, not theorem-producing. For
-`R_{7,n}=R_chain(sigma*_{7,n})`, scan only `29<=n<=120` at two high
+`R_{8,n}=R_chain(sigma*_{8,n})`, scan only `33<=n<=140` at two high
 precisions, using the fixed-`k` theorem's exact threshold formula and
 independently reconstructed Supnick edges. Stop at the first precision-stable
-change from `R_{7,n}<T_{7,n}` to `R_{7,n}>T_{7,n}`, or report that no crossing
+change from `R_{8,n}<T_{8,n}` to `R_{8,n}>T_{8,n}`, or report that no crossing
 occurs in the bounded range. Search for one rational separator of the two
 adjacent endpoint pairs with denominator at most `1000`, or report that none
 exists under that bound.
 
-The output may nominate a candidate `s_7` and separator for a later exact
+The output may nominate a candidate `s_8` and separator for a later exact
 task, but must remain labeled numerical diagnostic. It must not update the
-exact knowledge ledger, infer a general formula from `s_1,...,s_6`, or make
-any full-feasibility, global-optimum, or floating-circle claim.
+exact knowledge ledger, infer a general formula from `s_1,...,s_7`, or make
+any full-feasibility, global-optimum, contact-graph, or floating-circle claim.
 
 ## Deferred priority 2 — Rigorous leading asymptotics
 
