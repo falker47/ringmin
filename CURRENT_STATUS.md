@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=19f0123b437f160a174695bb2a9a71b1d301166f
+task_base_head=3ad9835631b2a4d434972eedfe10cd8924a05d39
 observed_on=2026-08-30
 phase=post-arXiv-v1 active research
 ```
@@ -12,114 +12,126 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260830__eventual_supnick_seam_onset
+task=TASK-20260830__effective_supnick_seam_cutoff
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective
 
-Prove or refute that the first strict-obstruction index of the formal
-fixed-radius Supnick seam satisfies
+Prove one explicit integer cutoff `K_eff` such that the first
+strict-obstruction index of the formal fixed-radius Supnick seam satisfies
 
 ```text
-s_k = 4k+6
+s_k = 4k+6                         for every integer k>=K_eff,
 ```
 
-for every sufficiently large integer `k`, treating only `n=4k+c`,
-`c=5,6`, through the parity-explicit formulas in the existing fixed-`k`
-theorem.
+testing `K_eff=4325` with `r=13/5` for `c=5` and `r=11/5` for `c=6` and
+without using a finite scan as proof.
 
 ### Mathematical outcome
 
-**Status:** `PROVED`; task state `READY_FOR_REVIEW` after exact checks,
-independent reviews, regression tests, durable-memory synchronization, and a
-complete final-delta audit.
+**Status:** exact theorem proved; task state `READY_FOR_REVIEW` after exact
+checks, independent post-file reviews, regression tests, durable-memory
+synchronization, and complete final-delta inspection.
 
-For both `c=5,6`, including both parity subsequences, the proof establishes
-
-```text
-R_{k,4k+c}/k^2 -> rho,
-rho = (2/pi) integral_1^(5/2) sqrt(x(5-x)) dx,
-
-T_{k,4k+c}/k^2 -> 24/(2c-1).
-```
-
-The closure proof gives an explicit uniform error after separately bounding
-the radius denominators and the arcsine remainder. The threshold proof
-removes the leading cancellation with an exact coefficient-positive
-conjugate and controls its denominator and reciprocal uniformly.
-
-Signed elementary integral remainders give the exact certificate
+The quantitative closure and threshold estimates already recorded in
+`research/EVENTUAL_SUPNICK_SEAM_ONSET.md` close at
 
 ```text
-24/11 < rho < 8/3.
+K_eff = 4325.
 ```
 
-Therefore the formal deficit is positive at `n=4k+5` and negative at
-`n=4k+6` for all sufficiently large `k`. The imported fixed-`k` sign
-criterion and persistence theorem yield
+The exact rational separators are
 
 ```text
-s_k = 4k+6                         for every sufficiently large integer k.
+11/5 < 20/9 < rho < 41/16 < 13/5.
 ```
 
-No finite scan is used. The theorem has no effective cutoff and concerns one
-formal seam only; it does not prove full feasibility, determine `R*(n)`,
-classify contact graphs, or imply floating-circle behavior.
+For every integer `k>=4325`, exact denominator, arcsine-remainder, and
+symbolic-tail bounds give
+
+```text
+R_{k,4k+5} < (13/5)k^2,
+R_{k,4k+6} > (11/5)k^2.
+```
+
+Writing `X_c=k^2 kappa_{k,4k+c}=H_c/Q_c>0`, the unrelaxed threshold error
+
+```text
+|X_c-(2c-1)/24| <= 4193/(256k)
+```
+
+gives the opposite threshold brackets. The critical exact gate is
+
+```text
+256*4325-264*4193 = 248 > 0.
+```
+
+Thus the formal deficit is positive at `4k+5` and negative at `4k+6`; the
+imported fixed-`k` sign and persistence theorem proves
+
+```text
+s_k = 4k+6                         for every integer k>=4325.
+```
+
+No scan over `k` or `n` is a premise, and the cutoff is not claimed minimal.
+The theorem concerns one formal seam only; it does not prove full
+feasibility, determine `R*(n)`, classify contact graphs, or imply global
+floating-circle behavior.
 
 ### Allowed delta
 
 - `research/EVENTUAL_SUPNICK_SEAM_ONSET.md`;
-- `ops/TASK-20260830__eventual_supnick_seam_onset/*`;
+- `ops/TASK-20260830__effective_supnick_seam_cutoff/*`;
 - `PROJECT_KNOWLEDGE.md`;
 - `research/NEXT_RESEARCH_STEPS.md`;
 - this file.
 
 ### Verification completed
 
-- exact stdlib/`Fraction` checker: exit `0`; `68` explicit gates, four parity
-  classes, exact `c=5,6` threshold factorizations, and no `k,n` scan;
-- optimized/no-site checker under `python -B -O -S`: exit `0`; identical
-  `68` gates and output;
-- AST/source audit: exit `0`; zero `assert` nodes, float literals,
-  non-stdlib imports, or production imports;
-- three independent read-only reviews returned `PASS` for the chain limit,
-  threshold/rho calculation, final signs, persistence, scope, and checker;
+- exact stdlib/`Fraction` checker: exit `0`; `156` explicit gates, symbolic
+  tail variable `m>=0`, and no `k,n` scan;
+- normal and optimized/no-site mutation runs: exit `0`; identical theorem
+  output and all `15` altered constants rejected;
+- AST/source audit: exit `0`; zero `assert`, float, production import, or
+  parameter-range nodes; imports only `fractions`, `pathlib`, and `sys`;
+- optimized/no-site import audit: exit `0`; no output, error, or gate side
+  effect;
+- three independent post-file reviews returned final `PASS` after all
+  checker-coverage findings were corrected;
 - `python -B -m pytest -p no:cacheprovider`: exit `0`;
-  `12 passed in 29.79s`.
+  final post-fix run `12 passed in 27.39s`.
 
 ### Completion gates
 
-- final `git status --short --untracked-files=all` contains exactly the eight
-  authorized paths;
-- the complete tracked diff and all five untracked additions were read in
-  full after the substantive edits;
-- direct strict-UTF-8, no-BOM, LF-only, exactly-one-final-LF, and
-  trailing-whitespace checks passed for all eight paths;
-- final `git diff --check`: exit `0`, no output;
-- explicit protected-path status: exit `0`, no paths;
-- the task directory contains exactly its four intended files and no cache or
-  generated output;
-- the dossier records exact runs, reviews, the regression suite, failed
-  packaging checks and their corrections, final audit, and limitations;
-- no paper build, certificate frontier verification, or `verify.py` run is
-  relevant to this proof-note/checker delta.
+- final status contains exactly the eight authorized paths;
+- the four tracked diffs and all four untracked dossier files were inspected
+  in full after substantive edits;
+- strict UTF-8/no-BOM, LF-only, exactly-one-final-LF, no-NUL, and
+  trailing-whitespace audit passed on all eight files;
+- scoped `git diff --check`: exit `0`, no output;
+- explicit protected-path status: no changed paths; the task directory has
+  exactly four files and no generated cache;
+- the dossier records successful and failed checks without erasing the
+  checker-harness and coverage corrections;
+- certificate frontiers, `verify.py`, and paper builds are unrelated to this
+  proof-note/checker delta and were not run.
 
 ### Residual limitations
 
-- The existential cutoff is not explicit or optimized.
-- No specified open onset `s_k` with `k>=8` is classified by this proof.
-- The checker corroborates exact algebra and rational margins; it does not
-  mechanize the analytic Riemann-sum convergence or reprove the imported
-  fixed-`k` theorem.
+- `4325` is a proved valid cutoff, not a minimality claim.
+- Exact onsets in the finite range `8<=k<4325` remain unresolved except for
+  the already proved `k<=7` cases.
+- The checker corroborates exact algebra and rational inequalities; it does
+  not reprove the analytic estimates or the imported fixed-`k` theorem.
 - The theorem is post-arXiv-v1; the historical paper remains unchanged.
 - A positive formal seam deficit is not full feasibility, and a negative one
   neither constructs a replacement chain nor describes a global optimum.
 
 ## Exactly one next atomic task after acceptance
 
-Derive one explicit proved cutoff `K_eff` such that `s_k=4k+6` for every
-`k>=K_eff`, using the recorded quantitative closure and threshold errors with
-exact rational separators. The goal is a valid reproducible cutoff, not an
-optimized one; any finite scan must remain separately labeled diagnostic.
+Run the bounded two-precision radius-8 diagnostic on `33<=n<=46`, using
+independently reconstructed Supnick edges and the exact threshold formula,
+and report only a numerical onset candidate plus any rational separator of
+denominator at most `1000`; do not promote it to an exact theorem.

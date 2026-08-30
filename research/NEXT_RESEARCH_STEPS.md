@@ -15,8 +15,7 @@ The public arXiv-v1 paper already supplies:
 The first seven precise transitions, the general fixed-radius persistence
 mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The eventual proof is
-qualitative: it gives no explicit cutoff. The next work should make that
-cutoff effective from the recorded uniform errors before returning to the
+effective with the valid cutoff `K_eff=4325`. The next work may return to the
 finite exceptional onsets, without expanding the certification range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
@@ -121,14 +120,14 @@ This theorem limits the search window for each formal onset but does not
 identify the open exact onsets, prove full feasibility, or make a global or
 floating-circle claim.
 
-## Resolved Priority 1 — Eventual fixed-radius onset formula
+## Resolved Priority 1 — Effective fixed-radius onset formula
 
 **Status:** proved after arXiv v1.
 
-There exists an integer `K` such that
+For every integer `k>=4325`,
 
 ```text
-s_k = 4k+6                         for every integer k>=K.
+s_k = 4k+6.
 ```
 
 The proof in `research/EVENTUAL_SUPNICK_SEAM_ONSET.md` treats only
@@ -142,13 +141,16 @@ rho = (2/pi) integral_1^(5/2) sqrt(x(5-x)) dx.
 
 An exact conjugate calculation gives
 `T_{k,4k+c}/k^2->24/(2c-1)`, while signed integral remainders certify
-`24/11<rho<8/3`. Thus the formal seam is unobstructed at `4k+5` and
-obstructed at `4k+6` for all sufficiently large `k`; fixed-`k` persistence
-then gives the formula. No finite scan is used.
+`24/11<rho<8/3`. The effective bridge uses the stronger rational separators
+`11/5<20/9<rho<41/16<13/5`, the existing closure error, and the exact
+threshold error `4193/(256k)`. The critical cutoff margin is
+`256*4325-264*4193=248>0`. Thus the formal seam is unobstructed at `4k+5`
+and obstructed at `4k+6` throughout the stated tail; fixed-`k` persistence
+gives the formula. No finite scan is used.
 
-The theorem supplies no effective value of `K`, does not classify any named
-open onset, and makes no full-feasibility, global-optimum, contact-graph, or
-floating-circle claim.
+The cutoff is valid but not claimed minimal. The theorem does not classify
+any onset with `8<=k<4325` and makes no full-feasibility, global-optimum,
+contact-graph, or floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
 
@@ -303,20 +305,18 @@ with strict rational termwise arcsine bounds and exact comparisons with
 one formal seam and makes no claim about `R*(n)`, full feasibility, contact
 graphs, or floating circles in global optima.
 
-## Priority 1 — Effective cutoff for the eventual onset formula
+## Resolved Priority 1 — Effective cutoff for the eventual onset formula
 
-Extract one explicit, proved integer `K_eff` such that
-`s_k=4k+6` for every `k>=K_eff`. Use the quantitative closure error and
-threshold error already recorded in
-`research/EVENTUAL_SUPNICK_SEAM_ONSET.md`, together with exact rational
-separators for `rho` versus `24/11` and `8/3`. Every denominator, arcsine
-remainder, reciprocal, and strict sign must remain exact or interval-safe.
+**Status:** proved after arXiv v1.
 
-Success is one reproducible symbolic proof of a finite cutoff, not an
-optimized cutoff. A finite scan may test sharpness only as a separately
-labeled diagnostic; it cannot supply the universal tail.
+The proof in `research/EVENTUAL_SUPNICK_SEAM_ONSET.md` now supplies
+`K_eff=4325`. It uses the recorded quantitative closure and threshold errors,
+exact rational separators for `rho`, positive-denominator and arcsine gates,
+and exact reciprocal comparisons. A stdlib/`Fraction` checker audits the
+symbolic tail and altered constants without scanning `k` or `n`. No
+minimality is claimed.
 
-## Priority 2 — Radius-8 diagnostic endpoint localization
+## Priority 1 — Radius-8 diagnostic endpoint localization
 
 The next atomic task is diagnostic, not theorem-producing. For
 `R_{8,n}=R_chain(sigma*_{8,n})`, scan only `33<=n<=46` at two high
