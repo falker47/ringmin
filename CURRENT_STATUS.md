@@ -4,86 +4,88 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=2ea596414dd582b8ebf810983c96a0f4883ac4f0
-observed_on=2026-08-05
+task_base_head=a5ae1d56039ff443f2b78f6100ae3524da408d43
+observed_on=2026-08-30
 phase=post-arXiv-v1 active research
 ```
 
 ## Current task
 
 ```text
-task=TASK-20260805__radius7_seam_onset
+task=TASK-20260830__uniform_seam_index_bound
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective
 
-Prove or refute the proposed exact radius-7 formal Supnick seam onset
-`s_7=34` by importing `research/FIXED_K_SUPNICK_SEAM.md` in full and closing
-only `n=33,34` at the common rational separator `R=140`.
+Prove and integrate the exact uniform bound
+
+```text
+4k+1 <= s_k <= 4k+14              for every integer k>=1
+```
+
+for the first strict-obstruction index of the formal fixed-radius Supnick
+seam, reusing `research/FIXED_K_SUPNICK_SEAM.md`.
 
 ### Mathematical outcome
 
 **Status:** `PROVED`; task state `READY_FOR_REVIEW` after exact reruns,
-independent reviews, and complete final-diff audit.
+independent reviews, regression tests, durable-memory synchronization, and a
+complete final-delta audit.
 
-For `R_{7,n}=R_chain(sigma*_{7,n})`, where `sigma*_{7,n}` is the
-chain-minimizing Supnick cycle on `{7,...,n}`, the exact classification is
-
-```text
-theta_{R_{7,n}}(n,7) + theta_{R_{7,n}}(7,n-1)
-    > theta_{R_{7,n}}(n,n-1)       for 9 <= n <= 33,
-
-theta_{R_{7,n}}(n,7) + theta_{R_{7,n}}(7,n-1)
-    < theta_{R_{7,n}}(n,n-1)       for every n >= 34.
-```
-
-Thus the exact first strict radius-7 formal seam obstruction is `s_7=34`.
-The new endpoint arithmetic proves
+For `n_0=4k+14`, `N=3k+15`, and `S_k=k(21k+83)/22`, the new exact proof gives
 
 ```text
-R_{7,33} < 140 < T_{7,33},
-T_{7,34} < 140 < R_{7,34}.
+T_{k,n_0} < S_k < R_{k,n_0}.
 ```
 
-The threshold sides use positive sign gates and rational square margins. The
-root sides audit all `27` and `28` adjacent edges with exact rational bounds;
-the all-`n` quantifiers then follow from the already-proved fixed-`k`
-no-threshold range, sign criterion, root growth, and threshold decrease.
+The chain side follows from the imported lower bound
+`R_{k,n_0}>=k(csc(pi/N)-1)`, strict `sin(x)<x`, and the exact integral witness
+`pi<22/7`. The threshold side proves the rational part positive before
+squaring and reduces `A_k^2-4Q_k` to a rational function whose numerator and
+remaining denominator polynomial have strictly positive coefficients.
+Therefore `kappa_{k,n_0}>1/S_k>0`, so `T_{k,n_0}<S_k`, and the imported sign
+criterion yields `Delta_{k,4k+14}<0`.
+
+The imported no-threshold range already gives `Delta_{k,n}>0` for
+`k+2<=n<=4k`. Hence
+
+```text
+4k+1 <= s_k <= 4k+14
+```
+
+for every integer `k>=1`. No finite scan is used as proof.
 
 This theorem concerns one formal Supnick seam only. It does not prove full
 fixed-order feasibility, determine `R*(n)`, classify a global contact graph,
-or establish that circle `7` floats in any or every global optimum.
+establish that any circle floats in a global optimum, or make a global
+asymptotic claim.
 
 ### Allowed delta
 
-- `research/RADIUS7_SEAM_ONSET.md`;
-- `ops/TASK-20260805__radius7_seam_onset/*`;
+- `research/UNIFORM_SUPNICK_SEAM_INDEX_BOUND.md`;
+- `ops/TASK-20260830__uniform_seam_index_bound/*`;
 - `PROJECT_KNOWLEDGE.md`;
 - `research/NEXT_RESEARCH_STEPS.md`;
 - this file.
 
 ### Verification completed
 
-- exact stdlib/`Fraction` checker through `n=250`: exit `0`; `180182`
-  explicit gates passed with numerical diagnostics skipped;
-- optimized/no-site exact checker through `n=250`: exit `0`; identical gates
-  and output under `python -B -O -S`;
-- opt-in `NUMERICAL_DIAGNOSTIC_ONLY` scan for `n=9..120` at 60/100 digits:
-  exit `0`; maximum relative root delta `4.9137935e-46`, maximum absolute
-  deficit delta `5.013963e-47`;
-- task-local/production convention comparison for `n=9..250`: exit `0`;
-  `484` comparisons passed while the checker retained zero production imports;
-- AST audit: exit `0`; zero `assert` nodes, float literals, `ringmin` imports,
-  and top-level `mpmath` imports; exactly one lazy `mpmath` import;
-- in-memory corrupted-upper-margin and zero-lower-bound mutations were
-  rejected at the intended exact gates;
-- `python -B -m pytest -p no:cacheprovider`: exit `0`; `12 passed in 33.90s`;
-- two independent proof-note/checker reviews recomputed all `55` table rows,
-  threshold margins, rational totals, `pi` identities, root directions,
-  quantifiers, checker modes, CLI gates, and representative corruptions and
-  found no mathematical or engineering defect.
+- post-fix exact stdlib/`Fraction` checker: exit `0`; `53` explicit symbolic
+  gates, with `parameter_scans=NONE`;
+- optimized/no-site checker under `python -B -O -S`: exit `0`; identical
+  `53` gates and output;
+- AST/source/import audit: exit `0`; zero `assert` nodes, float literals,
+  third-party or production imports, parameter loops, and import effects;
+- independent integer convolution reproduced `P^2`, the quadratic
+  subtrahend, `F`, and the positive denominator polynomial `H`;
+- an optimized in-memory mutation of an `F` coefficient was rejected at the
+  intended exact gate;
+- independent mathematical and engineering reviews returned `PASS` after a
+  first-review checker coverage defect was corrected and rerun;
+- `python -B -m pytest -p no:cacheprovider`: exit `0`;
+  `12 passed in 32.69s`.
 
 ### Completion gates
 
@@ -97,25 +99,25 @@ or establish that circle `7` floats in any or every global optimum.
 - explicit protected-path status: exit `0`, no paths;
 - the task directory contains exactly its four intended files and no cache or
   generated output;
-- the dossier records commands, diagnostics, negative evidence, reviews,
-  limitations, and manual handoff.
+- the dossier records the initial checker-coverage defect, exact reruns,
+  reviews, tests, final audit, limitations, and manual handoff;
+- no paper build, certificate frontier verification, or `verify.py` run is
+  relevant to this proof-note/checker delta.
 
 ### Residual limitations
 
-- This theorem is post-arXiv-v1 work; the historical paper remains unchanged.
-- A positive radius-7 formal seam deficit is not a proof of full feasibility.
-- A negative deficit neither constructs a replacement chain nor says what
-  happens in global optima.
-- Every floating-point scan in this task is labeled diagnostic only; the proof
-  is the fixed-`k` theorem plus the exact endpoint note.
-- Hosted CI, certificate frontiers, `verify.py`, and paper builds are unrelated
-  to this proof-note/checker delta and were not run.
+- The theorem is post-arXiv-v1 work; the historical paper remains unchanged.
+- The checker corroborates the new symbolic algebra but intentionally imports
+  the existing fixed-`k` theorem as a proved source rather than reproving it.
+- The interval bounds do not identify any exact onset still open for `k>=8`.
+- A positive formal seam deficit is not full feasibility; a negative one does
+  not construct a replacement chain or describe any global optimum.
 
 ## Exactly one next atomic task after acceptance
 
 Run a bounded two-precision diagnostic localization for the radius-8 formal
-seam on `33<=n<=140`, stopping at the first stable root/threshold sign change
-or the end of the range, and search for a common rational endpoint separator
-with denominator at most `1000`. This next task may nominate a candidate
-`s_8`; it must not claim an exact theorem or anything about full feasibility,
-`R*(n)`, contact graphs, or floating circles.
+seam on the exact residual window `33<=n<=46`, stopping at the first stable
+root/threshold sign change and searching for a common rational endpoint
+separator with denominator at most `1000`. This future task must remain
+numerical diagnostic and make no exact-onset, full-feasibility, `R*(n)`,
+contact-graph, floating-circle, or global-asymptotic claim.

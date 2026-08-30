@@ -116,6 +116,42 @@ global optima.
 convention, and finite high-precision checks are recorded in
 `ops/TASK-20260804__fixed_k_supnick_seam/`.
 
+### Uniform exact window for the first seam obstruction
+
+**Status:** exact theorem, proved after arXiv v1.
+
+For every integer `k>=1`, the first strict-obstruction index of the formal
+Supnick seam satisfies
+
+```text
+4k+1 <= s_k <= 4k+14.
+```
+
+The lower bound is exactly the no-threshold range from the general fixed-`k`
+theorem. For the upper bound, at the single symbolic index `n=4k+14`, put
+
+```text
+N = 3k+15,
+S_k = k(21k+83)/22.
+```
+
+The fixed-`k` chain lower bound, strict `sin(x)<x`, and the exact integral
+witness `pi<22/7` give `R_{k,4k+14}>S_k`. An explicit positive gate before
+squaring and a quadratic difference whose numerator and denominator have
+positive coefficient certificates give
+`kappa_{k,4k+14}>1/S_k>0`, hence `T_{k,4k+14}<S_k`. The fixed-`k` sign
+criterion then gives `Delta_{k,4k+14}<0`.
+
+No finite scan enters the proof. The theorem bounds, but does not identify,
+the exact onsets still open for `k>=8`; in particular it confines `s_8` to
+`33<=s_8<=46`. It concerns only the formal seam `(n,k,n-1)` and has no
+full-feasibility, global-optimum, contact-graph, floating-circle, or global
+asymptotic consequence.
+
+**Source:** `research/UNIFORM_SUPNICK_SEAM_INDEX_BOUND.md`; exact symbolic
+stdlib/`Fraction` audit and task evidence are recorded in
+`ops/TASK-20260830__uniform_seam_index_bound/`.
+
 ### Exact all-`n` radius-1 seam threshold
 
 **Status:** exact theorem, proved after arXiv v1.
@@ -420,9 +456,10 @@ Reported patterns include:
 For every fixed integer radius `k>=1`, the general theorem above now proves
 that the formal Supnick necklace on `{k,...,n}` eventually becomes
 unrealizable across the seam `(n,k,n-1)` and remains obstructed thereafter.
-It does not by itself identify any exact onset. Specialized endpoint notes
-now prove `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`, `s_6=30`, and
-`s_7=34`; exact onsets for `k>=8` remain open.
+The uniform theorem further proves `4k+1<=s_k<=4k+14`, but does not identify
+any new exact onset. Specialized endpoint notes prove `s_1=8`, `s_2=13`,
+`s_3=17`, `s_4=21`, `s_5=25`, `s_6=30`, and `s_7=34`; exact onsets for
+`k>=8` remain open.
 
 The stronger claim that circle `k` eventually floats in global optima, with
 recurring paid-then-free regimes, remains conjectural.
@@ -456,9 +493,9 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 ## Primary open problems
 
 1. Determine exact seam onsets `s_k` for `k>=8`, beginning with a bounded
-   diagnostic localization for `s_8` before posing a separate exact endpoint
-   proof; the general existence and persistence theorem must not be mistaken
-   for an exact onset classification.
+   diagnostic localization for `s_8` on the exact residual window `33..46`
+   before posing a separate exact endpoint proof; the uniform window must not
+   be mistaken for an exact onset classification.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
@@ -490,5 +527,8 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - The general fixed-`k` seam theorem does not identify `s_k` for `k>=8`,
   prove full realizability before `s_k`, or imply that radius `k` floats in
   any or every global optimum.
+- The uniform bound `4k+1<=s_k<=4k+14` does not identify any new exact onset,
+  prove full realizability below it, determine `R*(n)`, classify a contact
+  graph, or imply that radius `k` floats in any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
 - Generated README/report/table agreement does not replace source and verifier agreement.

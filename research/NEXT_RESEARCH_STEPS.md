@@ -12,11 +12,12 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first seven precise transitions and the general fixed-radius persistence
-mechanism have now been converted into exact theorems. The next work should
-localize the radius-8 endpoint candidate in a bounded diagnostic task before
-posing a separate exact proof, without guessing a general onset formula or
-expanding the certification range.
+The first seven precise transitions, the general fixed-radius persistence
+mechanism, and the uniform window `4k+1<=s_k<=4k+14` have now been converted
+into exact theorems. The next work should localize the radius-8 endpoint
+candidate inside the resulting finite window in a bounded diagnostic task
+before posing a separate exact proof, without guessing a general onset
+formula or expanding the certification range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -96,6 +97,29 @@ and makes no global-optimum or floating-circle claim.
 The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact
 `k=1,2,3,4,5,6,7` onsets follow by combining it with the endpoint bridges in
 the seven specialized proof notes.
+
+## Resolved Priority 1 — Uniform fixed-radius onset window
+
+**Status:** proved after arXiv v1.
+
+For the first strict-obstruction index of the formal fixed-radius Supnick
+seam, the exact uniform bound is
+
+```text
+4k+1 <= s_k <= 4k+14              for every integer k>=1.
+```
+
+The lower bound is the general theorem's no-threshold range. For the upper
+bound, the proof in `research/UNIFORM_SUPNICK_SEAM_INDEX_BOUND.md` uses only
+the symbolic index `n=4k+14` and separator `S_k=k(21k+83)/22`: a strict chain
+lower bound gives `R_{k,n}>S_k`, while a positive pre-square gate and an exact
+coefficient-positive quadratic difference give `T_{k,n}<S_k`. The general
+fixed-`k` sign criterion then supplies the strict obstruction. No finite scan
+is used.
+
+This theorem limits the search window for each formal onset but does not
+identify the open exact onsets, prove full feasibility, or make a global or
+floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
 
@@ -253,13 +277,14 @@ graphs, or floating circles in global optima.
 ## Priority 1 — Radius-8 diagnostic endpoint localization
 
 The next atomic task is diagnostic, not theorem-producing. For
-`R_{8,n}=R_chain(sigma*_{8,n})`, scan only `33<=n<=140` at two high
+`R_{8,n}=R_chain(sigma*_{8,n})`, scan only `33<=n<=46` at two high
 precisions, using the fixed-`k` theorem's exact threshold formula and
 independently reconstructed Supnick edges. Stop at the first precision-stable
-change from `R_{8,n}<T_{8,n}` to `R_{8,n}>T_{8,n}`, or report that no crossing
-occurs in the bounded range. Search for one rational separator of the two
-adjacent endpoint pairs with denominator at most `1000`, or report that none
-exists under that bound.
+change from `R_{8,n}<T_{8,n}` to `R_{8,n}>T_{8,n}`. If no stable crossing is
+seen through `n=46`, report an inconsistency with the exact uniform theorem
+rather than extending the range. Search for one rational separator of the
+two adjacent endpoint pairs with denominator at most `1000`, or report that
+none exists under that bound.
 
 The output may nominate a candidate `s_8` and separator for a later exact
 task, but must remain labeled numerical diagnostic. It must not update the
