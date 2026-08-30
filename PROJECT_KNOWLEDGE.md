@@ -105,12 +105,13 @@ thereafter, and equality can occur for at most one integer. Equivalently,
 the first strict-obstruction index `s_k` exists; all earlier deficits are
 positive except for a possible equality at `s_k-1`.
 
-This theorem does not give a formula for `s_k`. Specialized exact endpoint
-bridges now recover `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`,
-`s_6=30`, and `s_7=34`; exact onsets for `k>=8` remain open. The theorem
-concerns only the formal
-seam `(n,k,n-1)` and has no implication for `R*(n)` or floating circles in
-global optima.
+This theorem by itself does not give a formula for `s_k`. Specialized exact
+endpoint bridges recover `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`,
+`s_6=30`, and `s_7=34`. The later asymptotic theorem below proves
+`s_k=4k+6` for every sufficiently large `k`, but supplies no effective
+cutoff and therefore does not classify any specified open onset `k>=8`.
+The fixed-`k` theorem concerns only the formal seam `(n,k,n-1)` and has no
+implication for `R*(n)` or floating circles in global optima.
 
 **Source:** `research/FIXED_K_SUPNICK_SEAM.md`; diagnostic algebra,
 convention, and finite high-precision checks are recorded in
@@ -151,6 +152,45 @@ asymptotic consequence.
 **Source:** `research/UNIFORM_SUPNICK_SEAM_INDEX_BOUND.md`; exact symbolic
 stdlib/`Fraction` audit and task evidence are recorded in
 `ops/TASK-20260830__uniform_seam_index_bound/`.
+
+### Eventual exact formula for the first seam obstruction
+
+**Status:** exact theorem, proved after arXiv v1.
+
+There exists an integer `K` such that for every integer `k>=K`, the first
+strict-obstruction index of the formal fixed-radius Supnick seam is
+
+```text
+s_k = 4k+6.
+```
+
+For each `c in {5,6}`, the parity-explicit Supnick closure sums, including
+both parity subsequences, satisfy
+
+```text
+R_{k,4k+c}/k^2 -> rho,
+rho = (2/pi) integral_1^(5/2) sqrt(x(5-x)) dx.
+```
+
+Uniform estimates separately control the radius denominators and the
+arcsine remainder. Exact rationalization of the Descartes threshold gives
+
+```text
+T_{k,4k+c}/k^2 -> 24/(2c-1).
+```
+
+An exact elementary certificate proves `24/11<rho<8/3`. Hence the formal
+deficit is positive at `n=4k+5` and negative at `n=4k+6` for all sufficiently
+large `k`; the fixed-`k` sign criterion and persistence theorem give the
+identity.
+
+No finite scan is a premise. The theorem does not provide an effective value
+of `K`, classify any named open onset such as `s_8`, prove full feasibility,
+or imply anything about `R*(n)`, contact graphs, or floating circles.
+
+**Source:** `research/EVENTUAL_SUPNICK_SEAM_ONSET.md`; exact symbolic
+stdlib/`Fraction` audit and task evidence are recorded in
+`ops/TASK-20260830__eventual_supnick_seam_onset/`.
 
 ### Exact all-`n` radius-1 seam threshold
 
@@ -456,10 +496,11 @@ Reported patterns include:
 For every fixed integer radius `k>=1`, the general theorem above now proves
 that the formal Supnick necklace on `{k,...,n}` eventually becomes
 unrealizable across the seam `(n,k,n-1)` and remains obstructed thereafter.
-The uniform theorem further proves `4k+1<=s_k<=4k+14`, but does not identify
-any new exact onset. Specialized endpoint notes prove `s_1=8`, `s_2=13`,
-`s_3=17`, `s_4=21`, `s_5=25`, `s_6=30`, and `s_7=34`; exact onsets for
-`k>=8` remain open.
+The uniform theorem proves `4k+1<=s_k<=4k+14`, and the later asymptotic
+theorem proves the exact eventual formula `s_k=4k+6`. Its cutoff is not
+effective. Specialized endpoint notes prove `s_1=8`, `s_2=13`, `s_3=17`,
+`s_4=21`, `s_5=25`, `s_6=30`, and `s_7=34`; exact classifications for any
+specified radii `k>=8` remain open.
 
 The stronger claim that circle `k` eventually floats in global optima, with
 recurring paid-then-free regimes, remains conjectural.
@@ -467,10 +508,11 @@ recurring paid-then-free regimes, remains conjectural.
 The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with
 finite published scope. The post-v1 theorems above prove the exact all-`n`
 onsets `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`, `s_6=30`, and
-`s_7=34`, together with eventual persistent seam failure for every fixed
-radius. Exact onset
-classifications for radii `8,9,...` remain unresolved. Every assertion about
-eventual floating in global optima also remains conjectural.
+`s_7=34`, eventual persistent seam failure for every fixed radius, and
+`s_k=4k+6` for every sufficiently large radius index. Because no effective
+cutoff is known, exact onset classifications for any specified radii
+`8,9,...` remain unresolved. Every assertion about eventual floating in
+global optima also remains conjectural.
 
 ### Asymptotics
 
@@ -492,10 +534,11 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Determine exact seam onsets `s_k` for `k>=8`, beginning with a bounded
-   diagnostic localization for `s_8` on the exact residual window `33..46`
-   before posing a separate exact endpoint proof; the uniform window must not
-   be mistaken for an exact onset classification.
+1. Make the eventual identity `s_k=4k+6` effective by deriving one explicit
+   proved cutoff from the quantitative chain and threshold errors; then
+   classify the finite exceptional range, beginning with a bounded diagnostic
+   localization for `s_8` on `33..46`. Neither the qualitative asymptotic
+   theorem nor a diagnostic scan identifies a named exact onset.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
@@ -530,5 +573,9 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - The uniform bound `4k+1<=s_k<=4k+14` does not identify any new exact onset,
   prove full realizability below it, determine `R*(n)`, classify a contact
   graph, or imply that radius `k` floats in any or every global optimum.
+- The eventual identity `s_k=4k+6` has no effective cutoff in the current
+  proof, does not classify any specified open `s_k`, prove full realizability
+  below the seam, determine `R*(n)`, classify a contact graph, or imply that
+  radius `k` floats in any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
 - Generated README/report/table agreement does not replace source and verifier agreement.

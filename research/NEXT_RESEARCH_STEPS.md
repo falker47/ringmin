@@ -13,11 +13,11 @@ The public arXiv-v1 paper already supplies:
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
 The first seven precise transitions, the general fixed-radius persistence
-mechanism, and the uniform window `4k+1<=s_k<=4k+14` have now been converted
-into exact theorems. The next work should localize the radius-8 endpoint
-candidate inside the resulting finite window in a bounded diagnostic task
-before posing a separate exact proof, without guessing a general onset
-formula or expanding the certification range.
+mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
+`s_k=4k+6` have now been converted into exact theorems. The eventual proof is
+qualitative: it gives no explicit cutoff. The next work should make that
+cutoff effective from the recorded uniform errors before returning to the
+finite exceptional onsets, without expanding the certification range.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -119,6 +119,35 @@ is used.
 
 This theorem limits the search window for each formal onset but does not
 identify the open exact onsets, prove full feasibility, or make a global or
+floating-circle claim.
+
+## Resolved Priority 1 — Eventual fixed-radius onset formula
+
+**Status:** proved after arXiv v1.
+
+There exists an integer `K` such that
+
+```text
+s_k = 4k+6                         for every integer k>=K.
+```
+
+The proof in `research/EVENTUAL_SUPNICK_SEAM_ONSET.md` treats only
+`n=4k+c`, `c=5,6`. Both parity-explicit Supnick sums converge uniformly after
+the `k^2` scaling:
+
+```text
+R_{k,4k+c}/k^2 -> rho,
+rho = (2/pi) integral_1^(5/2) sqrt(x(5-x)) dx.
+```
+
+An exact conjugate calculation gives
+`T_{k,4k+c}/k^2->24/(2c-1)`, while signed integral remainders certify
+`24/11<rho<8/3`. Thus the formal seam is unobstructed at `4k+5` and
+obstructed at `4k+6` for all sufficiently large `k`; fixed-`k` persistence
+then gives the formula. No finite scan is used.
+
+The theorem supplies no effective value of `K`, does not classify any named
+open onset, and makes no full-feasibility, global-optimum, contact-graph, or
 floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
@@ -274,7 +303,20 @@ with strict rational termwise arcsine bounds and exact comparisons with
 one formal seam and makes no claim about `R*(n)`, full feasibility, contact
 graphs, or floating circles in global optima.
 
-## Priority 1 — Radius-8 diagnostic endpoint localization
+## Priority 1 — Effective cutoff for the eventual onset formula
+
+Extract one explicit, proved integer `K_eff` such that
+`s_k=4k+6` for every `k>=K_eff`. Use the quantitative closure error and
+threshold error already recorded in
+`research/EVENTUAL_SUPNICK_SEAM_ONSET.md`, together with exact rational
+separators for `rho` versus `24/11` and `8/3`. Every denominator, arcsine
+remainder, reciprocal, and strict sign must remain exact or interval-safe.
+
+Success is one reproducible symbolic proof of a finite cutoff, not an
+optimized cutoff. A finite scan may test sharpness only as a separately
+labeled diagnostic; it cannot supply the universal tail.
+
+## Priority 2 — Radius-8 diagnostic endpoint localization
 
 The next atomic task is diagnostic, not theorem-producing. For
 `R_{8,n}=R_chain(sigma*_{8,n})`, scan only `33<=n<=46` at two high
@@ -291,7 +333,7 @@ task, but must remain labeled numerical diagnostic. It must not update the
 exact knowledge ledger, infer a general formula from `s_1,...,s_7`, or make
 any full-feasibility, global-optimum, contact-graph, or floating-circle claim.
 
-## Deferred priority 2 — Rigorous leading asymptotics
+## Deferred priority 3 — Rigorous leading asymptotics
 
 Prove unconditional two-sided bounds sufficient to establish or refute
 
@@ -301,7 +343,7 @@ R*(n) = n^2/8 * (1 + o(1)).
 
 This requires controlling the full geometric problem, not only the chain sum, and must not assume the floating set is `o(n)` unless separately proved.
 
-## Deferred priority 3 — Certification architecture beyond `n=14`
+## Deferred priority 4 — Certification architecture beyond `n=14`
 
 Only after a precise mathematical discriminator or stronger lower bound is available, investigate whether certification for `n=15` is computationally credible. A task must estimate canonical search size, pruning strength, verifier artifact size, runtime, storage, and failure modes before starting a long run.
 
