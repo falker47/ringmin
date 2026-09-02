@@ -545,11 +545,10 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Make the eventual identity `s_k=4k+6` effective by deriving one explicit
-   proved cutoff from the quantitative chain and threshold errors; then
-   classify the finite exceptional range, beginning with a bounded diagnostic
-   localization for `s_8` on `33..46`. Neither the qualitative asymptotic
-   theorem nor a diagnostic scan identifies a named exact onset.
+1. Classify the unresolved finite range `8<=k<4325`, beginning with a bounded
+   diagnostic localization for `s_8` on `33..46`. The proved cutoff `4325` is
+   valid but not claimed minimal, and a diagnostic scan cannot by itself
+   establish a named exact onset.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.

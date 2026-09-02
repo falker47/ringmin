@@ -114,3 +114,81 @@ frontiers, `verify.py`, and paper builds are unrelated and were not run. The
 theorem intentionally does not claim that `4325` is minimal, classify the
 finite unresolved range `8<=k<4325`, prove full feasibility, determine
 `R*(n)`, or establish global floating-circle behavior.
+
+## Post-review correction evidence — 2026-09-02
+
+### External decision and bounded correction
+
+The external review of commit
+`1db59857413b66b36b14e03af9281a956951fd40` accepted the mathematical theorem
+and checker but returned overall `REJECT`: the primary-open-problems section
+of `PROJECT_KNOWLEDGE.md` still asked to make the already effective theorem
+effective. The same review classified the duplicate resolved roadmap section
+as nonblocking editorial redundancy.
+
+The correction changes only durable documentation and this dossier:
+
+- the open problem now concerns exactly the unresolved finite range
+  `8<=k<4325`, beginning with a future diagnostic for `s_8`;
+- the roadmap's two substantially duplicate resolved effective-onset sections
+  are consolidated into one without changing its sole active priority;
+- `CURRENT_STATUS.md` was checked and required no change;
+- `K_eff=4325`, the proof algebra, checker, production code, tests,
+  certificates, verifier, paper, and publication assets are unchanged.
+
+### Authoritative-source coherence
+
+A repository-wide Markdown/TeX search for `make the eventual identity`,
+`no effective cutoff`, `no explicit cutoff`, related non-effectivity wording,
+and `sufficiently large` found no stale current-state claim after the edit.
+The sole direct `no explicit cutoff` occurrence is retained in the evidence
+of `TASK-20260830__eventual_supnick_seam_onset`, where it accurately records
+the limitation of that earlier qualitative task. Other `sufficiently large`
+occurrences are historical task objectives or intermediate statements in the
+proof chain and are followed by the effective bridge.
+
+The corrected semantic audit returned `PASS` for all of the following:
+
+- explicit proved tail `s_k=4k+6` for every integer `k>=4325`;
+- valid but not claimed minimal cutoff in knowledge, status, roadmap, and
+  dossier;
+- unresolved range exactly `8<=k<4325`;
+- radius-8 work labeled as a future diagnostic only;
+- one consolidated effective-onset roadmap section and one active priority;
+- absence of the rejected current open-problem wording.
+
+An independent read-only documentary audit reached the same conclusion. Its
+classification of historical matches agrees with the semantic audit and it
+found no remaining authoritative contradiction.
+
+### Commands and results
+
+| Command/check | Exit/result | Interpretation |
+|---|---|---|
+| repository-wide `rg` stale-wording audit over `*.md` and `*.tex` | exit `0`; only the historical predecessor dossier contains direct `no explicit cutoff` wording | no stale current authoritative claim |
+| UTF-8 semantic coherence audit | exit `0`; every predicate `PASS`, `stale_current_cutoff_claims=NONE`, `radius8_diagnostic_started=NO` | knowledge, status, roadmap, proof note, and dossier agree |
+| independent read-only documentary audit | `PASS`; no files changed | corroborates the classification of current versus historical statements |
+| `python -B -m pytest -p no:cacheprovider` | exit `0`; `12 passed in 27.96s` | repository regression suite; does not re-prove the theorem |
+| scoped `git diff --check HEAD` | exit `0`; no whitespace output | final tracked documentation delta is whitespace-clean |
+| protected-path diff audit | exit `0`; no path output | proof, checker, code, tests, certificates, verifier, paper, and publication assets are unchanged |
+| five-file UTF-8/text audit | exit `0`; no BOM, NUL, CRLF, trailing whitespace, or missing final LF | documentary file integrity |
+| complete `git diff HEAD` inspection | exactly five intended modified files | scope containment and final handoff review |
+
+Two early coherence-audit implementations reported false negatives: Windows
+PowerShell's default decoding obscured UTF-8 em-dash headings, and an
+exact-string predicate crossed a Markdown line break. Explicit UTF-8 decoding
+and semantic predicates corrected the audit; these were audit-script defects,
+not repository defects. A sandbox ownership rejection of an initial read-only
+Git batch was likewise resolved with a per-invocation `safe.directory` option;
+no Git configuration or history was changed.
+
+### Post-review claim classification and limits
+
+- theorem status: unchanged exact theorem for the formal Supnick seam;
+- documentation status: authoritative current sources synchronized;
+- engineering status: regression suite passed; no implementation changed;
+- certification status: no optimum, artifact, frontier, or verifier change;
+- publication status: arXiv v1 and all publication assets unchanged;
+- unresolved mathematics: cutoff minimality and all exact onsets in
+  `8<=k<4325` remain open;
+- excluded action: no `s_8` diagnostic was started.

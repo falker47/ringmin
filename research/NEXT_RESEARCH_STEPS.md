@@ -120,7 +120,7 @@ This theorem limits the search window for each formal onset but does not
 identify the open exact onsets, prove full feasibility, or make a global or
 floating-circle claim.
 
-## Resolved Priority 1 — Effective fixed-radius onset formula
+## Resolved Priority 1 — Effective fixed-radius onset formula and cutoff
 
 **Status:** proved after arXiv v1.
 
@@ -304,17 +304,6 @@ with strict rational termwise arcsine bounds and exact comparisons with
 `pi`. Finite high-precision roots are diagnostic only. The result concerns
 one formal seam and makes no claim about `R*(n)`, full feasibility, contact
 graphs, or floating circles in global optima.
-
-## Resolved Priority 1 — Effective cutoff for the eventual onset formula
-
-**Status:** proved after arXiv v1.
-
-The proof in `research/EVENTUAL_SUPNICK_SEAM_ONSET.md` now supplies
-`K_eff=4325`. It uses the recorded quantitative closure and threshold errors,
-exact rational separators for `rho`, positive-denominator and arcsine gates,
-and exact reciprocal comparisons. A stdlib/`Fraction` checker audits the
-symbolic tail and altered constants without scanning `k` or `n`. No
-minimality is claimed.
 
 ## Priority 1 — Radius-8 diagnostic endpoint localization
 

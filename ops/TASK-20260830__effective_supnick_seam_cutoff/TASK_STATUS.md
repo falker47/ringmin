@@ -5,7 +5,7 @@ task=TASK-20260830__effective_supnick_seam_cutoff
 mode=STRICT
 state=READY_FOR_REVIEW
 started_at=2026-08-30
-updated_at=2026-08-30
+updated_at=2026-09-02
 ```
 
 ## Objective
@@ -84,19 +84,38 @@ persistence theorem gives the claimed onset?
 - [x] `git status --short` and complete diff are inspected;
 - [x] tracked and untracked whitespace checks pass;
 - [x] protected paths remain unchanged;
+- [x] the external-review documentation rejection is corrected;
+- [x] the authoritative-source coherence audit passes;
+- [x] the duplicate resolved roadmap section is consolidated without changing
+  the active priority;
+- [x] the post-review regression suite passes;
 - [x] state is set to `READY_FOR_REVIEW`.
 
 ## Blockers
 
 None.
 
+## External review correction
+
+The independent review of commit
+`1db59857413b66b36b14e03af9281a956951fd40` accepted the mathematics and
+checker but returned `REJECT` because `PROJECT_KNOWLEDGE.md` still listed
+effectivizing the eventual identity as a primary open problem. That stale
+claim is removed: the open seam-onset work now concerns only the unresolved
+finite range `8<=k<4325`, beginning with a future diagnostic for `s_8`.
+
+The two substantially duplicate resolved roadmap sections were consolidated
+into one. `CURRENT_STATUS.md` was checked and required no change. The proof
+note, checker, `K_eff=4325`, solver, tests, certificates, verifier, paper, and
+publication assets remain untouched.
+
 ## Handoff
 
 `K_eff=4325` is proved valid for the formal seam, with `156` exact checker
 gates, `15` rejected constant mutations, three independent final reviews,
-and `12` passing regression tests. The cutoff is not claimed minimal and no
-full-feasibility, `R*(n)`, contact-graph, or global-floating conclusion is
-made.
+and `12` passing regression tests. The cutoff is not claimed minimal; exact
+onsets in `8<=k<4325` remain open, and no full-feasibility, `R*(n)`,
+contact-graph, or global-floating conclusion is made.
 
 Exactly one next atomic task after acceptance: run the bounded two-precision
 radius-8 diagnostic on `33<=n<=46`, reporting only a numerical onset
