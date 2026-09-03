@@ -4,134 +4,88 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=3ad9835631b2a4d434972eedfe10cd8924a05d39
-observed_on=2026-08-30
+task_base_head=3eb1ec321e2f5a334826ee70c2258f82b9703f66
+observed_on=2026-09-02
 phase=post-arXiv-v1 active research
 ```
 
 ## Current task
 
 ```text
-task=TASK-20260830__effective_supnick_seam_cutoff
+task=TASK-20260902__radius8_seam_diagnostic
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
-### Objective
+### Objective and diagnostic outcome
 
-Prove one explicit integer cutoff `K_eff` such that the first
-strict-obstruction index of the formal fixed-radius Supnick seam satisfies
+Complete the bounded two-precision diagnostic for the formal radius-8
+Supnick seam at every integer `33<=n<=46`.
 
-```text
-s_k = 4k+6                         for every integer k>=K_eff,
-```
+**Classification: NUMERICAL DIAGNOSTIC / numerical observation.**
 
-testing `K_eff=4325` with `r=13/5` for `c=5` and `r=11/5` for `c=6` and
-without using a finite scan as proof.
+Independent rank-tour and parity-formula edge reconstructions agree for all
+14 inputs. Separate calculations at 90 and 150 decimal digits find
+`R_{8,n}-T_{8,n}<0` for `33..37` and `>0` for `38..46`. The first
+stable crossing in the prescribed range is therefore `37/38`, nominating
+`38` as a numerical candidate for `s_8`.
 
-### Mathematical outcome
-
-**Status:** exact theorem proved; task state `READY_FOR_REVIEW` after exact
-checks, independent post-file reviews, regression tests, durable-memory
-synchronization, and complete final-delta inspection.
-
-The quantitative closure and threshold estimates already recorded in
-`research/EVENTUAL_SUPNICK_SEAM_ONSET.md` close at
+The selected rational separator is `176=176/1`. Numerically,
 
 ```text
-K_eff = 4325.
+R_{8,37} = 175.77577369548936913057 < 176
+         < T_{8,37} = 184.04862734243861147206,
+
+T_{8,38} = 152.91545396828178471093 < 176
+         < R_{8,38} = 185.96986168932715306600.
 ```
 
-The exact rational separators are
-
-```text
-11/5 < 20/9 < rho < 41/16 < 13/5.
-```
-
-For every integer `k>=4325`, exact denominator, arcsine-remainder, and
-symbolic-tail bounds give
-
-```text
-R_{k,4k+5} < (13/5)k^2,
-R_{k,4k+6} > (11/5)k^2.
-```
-
-Writing `X_c=k^2 kappa_{k,4k+c}=H_c/Q_c>0`, the unrelaxed threshold error
-
-```text
-|X_c-(2c-1)/24| <= 4193/(256k)
-```
-
-gives the opposite threshold brackets. The critical exact gate is
-
-```text
-256*4325-264*4193 = 248 > 0.
-```
-
-Thus the formal deficit is positive at `4k+5` and negative at `4k+6`; the
-imported fixed-`k` sign and persistence theorem proves
-
-```text
-s_k = 4k+6                         for every integer k>=4325.
-```
-
-No scan over `k` or `n` is a premise, and the cutoff is not claimed minimal.
-The theorem concerns one formal seam only; it does not prove full
-feasibility, determine `R*(n)`, classify contact graphs, or imply global
-floating-circle behavior.
+The smallest numerical separator margin is approximately
+`0.22422630451063086943`; the diagnostic guard is `1e-55`.
+No exact endpoint inequality or exact value of `s_8` is established here.
 
 ### Allowed delta
 
-- `research/EVENTUAL_SUPNICK_SEAM_ONSET.md`;
-- `ops/TASK-20260830__effective_supnick_seam_cutoff/*`;
-- `PROJECT_KNOWLEDGE.md`;
-- `research/NEXT_RESEARCH_STEPS.md`;
-- this file.
+- `ops/TASK-20260902__radius8_seam_diagnostic/`: three dossier documents,
+  standalone `diagnose.py`, and `diagnostic.json`.
+- The radius-8 entry in `research/NEXT_RESEARCH_STEPS.md`.
+- This file.
 
-### Verification completed
+### Verification gates
 
-- exact stdlib/`Fraction` checker: exit `0`; `156` explicit gates, symbolic
-  tail variable `m>=0`, and no `k,n` scan;
-- normal and optimized/no-site mutation runs: exit `0`; identical theorem
-  output and all `15` altered constants rejected;
-- AST/source audit: exit `0`; zero `assert`, float, production import, or
-  parameter-range nodes; imports only `fractions`, `pathlib`, and `sys`;
-- optimized/no-site import audit: exit `0`; no output, error, or gate side
-  effect;
-- three independent post-file reviews returned final `PASS` after all
-  checker-coverage findings were corrected;
-- `python -B -m pytest -p no:cacheprovider`: exit `0`;
-  final post-fix run `12 passed in 27.39s`.
+- 14 complete edge sets, 26 through 39 distinct edges, including cyclic
+  closure, both seam edges, degree two, all rotations and reflections.
+- 28 fresh root/threshold calculations: rank/asin/bisection/direct
+  Descartes at 90 digits; parity/atan/Ridder/rationalized Descartes at 150.
+- Positive thresholds, physical Descartes residuals, root residuals and
+  local numerical brackets all pass; numerical sign and monotonicity checks
+  pass throughout the fixed range.
+- Largest difference between serialized run values is approximately
+  `4.021905e-76`, below the `1e-55` guard.
+- Normal generation and optimized recomputation both exit `0`;
+  recomputation reports `reproduction=BYTE_IDENTICAL`.
+- Separate Decimal/source audit exits `0`: all 14 rows checked, two
+  out-of-range inputs and three malformed edge/tour cases rejected.
+- Complete tracked/untracked delta inspected; the seven-file format/scope
+  audit exits `0`, with five dossier files, no cache and zero protected
+  changes. `git diff --check` exits `0`, no output. Commands and evidence
+  are recorded in the dossier.
 
-### Completion gates
+### Blockers and limitations
 
-- final status contains exactly the eight authorized paths;
-- the four tracked diffs and all four untracked dossier files were inspected
-  in full after substantive edits;
-- strict UTF-8/no-BOM, LF-only, exactly-one-final-LF, no-NUL, and
-  trailing-whitespace audit passed on all eight files;
-- scoped `git diff --check`: exit `0`, no output;
-- explicit protected-path status: no changed paths; the task directory has
-  exactly four files and no generated cache;
-- the dossier records successful and failed checks without erasing the
-  checker-harness and coverage corrections;
-- certificate frontiers, `verify.py`, and paper builds are unrelated to this
-  proof-note/checker delta and were not run.
+No blocker. Both computational paths share mpmath; the checks use no
+directed rounding and are not exact endpoint certificates. A stored zero
+residual is a rounded numerical zero. The range was not expanded.
 
-### Residual limitations
-
-- `4325` is a proved valid cutoff, not a minimality claim.
-- Exact onsets in the finite range `8<=k<4325` remain unresolved except for
-  the already proved `k<=7` cases.
-- The checker corroborates exact algebra and rational inequalities; it does
-  not reprove the analytic estimates or the imported fixed-`k` theorem.
-- The theorem is post-arXiv-v1; the historical paper remains unchanged.
-- A positive formal seam deficit is not full feasibility, and a negative one
-  neither constructs a replacement chain nor describes a global optimum.
+`PROJECT_KNOWLEDGE.md` and all exact proof notes remain unchanged. No
+full-feasibility, global-optimum, contact-graph, or floating-circle claim is
+made. Production code, finite certificates, the standalone global verifier
+and the arXiv-v1 publication assets are outside this diagnostic task.
 
 ## Exactly one next atomic task after acceptance
 
-Run the bounded two-precision radius-8 diagnostic on `33<=n<=46`, using
-independently reconstructed Supnick edges and the exact threshold formula,
-and report only a numerical onset candidate plus any rational separator of
-denominator at most `1000`; do not promote it to an exact theorem.
+Prove the radius-8 endpoint bridge at `n=37,38` using `176`: establish
+the four strict inequalities above with exact rational threshold and
+complete chain-sum bounds, then apply the existing fixed-`k` theorem only
+if every exact gate closes. This dedicated STRICT endpoint-proof task has
+not begun.

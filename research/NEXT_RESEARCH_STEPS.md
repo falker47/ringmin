@@ -305,22 +305,30 @@ with strict rational termwise arcsine bounds and exact comparisons with
 one formal seam and makes no claim about `R*(n)`, full feasibility, contact
 graphs, or floating circles in global optima.
 
-## Priority 1 — Radius-8 diagnostic endpoint localization
+## Priority 1 — Radius-8 exact endpoint bridge after numerical localization
 
-The next atomic task is diagnostic, not theorem-producing. For
-`R_{8,n}=R_chain(sigma*_{8,n})`, scan only `33<=n<=46` at two high
-precisions, using the fixed-`k` theorem's exact threshold formula and
-independently reconstructed Supnick edges. Stop at the first precision-stable
-change from `R_{8,n}<T_{8,n}` to `R_{8,n}>T_{8,n}`. If no stable crossing is
-seen through `n=46`, report an inconsistency with the exact uniform theorem
-rather than extending the range. Search for one rational separator of the
-two adjacent endpoint pairs with denominator at most `1000`, or report that
-none exists under that bound.
+**Diagnostic evidence only:** the bounded `33<=n<=46` scan at 90 and 150
+decimal digits, with independently reconstructed Supnick edges, locates the
+first stable sign change of `R_{8,n}-T_{8,n}` at `37/38`. The common
+rational separator `176` has denominator `1` and smallest numerical margin
+approximately `0.2242263`. Reproducible values and methods are recorded in
+`ops/TASK-20260902__radius8_seam_diagnostic/` as NUMERICAL DIAGNOSTIC.
+The candidate `s_8=38` has not been promoted to an exact theorem.
 
-The output may nominate a candidate `s_8` and separator for a later exact
-task, but must remain labeled numerical diagnostic. It must not update the
-exact knowledge ledger, infer a general formula from `s_1,...,s_7`, or make
-any full-feasibility, global-optimum, contact-graph, or floating-circle claim.
+The single next atomic task is a dedicated STRICT proof of the endpoint
+bridge
+
+```text
+R_{8,37} < 176 < T_{8,37},
+T_{8,38} < 176 < R_{8,38}.
+```
+
+Success requires exact threshold sign/square gates and complete rational
+chain-sum bounds for all 30 and 31 edges, with exact comparisons to `pi`.
+Only after those gates close may the existing fixed-`k` theorem be used to
+identify an exact onset. The numerical artifact is guidance, not a proof
+premise. This task makes no full-feasibility, global-optimum, contact-graph,
+or floating-circle claim and does not expand the finite certification scope.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 
