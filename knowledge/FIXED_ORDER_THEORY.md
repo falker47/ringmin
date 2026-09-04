@@ -2,8 +2,9 @@
 
 This thematic ledger owns stable results about chain optimization, formal
 Supnick seams, and full feasibility for a fixed cyclic order. It does not own
-global-optimum, certification, or asymptotic claims. Linked proof notes remain
-authoritative for mathematical detail.
+global-optimum, certification, or global-asymptotic claims; it does own the
+fixed-order asymptotic statements used by its seam results. Linked proof notes
+remain authoritative for mathematical detail.
 
 ## Published chain theory
 

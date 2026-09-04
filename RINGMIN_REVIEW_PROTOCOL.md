@@ -48,7 +48,8 @@ Le istruzioni di progetto del revisore hanno precedenza. Una modifica di questo 
 Leggi sempre, quando presenti:
 
 - `AGENTS.md`;
-- `PROJECT_KNOWLEDGE.md`;
+- `PROJECT_KNOWLEDGE.md` come indice canonico e, seguendo tale indice, i
+  ledger tematici `knowledge/*.md` pertinenti alla revisione;
 - `CURRENT_STATUS.md`;
 - `research/NEXT_RESEARCH_STEPS.md`;
 - il task dossier più recente e ogni dossier introdotto o modificato nel delta;
@@ -238,7 +239,8 @@ Confronta, quando rilevanti:
 - `verify.py`;
 - artifact e provenance;
 - proof note;
-- `PROJECT_KNOWLEDGE.md`;
+- `PROJECT_KNOWLEDGE.md` come indice canonico;
+- i ledger tematici `knowledge/*.md` pertinenti indicizzati da esso;
 - `CURRENT_STATUS.md`;
 - roadmap;
 - task dossier;
