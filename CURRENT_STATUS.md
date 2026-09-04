@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=ca3d0ee2d705a1528fce08a50ff33d321b4b22b3
+task_base_head=b10201e0874c1c2040ed57431c1844be41c8f58e
 observed_on=2026-09-04
 phase=post-arXiv-v1 active research
 ```
@@ -12,78 +12,57 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260904__increasing_order_full_asymptotics
+task=TASK-20260904__durable_knowledge_restructure
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and current result
 
-Prove or refute the all-`n` candidate
+Migrate the monolithic durable knowledge ledger to a compact canonical index
+and six non-overlapping thematic ledgers without changing any mathematical
+claim, epistemic classification, limitation, open claim, disproved claim,
+non-implication, or relevant source link.
 
-```text
-limsup R*(n)/n^2<=1/(2*pi)
-```
+The migration is complete. `PROJECT_KNOWLEDGE.md` is now the compact canonical
+index and six `knowledge/*.md` files are the non-overlapping thematic ledgers.
+The post-audit matched all 27 claim blocks, all 29 status entries, all 4 open
+problems, all 24 non-implications, and all 51 distinct pre-existing source
+references. No classified claim heading is duplicated across modules. All 47
+concrete source references resolve; schematic `nNN` paths retain their prior
+role.
 
-through the full all-pairs problem for the increasing cyclic order, after
-first proving its chain-root asymptotic.
-
-The proof establishes, for `inc_n=(1,2,...,n)`,
-
-```text
-R_chain(inc_n)=n^2/(2*pi)+O(n),
-R_full(inc_n)/n^2->1/(2*pi).
-```
-
-At the explicit radius `Rhat_n=n^2/(2*pi)+n^(3/2)`, every internal adjacent
-gap is tight and all closure slack is assigned to `(n,1)`. Internal paths
-satisfy an ordered-radius triangle inequality. Every complementary path
-crosses the enlarged seam, whose added slack is uniformly larger than every
-pair angle, including when one endpoint is fixed or `o(n)`.
-
-Chain closure alone is not feasible: at the chain root the pair `(n,2)` has
-scaled two-edge seam deficit tending to `4*pi*(1-sqrt(2))<0`.
-
-Therefore the only global conclusions are
-
-```text
-C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=1/(2*pi),
-R*(n)=Theta(n^2).
-```
-
-Authoritative proof:
-`research/INCREASING_ORDER_FULL_ASYMPTOTICS.md`.
+The aggregate SHA-256 manifest for the 266 protected tracked files remains
+`03d66e5861e8e6c92dc623d5aadc3834305e16e51acb921dae70aa0b7bc2dae8`.
+No mathematical claim was re-evaluated, reformulated substantively, or given a
+new epistemic status.
 
 ### Allowed delta
 
-The new proof note; this file, `PROJECT_KNOWLEDGE.md`, the roadmap, and
-`ops/TASK-20260904__increasing_order_full_asymptotics/`.
+`PROJECT_KNOWLEDGE.md`, `knowledge/*.md`, the durable-memory and startup rules
+in `AGENTS.md`, this file, and
+`ops/TASK-20260904__durable_knowledge_restructure/`.
 
 ### Verification gates
 
-- Exact uniform angular and chain-root proof: complete.
-- Full two-directed-path gap proof: complete.
-- Fixed-endpoint seam obstruction and non-implications: complete.
-- Independent 70-digit all-pairs/Cartesian diagnostic: pass after retaining
-  one failed over-tight convergence assertion in the task log.
-- Complete three-modification/five-addition diff, strict text/whitespace,
-  empty index, and protected-path checks: pass.
+- Pre-migration knowledge/link/classification audit: pass.
+- Thematic migration with one canonical owner per stable claim: pass.
+- Post-migration block/set/count comparison: pass.
+- Protected tracked-file aggregate hash comparison: pass.
+- Module navigation, Markdown fence, final-newline, and concrete-link checks:
+  pass.
+- Complete tracked/untracked diff and whitespace inspection: pass.
+- `git diff --check`: pass.
 
 ### Blockers and limitations
 
-No mathematical blocker identified. The construction deliberately uses a
-coarse `n^(3/2)` additive radius and does not determine the sharp subleading
-scale. It proves neither existence of the normalized global limit nor
-optimality of the increasing order or either coefficient endpoint.
-
-The arXiv-v1 paper/assets, production code, search, tests, `verify.py`,
-results, finite certificates, and unrelated proof notes/dossiers are
-protected. The recorded finite global certification scope remains
-`3<=n<=14`.
+No blocker. This editorial task does not re-prove or re-certify inherited
+claims. The finite verifier and unit suite were not rerun because proof notes,
+the scientific roadmap, paper/arXiv assets, code, tests, `verify.py`, results,
+README, REPORT, and unrelated dossiers are protected and unchanged.
 
 ## Exactly one next atomic task after acceptance
 
-Independently review the uniform angular error, increasing edge-weight/root
-transfer, fixed-endpoint seam obstruction, explicit two-directed-path gap
-proof, and limited global deductions; record acceptance or precise
-corrections without optimizing subleading terms.
+Independently review the durable-knowledge migration against the pre-migration
+ledger and record acceptance or precise editorial corrections without
+reopening any mathematical claim.

@@ -74,22 +74,28 @@ Each document class has one role. Do not create overlapping global summaries.
 1. **`AGENTS.md`** is the operational contract.
 2. **`paper_assets/ringmin_paper.tex` and the corresponding public arXiv v1** are the historical published record. They are not a mutable current-status file. A later paper revision requires a dedicated `STRICT` task and explicit versioning.
 3. **`research/*.md`**, except the roadmap, contains authoritative current proof notes, theorem development, counterexamples, and durable mathematical analysis created after the published snapshot.
-4. **`PROJECT_KNOWLEDGE.md`** contains compact stable knowledge only: definitions, proved results, certified finite facts, reusable negative results, and explicit open claims, each linked to detailed evidence.
-5. **`CURRENT_STATUS.md`** contains only the current task, its state, blockers, verification gates, and exactly one next atomic task.
-6. **`research/NEXT_RESEARCH_STEPS.md`** is the sole ranked research roadmap. It does not contain proofs or task chronology.
-7. **`results/`, `verify.py`, generation scripts, and recorded provenance** jointly support certification claims. An artifact flag or filename is never authoritative by itself.
-8. **`ops/TASK-*`** contains task-local status, append-only chronology, and evidence.
-9. **`README.md`** is the public overview and reproduction entry point. It must remain accurate but is not the detailed proof or certificate authority.
-10. **`REPORT.md`, generated tables, CSV mirrors, figures, PDFs, and other derived assets** are synchronized outputs, not independent sources of truth.
+4. **`PROJECT_KNOWLEDGE.md`** is the canonical compact index of durable knowledge. It contains scope and provenance, only the truly central definitions and guardrails, a descriptive module index, and navigation and authority rules; it is not a second claim ledger.
+5. **`knowledge/*.md`** are the canonical thematic ledgers for stable definitions, proved results, certified finite facts, implementation facts, reusable negative results, limitations, disproved claims, and explicit open claims. Every stable claim has exactly one thematic owner and retains its epistemic classification and source links.
+6. **`CURRENT_STATUS.md`** contains only the current task, its state, blockers, verification gates, and exactly one next atomic task.
+7. **`research/NEXT_RESEARCH_STEPS.md`** is the sole ranked research roadmap. It does not contain proofs or task chronology.
+8. **`results/`, `verify.py`, generation scripts, and recorded provenance** jointly support certification claims. An artifact flag or filename is never authoritative by itself.
+9. **`ops/TASK-*`** contains task-local status, append-only chronology, and evidence.
+10. **`README.md`** is the public overview and reproduction entry point. It must remain accurate but is not the detailed proof or certificate authority.
+11. **`REPORT.md`, generated tables, CSV mirrors, figures, PDFs, and other derived assets** are synchronized outputs, not independent sources of truth.
 
 Conflict rules:
 
-- For mathematical detail, the linked proof or published theorem controls; compact summaries must be corrected.
+- For mathematical detail, the proof note or published theorem linked from the owning `knowledge/*.md` ledger controls; the ledger summary and index must be corrected if they disagree.
 - For a finite certification claim, the certificate artifact, its complete provenance, and an independent verifier must agree.
 - For current task state, `CURRENT_STATUS.md` controls.
 - For priorities, `research/NEXT_RESEARCH_STEPS.md` controls.
 - For arXiv-v1 historical wording, the published paper controls; new findings must not be back-projected into v1.
 - When two generated outputs disagree, repair the generating source or pipeline rather than hand-editing both.
+
+Do not duplicate the same stable claim in multiple `knowledge/*.md` modules.
+Choose one canonical owner and use cross-references from every other module.
+The compact central reminders in `PROJECT_KNOWLEDGE.md` do not create a
+second thematic owner.
 
 Do not add `start.md`. This repository begins the workflow with direct authoritative files and does not need a deprecated compatibility layer.
 
@@ -99,12 +105,13 @@ Before editing, Codex must:
 
 1. locate the repository root and read the applicable `AGENTS.md`;
 2. inspect `git status --short` and require a clean tree unless the task explicitly concerns the existing changes;
-3. read `PROJECT_KNOWLEDGE.md` and `CURRENT_STATUS.md`;
-4. read the relevant roadmap entry, proof note, task dossier, code, test, artifact, verifier, and publication source;
-5. identify the exact expected delta and protected paths before modifying anything;
-6. classify the task as `STANDARD` or `STRICT`;
-7. state which claims, artifacts, and verification layers may be affected;
-8. stop if a required source, artifact, environment, or material human decision is unavailable.
+3. read the canonical index `PROJECT_KNOWLEDGE.md` and `CURRENT_STATUS.md`;
+4. use the index to read only the `knowledge/*.md` thematic modules pertinent to the task; do not preload unrelated modules;
+5. read the relevant roadmap entry, linked proof note, task dossier, code, test, artifact, verifier, and publication source;
+6. identify the exact expected delta and protected paths before modifying anything;
+7. classify the task as `STANDARD` or `STRICT`;
+8. state which claims, artifacts, and verification layers may be affected;
+9. stop if a required source, artifact, environment, or material human decision is unavailable.
 
 A missing commit is not a blocker. Unrelated uncommitted changes are a blocker to beginning a new task.
 
@@ -335,14 +342,15 @@ Before setting `READY_FOR_REVIEW`, Codex must:
 2. run all proportionate verification;
 3. update the task dossier;
 4. update detailed proof notes if mathematical reasoning changed;
-5. update `PROJECT_KNOWLEDGE.md` only with stable reusable conclusions;
-6. update `research/NEXT_RESEARCH_STEPS.md` only when priorities materially changed;
-7. update `CURRENT_STATUS.md` with the current state and exactly one next atomic task;
-8. inspect `git status --short`;
-9. inspect the complete `git diff`;
-10. run `git diff --check`;
-11. confirm that no protected or generated file changed incidentally;
-12. set the task to `READY_FOR_REVIEW` and stop.
+5. update the single owning `knowledge/*.md` ledger only when stable reusable conclusions changed, and update `PROJECT_KNOWLEDGE.md` only when its scope, central guardrails, module index, or navigation rules changed;
+6. confirm that no stable claim was duplicated across thematic modules;
+7. update `research/NEXT_RESEARCH_STEPS.md` only when priorities materially changed;
+8. update `CURRENT_STATUS.md` with the current state and exactly one next atomic task;
+9. inspect `git status --short`;
+10. inspect the complete `git diff`;
+11. run `git diff --check`;
+12. confirm that no protected or generated file changed incidentally;
+13. set the task to `READY_FOR_REVIEW` and stop.
 
 The final response must report:
 
