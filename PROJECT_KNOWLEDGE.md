@@ -459,6 +459,57 @@ coefficient.
 enumeration and task evidence in
 `ops/TASK-20260904__finite_induced_subset_dominance/`.
 
+### Increasing-order full asymptotic upper bound
+
+**Status:** exact asymptotic theorem / explicit feasible construction /
+proved global corollary, after arXiv v1.
+
+For the increasing cyclic order `inc_n=(1,2,...,n)`, including the seam
+`(n,1)`, let `A_n=R_chain(inc_n)` and `F_n=R_full(inc_n)`. A uniform angular
+linearization over all `1<=a,b<=n` and the exact increasing edge-weight sum
+give
+
+```text
+A_n = n^2/(2*pi)+O(n).
+```
+
+Closure at the chain root does not imply full feasibility: its forced tight
+gaps violate the `(n,2)` constraint eventually, with scaled seam deficit
+
+```text
+n^(3/2)[theta(n,1)+theta(1,2)-theta(n,2)]
+    -> 4*pi*(1-sqrt(2))<0.
+```
+
+At the explicit radius
+
+```text
+Rhat_n=n^2/(2*pi)+n^(3/2),
+```
+
+the unused closure angle `E_n` satisfies
+`sqrt(n)E_n->4*pi^2`, while every pair angle is `O(1/n)` uniformly. Keep
+every internal gap `(k,k+1)` tight and add all `E_n` to the seam gap.
+Ordered-radius triangle inequalities make each non-seam path long enough;
+every complementary path contains the enlarged seam and is guarded by
+`E_n>max theta`. Hence all pairwise constraints hold for every sufficiently
+large `n`, including pairs with a fixed or `o(n)` endpoint. Consequently
+
+```text
+F_n/n^2 -> 1/(2*pi),
+limsup R*(n)/n^2 <= 1/(2*pi),
+C_term <= liminf R*(n)/n^2 <= limsup R*(n)/n^2 <= 1/(2*pi),
+R*(n)=Theta(n^2).
+```
+
+The theorem does not prove that the normalized global sequence converges,
+that either endpoint is sharp, that the increasing order is asymptotically
+optimal, or that the displayed `n^(3/2)` additive term is subleading-sharp.
+
+**Source:** `research/INCREASING_ORDER_FULL_ASYMPTOTICS.md`; independent
+high-precision all-pairs and Cartesian diagnostics in
+`ops/TASK-20260904__increasing_order_full_asymptotics/`.
+
 ### First-order one-gap local optimality of the optimized terminal interval
 
 **Status:** exact continuum theorem / proved first-order corollary, after
@@ -922,7 +973,8 @@ floating in global optima remains conjectural.
 
 ### Asymptotics
 
-**Status:** disproved claims, after arXiv v1.
+**Status:** exact two-sided coefficient bounds and disproved older claims,
+after arXiv v1.
 
 The unchanged public arXiv-v1 paper conjectures
 
@@ -939,24 +991,33 @@ n^2/8 - R*(n) = O(sqrt(n)).
 Both statements are now disproved by the exact optimized terminal-subset
 theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
-knowledge, not a revision of the historical paper. The true leading
-behavior and matching upper bounds remain unresolved.
+knowledge, not a revision of the historical paper.
+
+The increasing-order construction now gives the complementary exact upper
+bound
+
+```text
+limsup R*(n)/n^2<=1/(2*pi),
+```
+
+and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
+possible equality, and either endpoint's sharpness remain unresolved.
 
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
-`research/FINITE_INDUCED_SUBSET_DOMINANCE.md`. The last proves that no
-arbitrary sequence of single induced-subset chain bounds strengthens
-`C_term`; it does not settle the global asymptotic question.
+`research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
+`research/INCREASING_ORDER_FULL_ASYMPTOTICS.md` for the upper side. The
+single-subset envelope does not settle the remaining coefficient gap.
 
 ## Primary open problems
 
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
-3. Determine the true global leading behavior above the optimized
-   terminal-subset coefficient `C_term`, including matching upper bounds,
-   sharper genuinely coupled-subset or full-geometric lower-bound methods
-   beyond every single induced-subset chain bound, and whether a normalized
-   limit exists; the proposed coefficient `1/8` is disproved.
+3. Determine the true global normalized liminf and limsup inside
+   `[C_term,1/(2*pi)]`, including whether they agree; improve the increasing-
+   order upper construction or obtain sharper genuinely coupled-subset or
+   full-geometric lower bounds beyond every single induced-subset chain
+   bound. The proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
@@ -972,6 +1033,10 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - Finite induced-subset dominance optimizes the leading coefficient of every
   arbitrary one-subset chain-bound sequence; it does not cover genuinely
   coupled multiple-subset methods, `R_full`, or geometric upper bounds.
+- The increasing-order theorem proves a feasible upper coefficient and the
+  full asymptotic for that fixed order; it does not prove a global normalized
+  limit, sharpness of `1/(2*pi)`, global optimality of that order, or a sharp
+  subleading scale. Its chain root is eventually not fully feasible.
 - The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
 - The all-`n` radius-2 seam obstruction does not prove that radius `2` floats in any or every global optimum.
 - The all-`n` radius-3 seam obstruction does not prove full realizability

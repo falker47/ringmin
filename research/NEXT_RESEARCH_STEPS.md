@@ -17,6 +17,9 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
+The increasing-order construction now supplies the exact upper coefficient
+`limsup R*(n)/n^2<=1/(2*pi)`; together with `C_term` it proves quadratic
+growth while leaving a genuine coefficient gap.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -513,15 +516,55 @@ closes every leading-coefficient improvement from a single induced-subset
 chain bound, without shape, component-count, endpoint, or cardinality-limit
 assumptions. Genuinely coupled-subset methods and full geometry remain open.
 
-## Priority 1 — Independent review of exact finite subset dominance
+## Resolved priority — Increasing-order full asymptotic upper bound
 
-Exactly one next atomic task: independently review the rank-edge convention,
+**Status:** exact asymptotic theorem / explicit feasible construction /
+proved global corollary, after arXiv v1.
+
+For `inc_n=(1,2,...,n)`, the proof in
+`research/INCREASING_ORDER_FULL_ASYMPTOTICS.md` first establishes
+
+```text
+R_chain(inc_n)=n^2/(2*pi)+O(n).
+```
+
+It then exhibits a full all-pairs placement at
+`Rhat_n=n^2/(2*pi)+n^(3/2)`: all internal adjacent gaps are tight and all
+closure slack is put into `(n,1)`. Internal paths satisfy an ordered-radius
+triangle inequality, while every seam-crossing path is controlled uniformly
+because the added slack is asymptotic to `4*pi^2/sqrt(n)` and every pair
+angle is `O(1/n)`. This includes fixed and `o(n)` endpoints. Separately, the
+`(n,2)` path proves that the exact chain-root placement is eventually
+infeasible, so closure was not used as a substitute for full feasibility.
+
+Therefore
+
+```text
+R_full(inc_n)/n^2->1/(2*pi),
+limsup R*(n)/n^2<=1/(2*pi),
+C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=1/(2*pi),
+R*(n)=Theta(n^2).
+```
+
+No normalized global limit, endpoint sharpness, optimality of the increasing
+order, or sharp subleading scale is claimed.
+
+## Priority 1 — Independent review of increasing-order full asymptotics
+
+Exactly one next atomic task: independently review the uniform angular
+error, increasing edge-weight/root transfer, fixed-endpoint seam obstruction,
+explicit two-directed-path gap proof, and the limited global deductions;
+record acceptance or precise corrections without optimizing subleading terms.
+
+## Deferred priority 2 — Independent review of exact finite subset dominance
+
+Independently review the rank-edge convention,
 strict equality case, decreasing-root direction, terminal triangular-array
 limit at both boundary regimes, compactness argument, and distinction between
 one-subset envelopes and genuinely coupled methods; record acceptance or
 precise corrections.
 
-## Deferred priority 2 — Independent review of finite-union terminal dominance
+## Deferred priority 3 — Independent review of finite-union terminal dominance
 
 Independently review the extension of the
 continuum functional to sets touching zero, the tail-capacity quantile
@@ -530,7 +573,7 @@ optimization, and the fixed-`A` limit scope. Success means an acceptance or
 precise correction report without starting diagonal or coupled-subset
 research.
 
-## Deferred priority 3 — Independent review of the one-gap variation theorem
+## Deferred priority 4 — Independent review of the one-gap variation theorem
 
 Independently review the continuum quantile pairing, both parity/reindexing
 formulas, the first-variation calculation, the optimized-endpoint sign, and
@@ -538,30 +581,31 @@ the iterated-limit statement. The stronger dominance theorem does not make
 the exact local variation calculation incorrect, but removes it as the sole
 barrier to fixed finite-union optimization.
 
-## Deferred priority 4 — Review the optimized terminal-subset theorem
+## Deferred priority 5 — Review the optimized terminal-subset theorem
 
 Independently review the generalized terminal-subset limit, all
 parity/end-point and uniform-error steps, the analytic optimization and the
 all-integer floor deduction. This remains a dependency review rather than a
 new research direction.
 
-## Deferred priority 5 — Review the complete fixed-order classification
+## Deferred priority 6 — Review the complete fixed-order classification
 
 The previously proposed independent review remains pending. Its scope is
 the generalized triangle/path lemmas, closure-forced necessity, equality,
 small cycles and imported strict signs. This theorem is not a premise of
 the new global lower bound.
 
-## Deferred priority 6 — Determine the true leading asymptotics
+## Deferred priority 7 — Determine the true leading asymptotics
 
-Investigate sharpness of `C_term`, stronger valid lower bounds beyond the
-resolved envelope of every single induced-subset chain bound, matching
-feasible upper bounds and existence of a limit for `R*(n)/n^2`. Success must
-address genuinely coupled constraints or the full geometric problem. Do not
-retain `1/8` as an open candidate or assume the floating set is `o(n)`
-without proof.
+Determine the true normalized liminf and limsup within
+`[C_term,1/(2*pi)]`, and whether they agree. Improve the explicit geometric
+upper construction or derive stronger valid lower bounds beyond the resolved
+envelope of every single induced-subset chain bound. Success must address
+full feasibility or genuinely coupled constraints. Do not call either known
+endpoint sharp, retain `1/8` as an open candidate, or assume the floating set
+is `o(n)` without proof.
 
-## Deferred priority 7 — Certification architecture beyond `n=14`
+## Deferred priority 8 — Certification architecture beyond `n=14`
 
 Only after a precise mathematical discriminator or stronger lower bound is available, investigate whether certification for `n=15` is computationally credible. A task must estimate canonical search size, pruning strength, verifier artifact size, runtime, storage, and failure modes before starting a long run.
 
