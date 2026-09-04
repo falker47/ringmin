@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=4d6550ccc44548fd9ded7ae3dbf075d3ef462a59
+task_base_head=667f666afb6f74c010111364fd787bd09cf13590
 observed_on=2026-09-04
 phase=post-arXiv-v1 active research
 ```
@@ -12,60 +12,95 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260904__review_protocol_knowledge_integration
+task=TASK-20260904__alternating_halves_full_asymptotics
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and current result
 
-Integrate the durable-knowledge restructure with the continuous-review
-workflow. Require the canonical index and its pertinent thematic ledgers in
-the review protocol's minimum-reading and documentary-consistency checks, and
-clarify only the fixed-order ledger introduction so that global asymptotics
-remain outside its ownership while fixed-order asymptotic statements remain
-inside it.
+Determine the chain and full fixed-order asymptotics of
 
-The integration is complete. The review protocol now always reads the
-canonical index plus the pertinent thematic ledgers it indexes, and includes
-both in documentary-consistency checks. The fixed-order introduction now
-distinguishes excluded global-asymptotic claims from its owned fixed-order
-asymptotic statements.
+```text
+sigma_{2m}=(1,m+1,2,m+2,...,m,2m),
+```
 
-The exact post-edit audit matched all 27 migrated claim blocks against the
-task-base `HEAD`, with zero missing, added, changed, or duplicate titles. A
-reverse-delta check proved that the protocol differs from `HEAD` only at the
-two authorized list fragments and the fixed-order ledger only at its
-introduction. The protected 275-file working-tree manifest is unchanged.
+with an explicit all-pairs construction, matching lower obstruction, exact
+treatment of alternating valleys and the seam, and only the global conclusion
+justified by deletion.
+
+The task proves the stronger exact finite characterization
+
+```text
+R_full(sigma_{2m}) = the unique root of
+sum_i max(A_i+B_{i-1},C_i)=2*pi,
+```
+
+where `A_i,B_{i-1}` are the two adjacent angles through low radius `i` and
+`C_i` is the chord between its high neighbors. Explicit gaps attain this
+cellwise obstruction and a thick-shell lemma verifies every remaining pair in
+both cyclic directions, including the seam.
+
+With
+
+```text
+J=3sqrt(2)/4-log(3+2sqrt(2))/8,
+K=J-1/12+log(3)/8,
+```
+
+the proved asymptotics are
+
+```text
+R_chain(sigma_{2m})/(2m)^2 -> J/(2*pi)
+  =0.13374056850825863009...,
+R_full(sigma_{2m})/(2m)^2 -> K/(2*pi)
+  =0.14233385361931275491...<1/(2*pi).
+```
+
+Consecutive-high chords control below normalized low radius `1/6`; adjacent
+chain pairs control above it. The seam chord is exact but contributes only
+`O(1/n)` to the leading closure sum. Deleting radius `2m` from the even
+construction proves only
+
+```text
+limsup R*(n)/n^2<=K/(2*pi)
+```
+
+for all integers `n`; it does not prove equality or a global limit.
 
 ### Allowed delta
 
-`RINGMIN_REVIEW_PROTOCOL.md`, only the introductory ownership sentence in
-`knowledge/FIXED_ORDER_THEORY.md`, this file, and
-`ops/TASK-20260904__review_protocol_knowledge_integration/`.
+`research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md`, the owning fixed-order and
+global-asymptotic ledgers, the ranked roadmap, this file, and
+`ops/TASK-20260904__alternating_halves_full_asymptotics/`.
 
 ### Verification gates
 
-- Protocol delta limited to the minimum-reading and documentary-consistency
-  lists: pass.
-- All other review guardrails and criteria unchanged: pass by reverse-delta
-  comparison against `HEAD`.
-- Fixed-order edit limited to introductory prose outside claim blocks: pass.
-- Exact 27-claim-block comparison against task-base `HEAD`: pass, 27/27.
-- Protected working-tree manifest comparison: pass, 275/275.
-- Complete tracked/untracked diff and whitespace inspection: pass.
+- Exact necessity/sufficiency proof for the cellwise formula: pass.
+- Explicit gaps checked analytically for all endpoint types and both arcs:
+  pass.
+- Uniform chain and full Riemann limits, switch, and exact constants: pass.
+- Seam and deletion-to-odd-size arguments: pass.
+- Independent 70-digit direct all-pairs diagnostics through `n=640`: pass.
+- Symbolic integral, switch, and inequality gates under SymPy 1.14.0: pass.
+- Production fixed-order cross-check through `n=160`: pass.
+- Complete tracked/untracked diff, protected-path and whitespace inspection:
+  pass.
 - `git diff --check`: pass.
 
 ### Blockers and limitations
 
-No blocker. Mathematical and certification claims, status lines, source links,
-the roadmap, proof notes, code, tests, verifier, artifacts, README, REPORT,
-paper assets, the canonical index, and the other thematic ledgers are
-protected and unchanged. Unit tests and the verifier were not run because no
-code, artifact, or scientific claim changed.
+No blocker. Independent human proof review remains pending. The result does
+not optimize broader orders, establish a matching global lower coefficient,
+prove existence of `lim R*(n)/n^2`, identify a sharp subleading term, or
+extend finite certification. `PROJECT_KNOWLEDGE.md` needs no change because
+its definitions, guardrails, and module routing remain correct. The public
+paper, production code, verifier, certificates, artifacts, README, and REPORT
+are protected and unchanged.
 
-## Exactly one next atomic task after acceptance
+## Exactly one next atomic task
 
-Independently review the review-protocol integration and fixed-order ownership
-clarification; record acceptance or precise operational corrections without
-reopening mathematical or certification claims.
+Independently review the alternating-halves exact cellwise characterization,
+all-pairs thick-shell/seam proof, asymptotic constants, and deletion corollary;
+record acceptance or precise corrections without optimizing another order
+family.

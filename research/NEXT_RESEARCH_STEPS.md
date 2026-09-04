@@ -17,9 +17,16 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The increasing-order construction now supplies the exact upper coefficient
-`limsup R*(n)/n^2<=1/(2*pi)`; together with `C_term` it proves quadratic
-growth while leaving a genuine coefficient gap.
+The alternating-halves construction now supplies the strongest exact upper
+coefficient
+
+```text
+limsup R*(n)/n^2<=C_alt=0.14233385361931275491...<1/(2*pi).
+```
+
+Together with `C_term=0.1405690808452567...` it proves quadratic growth while
+leaving a much narrower genuine coefficient gap. The decimals are diagnostic;
+the defining exact constants are recorded in the owning ledgers and proof.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -549,14 +556,61 @@ R*(n)=Theta(n^2).
 No normalized global limit, endpoint sharpness, optimality of the increasing
 order, or sharp subleading scale is claimed.
 
-## Priority 1 — Independent review of increasing-order full asymptotics
+## Resolved priority — Alternating-halves full asymptotic upper bound
 
-Exactly one next atomic task: independently review the uniform angular
+**Status:** exact finite fixed-order characterization / exact asymptotic
+theorem / explicit feasible construction / proved global corollary, after
+arXiv v1.
+
+For `n=2m` and
+
+```text
+sigma_{2m}=(1,m+1,2,m+2,...,m,2m),
+```
+
+the proof in `research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md` gives an exact
+fixed-`R` criterion. Around each low valley, take the maximum of its two
+adjacent constraints and the chord between its two high neighbors; the sum
+`S_m(R)` of these disjoint cell requirements satisfies
+
+```text
+R_full(sigma_{2m}) = the unique root of S_m(R)=2*pi.
+```
+
+Explicit gaps attain this obstruction. A thick-shell lemma on the high radii
+`m+1,...,2m` checks every long pair and the seam. Uniform angular scaling then
+gives
+
+```text
+R_chain(sigma_{2m})/(2m)^2 -> J/(2*pi),
+R_full(sigma_{2m})/(2m)^2 -> C_alt=K/(2*pi),
+
+J=3sqrt(2)/4-log(3+2sqrt(2))/8,
+K=J-1/12+log(3)/8<1.
+```
+
+The consecutive-high chords control below normalized low radius `1/6`; the
+two chain adjacencies control above it; the seam is exact but lower order.
+Deleting radius `2m` transfers `limsup R*(n)/n^2<=C_alt` to odd sizes. No
+global equality, normalized global limit, or broader order optimization is
+claimed.
+
+## Priority 1 — Independent review of alternating-halves full asymptotics
+
+Exactly one next atomic task: independently review the thick-shell lemma,
+the exact necessity/sufficiency of the cellwise criterion, both cyclic paths
+for low and high endpoint types, the uniform Riemann limit and switch at
+`1/6`, the exact constant comparisons, and deletion to odd sizes; record
+acceptance or precise corrections without optimizing another order family.
+
+## Deferred priority 2 — Independent review of increasing-order full asymptotics
+
+Independently review the uniform angular
 error, increasing edge-weight/root transfer, fixed-endpoint seam obstruction,
 explicit two-directed-path gap proof, and the limited global deductions;
 record acceptance or precise corrections without optimizing subleading terms.
 
-## Deferred priority 2 — Independent review of exact finite subset dominance
+## Deferred priority 3 — Independent review of exact finite subset dominance
 
 Independently review the rank-edge convention,
 strict equality case, decreasing-root direction, terminal triangular-array
@@ -564,7 +618,7 @@ limit at both boundary regimes, compactness argument, and distinction between
 one-subset envelopes and genuinely coupled methods; record acceptance or
 precise corrections.
 
-## Deferred priority 3 — Independent review of finite-union terminal dominance
+## Deferred priority 4 — Independent review of finite-union terminal dominance
 
 Independently review the extension of the
 continuum functional to sets touching zero, the tail-capacity quantile
@@ -573,7 +627,7 @@ optimization, and the fixed-`A` limit scope. Success means an acceptance or
 precise correction report without starting diagonal or coupled-subset
 research.
 
-## Deferred priority 4 — Independent review of the one-gap variation theorem
+## Deferred priority 5 — Independent review of the one-gap variation theorem
 
 Independently review the continuum quantile pairing, both parity/reindexing
 formulas, the first-variation calculation, the optimized-endpoint sign, and
@@ -581,31 +635,31 @@ the iterated-limit statement. The stronger dominance theorem does not make
 the exact local variation calculation incorrect, but removes it as the sole
 barrier to fixed finite-union optimization.
 
-## Deferred priority 5 — Review the optimized terminal-subset theorem
+## Deferred priority 6 — Review the optimized terminal-subset theorem
 
 Independently review the generalized terminal-subset limit, all
 parity/end-point and uniform-error steps, the analytic optimization and the
 all-integer floor deduction. This remains a dependency review rather than a
 new research direction.
 
-## Deferred priority 6 — Review the complete fixed-order classification
+## Deferred priority 7 — Review the complete fixed-order classification
 
 The previously proposed independent review remains pending. Its scope is
 the generalized triangle/path lemmas, closure-forced necessity, equality,
 small cycles and imported strict signs. This theorem is not a premise of
 the new global lower bound.
 
-## Deferred priority 7 — Determine the true leading asymptotics
+## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,1/(2*pi)]`, and whether they agree. Improve the explicit geometric
+`[C_term,C_alt]`, and whether they agree. Improve the explicit geometric
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Do not call either known
 endpoint sharp, retain `1/8` as an open candidate, or assume the floating set
 is `o(n)` without proof.
 
-## Deferred priority 8 — Certification architecture beyond `n=14`
+## Deferred priority 9 — Certification architecture beyond `n=14`
 
 Only after a precise mathematical discriminator or stronger lower bound is available, investigate whether certification for `n=15` is computationally credible. A task must estimate canonical search size, pruning strength, verifier artifact size, runtime, storage, and failure modes before starting a long run.
 

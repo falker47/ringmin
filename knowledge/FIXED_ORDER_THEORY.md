@@ -580,6 +580,68 @@ feasibility, global-optimum, contact-graph or floating-circle claim.
 separate integer witness scorer and targeted rejection tests in
 `ops/TASK-20260904__radius10_seam_onset/`.
 
+### Alternating-halves exact full feasibility and asymptotics
+
+**Status:** exact finite fixed-order characterization / exact asymptotic
+theorem / explicit feasible construction, after arXiv v1.
+
+For `n=2m` and
+
+```text
+sigma_{2m}=(1,m+1,2,m+2,...,m,2m),
+```
+
+write `L_i=i`, `H_i=m+i`, and, cyclically,
+
+```text
+A_i=theta_R(L_i,H_i),
+B_i=theta_R(H_i,L_{i+1}),
+C_i=theta_R(H_{i-1},H_i),
+S_m(R)=sum_i max(A_i+B_{i-1},C_i).
+```
+
+The exact full radius for this fixed order is the unique root
+`S_m(R)=2*pi`. Necessity sums the disjoint two-edge valley constraints.
+For sufficiency, the explicit gaps
+
+```text
+g(L_i,H_i)=A_i+[C_i-A_i-B_{i-1}]_+,
+g(H_i,L_{i+1})=B_i
+```
+
+have total `S_m(R)`; any unused closure angle may be added to one gap. A
+thick-shell triangle lemma for `m+1<=H_i<=2m<2(m+1)` proves both cyclic
+paths for all high-high pairs, including the seam, and monotonicity then
+lifts the result to every low-high and low-low pair. Thus no longer pairwise
+constraint strengthens the cellwise obstruction.
+
+With
+
+```text
+J=3sqrt(2)/4-log(3+2sqrt(2))/8,
+K=J-1/12+log(3)/8,
+```
+
+uniform angular scaling and the analytic valley switch at `i/(2m)=1/6`
+give
+
+```text
+R_chain(sigma_{2m})/(2m)^2 -> J/(2*pi),
+R_full(sigma_{2m})/(2m)^2 -> K/(2*pi)
+  =0.14233385361931275491...<1/(2*pi).
+```
+
+Below the switch, consecutive-high chords control; above it, the two chain
+adjacencies control. The seam chord is treated exactly but has only `O(1/n)`
+closure mass. The decimal is diagnostic only. This fixed-order theorem does
+not assert global optimality or optimize any broader order family. The global
+all-integer limsup consequence is owned by
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`.
+
+**Source:** `research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md`; independent
+70-digit root and direct all-pairs gap diagnostics in
+`ops/TASK-20260904__alternating_halves_full_asymptotics/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

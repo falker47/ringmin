@@ -232,6 +232,42 @@ optimal, or that the displayed `n^(3/2)` additive term is subleading-sharp.
 high-precision all-pairs and Cartesian diagnostics in
 `ops/TASK-20260904__increasing_order_full_asymptotics/`.
 
+### Alternating-halves improved full asymptotic upper bound
+
+**Status:** proved global limsup corollary of an exact fixed-order asymptotic
+theorem, after arXiv v1.
+
+For even `n=2m`, the fixed-order theorem owned by
+`knowledge/FIXED_ORDER_THEORY.md` proves that
+
+```text
+sigma_{2m}=(1,m+1,2,m+2,...,m,2m),
+
+R_full(sigma_{2m})/(2m)^2 -> C_alt,
+
+C_alt=K/(2*pi),
+K=3sqrt(2)/4-1/12
+    +(log(3)-log(3+2sqrt(2)))/8
+  =0.14233385361931275491....
+```
+
+The decimal is diagnostic only. Exact inequalities give `K<1`, hence
+`C_alt<1/(2*pi)`. Minimization over orders gives the same upper coefficient
+on even sizes. For odd `n=2m-1`, delete radius `2m` from the explicit even
+configuration; the surviving radii are exactly `1,...,2m-1`, and the
+normalization ratio `(2m/(2m-1))^2` tends to one. Therefore
+
+```text
+limsup R*(n)/n^2<=C_alt<1/(2*pi).
+```
+
+This strictly improves the increasing-order upper bound. It does not prove
+that `C_alt` is globally sharp, give a matching global lower bound, establish
+a normalized global limit, or optimize any broader order family.
+
+**Source:** `research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md`; fixed-order
+claim detail remains canonically owned by `knowledge/FIXED_ORDER_THEORY.md`.
+
 ### First-order one-gap local optimality of the optimized terminal interval
 
 **Status:** exact continuum theorem / proved first-order corollary, after
@@ -314,11 +350,11 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The increasing-order construction now gives the complementary exact upper
+The alternating-halves construction now gives the strongest proved upper
 bound
 
 ```text
-limsup R*(n)/n^2<=1/(2*pi),
+limsup R*(n)/n^2<=C_alt=K/(2*pi)<1/(2*pi),
 ```
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
@@ -327,7 +363,8 @@ possible equality, and either endpoint's sharpness remain unresolved.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/INCREASING_ORDER_FULL_ASYMPTOTICS.md` for the upper side. The
+`research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md` for the strongest upper
+side. The earlier increasing-order theorem remains valid but is weaker. The
 single-subset envelope does not settle the remaining coefficient gap.
 
 ## Primary open problems
@@ -335,8 +372,8 @@ single-subset envelope does not settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,1/(2*pi)]`, including whether they agree; improve the increasing-
-   order upper construction or obtain sharper genuinely coupled-subset or
+   `[C_term,C_alt]`, including whether they agree; improve the alternating-
+   halves upper construction or obtain sharper genuinely coupled-subset or
    full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
@@ -352,3 +389,6 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
   full asymptotic for that fixed order; it does not prove a global normalized
   limit, sharpness of `1/(2*pi)`, global optimality of that order, or a sharp
   subleading scale. Its chain root is eventually not fully feasible.
+- The alternating-halves theorem improves the global limsup upper bound to
+  `C_alt`; it does not prove equality, a normalized global limit, global
+  optimality of that order, or a matching global lower bound.
