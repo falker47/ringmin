@@ -107,9 +107,9 @@ positive except for a possible equality at `s_k-1`.
 
 This theorem by itself does not give a formula for `s_k`. Specialized exact
 endpoint bridges recover `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`,
-`s_6=30`, `s_7=34`, and `s_8=38`. The later effective theorem below proves
+`s_6=30`, `s_7=34`, `s_8=38`, and `s_9=42`. The later effective theorem below proves
 `s_k=4k+6` for every `k>=4325`; exact onsets for the unresolved finite range
-`9<=k<4325` are not supplied by that tail theorem.
+`10<=k<4325` are not supplied by that tail theorem.
 The fixed-`k` theorem concerns only the formal seam `(n,k,n-1)` and has no
 implication for `R*(n)` or floating circles in global optima.
 
@@ -146,7 +146,7 @@ criterion then gives `Delta_{k,4k+14}<0`.
 No finite scan enters the proof. This theorem bounds but does not by itself
 identify an onset; in particular it confines `s_8` to `33<=s_8<=46`. The
 later effective theorem identifies the tail `k>=4325`, while the finite range
-`9<=k<4325` remains unresolved after the radius-8 endpoint proof below.
+`10<=k<4325` remains unresolved after the radius-9 endpoint proof below.
 The uniform theorem concerns only the formal seam `(n,k,n-1)` and has no
 full-feasibility, global-optimum, contact-graph,
 floating-circle, or global asymptotic consequence.
@@ -197,7 +197,7 @@ critical cross margin is `256*4325-264*4193=248>0`. The fixed-`k` sign and
 persistence theorem then gives the identity.
 
 No finite scan is a premise, and `4325` is not claimed minimal. The theorem
-does not classify any unresolved onset with `9<=k<4325`,
+does not classify any unresolved onset with `10<=k<4325`,
 prove full feasibility, or imply anything about `R*(n)`, contact graphs, or
 floating circles.
 
@@ -478,6 +478,38 @@ contact graphs, or floating circles in any or every global optimum.
 checker, integer cross-checks and targeted rejection tests in
 `ops/TASK-20260904__radius8_seam_onset/`.
 
+### Exact all-`n` radius-9 seam onset
+
+**Status:** exact theorem, proved after arXiv v1.
+
+For the chain-minimizing Supnick cycle on `{9,...,n}`, put
+`R_{9,n}=R_chain(sigma*_{9,n})`. Its formal seam deficit satisfies
+
+```text
+Delta_{9,n} > 0  for 11 <= n <= 41,
+Delta_{9,n} < 0  for every n >= 42,
+s_9 = 42.
+```
+
+The exact endpoint bridge is
+
+```text
+R_{9,41} < 220 < T_{9,41},
+T_{9,42} < 220 < R_{9,42}.
+```
+
+All 33/34 cyclic edges are checked through separate rank-tour and parity
+representations. Positive threshold/pre-square gates, directed rational
+square margins, strict arcsine bounds and a signed-remainder proof of
+`157/50<pi<22/7` close all four gates. The fixed-k theorem then supplies
+the all-integer conclusion. No numerical scan or floating root is a premise.
+This concerns one formal seam, without full-feasibility, global-optimum,
+contact-graph or floating-circle consequences.
+
+**Source:** `research/RADIUS9_SEAM_ONSET.md`; independent stdlib/Fraction
+checker, integer cross-checks and targeted rejection tests in
+`ops/TASK-20260904__radius9_seam_onset/`.
+
 ## Computer-certified finite results
 
 **Status:** computer-certified finite results reported by the paper and artifact chain, and independently reproduced by the full verifier in this bootstrap checkout; not all-`n` theorems.
@@ -544,7 +576,7 @@ unrealizable across the seam `(n,k,n-1)` and remains obstructed thereafter.
 The uniform theorem proves `4k+1<=s_k<=4k+14`, and the later effective
 theorem proves `s_k=4k+6` for every `k>=4325`. Specialized endpoint notes
 prove `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`, `s_6=30`,
-`s_7=34`, and `s_8=38`; the finite range `9<=k<4325` remains unresolved.
+`s_7=34`, `s_8=38`, and `s_9=42`; the finite range `10<=k<4325` remains unresolved.
 
 The stronger claim that circle `k` eventually floats in global optima, with
 recurring paid-then-free regimes, remains conjectural.
@@ -552,9 +584,9 @@ recurring paid-then-free regimes, remains conjectural.
 The paper reported seam-failure onsets `8,13,17` for circles `1,2,3` with
 finite published scope. The post-v1 theorems above prove the exact all-`n`
 onsets `s_1=8`, `s_2=13`, `s_3=17`, `s_4=21`, `s_5=25`, `s_6=30`,
-`s_7=34`, and `s_8=38`, eventual persistent seam failure for every fixed radius, and
+`s_7=34`, `s_8=38`, and `s_9=42`, eventual persistent seam failure for every fixed radius, and
 `s_k=4k+6` for every radius index `k>=4325`. Exact onset classifications in
-the finite unresolved range `9<=k<4325` remain open. Every assertion about
+the finite unresolved range `10<=k<4325` remain open. Every assertion about
 eventual floating in global optima also remains conjectural.
 
 ### Asymptotics
@@ -577,10 +609,10 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Classify the unresolved finite range `9<=k<4325`, beginning with a bounded
-   diagnostic localization for `s_9` on `37..50`. The proved cutoff `4325` is
-   valid but not claimed minimal, and a diagnostic scan cannot by itself
-   establish a named exact onset.
+1. Classify the unresolved finite range `10<=k<4325`, beginning with an
+   exact endpoint-bridge attempt for radius 10 at n=45,46. The candidate
+   `s_10=46` is unproved; all four rational gates must close before promotion.
+   The proved cutoff `4325` is valid but not claimed minimal.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
@@ -612,14 +644,17 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - The all-`n` radius-8 seam obstruction does not prove full realizability
   before `n=38`, classify a global contact graph, or imply that radius `8`
   floats in any or every global optimum.
+- The all-`n` radius-9 seam obstruction does not prove full realizability
+  before `n=42`, classify a global contact graph, or imply that radius `9`
+  floats in any or every global optimum.
 - The general fixed-`k` seam theorem does not by itself identify `s_k` for
-  `k>=9`, prove full realizability before `s_k`, or imply that radius `k`
+  `k>=10`, prove full realizability before `s_k`, or imply that radius `k`
   floats in any or every global optimum.
 - The uniform bound `4k+1<=s_k<=4k+14` does not identify any new exact onset,
   prove full realizability below it, determine `R*(n)`, classify a contact
   graph, or imply that radius `k` floats in any or every global optimum.
 - The effective identity `s_k=4k+6` for `k>=4325` does not claim a minimal
-  cutoff, classify the unresolved finite range `9<=k<4325`, prove full
+  cutoff, classify the unresolved finite range `10<=k<4325`, prove full
   realizability below the seam, determine `R*(n)`, classify a contact graph,
   or imply that radius `k` floats in any or every global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.

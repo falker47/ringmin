@@ -12,7 +12,7 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first eight precise transitions, the general fixed-radius persistence
+The first nine precise transitions, the general fixed-radius persistence
 mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The eventual proof is
 effective with the valid cutoff `K_eff=4325`. The next work may return to the
@@ -94,8 +94,8 @@ occur at most once. The theorem by itself does not determine an exact onset
 and makes no global-optimum or floating-circle claim.
 
 The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact
-`k=1,2,3,4,5,6,7,8` onsets follow by combining it with the endpoint bridges in
-the eight specialized proof notes.
+`k=1,2,3,4,5,6,7,8,9` onsets follow by combining it with the endpoint bridges in
+the nine specialized proof notes.
 
 ## Resolved Priority 1 — Uniform fixed-radius onset window
 
@@ -149,7 +149,7 @@ and obstructed at `4k+6` throughout the stated tail; fixed-`k` persistence
 gives the formula. No finite scan is used.
 
 The cutoff is valid but not claimed minimal. The theorem does not classify
-any remaining onset with `9<=k<4325` and makes no full-feasibility,
+any remaining onset with `10<=k<4325` and makes no full-feasibility,
 global-optimum, contact-graph, or floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
@@ -323,18 +323,34 @@ fixed-`k` theorem then gives `Delta_{8,n}>0` for `10<=n<=37` and
 The prior numerical diagnostic is not a proof premise. This concerns one
 formal seam and does not expand the global certification scope.
 
-## Priority 1 — Bounded radius-9 seam diagnostic
+## Resolved Priority 1 — Radius-9 all-`n` seam obstruction
 
-The remaining unresolved finite range is `9<=k<4325`. The uniform theorem
-confines `s_9` to `37<=s_9<=50`.
+**Status:** proved after arXiv v1.
 
-Exactly one next atomic task: perform a STRICT, bounded two-precision
-diagnostic of `R_{9,n}-T_{9,n}` for every integer `37<=n<=50`, with
-independent rank-tour and parity-edge reconstructions. Record a stable
-adjacent crossing and a rational separator if the guarded comparisons
-permit them. Keep every output classified as numerical diagnostic; an
-exact endpoint proof requires a separate task. Do not expand the scan or
-infer full feasibility, global optimality, contact graphs or floating circles.
+The dedicated endpoint note `research/RADIUS9_SEAM_ONSET.md` proves
+
+```text
+R_{9,41} < 220 < T_{9,41},
+T_{9,42} < 220 < R_{9,42}.
+```
+
+All 33/34 edges, threshold positivity/pre-square signs, directed square
+margins and strict rational arcsine/pi bounds close all four gates. The
+fixed-k theorem gives positive deficit on `11<=n<=41` and negative deficit
+for every `n>=42`, hence `s_9=42`. Only the two endpoints enter the exact
+arithmetic; no numerical scan is a premise and no global claim is changed.
+
+## Priority 1 — Exact radius-10 endpoint-bridge attempt
+
+The remaining unresolved finite range is `10<=k<4325`.
+
+Exactly one next atomic task: attempt a STRICT exact bridge at n=45,46 for
+radius 10, reconstructing both complete Supnick edge representations and
+seeking a rational separator for all four chain/threshold inequalities.
+The candidate `s_10=46` is unproved. Use only those two endpoints, retain
+explicit sign and strict rational margins, and record failure if a bridge
+cannot be established. Promote the onset only after all four gates close;
+the task concerns the formal seam exclusively.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 
