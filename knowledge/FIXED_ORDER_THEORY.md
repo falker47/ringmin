@@ -684,6 +684,45 @@ owned by `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`.
 checks, independent direct angular/Cartesian audits and all-pairs LP checks
 in `ops/TASK-20260905__shifted_alternating_halves/`.
 
+### Arbitrary high permutations: exact fixed-order cell characterization
+
+**Status:** exact fixed-order theorem / proved immediate fixed-order
+corollaries, after arXiv v1.
+
+For every integer m>=2, every permutation P of {m+1,...,2m}, and every
+R>0, full feasibility of sigma_P=(1,P_1,2,P_2,...,m,P_m) is equivalent to
+
+```text
+S_P(R)=sum_i max(theta_R(P_{i-1},i)+theta_R(i,P_i),
+                theta_R(P_{i-1},P_i)) <= 2*pi,
+P_0=P_m.
+```
+
+The entire feasible gap set is given by adjacency lower bounds, the
+high-high bound across each low cell, and total length 2*pi. The proof
+contracts high paths using a triangle inequality valid in any order in
+the shell [m+1,2m], then checks both directions for every low-high and
+low-low pair. It explicitly includes all six pairs at m=2, m=3, the low
+seam and arbitrarily many interior high descents/jumps. No shift or
+monotonicity assumption on P is used.
+
+R_full(sigma_P) is the unique positive root of S_P=2*pi. At that root,
+write a_i=theta_R(P_{i-1},i), b_i=theta_R(i,P_i), and
+d_i=max(a_i+b_i,theta_R(P_{i-1},P_i)). Every feasible gap vector, up to
+overall rotation, is exactly x_i in [a_i,d_i-b_i], y_i=d_i-x_i, where
+x_i is the gap P_{i-1}->i and y_i the gap i->P_i.
+Chain/full equality holds iff every high chord is at most its two
+adjacent requirements at the chain root.
+
+This generalizes only the fixed-R portion of the preceding shift theorem.
+It does not optimize over permutations, extend its asymptotic functional,
+change global bounds/certified scope, or classify global contacts/floaters.
+
+**Source:** `research/PERMUTED_ALTERNATING_HALVES.md`; pre-proof independent
+all-permutation LP falsification and post-proof algebra, topology and
+high-precision angular/Cartesian checks in
+`ops/TASK-20260905__permuted_alternating_halves/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

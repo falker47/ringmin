@@ -607,14 +607,27 @@ the strictly improved upper coefficient C_shift defined in the owning global
 ledger. Thus another macroscopic shift within this family cannot improve the
 leading coefficient; broader full-geometric constructions remain open.
 
-## Priority 1 — Independent review of the shifted alternating-halves theorem
+## Resolved priority — Exact feasibility for arbitrary high permutations
 
-Exactly one next atomic task: independently review the fresh thick-shell and
-both-seam all-pairs proof, moving-jump Riemann limit, piecewise functional,
-derivative boundary terms, unique-minimum argument, rational witness enclosure
-and deletion corollary in `research/SHIFTED_ALTERNATING_HALVES.md`; record
-acceptance or precise corrections without starting another order family.
-Check recovery of the unshifted theorem as a dependency consistency gate.
+**Status:** exact fixed-order theorem / proved immediate fixed-order
+corollaries, after arXiv v1.
+
+`research/PERMUTED_ALTERNATING_HALVES.md` proves the proposed cellwise
+criterion for every permutation of {m+1,...,2m}, every m>=2 and R>0.
+The high-shell triangle argument controls paths in arbitrary order, and
+both directions for mixed and low pairs include all seams and small cycles.
+It gives the unique full-radius root, all fixed-order optimal gap choices,
+and the chain/full equality test. Arbitrary-permutation asymptotics and
+optimization have not been started; existing global bounds are unchanged.
+
+## Priority 1 — Independent review of the arbitrary-permutation criterion
+
+Exactly one next atomic task: independently review the shell inequality,
+both paths for every pair type, m=2 and m=3, arbitrary high jumps and the
+low seam in `research/PERMUTED_ALTERNATING_HALVES.md`, together with the
+gap parametrization and chain/full equality corollaries. Reproduce the
+bounded independent checks and record acceptance or precise corrections.
+This review does not begin asymptotic optimization over permutations.
 
 ## Deferred priority 2 — Independent review of increasing-order full asymptotics
 
@@ -668,9 +681,11 @@ Determine the true normalized liminf and limsup within
 `[C_term,C_shift]`, and whether they agree. Improve beyond the optimized
 shifted alternating-halves upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
-full feasibility or genuinely coupled constraints. Do not call either known
-endpoint sharp, retain `1/8` as an open candidate, or assume the floating set
-is `o(n)` without proof.
+full feasibility or genuinely coupled constraints. Neither known endpoint
+is established as sharp. The coefficient `1/8` is already disproved by
+`liminf R*(n)/n^2>=C_term>1/8`, as recorded in
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`; it is not an open candidate.
+The claim that the floating set is `o(n)` remains unproved.
 
 ## Deferred priority 9 — Certification architecture beyond `n=14`
 
