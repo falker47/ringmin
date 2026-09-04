@@ -4,88 +4,75 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=3eb1ec321e2f5a334826ee70c2258f82b9703f66
-observed_on=2026-09-02
+task_base_head=cf78a3b5d7334d3933b62988acae0f048f7b638f
+observed_on=2026-09-04
 phase=post-arXiv-v1 active research
 ```
 
 ## Current task
 
 ```text
-task=TASK-20260902__radius8_seam_diagnostic
+task=TASK-20260904__radius8_seam_onset
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
-### Objective and diagnostic outcome
+### Objective and exact outcome
 
-Complete the bounded two-precision diagnostic for the formal radius-8
-Supnick seam at every integer `33<=n<=46`.
-
-**Classification: NUMERICAL DIAGNOSTIC / numerical observation.**
-
-Independent rank-tour and parity-formula edge reconstructions agree for all
-14 inputs. Separate calculations at 90 and 150 decimal digits find
-`R_{8,n}-T_{8,n}<0` for `33..37` and `>0` for `38..46`. The first
-stable crossing in the prescribed range is therefore `37/38`, nominating
-`38` as a numerical candidate for `s_8`.
-
-The selected rational separator is `176=176/1`. Numerically,
+Prove the radius-8 endpoint bridge at `n=37,38` with separator `176`.
+All four exact gates close:
 
 ```text
-R_{8,37} = 175.77577369548936913057 < 176
-         < T_{8,37} = 184.04862734243861147206,
-
-T_{8,38} = 152.91545396828178471093 < 176
-         < R_{8,38} = 185.96986168932715306600.
+R_{8,37} < 176 < T_{8,37},
+T_{8,38} < 176 < R_{8,38}.
 ```
 
-The smallest numerical separator margin is approximately
-`0.22422630451063086943`; the diagnostic guard is `1e-55`.
-No exact endpoint inequality or exact value of `s_8` is established here.
+**Classification: exact theorem / proved corollary.** The fixed-`k`
+theorem therefore gives `Delta_{8,n}>0` for `10<=n<=37` and
+`Delta_{8,n}<0` for every `n>=38`, hence `s_8=38`.
+The proof and complete rational witnesses are in
+`research/RADIUS8_SEAM_ONSET.md`; the prior numerical diagnostic is not a
+premise. The remaining unresolved radius-index range is `9<=k<4325`.
 
 ### Allowed delta
 
-- `ops/TASK-20260902__radius8_seam_diagnostic/`: three dossier documents,
-  standalone `diagnose.py`, and `diagnostic.json`.
-- The radius-8 entry in `research/NEXT_RESEARCH_STEPS.md`.
-- This file.
+- The new radius-8 proof note.
+- `ops/TASK-20260904__radius8_seam_onset/`: three dossier documents,
+  standalone exact checker and task-local mutation checks.
+- `PROJECT_KNOWLEDGE.md`, the relevant roadmap entries, and this file.
 
 ### Verification gates
 
-- 14 complete edge sets, 26 through 39 distinct edges, including cyclic
-  closure, both seam edges, degree two, all rotations and reflections.
-- 28 fresh root/threshold calculations: rank/asin/bisection/direct
-  Descartes at 90 digits; parity/atan/Ridder/rationalized Descartes at 150.
-- Positive thresholds, physical Descartes residuals, root residuals and
-  local numerical brackets all pass; numerical sign and monotonicity checks
-  pass throughout the fixed range.
-- Largest difference between serialized run values is approximately
-  `4.021905e-76`, below the `1e-55` guard.
-- Normal generation and optimized recomputation both exit `0`;
-  recomputation reports `reproduction=BYTE_IDENTICAL`.
-- Separate Decimal/source audit exits `0`: all 14 rows checked, two
-  out-of-range inputs and three malformed edge/tour cases rejected.
-- Complete tracked/untracked delta inspected; the seven-file format/scope
-  audit exits `0`, with five dossier files, no cache and zero protected
-  changes. `git diff --check` exits `0`, no output. Commands and evidence
-  are recorded in the dossier.
+- Exact positive sign gates before squaring and taking reciprocals at both
+  endpoints; directed quadratic margins are strictly positive.
+- All 30/31 cyclic edges checked through independent rank and parity
+  constructions, including closure, multiplicity, degree and 122 symmetry
+  variants. Exact integer/table cross-check agrees with Fraction arithmetic.
+- Rational arcsine upper and lower bounds and exact Machin/remainder
+  comparisons prove both complete chain inequalities against `pi`.
+- Isolated stdlib checker, normal and `-O`: exit 0, `exact_bridge=PASS`.
+- Task-local suite, normal and `-O`: 25 tests, `OK`, exit 0 in both modes.
+- `python -B -m pytest`: exit 0; `12 passed, 1 warning in 30.49s`.
+  Warning: existing pytest cache could not be written by the sandbox user.
+- Complete tracked diff and all six untracked additions inspected; nine-file
+  format/scope audit passes with zero protected changes and five verified
+  provenance hashes. `git diff --check`: exit 0, no output. HEAD unchanged.
 
 ### Blockers and limitations
 
-No blocker. Both computational paths share mpmath; the checks use no
-directed rounding and are not exact endpoint certificates. A stored zero
-residual is a rounded numerical zero. The range was not expanded.
+No blocker. The all-integer conclusion imports the general fixed-`k`
+mathematical theorem; local tests do not replace independent proof review.
+The mutation suite is coupled to the checker for rejection testing.
 
-`PROJECT_KNOWLEDGE.md` and all exact proof notes remain unchanged. No
-full-feasibility, global-optimum, contact-graph, or floating-circle claim is
-made. Production code, finite certificates, the standalone global verifier
-and the arXiv-v1 publication assets are outside this diagnostic task.
+No full-feasibility, global-optimum, contact-graph or floating-circle claim
+is made. Production code, finite certificates, the standalone global verifier
+and arXiv-v1 publication assets are protected. No global verifier or paper
+build was needed for this endpoint task; hosted CI was not inspected.
 
 ## Exactly one next atomic task after acceptance
 
-Prove the radius-8 endpoint bridge at `n=37,38` using `176`: establish
-the four strict inequalities above with exact rational threshold and
-complete chain-sum bounds, then apply the existing fixed-`k` theorem only
-if every exact gate closes. This dedicated STRICT endpoint-proof task has
-not begun.
+Perform a bounded STRICT two-precision diagnostic for `s_9` on every integer
+`37<=n<=50`, using independent rank-tour and parity-edge reconstructions.
+Identify a stable adjacent crossing and rational separator if possible;
+retain numerical-diagnostic status pending a separate exact endpoint proof.
+This next task has not begun.

@@ -12,7 +12,7 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first seven precise transitions, the general fixed-radius persistence
+The first eight precise transitions, the general fixed-radius persistence
 mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The eventual proof is
 effective with the valid cutoff `K_eff=4325`. The next work may return to the
@@ -94,8 +94,8 @@ occur at most once. The theorem by itself does not determine an exact onset
 and makes no global-optimum or floating-circle claim.
 
 The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact
-`k=1,2,3,4,5,6,7` onsets follow by combining it with the endpoint bridges in
-the seven specialized proof notes.
+`k=1,2,3,4,5,6,7,8` onsets follow by combining it with the endpoint bridges in
+the eight specialized proof notes.
 
 ## Resolved Priority 1 — Uniform fixed-radius onset window
 
@@ -149,8 +149,8 @@ and obstructed at `4k+6` throughout the stated tail; fixed-`k` persistence
 gives the formula. No finite scan is used.
 
 The cutoff is valid but not claimed minimal. The theorem does not classify
-any onset with `8<=k<4325` and makes no full-feasibility, global-optimum,
-contact-graph, or floating-circle claim.
+any remaining onset with `9<=k<4325` and makes no full-feasibility,
+global-optimum, contact-graph, or floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
 
@@ -305,30 +305,36 @@ with strict rational termwise arcsine bounds and exact comparisons with
 one formal seam and makes no claim about `R*(n)`, full feasibility, contact
 graphs, or floating circles in global optima.
 
-## Priority 1 — Radius-8 exact endpoint bridge after numerical localization
+## Resolved Priority 1 — Radius-8 all-`n` seam obstruction
 
-**Diagnostic evidence only:** the bounded `33<=n<=46` scan at 90 and 150
-decimal digits, with independently reconstructed Supnick edges, locates the
-first stable sign change of `R_{8,n}-T_{8,n}` at `37/38`. The common
-rational separator `176` has denominator `1` and smallest numerical margin
-approximately `0.2242263`. Reproducible values and methods are recorded in
-`ops/TASK-20260902__radius8_seam_diagnostic/` as NUMERICAL DIAGNOSTIC.
-The candidate `s_8=38` has not been promoted to an exact theorem.
+**Status:** proved after arXiv v1.
 
-The single next atomic task is a dedicated STRICT proof of the endpoint
-bridge
+The dedicated endpoint note `research/RADIUS8_SEAM_ONSET.md` proves
 
 ```text
 R_{8,37} < 176 < T_{8,37},
 T_{8,38} < 176 < R_{8,38}.
 ```
 
-Success requires exact threshold sign/square gates and complete rational
-chain-sum bounds for all 30 and 31 edges, with exact comparisons to `pi`.
-Only after those gates close may the existing fixed-`k` theorem be used to
-identify an exact onset. The numerical artifact is guidance, not a proof
-premise. This task makes no full-feasibility, global-optimum, contact-graph,
-or floating-circle claim and does not expand the finite certification scope.
+Exact threshold sign/square gates and complete rational chain bounds for
+all 30/31 edges, with exact comparisons to `pi`, close the bridge. The
+fixed-`k` theorem then gives `Delta_{8,n}>0` for `10<=n<=37` and
+`Delta_{8,n}<0` for every `n>=38`, hence `s_8=38`.
+The prior numerical diagnostic is not a proof premise. This concerns one
+formal seam and does not expand the global certification scope.
+
+## Priority 1 — Bounded radius-9 seam diagnostic
+
+The remaining unresolved finite range is `9<=k<4325`. The uniform theorem
+confines `s_9` to `37<=s_9<=50`.
+
+Exactly one next atomic task: perform a STRICT, bounded two-precision
+diagnostic of `R_{9,n}-T_{9,n}` for every integer `37<=n<=50`, with
+independent rank-tour and parity-edge reconstructions. Record a stable
+adjacent crossing and a rational separator if the guarded comparisons
+permit them. Keep every output classified as numerical diagnostic; an
+exact endpoint proof requires a separate task. Do not expand the scan or
+infer full feasibility, global optimality, contact graphs or floating circles.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 
