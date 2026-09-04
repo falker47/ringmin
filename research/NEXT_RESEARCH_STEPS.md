@@ -14,9 +14,9 @@ The public arXiv-v1 paper already supplies:
 
 The first ten precise transitions, the general fixed-radius persistence
 mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
-`s_k=4k+6` have now been converted into exact theorems. The eventual proof is
-effective with the valid cutoff `K_eff=4325`. The next work may return to the
-finite exceptional onsets, without expanding the certification range.
+`s_k=4k+6` have now been converted into exact theorems. The sequence theorem
+in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
+completing all formal seam onsets without expanding global certification.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
@@ -148,9 +148,9 @@ threshold error `4193/(256k)`. The critical cutoff margin is
 and obstructed at `4k+6` throughout the stated tail; fixed-`k` persistence
 gives the formula. No finite scan is used.
 
-The cutoff is valid but not claimed minimal. The theorem does not classify
-any remaining onset with `11<=k<4325` and makes no full-feasibility,
-global-optimum, contact-graph, or floating-circle claim.
+The cutoff remains valid. This earlier theorem does not alone classify
+smaller indices; the sequence theorem below completes them. Neither theorem
+makes a full-feasibility, global-optimum, contact-graph, or floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
 
@@ -358,17 +358,31 @@ all four gates. The fixed-k theorem yields positive deficit for
 No numerical scan, floating root or preliminary reviewer value is a
 premise. This concerns the formal seam exclusively.
 
-## Priority 1 — Exact radius-11 endpoint-bridge attempt
+## Resolved Priority 1 — Sequence monotonicity and all formal seam onsets
 
-The remaining unresolved finite range is `11<=k<4325`.
+**Status:** proved after arXiv v1.
 
-Exactly one next atomic task: attempt a STRICT exact bridge at n=49,50 for
-radius 11, reconstructing both complete Supnick edge representations and
-seeking a rational separator for all four chain/threshold inequalities.
-The candidate `s_11=50` is unproved. Use only those two endpoints, retain
-explicit sign and strict rational margins, and record failure if a bridge
-cannot be established. Promote the onset only after all four gates close;
-the task concerns the formal seam exclusively. This task has not begun.
+The proof in `research/SUPNICK_SEAM_SEQUENCES.md` establishes
+`D_5(k+1)<D_5(k)` and `D_6(k+1)>D_6(k)` for every integer `k>=6`, where
+`D_c(k)=R_{k,4k+c}-T_{k,4k+c}`. It treats the parity change through the
+exact central-edge correction, compares implicit roots with an error
+smaller than the consecutive-step margin, and checks all finite algebraic
+gates exactly. No effective asymptotic bound or numerical scan is a premise.
+
+The prior k=6 bridge and fixed-k persistence then give `s_k=4k+6` for
+every `k>=6`. Together with the first five specialized onsets, all formal
+seam indices are classified. Separate radius-11 and later endpoint bridges
+are no longer needed to classify these onsets.
+
+## Priority 1 — All-pairs feasibility just before the formal seam onset
+
+Exactly one next atomic task: prove or refute that the formal Supnick
+placement on `{k,...,4k+5}`, at its adjacent-chain root, satisfies every
+pairwise non-overlap constraint for every integer `k>=6`. Retain cyclic
+closure and both angular paths; use diagnostics only to guide or falsify
+the statement and certify any counterexample. The positive formal seam
+deficit is known, but sufficiency for all-pairs feasibility is unresolved.
+No global-optimum or floating consequence is assumed. This task has not begun.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 
