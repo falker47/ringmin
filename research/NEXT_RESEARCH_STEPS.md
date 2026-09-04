@@ -374,15 +374,31 @@ every `k>=6`. Together with the first five specialized onsets, all formal
 seam indices are classified. Separate radius-11 and later endpoint bridges
 are no longer needed to classify these onsets.
 
-## Priority 1 — All-pairs feasibility just before the formal seam onset
+## Resolved Priority 1 — All-pairs feasibility just before the formal seam onset
 
-Exactly one next atomic task: prove or refute that the formal Supnick
-placement on `{k,...,4k+5}`, at its adjacent-chain root, satisfies every
-pairwise non-overlap constraint for every integer `k>=6`. Retain cyclic
-closure and both angular paths; use diagnostics only to guide or falsify
-the statement and certify any counterexample. The positive formal seam
-deficit is known, but sufficiency for all-pairs feasibility is unresolved.
-No global-optimum or floating consequence is assumed. This task has not begun.
+**Status:** exact theorem / proved fixed-order corollary, after arXiv v1.
+
+The proof in `research/SUPNICK_FULL_FEASIBILITY.md` establishes seam
+dominance and full feasibility at the exact chain root on `{k,...,4k+5}`
+for every integer `k>=6`. Every nonadjacent pair's two cyclic paths,
+separately, have slack at least `(m-1)Delta>=Delta>0`, where `m` is the
+path's edge count. Only the two-edge seam attains the minimum, up to reversal.
+
+The proof first minimizes the defect over all triples through monotonicity
+and the strictly positive mixed derivative of the angular kernel, then
+telescopes over each path. It retains the exact central correction for
+even cycles. The imported positive seam is used after that argument;
+numerical diagnostics are not proof premises. The conclusion is restricted
+to fixed-order full feasibility, without global or floating consequences.
+
+## Priority 1 — Full-feasibility classification across the fixed-order domain
+
+Exactly one next atomic task: prove or refute equivalence between full
+feasibility of the formal Supnick placement at its chain root and
+`Delta_{k,n}>=0` for all integers `k>=1`, `n>=k+2`. Treat small cycles,
+both cyclic directions and any equality case explicitly. Use the proved
+seam-onset classification only after establishing that equivalence.
+Keep the conclusion within the fixed-order problem. This task has not begun.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 

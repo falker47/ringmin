@@ -243,6 +243,40 @@ gates, separate symbolic differentiation/coefficient checks, and the
 rerun of the radius-6 bridge are recorded in
 `ops/TASK-20260904__seam_sequence_monotonicity/`.
 
+### Exact seam dominance and fixed-order full feasibility at n=4k+5
+
+**Status:** exact theorem / proved fixed-order corollary, after arXiv v1.
+
+For every integer `k>=6`, the Supnick cycle on `{k,...,4k+5}` is fully
+feasible at its exact chain root `R=R_{k,4k+5}`. Put
+
+```text
+Delta = theta_R(n,k)+theta_R(k,n-1)-theta_R(n,n-1) > 0.
+```
+
+For every nonadjacent pair, each of its two cyclic paths with `m` edges
+has slack at least `(m-1)Delta>=Delta`. The minimum is attained exactly
+by the two-edge seam `(n,k,n-1)`, up to reversal. Adjacent pairs have
+zero slack in their one-edge direction and positive slack in the other.
+Consequently `R_full(sigma)=R_chain(sigma)` for this fixed order and set.
+
+The reusable analytic lemma is stronger: at any `R>0`, every triangle
+defect on three distinct members of `{k,...,n}` is minimized when its
+middle radius is `k` and its endpoints are `n-1,n`. Increasing the middle
+radius increases the defect; after lowering it to `k`, the positive mixed
+derivative of `theta_R` makes the defect nonincreasing in either endpoint.
+Fan telescoping then bounds each simple path. The imported `D_5(k)<0`
+theorem supplies positivity only after this comparison is proved.
+Both order parities, the even central-edge correction and both cyclic
+directions are explicit. No finite computation is an all-k premise.
+
+This is a fixed-order feasibility result. No conclusion about global
+optimality, `R*(n)` or floating behavior is drawn.
+
+**Source:** `research/SUPNICK_FULL_FEASIBILITY.md`; independent symbolic
+and formal-edge audits, separate bounded numerical diagnostics and scope
+checks in `ops/TASK-20260904__supnick_full_feasibility/`.
+
 ### Exact all-`n` radius-1 seam threshold
 
 **Status:** exact theorem, proved after arXiv v1.
@@ -678,9 +712,10 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Determine whether the formal Supnick placement on `{k,...,4k+5}` at
-   its chain root is fully feasible under every pair constraint for all
-   integers `k>=6`. The proved positive seam deficit alone is insufficient.
+1. Classify fixed-order full feasibility at the exact Supnick chain root
+   on `{k,...,n}` for all `k>=1`, `n>=k+2`, including small cycles and any
+   equality case. The boundary family `n=4k+5`, `k>=6` is now proved feasible;
+   extension to the whole domain remains a separate task.
 2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 3. Characterize the floating set `F(n)` asymptotically.
 4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
