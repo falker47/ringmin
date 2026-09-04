@@ -268,6 +268,34 @@ a normalized global limit, or optimize any broader order family.
 **Source:** `research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md`; fixed-order
 claim detail remains canonically owned by `knowledge/FIXED_ORDER_THEORY.md`.
 
+### Optimized shifted alternating-halves global upper bound
+
+**Status:** proved global limsup corollary, after arXiv v1.
+
+Let alpha_* be the unique minimizer of the shifted-family full functional K,
+as defined and proved in `knowledge/FIXED_ORDER_THEORY.md` and its source.
+Choosing integer shifts floor(alpha_* m) gives an explicit even-size
+construction. For odd n=2m-1, delete radius 2m from that same even
+configuration; every retained central tangency and pairwise constraint
+persists, and (2m/(2m-1))^2->1. Therefore
+
+```text
+limsup R*(n)/n^2 <= C_shift=K(alpha_*)/(2*pi)<C_alt,
+C_shift=0.1419959781277142849792181240... .
+```
+
+The decimal is diagnostic. An explicit rational shift alpha=107/1000 and
+directed rational sqrt/log/pi enclosures also give the weaker exact bound
+limsup R*(n)/n^2<0.14199597951. This improves the unshifted construction;
+it neither proves global sharpness nor a normalized global limit. The
+existing lower coefficient C_term and finite certification scope are
+unchanged. Optimization within the shift family remains canonically owned
+by the fixed-order ledger.
+
+**Source:** `research/SHIFTED_ALTERNATING_HALVES.md`, Sections 6-8;
+arithmetic and diagnostic evidence in
+`ops/TASK-20260905__shifted_alternating_halves/`.
+
 ### First-order one-gap local optimality of the optimized terminal interval
 
 **Status:** exact continuum theorem / proved first-order corollary, after
@@ -350,11 +378,11 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The alternating-halves construction now gives the strongest proved upper
-bound
+The optimized shifted alternating-halves construction gives the strongest
+proved upper bound
 
 ```text
-limsup R*(n)/n^2<=C_alt=K/(2*pi)<1/(2*pi),
+limsup R*(n)/n^2<=C_shift<C_alt<1/(2*pi),
 ```
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
@@ -363,18 +391,18 @@ possible equality, and either endpoint's sharpness remain unresolved.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/ALTERNATING_HALVES_FULL_ASYMPTOTICS.md` for the strongest upper
-side. The earlier increasing-order theorem remains valid but is weaker. The
-single-subset envelope does not settle the remaining coefficient gap.
+`research/SHIFTED_ALTERNATING_HALVES.md` for the strongest upper
+side. The earlier unshifted and increasing-order theorems remain valid but
+are weaker. The single-subset envelope does not settle the remaining coefficient gap.
 
 ## Primary open problems
 
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,C_alt]`, including whether they agree; improve the alternating-
-   halves upper construction or obtain sharper genuinely coupled-subset or
-   full-geometric lower bounds beyond every single induced-subset chain
+   `[C_term,C_shift]`, including whether they agree; improve beyond the
+   optimized shifted alternating-halves construction or obtain sharper
+   genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
@@ -392,3 +420,6 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - The alternating-halves theorem improves the global limsup upper bound to
   `C_alt`; it does not prove equality, a normalized global limit, global
   optimality of that order, or a matching global lower bound.
+- The shifted-family theorem improves that upper bound to `C_shift`; its
+  unique family minimizer does not establish global optimality, global
+  sharpness, a matching lower bound or a normalized global limit.

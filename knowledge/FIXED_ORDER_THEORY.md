@@ -642,6 +642,48 @@ all-integer limsup consequence is owned by
 70-digit root and direct all-pairs gap diagnostics in
 `ops/TASK-20260904__alternating_halves_full_asymptotics/`.
 
+### Shifted alternating-halves: exact feasibility and unique optimal shift
+
+**Status:** exact finite fixed-order theorem / exact asymptotic and
+family-minimization theorem, after arXiv v1.
+
+For every m>=2 and 0<=s<m, set P_i=m+1+((i+s-1) mod m) and consider
+sigma_{m,s}=(1,P_1,...,m,P_m). With these shifted highs, the cellwise
+formula in the preceding entry remains exact: full feasibility at fixed R
+is equivalent to the sum of max(two-adjacency sum, high-high chord) being
+at most 2*pi. A fresh thick-shell triangle proof treats every high path,
+then every low-high and low-low path in both directions, including m=2,
+the low seam and the separately moving high wrap.
+
+For h_alpha(t)=1+{t+alpha}, with h_1=h_0, define
+
+```text
+J(alpha)=integral_0^1 sqrt(t h_alpha(t)) dt,
+K(alpha)=integral_0^1 max(sqrt(t h_alpha(t)),h_alpha(t)/2) dt.
+```
+
+For every integer shift sequence s_m/m->alpha in [0,1],
+
+```text
+R_chain(sigma_{m,s_m})/(2m)^2 -> J(alpha)/(2*pi),
+R_full(sigma_{m,s_m})/(2m)^2 -> K(alpha)/(2*pi),
+J(alpha)<K(alpha).
+```
+
+The piecewise elementary K has a unique minimum alpha_* in (0,1/2),
+defined by equation (11) in the proof note. Strict convexity on [0,1/2],
+the exact negative derivative at zero, and separate concavity/monotonicity
+arguments on the other two branches prove K(alpha_*)<K(0) without numerical
+premises. The moving-wrap derivative term is retained. Diagnostic values are
+alpha_*=0.106784760199900199... and K(alpha_*)/(2*pi)=0.141995978127714285....
+This also gives the asymptotic minimum over all finite shifts in this family;
+it does not optimize all cyclic orders. The global deletion corollary is
+owned by `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`.
+
+**Source:** `research/SHIFTED_ALTERNATING_HALVES.md`; exact rational/symbolic
+checks, independent direct angular/Cartesian audits and all-pairs LP checks
+in `ops/TASK-20260905__shifted_alternating_halves/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

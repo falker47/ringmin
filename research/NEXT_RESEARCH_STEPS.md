@@ -17,11 +17,11 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The alternating-halves construction now supplies the strongest exact upper
-coefficient
+The optimized shifted alternating-halves construction supplies the strongest
+exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_alt=0.14233385361931275491...<1/(2*pi).
+limsup R*(n)/n^2<=C_shift=0.14199597812771428498...<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -595,13 +595,26 @@ Deleting radius `2m` transfers `limsup R*(n)/n^2<=C_alt` to odd sizes. No
 global equality, normalized global limit, or broader order optimization is
 claimed.
 
-## Priority 1 — Independent review of alternating-halves full asymptotics
+## Resolved priority — Optimal macroscopic alternating-halves shift
 
-Exactly one next atomic task: independently review the thick-shell lemma,
-the exact necessity/sufficiency of the cellwise criterion, both cyclic paths
-for low and high endpoint types, the uniform Riemann limit and switch at
-`1/6`, the exact constant comparisons, and deletion to odd sizes; record
-acceptance or precise corrections without optimizing another order family.
+**Status:** exact fixed-order and shift-family minimization theorem / proved
+global limsup corollary, after arXiv v1.
+
+`research/SHIFTED_ALTERNATING_HALVES.md` extends the exact cellwise criterion
+to every cyclic high shift, derives the limit functional for every limiting
+shift ratio, and proves its unique minimizer analytically. Deletion gives
+the strictly improved upper coefficient C_shift defined in the owning global
+ledger. Thus another macroscopic shift within this family cannot improve the
+leading coefficient; broader full-geometric constructions remain open.
+
+## Priority 1 — Independent review of the shifted alternating-halves theorem
+
+Exactly one next atomic task: independently review the fresh thick-shell and
+both-seam all-pairs proof, moving-jump Riemann limit, piecewise functional,
+derivative boundary terms, unique-minimum argument, rational witness enclosure
+and deletion corollary in `research/SHIFTED_ALTERNATING_HALVES.md`; record
+acceptance or precise corrections without starting another order family.
+Check recovery of the unshifted theorem as a dependency consistency gate.
 
 ## Deferred priority 2 — Independent review of increasing-order full asymptotics
 
@@ -652,8 +665,8 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_alt]`, and whether they agree. Improve the explicit geometric
-upper construction or derive stronger valid lower bounds beyond the resolved
+`[C_term,C_shift]`, and whether they agree. Improve beyond the optimized
+shifted alternating-halves upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Do not call either known
 endpoint sharp, retain `1/8` as an open candidate, or assume the floating set
