@@ -617,17 +617,33 @@ criterion for every permutation of {m+1,...,2m}, every m>=2 and R>0.
 The high-shell triangle argument controls paths in arbitrary order, and
 both directions for mixed and low pairs include all seams and small cycles.
 It gives the unique full-radius root, all fixed-order optimal gap choices,
-and the chain/full equality test. Arbitrary-permutation asymptotics and
-optimization have not been started; existing global bounds are unchanged.
+and the chain/full equality test. The subsequent adjacent-swap result below
+addresses local permutation structure; general permutation optimization and
+asymptotics have not been started. Existing global bounds are unchanged.
 
-## Priority 1 — Independent review of the arbitrary-permutation criterion
+## Resolved priority — Exact adjacent-high variation and conditional exchange
 
-Exactly one next atomic task: independently review the shell inequality,
-both paths for every pair type, m=2 and m=3, arbitrary high jumps and the
-low seam in `research/PERMUTED_ALTERNATING_HALVES.md`, together with the
-gap parametrization and chain/full equality corollaries. Reproduce the
-bounded independent checks and record acceptance or precise corrections.
-This review does not begin asymptotic optimization over permutations.
+**Status:** exact local/conditional theorem, small-R structural corollary
+and disproved unqualified sign rules, after arXiv v1.
+
+`research/PERMUTED_HALVES_ADJACENT_SWAP.md` resolves the adjacent-swap
+question with two changing cells, an explicit branch threshold and
+conditional exchange rules. It isolates the failed low/high rearrangement
+property, retains a minimal sign reversal and excludes cyclic-shift
+optimality in an exact small-R subdomain. The single claim owner is the
+fixed-order ledger. This does not solve general permutation optimization
+or change existing asymptotic bounds.
+
+## Priority 1 — Independent review of the adjacent-high exchange theorem
+
+Exactly one next atomic task: independently review the local swap identity,
+finite/infinite threshold branches, conditional sign and equality cases,
+small-R reduction and minimal counterexample in
+`research/PERMUTED_HALVES_ADJACENT_SWAP.md`. Check its use of the preceding
+fixed-order criterion, reproduce the bounded checks and record acceptance
+or precise corrections. The earlier criterion's independent acceptance is
+not asserted here. This review does not begin general permutation or
+asymptotic optimization.
 
 ## Deferred priority 2 — Independent review of increasing-order full asymptotics
 

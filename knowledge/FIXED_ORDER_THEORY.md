@@ -723,6 +723,43 @@ all-permutation LP falsification and post-proof algebra, topology and
 high-precision angular/Cartesian checks in
 `ops/TASK-20260905__permuted_alternating_halves/`.
 
+### Adjacent high swaps: exact variation and conditional exchange
+
+**Status:** exact local identities / conditional exchange theorem / proved
+small-R structural corollary / disproved universal sign rules, after arXiv v1.
+
+For the preceding permuted-halves criterion, an adjacent high swap at
+positions j,j+1 changes exactly cells j and [j+2]_m for m>=3; the middle
+cell is symmetric and invariant. At m=2 every cell is invariant. Writing
+F_t(a,b)=max(theta_R(t,a)+theta_R(t,b),theta_R(a,b)), the variation is
+F_j(u,y)-F_j(u,x)+F_{[j+2]_m}(x,v)-F_{[j+2]_m}(y,v), where
+(u,x,y,v)=(P_{j-1},P_j,P_{j+1},P_{j+2}) cyclically.
+
+The moving-high branch has an explicit single threshold, including its
+infinite case, endpoint equality and rejection of the extraneous squared
+root. The proof gives a closed two-part angular increment and conditional
+exchange rules from the ordering of the two clipped thresholds and the
+external lows/highs. These yield necessary local optimality conditions;
+radius comparisons require applying them at the relevant full-radius root.
+
+For 0<R<=1 and m>=3, every fixed-R minimizer has P_1=2m,
+P_{m-1}=m+1, P_m in {m+2,...,2m-1}, and all other highs in descending
+order. Only m-2 candidates remain; this does not say they all minimize.
+No increasing cyclic shift minimizes in this subdomain for m>=4.
+
+The minimal sign reversal is at m=3: (4,5,6)->(5,4,6) has negative
+variation at R=1 and positive variation at R=100, with exact rational
+enclosures. The cell cost retains weak increasing differences in its two
+highs, but has neither uniform Monge nor uniform anti-Monge sign between
+a low label and a moving high. Thus the original kernel's anti-Monge
+property does not justify ignoring the max branches or assuming shifts
+optimal. No general permutation/root optimization, new asymptotics,
+global certificate or contact/floater claim follows.
+
+**Source:** `research/PERMUTED_HALVES_ADJACENT_SWAP.md`; pre-proof bounded
+falsification, exact symbolic/rational checks and independent high-precision
+local-versus-full comparisons in `ops/TASK-20260905__adjacent_high_swap/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
