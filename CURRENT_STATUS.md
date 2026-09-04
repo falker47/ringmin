@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=d50fd5eb6d130d6da4193793d4073b83fd881d2d
+task_base_head=32f97d2b3bf37aa1603df02a6e44af17a2b98bba
 observed_on=2026-09-04
 phase=post-arXiv-v1 active research
 ```
@@ -12,73 +12,74 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260904__finite_union_terminal_dominance
+task=TASK-20260904__finite_induced_subset_dominance
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and exact outcome
 
-Close the logical gap between the established continuum functional and its
-optimization over one fixed normalized finite-union induced subset.
+Prove or refute finite terminal dominance for every induced subset, then
+determine the sharp consequence for arbitrary subset sequences with no
+shape, endpoint, component-count, or cardinality-limit assumption.
 
-For every fixed positive-measure finite union `A subset [0,1]`, of length
-`L`, the functional theorem and the new quantile comparison give
-
-```text
-Q_A(t)<=1-L+t,
-C(A)<=C([1-L,1])<=C_term.
-```
-
-Equality at fixed `L` holds exactly for `A=[1-L,1]` modulo null sets. Total
-equality holds exactly when
+The exact finite theorem is
 
 ```text
-L=1-1/lambda_*,
-A=[1/lambda_*,1] modulo null sets.
+R_chain(Supnick(S))<=R_chain(Supnick({n-|S|+1,...,n})),
 ```
 
-The functional proof now explicitly includes sets touching zero: its uniform
-small-angle error needs only `1<=a,b<=n`, not a positive normalized lower
-endpoint.
+with equality exactly for the terminal subset. The proof is the
+rank-coordinate bound, the common Supnick rank-edge multiset, strict angular
+monotonicity, and decreasing-root transfer.
+
+For every arbitrary sequence `S_n subset {1,...,n}`, `|S_n|>=3`, the proved
+terminal triangular-array limit and compactness give
+
+```text
+limsup R_chain(Supnick(S_n))/n^2<=C_term.
+```
+
+The finite envelope over all subsets is attained among terminal subsets and
+converges to `C_term`, so the coefficient is sharp for the one-subset chain
+mechanism.
 
 Authoritative proof:
-`research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`.
+`research/FINITE_INDUCED_SUBSET_DOMINANCE.md`.
 
 ### Allowed delta
 
-The authoritative functional note, one necessary limitation cross-reference
-in `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`, this file,
-`PROJECT_KNOWLEDGE.md`, the roadmap, and
-`ops/TASK-20260904__finite_union_terminal_dominance/`.
+The new authoritative proof note; narrow limitation cross-references in the
+two earlier induced-subset notes; this file, `PROJECT_KNOWLEDGE.md`, the
+roadmap, and `ops/TASK-20260904__finite_induced_subset_dominance/`.
 
 ### Verification gates
 
-- Analytic quantile inequality and equality reconstruction: pass.
-- Functional-domain extension: exact uniform-error audit complete; accepted
-  parity/continuum dependency checks rerun and pass.
-- Imported terminal optimization: accepted exact and symbolic checks rerun
-  and pass.
-- Task-local exact finite-grid audit: 8178 sets, 45057 rank cells, and all 78
-  terminal equality masks pass.
-- Complete five-modification/four-addition diff, strict text/whitespace,
-  empty index, and protected-path checks pass.
+- Exact finite dominance and equality proof: complete.
+- Terminal triangular-array proof: complete for interior cardinality ratios
+  and both boundary regimes.
+- Arbitrary no-limit sequence and finite-envelope compactness: complete.
+- Task-local finite enumerator: pass for all 3797 subsets with `3<=n<=11`.
+- Accepted rank/parity and terminal-optimization dependency checks: pass.
+- Complete five-modification/five-addition diff, strict text/whitespace,
+  empty index, and protected-path checks: pass.
 
 ### Blockers and limitations
 
-No mathematical blocker identified. The theorem concerns one fixed
-normalized finite-union subset before `n->infinity`. It does not cover
-`A=A_n`, moving endpoints, a growing number of components, diagonal limits,
-coupled information from several subsets, matching upper bounds, or the true
-global leading asymptotics.
+No mathematical blocker identified. The conclusion covers one selected
+induced-subset chain bound at each `n`, and any pointwise maximum of such
+individual bounds. It does not cover a genuinely coupled method that combines
+constraints from several subsets, `R_full`, matching upper bounds, or the
+true Ringmin leading asymptotics.
 
 The arXiv-v1 paper/assets, production code, search, tests, `verify.py`,
 results, finite certificates, and unrelated proof notes/dossiers are
-protected.
-The recorded finite global certification scope remains `3<=n<=14`.
+protected. The recorded finite global certification scope remains
+`3<=n<=14`.
 
 ## Exactly one next atomic task after acceptance
 
-Independently review the functional extension to `[0,1]`, quantile dominance,
-both equality cases, terminal-optimization import, and fixed-subset limit
-scope; record acceptance or precise corrections.
+Independently review the rank-edge convention, strict equality case,
+decreasing-root direction, terminal limit at cardinality ratios zero and
+one, compactness/envelope proof, and coupled-method limitation; record
+acceptance or precise corrections.

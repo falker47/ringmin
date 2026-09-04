@@ -416,10 +416,13 @@ C_epsilon(x)<C_term,       0<epsilon<epsilon_0(x).       (26)
 Therefore this perturbation family produces no one-gap induced-subset lower
 bound strictly exceeding `C_term`. Section 7 gives the stronger conclusion
 for every single fixed finite-union subset, including multiple fixed gaps.
-Neither statement treats `n`-dependent normalized subsets, diagonal limits,
-or coupled information from several induced subsets; nor does it determine
-the true leading asymptotics, give an upper bound, change any floating-circle
-claim, or extend finite certification.
+These continuum statements do not themselves treat `n`-dependent normalized
+subsets or diagonal limits. The subsequent
+[exact finite dominance theorem](FINITE_INDUCED_SUBSET_DOMINANCE.md) closes
+those cases for any one subset chosen at each `n`; it still does not treat a
+genuinely coupled use of constraints from several subsets. None of these
+results determines the true leading asymptotics, gives an upper bound,
+changes a floating-circle claim, or extends finite certification.
 
 ## 7. Terminal dominance for every fixed finite union
 
@@ -523,12 +526,14 @@ nonempty asymptotic induced subset is represented.
 The quantifiers are essential. Here `A` is fixed before `n->infinity`, and
 `S_n(A)={j in {1,...,n}:j/n in A}` is then inserted into (3)-(4). The proof
 does not give uniform error control over a sequence `A=A_n`, a growing
-number of components, moving endpoints, or a diagonal subset limit. A
-finite collection of fixed sets combined only by taking the maximum of
-their individual coefficients still cannot exceed `C_term`, but a coupled
-lower-bound argument using constraints from several subsets is not encoded
-by the single functional `C(A)`. Finally, (32) is a lower-bound comparison;
-it supplies no construction and hence no geometric upper bound on `R*(n)`.
+number of components, moving endpoints, or a diagonal subset limit. Those
+cases for a single selected subset are instead covered, without a continuum
+shape, by the later
+[finite induced-subset theorem](FINITE_INDUCED_SUBSET_DOMINANCE.md). A
+coupled lower-bound argument using constraints from several subsets is not
+encoded by either single-subset comparison. Finally, (32) is a lower-bound
+comparison; it supplies no construction and hence no geometric upper bound
+on `R*(n)`.
 
 ## 8. Independent checks and epistemic limits
 
@@ -549,3 +554,8 @@ finite-grid audit independently checks the direction and equality pattern
 on all unions of rational grid cells through denominator 12. The arXiv-v1
 source, result artifacts, `verify.py`, and the certified finite range
 `3<=n<=14` are unchanged.
+
+The later exact finite theorem is logically separate: it compares the
+finite closure sums rank by rank and then analyzes the terminal envelope.
+It supersedes only the old single-subset `n`-dependent limitation, not the
+continuum functional or its equality reconstruction.

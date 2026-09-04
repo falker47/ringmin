@@ -479,20 +479,58 @@ Equality in the first inequality holds exactly for the terminal interval
 modulo null sets; the already proved terminal optimization makes total
 equality unique at `A=[1/lambda_*,1]` modulo null sets. This closes the
 single fixed normalized finite-union route, including any fixed finite
-number of gaps. It does not treat `n`-dependent/diagonal sets, a growing
-number of components, coupled multiple-subset bounds, or geometric upper
-bounds.
+number of gaps. This continuum theorem does not itself treat
+`n`-dependent/diagonal sets or a growing number of components; the next
+resolved theorem closes those cases for one selected subset. Neither covers
+genuinely coupled multiple-subset bounds or geometric upper bounds.
 
-## Priority 1 — Independent review of finite-union terminal dominance
+## Resolved priority — Exact finite dominance for arbitrary induced subsets
 
-Exactly one next atomic task: independently review the extension of the
+**Status:** exact finite theorem / exact asymptotic corollary, after arXiv v1.
+
+For every `S={r_1<...<r_N} subset {1,...,n}`, `3<=N<=n`, the proof in
+`research/FINITE_INDUCED_SUBSET_DOMINANCE.md` compares it with
+`T={n-N+1,...,n}`. The order-statistic inequalities
+`r_i<=n-N+i`, the common Supnick rank-edge multiset, and strict angular
+monotonicity give pointwise closure-sum dominance and hence
+
+```text
+R_chain(Supnick(S))<=R_chain(Supnick(T)),
+```
+
+with equality exactly for `S=T`. A separate parity-uniform triangular-array
+limit covers every moving terminal endpoint, including cardinality ratios
+tending to zero or one. Compactness then proves for every arbitrary sequence
+of one selected induced subset
+
+```text
+limsup R_chain(Supnick(S_n))/n^2<=C_term.
+```
+
+The finite envelope over all subsets and cardinalities is attained among
+terminal subsets and converges to `C_term`, so the result is sharp. This
+closes every leading-coefficient improvement from a single induced-subset
+chain bound, without shape, component-count, endpoint, or cardinality-limit
+assumptions. Genuinely coupled-subset methods and full geometry remain open.
+
+## Priority 1 — Independent review of exact finite subset dominance
+
+Exactly one next atomic task: independently review the rank-edge convention,
+strict equality case, decreasing-root direction, terminal triangular-array
+limit at both boundary regimes, compactness argument, and distinction between
+one-subset envelopes and genuinely coupled methods; record acceptance or
+precise corrections.
+
+## Deferred priority 2 — Independent review of finite-union terminal dominance
+
+Independently review the extension of the
 continuum functional to sets touching zero, the tail-capacity quantile
 inequality, both equality reconstructions, the imported unique length
 optimization, and the fixed-`A` limit scope. Success means an acceptance or
 precise correction report without starting diagonal or coupled-subset
 research.
 
-## Deferred priority 2 — Independent review of the one-gap variation theorem
+## Deferred priority 3 — Independent review of the one-gap variation theorem
 
 Independently review the continuum quantile pairing, both parity/reindexing
 formulas, the first-variation calculation, the optimized-endpoint sign, and
@@ -500,29 +538,30 @@ the iterated-limit statement. The stronger dominance theorem does not make
 the exact local variation calculation incorrect, but removes it as the sole
 barrier to fixed finite-union optimization.
 
-## Deferred priority 3 — Review the optimized terminal-subset theorem
+## Deferred priority 4 — Review the optimized terminal-subset theorem
 
 Independently review the generalized terminal-subset limit, all
 parity/end-point and uniform-error steps, the analytic optimization and the
 all-integer floor deduction. This remains a dependency review rather than a
 new research direction.
 
-## Deferred priority 4 — Review the complete fixed-order classification
+## Deferred priority 5 — Review the complete fixed-order classification
 
 The previously proposed independent review remains pending. Its scope is
 the generalized triangle/path lemmas, closure-forced necessity, equality,
 small cycles and imported strict signs. This theorem is not a premise of
 the new global lower bound.
 
-## Deferred priority 5 — Determine the true leading asymptotics
+## Deferred priority 6 — Determine the true leading asymptotics
 
 Investigate sharpness of `C_term`, stronger valid lower bounds beyond the
-resolved single fixed finite-union subset functional, matching feasible
-upper bounds and existence of a limit for `R*(n)/n^2`. Success must address
-the full geometric problem. Do not retain `1/8` as an open candidate or
-assume the floating set is `o(n)` without proof.
+resolved envelope of every single induced-subset chain bound, matching
+feasible upper bounds and existence of a limit for `R*(n)/n^2`. Success must
+address genuinely coupled constraints or the full geometric problem. Do not
+retain `1/8` as an open candidate or assume the floating set is `o(n)`
+without proof.
 
-## Deferred priority 6 — Certification architecture beyond `n=14`
+## Deferred priority 7 — Certification architecture beyond `n=14`
 
 Only after a precise mathematical discriminator or stronger lower bound is available, investigate whether certification for `n=15` is computationally credible. A task must estimate canonical search size, pruning strength, verifier artifact size, runtime, storage, and failure modes before starting a long run.
 

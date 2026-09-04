@@ -331,9 +331,11 @@ coefficient `rho/16` is strictly smaller than `C_term` but still exceeds
 Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` remain
 **disproved claims**. No explicit threshold, matching upper bound, true
 liminf/limsup, existence of a normalized limit, or floating-set conclusion
-is supplied. The fixed finite-union theorem below closes the single-subset
-nonterminal optimization, but not `n`-dependent or coupled-subset methods.
-The arXiv-v1 record and finite certification scope remain unchanged.
+is supplied. The fixed finite-union theorem below closes the fixed-shape
+nonterminal optimization, and the later exact finite theorem closes every
+arbitrary `n`-dependent choice of one induced subset. Genuinely coupled
+subset methods and full geometry remain open. The arXiv-v1 record and finite
+certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
 exact/symbolic audits in
@@ -388,15 +390,74 @@ L=L_*=1-1/lambda_*=2 sin(tau)/(1+sin(tau)).
 
 Consequently `C(A)=C_term` exactly for `A=[1/lambda_*,1]` modulo null sets.
 This optimizes one fixed normalized finite-union induced subset, including
-any fixed finite number of gaps. It does not cover `A=A_n`, moving endpoints,
-a growing number of components, diagonal limits, coupled information from
-several induced subsets, geometric upper bounds, or the true Ringmin leading
-coefficient. A finite family combined only by taking the maximum of its
-individual coefficients also cannot exceed `C_term`.
+any fixed finite number of gaps. This continuum theorem itself does not cover
+`A=A_n`, moving endpoints, a growing number of components, or diagonal
+limits; the exact finite theorem below separately closes all of those cases
+for one selected subset. Neither theorem covers genuinely coupled
+information from several induced subsets, geometric upper bounds, or the
+true Ringmin leading coefficient.
 
 **Source:** `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`; exact finite-grid
 quantile/equality audit and dependency checks in
 `ops/TASK-20260904__finite_union_terminal_dominance/`.
+
+### Exact finite dominance for every induced subset
+
+**Status:** exact finite theorem / exact asymptotic corollary, after arXiv v1.
+
+For every `n`, every `3<=N<=n`, and every
+
+```text
+S={r_1<...<r_N} subset {1,...,n},
+T={n-N+1,...,n},
+```
+
+the common Supnick rank-edge multiset and the order-statistic inequalities
+`r_i<=n-N+i` give, at every fixed `R>0`, coordinatewise dominance of the
+terminal closure sum. Strict angular monotonicity and decreasing-root
+transfer prove
+
+```text
+R_chain(Supnick(S))<=R_chain(Supnick(T)),
+```
+
+with equality exactly when `S=T`.
+
+For `0<=L<=1`, define
+
+```text
+G(L)=(2/pi) integral_0^(L/2) sqrt((1-L+t)(1-t)) dt.
+```
+
+A parity-uniform triangular-array argument for every moving terminal lower
+endpoint proves that if arbitrary subsets `S_n` have `|S_n|/n->L`, then
+
+```text
+limsup R_chain(Supnick(S_n))/n^2<=G(L).
+```
+
+The boundary regimes are exact: the right side is `0` at `L=0` and `1/8`
+at `L=1`. It has the unique maximum `C_term` at
+`L_*=1-1/lambda_*`. With no cardinality limit or shape assumption at all,
+
+```text
+limsup R_chain(Supnick(S_n))/n^2<=C_term.
+```
+
+Every subsequence attaining `C_term` must have
+`|S_n|/n->L_*=1-1/lambda_*`; no asymptotic subset-shape uniqueness follows.
+
+This is sharp: the finite maximum over every subset and cardinality is the
+maximum over terminal subsets, and its normalization tends to `C_term`.
+Thus no arbitrary choice of one induced-subset chain bound improves that
+leading coefficient. A pointwise maximum of individual subset bounds is
+also inside the same envelope, but no conclusion is made for a genuinely
+coupled-subset method, `R_full`, geometric upper bounds, or the true Ringmin
+coefficient.
+
+**Source:** `research/FINITE_INDUCED_SUBSET_DOMINANCE.md`; independent finite
+enumeration and task evidence in
+`ops/TASK-20260904__finite_induced_subset_dominance/`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -435,9 +496,10 @@ order; each gives a strictly smaller coefficient for all sufficiently small
 positive fixed widths. The stronger terminal-dominance theorem above shows
 strict loss for every admissible positive fixed width and covers every one
 fixed finite-union multi-gap set. The variation itself remains pointwise in
-`x`, not uniform for a center approaching `alpha`; neither result covers
-moving or `n`-dependent sets, diagonal limits, coupled-subset arguments,
-upper bounds, true asymptotics, floating circles, or finite certification.
+`x`, not uniform for a center approaching `alpha`; the finite theorem above
+separately closes moving and `n`-dependent single subsets. No result here
+covers coupled-subset arguments, upper bounds, true asymptotics, floating
+circles, or finite certification.
 
 **Source:** `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`; independent
 symbolic rank/identity checks and finite diagnostics are recorded in
@@ -880,10 +942,11 @@ eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper. The true leading
 behavior and matching upper bounds remain unresolved.
 
-**Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md` and
-`research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`. The latter proves that no
-single fixed normalized finite-union induced subset strengthens `C_term`;
-it does not settle the global asymptotic question.
+**Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
+`research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
+`research/FINITE_INDUCED_SUBSET_DOMINANCE.md`. The last proves that no
+arbitrary sequence of single induced-subset chain bounds strengthens
+`C_term`; it does not settle the global asymptotic question.
 
 ## Primary open problems
 
@@ -891,9 +954,9 @@ it does not settle the global asymptotic question.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global leading behavior above the optimized
    terminal-subset coefficient `C_term`, including matching upper bounds,
-   sharper lower-bound methods beyond any single fixed normalized
-   finite-union induced subset, and whether a normalized limit exists; the
-   proposed coefficient `1/8` is disproved.
+   sharper genuinely coupled-subset or full-geometric lower-bound methods
+   beyond every single induced-subset chain bound, and whether a normalized
+   limit exists; the proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
@@ -906,9 +969,9 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - `--skip-frontier` does not verify global pruning.
 - A best-known heuristic is not certified.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
-- Terminal dominance optimizes only one fixed normalized finite-union subset
-  through `C(A)`; it does not cover `n`-dependent or diagonal subsets,
-  coupled multiple-subset bounds, or geometric upper bounds.
+- Finite induced-subset dominance optimizes the leading coefficient of every
+  arbitrary one-subset chain-bound sequence; it does not cover genuinely
+  coupled multiple-subset methods, `R_full`, or geometric upper bounds.
 - The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
 - The all-`n` radius-2 seam obstruction does not prove that radius `2` floats in any or every global optimum.
 - The all-`n` radius-3 seam obstruction does not prove full realizability
