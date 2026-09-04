@@ -428,30 +428,67 @@ edge parities, uniform small-angle control and an analytic uniqueness proof.
 Both the proposed leading coefficient `1/8` and the stronger `O(sqrt(n))`
 deficit remain disproved. The paper stays historical.
 
-## Priority 1 — Independent review of the optimized terminal-subset theorem
+## Resolved priority — One-gap variation of the optimized terminal interval
 
-Exactly one next atomic task: independently review the generalized
-terminal-subset limit, all parity/end-point and uniform-error steps, the
-analytic optimization and the all-integer floor deduction. Success means an
-acceptance or precise correction report, without expanding into upper-bound
-research or a paper revision.
+**Status:** exact continuum theorem / proved first-order local-optimality
+corollary, after arXiv v1.
 
-## Deferred priority 2 — Review the complete fixed-order classification
+The proof in `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md` derives the
+arbitrary-radii Supnick continuum functional for finite unions of normalized
+intervals,
+
+```text
+C(A)=(2/pi) integral_0^(|A|/2)
+                 sqrt(Q_A(t)Q_A(|A|-t)) dt,
+```
+
+then applies it to `[1/lambda_*,1]` with one fixed interior band of width
+`epsilon` deleted. Both exact Supnick parities, exceptional edges, the
+below/above-median rank shifts, and the iterated order `n->infinity` before
+`epsilon->0+` are explicit. With `alpha=1/lambda_*`, `s=1+alpha`, and
+`theta=asin sqrt(x/s)`, the variation is
+
+```text
+V(x)=(s/pi)[pi/4-theta-sin(theta)cos(theta)]<0
+```
+
+for every fixed `x in (alpha,1)`. The exact zero at the excluded lower
+endpoint follows from `tau=cos(tau)`; strict decrease in `theta` gives the
+sign without numerical input. Thus no fixed-center one-gap perturbation
+improves `C_term` to first order. This is pointwise, not a uniform
+moving-center or multi-gap result.
+
+## Priority 1 — Independent review of the one-gap variation theorem
+
+Exactly one next atomic task: independently review the continuum quantile
+pairing, both parity/reindexing formulas, the first-variation calculation,
+the optimized-endpoint sign, and the iterated-limit statement. Success means
+an acceptance or precise correction report without expanding into multi-gap
+optimization or true-asymptotic research.
+
+## Deferred priority 2 — Review the optimized terminal-subset theorem
+
+Independently review the generalized terminal-subset limit, all
+parity/end-point and uniform-error steps, the analytic optimization and the
+all-integer floor deduction. This remains a dependency review rather than a
+new research direction.
+
+## Deferred priority 3 — Review the complete fixed-order classification
 
 The previously proposed independent review remains pending. Its scope is
 the generalized triangle/path lemmas, closure-forced necessity, equality,
 small cycles and imported strict signs. This theorem is not a premise of
 the new global lower bound.
 
-## Deferred priority 3 — Determine the true leading asymptotics
+## Deferred priority 4 — Determine the true leading asymptotics
 
-Investigate sharpness of `C_term`, stronger valid lower bounds outside the
-proportional terminal-subset family, matching feasible upper bounds and
-existence of a limit for `R*(n)/n^2`. Success must address the full geometric
-problem. Do not retain `1/8` as an open candidate or assume the floating set
-is `o(n)` without proof.
+Investigate sharpness of `C_term`, stronger valid lower bounds beyond the
+resolved fixed-center one-gap perturbation, matching feasible upper bounds
+and existence of a limit for `R*(n)/n^2`. Success must address the full
+geometric problem. Do not retain `1/8` as an open candidate or assume the
+floating set is `o(n)` without proof.
 
-## Deferred priority 4 — Certification architecture beyond `n=14`
+## Deferred priority 5 — Certification architecture beyond `n=14`
 
 Only after a precise mathematical discriminator or stronger lower bound is available, investigate whether certification for `n=15` is computationally credible. A task must estimate canonical search size, pruning strength, verifier artifact size, runtime, storage, and failure modes before starting a long run.
 

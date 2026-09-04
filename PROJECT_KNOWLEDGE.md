@@ -330,14 +330,57 @@ coefficient `rho/16` is strictly smaller than `C_term` but still exceeds
 
 Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` remain
 **disproved claims**. No explicit threshold, matching upper bound, true
-liminf/limsup, existence of a normalized limit, nonterminal-subset result,
-or floating-set conclusion is supplied. The arXiv-v1 record and finite
-certification scope remain unchanged.
+liminf/limsup, existence of a normalized limit, general nonterminal-subset
+optimization, or floating-set conclusion is supplied. The arXiv-v1 record
+and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
 exact/symbolic audits in
 `ops/TASK-20260904__optimized_terminal_subset_bound/`. The earlier special
 `lambda=4` dossier remains historical evidence.
+
+### First-order one-gap local optimality of the optimized terminal interval
+
+**Status:** exact continuum theorem / proved first-order corollary, after
+arXiv v1.
+
+Let `alpha=1/lambda_*`, `s=1+alpha`, and delete a normalized band of total
+width `epsilon` centered at a fixed `x in (alpha,1)` from `[alpha,1]`. For a
+finite union `A` of normalized intervals, with increasing quantile `Q_A` and
+length `L`, the arbitrary-radii Supnick edge formulas and the uniform angular
+root bracket give the single-subset coefficient
+
+```text
+C(A)=(2/pi) integral_0^(L/2) sqrt(Q_A(t)Q_A(L-t)) dt.
+```
+
+Both exact Supnick parities, the seam, the even central edge, and the two
+directions of rank reindexing are retained before the limit. For the one-gap
+set, if `theta=asin sqrt(x/s)`, the iterated limit `n->infinity` first and
+then `epsilon->0+` has first variation
+
+```text
+V(x)=(s/pi)[pi/4-theta-sin(theta)cos(theta)].
+```
+
+Writing `tau=cos(tau)` and using
+`theta_alpha=pi/4-tau/2`, the bracket is zero at the non-interior endpoint
+`alpha` and has derivative `-2cos(theta)^2<0`. Hence
+
+```text
+V(x)<0 for every fixed x in (alpha,1).
+```
+
+No fixed interior one-gap deletion therefore improves `C_term` to first
+order; each gives a strictly smaller coefficient for all sufficiently small
+positive fixed widths. The result is pointwise in `x`, not uniform for a
+center approaching `alpha`, and makes no moving-center, diagonal-limit,
+multi-gap, combined-subset, upper-bound, true-asymptotic, floating-circle, or
+finite-certification claim.
+
+**Source:** `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`; independent
+symbolic rank/identity checks and finite diagnostics are recorded in
+`ops/TASK-20260904__one_gap_terminal_subset_variation/`.
 
 ### Exact all-`n` radius-1 seam threshold
 
@@ -777,6 +820,11 @@ knowledge, not a revision of the historical paper. The true leading
 behavior and matching upper bounds remain unresolved.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`.
+The one-gap first-variation result in
+`research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md` proves that deleting one
+fixed small interior band from the optimized terminal interval does not
+strengthen this coefficient at first order; it does not settle the global
+asymptotic question.
 
 ## Primary open problems
 
@@ -784,8 +832,9 @@ behavior and matching upper bounds remain unresolved.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global leading behavior above the optimized
    terminal-subset coefficient `C_term`, including matching upper bounds,
-   sharper lower-bound methods and whether a normalized limit exists; the
-   proposed coefficient `1/8` is disproved.
+   sharper lower-bound methods beyond the resolved fixed-center one-gap
+   perturbation and whether a normalized limit exists; the proposed
+   coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
@@ -798,6 +847,8 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - `--skip-frontier` does not verify global pruning.
 - A best-known heuristic is not certified.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
+- First-order one-gap local optimality is not global optimality among all
+  induced subsets, moving centers, diagonal limits, or multiple gaps.
 - The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
 - The all-`n` radius-2 seam obstruction does not prove that radius `2` floats in any or every global optimum.
 - The all-`n` radius-3 seam obstruction does not prove full realizability
