@@ -14,24 +14,39 @@ Il comando utente `nuovo commit` (o equivalente inequivocabile) significa: esegu
 
 Le istruzioni di progetto del revisore hanno precedenza. Una modifica di questo file nel delta è oggetto di revisione e non può indebolire retroattivamente il protocollo applicato alla revisione che la introduce.
 
-## 1. Risoluzione della baseline
+## 1. Risoluzione e persistenza della baseline
 
-1. Cerca nelle conversazioni del progetto il più recente blocco `REVIEW_STATE` con `repository=falker47/ringmin` e `decision=accepted`, oppure la più recente riga esatta:
+La fonte canonica della baseline accettata è il Google Sheet `Review State Registry`.
 
-   ```text
-   HEAD accettato come nuova baseline: <SHA completo>
-   ```
+A ogni revisione:
 
-2. Ignora come baseline gli `HEAD` rifiutati.
-3. Se non esiste ancora una baseline accettata, usa esclusivamente come bootstrap:
+1. individua `Review State Registry` tramite Google Drive;
+2. leggi la riga `ringmin` nel tab `State`;
+3. usa il valore `accepted_baseline` come baseline della revisione;
+4. verifica che tale baseline sia antenata dell'`HEAD` corrente.
 
-   ```text
-   9f67244b6226619df99a5eea2249f3fca8a32669
-   ```
+Se il registro non è accessibile, usa come fallback il più recente blocco `REVIEW_STATE` con `repository=falker47/ringmin` e `decision=accepted`, oppure la più recente riga esatta:
 
-4. Se il nuovo `HEAD` viene accettato, il suo SHA completo diventa la baseline successiva.
-5. Se viene rifiutato, la baseline resta invariata.
-6. Non ricavare la baseline da `CURRENT_STATUS.md`, da un dossier, da un tag, da un messaggio di commit o da un artifact.
+```text
+HEAD accettato come nuova baseline: <SHA completo>
+```
+
+Se non è disponibile né il registro né un marker accettato, usa esclusivamente come bootstrap:
+
+```text
+3ad9835631b2a4d434972eedfe10cd8924a05d39
+```
+
+Ignora come baseline gli `HEAD` rifiutati. Non ricavare la baseline da `CURRENT_STATUS.md`, dossier, tag, messaggi di commit o artifact.
+
+Dopo la revisione:
+
+* se `HEAD` è accettato, prima della risposta finale aggiorna la riga `ringmin` nel tab `State`, impostando `accepted_baseline=HEAD`, aggiornando `updated_at_utc` e mantenendo `baseline_status=accepted`;
+* appendi nel tab `History` la transizione `previous_baseline -> accepted_baseline` con `review_head=HEAD` ed `event=review_accepted`;
+* rileggi le celle modificate e verifica che la persistenza sia riuscita;
+* se `HEAD` è rifiutato, non modificare il registro.
+
+Il blocco finale `REVIEW_STATE` deve riflettere lo stato realmente letto dal registro dopo il readback. Se la decisione scientifica accetta `HEAD` ma la scrittura del registro fallisce, segnala esplicitamente la mancata sincronizzazione e non rappresentare come persistita una baseline che non lo è.
 
 ## 2. Identificazione del delta
 
