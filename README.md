@@ -11,7 +11,11 @@ goal is to minimize the central radius `R`.
 The public arXiv v1 is accompanied here by the solver code, independent
 verifier, certificate artifacts, and paper source/PDF. The repository certifies
 the global optimum for `n=3..14` by exhaustive enumeration of cyclic orderings.
-Larger-`n` behavior remains heuristic and conjectural. The fixed-order
+Larger-`n` candidate optima remain heuristic. A post-v1 analytic theorem
+proves `liminf R*(n)/n^2 >= rho/16 > 3/22 > 1/8`, disproving the paper's
+`n^2/8` asymptotic conjecture; see the
+[induced-subset proof](research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md).
+The historical paper is unchanged. The fixed-order
 feasibility oracle is a high-precision Simple Temporal Network check over all
 pairwise angular constraints; chain-only values are used only as lower bounds.
 
@@ -31,8 +35,9 @@ This project studies a finite geometric optimization problem about arranging
 circles of radii `1,2,...,n` around a central circle while minimizing the
 central radius. The paper proves that the chain-ordering lower-bound problem is
 a fixed Supnick/anti-Monge TSP, then uses explicit certificate artifacts and an
-independent verifier to certify global optima for `3 <= n <= 14`. Results for
-larger `n` are reported only as heuristic evidence and conjectural structure.
+independent verifier to certify global optima for `3 <= n <= 14`. Larger-`n`
+global optima remain uncertified; current exact post-v1 results and remaining
+open claims are recorded in [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md).
 
 ## The Minimum Central Circle Problem: An Intuitive Explainer
 

@@ -198,8 +198,10 @@ persistence theorem then gives the identity.
 
 No finite scan is a premise, and `4325` is not claimed minimal. This earlier
 tail theorem alone does not classify smaller indices; the sequence theorem
-below supplies that completion. Neither result proves full feasibility or
-implies anything about `R*(n)`, contact graphs, or floating circles.
+below supplies that completion. The onset identities do not determine
+`R*(n)`, contact graphs, or floating circles. The chain-root asymptotic,
+combined with deletion in the induced-subset theorem below, now supplies
+an unconditional global asymptotic lower bound.
 
 **Source:** `research/EVENTUAL_SUPNICK_SEAM_ONSET.md`; the qualitative and
 effective stdlib/`Fraction` audits and task evidence are recorded in
@@ -282,6 +284,40 @@ n=4k+5,k>=6 is included. No global-optimum or floating conclusion is drawn.
 identities, exact small-cycle checks and a separate finite falsification
 check in `ops/TASK-20260904__supnick_feasibility_classification/`.
 The earlier boundary-family dossier remains historical evidence.
+
+### Induced-subset global lower bound and refuted asymptotic
+
+**Status:** exact theorem / proved corollary, after arXiv v1.
+
+Deleting circles from an actual feasible configuration preserves central
+tangency and all surviving pairwise constraints. Thus for every
+`k>=1,n>=k+2`, with the original radii retained,
+
+```text
+R*(n) >= R*({k,...,n})
+      = min_sigma R_full(sigma)
+      >= min_sigma R_chain(sigma) = R_{k,n}.
+```
+
+This uses the published Supnick theorem for arbitrary distinct positive
+radii; it requires no full feasibility of the minimizing chain. Deletion
+also proves that `R*(n)` is nondecreasing. The exact existing limit
+`R_{k,4k+5}/k^2 -> rho`, followed by `k=floor((n-5)/4)`, gives
+
+```text
+liminf_{n->infinity} R*(n)/n^2 >= rho/16 > 3/22 > 1/8,
+rho = (12+25 atan(3/4))/(4pi).
+```
+
+Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` are
+**disproved claims**. In fact the deficit is less than `-n^2/88` for
+all sufficiently large n. No explicit threshold, matching upper bound,
+true leading coefficient or floating-set conclusion is supplied.
+The arXiv-v1 record and finite certification scope remain unchanged.
+
+**Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
+exact arithmetic and dependency audit in
+`ops/TASK-20260904__induced_subset_asymptotic_bound/`.
 
 ### Exact all-`n` radius-1 seam threshold
 
@@ -700,9 +736,9 @@ floating in global optima remains conjectural.
 
 ### Asymptotics
 
-**Status:** conjecture.
+**Status:** disproved claims, after arXiv v1.
 
-The public paper conjectures
+The unchanged public arXiv-v1 paper conjectures
 
 ```text
 R*(n) = n^2/8 * (1 + o(1))
@@ -714,13 +750,21 @@ and tentatively the stronger deficit bound
 n^2/8 - R*(n) = O(sqrt(n)).
 ```
 
-The paper states that rigorous two-sided leading-order bounds appear approachable but were not proved there.
+Both statements are now disproved by the exact induced-subset theorem:
+`liminf R*(n)/n^2>=rho/16>3/22>1/8`. In particular, eventually
+`n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active knowledge,
+not a revision of the historical paper. The true leading behavior and
+matching upper bounds remain unresolved.
+
+**Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`.
 
 ## Primary open problems
 
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
-3. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
+3. Determine the true global leading behavior above the proved lower
+   coefficient `rho/16`, including matching upper bounds and whether a
+   normalized limit exists; the proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.

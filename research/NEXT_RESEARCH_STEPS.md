@@ -406,23 +406,36 @@ feasibility precisely for k+2<=n<s_k and infeasibility at the root for
 n>=s_k, where s_1=8, s_2=13, s_3=17, s_4=21, s_5=25 and s_k=4k+6 for
 k>=6. No integer equality case exists. All conclusions remain fixed-order.
 
-## Priority 1 — Independent review of the complete fixed-order classification
+## Resolved priority — Refutation of the n^2/8 global asymptotic
 
-Exactly one next atomic task: independently review the generalized
-triangle lemma, path inequalities, closure-forced necessity, equality and
-small-cycle cases, and the imported strict-sign dependencies in the complete
-classification. Success means a precise acceptance or correction report
-for this proof, without opening a new global-optimization research task.
+**Status:** exact theorem / disproved claim, after arXiv v1.
 
-## Deferred priority 3 — Rigorous leading asymptotics
+The proof in `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md` gives
+`liminf R*(n)/n^2>=rho/16>3/22>1/8` for all integers. It combines deletion
+of actual feasible configurations, Supnick chain optimality and the exact
+existing chain asymptotic. Both the proposed leading coefficient `1/8`
+and the stronger `O(sqrt(n))` deficit are disproved. The paper stays historical.
 
-Prove unconditional two-sided bounds sufficient to establish or refute
+## Priority 1 — Independent review of the induced-subset theorem
 
-```text
-R*(n) = n^2/8 * (1 + o(1)).
-```
+Exactly one next atomic task: independently review the induced-subset
+theorem, its Supnick/asymptotic dependencies and the all-integer liminf
+deduction. Success means an acceptance or precise correction report on the
+refutation, without expanding into upper-bound research or a paper revision.
 
-This requires controlling the full geometric problem, not only the chain sum, and must not assume the floating set is `o(n)` unless separately proved.
+## Deferred priority 2 — Review the complete fixed-order classification
+
+The previously proposed independent review remains pending. Its scope is
+the generalized triangle/path lemmas, closure-forced necessity, equality,
+small cycles and imported strict signs. This theorem is not a premise of
+the new global lower bound.
+
+## Deferred priority 3 — Determine the true leading asymptotics
+
+Investigate sharpness of `rho/16`, stronger valid lower bounds, matching
+feasible upper bounds and existence of a limit for `R*(n)/n^2`. Success
+must address the full geometric problem. Do not retain `1/8` as an open
+candidate or assume the floating set is `o(n)` without proof.
 
 ## Deferred priority 4 — Certification architecture beyond `n=14`
 
