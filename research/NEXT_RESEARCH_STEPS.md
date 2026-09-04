@@ -406,22 +406,35 @@ feasibility precisely for k+2<=n<s_k and infeasibility at the root for
 n>=s_k, where s_1=8, s_2=13, s_3=17, s_4=21, s_5=25 and s_k=4k+6 for
 k>=6. No integer equality case exists. All conclusions remain fixed-order.
 
-## Resolved priority — Refutation of the n^2/8 global asymptotic
+## Resolved priority — Optimized terminal-subset asymptotic lower bound
 
 **Status:** exact theorem / disproved claim, after arXiv v1.
 
 The proof in `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md` gives
-`liminf R*(n)/n^2>=rho/16>3/22>1/8` for all integers. It combines deletion
-of actual feasible configurations, Supnick chain optimality and the exact
-existing chain asymptotic. Both the proposed leading coefficient `1/8`
-and the stronger `O(sqrt(n))` deficit are disproved. The paper stays historical.
+the chain-root limit for every terminal-subset ratio `n/k->lambda>1` and
+optimizes its normalized coefficient exactly. If `tau` is the unique root
+of `tau=cos(tau)` in `(0,pi/2)`, the unique maximizing ratio and bound are
 
-## Priority 1 — Independent review of the induced-subset theorem
+```text
+lambda_*=(1+sin(tau))/(1-sin(tau))=5.12767681049949...,
+liminf R*(n)/n^2>=C_term=tau/(pi(1+sin(tau)))
+                         =0.1405690808452567....
+```
 
-Exactly one next atomic task: independently review the induced-subset
-theorem, its Supnick/asymptotic dependencies and the all-integer liminf
-deduction. Success means an acceptance or precise correction report on the
-refutation, without expanding into upper-bound research or a paper revision.
+The decimals are diagnostic only. This strictly improves the earlier
+`lambda=4` coefficient `rho/16>3/22>1/8`. It combines deletion of actual
+feasible configurations, arbitrary-radii Supnick chain optimality, both
+edge parities, uniform small-angle control and an analytic uniqueness proof.
+Both the proposed leading coefficient `1/8` and the stronger `O(sqrt(n))`
+deficit remain disproved. The paper stays historical.
+
+## Priority 1 — Independent review of the optimized terminal-subset theorem
+
+Exactly one next atomic task: independently review the generalized
+terminal-subset limit, all parity/end-point and uniform-error steps, the
+analytic optimization and the all-integer floor deduction. Success means an
+acceptance or precise correction report, without expanding into upper-bound
+research or a paper revision.
 
 ## Deferred priority 2 — Review the complete fixed-order classification
 
@@ -432,10 +445,11 @@ the new global lower bound.
 
 ## Deferred priority 3 — Determine the true leading asymptotics
 
-Investigate sharpness of `rho/16`, stronger valid lower bounds, matching
-feasible upper bounds and existence of a limit for `R*(n)/n^2`. Success
-must address the full geometric problem. Do not retain `1/8` as an open
-candidate or assume the floating set is `o(n)` without proof.
+Investigate sharpness of `C_term`, stronger valid lower bounds outside the
+proportional terminal-subset family, matching feasible upper bounds and
+existence of a limit for `R*(n)/n^2`. Success must address the full geometric
+problem. Do not retain `1/8` as an open candidate or assume the floating set
+is `o(n)` without proof.
 
 ## Deferred priority 4 — Certification architecture beyond `n=14`
 

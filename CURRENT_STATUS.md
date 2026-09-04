@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=0d2eef8702d19fd93982a495bc1aeea50f29a79a
+task_base_head=22bc88834c38421efba068fd573206dae3bdb07b
 observed_on=2026-09-04
 phase=post-arXiv-v1 active research
 ```
@@ -12,59 +12,73 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260904__induced_subset_asymptotic_bound
+task=TASK-20260904__optimized_terminal_subset_bound
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and exact outcome
 
-Verify the induced-subset bound and its implication for the proposed
-global asymptotic. **Exact theorem / proved corollary:**
+Generalize and optimize the induced terminal-subset asymptotic lower bound.
+**Exact theorem / proved corollary:** for every integer sequence with
+`k->infinity` and `n/k->lambda>1`,
 
 ```text
-R*(n) >= R*({k,...,n}) >= R_{k,n},     k>=1,n>=k+2,
-liminf_{n->infinity} R*(n)/n^2 >= rho/16 > 3/22 > 1/8.
+R_{k,n}/k^2 -> rho(lambda)
+  = (2/pi) integral_1^((lambda+1)/2) sqrt(x(lambda+1-x)) dx.
 ```
 
-The proof uses deletion, the published arbitrary-radii Supnick theorem,
-the exact chain-root asymptotic and monotonicity with a floor index.
-Full feasibility of the subset necklace is not needed. Both
-`R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` are disproved.
-Authoritative proof: research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md.
+If `tau` is the unique root of `tau=cos(tau)` in `(0,pi/2)`, then the
+normalized coefficient is uniquely maximized at
+
+```text
+lambda_*=(1+sin(tau))/(1-sin(tau))=5.12767681049949...,
+C_term=tau/(pi(1+sin(tau)))=0.1405690808452567...,
+liminf_{n->infinity} R*(n)/n^2 >= C_term.
+```
+
+The decimals are independently bracketed diagnostics, not proof premises.
+This is the best coefficient within the proportional terminal-subset
+deletion family and strictly improves the former `lambda=4` bound `rho/16`.
+The boundary coefficients are `0` as `lambda` decreases to `1` and `1/8`
+as `lambda` tends to infinity.
+
+Authoritative proof:
+`research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`.
 
 ### Allowed delta
 
-The new proof note, PROJECT_KNOWLEDGE.md, this file, the roadmap, a minimal
-README scope correction, and ops/TASK-20260904__induced_subset_asymptotic_bound/.
+The existing proof note, `PROJECT_KNOWLEDGE.md`, this file, the roadmap, and
+`ops/TASK-20260904__optimized_terminal_subset_bound/`.
 
 ### Verification gates
 
-- Analytic review covers the exact deletion/relaxation inequalities, both
-  closure parities, uniform errors, root bracketing and all-integer liminf.
-- Existing asymptotic audit rerun locally: exit 0, 68 explicit gates.
-- Task-local exact arithmetic audit: exit 0, signed-remainder identities,
-  rational margins and all four symbolic residues; no parameter scan.
-- 80-digit constant-only sanity check: integral and closed form agree;
-  numerical observation, not a proof premise.
-- Complete four-file tracked diff and all five additions inspected.
-  Nine-file scope/UTF-8 audit and complete untracked whitespace audit pass;
-  git diff --check exits 0. HEAD, index and protected paths are unchanged.
+- Analytic proof covers both exact Supnick edge parities and endpoints,
+  moving-ratio Riemann sums, uniform denominator/arcsine errors, implicit-root
+  bracketing, closed form, boundary behavior, unique optimization and the
+  all-integer floor deduction.
+- Task-local stdlib audit: exact rational root/coefficient brackets plus 894
+  independent finite edge-set comparisons, exit 0.
+- Separate SymPy audit: parity endpoint/count, integral, coefficient,
+  derivative and boundary identities, exit 0.
+- Complete tracked diff and all five untracked additions inspected. Exact
+  four-modification/five-addition scope, UTF-8/LF/final-newline/whitespace,
+  empty index, protected-path and `git diff --check` gates pass.
 
 ### Blockers and limitations
 
-No mathematical blocker identified. The true leading coefficient,
-matching upper bounds, existence of a normalized limit and an explicit
-eventual threshold remain unresolved. Independent human proof review
-and manual integration are pending. No floating-set claim follows.
+No mathematical blocker identified. Independent human proof review and
+manual integration remain pending. The theorem does not determine the true
+liminf or limsup, prove existence of a normalized limit, supply a matching
+upper bound, optimize nonterminal or combined-subset methods, or imply any
+floating-circle conclusion.
 
-The arXiv-v1 paper/assets, production code, tests, verify.py, results and
-prior proof notes/dossiers are protected. No enumeration, new certificate,
-paper build or hosted CI check is required. The recorded finite global
-certification scope remains 3<=n<=14.
+The arXiv-v1 paper/assets, production search, tests, scripts, `verify.py`,
+results, finite certificates, and prior proof notes/dossiers are protected.
+The recorded finite global certification scope remains `3<=n<=14`.
 
 ## Exactly one next atomic task after acceptance
 
-Independently review the induced-subset theorem, its Supnick/asymptotic
-dependencies and the all-integer liminf deduction; record acceptance or
-precise corrections. This review has not begun.
+Independently review the generalized terminal-subset limit, its parity and
+uniform-error arguments, the analytic optimization, and the all-integer
+deduction; record acceptance or precise corrections.

@@ -285,7 +285,7 @@ identities, exact small-cycle checks and a separate finite falsification
 check in `ops/TASK-20260904__supnick_feasibility_classification/`.
 The earlier boundary-family dossier remains historical evidence.
 
-### Induced-subset global lower bound and refuted asymptotic
+### Optimized induced-terminal-subset global lower bound
 
 **Status:** exact theorem / proved corollary, after arXiv v1.
 
@@ -301,23 +301,43 @@ R*(n) >= R*({k,...,n})
 
 This uses the published Supnick theorem for arbitrary distinct positive
 radii; it requires no full feasibility of the minimizing chain. Deletion
-also proves that `R*(n)` is nondecreasing. The exact existing limit
-`R_{k,4k+5}/k^2 -> rho`, followed by `k=floor((n-5)/4)`, gives
+also proves that `R*(n)` is nondecreasing. More generally, for any integer
+sequences with `k->infinity` and `n/k->lambda>1`, both Supnick parities and
+uniform angular errors give
 
 ```text
-liminf_{n->infinity} R*(n)/n^2 >= rho/16 > 3/22 > 1/8,
-rho = (12+25 atan(3/4))/(4pi).
+R_{k,n}/k^2 -> rho(lambda)
+  = (2/pi) integral_1^((lambda+1)/2) sqrt(x(lambda+1-x)) dx.
 ```
 
-Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` are
-**disproved claims**. In fact the deficit is less than `-n^2/88` for
-all sufficiently large n. No explicit threshold, matching upper bound,
-true leading coefficient or floating-set conclusion is supplied.
-The arXiv-v1 record and finite certification scope remain unchanged.
+Writing `tau` for the unique root of `tau=cos(tau)` in `(0,pi/2)`, exact
+optimization over `lambda>1` has the unique solution
+
+```text
+lambda_*=(1+sin(tau))/(1-sin(tau)),
+C_term=tau/(pi(1+sin(tau))),
+liminf_{n->infinity} R*(n)/n^2 >= C_term,
+lambda_*=5.12767681049949...,
+C_term=0.1405690808452567....
+```
+
+The decimals are independently bracketed diagnostics, not proof premises.
+This is the exact best coefficient in the proportional terminal-subset
+deletion family. Boundary coefficients are `0` as `lambda` decreases to
+`1` and `1/8` as `lambda` tends to infinity. The earlier `lambda=4`
+coefficient `rho/16` is strictly smaller than `C_term` but still exceeds
+`3/22>1/8` exactly.
+
+Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` remain
+**disproved claims**. No explicit threshold, matching upper bound, true
+liminf/limsup, existence of a normalized limit, nonterminal-subset result,
+or floating-set conclusion is supplied. The arXiv-v1 record and finite
+certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
-exact arithmetic and dependency audit in
-`ops/TASK-20260904__induced_subset_asymptotic_bound/`.
+exact/symbolic audits in
+`ops/TASK-20260904__optimized_terminal_subset_bound/`. The earlier special
+`lambda=4` dossier remains historical evidence.
 
 ### Exact all-`n` radius-1 seam threshold
 
@@ -750,11 +770,11 @@ and tentatively the stronger deficit bound
 n^2/8 - R*(n) = O(sqrt(n)).
 ```
 
-Both statements are now disproved by the exact induced-subset theorem:
-`liminf R*(n)/n^2>=rho/16>3/22>1/8`. In particular, eventually
-`n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active knowledge,
-not a revision of the historical paper. The true leading behavior and
-matching upper bounds remain unresolved.
+Both statements are now disproved by the exact optimized terminal-subset
+theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
+eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
+knowledge, not a revision of the historical paper. The true leading
+behavior and matching upper bounds remain unresolved.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`.
 
@@ -762,9 +782,10 @@ matching upper bounds remain unresolved.
 
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
-3. Determine the true global leading behavior above the proved lower
-   coefficient `rho/16`, including matching upper bounds and whether a
-   normalized limit exists; the proposed coefficient `1/8` is disproved.
+3. Determine the true global leading behavior above the optimized
+   terminal-subset coefficient `C_term`, including matching upper bounds,
+   sharper lower-bound methods and whether a normalized limit exists; the
+   proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
