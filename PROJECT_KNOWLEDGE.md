@@ -235,47 +235,53 @@ Delta_{k,n}<0 for every n>=4k+6.
 
 There is no equality case. Together with `s_1=8`, `s_2=13`, `s_3=17`,
 `s_4=21`, `s_5=25`, every positive integer formal seam index is classified.
-This does not establish full feasibility below onset, global optimality,
-contact structure, or floating behavior in any or every global optimum.
+The sequence theorem alone does not establish full feasibility below onset;
+the following equivalence supplies that separate fixed-order conclusion.
+Neither result establishes global optimality or floating behavior.
 
 **Source:** `research/SUPNICK_SEAM_SEQUENCES.md`; independent stdlib/Fraction
 gates, separate symbolic differentiation/coefficient checks, and the
 rerun of the radius-6 bridge are recorded in
 `ops/TASK-20260904__seam_sequence_monotonicity/`.
 
-### Exact seam dominance and fixed-order full feasibility at n=4k+5
+### Complete exact Supnick fixed-order feasibility classification
 
 **Status:** exact theorem / proved fixed-order corollary, after arXiv v1.
 
-For every integer `k>=6`, the Supnick cycle on `{k,...,4k+5}` is fully
-feasible at its exact chain root `R=R_{k,4k+5}`. Put
+For every integer `k>=1,n>=k+2`, the cumulative-angle Supnick placement
+at `R_{k,n}` is fully feasible if and only if `Delta_{k,n}>=0`. Equivalently,
+some placement in that fixed order exists at that radius if and only if
+that inequality holds. Closure forces every adjacent gap tight, including
+the closing gap, so a negative seam cannot be repaired at the chain root.
 
-```text
-Delta = theta_R(n,k)+theta_R(k,n-1)-theta_R(n,n-1) > 0.
-```
+At every `R>0`, each triangle defect on distinct members of `{k,...,n}`
+is at least `delta_R`, with equality only at middle radius `k` and endpoints
+`n-1,n`. Fan telescoping gives `S_R(P)>=(m-1)delta_R` for every simple
+m-edge path. Both cyclic directions, adjacent complements, N=3, N=4 and
+Delta=0 are treated explicitly. These lemmas and the equivalence do not
+import any seam-sign theorem or rely on finite numerical checks.
 
-For every nonadjacent pair, each of its two cyclic paths with `m` edges
-has slack at least `(m-1)Delta>=Delta`. The minimum is attained exactly
-by the two-edge seam `(n,k,n-1)`, up to reversal. Adjacent pairs have
-zero slack in their one-edge direction and positive slack in the other.
-Consequently `R_full(sigma)=R_chain(sigma)` for this fixed order and set.
+Only then, the known strict seam signs give the complete classification:
 
-The reusable analytic lemma is stronger: at any `R>0`, every triangle
-defect on three distinct members of `{k,...,n}` is minimized when its
-middle radius is `k` and its endpoints are `n-1,n`. Increasing the middle
-radius increases the defect; after lowering it to `k`, the positive mixed
-derivative of `theta_R` makes the defect nonincreasing in either endpoint.
-Fan telescoping then bounds each simple path. The imported `D_5(k)<0`
-theorem supplies positivity only after this comparison is proved.
-Both order parities, the even central-edge correction and both cyclic
-directions are explicit. No finite computation is an all-k premise.
+| k | Fully feasible at the chain root | Infeasible at the chain root in this fixed order |
+|---|---|---|
+| 1 | 3<=n<=7 | n>=8 |
+| 2 | 4<=n<=12 | n>=13 |
+| 3 | 5<=n<=16 | n>=17 |
+| 4 | 6<=n<=20 | n>=21 |
+| 5 | 7<=n<=24 | n>=25 |
+| k>=6 | k+2<=n<=4k+5 | n>=4k+6 |
 
-This is a fixed-order feasibility result. No conclusion about global
-optimality, `R*(n)` or floating behavior is drawn.
+There is no integer equality case. In every feasible case,
+`R_full(sigma)=R_chain(sigma)`. For N>=4 the minimum nonadjacent directed
+path slack is exactly Delta>0, attained only by the seam up to reversal;
+adjacent one-edge paths have zero slack. The earlier boundary family
+n=4k+5,k>=6 is included. No global-optimum or floating conclusion is drawn.
 
 **Source:** `research/SUPNICK_FULL_FEASIBILITY.md`; independent symbolic
-and formal-edge audits, separate bounded numerical diagnostics and scope
-checks in `ops/TASK-20260904__supnick_full_feasibility/`.
+identities, exact small-cycle checks and a separate finite falsification
+check in `ops/TASK-20260904__supnick_feasibility_classification/`.
+The earlier boundary-family dossier remains historical evidence.
 
 ### Exact all-`n` radius-1 seam threshold
 
@@ -712,14 +718,10 @@ The paper states that rigorous two-sided leading-order bounds appear approachabl
 
 ## Primary open problems
 
-1. Classify fixed-order full feasibility at the exact Supnick chain root
-   on `{k,...,n}` for all `k>=1`, `n>=k+2`, including small cycles and any
-   equality case. The boundary family `n=4k+5`, `k>=6` is now proved feasible;
-   extension to the whole domain remains a separate task.
-2. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
-3. Characterize the floating set `F(n)` asymptotically.
-4. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
-5. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
+1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
+2. Characterize the floating set `F(n)` asymptotically.
+3. Prove unconditional two-sided bounds establishing or refuting the leading term `n^2/8`.
+4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 
@@ -761,8 +763,8 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
   graph, or imply that radius `k` floats in any or every global optimum.
 - The earlier effective identity `s_k=4k+6` for `k>=4325` does not alone
   classify smaller indices; the sequence theorem supplies that result.
-- The sequence theorem and complete formal onset formula do not prove full
-  realizability below the seam, determine `R*(n)`, classify a contact graph,
-  or imply that radius `k` floats in any or every global optimum.
+- The sequence theorem alone does not prove full realizability below the
+  seam; the separate fixed-order equivalence now proves that conclusion.
+  It does not determine `R*(n)` or imply floating in any global optimum.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
 - Generated README/report/table agreement does not replace source and verifier agreement.

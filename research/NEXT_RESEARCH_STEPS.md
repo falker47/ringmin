@@ -391,14 +391,28 @@ even cycles. The imported positive seam is used after that argument;
 numerical diagnostics are not proof premises. The conclusion is restricted
 to fixed-order full feasibility, without global or floating consequences.
 
-## Priority 1 — Full-feasibility classification across the fixed-order domain
+## Resolved Priority 1 — Complete fixed-order full-feasibility classification
 
-Exactly one next atomic task: prove or refute equivalence between full
-feasibility of the formal Supnick placement at its chain root and
-`Delta_{k,n}>=0` for all integers `k>=1`, `n>=k+2`. Treat small cycles,
-both cyclic directions and any equality case explicitly. Use the proved
-seam-onset classification only after establishing that equivalence.
-Keep the conclusion within the fixed-order problem. This task has not begun.
+**Status:** exact theorem / proved fixed-order corollary, after arXiv v1.
+
+The proof in `research/SUPNICK_FULL_FEASIBILITY.md` establishes full
+feasibility at `R_{k,n}` iff `Delta_{k,n}>=0` for every k>=1,n>=k+2.
+The generalized triangle and path lemmas cover both directions, adjacent
+complements, small cycles and equality. Necessity uses closure to force all
+adjacent gaps, then contradicts the seam complement's upper constraint.
+
+The existing strict signs, imported only after that equivalence, give
+feasibility precisely for k+2<=n<s_k and infeasibility at the root for
+n>=s_k, where s_1=8, s_2=13, s_3=17, s_4=21, s_5=25 and s_k=4k+6 for
+k>=6. No integer equality case exists. All conclusions remain fixed-order.
+
+## Priority 1 — Independent review of the complete fixed-order classification
+
+Exactly one next atomic task: independently review the generalized
+triangle lemma, path inequalities, closure-forced necessity, equality and
+small-cycle cases, and the imported strict-sign dependencies in the complete
+classification. Success means a precise acceptance or correction report
+for this proof, without opening a new global-optimization research task.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 
