@@ -330,14 +330,73 @@ coefficient `rho/16` is strictly smaller than `C_term` but still exceeds
 
 Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` remain
 **disproved claims**. No explicit threshold, matching upper bound, true
-liminf/limsup, existence of a normalized limit, general nonterminal-subset
-optimization, or floating-set conclusion is supplied. The arXiv-v1 record
-and finite certification scope remain unchanged.
+liminf/limsup, existence of a normalized limit, or floating-set conclusion
+is supplied. The fixed finite-union theorem below closes the single-subset
+nonterminal optimization, but not `n`-dependent or coupled-subset methods.
+The arXiv-v1 record and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
 exact/symbolic audits in
 `ops/TASK-20260904__optimized_terminal_subset_bound/`. The earlier special
 `lambda=4` dossier remains historical evidence.
+
+### Terminal dominance for every fixed finite-union induced subset
+
+**Status:** exact continuum theorem / exact terminal-dominance theorem /
+proved single-subset optimization corollary, after arXiv v1.
+
+For every fixed positive-measure finite union of normalized intervals
+`A subset [0,1]`, with length `L` and increasing quantile `Q_A`, the Supnick
+chain coefficient is
+
+```text
+C(A)=(2/pi) integral_0^(L/2) sqrt(Q_A(t)Q_A(L-t)) dt.
+```
+
+The earlier uniform angular/root proof extends to sets touching zero because
+for `R=rn^2`, `r>=r_0`, and all retained `1<=a,b<=n`, denominator
+rationalization is uniformly `O(n^-2)` per edge and the arcsine remainder is
+`O(n^-3)`; no positive normalized lower endpoint is needed.
+
+The exact tail-capacity inequality
+
+```text
+|A intersect [0,x]| >= L-(1-x)
+```
+
+at `x=1-L+t` gives the pointwise quantile dominance
+
+```text
+Q_A(t)<=1-L+t,                     0<t<L.
+```
+
+Applying it at `t` and `L-t` in the functional proves
+
+```text
+C(A)<=C([1-L,1])<=C_term.
+```
+
+The first equality holds exactly when `A=[1-L,1]` modulo a Lebesgue-null
+set: equality of the nonnegative integrand difference forces the terminal
+quantile almost everywhere on both halves, and the generalized-inverse
+distribution identity reconstructs the set measure. The accepted terminal
+optimization makes the second equality unique at
+
+```text
+L=L_*=1-1/lambda_*=2 sin(tau)/(1+sin(tau)).
+```
+
+Consequently `C(A)=C_term` exactly for `A=[1/lambda_*,1]` modulo null sets.
+This optimizes one fixed normalized finite-union induced subset, including
+any fixed finite number of gaps. It does not cover `A=A_n`, moving endpoints,
+a growing number of components, diagonal limits, coupled information from
+several induced subsets, geometric upper bounds, or the true Ringmin leading
+coefficient. A finite family combined only by taking the maximum of its
+individual coefficients also cannot exceed `C_term`.
+
+**Source:** `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`; exact finite-grid
+quantile/equality audit and dependency checks in
+`ops/TASK-20260904__finite_union_terminal_dominance/`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -373,10 +432,12 @@ V(x)<0 for every fixed x in (alpha,1).
 
 No fixed interior one-gap deletion therefore improves `C_term` to first
 order; each gives a strictly smaller coefficient for all sufficiently small
-positive fixed widths. The result is pointwise in `x`, not uniform for a
-center approaching `alpha`, and makes no moving-center, diagonal-limit,
-multi-gap, combined-subset, upper-bound, true-asymptotic, floating-circle, or
-finite-certification claim.
+positive fixed widths. The stronger terminal-dominance theorem above shows
+strict loss for every admissible positive fixed width and covers every one
+fixed finite-union multi-gap set. The variation itself remains pointwise in
+`x`, not uniform for a center approaching `alpha`; neither result covers
+moving or `n`-dependent sets, diagonal limits, coupled-subset arguments,
+upper bounds, true asymptotics, floating circles, or finite certification.
 
 **Source:** `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`; independent
 symbolic rank/identity checks and finite diagnostics are recorded in
@@ -819,12 +880,10 @@ eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper. The true leading
 behavior and matching upper bounds remain unresolved.
 
-**Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`.
-The one-gap first-variation result in
-`research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md` proves that deleting one
-fixed small interior band from the optimized terminal interval does not
-strengthen this coefficient at first order; it does not settle the global
-asymptotic question.
+**Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md` and
+`research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`. The latter proves that no
+single fixed normalized finite-union induced subset strengthens `C_term`;
+it does not settle the global asymptotic question.
 
 ## Primary open problems
 
@@ -832,9 +891,9 @@ asymptotic question.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global leading behavior above the optimized
    terminal-subset coefficient `C_term`, including matching upper bounds,
-   sharper lower-bound methods beyond the resolved fixed-center one-gap
-   perturbation and whether a normalized limit exists; the proposed
-   coefficient `1/8` is disproved.
+   sharper lower-bound methods beyond any single fixed normalized
+   finite-union induced subset, and whether a normalized limit exists; the
+   proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
@@ -847,8 +906,9 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - `--skip-frontier` does not verify global pruning.
 - A best-known heuristic is not certified.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
-- First-order one-gap local optimality is not global optimality among all
-  induced subsets, moving centers, diagonal limits, or multiple gaps.
+- Terminal dominance optimizes only one fixed normalized finite-union subset
+  through `C(A)`; it does not cover `n`-dependent or diagonal subsets,
+  coupled multiple-subset bounds, or geometric upper bounds.
 - The all-`n` radius-1 seam obstruction does not prove that radius `1` floats in any or every global optimum.
 - The all-`n` radius-2 seam obstruction does not prove that radius `2` floats in any or every global optimum.
 - The all-`n` radius-3 seam obstruction does not prove full realizability

@@ -1,9 +1,9 @@
-# One-gap variation of the optimized terminal-subset bound
+# Finite-union terminal dominance and one-gap variation
 
 ```text
 status=PROVED
-classification=exact continuum theorem / proved first-order local-optimality corollary
-domain=one fixed interior gap in the optimized normalized terminal interval
+classification=exact continuum theorem / exact terminal-dominance theorem / proved corollaries
+domain=fixed finite unions of normalized intervals; one fixed interior-gap variation
 proved_on=2026-09-04
 published_snapshot=arXiv v1 remains unchanged
 ```
@@ -57,8 +57,9 @@ Changing open to closed endpoints changes at most two radii and does not
 change any limit below.
 
 **Continuum Supnick functional.** If `A` is a finite union of intervals in
-`[alpha,1]`, let `L=|A|` be its Lebesgue measure and let `Q_A:[0,L]->A` be
-its increasing quantile, defined up to values at its finitely many jumps.
+`[0,1]` of positive measure, let `L=|A|` be its Lebesgue measure and let
+`Q_A:[0,L]->[0,1]` be its increasing quantile, defined up to values at its
+finitely many jumps and at the endpoints.
 The chain root of the arbitrary-radii Supnick tour on
 `{j: j/n in A}` satisfies
 
@@ -74,6 +75,28 @@ Consequently deletion from a feasible Ringmin configuration gives
 ```text
 liminf_{n->infinity} R*(n)/n^2 >= C(A).                 (4)
 ```
+
+The functional has a global maximizer among all such fixed finite unions.
+For every `A subset [0,1]` of measure `0<L<=1`,
+
+```text
+Q_A(t) <= 1-L+t                         for 0<t<L,
+C(A) <= C([1-L,1]) <= C_term.                         (4a)
+```
+
+The first equality holds exactly when `A=[1-L,1]` modulo a Lebesgue-null
+set. The second holds exactly when
+
+```text
+L=L_*=1-alpha=2 sin(tau)/(1+sin(tau)).                 (4b)
+```
+
+Thus equality in the complete bound holds exactly, modulo null sets, for
+`A=[alpha,1]`. Section 7 proves the quantile comparison and equality case;
+the second inequality and its unique equality case are the terminal
+optimization already proved in the cited note. This global result includes
+fixed finite unions with any finite number of gaps and strictly strengthens
+the one-gap local conclusion below.
 
 For (1), write `C_epsilon(x)=C(A_{epsilon,x})`. Its exact
 first variation at the unperforated interval is
@@ -93,14 +116,16 @@ V(x)<0       for every fixed x in (alpha,1).            (6)
 
 Thus no fixed interior gap center has a positive first variation. For each
 such `x`, all sufficiently small positive gaps give a strictly weaker
-coefficient than `C_term`. This proves first-order local optimality of the
-optimized terminal interval within the stated one-gap, single-induced-subset
-family.
+coefficient than `C_term`. More strongly, (4a) and the uniqueness in (4b)
+show that every admissible positive fixed gap width gives a strictly weaker
+coefficient. The variation formula records the exact local loss.
 
 The conclusion is pointwise in the fixed center `x`. The continuous extension
 has `V(alpha)=0`, reflecting stationarity of the already optimized terminal
 endpoint, so (6) is not a uniform negative margin as `x` approaches `alpha`.
-No moving-center or multi-gap claim is made.
+The variation formula itself makes no moving-center or multi-gap derivative
+claim; the separate global comparison (4a) covers each fixed finite-union
+multi-gap set without computing its variation.
 
 ## 2. From arbitrary-radii Supnick tours to (3)
 
@@ -135,7 +160,7 @@ Here an edge `(i,j)` means `(r_{n,i},r_{n,j})`. The counts in (7) are
 `(h-1)+(h-1)+2=N_n`; those in (8) are `h+h+1=N_n`.
 Thus the cyclic seam and the even central edge are both retained.
 
-For a finite union of intervals, elementary grid counting gives
+For a finite union of intervals in `[0,1]`, elementary grid counting gives
 
 ```text
 N_n/n -> L
@@ -161,9 +186,19 @@ by `n^2` is `O(1/n)`. Uniformly across both parities,
 ```
 
 For completeness, (9) determines the implicit chain-root scale rather than
-assuming it. Fix `r_0>0`, take `r>=r_0`, and set `R=rn^2`. Since all retained
-radii lie in `[alpha n,n]`, the same rationalization and arcsine estimate as
-in the terminal-interval proof gives, uniformly in every edge and `r>=r_0`,
+assuming it. Fix `r_0>0`, take `r>=r_0`, and set `R=rn^2`. Every retained
+radius satisfies `1<=a,b<=n`; no positive normalized lower endpoint is
+needed. Indeed, if
+
+```text
+v=sqrt(ab)/R,
+u=sqrt(ab/((R+a)(R+b))),
+```
+
+then `0<=v-u<=v(a+b)/(2R)=O_(r_0)(n^-2)` uniformly. Here one uses
+`1-(1+x)^(-1/2)<=x/2` twice. Also `u<=1/(r_0 n)`, so, for all sufficiently
+large `n`, the same arcsine estimate as in the terminal-interval proof gives,
+uniformly in every edge and `r>=r_0`,
 
 ```text
 theta_{rn^2}(a,b)=2 sqrt(ab)/(rn^2)+O_{r_0}(n^-2).      (10)
@@ -179,9 +214,10 @@ C_chain(rn^2)
 ```
 
 Bracketing the unique decreasing closure root on the two sides of (3), as in
-the proof of the terminal theorem, proves (3). The deletion lemma and the
-arbitrary-radii Supnick theorem then give (4). No full feasibility of the
-formal Supnick chain is used.
+the proof of the terminal theorem, proves (3). The integral is strictly
+positive for every positive-measure `A`, so the two bracketing radii are
+positive. The deletion lemma and the arbitrary-radii Supnick theorem then
+give (4). No full feasibility of the formal Supnick chain is used.
 
 For the unperforated interval `A_0=[alpha,1]`,
 
@@ -378,12 +414,123 @@ C_epsilon(x)<C_term,       0<epsilon<epsilon_0(x).       (26)
 ```
 
 Therefore this perturbation family produces no one-gap induced-subset lower
-bound strictly exceeding `C_term`. The conclusion concerns the strength of a
-single Supnick chain lower bound only. It does not optimize multiple gaps or
-combined subsets, determine the true leading asymptotics, give an upper
-bound, change any floating-circle claim, or extend finite certification.
+bound strictly exceeding `C_term`. Section 7 gives the stronger conclusion
+for every single fixed finite-union subset, including multiple fixed gaps.
+Neither statement treats `n`-dependent normalized subsets, diagonal limits,
+or coupled information from several induced subsets; nor does it determine
+the true leading asymptotics, give an upper bound, change any floating-circle
+claim, or extend finite certification.
 
-## 7. Independent checks and epistemic limits
+## 7. Terminal dominance for every fixed finite union
+
+Let `A subset [0,1]` be a finite union of intervals of measure `0<L<=1`,
+and define its distribution function
+
+```text
+F_A(x)=|A intersect [0,x]|,          0<=x<=1.
+```
+
+For `0<t<L`, set `q_L(t)=1-L+t`. The part of `A` to the right of any `x`
+has measure at most the available length `1-x`, so
+
+```text
+F_A(x)=L-|A intersect (x,1]| >= L-(1-x).               (27)
+```
+
+Taking `x=q_L(t)` in (27) gives `F_A(q_L(t))>=t`. With the generalized
+inverse convention
+
+```text
+Q_A(t)=inf{x in [0,1]: F_A(x)>=t},       0<t<L,         (28)
+```
+
+this proves the requested pointwise quantile dominance
+
+```text
+Q_A(t)<=q_L(t)=1-L+t.                                  (29)
+```
+
+Endpoint values of the quantile are immaterial to the integral. Notice that
+(27)-(29) in fact need only measurability; the finite-union hypothesis is
+used by the already proved continuum limit (3).
+
+Apply (29) at `t` and at `L-t`. For `0<t<L/2`,
+
+```text
+Q_A(t)   <= 1-L+t,
+Q_A(L-t) <= 1-t.                                       (30)
+```
+
+All quantities are nonnegative, and the terminal comparison factors are
+strictly positive off the irrelevant endpoints. Hence
+
+```text
+sqrt(Q_A(t)Q_A(L-t))
+  <= sqrt((1-L+t)(1-t)).                               (31)
+```
+
+The terminal interval `T_L=[1-L,1]` has
+`Q_T(t)=1-L+t` almost everywhere. Integrating (31) in (3) therefore gives
+
+```text
+C(A)
+ <= (2/pi) integral_0^(L/2) sqrt((1-L+t)(1-t)) dt
+  = C(T_L).                                            (32)
+```
+
+The equality condition loses no information. The difference between the
+two integrands in (31) is nonnegative. If equality holds in (32), it
+vanishes almost everywhere. Since each factor in (30) is bounded above by a
+strictly positive comparison factor, equality of the products forces
+
+```text
+Q_A(t)=1-L+t       for almost every 0<t<L/2,
+Q_A(L-t)=1-t       for almost every 0<t<L/2.            (33)
+```
+
+After the change of variable `u=L-t`, (33) says
+`Q_A(u)=1-L+u` for almost every `u in (0,L)`. Conversely, this quantile
+identity plainly gives equality in (32). To translate it back to the set,
+use the elementary generalized-inverse identity
+
+```text
+F_A(x)=|{t in (0,L): Q_A(t)<=x}|.                       (34)
+```
+
+Thus (33) makes `F_A` equal to the distribution function of `T_L` at every
+`x`. The measures `1_A dx` and `1_T dx` agree on all intervals `[0,x]`, so
+`|A symmetric_difference T_L|=0`. The converse is immediate. Therefore
+
+```text
+C(A)=C([1-L,1])
+  iff A=[1-L,1] modulo a Lebesgue-null set.             (35)
+```
+
+For `0<L<1`, put `lambda=1/(1-L)`. The terminal interval in (32) is exactly
+the normalized interval `[1/lambda,1]`, and the accepted terminal theorem
+identifies
+
+```text
+C(T_L)=c(lambda)<=C_term,                               (36)
+```
+
+with equality only at `lambda=lambda_*`, equivalently at the length (4b).
+At `L=1`, the same theorem's boundary value is `C([0,1])=1/8<C_term`.
+Combining (35)-(36) proves (4a) and both precise equality conditions. If the
+degenerate case `L=0` is assigned `C(A)=0`, the inequality is trivial and no
+nonempty asymptotic induced subset is represented.
+
+The quantifiers are essential. Here `A` is fixed before `n->infinity`, and
+`S_n(A)={j in {1,...,n}:j/n in A}` is then inserted into (3)-(4). The proof
+does not give uniform error control over a sequence `A=A_n`, a growing
+number of components, moving endpoints, or a diagonal subset limit. A
+finite collection of fixed sets combined only by taking the maximum of
+their individual coefficients still cannot exceed `C_term`, but a coupled
+lower-bound argument using constraints from several subsets is not encoded
+by the single functional `C(A)`. Finally, (32) is a lower-bound comparison;
+it supplies no construction and hence no geometric upper bound on `R*(n)`.
+
+## 8. Independent checks and epistemic limits
 
 The task-local symbolic checker independently verifies the two parity edge
 counts, the primitive (19), the below/above-median derivative reductions, the
@@ -395,5 +542,10 @@ above the median with both retained-set parities.
 These checks are corroborative. The proof is the rank formulas, Riemann-sum
 limit, uniform angular/root bracket, exact reindexing identities, and strict
 sign argument above. The published arbitrary-radii Supnick theorem is
-imported rather than reproved. The arXiv-v1 source, result artifacts,
-`verify.py`, and the certified finite range `3<=n<=14` are unchanged.
+imported rather than reproved. The terminal-dominance proof is the tail
+capacity bound (27), generalized-inverse step (28)-(29), monotonicity of the
+integrand, and equality reconstruction (33)-(35). A task-local exact
+finite-grid audit independently checks the direction and equality pattern
+on all unions of rational grid cells through denominator 12. The arXiv-v1
+source, result artifacts, `verify.py`, and the certified finite range
+`3<=n<=14` are unchanged.

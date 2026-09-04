@@ -417,8 +417,12 @@ liminf_{n->infinity} R*(n)/n^2 >= c(lambda).             (27)
 Section 6 proves that `C_term=max_{lambda>1} c(lambda)`, attained only at
 `lambda_*`. Therefore (5) is exactly the best coefficient furnished by the
 fixed-ratio terminal-subset deletion family analyzed here. This statement
-does not claim optimality among nonterminal deletions, combinations of
-several subsets, or other geometric lower-bound methods.
+by itself does not claim optimality among nonterminal deletions, combinations
+of several subsets, or other geometric lower-bound methods. The subsequent
+[finite-union terminal-dominance theorem](ONE_GAP_TERMINAL_SUBSET_VARIATION.md)
+does prove that no one fixed normalized finite-union subset improves this
+coefficient. It does not cover `n`-dependent or diagonal subsets, a growing
+number of components, or coupled information from several subsets.
 
 ## 8. Consequences and unresolved true asymptotics
 
@@ -437,8 +441,9 @@ What remains unresolved is exact and substantial:
 - whether `R*(n)/n^2` has a limit;
 - the value of its liminf or limsup, and whether either equals `C_term`;
 - any matching feasible upper bound at coefficient `C_term`;
-- whether a stronger lower bound follows from nonterminal or multiple
-  induced subsets, full all-pairs geometry, or another method;
+- whether a stronger lower bound follows from `n`-dependent or diagonal
+  induced subsets, coupled use of several subsets, full all-pairs geometry,
+  or another method;
 - the asymptotic number and identity of floating circles.
 
 The maximizing `lambda_*` optimizes a lower-bound mechanism, not a proposed
