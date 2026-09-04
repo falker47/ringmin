@@ -12,7 +12,7 @@ The public arXiv-v1 paper already supplies:
 - finite global certificates for `3 <= n <= 14`;
 - explicit conjectures on seam failures, the floating cascade, and asymptotics.
 
-The first nine precise transitions, the general fixed-radius persistence
+The first ten precise transitions, the general fixed-radius persistence
 mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The eventual proof is
 effective with the valid cutoff `K_eff=4325`. The next work may return to the
@@ -94,8 +94,8 @@ occur at most once. The theorem by itself does not determine an exact onset
 and makes no global-optimum or floating-circle claim.
 
 The proof is in `research/FIXED_K_SUPNICK_SEAM.md`. The exact
-`k=1,2,3,4,5,6,7,8,9` onsets follow by combining it with the endpoint bridges in
-the nine specialized proof notes.
+`k=1,2,3,4,5,6,7,8,9,10` onsets follow by combining it with the endpoint bridges in
+the ten specialized proof notes.
 
 ## Resolved Priority 1 — Uniform fixed-radius onset window
 
@@ -149,7 +149,7 @@ and obstructed at `4k+6` throughout the stated tail; fixed-`k` persistence
 gives the formula. No finite scan is used.
 
 The cutoff is valid but not claimed minimal. The theorem does not classify
-any remaining onset with `10<=k<4325` and makes no full-feasibility,
+any remaining onset with `11<=k<4325` and makes no full-feasibility,
 global-optimum, contact-graph, or floating-circle claim.
 
 ## Resolved Priority 1 — Radius-3 all-`n` seam obstruction
@@ -340,17 +340,35 @@ fixed-k theorem gives positive deficit on `11<=n<=41` and negative deficit
 for every `n>=42`, hence `s_9=42`. Only the two endpoints enter the exact
 arithmetic; no numerical scan is a premise and no global claim is changed.
 
-## Priority 1 — Exact radius-10 endpoint-bridge attempt
+## Resolved Priority 1 — Radius-10 all-`n` seam obstruction
 
-The remaining unresolved finite range is `10<=k<4325`.
+**Status:** proved after arXiv v1.
 
-Exactly one next atomic task: attempt a STRICT exact bridge at n=45,46 for
-radius 10, reconstructing both complete Supnick edge representations and
+The dedicated endpoint note `research/RADIUS10_SEAM_ONSET.md` proves
+
+```text
+R_{10,45} < 270 < T_{10,45},
+T_{10,46} < 270 < R_{10,46}.
+```
+
+Both full cycle representations, all 36/37 rational edge witnesses,
+threshold positivity/pre-square signs and exact arcsine/pi bounds close
+all four gates. The fixed-k theorem yields positive deficit for
+`12<=n<=45` and negative deficit for every `n>=46`, hence `s_10=46`.
+No numerical scan, floating root or preliminary reviewer value is a
+premise. This concerns the formal seam exclusively.
+
+## Priority 1 — Exact radius-11 endpoint-bridge attempt
+
+The remaining unresolved finite range is `11<=k<4325`.
+
+Exactly one next atomic task: attempt a STRICT exact bridge at n=49,50 for
+radius 11, reconstructing both complete Supnick edge representations and
 seeking a rational separator for all four chain/threshold inequalities.
-The candidate `s_10=46` is unproved. Use only those two endpoints, retain
+The candidate `s_11=50` is unproved. Use only those two endpoints, retain
 explicit sign and strict rational margins, and record failure if a bridge
 cannot be established. Promote the onset only after all four gates close;
-the task concerns the formal seam exclusively.
+the task concerns the formal seam exclusively. This task has not begun.
 
 ## Deferred priority 3 — Rigorous leading asymptotics
 
