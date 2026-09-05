@@ -17,11 +17,11 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The deterministic reflected-coupling construction supplies the strongest
+The deterministic longer reflected-prefix construction supplies the strongest
 exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -690,9 +690,35 @@ upper-bound corollary is recorded in its separate owning ledger. General
 recovery and optimization of permutations or couplings remain outside
 this resolved question.
 
-## Priority 1 — Independent review of mu_ref recovery
+## Resolved priority — Longer reflected prefix at fixed alpha_*
+
+**Status:** exact recovery and full-radius theorem / proved global
+upper-bound corollary, after arXiv v1.
+
+`research/PERMUTED_HALVES_REFLECTED_PREFIX.md` extends the deterministic
+parity construction to q_m=2*floor(lambda*m/2), for fixed
+1/4<=lambda<1-alpha_*. It handles coincident finite seam cells, proves
+weak convergence for continuous tests and derives the full max with its
+possible branch changes. Exact rational gates establish the witness
+lambda=3/10 and C_30<C_ref-37/(1830400*pi), with alpha_* unchanged.
+The existing uniform root theorem and deletion transfer the improvement
+to the global upper bound. The fixed-order and global claims retain
+distinct ledger owners. No parameter or general permutation/coupling
+optimization is part of this result.
+
+## Priority 1 — Independent review of the longer reflected prefix
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_REFLECTED_PREFIX.md`. Audit all finite occurrence
+and seam cases, the continuous-test limit, both full-cost branches,
+the rational alpha/branch/saving gates, and the imported full-radius
+transfer and deletion corollary. Reproduce the canonical-dependency
+checker and record acceptance or precise corrections. Do not begin
+parameter or general permutation/coupling optimization.
+
+## Deferred dependency review — mu_ref recovery
+
+Independently review
 `research/PERMUTED_HALVES_MU_REF_RECOVERY.md`. Audit the deterministic
 permutation, exact occurrence and cyclic seam counts, parity weights,
 wrap endpoint and arbitrary-continuous-test limit, then the imported
@@ -789,7 +815,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_ref]`, and whether they agree. Improve beyond the reflected-coupling
+`[C_term,C_30]`, and whether they agree. Improve beyond the longer reflected-prefix
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

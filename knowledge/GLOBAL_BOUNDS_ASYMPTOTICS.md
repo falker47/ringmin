@@ -321,6 +321,29 @@ neither permutations nor the relaxation are optimized.
 The recovery and fixed-order coefficient are owned by the fixed-order
 ledger; the earlier shift upper bound remains valid but is weaker.
 
+### Longer reflected prefix: improved global upper bound
+
+**Status:** proved global limsup corollary of an explicit feasible
+construction, after arXiv v1.
+
+Use C_30=C_ref(3/10) from the fixed-order ledger's longer reflected prefix
+theorem, with alpha=alpha_* unchanged. The exact full criterion supplies
+feasible even configurations; deletion of radius 2m supplies odd ones.
+Thus the strongest current upper bound is
+
+```text
+C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_30<C_ref.
+```
+
+The strict comparison and the definition of C_30 have their sole owner in
+`knowledge/FIXED_ORDER_THEORY.md`; C_ref keeps its original 1/4-prefix
+meaning. The preceding bound remains valid but is weaker. No normalized
+global limit, sharp endpoint, finite global optimum or stronger lower
+bound is established.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX.md`, Section 6;
+task-local evidence in `ops/TASK-20260905__reflected_prefix/`.
+
 ### First-order one-gap local optimality of the optimized terminal interval
 
 **Status:** exact continuum theorem / proved first-order corollary, after
@@ -403,11 +426,11 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The reflected-coupling recovery construction above gives the strongest
+The longer reflected-prefix construction above gives the strongest
 proved upper bound
 
 ```text
-limsup R*(n)/n^2<=C_ref<C_shift<C_alt<1/(2*pi),
+limsup R*(n)/n^2<=C_30<C_ref<C_shift<C_alt<1/(2*pi),
 ```
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
@@ -416,17 +439,18 @@ possible equality, and either endpoint's sharpness remain unresolved.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/PERMUTED_HALVES_MU_REF_RECOVERY.md` for the strongest upper
-side. The earlier shifted, unshifted and increasing-order theorems remain valid but
-are weaker. The single-subset envelope does not settle the remaining coefficient gap.
+`research/PERMUTED_HALVES_REFLECTED_PREFIX.md` for the strongest upper
+side. The earlier reflected, shifted, unshifted and increasing-order
+theorems remain valid but are weaker. The single-subset envelope does not
+settle the remaining coefficient gap.
 
 ## Primary open problems
 
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,C_ref]`, including whether they agree; improve beyond the
-   reflected-coupling construction or obtain sharper
+   `[C_term,C_30]`, including whether they agree; improve beyond the
+   longer reflected-prefix construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
@@ -448,6 +472,7 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - The shifted-family theorem improves that upper bound to `C_shift`; its
   unique family minimizer does not establish global optimality, global
   sharpness, a matching lower bound or a normalized global limit.
-- Recovery of mu_ref improves the upper bound to C_ref; it does not
-  identify the best high-permutation coefficient, a relaxation minimum,
+- Recovery of mu_ref and its longer prefix improve the upper bound to
+  C_ref and C_30 respectively; neither result identifies
+  the best high-permutation coefficient, a relaxation minimum,
   a global optimum or a normalized global limit.

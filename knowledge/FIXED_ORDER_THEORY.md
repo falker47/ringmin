@@ -922,6 +922,43 @@ No finite global certificate or contact/floater classification is changed.
 bounded exact occurrence, seam and independently integrated polynomial
 checks in `ops/TASK-20260905__mu_ref_recovery/`.
 
+### Longer reflected prefix with alpha_* fixed
+
+**Status:** exact recovery, full-cost branch and fixed-order asymptotic
+theorem; exact strict coefficient improvement, after arXiv v1.
+
+For fixed alpha=alpha_* and every fixed 1/4<=lambda<1-alpha, replace the
+preceding q by q_m=2*floor(lambda*m/2), retaining the same parity involution
+and cyclic shift. These are true high permutations for every m>=2; their
+empirical triples converge for every continuous test to the symmetric
+reflection (A+t,A+lambda-t) on [0,lambda], A=1+alpha, and the diagonal
+shift elsewhere. Exact predecessor bookkeeping includes q=0,2 and the
+possible junction/endpoint coincidence r=q+1, r=m-s.
+
+The limiting full coefficient is C_ref(lambda)=(integral g dmu_lambda)/(4*pi).
+The reflected block switches from chord to chain sum at most once, when
+sqrt(t/(A+t))+sqrt(t/(A+lambda-t)) reaches 1; the tail retains its own
+switch and wrap. Rational sign gates prove alpha_*>1/12 and no reflected
+block switch for the explicit witness lambda=3/10. Consequently
+
+```text
+C_30:=C_ref(3/10) < C_ref(1/4)-37/(1830400*pi),
+C_ref(1/4)=C_ref (the preceding constant),
+R_full(sigma_m(3/10))/(2m)^2 -> C_30.
+```
+
+The numerical observation C_30=0.1419245920564058523022... is diagnostic;
+the strict inequality uses exact rational saving bounds. The uniform
+full-radius theorem is imported, including all cyclic seam cells. There
+is no reoptimization of alpha, best-lambda claim or general recovery or
+permutation/coupling optimization. The separate global deletion corollary
+is owned only by `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under longer
+reflected prefix. Independent external review remains pending.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX.md`, Sections 2-6;
+stdlib/Fraction and canonical mpmath bounded audits in
+`ops/TASK-20260905__reflected_prefix/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
