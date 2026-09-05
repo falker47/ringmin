@@ -77,3 +77,35 @@
   falker47/ringmin. No unrelated changes are included.
 - Recorded this authorization in CURRENT_STATUS and TASK_STATUS; the
   mathematical state remains READY_FOR_REVIEW pending independent review.
+
+## 2026-09-05 — Repeated request: fresh local reproduction
+
+- Startup found a clean tree at 92f56868529af7ee2fcc0164c6e33b3dacabf149.
+  That commit already contains exactly the requested nine-file task result.
+  Read the operating contract, index, current status, pertinent ledger and
+  roadmap entries, complete proof/checker/dossier, templates and relevant
+  shift, lambda and full-root/feasibility dependency sections.
+- Plain rev-parse/log failed on Git's ownership guard; repeated them with
+  repository-scoped safe.directory, successfully and without writing Git
+  configuration. Global-ignore permission warnings did not affect status.
+- Retained STRICT mode and the same bounded objective. Expected new delta:
+  CURRENT_STATUS.md and the three existing dossier Markdown files only.
+  Proof, checker, ledger/roadmap entries and all original protected paths
+  need no changes. No second research task or acceptance review was begun.
+- Fresh `python -S -u ops/TASK-20260905__reflected_prefix_alpha_minimum/check_alpha_minimum.py --exact-only`
+  exited 0 with all nine recorded exact-output lines, including both
+  requested bracket signs and all 120 small recovery cases.
+- Fresh `python -u ops/TASK-20260905__reflected_prefix_alpha_minimum/check_alpha_minimum.py`
+  exited 0 with the same exact lines and all six recorded diagnostic lines.
+  Python 3.14.3 and mpmath 1.3.0 were freshly observed; nothing installed.
+- Checked the analytic curvature/endpoint inequalities, exact E displacement,
+  directed rational enclosures, strong-convexity coefficient comparison and
+  separation of full-root feasibility from the deletion corollary. No
+  correction to the proof or checker was needed. Reproduction is not an
+  external independent acceptance decision or a finite global certificate.
+- Recorded fresh verification in EVIDENCE.md and refreshed the two task
+  status files. Original chronology and evidence remain historical records.
+  Final continuation audit covers the complete four-file diff, unchanged
+  proof/checker/ledgers/roadmap, hashes, links, imports and whitespace.
+- Handoff: READY_FOR_REVIEW, no Git/GitHub writes. Exactly one next atomic
+  task remains the independent review already specified in the roadmap.

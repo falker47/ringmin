@@ -7,6 +7,7 @@ state=READY_FOR_REVIEW
 started_at=2026-09-05
 updated_at=2026-09-05
 task_base_head=4f32b37241578064667b5db7214c3d16d83e4859
+reproduced_head=92f56868529af7ee2fcc0164c6e33b3dacabf149
 ```
 
 ## Objective and scientific question
@@ -65,6 +66,17 @@ as accepted inputs. Their complete proofs remain explicit dependencies;
 this task does not record a new external acceptance decision for them.
 
 ## Handoff
+
+On the repeated request, the complete original task was already present at
+the reproduced HEAD with a clean tree. Fresh exact-only and full checker
+runs both exit 0 with the recorded output. No mathematical or checker
+correction was needed; the owning ledgers and roadmap already contain the
+requested updates. This continuation changes only CURRENT_STATUS.md and
+this dossier's three Markdown files to record the new local verification.
+The final continuation audit is recorded in EVIDENCE.md. No Git/GitHub
+writes or external acceptance decision are part of this continuation.
+
+The following handoff records the original implementation before integration:
 
 The bounded task is READY_FOR_REVIEW. The analytic proof and isolated exact
 gates confirm the requested bracket and prove C_hat<C_107-1/22000000.

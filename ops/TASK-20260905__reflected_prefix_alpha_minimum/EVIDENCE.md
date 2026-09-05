@@ -237,3 +237,110 @@ The family theorem concerns the coefficient at each fixed alpha; it does
 not identify finite-m minimizers or interchange a minimum with a limit.
 The rational upper bound on C_hat is conservative. No finite accuracy
 cutoff, external proof acceptance or hosted CI result is claimed.
+
+## Fresh reproduction on the already integrated task
+
+The repeated user request found the complete nine-file implementation at
+HEAD `92f56868529af7ee2fcc0164c6e33b3dacabf149`, with a clean working tree.
+The original evidence above records the earlier implementation, including
+its then-uncommitted additions. Its historical diff-audit script is intended
+for that earlier state, not the integrated HEAD. This section records only
+checks actually executed in the continuation on 2026-09-05.
+
+Fresh environment: Windows/PowerShell, Python
+`3.14.3 (tags/v3.14.3:323c59a, Feb 3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]`,
+mpmath `1.3.0`; existing environment, no installation. The environment probe
+was `python -c "import sys, mpmath; print(sys.version); print('mpmath', mpmath.__version__)"`
+and exited 0.
+
+| Fresh command | Exit and observed result | Scope and limitation |
+|---|---|---|
+| `python -S -u ops/TASK-20260905__reflected_prefix_alpha_minimum/check_alpha_minimum.py --exact-only` | 0; all nine exact-output lines above reproduced verbatim | stdlib rational gates, 120 recovery cases, no imported production or older checker code; not a proof of imported dependencies |
+| `python -u ops/TASK-20260905__reflected_prefix_alpha_minimum/check_alpha_minimum.py` | 0; same nine lines plus all six diagnostic lines above reproduced verbatim | separate 70-digit full-max quadrature; decimals remain observations |
+| `git -c safe.directory=C:/Users/Falker/Desktop/Code/circle/ringmin diff --check` | 0; no output | tracked whitespace only, supplemented by the source audit below |
+
+In particular the exact sign enclosures reproduced are
+`F'(1093/10000) in [-1427184,-1344781]/10^12` and
+`F'(10931/100000) in [2282349,2364747]/10^12`. The analytic deductions
+`F''>46/405>1/9`, `F'(0)<-29/1245`, `F'(1/2)>13/108` and
+`C_107-C_hat>1/22000000` remain as proved in Sections 3-5 of the
+authoritative note. No mathematical result or checker changed.
+
+The initial plain Git rev-parse/log calls failed on the ownership guard.
+Their repository-scoped safe.directory reruns succeeded; no configuration
+was written. The read-only status warning about the global ignore file
+does not change the clean startup result. No mathematical gate failed.
+
+The four-file continuation is confined to CURRENT_STATUS.md, TASK_STATUS.md,
+TASK_LOG.md and this EVIDENCE.md. The original proof, checker, two owning
+ledgers and roadmap already satisfy the request and are unchanged. The
+final complete diff was inspected; no untracked additions or staged changes
+exist. All original protected paths remain unchanged, including paper_assets/,
+results/, src/, tests/, scripts/, verify.py, historical notes/dossiers,
+publication metadata, README.md, REPORT.md, other ledgers, PROJECT_KNOWLEDGE.md,
+AGENTS.md and RINGMIN_REVIEW_PROTOCOL.md. No Git/GitHub writes occurred.
+
+The following fresh audit body was passed to `python -S -` through a literal
+PowerShell here-string. It uses per-command configuration only and writes
+no files. Its exit code was 0 with the two output lines below. Hashes use
+the eight values recorded in the original source table above.
+
+```python
+from pathlib import Path
+import ast
+import hashlib
+import re
+import subprocess
+
+git = ['git', '-c', 'safe.directory='+Path.cwd().as_posix()]
+def readgit(*args):
+    return subprocess.check_output(git+list(args), text=True, encoding='utf-8')
+
+task = 'ops/TASK-20260905__reflected_prefix_alpha_minimum'
+proof = 'research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md'
+checker = task+'/check_alpha_minimum.py'
+allowed = {'CURRENT_STATUS.md', *(task+'/'+name+'.md' for name in ('TASK_STATUS', 'TASK_LOG', 'EVIDENCE'))}
+assert set(readgit('diff', '--name-only').splitlines()) == allowed
+assert not readgit('ls-files', '--others', '--exclude-standard')
+assert not readgit('diff', '--cached', '--name-only')
+assert readgit('rev-parse', 'HEAD').strip() == '92f56868529af7ee2fcc0164c6e33b3dacabf149'
+stable = [proof, checker, 'knowledge/FIXED_ORDER_THEORY.md',
+          'knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md', 'research/NEXT_RESEARCH_STEPS.md']
+for name in stable:
+    assert Path(name).read_text(encoding='utf-8') == readgit('show', 'HEAD:'+name), name
+for name in sorted(allowed | set(stable)):
+    data = Path(name).read_text(encoding='utf-8')
+    assert data.endswith('\n') and all(line == line.rstrip(' \t') for line in data.splitlines()), name
+links = re.findall(r'\]\(([^)]+)\)', Path(proof).read_text(encoding='utf-8'))
+assert len(links) == 7
+for target in links:
+    assert (Path(proof).parent/target).is_file(), target
+source = Path(checker).read_text(encoding='utf-8')
+tree = ast.parse(source)
+imports = {node.module for node in ast.walk(tree) if isinstance(node, ast.ImportFrom)}
+imports |= {alias.name for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names}
+assert imports == {'__future__', 'argparse', 'fractions', 'math', 'mpmath'}
+compile(source, checker, 'exec')
+evidence = Path(task+'/EVIDENCE.md').read_text(encoding='utf-8')
+hashes = re.findall(r'^\| ([^|]+?) \| ([0-9a-f]{64}) \|$', evidence, re.M)
+assert len(hashes) == 8
+for name, digest in hashes:
+    assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == digest, name
+    assert Path(name).read_text(encoding='utf-8') == readgit('show', 'HEAD:'+name), name
+subprocess.run(git+['diff', '--check'], check=True)
+print('PASS continuation audit: exactly 4 documentation edits; no additions/staged changes; HEAD unchanged')
+print('PASS original sources: 8 hashes, 7 links, imports/compilation; proof/checker/ledgers/roadmap unchanged; whitespace clean')
+```
+
+```text
+PASS continuation audit: exactly 4 documentation edits; no additions/staged changes; HEAD unchanged
+PASS original sources: 8 hashes, 7 links, imports/compilation; proof/checker/ledgers/roadmap unchanged; whitespace clean
+```
+
+All results in this section are local. Production tests, standalone finite
+certificate verification, older checkers, publication builds and hosted CI
+were not run because their inputs did not change. The existing analytical
+dependencies remain explicit; the fresh reproduction neither re-certifies
+them nor records external acceptance. State remains READY_FOR_REVIEW.
+Exactly one next atomic task remains independent review of this theorem;
+no further parameter optimization was started.

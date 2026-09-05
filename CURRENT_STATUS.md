@@ -5,6 +5,7 @@
 ```text
 repository=falker47/ringmin
 task_base_head=4f32b37241578064667b5db7214c3d16d83e4859
+reproduced_head=92f56868529af7ee2fcc0164c6e33b3dacabf149
 observed_on=2026-09-05
 phase=post-arXiv-v1 active research
 ```
@@ -27,12 +28,17 @@ C_hat<C_107-1/22000000. The fixed-order full-radius theorem, actual
 feasibility and global deletion corollary remain separate.
 Authoritative proof: research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md.
 The bounded task is READY_FOR_REVIEW; external independent review is pending.
+The repeated request found this complete task already committed at the
+reproduced HEAD above, with a clean tree. Both existing checker modes were
+freshly rerun successfully; the mathematical result needs no amendment.
 
 ### Allowed delta
 
-The new alpha-minimum proof note, knowledge/FIXED_ORDER_THEORY.md,
-knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md, research/NEXT_RESEARCH_STEPS.md,
-this file and ops/TASK-20260905__reflected_prefix_alpha_minimum/.
+The original nine-file task delta is already in the reproduced HEAD.
+This continuation changes only this file and TASK_STATUS.md, TASK_LOG.md,
+EVIDENCE.md in ops/TASK-20260905__reflected_prefix_alpha_minimum/ to record
+fresh verification. The proof, checker, two owning ledgers and roadmap
+already satisfy the repeated request and require no duplicate updates.
 
 ### Verification gates
 
@@ -41,11 +47,11 @@ this file and ops/TASK-20260905__reflected_prefix_alpha_minimum/.
   coefficient comparisons and 120 bounded recovery cases.
 - Fresh full checker exits 0: independent 70-digit E/D/F' enclosures and
   four original full-max cost identities including alpha=0 and alpha=1/2.
-- Final proof and file audit pass: four tracked edits, five inspected additions,
-  seven local links, eight source hashes, six unchanged dependency sources,
-  allowed checker imports and in-memory compilation. All-file whitespace and
-  git diff --check pass; staged diff empty and HEAD unchanged. Protected and
-  generated paths remain unchanged.
+- Fresh final audit checks the four-file continuation, existing proof/checker
+  and eight recorded source hashes, seven local links, allowed imports and
+  in-memory compilation. All-file whitespace and git diff --check pass;
+  no additions or staged changes, and HEAD unchanged. The original proof,
+  checker, ledgers, roadmap and protected/generated paths remain unchanged.
 
 ### Blockers and limitations
 
@@ -59,10 +65,9 @@ or normalized global limit is claimed. Numerical values are observations.
 Protected: previous proof notes and dossiers, paper_assets/, results/,
 src/, tests/, scripts/, verify.py, publication metadata, README.md, REPORT.md,
 other knowledge ledgers, PROJECT_KNOWLEDGE.md, AGENTS.md and
-RINGMIN_REVIEW_PROTOCOL.md. The user subsequently authorized commit and
-push of exactly this nine-file task delta. This integration authorization
-does not constitute independent mathematical acceptance; the state remains
-READY_FOR_REVIEW.
+RINGMIN_REVIEW_PROTOCOL.md. The original task is already integrated in the
+reproduced HEAD; integration is not independent mathematical acceptance.
+This continuation performs no Git/GitHub writes and remains READY_FOR_REVIEW.
 
 ## Exactly one next atomic task
 
