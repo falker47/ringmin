@@ -792,6 +792,51 @@ general permutation asymptotics. Global bounds/certificates are unchanged.
 root data, independent scorer and exact separator checks in
 `ops/TASK-20260905__permuted_halves_root_search/`.
 
+### Uniform local stability of the permuted-halves full radius
+
+**Status:** exact fixed-order theorem / proved asymptotic corollaries,
+after arXiv v1.
+
+For all m>=3, a path of adjacent high-position swaps P->Q with exchanged
+values x_h,y_h and D=sum_h |x_h-y_h| satisfies
+
+```text
+|rho_P-rho_Q| <= C_m D <= 2D,
+L_m=max(1,(m+1)(csc(pi/m)-1)),
+C_m=sqrt(2)/(2*pi)*(1+2m/L_m)=sqrt(2)/(2*pi)+O(1/m).
+```
+
+Here rho is the exact full-radius root of S=2*pi. Cyclic wrap swaps are
+included; all m=2 roots coincide. Thus at most K swaps give
+|rho_P-rho_Q|<=2K(m-1)=O_K(m)=o(m^2), uniformly for each fixed K.
+Numerically consecutive exchanged values give O_K(1). The proof bounds
+the two opposite cell increments and transfers their difference through
+a radial contraction valid across max-branch ties. A constructed
+one-swap family has radius drop >m/(12288*pi) for all m>=32, so the
+unrestricted O(m) scale cannot be improved to o(m).
+
+For m>=32 and any increasing shift 1<=s<=m-3, its first-two-high swap
+strictly decreases rho by at most
+3*(1+8*pi/m)/(4*pi*(m+1))=O(1/m). Both exterior cells are then chords;
+the proof uses their positive angular mixed derivative. Choosing any
+best finite shift at each m gives a precise continuation of the m=4
+counterexample. Its shift ratio tends to alpha_*, so this sharper bound
+holds eventually, and its leading coefficient remains C_shift. The
+mixed/chain finite m=4 sign is imported from the preceding certificate,
+not from the eventual chord argument.
+
+The union of the distance-K neighborhoods of every shift has the same
+minimum asymptotic coefficient C_shift for K fixed, or even K=o(m).
+A strictly better coefficient requires distance at least of order m
+from the shift family; that necessary condition is not a construction.
+No global upper coefficient, finite certified scope, arbitrary-permutation
+optimum or contact/floater classification changes.
+
+**Source:** `research/PERMUTED_HALVES_LOCAL_STABILITY.md`; symbolic
+derivatives, rational gates, targeted reused m=4 bracket checks and
+bounded independent atan diagnostics (no enumeration) are recorded in
+`ops/TASK-20260905__permuted_halves_local_stability/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

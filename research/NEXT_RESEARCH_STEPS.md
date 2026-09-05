@@ -619,8 +619,9 @@ both directions for mixed and low pairs include all seams and small cycles.
 It gives the unique full-radius root, all fixed-order optimal gap choices,
 and the chain/full equality test. The subsequent adjacent-swap result below
 addresses local permutation structure; the bounded root experiment below
-then tests shift optimality. General permutation asymptotics have not been
-started. Existing global bounds are unchanged.
+then tests shift optimality. Uniform local stability is addressed below;
+general asymptotic optimization over arbitrary permutations remains open.
+Existing global bounds are unchanged.
 
 ## Resolved priority — Exact adjacent-high variation and conditional exchange
 
@@ -646,9 +647,33 @@ support the finite result. The single claim owner is the fixed-order
 ledger. This rules out universal finite root optimality of shifts, without
 deciding whether arbitrary permutations improve the asymptotic coefficient.
 
-## Priority 1 — Independent review of the minimal root counterexample
+## Resolved priority — Uniform local stability of permuted halves
 
-Exactly one next atomic task: independently review the finite root
+**Status:** exact fixed-order theorem / proved asymptotic corollaries,
+after arXiv v1.
+
+`research/PERMUTED_HALVES_LOCAL_STABILITY.md` proves a uniform weighted
+adjacent-swap bound for the exact full-radius roots. Boundedly many swaps
+cannot change a quadratic leading coefficient; the unrestricted linear
+scale is sharp. The first swap of an interior shift has a sharper
+vanishing radius difference, including eventually the best finite shifts.
+The single claim owner is the fixed-order ledger. This resolves what the
+m=4 counterexample can imply about local asymptotic improvement without
+optimizing arbitrary permutations or changing global bounds.
+
+## Priority 1 — Independent review of uniform local stability
+
+Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_LOCAL_STABILITY.md`. Audit the weighted two-cell
+bound, branch-safe root transfer, cyclic/small-size cases, linear
+sharpness example and first-shift-swap refinement. Reproduce the bounded
+checker, inspect the imported full criterion and shift-limit dependencies,
+and record acceptance or precise corrections. Preserve the distinction
+between finite root improvements and an unchanged quadratic coefficient.
+
+## Deferred dependency review — Minimal root counterexample
+
+Independently review the finite root
 counterexample in `research/PERMUTED_HALVES_ROOT_SEARCH.md`. Reproduce
 all 32 roots and rational separators, check enumeration coverage and
 m=2,3 exclusion, the mixed/chain swap at the shift root, and the imported
