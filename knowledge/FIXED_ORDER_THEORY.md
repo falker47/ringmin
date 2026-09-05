@@ -871,15 +871,56 @@ the geometric-mean saving supplies the analytic strict gap. Thus a sound
 dual certificate for this relaxation cannot reach 4*pi*C_shift, even
 with the balance constraint. No LP or numerical quadrature is a premise.
 
-For B_m=min_P rho_P/(2m)^2, only
-L_3/(4*pi)<=liminf B_m<=limsup B_m<=C_shift is asserted here. The
-exact L_3, convergence of B_m and permutation realizability of mu_ref
-remain unresolved in this task. A cheap coupling does not itself improve
-B_m or R*(n); global bounds and finite certification are unchanged.
+The relaxation theorem alone gives
+L_3/(4*pi)<=liminf B_m<=limsup B_m<=C_shift for
+B_m=min_P rho_P/(2m)^2. A cheap coupling by itself is not a geometric
+construction. The recovery theorem below supplies that missing step for
+mu_ref specifically. The exact L_3 and convergence of B_m remain unresolved.
 
 **Source:** `research/PERMUTED_HALVES_THREE_MARGINAL_RELAXATION.md`;
 exact algebra/affine-marginal gates and bounded independent atan/integral
 diagnostics in `ops/TASK-20260905__three_marginal_relaxation/`.
+
+### Deterministic permutation recovery of mu_ref
+
+**Status:** exact recovery theorem / exact fixed-order asymptotic theorem /
+disproved asymptotic shift-optimality claim, after arXiv v1.
+
+Fix the exact alpha=alpha_*. For every m>=2 set s=floor(alpha*m),
+q=2*floor(m/8), H_m(j)=m+1+((j+s-1) mod m), and
+
+```text
+J_m(i)=q+2-i if i<=q is even, and J_m(i)=i otherwise,
+P_{m,i}=H_m(J_m(i)).
+```
+
+The odd block ranks, reversed even block ranks and fixed tail partition
+{1,...,m} exactly, so these are true high permutations at every size.
+Their empirical triples converge weakly to the single mu_ref above,
+along all integers m. The proof keeps the actual cyclic predecessor;
+outside {1,q+1,m-s,m-s+1} intersect {1,...,m}, the comparison error is
+at most 3/m. Parity Riemann sums yield the two half-weight orientations.
+
+The already proved uniform full-radius theorem therefore gives
+
+```text
+R_full(1,P_{m,1},...,m,P_{m,m})/(2m)^2 -> C_ref
+ = (integral g dmu_ref)/(4*pi)
+ = C_shift-delta_alpha/(4*pi) < C_shift-1/(9984*pi),
+```
+
+where delta_alpha is the exact reflected-block saving defined in the
+source. Thus limsup B_m<=C_ref<C_shift: optimized shifts are not
+asymptotically optimal among all high permutations. This is an explicit
+construction, not a determination of the best permutation coefficient,
+the relaxation value or a general recovery theorem for balanced couplings.
+The separate global upper-bound corollary is owned only by
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under reflected-coupling recovery.
+No finite global certificate or contact/floater classification is changed.
+
+**Source:** `research/PERMUTED_HALVES_MU_REF_RECOVERY.md`, Sections 2-5;
+bounded exact occurrence, seam and independently integrated polynomial
+checks in `ops/TASK-20260905__mu_ref_recovery/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

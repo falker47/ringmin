@@ -17,11 +17,11 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The optimized shifted alternating-halves construction supplies the strongest
+The deterministic reflected-coupling construction supplies the strongest
 exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_shift=0.14199597812771428498...<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -671,13 +671,38 @@ uniform empirical full-cost limit for arbitrary high permutations and
 identifies the necessary uniform marginals and local balance relation.
 A symmetric reflected coupling gives a rigorous strict cost gap below
 the optimized shift, so this relaxation cannot certify shift optimality.
-Its sole claim owner is the fixed-order ledger. Neither the exact
-relaxation optimum nor a realizing permutation sequence is established;
-global bounds remain unchanged.
+Its sole claim owner is the fixed-order ledger. This theorem alone does
+not establish a realizing sequence; the recovery result below supplies
+one for the prescribed coupling. The exact relaxation optimum remains open.
 
-## Priority 1 — Independent review of the three-marginal obstruction
+## Resolved priority — Deterministic recovery of the reflected coupling
+
+**Status:** exact recovery and fixed-order asymptotic theorem / proved
+global upper-bound corollary, after arXiv v1.
+
+`research/PERMUTED_HALVES_MU_REF_RECOVERY.md` constructs a true high
+permutation at every m by reversing the even positions of the first
+2*floor(m/8) shifted ranks. Exact occurrence/seam bookkeeping and parity
+Riemann sums prove that its empirical triples tend to mu_ref. The uniform
+full-radius theorem yields C_ref<C_shift, resolving this coupling's
+realizability and disproving asymptotic shift optimality. The global
+upper-bound corollary is recorded in its separate owning ledger. General
+recovery and optimization of permutations or couplings remain outside
+this resolved question.
+
+## Priority 1 — Independent review of mu_ref recovery
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_MU_REF_RECOVERY.md`. Audit the deterministic
+permutation, exact occurrence and cyclic seam counts, parity weights,
+wrap endpoint and arbitrary-continuous-test limit, then the imported
+uniform full-radius transfer and immediate deletion corollary. Reproduce
+the bounded exact checker and record acceptance or precise corrections.
+Do not start general recovery or permutation/coupling optimization.
+
+## Deferred dependency review — Three-marginal obstruction
+
+Independently review
 `research/PERMUTED_HALVES_THREE_MARGINAL_RELAXATION.md`. Audit the
 uniform angular/cell/root normalization, empirical seam reindexing,
 necessary marginals, symmetrization, explicit coupling and analytic
@@ -764,8 +789,8 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_shift]`, and whether they agree. Improve beyond the optimized
-shifted alternating-halves upper construction or derive stronger valid lower bounds beyond the resolved
+`[C_term,C_ref]`, and whether they agree. Improve beyond the reflected-coupling
+upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
