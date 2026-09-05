@@ -17,8 +17,9 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The reflected-prefix construction at its exact alpha_hat with the accepted
-normalized minimizer x_* fixed supplies the strongest exact upper coefficient
+The reflected-prefix construction at its exact alpha_hat and normalized
+minimizer x_*, now jointly minimized in the stated pre-wrap family,
+supplies the strongest exact upper coefficient
 
 ```text
 limsup R*(n)/n^2<=C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
@@ -748,15 +749,40 @@ The fixed-order theorem, actual feasibility and global deletion corollary
 remain separate, with distinct ledger owners. Joint parameter and general
 permutation/coupling optimization remain outside this resolved task.
 
-## Priority 1 — Independent review of the fixed-x_* alpha minimum
+## Resolved priority — Exact joint reflected-prefix minimum
+
+**Status:** exact all-domain recovery, fixed-order coefficient and joint
+family-minimization theorem / separate proved global limsup corollary.
+
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_JOINT_MINIMUM.md` extends recovery
+and the full coefficient formula to every fixed 0<=alpha<=1/2,
+1/4<=lambda<1-alpha, with all finite exception unions and no common
+positive pre-wrap gap. Exact admissibility allows the two accepted
+one-variable minima to prove joint uniqueness. Fixed-order limits,
+actual feasibility and global deletion remain separate. C_hat is unchanged;
+no other fixed pair in this domain improves it.
+
+## Priority 1 — Independent review of the joint reflected-prefix minimum
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_JOINT_MINIMUM.md`. Audit recovery
+on the complete domain, the q=0/endpoint exception counts and coincident
+seams, full-max scaling, exact admissibility and equality conditions,
+the accepted E/alpha minimum dependencies, and the separate full-root,
+feasibility and deletion steps. Reproduce the bounded exact checker and
+record acceptance or precise corrections without starting broader
+permutation/coupling optimization.
+
+## Deferred dependency review — Fixed-x_* alpha minimum
+
+The user supplies its unique minimum as an accepted input to the joint
+task. Independent external review of its complete proof remains separate:
 `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md`. Audit the
 closed-domain recovery and endpoint seams, analytic curvature and endpoint
 signs, rational E displacement and two bracket gates, coefficient comparison,
 and imported full-root plus separate feasibility/deletion steps. Reproduce
 the bounded checker and record acceptance or precise corrections without
-starting joint parameter or general permutation/coupling optimization.
+starting further parameter or general permutation/coupling optimization.
 
 ## Deferred dependency review — Neighborhood alpha extension
 

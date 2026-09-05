@@ -1084,8 +1084,9 @@ The accepted full-root theorem and explicit valley gaps separately give
 actual all-pairs feasibility at every exact root. The bracket and
 coefficient comparisons use no decimal premise. The numerical observations
 alpha_hat=0.1093036963264... and C_hat=0.1419134913446... are diagnostic.
-No finite-m family minimizer, joint parameter optimum, other alpha regime,
-general permutation/coupling optimum or geometric global optimum is claimed.
+This fixed-x theorem alone does not establish a finite-m family minimizer,
+joint parameter optimum, other alpha regime, general permutation/coupling
+optimum or geometric global optimum. The joint result follows below.
 The separate global deletion corollary is owned only by
 `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under the fixed-x_* alpha minimum.
 Independent external review of the new extension remains pending.
@@ -1093,6 +1094,54 @@ Independent external review of the new extension remains pending.
 **Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md`,
 Sections 1-6; bounded independent exact gates and original full-max
 diagnostics in `ops/TASK-20260905__reflected_prefix_alpha_minimum/`.
+
+### Exact joint minimum of the two-parameter reflected-prefix family
+
+**Status:** exact recovery, fixed-order full-radius and family-minimization
+theorem, after arXiv v1; the two one-variable minima are user-accepted inputs.
+
+For every fixed 0<=alpha<=1/2 and 1/4<=lambda<1-alpha, use the same
+parity involution with s=floor(alpha*m), q=2*floor(lambda*m/2).
+The resulting high permutation exists for every m>=2. The inequality
+s+q<m keeps the reflected block before the finite wrap. Exact exception
+unions include q=0,2, both alpha endpoints, junction/endpoint coincidences
+and the m=2,alpha=1/2 low-seam/wrap-endpoint coincidence. Continuous-test
+recovery needs no common positive lower bound on 1-alpha-lambda.
+
+Writing A=1+alpha and x=lambda/A, the full max, with both block and
+diagonal switches retained, gives
+
+```text
+R_full(sigma_m(alpha,lambda))/(2m)^2 -> C(alpha,lambda)
+ =K(alpha)/(2*pi)+A^2*E(lambda/A)/(4*pi).
+```
+
+Here E is exactly the normalized function in the lambda theorem above;
+the previous alpha theorem's C(alpha,x_*) denotes this formula with
+lambda=A*x_*. Since 1/(4*A)<=1/4<x_*<1/3<=(1-alpha)/A,
+that comparison construction is strictly admissible at every alpha.
+Subtracting C_hat splits the coefficient difference into the positive
+factor A^2/(4*pi) times E(x)-E(x_*) and the fixed-x_* alpha difference.
+The accepted strict equality conditions prove
+
+```text
+C(alpha,lambda)>=C_hat,
+equality iff (alpha,lambda)=(alpha_hat,(1+alpha_hat)*x_*).
+```
+
+This is the unique global minimum of the stated two-parameter leading
+coefficient family. The excluded wrap boundary has a strict coefficient
+gap, including when alpha varies. The exact full-root theorem separately
+supplies actual all-pairs feasible placements at every m. No finite-m
+family optimizer, other alpha regime, wrap-crossing construction, general
+permutation/coupling optimum or geometric global optimum is established.
+The existing global limsup bound keeps its sole owner in
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`; its value C_hat is unchanged.
+Independent external review of this extension remains pending.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_JOINT_MINIMUM.md`,
+Sections 1-7; bounded stdlib exact domain and finite floor/seam checks in
+`ops/TASK-20260905__reflected_prefix_joint_minimum/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

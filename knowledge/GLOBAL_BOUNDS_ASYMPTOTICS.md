@@ -413,13 +413,17 @@ C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_hat<C_107.
 The coefficient comparisons owned by `knowledge/FIXED_ORDER_THEORY.md`
 also imply limsup R*(n)/n^2<C_107-1/22000000 and
 limsup R*(n)/n^2<14191364/100000000. The lower theorem and finite certified
-scope are unchanged. The unique coefficient minimum on the stated fixed-x_*
-family does not imply joint parameter or general permutation/coupling
-optimality, global sharpness or a normalized global limit.
+scope are unchanged. The later joint-family result is owned separately by
+`knowledge/FIXED_ORDER_THEORY.md`, under the exact joint reflected-prefix
+minimum. It leaves this upper coefficient unchanged and supplies no
+general permutation/coupling optimality, global sharpness or normalized
+global limit.
 
 **Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md`,
 Section 7; task-local evidence in
 `ops/TASK-20260905__reflected_prefix_alpha_minimum/`.
+For the separate family result and its feasibility/deletion relationship,
+see `research/PERMUTED_HALVES_REFLECTED_PREFIX_JOINT_MINIMUM.md`, Sections 6-8.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
