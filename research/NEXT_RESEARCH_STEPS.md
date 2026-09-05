@@ -17,11 +17,11 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The reflected-prefix construction with optimized lambda and fixed alpha_* supplies the strongest
-exact upper coefficient
+The reflected-prefix construction at alpha=107/1000 with the accepted
+normalized minimizer x_* fixed supplies the strongest exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -720,16 +720,30 @@ increase and a strict improvement over C_30. The new global upper bound
 C_rp follows separately from the imported full-radius theorem and deletion.
 Alpha and general permutations/couplings were not optimized.
 
-## Priority 1 — Independent review of fixed-alpha lambda optimization
+## Resolved priority — Alpha increase at fixed normalized reflected prefix
+
+**Status:** exact neighborhood recovery, full-radius and first-variation
+theorem / proved global upper-bound corollary.
+
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md` extends the recovery
+only to an explicit alpha neighborhood, keeping x=x_* and
+lambda=(1+alpha)*x_*. It confirms the negative alpha derivative with the
+moving wrap retained, and proves a strict improvement at the rational
+witness alpha=107/1000. Fixed-order coefficient, actual feasibility and
+global deletion remain separate statements with distinct ledger owners.
+This resolves the directional discriminator without optimizing alpha or
+both parameters, or searching general permutations/couplings.
+
+## Priority 1 — Independent review of the alpha extension
 
 Exactly one next atomic task: independently review
-`research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md`. Audit the complete
-branch derivatives, curvature inequalities, uniqueness despite the final
-descent, rational minimizer bracket, counterexample and coefficient gates.
-Reproduce the integer interval checker and its independent full-max
-diagnostics; audit the imported recovery/full-root and separate deletion
-steps. Record acceptance or precise corrections without optimizing alpha
-or starting a general permutation/coupling search.
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md`. Audit the restricted
+recovery including finite floors and cyclic seams, the A^2 scaling and
+moving-wrap term, constant x_*, the concave rational integral enclosures,
+the uniform derivative margin and explicit rational witness. Reproduce the
+checker and inspect the imported full-root theorem and separate feasibility
+and deletion steps. Record acceptance or precise corrections without joint
+parameter optimization or a general permutation/coupling search.
 
 ## Deferred dependency review — Longer reflected prefix
 
@@ -840,7 +854,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_rp]`, and whether they agree. Improve beyond the reflected-prefix
+`[C_term,C_107]`, and whether they agree. Improve beyond the reflected-prefix
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

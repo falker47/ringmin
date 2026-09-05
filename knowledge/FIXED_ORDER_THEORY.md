@@ -998,11 +998,55 @@ uniform full-root theorem. Only lambda in this family is optimized;
 alpha, general permutations/couplings and geometric global optima are
 not optimized. The separate feasibility/deletion corollary is owned by
 `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under the optimized reflected
-prefix. Independent external review remains pending.
+prefix. The alpha extension below takes this theorem as its accepted input.
 
 **Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md`,
 Sections 2-8; exact integer interval gates and independent full-max
 diagnostics in `ops/TASK-20260905__reflected_prefix_lambda/`.
+
+### Alpha improvement of the reflected prefix at fixed normalized minimizer
+
+**Status:** exact recovery, fixed-order coefficient and first-variation
+theorem; exact strict coefficient improvement, after arXiv v1.
+
+Keep the preceding exact x_* fixed, and set lambda=(1+alpha)*x_*.
+On the explicit neighborhood I=[53/500,107/1000], the same parity
+involution and shift, with s=floor(alpha*m), q=2*floor(lambda*m/2),
+give true high permutations for every m>=2. The block stays before the
+wrap, with b-lambda>131/250; all predecessor/seam cells are retained.
+Recovery for every continuous test and the imported uniform full-root
+theorem give
+
+```text
+C(alpha,x_*)=K(alpha)/(2*pi)+(1+alpha)^2*E(x_*)/(4*pi),
+R_full(sigma_m(alpha))/(2m)^2 -> C(alpha,x_*),
+partial_alpha C(alpha,x_*)=[K'(alpha)+(1+alpha)*E(x_*)]/(2*pi)
+                         < -1/12000 throughout I,
+partial_alpha C(alpha_*,x_*)=(1+alpha_*)*E(x_*)/(2*pi)<0.
+```
+
+The wrapped-tail dependence is in K; neither that tail nor lambda is
+held constant in this variation. The analytic saving E(x_*)<-1/1728
+and fresh rational concave-quadrature gates prove
+
+```text
+53/500<alpha_*<267/2500<107/1000,
+C_107:=C(107/1000,x_*) < C_rp-1/60000000,
+C_107<14191368/100000000.
+```
+
+The full criterion supplies actual all-pairs feasible placements at each
+fixed-order root. The numerical observations C_107=0.1419136480067209...
+and derivative at alpha_*=-0.0001487181275456... are not proof premises.
+This is a strict improvement at one rational alpha, without alpha or
+joint parameter minimization, or a general permutation/coupling search.
+The separate deletion corollary has its sole owner in
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under the alpha-improved reflected
+prefix. Independent external review of this extension remains pending.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md`,
+Sections 2-5; independent stdlib rational gates and full-max/geometry
+diagnostics in `ops/TASK-20260905__reflected_prefix_alpha/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=5b576762e11cfdb9e86dd8c9b4c9cc9d81598244
+task_base_head=ae2b7ab2de614b798950fc2192437880078b5b3a
 observed_on=2026-09-05
 phase=post-arXiv-v1 active research
 ```
@@ -12,68 +12,67 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260905__reflected_prefix_lambda
+task=TASK-20260905__reflected_prefix_alpha
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and current result
 
-Optimize only lambda in the proved reflected-prefix family, with alpha_*
-fixed exactly. The proof establishes a unique global family minimum in
-(159/500,319/1000), a later local maximum and a final descent. The proposed
-whole-right-side monotonicity is rigorously refuted. The new coefficient
-C_rp improves C_30 by more than 1/100000; the fixed-order theorem and
-separate feasibility/deletion corollary retain distinct ledger owners.
-Authoritative proof: research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md.
-Mathematical verification and final dossier/diff audit passed. Independent
-external review remains pending. The same-task resumption reproduced both
-checker modes and the source/path audit; fresh execution evidence is recorded
-separately from the inherited chronology in the task dossier.
+Decide whether increasing alpha beyond alpha_* improves the accepted
+lambda-optimized reflected prefix, with x=x_* fixed and
+lambda=(1+alpha)*x_*. The proof extends recovery to an explicit neighborhood
+and confirms the negative derivative. Fresh exact gates prove the rational
+witness alpha=107/1000 improves C_rp. Fixed-order coefficient, all-pairs
+feasibility and the global deletion corollary are separate statements.
+Authoritative proof: research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md.
+Mathematical verification, evidence and the complete file audit pass.
+The bounded task is READY_FOR_REVIEW; external review of the extension
+remains pending.
 
 ### Allowed delta
 
-The new lambda-variation proof note, knowledge/FIXED_ORDER_THEORY.md,
+The new alpha-variation proof note, knowledge/FIXED_ORDER_THEORY.md,
 knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md, research/NEXT_RESEARCH_STEPS.md,
-this file and ops/TASK-20260905__reflected_prefix_lambda/.
+this file and ops/TASK-20260905__reflected_prefix_alpha/.
 
 ### Verification gates
 
-- Exact rational gates pass: alpha and minimizer brackets, all-domain
-  curvature square gates, terminal negative derivative, positive auxiliary
-  endpoint and coefficient improvement. Integer interval implementation
-  passes 2835 point and 297 box Fraction oracle checks plus domain gates.
-- Full independent checker exits 0: original full-max quadrature agrees
-  with eleven derivative/curvature checks, both transition continuity
-  checks and exact slope/coefficient enclosures. Diagnostics use 70 digits.
-- Standard-library-only checker (`python -S`, exact mode) exits 0 with
-  the same rational gates. Final audit passes for all nine files: four
-  tracked edits, five additions, six local links, canonical imports and
-  four unchanged imported proofs compared to HEAD. All-file whitespace
-  and git diff --check pass; staged diff empty, protected paths unchanged.
+- Fresh stdlib-only exact checker exits 0: three rational D enclosures,
+  alpha separation, domain/saving/derivative/coefficient comparisons,
+  1143 bounded occurrence/predecessor/seam and recovery-error checks.
+- Fresh full checker exits 0: independent 70-digit original full-max cost
+  and alpha derivatives, plus eight finite witness sizes and 11062
+  all-pairs angular/Cartesian checks; finite floors follow from exact brackets.
+- Imported lambda exact checker freshly exits 0, reproducing its gates.
+- Final file audit exits 0: exactly four tracked edits and five additions,
+  seven local links, eight recorded source hashes, six unchanged imported
+  sources, canonical checker imports and in-memory compilation. All-file
+  whitespace and git diff --check pass; staged diff empty and HEAD unchanged.
+  Protected and generated paths remain unchanged.
 
 ### Blockers and limitations
 
-No blocker. Exact sign/constant gates are rational interval computations;
-the printed decimals are numerical observations. The full-domain variation
-is proved analytically with those isolated gates. Recovery, exact full
-feasibility, uniform root transfer and the alpha_* definition remain imported
-theorem dependencies. Independent external review remains pending. No
-alpha optimization, general permutation/coupling optimum, finite scope
-extension, global optimality or normalized global limit is claimed.
+No blocker. The user identifies the HEAD lambda theorem as the accepted
+input. The new extension awaits independent external review. Its exact
+sign gates use rational quadrature enclosures; diagnostic decimals and
+finite geometry checks are numerical observations. The full criterion and
+uniform root transfer are imported theorems. No alpha or joint parameter
+minimum, general permutation/coupling optimum, finite certificate extension,
+global optimum or normalized global limit is claimed.
 
 Protected: previous proof notes and dossiers, paper_assets/, results/,
-src/, tests/, scripts/, verify.py, publication metadata, README, REPORT,
+src/, tests/, scripts/, verify.py, publication metadata, README.md, REPORT.md,
 other knowledge ledgers, PROJECT_KNOWLEDGE.md, AGENTS.md and
 RINGMIN_REVIEW_PROTOCOL.md. The user subsequently authorized commit and
-push of this nine-file task delta. That authorization does not constitute
-external mathematical acceptance; the task remains READY_FOR_REVIEW.
+push of exactly this nine-file task delta. This authorization does not
+constitute independent mathematical acceptance; state remains READY_FOR_REVIEW.
 
 ## Exactly one next atomic task
 
-Independently review the fixed-alpha lambda-variation theorem: audit both
-branch transitions, the curvature bounds, global uniqueness despite the
-final descent, the rational bracket/counterexample/coefficient gates and
-the imported full-radius and separate deletion steps. Reproduce the checker
-and record acceptance or precise corrections without optimizing alpha or
-starting a general permutation/coupling search.
+Independently review the alpha extension: audit the restricted recovery,
+finite floors/seams, scaled full cost and moving wrap, exact rational sign
+gates and witness comparison, imported full-root theorem and separate
+feasibility/deletion steps. Reproduce the checker and record acceptance or
+precise corrections without joint parameter or general permutation/coupling
+optimization.
