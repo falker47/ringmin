@@ -661,9 +661,33 @@ The single claim owner is the fixed-order ledger. This resolves what the
 m=4 counterexample can imply about local asymptotic improvement without
 optimizing arbitrary permutations or changing global bounds.
 
-## Priority 1 — Independent review of uniform local stability
+## Resolved priority — Three-marginal continuum discriminator
+
+**Status:** exact continuum theorem / explicit coupling / disproved
+relaxation-certificate claim, after arXiv v1.
+
+`research/PERMUTED_HALVES_THREE_MARGINAL_RELAXATION.md` derives the
+uniform empirical full-cost limit for arbitrary high permutations and
+identifies the necessary uniform marginals and local balance relation.
+A symmetric reflected coupling gives a rigorous strict cost gap below
+the optimized shift, so this relaxation cannot certify shift optimality.
+Its sole claim owner is the fixed-order ledger. Neither the exact
+relaxation optimum nor a realizing permutation sequence is established;
+global bounds remain unchanged.
+
+## Priority 1 — Independent review of the three-marginal obstruction
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_THREE_MARGINAL_RELAXATION.md`. Audit the
+uniform angular/cell/root normalization, empirical seam reindexing,
+necessary marginals, symmetrization, explicit coupling and analytic
+strict gap. Reproduce the bounded checker and inspect the imported full
+criterion and exact shift-minimum definition. Record acceptance or precise
+corrections without starting a permutation recovery or optimization task.
+
+## Deferred dependency review — Uniform local stability
+
+Independently review
 `research/PERMUTED_HALVES_LOCAL_STABILITY.md`. Audit the weighted two-cell
 bound, branch-safe root transfer, cyclic/small-size cases, linear
 sharpness example and first-shift-swap refinement. Reproduce the bounded

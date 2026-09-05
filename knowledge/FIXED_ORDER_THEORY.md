@@ -837,6 +837,50 @@ derivatives, rational gates, targeted reused m=4 bracket checks and
 bounded independent atan diagnostics (no enumeration) are recorded in
 `ops/TASK-20260905__permuted_halves_local_stability/`.
 
+### Three-marginal continuum relaxation: strict gap below the shifts
+
+**Status:** exact continuum theorem / explicit coupling / disproved
+relaxation-certificate claim, after arXiv v1.
+
+For any sequence of high permutations, put
+mu_m=(1/m) sum_i delta_(i/m,P_{i-1}/m,P_i/m) and
+g(t,x,y)=max(sqrt(t)*(sqrt(x)+sqrt(y)),sqrt(x*y)). At R=c*(2m)^2,
+the exact full-cell score satisfies
+
+```text
+S_P(R)=(integral g dmu_m)/(2*c)+O(1/m),
+rho_P/(2m)^2=(integral g dmu_m)/(4*pi)+O(1/m),
+```
+
+uniformly over P (and compact positive c intervals for the score).
+Every weak empirical limit has uniform marginals t in [0,1], x,y in
+[1,2], and equal (t,x)/(t,y) marginals. Independence, conditional
+uniformity and exclusion of diagonal support are not necessary conditions.
+
+Let L_3 minimize integral g with the three uniform marginals. Adding
+the necessary (t,x)/(t,y) balance condition leaves its value unchanged,
+by x/y symmetrization. An explicit symmetric reflection of the optimal
+shift on t in [0,1/4] preserves all these marginals and proves
+
+```text
+L_3 <= integral g dmu_ref < 4*pi*C_shift - 1/2496.
+```
+
+The entire altered slab uses the high-high chord branch; rationalizing
+the geometric-mean saving supplies the analytic strict gap. Thus a sound
+dual certificate for this relaxation cannot reach 4*pi*C_shift, even
+with the balance constraint. No LP or numerical quadrature is a premise.
+
+For B_m=min_P rho_P/(2m)^2, only
+L_3/(4*pi)<=liminf B_m<=limsup B_m<=C_shift is asserted here. The
+exact L_3, convergence of B_m and permutation realizability of mu_ref
+remain unresolved in this task. A cheap coupling does not itself improve
+B_m or R*(n); global bounds and finite certification are unchanged.
+
+**Source:** `research/PERMUTED_HALVES_THREE_MARGINAL_RELAXATION.md`;
+exact algebra/affine-marginal gates and bounded independent atan/integral
+diagnostics in `ops/TASK-20260905__three_marginal_relaxation/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
