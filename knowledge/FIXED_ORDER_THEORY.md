@@ -959,6 +959,51 @@ reflected prefix. Independent external review remains pending.
 stdlib/Fraction and canonical mpmath bounded audits in
 `ops/TASK-20260905__reflected_prefix/`.
 
+### Exact lambda optimization of the reflected prefix at fixed alpha_*
+
+**Status:** exact family-minimization and fixed-order coefficient theorem;
+disproved whole-right-side monotonicity, after arXiv v1. Isolated sign and
+constant gates use exact rational interval arithmetic.
+
+Keep alpha=alpha_* exactly fixed and 1/4<=lambda<1-alpha_*. Put
+A=1+alpha_*, x=lambda/A and Phi(x)=E'(x), where E is the normalized full
+block cost minus the removed diagonal cost defined in the source.
+The block changes from chord to chain at x=tau in (1/4,1/3); the tail
+changes at x=1/3. The exact signs are Phi<0 before its unique middle
+zero x_*, Phi>0 until a second zero x_dagger, and Phi<0 thereafter.
+Analytically Phi'>41/72 on (tau,1/3) and Phi'<-1/420 on (1/3,1).
+
+Consequently C_ref(lambda) has a unique global minimum lambda_*=A*x_*
+and a subsequent strict local maximum lambda_dagger=A*x_dagger:
+
+```text
+159/500<lambda_*<319/1000,
+A/3<lambda_dagger<4*A/5<1-alpha_*,
+C_rp:=C_ref(lambda_*),
+C_rp<C_ref(159/500)<C_30-1/100000,
+C_rp<14191369/100000000,
+R_full(sigma_m(lambda_*))/(2m)^2 -> C_rp.
+```
+
+The coefficient strictly decreases, increases, then decreases over the
+three consecutive intervals. In particular
+C_ref(891/1000)<C_ref(89/100) is a rigorous counterexample to strict
+increase on the entire right side of the minimum. Concavity and an exact
+positive endpoint comparison prove that the final descent never reaches
+the unique minimum. The observations lambda_*=0.3183453891702156... and
+C_rp=0.1419136786491478... are numerical, not definitions or premises.
+
+The full-radius transfer uses the preceding all-integer recovery and
+uniform full-root theorem. Only lambda in this family is optimized;
+alpha, general permutations/couplings and geometric global optima are
+not optimized. The separate feasibility/deletion corollary is owned by
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under the optimized reflected
+prefix. Independent external review remains pending.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md`,
+Sections 2-8; exact integer interval gates and independent full-max
+diagnostics in `ops/TASK-20260905__reflected_prefix_lambda/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

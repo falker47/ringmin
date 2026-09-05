@@ -17,11 +17,11 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The deterministic longer reflected-prefix construction supplies the strongest
+The reflected-prefix construction with optimized lambda and fixed alpha_* supplies the strongest
 exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -706,9 +706,34 @@ to the global upper bound. The fixed-order and global claims retain
 distinct ledger owners. No parameter or general permutation/coupling
 optimization is part of this result.
 
-## Priority 1 — Independent review of the longer reflected prefix
+## Resolved priority — Lambda optimization with alpha_* fixed
+
+**Status:** exact family-minimization and fixed-order coefficient theorem /
+proved global upper-bound corollary; global right-side monotonicity refuted.
+
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md` gives the analytic
+variation over the full existing domain, retaining the block and diagonal
+switches. It proves a unique global minimizer in (159/500,319/1000),
+followed by a local maximum and a final descent. Exact rational gates
+certify the bracket, a rational counterexample to whole-right-side
+increase and a strict improvement over C_30. The new global upper bound
+C_rp follows separately from the imported full-radius theorem and deletion.
+Alpha and general permutations/couplings were not optimized.
+
+## Priority 1 — Independent review of fixed-alpha lambda optimization
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md`. Audit the complete
+branch derivatives, curvature inequalities, uniqueness despite the final
+descent, rational minimizer bracket, counterexample and coefficient gates.
+Reproduce the integer interval checker and its independent full-max
+diagnostics; audit the imported recovery/full-root and separate deletion
+steps. Record acceptance or precise corrections without optimizing alpha
+or starting a general permutation/coupling search.
+
+## Deferred dependency review — Longer reflected prefix
+
+Independently review
 `research/PERMUTED_HALVES_REFLECTED_PREFIX.md`. Audit all finite occurrence
 and seam cases, the continuous-test limit, both full-cost branches,
 the rational alpha/branch/saving gates, and the imported full-radius
@@ -815,7 +840,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_30]`, and whether they agree. Improve beyond the longer reflected-prefix
+`[C_term,C_rp]`, and whether they agree. Improve beyond the reflected-prefix
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

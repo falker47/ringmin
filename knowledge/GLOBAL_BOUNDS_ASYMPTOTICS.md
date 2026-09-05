@@ -329,7 +329,7 @@ construction, after arXiv v1.
 Use C_30=C_ref(3/10) from the fixed-order ledger's longer reflected prefix
 theorem, with alpha=alpha_* unchanged. The exact full criterion supplies
 feasible even configurations; deletion of radius 2m supplies odd ones.
-Thus the strongest current upper bound is
+Thus this construction supplies the valid upper bound
 
 ```text
 C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_30<C_ref.
@@ -343,6 +343,32 @@ bound is established.
 
 **Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX.md`, Section 6;
 task-local evidence in `ops/TASK-20260905__reflected_prefix/`.
+
+### Optimized reflected prefix: improved global upper bound
+
+**Status:** proved global limsup corollary of the explicit feasible
+fixed-alpha construction, after arXiv v1.
+
+Use C_rp and the exact lambda_* defined solely in the fixed-order
+ledger's lambda-optimization entry. Its all-integer recovery and full
+radius theorem supply feasible placements at even sizes 2m. Deleting
+only radius 2m gives the required odd sizes; the normalization ratio
+(2m/(2m-1))^2 tends to one. Hence the strongest current upper bound is
+
+```text
+C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_rp<C_30.
+```
+
+The coefficient comparison and rational enclosure belong to
+`knowledge/FIXED_ORDER_THEORY.md`; they also give the explicit global
+corollaries limsup R*(n)/n^2<C_30-1/100000 and
+limsup R*(n)/n^2<14191369/100000000. Uniqueness of the family minimizer
+does not imply geometric global optimality, endpoint sharpness, a
+normalized global limit, a new lower bound or a finite certificate.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md`,
+Section 8; task-local evidence in
+`ops/TASK-20260905__reflected_prefix_lambda/`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -426,11 +452,11 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The longer reflected-prefix construction above gives the strongest
+The optimized reflected-prefix construction above gives the strongest
 proved upper bound
 
 ```text
-limsup R*(n)/n^2<=C_30<C_ref<C_shift<C_alt<1/(2*pi),
+limsup R*(n)/n^2<=C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
 ```
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
@@ -439,7 +465,7 @@ possible equality, and either endpoint's sharpness remain unresolved.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/PERMUTED_HALVES_REFLECTED_PREFIX.md` for the strongest upper
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md` for the strongest upper
 side. The earlier reflected, shifted, unshifted and increasing-order
 theorems remain valid but are weaker. The single-subset envelope does not
 settle the remaining coefficient gap.
@@ -449,8 +475,8 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,C_30]`, including whether they agree; improve beyond the
-   longer reflected-prefix construction or obtain sharper
+   `[C_term,C_rp]`, including whether they agree; improve beyond the
+   reflected-prefix family with fixed alpha_* or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
@@ -476,3 +502,6 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
   C_ref and C_30 respectively; neither result identifies
   the best high-permutation coefficient, a relaxation minimum,
   a global optimum or a normalized global limit.
+- Optimizing lambda in the reflected-prefix family improves the upper
+  bound to C_rp; its unique family minimum does not settle any of those
+  broader optimization problems or optimize alpha.
