@@ -4,61 +4,63 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=a7c2afbeadcd2d8de69f79c073cf5f6379c06345
-observed_on=2026-09-05
+task_base_head=01a944ad5d08234755dcd12fd7f4d9ba0b683d9c
+observed_on=2026-09-06
 phase=post-arXiv-v1 active research
 ```
 
 ## Current task
 
 ```text
-task=TASK-20260905__second_reflected_block
+task=TASK-20260905__second_block_recovery
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and current result
 
-The second shrinking reflected block preserves both high marginals and
-local balance. Its width derivative vanishes everywhere. The first
-nonzero full-cost term is cubic negative at each fixed u except A/3,
-where a retained chord interval gives a quadratic positive term.
-The rational block [1/3,1/3+1/100] is strictly cheaper in the continuum.
-Proof: research/PERMUTED_HALVES_SECOND_REFLECTED_BLOCK.md. The existing
-global limsup upper bound remains unchanged; no finite recovery is claimed.
+Deterministic high permutations recover the baseline at exactly alpha_hat,
+lambda=(1+alpha_hat)*x_* together with the fixed second reflected block
+[1/3,1/3+1/100]. Disjoint parity reversals give exact occurrences and
+cyclic predecessors for every m>=2. For m>=200, six exceptional cells
+and explicit endpoint/Riemann estimates give continuous-test error
+omega_F(5/m)+omega_F(2/m)+32*||F||_infinity/m. The proof is in
+research/PERMUTED_HALVES_SECOND_BLOCK_RECOVERY.md. This task does not
+apply the full-root theorem; the recorded global bound remains C_hat.
 
 ### Allowed delta
 
-New second-block proof, its task dossier and bounded exact checker;
+The new recovery proof, its three-file dossier and bounded exact checker;
 knowledge/FIXED_ORDER_THEORY.md as sole owner; this file and the roadmap.
 
 ### Verification gates
 
-- Analytic full-max formula, exact marginals/balance, all fixed-u signs
-  and equality cases; explicit width ranges and switch remainder bound.
-- Stdlib exact checker passes rational gates, sign-safe radical comparison,
-  reflection moments, formal Taylor algebra and an independent exact
-  eight-panel upper enclosure of the witness cost.
-- Complete tracked diff and all five additions inspected. The eight-file
-  source/whitespace audit, four dependency comparisons and four local
-  links pass. git diff --check exits 0; HEAD/staged diff and all protected
-  or generated paths are unchanged. READY_FOR_REVIEW.
+- Exact all-m occurrence/parity proof, full cell counts and quantitative
+  weak convergence for arbitrary continuous tests are written.
+- Independent stdlib checker exits 0: 1,244 bracket-compatible floor
+  cases, 759,032 cyclic cells, both residue periods, 121 interval moments
+  and invalid/mutation gates. Exact implicit parameters are enclosed,
+  never replaced by decimal minimizers.
+- Complete tracked diff and all five additions reviewed. The eight-path
+  source audit exits 0: whitespace, AST, six links, sole ledger ownership,
+  seven unchanged dependencies/global ledger and unchanged HEAD/staged
+  state. git diff --check exits 0; protected/generated paths unchanged.
 
 ### Blockers and limitations
 
-No blocker. Baseline coefficient and exact minimizer brackets are imported.
-No finite recovery, multiparameter optimization, general permutation
-enumeration, moving-u theorem, wrap-crossing block, geometric global bound
-or certificate extension is in scope. No Git/GitHub writes.
+No blocker. The exact baseline minima are imported. Recovery and bounded
+local checks do not assert a general balanced-coupling theorem, finite
+radius improvement, new R_full limit, geometric bound or certificate.
+No Git/GitHub writes or external acceptance/hosted CI result are claimed.
 
-Protected: previous proof notes and dossiers, paper_assets/, results/,
+Protected: all previous proof notes and dossiers, paper_assets/, results/,
 src/, tests/, scripts/, verify.py, publication metadata, README.md, REPORT.md,
 other knowledge ledgers, PROJECT_KNOWLEDGE.md, AGENTS.md and
 RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Construct deterministic high permutations recovering the fixed second
-block [1/3,1/3+1/100] at alpha_hat, lambda_hat, before transferring its
-full-radius cost or a geometric upper-bound consequence. Keep parameters
-fixed and do not enumerate general permutations.
+Verify the all-pairs criterion and uniform full-root transfer for this
+fixed recovered family before identifying its full-radius coefficient
+or a geometric upper bound; justify feasibility and odd-n deletion
+separately. Keep every parameter fixed and do not enumerate permutations.

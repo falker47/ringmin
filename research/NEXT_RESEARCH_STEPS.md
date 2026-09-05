@@ -765,7 +765,7 @@ no other fixed pair in this domain improves it.
 ## Resolved priority — Second disjoint reflected-block direction
 
 **Status:** exact continuum variation / strict rational counterexample;
-finite permutation recovery remains open for this new coupling.
+the fixed witness's finite recovery is resolved separately below.
 
 `research/PERMUTED_HALVES_SECOND_REFLECTED_BLOCK.md` resolves the single
 shrinking-block discriminator at the baseline (alpha_hat,lambda_hat).
@@ -775,14 +775,27 @@ where the retained full max gives a positive quadratic term. An explicit
 rational block is strictly cheaper in the balanced continuum class.
 The existing recovered global coefficient C_hat is unchanged.
 
-## Priority 1 — Recover one fixed second-block witness
+## Resolved priority — Recover the fixed second-block witness
 
-Exactly one next atomic task: construct deterministic high permutations
-recovering the continuum witness with alpha=alpha_hat, lambda=A*x_*,
-second block [1/3,1/3+1/100]. Prove occurrence, floor/seam bookkeeping and
-weak recovery before transferring the full-radius cost and any geometric
-upper-bound consequence. Keep the block parameters fixed; do not optimize
-a multiparameter family or enumerate general permutations.
+**Status:** exact finite construction / quantitative weak-recovery theorem.
+
+`research/PERMUTED_HALVES_SECOND_BLOCK_RECOVERY.md` constructs deterministic
+high permutations recovering both the baseline prefix and the second
+block [1/3,1/3+1/100], at exactly alpha_hat and lambda=A*x_*. The proof
+supplies exact occurrence, parity, floor, cyclic-predecessor and exception
+counts and a vanishing error for every continuous test. Marginals and
+local balance are not assumed sufficient. The full-root theorem has not
+been applied to this new family; the recorded geometric bound is unchanged.
+
+## Priority 1 — Verify the fixed second-block full-root transfer
+
+Exactly one next atomic task: verify the hypotheses of the all-pairs
+criterion and uniform full-root theorem for the recovered fixed family,
+including every cyclic cell and both max branches. Only then identify
+its full-radius coefficient and any geometric upper-bound consequence,
+with feasibility and odd-n deletion justified separately. Keep alpha_hat,
+lambda=A*x_* and [1/3,1/3+1/100] fixed; do not optimize new blocks or
+enumerate general permutations.
 
 ## Deferred dependency review — Joint reflected-prefix minimum
 

@@ -1146,7 +1146,7 @@ Sections 1-7; bounded stdlib exact domain and finite floor/seam checks in
 ### Second disjoint reflected block: exact continuum direction
 
 **Status:** exact continuum theorem / counterexample to balanced-coupling
-local minimality, after arXiv v1; finite recovery is not established here.
+local minimality, after arXiv v1.
 
 At the baseline alpha=alpha_hat, A=1+alpha, lambda=A*x_*, set a=A/3 and
 b=1-alpha. For a fixed lambda<u<b, replace only the diagonal slab
@@ -1174,14 +1174,52 @@ C(mu)<C_hat-1/(144000000*pi). The smaller-width witnesses approach the
 baseline in total variation, disproving balanced-coupling local minimality.
 
 This preserves the earlier unique minimum within the one-prefix family.
-No moving-u or arbitrary larger-width sign classification, finite
-permutation recovery, finite radius improvement, or new geometric/global
-upper bound is established. The existing C_hat global bound is unchanged.
+The original continuum note does not establish finite recovery; the
+following entry resolves that separate question for the fixed witness.
+No moving-u or arbitrary larger-width sign classification, finite radius
+improvement, or new geometric/global upper bound is established by the
+continuum variation. The existing C_hat global bound is unchanged.
 Independent external review remains separate.
 
 **Source:** `research/PERMUTED_HALVES_SECOND_REFLECTED_BLOCK.md`;
 bounded stdlib exact gates, formal Taylor checks and an independent
 rational cost enclosure in `ops/TASK-20260905__second_reflected_block/`.
+
+### Deterministic recovery of the fixed second reflected block
+
+**Status:** exact finite construction / exact weak-recovery theorem,
+after arXiv v1.
+
+At exactly alpha=alpha_hat, lambda=(1+alpha_hat)*x_*, the baseline
+prefix and the fixed second block [1/3,103/300] are recovered together
+by deterministic high permutations for every integer m>=2. Keep
+s=floor(alpha*m), q=2*floor(lambda*m/2), and reverse even ranks
+separately in {1,...,q} and {p+1,...,p+d}, with
+p=2*floor(m/6), d=2*floor(m/200), before the cyclic high shift.
+The two rank sets are disjoint and pre-wrap for every m; each high
+occurs exactly once. The proof treats actual cyclic predecessors,
+empty/length-2 identity blocks, odd/even m, both junctions of the
+second block and the separate wrap endpoint/jump.
+
+There are exactly six exceptional comparison cells for m>=200,
+with the complete smaller-m counts stated in the proof. For every
+continuous F on [0,1] x [1,2]^2, the empirical error is bounded by
+omega_F(5/m)+omega_F(2/m)+32*||F||_infinity/m for m>=200, and hence
+tends to zero along all integers. Both orientations are recovered
+for nonsymmetric tests; limiting marginals/local balance are not
+used as a sufficient condition. The signed empirical difference
+from the baseline also recovers exactly the second-slab replacement.
+
+This recovers the preceding continuum witness, including its continuous
+g-integral. The full-root theorem is not applied here: no new R_full
+limit, finite radius improvement or geometric/global bound is recorded.
+The existing C_hat bound and its global ledger owner are unchanged.
+No general coupling recovery or optimization is asserted. Independent
+external review of the proof and its imported inputs remains separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_RECOVERY.md`, Sections
+1-5; bounded independent list/cyclic checks and exact interval test
+integrals in `ops/TASK-20260905__second_block_recovery/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 
