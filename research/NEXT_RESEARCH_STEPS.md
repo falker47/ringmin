@@ -17,11 +17,11 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The reflected-prefix construction at alpha=107/1000 with the accepted
+The reflected-prefix construction at its exact alpha_hat with the accepted
 normalized minimizer x_* fixed supplies the strongest exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -734,9 +734,33 @@ global deletion remain separate statements with distinct ledger owners.
 This resolves the directional discriminator without optimizing alpha or
 both parameters, or searching general permutations/couplings.
 
-## Priority 1 — Independent review of the alpha extension
+## Resolved priority — Exact alpha minimum at fixed x_*
+
+**Status:** exact closed-domain recovery, family-minimization and fixed-order
+full-radius theorem / proved global upper-bound corollary.
+
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md` extends the
+accepted coefficient formula to alpha in [0,1/2] with x_* fixed, retaining
+the pre-wrap gap and endpoint/coincident-seam cases. Analytic curvature
+and endpoint signs prove the unique family minimum; rational gates isolate
+it in the requested bracket and prove a strict improvement over C_107.
+The fixed-order theorem, actual feasibility and global deletion corollary
+remain separate, with distinct ledger owners. Joint parameter and general
+permutation/coupling optimization remain outside this resolved task.
+
+## Priority 1 — Independent review of the fixed-x_* alpha minimum
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md`. Audit the
+closed-domain recovery and endpoint seams, analytic curvature and endpoint
+signs, rational E displacement and two bracket gates, coefficient comparison,
+and imported full-root plus separate feasibility/deletion steps. Reproduce
+the bounded checker and record acceptance or precise corrections without
+starting joint parameter or general permutation/coupling optimization.
+
+## Deferred dependency review — Neighborhood alpha extension
+
+Independently review
 `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md`. Audit the restricted
 recovery including finite floors and cyclic seams, the A^2 scaling and
 moving-wrap term, constant x_*, the concave rational integral enclosures,
@@ -854,7 +878,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_107]`, and whether they agree. Improve beyond the reflected-prefix
+`[C_term,C_hat]`, and whether they agree. Improve beyond the reflected-prefix
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

@@ -1048,6 +1048,52 @@ prefix. Independent external review of this extension remains pending.
 Sections 2-5; independent stdlib rational gates and full-max/geometry
 diagnostics in `ops/TASK-20260905__reflected_prefix_alpha/`.
 
+### Exact alpha minimum of the reflected prefix at fixed x_*
+
+**Status:** exact recovery, family-minimization and fixed-order full-radius
+theorem; exact coefficient improvement, after arXiv v1.
+
+Keep the accepted normalized x_* fixed. The preceding coefficient formula
+extends to every fixed alpha in [0,1/2], with lambda=(1+alpha)*x_* and
+uniform pre-wrap gap greater than 1/15. The parity involution gives true
+high permutations for every m>=2. Unioned exceptions handle coincident
+small-m seams, alpha=0 and alpha=1/2; the full cost retains both branches.
+
+For F(alpha)=2*pi*C(alpha,x_*), the exact analytic bounds give
+
+```text
+-1/324<E(x_*)<-1/1728,
+F'=D(alpha)+(1+alpha)*E(x_*),
+F''>46/405>1/9 on [0,1/2],
+F'(0)<-29/1245<0<13/108<F'(1/2).
+```
+
+Therefore F' has exactly one zero alpha_hat and it is the unique minimum
+of this fixed-x_* coefficient family on [0,1/2]. Independent rational
+full-block and D enclosures prove
+
+```text
+1093/10000<alpha_hat<10931/100000,
+C_hat:=C(alpha_hat,x_*)<C_107-1/22000000,
+C_hat<14191364/100000000,
+R_full(sigma_m(alpha))/(2m)^2 -> C(alpha,x_*) for every fixed alpha in [0,1/2],
+R_full(sigma_m(alpha_hat))/(2m)^2 -> C_hat.
+```
+
+The accepted full-root theorem and explicit valley gaps separately give
+actual all-pairs feasibility at every exact root. The bracket and
+coefficient comparisons use no decimal premise. The numerical observations
+alpha_hat=0.1093036963264... and C_hat=0.1419134913446... are diagnostic.
+No finite-m family minimizer, joint parameter optimum, other alpha regime,
+general permutation/coupling optimum or geometric global optimum is claimed.
+The separate global deletion corollary is owned only by
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under the fixed-x_* alpha minimum.
+Independent external review of the new extension remains pending.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md`,
+Sections 1-6; bounded independent exact gates and original full-max
+diagnostics in `ops/TASK-20260905__reflected_prefix_alpha_minimum/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

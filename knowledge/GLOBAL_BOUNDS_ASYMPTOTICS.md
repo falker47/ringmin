@@ -379,8 +379,7 @@ Use C_107 as defined only in the fixed-order ledger's alpha-improvement
 entry. Its recovery and full-root theorem give feasible placements for
 every even size 2m. Deleting only radius 2m gives exactly {1,...,2m-1},
 preserving all remaining central tangencies and pairwise non-overlaps.
-The normalization ratio tends to one, so the strongest current upper
-bound is
+The normalization ratio tends to one, giving the upper bound
 
 ```text
 C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_107<C_rp.
@@ -395,6 +394,32 @@ optimum, global sharpness or normalized global limit is established.
 
 **Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md`,
 Section 6; task-local evidence in `ops/TASK-20260905__reflected_prefix_alpha/`.
+
+### Fixed-x_* alpha minimum: improved global upper bound
+
+**Status:** proved global limsup corollary of the explicit feasible
+construction at the exact family minimizer, after arXiv v1.
+
+Use alpha_hat and C_hat as defined only in the fixed-order ledger's exact
+alpha-minimum entry. Its full-root theorem provides actual feasible
+placements for every even size. Deleting just radius 2m preserves all
+central tangencies and non-overlaps for {1,...,2m-1}; the normalization
+ratio tends to one. Thus the strongest current upper bound is
+
+```text
+C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_hat<C_107.
+```
+
+The coefficient comparisons owned by `knowledge/FIXED_ORDER_THEORY.md`
+also imply limsup R*(n)/n^2<C_107-1/22000000 and
+limsup R*(n)/n^2<14191364/100000000. The lower theorem and finite certified
+scope are unchanged. The unique coefficient minimum on the stated fixed-x_*
+family does not imply joint parameter or general permutation/coupling
+optimality, global sharpness or a normalized global limit.
+
+**Source:** `research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md`,
+Section 7; task-local evidence in
+`ops/TASK-20260905__reflected_prefix_alpha_minimum/`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -478,11 +503,11 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The alpha-improved reflected-prefix construction above gives the strongest
+The fixed-x_* alpha-minimized reflected prefix above gives the strongest
 proved upper bound
 
 ```text
-limsup R*(n)/n^2<=C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
+limsup R*(n)/n^2<=C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
 ```
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
@@ -491,7 +516,7 @@ possible equality, and either endpoint's sharpness remain unresolved.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA.md` for the strongest upper
+`research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md` for the strongest upper
 side. The earlier reflected, shifted, unshifted and increasing-order
 theorems remain valid but are weaker. The single-subset envelope does not
 settle the remaining coefficient gap.
@@ -501,7 +526,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,C_107]`, including whether they agree; improve beyond the
+   `[C_term,C_hat]`, including whether they agree; improve beyond the
    current reflected-prefix construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
@@ -534,3 +559,6 @@ The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.
 - The rational alpha increase improves the upper bound to C_107; its
   strict directional improvement does not identify a joint parameter
   minimum or resolve those broader optimization problems.
+- The exact fixed-x_* alpha minimum improves the upper bound to C_hat;
+  its family uniqueness does not establish a general permutation/coupling
+  optimum, global sharpness or a normalized global limit.
