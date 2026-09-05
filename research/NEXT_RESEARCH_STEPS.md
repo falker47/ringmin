@@ -618,8 +618,9 @@ The high-shell triangle argument controls paths in arbitrary order, and
 both directions for mixed and low pairs include all seams and small cycles.
 It gives the unique full-radius root, all fixed-order optimal gap choices,
 and the chain/full equality test. The subsequent adjacent-swap result below
-addresses local permutation structure; general permutation optimization and
-asymptotics have not been started. Existing global bounds are unchanged.
+addresses local permutation structure; the bounded root experiment below
+then tests shift optimality. General permutation asymptotics have not been
+started. Existing global bounds are unchanged.
 
 ## Resolved priority — Exact adjacent-high variation and conditional exchange
 
@@ -634,9 +635,29 @@ optimality in an exact small-R subdomain. The single claim owner is the
 fixed-order ledger. This does not solve general permutation optimization
 or change existing asymptotic bounds.
 
-## Priority 1 — Independent review of the adjacent-high exchange theorem
+## Resolved priority — Bounded root-level cyclic-shift conjecture test
 
-Exactly one next atomic task: independently review the local swap identity,
+**Status:** disproved claim / computer-certified finite result, after arXiv v1.
+
+`research/PERMUTED_HALVES_ROOT_SEARCH.md` refutes root-level shift
+optimality at the least possible m=4. The m=2..8 experiment stopped
+after completing m=4; independent scoring and exact rational separators
+support the finite result. The single claim owner is the fixed-order
+ledger. This rules out universal finite root optimality of shifts, without
+deciding whether arbitrary permutations improve the asymptotic coefficient.
+
+## Priority 1 — Independent review of the minimal root counterexample
+
+Exactly one next atomic task: independently review the finite root
+counterexample in `research/PERMUTED_HALVES_ROOT_SEARCH.md`. Reproduce
+all 32 roots and rational separators, check enumeration coverage and
+m=2,3 exclusion, the mixed/chain swap at the shift root, and the imported
+fixed-order criterion. Record acceptance or precise corrections; do not
+begin general permutation or asymptotic optimization.
+
+## Deferred dependency review — Adjacent-high exchange theorem
+
+Independently review the local swap identity,
 finite/infinite threshold branches, conditional sign and equality cases,
 small-R reduction and minimal counterexample in
 `research/PERMUTED_HALVES_ADJACENT_SWAP.md`. Check its use of the preceding

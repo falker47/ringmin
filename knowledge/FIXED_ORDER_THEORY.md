@@ -760,6 +760,38 @@ global certificate or contact/floater claim follows.
 falsification, exact symbolic/rational checks and independent high-precision
 local-versus-full comparisons in `ops/TASK-20260905__adjacent_high_swap/`.
 
+### Root-level cyclic-shift optimality: minimal finite counterexample
+
+**Status:** disproved claim / computer-certified finite result, after arXiv v1.
+
+For the preceding permuted-halves full-radius objective rho_P, the claim
+that an increasing cyclic high shift always minimizes over all high
+permutations is false. The least counterexample size is m=4: the unique
+minimizer among all 24 labeled permutations is A=(8,7,5,6), while the
+unique best shift is B=(7,8,5,6). Exact rational enclosures prove
+
+```text
+rho_A < 577/100 < rho_B,
+0.0157658012 < rho_B-rho_A < 0.0157658014.
+```
+
+At m=2 every permutation is a shift and both score functions coincide;
+at m=3 a separate rational separator proves (6,4,5) uniquely minimizes
+among all six. The local swap B->A has mixed/chain increments and a
+rigorously negative variation at rho_B; a generic fixed-R improvement
+was not substituted for a root comparison.
+
+The predeclared m=2..8 exhaustive experiment stopped after m=4, with
+32 orders evaluated by independent 80/110-digit scorers; m=5..8 were
+not run. The finite root minimizers and strict separation use exact
+rational certificates, while longer root decimals are numerical evidence.
+This neither determines R*(8) nor extends to an all-m structure or
+general permutation asymptotics. Global bounds/certificates are unchanged.
+
+**Source:** `research/PERMUTED_HALVES_ROOT_SEARCH.md`; complete finite
+root data, independent scorer and exact separator checks in
+`ops/TASK-20260905__permuted_halves_root_search/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
