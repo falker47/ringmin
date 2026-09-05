@@ -762,9 +762,31 @@ one-variable minima to prove joint uniqueness. Fixed-order limits,
 actual feasibility and global deletion remain separate. C_hat is unchanged;
 no other fixed pair in this domain improves it.
 
-## Priority 1 — Independent review of the joint reflected-prefix minimum
+## Resolved priority — Second disjoint reflected-block direction
 
-Exactly one next atomic task: independently review
+**Status:** exact continuum variation / strict rational counterexample;
+finite permutation recovery remains open for this new coupling.
+
+`research/PERMUTED_HALVES_SECOND_REFLECTED_BLOCK.md` resolves the single
+shrinking-block discriminator at the baseline (alpha_hat,lambda_hat).
+The width first derivative vanishes, but the first nonzero term is
+negative cubic at each fixed pre-wrap start except the diagonal switch,
+where the retained full max gives a positive quadratic term. An explicit
+rational block is strictly cheaper in the balanced continuum class.
+The existing recovered global coefficient C_hat is unchanged.
+
+## Priority 1 — Recover one fixed second-block witness
+
+Exactly one next atomic task: construct deterministic high permutations
+recovering the continuum witness with alpha=alpha_hat, lambda=A*x_*,
+second block [1/3,1/3+1/100]. Prove occurrence, floor/seam bookkeeping and
+weak recovery before transferring the full-radius cost and any geometric
+upper-bound consequence. Keep the block parameters fixed; do not optimize
+a multiparameter family or enumerate general permutations.
+
+## Deferred dependency review — Joint reflected-prefix minimum
+
+Independently review
 `research/PERMUTED_HALVES_REFLECTED_PREFIX_JOINT_MINIMUM.md`. Audit recovery
 on the complete domain, the q=0/endpoint exception counts and coincident
 seams, full-max scaling, exact admissibility and equality conditions,

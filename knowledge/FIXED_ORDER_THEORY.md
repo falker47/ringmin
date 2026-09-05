@@ -1143,6 +1143,46 @@ Independent external review of this extension remains pending.
 Sections 1-7; bounded stdlib exact domain and finite floor/seam checks in
 `ops/TASK-20260905__reflected_prefix_joint_minimum/`.
 
+### Second disjoint reflected block: exact continuum direction
+
+**Status:** exact continuum theorem / counterexample to balanced-coupling
+local minimality, after arXiv v1; finite recovery is not established here.
+
+At the baseline alpha=alpha_hat, A=1+alpha, lambda=A*x_*, set a=A/3 and
+b=1-alpha. For a fixed lambda<u<b, replace only the diagonal slab
+I=[u,u+epsilon], 0<epsilon<b-u, by the equal mixture of high pairs
+(A+t,A+2*u+epsilon-t) and its swap. Reflection preserves both high
+marginals separately; the swap preserves exact local balance. The low
+marginal is unchanged. For C(mu)=(integral g dmu)/(4*pi) and the full
+g=max(sqrt(t)*(sqrt(x)+sqrt(y)),sqrt(x*y)), the width derivative is zero
+at every u, but the first nonzero terms are
+
+```text
+Delta C=-epsilon^3/(96*pi*(A+u))+o(epsilon^3),      lambda<u<a;
+Delta C=+epsilon^2/(256*pi)+O(epsilon^3/a),         u=a;
+Delta C=-epsilon^3/(96*pi*sqrt(u*(A+u)))
+         +o(epsilon^3),                          a<u<b.
+```
+
+Every fixed u!=a strictly decreases the cost for all sufficiently small
+positive widths; at a it strictly increases. The linear coefficient
+vanishes everywhere, the quadratic coefficient vanishes exactly off a,
+and neither cubic coefficient has a zero. Exact branch intervals and a
+positive remainder bound at a are in the proof. The rational witness
+u=1/3, epsilon=1/100 satisfies all domain/branch gates and has
+C(mu)<C_hat-1/(144000000*pi). The smaller-width witnesses approach the
+baseline in total variation, disproving balanced-coupling local minimality.
+
+This preserves the earlier unique minimum within the one-prefix family.
+No moving-u or arbitrary larger-width sign classification, finite
+permutation recovery, finite radius improvement, or new geometric/global
+upper bound is established. The existing C_hat global bound is unchanged.
+Independent external review remains separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_REFLECTED_BLOCK.md`;
+bounded stdlib exact gates, formal Taylor checks and an independent
+rational cost enclosure in `ops/TASK-20260905__second_reflected_block/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
