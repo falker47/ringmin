@@ -12,9 +12,9 @@
 - **Python layout:** Python `>=3.11`, `setuptools`, `src/ringmin`, `pytest`, NumPy/SciPy/mpmath/Matplotlib, standalone `verify.py`, JSON/CSV/text certificate artifacts, and GitHub Actions.
 - **Default task mode:** `STANDARD`.
 - **Mandatory mode:** `STRICT` for mathematical claims, certification logic, exhaustive search, numerical guards, independent verification, result artifacts, paper changes, release metadata, or reproducibility-sensitive changes.
-- **Manual integration:** Codex edits the local working tree only. The user reviews and commits manually.
+- **Authorized integration:** Codex stages, commits and pushes completed, verified task changes without asking the user to perform or separately authorize those steps. Independent review remains separate.
 
-This file is the repository-local operating contract. Project-specific rules here override generic habits, but they never authorize GitHub writes or silent changes to published claims.
+This file is the repository-local operating contract. Project-specific rules here override generic habits. The standing commit/push authorization is limited by Section 3 and never authorizes silent changes to published claims.
 
 ## 1. Core role
 
@@ -44,13 +44,22 @@ Codex must not use `AGENTS.md` as a diary, proof note, roadmap, or task log.
 
 When the working tree contains unrelated changes, Codex stops before editing and reports the exact conflict. It does not mix tasks, stash, discard, reset, or reorganize the user’s work.
 
-## 3. Manual review and Git restrictions
+## 3. Standing commit/push authorization and Git restrictions
 
-Codex must never run commands or actions that write Git history or GitHub state, including:
+The user authorizes Codex to run `git add`, `git commit` and normal,
+non-force `git push` for completed, verified changes within the current
+task. This authorization persists across future tasks in this repository;
+do not ask for confirmation again or leave these steps for the user.
+Respect an explicit task instruction to leave work uncommitted or unpushed.
+Stage only the task's inspected paths, inspect the staged diff, commit,
+then push to the existing intended branch/remote and verify the result.
+Unrelated changes must never be included. If the push is rejected, report
+the blocker without rewriting history or force-pushing. Tool-enforced
+permission requirements still apply.
 
-- `git add`;
-- `git commit`;
-- `git push`;
+The standing authorization does not cover the following actions, which
+remain forbidden unless the user explicitly authorizes them:
+
 - merge or rebase commands;
 - reset, checkout-overwrite, clean, or history-rewriting commands;
 - tag or release creation;
@@ -65,7 +74,10 @@ Read-only Git commands are allowed when relevant, including:
 - `git remote -v`;
 - `git ls-files`.
 
-Successful modified work ends in `READY_FOR_REVIEW`, not `DONE`. The user decides whether to commit. The independent continuous reviewer decides whether the committed `HEAD` becomes the next accepted baseline.
+Successful modified work ends in `READY_FOR_REVIEW`, not `DONE`, after
+the authorized commit and push. Commit/push does not imply mathematical
+acceptance. The independent continuous reviewer decides whether the
+committed `HEAD` becomes the next accepted baseline.
 
 ## 4. Durable memory and source hierarchy
 
@@ -350,7 +362,9 @@ Before setting `READY_FOR_REVIEW`, Codex must:
 10. inspect the complete `git diff`;
 11. run `git diff --check`;
 12. confirm that no protected or generated file changed incidentally;
-13. set the task to `READY_FOR_REVIEW` and stop.
+13. set the task to `READY_FOR_REVIEW`, stage only the inspected task paths,
+    inspect the staged diff and run its whitespace check, commit and push
+    under Section 3, verify the result, and stop.
 
 The final response must report:
 
@@ -360,7 +374,7 @@ The final response must report:
 - claim/evidence classification;
 - residual uncertainty and known limitations;
 - protected paths inspected;
-- suggested manual commit message;
+- commit hash, push result and remaining working-tree state (or the exact blocker);
 - exactly one proposed next atomic task.
 
 Do not begin that next task in the same chat.

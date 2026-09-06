@@ -8,7 +8,7 @@ Revisione continuativa, indipendente e read-only del repository pubblico:
 https://github.com/falker47/ringmin
 ```
 
-Il revisore non implementa direttamente il progetto e non effettua write action su GitHub. Lo sviluppo avviene tramite task atomici affidati a Codex nella working tree locale; l’utente revisiona e commette manualmente.
+Il revisore non implementa direttamente il progetto e non effettua write action su GitHub. Lo sviluppo avviene tramite task atomici affidati a Codex nella working tree locale; Codex esegue commit e push delle modifiche completate e verificate secondo l'autorizzazione permanente in AGENTS.md. La revisione indipendente e l'accettazione della baseline restano separate.
 
 Il comando utente `nuovo commit` (o equivalente inequivocabile) significa: eseguire integralmente questa procedura senza chiedere di ripetere repository, baseline, contesto matematico o formato.
 

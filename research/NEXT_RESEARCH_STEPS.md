@@ -801,9 +801,39 @@ limit. Only then does the fixed second-block saving yield the new global
 coefficient C_2<C_hat. Parameters and block endpoints remain unchanged;
 no broader optimization or global sharpness is established.
 
-## Priority 1 — Independent review of the fixed second-block transfer
+## Resolved priority — Complete continuous second-block width minimum
 
-Exactly one next atomic task: independently review the full-root proof
+**Status:** exact continuous theorem with rational interval gates.
+
+`research/PERMUTED_HALVES_SECOND_BLOCK_WIDTH.md` classifies the complete
+width domain at exactly alpha_hat, lambda=A*x_* and u=1/3. All full-max
+switches, analytic derivative signs and endpoint comparison prove the
+unique global minimum in the predicted rational bracket. The final
+descent and the single positive-width cost zero are also resolved.
+This result supplies no new finite recovery or radius/global bound;
+its sole claim owner is the fixed-order ledger.
+
+## Priority 1 — Continuous start derivative at the width minimum
+
+Exactly one next atomic task: at fixed alpha_hat, lambda=A*x_* and the
+exact width epsilon_* from the width theorem, evaluate the continuous
+partial_u Delta C(u,epsilon_*) at u=1/3. Prove it is zero or isolate its
+strict sign with exact/interval-safe inequalities, retaining moving
+endpoints and both max branches. This decides whether the width minimum
+is stationary when its start is freed. Do not construct finite
+permutations or infer a new radius/global bound in this discriminator.
+
+## Deferred dependency review — Complete continuous width theorem
+
+Independently review the full-domain branch partition, the block switch
+and diagonal cutoff with their spatial crossing, the curvature arguments,
+the imported alpha/E enclosures and the bounded critical checker in
+`research/PERMUTED_HALVES_SECOND_BLOCK_WIDTH.md`. Check the tail endpoint
+comparison and continuous-only scope; record acceptance or corrections.
+
+## Deferred dependency review — Fixed second-block transfer
+
+Independently review the full-root proof
 and its recovery/criterion dependencies at exactly alpha_hat, lambda=A*x_*
 and [1/3,103/300]. Reproduce the exact seam/branch and uniform-error gates,
 check the odd necessary-cell lower squeeze and global corollary, and

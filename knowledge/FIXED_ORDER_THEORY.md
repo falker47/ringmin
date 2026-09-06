@@ -1276,6 +1276,42 @@ External independent proof review remains separate.
 1-8; exact branch/seam gates, independent arctangent intervals, deletion
 incidence and recovery rerun in `ops/TASK-20260906__second_block_full_root/`.
 
+### Complete continuous width minimum of the second reflected block
+
+**Status:** exact continuous theorem with rational interval gates,
+after arXiv v1.
+
+Keep exactly alpha=alpha_hat, lambda=(1+alpha_hat)*x_* and u=1/3.
+For the same symmetric second-slab replacement, the full-max difference
+Delta C(epsilon)=C(mu_epsilon)-C_hat is classified throughout
+0<epsilon<L=1-alpha_hat-u. Its sole global minimum satisfies
+
+```text
+31248/10^6<epsilon_*<1/32.
+```
+
+It decreases to epsilon_*, increases to a unique local maximum
+epsilon_dagger in (1/3,2/5), and decreases from there to L. Its value
+at the minimum is negative, whereas the continuous endpoint value at L
+and the value at h=alpha_hat/3 are positive. There is exactly one
+positive-width zero, between epsilon_* and h. The complete formula
+retains the block-entry switch tau, the diagonal switch h and the
+spatial crossing z=h at epsilon=2*h. Analytic monotonicity before h,
+strict concavity of the first derivative after h, and eleven critical
+rational enclosures prove uniqueness and all signs. The additional
+digits epsilon_*=0.0312483174... remain a numerical observation.
+
+This optimizes only the continuous width. No finite permutation at this
+new width is constructed, and no new R_full limit or geometric/global
+bound is deduced. The preceding recovery and full-root statements keep
+their fixed width 1/100. Start variation, joint optimization and a general
+continuum optimum remain unresolved. External independent review and
+the imported baseline minimum proofs remain separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_WIDTH.md`, Sections
+1-8; bounded integer interval gates and separate raw-integral diagnostics
+in `ops/TASK-20260906__second_block_width/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
