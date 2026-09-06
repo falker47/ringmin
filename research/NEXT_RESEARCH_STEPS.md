@@ -834,13 +834,39 @@ positive start derivative to every lambda<u, 0<epsilon<A/3-u, with
 the exact baseline fixed. The all-chord, mixed and entry-tie cases,
 C^1 matching and continuity of the touching-block boundary are resolved.
 The joint infimum on this subdomain equals the infimum at u=lambda.
-The boundary width is not optimized, and no finite recovery or new
-radius/global bound follows. The sole stable owner is the fixed-order
-ledger.
+This theorem alone leaves the boundary width open; the next result
+optimizes that family. No finite recovery or new radius/global bound
+follows. The sole stable owner is the fixed-order ledger.
 
-## Priority 1 — Independent review of the chord-diagonal domain theorem
+## Resolved priority — Exact continuous boundary-width minimum
+
+**Status:** exact continuous theorem with two rational endpoint gates.
+
+`research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md` optimizes
+the touching-block family u=lambda on 0<epsilon<A/3-lambda. It proves
+the unique attained mixed minimum in (43/1000,11/250), exact cost and
+derivative formulas, all entry/endpoint cases, and analytic endpoint
+comparisons. A quantitative distance from entry reduces location to two
+rational squared comparisons. The preceding infimum reduction therefore
+has an identified boundary value. Finite recovery of this optimizer and
+any new radius/global consequence remain unproved and outside this task.
+
+## Priority 1 — Independent review of the boundary-width minimum
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md`. Check
+the exact baseline definitions, touching-block measure, full-max formula,
+entry cancellation and loss of C^2 regularity, mixed curvature bound,
+endpoint inequalities, distance from entry and directed rational gates.
+Reproduce the minimal checker and distinguish the noncertified diagnostics.
+Record acceptance or corrections without finite recovery or geometric
+transfer. Inspect the imported start-domain theorem only as needed for
+the stated continuous corollary; do not treat its independent acceptance
+as already supplied.
+
+## Deferred dependency review — Chord-diagonal domain theorem
+
+Independently review
 `research/PERMUTED_HALVES_SECOND_BLOCK_START_DOMAIN.md`. Check the
 full-max branch partition, both moving endpoints, clipped-switch C^1
 matching, first-half derivative lower bound, touching-block measure

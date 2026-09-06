@@ -1385,8 +1385,9 @@ For every interior pair, D(lambda,epsilon)<D(u,epsilon), and
 inf_Omega D = inf_(0<epsilon<a-lambda) D(lambda,epsilon).
 ```
 
-No interior point is a local minimum. This is an infimum reduction;
-boundary-width attainment, location and uniqueness are not determined.
+No interior point is a local minimum. This theorem alone is an infimum
+reduction; the following boundary theorem resolves width attainment,
+location and uniqueness.
 The zero-width edge has D=D_u=0 and is outside the strict-sign claim.
 No sign beyond the chord-diagonal domain, finite permutation recovery,
 R_full transfer or new R*(n) bound is supplied. The baseline minima are
@@ -1397,6 +1398,50 @@ premises. Independent external review remains separate.
 Sections 1-6; only rational baseline-admissibility gates and separate
 bounded raw-full-max diagnostics in
 `ops/TASK-20260906__second_block_start_domain/`.
+
+### Exact minimum of the continuous second-block boundary family
+
+**Status:** exact continuous theorem with two rational endpoint sign gates /
+proved continuous corollary, after arXiv v1.
+
+Keep exactly alpha=alpha_hat, A=1+alpha_hat and u=lambda=A*x_*. Put
+B=A+lambda and h=A/3-lambda. The same symmetric slab replacement at
+the touching-block boundary defines D_b(epsilon)=D(lambda,epsilon).
+On 0<epsilon<h it has a unique attained global minimum epsilon_b:
+
+```text
+43/1000<tau_b<87/2000,
+tau_b<epsilon_b<tau_b+tau_b^2/(8*B)<11/250.
+```
+
+Here tau_b is the unique unsquared block-entry width. The full max
+gives an all-chord branch before entry and a mixed branch afterwards;
+the removed diagonal stays chord, with a tie only at the upper endpoint.
+The cost is C^1 across entry but not C^2. Its derivative is negative
+on the all-chord branch, and its mixed second derivative exceeds 1.
+Analytic endpoint bounds prove D_b(h)>11*h^2/1440>0 and
+D_b'(h)>11*h/280>0. Thus D_b decreases to epsilon_b, increases from
+there to h, and has exactly one positive-width zero after the minimum.
+The minimum is also unique on the closed width interval [0,h].
+
+Only the two rational entry comparisons use the checker; curvature,
+attainment, uniqueness and the distance from entry are analytic. The
+exact baseline definitions and coarse brackets are imported. The digits
+epsilon_b=0.04349174800601259590... and the corresponding cost
+D_b(epsilon_b)=-0.00000235526264033607323... are numerical observations.
+
+Together with the preceding start-domain theorem, this identifies its
+open-domain infimum as D_b(epsilon_b) and the unique minimum of the
+closed continuous triangle as (lambda,epsilon_b). The open domain
+still has no minimizing point. No finite recovery of this touching-block
+optimizer, R_full limit or new R*(n) bound is supplied. The earlier
+fixed-width transfer keeps its original parameters; general coupling
+optimality and transfer remain outside the theorem. External independent
+review is separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md`,
+Sections 1-7; Fraction-only endpoint gates and separate raw-full-max
+diagnostics in `ops/TASK-20260906__second_block_boundary_minimum/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

@@ -2,75 +2,78 @@
 
 ## Repository snapshot
 
-```text
-repository=falker47/ringmin
-task_base_head=d169dd86b8aaadd19a822528e53c29f88bb9bd6f
-observed_on=2026-09-06
-phase=post-arXiv-v1 active research
-```
+    repository=falker47/ringmin
+    task_base_head=648a8eae98c987dbcc11aa28fdcf55cb946d0ef8
+    observed_on=2026-09-06
+    phase=post-arXiv-v1 active research
 
 ## Current task
 
-```text
-task=TASK-20260906__second_block_start_domain
-mode=STRICT
-state=READY_FOR_REVIEW
-```
+    task=TASK-20260906__second_block_boundary_minimum
+    mode=STRICT
+    state=READY_FOR_REVIEW
 
 ### Objective and current result
 
-At exactly alpha_hat, A=1+alpha_hat and lambda=A*x_*, the full-max
-start derivative satisfies D_u>=epsilon^3/[48*(A+u+epsilon)^2]>0
-for every lambda<u, 0<epsilon<A/3-u. The canonical proof is
-research/PERMUTED_HALVES_SECOND_BLOCK_START_DOMAIN.md. It treats
-all-chord, mixed and entry-tie regimes with C^1 matching. The coupling
-and cost extend continuously to u=lambda; strict fixed-width dominance
-reduces the joint infimum on this subdomain to that boundary family.
-No boundary width is optimized.
+At exactly alpha=alpha_hat, A=1+alpha_hat and u=lambda=A*x_*, the full-max
+boundary family D_b(epsilon) on 0<epsilon<h=A/3-lambda has a unique
+attained global minimum epsilon_b in the strict mixed regime:
+
+    43/1000<tau_b<87/2000,
+    tau_b<epsilon_b<tau_b+tau_b^2/[8*(A+lambda)]<11/250.
+
+The canonical proof is research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md.
+It gives exact cost/derivative primitives, exhaustive branches and endpoints,
+C^1 but not C^2 entry matching, analytic mixed curvature >1, and positive
+upper endpoint cost and slope. The minimum and the single positive-width
+zero are classified. The earlier continuous infimum reduction now has an
+identified boundary value. No finite recovery or radius transfer is supplied.
 
 ### Allowed delta
 
-Eight paths: the new proof, three-file STRICT dossier and minimal checker;
-the single owning fixed-order ledger; this file and the roadmap.
-All existing proof notes and dossiers are protected. The only pre-existing
-untracked file is the task's request image, excluded from integration.
+Nine paths: the new proof, the three-file STRICT dossier, its minimal
+Fraction checker and separate numerical diagnostic source; the single
+owning fixed-order ledger, this file and the roadmap. All earlier proofs
+and dossiers are protected. The only pre-existing untracked file is the
+inspected predecessor request image, a related source input kept unchanged
+and excluded from integration.
 
 ### Verification gates
 
-- New stdlib checker exits 0: imported bracket ordering and three
-  positive rational baseline-admissibility margins. No radical/root gate
-  remains in the analytic domain proof.
-- Prior local start checker freshly rerun: exit 0; its original rectangle,
-  terminal enclosure and input guards pass. This is a regression check,
-  not a dependency of the new sign proof.
-- Independent 70-digit raw-full-max diagnostics exit 0: 54 identities
-  at 27 pairs (normalized errors <1e-45), 36 smooth central differences
-  (<1e-25), 18 entry-tie central differences (<1e-12), 27 positive lower
-  bounds and strict boundary comparisons, 18 switch-slope and 27 boundary
-  continuity checks (<1e-12). All are numerical observations only.
-- Full eight-path source audit exits 0: tracked/untracked whitespace,
-  checker AST and Fraction-only import, five proof links, single ledger
-  owner and sixteen protected texts equal HEAD. git diff --check exits 0.
-  Authorized integration uses origin/main; the final handoff records the
-  containing commit SHA, push result and remaining request-image-only state.
+- Standalone Fraction checker exits 0: two directed rational entry
+  comparisons, all pre-square signs, coarse bracket/domain ordering and
+  the exact distance-bound slack 8431/32000000. No root, integral or mesh
+  enclosure is used.
+- Independent 70-digit diagnostic exits 0, using 180 bisections per root.
+  The baseline x and alpha are recomputed from defining equations.
+  Six raw-full-max/primitive identities have errors <1e-48, four smooth
+  central differences and three mixed-curvature identities <1e-23.
+  Entry and upper one-sided differences are <1e-12. Endpoint, cubic,
+  curvature-jump and root-order checks pass. These are numerical
+  observations only; epsilon_b=0.04349174800601259590... is not certified.
+- Complete source audit exits 0: nine paths, tracked/untracked whitespace,
+  two script ASTs and exact imports, seven proof links, one owning ledger,
+  and seventeen protected texts equal HEAD. git diff --check exits 0.
+  Authorized integration uses existing origin/main; the final handoff
+  records its containing commit, push verification and image-only remainder.
 
 ### Blockers and limitations
 
-No mathematical blocker. The baseline minima and coarse brackets are
-imported. Boundary-width attainment, location and uniqueness are not
-determined. No sign beyond the chord-diagonal domain, finite permutation,
-R_full transfer or R*(n) bound is supplied. External review and hosted CI
-are separate from local checks.
+No mathematical blocker. Baseline theorems and brackets are imported;
+external independent mathematical review and hosted CI are separate.
+No finite permutation at the touching-block optimizer, new R_full limit
+or R*(n) bound is deduced. No general coupling optimum or result outside
+the chord-diagonal subdomain is claimed.
 
-Protected: all existing proof notes and previous dossiers,
-paper_assets/, results/, src/, tests/, scripts/, verify.py,
-publication metadata, README.md, REPORT.md, other knowledge ledgers,
-PROJECT_KNOWLEDGE.md, AGENTS.md and RINGMIN_REVIEW_PROTOCOL.md.
+Protected: all earlier proof notes and dossiers, paper_assets/, results/,
+src/, tests/, scripts/, verify.py, publication metadata, README.md,
+REPORT.md, other knowledge ledgers, PROJECT_KNOWLEDGE.md, AGENTS.md
+and RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Independently review the chord-diagonal domain theorem: full-max branches,
-moving endpoints, C^1 entry matching, derivative lower bound, touching-block
-measure and both directions of the infimum equality. Reproduce the minimal
-checker and record acceptance or corrections. Do not optimize boundary
-width or perform finite recovery or geometric transfer in that review.
+Independently review the boundary-width theorem: exact input definitions,
+touching-block measure, full-max cost and derivative, entry regularity,
+mixed curvature, endpoint estimates and the two rational entry gates.
+Reproduce the checker and record acceptance or corrections. Do not perform
+finite recovery or geometric transfer during that review.
