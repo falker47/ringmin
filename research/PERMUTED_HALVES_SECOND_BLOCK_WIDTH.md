@@ -524,9 +524,7 @@ The sole thematic owner is knowledge/FIXED_ORDER_THEORY.md. Exact
 commands, independent diagnostic limitations and the final source audit
 are in the [task evidence](../ops/TASK-20260906__second_block_width/EVIDENCE.md).
 
-**Exactly one next atomic discriminator:** with the baseline still fixed,
-test the continuous start derivative partial_u Delta C(u,epsilon_*) at
-u=1/3, keeping this exact width fixed. Prove it is zero or isolate its
-strict sign with moving endpoints and the full max retained. This tests
-whether the width minimum is stationary when the block start is freed;
-it has not been carried out in this task.
+**Subsequent continuous discriminator:** the
+[start-derivative theorem](PERMUTED_HALVES_SECOND_BLOCK_START.md) resolves
+the start variation at this exact width. This width proof and its original
+scope are unchanged; the follow-up has its own derivation and evidence.

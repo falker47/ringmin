@@ -1304,13 +1304,55 @@ digits epsilon_*=0.0312483174... remain a numerical observation.
 This optimizes only the continuous width. No finite permutation at this
 new width is constructed, and no new R_full limit or geometric/global
 bound is deduced. The preceding recovery and full-root statements keep
-their fixed width 1/100. Start variation, joint optimization and a general
-continuum optimum remain unresolved. External independent review and
-the imported baseline minimum proofs remain separate.
+their fixed width 1/100. The following entry resolves the local start
+variation; joint minimization and a general continuum optimum remain
+unresolved. External independent review and the imported baseline minimum
+proofs remain separate.
 
 **Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_WIDTH.md`, Sections
 1-8; bounded integer interval gates and separate raw-integral diagnostics
 in `ops/TASK-20260906__second_block_width/`.
+
+### Exact start derivative at the continuous width minimum
+
+**Status:** exact continuous theorem with a rational interval gate,
+after arXiv v1.
+
+Fix exactly alpha=alpha_hat, A=1+alpha_hat, lambda=A*x_* and the preceding
+exact epsilon_*. For the continuous second-slab family in (u,epsilon), put
+D=4*pi*Delta C and B=A+1/3. Then
+
+```text
+D_u(1/3,epsilon_*)
+ =2*B+epsilon_*-sqrt(B*(B+epsilon_*))
+  -sqrt(1/3+epsilon_*)*(sqrt(B)+sqrt(B+epsilon_*)),
+66955912/10^12 <= D_u(1/3,epsilon_*) <= 74512461/10^12.
+```
+
+The full-max derivation retains both moving slab endpoints and the
+implicit switch velocity. Switch terms cancel by equality of costs.
+Exact domain gates keep the removed diagonal wholly chord and the
+reflected block mixed in a neighborhood. In translated coordinates the
+chord derivative minus the diagonal derivative is nonnegative, and the
+chain contribution is strictly positive. This proves the sign directly;
+the width stationarity identity separately eliminates all integrals for
+the displayed enclosure, using only the accepted alpha/epsilon brackets.
+
+At (1/3,epsilon_*), D_epsilon=0 and D_u>0. Hence this point is not
+stationary or locally minimizing in the continuous two-parameter family.
+Moving the start slightly left at fixed exact width lowers the cost.
+The local smooth branch of strict width minima exists by positive width
+curvature; its value also has positive start derivative at this point.
+No joint minimizer elsewhere or global continuation of that branch is
+identified. Extra digits D_u=0.00007192229619488977... are diagnostic.
+
+No finite recovery at epsilon_*, R_full transfer, new geometric/global
+bound or finite optimization is asserted. Baseline and width-minimum
+theorems are imported; independent external review remains separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_START.md`, Sections 1-6;
+bounded stdlib domain/radical gates and independent raw-full-max diagnostics
+in `ops/TASK-20260906__second_block_start/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

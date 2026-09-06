@@ -813,15 +813,27 @@ descent and the single positive-width cost zero are also resolved.
 This result supplies no new finite recovery or radius/global bound;
 its sole claim owner is the fixed-order ledger.
 
-## Priority 1 — Continuous start derivative at the width minimum
+## Resolved priority — Continuous start derivative at the width minimum
 
-Exactly one next atomic task: at fixed alpha_hat, lambda=A*x_* and the
-exact width epsilon_* from the width theorem, evaluate the continuous
-partial_u Delta C(u,epsilon_*) at u=1/3. Prove it is zero or isolate its
-strict sign with exact/interval-safe inequalities, retaining moving
-endpoints and both max branches. This decides whether the width minimum
-is stationary when its start is freed. Do not construct finite
-permutations or infer a new radius/global bound in this discriminator.
+**Status:** exact continuous theorem with a rational interval gate.
+
+`research/PERMUTED_HALVES_SECOND_BLOCK_START.md` proves the strict positive
+start derivative at (1/3,epsilon_*) with alpha_hat and lambda=A*x_* fixed.
+The width minimum is therefore not stationary or locally minimizing in
+the continuous (u,epsilon) family. The full moving-boundary derivation,
+analytic sign and terminal rational enclosure resolve this discriminator.
+No joint optimum, finite recovery or new radius/global bound is supplied;
+the sole stable claim owner remains the fixed-order ledger.
+
+## Priority 1 — Independent review of the continuous start derivative
+
+Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_SECOND_BLOCK_START.md`. Check the physical and
+translated endpoint/switch cancellations, diagonal branch, imported
+alpha/width brackets, radical enclosure and precise nonstationarity
+consequence. Reproduce the bounded checker and record acceptance or
+corrections. Do not optimize further parameters or perform a finite
+recovery or geometric transfer during that review.
 
 ## Deferred dependency review — Complete continuous width theorem
 
