@@ -825,9 +825,33 @@ analytic sign and terminal rational enclosure resolve this discriminator.
 No joint optimum, finite recovery or new radius/global bound is supplied;
 the sole stable claim owner remains the fixed-order ledger.
 
-## Priority 1 — Independent review of the continuous start derivative
+## Resolved priority — Start monotonicity on the chord-diagonal domain
+
+**Status:** exact continuous theorem / proved boundary-infimum corollary.
+
+`research/PERMUTED_HALVES_SECOND_BLOCK_START_DOMAIN.md` extends the
+positive start derivative to every lambda<u, 0<epsilon<A/3-u, with
+the exact baseline fixed. The all-chord, mixed and entry-tie cases,
+C^1 matching and continuity of the touching-block boundary are resolved.
+The joint infimum on this subdomain equals the infimum at u=lambda.
+The boundary width is not optimized, and no finite recovery or new
+radius/global bound follows. The sole stable owner is the fixed-order
+ledger.
+
+## Priority 1 — Independent review of the chord-diagonal domain theorem
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_SECOND_BLOCK_START_DOMAIN.md`. Check the
+full-max branch partition, both moving endpoints, clipped-switch C^1
+matching, first-half derivative lower bound, touching-block measure
+and the two directions of the infimum equality. Reproduce the minimal
+checker and inspect the diagnostic limits; record acceptance or
+corrections. Do not optimize the boundary width or perform finite
+recovery or geometric transfer during that review.
+
+## Deferred dependency review — Local continuous start derivative
+
+Independently review
 `research/PERMUTED_HALVES_SECOND_BLOCK_START.md`. Check the physical and
 translated endpoint/switch cancellations, diagonal branch, imported
 alpha/width brackets, radical enclosure and precise nonstationarity

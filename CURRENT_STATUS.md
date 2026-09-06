@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=ac2e7f239212b99079bef5ab3431474af0ad25e3
+task_base_head=d169dd86b8aaadd19a822528e53c29f88bb9bd6f
 observed_on=2026-09-06
 phase=post-arXiv-v1 active research
 ```
@@ -12,59 +12,65 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260906__second_block_start
+task=TASK-20260906__second_block_start_domain
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and current result
 
-At exactly alpha_hat, lambda=(1+alpha_hat)*x_* and the exact epsilon_*,
-the full-max start derivative at u=1/3 is strictly positive. The proof
-in research/PERMUTED_HALVES_SECOND_BLOCK_START.md retains both moving
-endpoints and the implicit switch. Its rational enclosure is
-66955912/10^12 <= 4*pi*partial_u Delta C <= 74512461/10^12.
-The continuous (u,epsilon) family is not stationary at this width minimum;
-a small leftward start motion at fixed width decreases its cost.
+At exactly alpha_hat, A=1+alpha_hat and lambda=A*x_*, the full-max
+start derivative satisfies D_u>=epsilon^3/[48*(A+u+epsilon)^2]>0
+for every lambda<u, 0<epsilon<A/3-u. The canonical proof is
+research/PERMUTED_HALVES_SECOND_BLOCK_START_DOMAIN.md. It treats
+all-chord, mixed and entry-tie regimes with C^1 matching. The coupling
+and cost extend continuously to u=lambda; strict fixed-width dominance
+reduces the joint infimum on this subdomain to that boundary family.
+No boundary width is optimized.
 
 ### Allowed delta
 
-Nine paths: the new proof, three-file STRICT dossier and bounded checker;
-a follow-up link in the width note; the single owning fixed-order ledger;
-this file and the roadmap. Protected proof content is unchanged.
+Eight paths: the new proof, three-file STRICT dossier and minimal checker;
+the single owning fixed-order ledger; this file and the roadmap.
+All existing proof notes and dossiers are protected. The only pre-existing
+untracked file is the task's request image, excluded from integration.
 
 ### Verification gates
 
-- New stdlib checker exits 0: uniform domain/switch gates, one terminal
-  radical enclosure, exact ties and four invalid-input guards.
-- Imported width checker freshly rerun: exit 0, all eleven critical
-  enclosures and its domain/switch/guard checks pass.
-- Independent 70-digit raw-full-max diagnostics exit 0: fifteen
-  endpoint/switch identities at three pairs have errors below 1e-60;
-  six central differences have errors below 1e-28. Predicted decimal
-  agrees but is not a proof premise.
-- Complete nine-path tracked/untracked source audit passes: whitespace,
-  AST, stdlib-only imports, five proof links and single ledger owner.
-  Twelve protected texts match HEAD; the width proof body is unchanged.
-  git diff --check exits 0. Authorized integration uses origin/main;
-  its commit SHA and push result are recorded in the final handoff.
+- New stdlib checker exits 0: imported bracket ordering and three
+  positive rational baseline-admissibility margins. No radical/root gate
+  remains in the analytic domain proof.
+- Prior local start checker freshly rerun: exit 0; its original rectangle,
+  terminal enclosure and input guards pass. This is a regression check,
+  not a dependency of the new sign proof.
+- Independent 70-digit raw-full-max diagnostics exit 0: 54 identities
+  at 27 pairs (normalized errors <1e-45), 36 smooth central differences
+  (<1e-25), 18 entry-tie central differences (<1e-12), 27 positive lower
+  bounds and strict boundary comparisons, 18 switch-slope and 27 boundary
+  continuity checks (<1e-12). All are numerical observations only.
+- Full eight-path source audit exits 0: tracked/untracked whitespace,
+  checker AST and Fraction-only import, five proof links, single ledger
+  owner and sixteen protected texts equal HEAD. git diff --check exits 0.
+  Authorized integration uses origin/main; the final handoff records the
+  containing commit SHA, push result and remaining request-image-only state.
 
 ### Blockers and limitations
 
-No mathematical blocker. The baseline and width-minimum theorems are
-imported. This is a continuous derivative theorem; no joint minimizer
-elsewhere, finite permutation, R_full transfer or geometric/global bound
-is supplied. External review and hosted CI are separate from local checks.
+No mathematical blocker. The baseline minima and coarse brackets are
+imported. Boundary-width attainment, location and uniqueness are not
+determined. No sign beyond the chord-diagonal domain, finite permutation,
+R_full transfer or R*(n) bound is supplied. External review and hosted CI
+are separate from local checks.
 
-Protected: all other proof notes and previous dossiers, existing width
-proof content, paper_assets/, results/, src/, tests/, scripts/, verify.py,
+Protected: all existing proof notes and previous dossiers,
+paper_assets/, results/, src/, tests/, scripts/, verify.py,
 publication metadata, README.md, REPORT.md, other knowledge ledgers,
 PROJECT_KNOWLEDGE.md, AGENTS.md and RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Independently review the continuous start-derivative theorem: both endpoint
-and switch derivations, diagonal branch, imported brackets, radical gate
-and nonstationarity consequence. Reproduce its checker and record
-acceptance or corrections. Do not optimize further parameters or perform
-a finite recovery or geometric transfer in that review.
+Independently review the chord-diagonal domain theorem: full-max branches,
+moving endpoints, C^1 entry matching, derivative lower bound, touching-block
+measure and both directions of the infimum equality. Reproduce the minimal
+checker and record acceptance or corrections. Do not optimize boundary
+width or perform finite recovery or geometric transfer in that review.

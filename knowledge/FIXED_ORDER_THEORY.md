@@ -1354,6 +1354,50 @@ theorems are imported; independent external review remains separate.
 bounded stdlib domain/radical gates and independent raw-full-max diagnostics
 in `ops/TASK-20260906__second_block_start/`.
 
+### Exact start monotonicity on the entire chord-diagonal domain
+
+**Status:** exact continuous theorem / proved boundary-infimum corollary,
+after arXiv v1.
+
+Keep exactly alpha=alpha_hat, A=1+alpha_hat, lambda=A*x_* and a=A/3.
+For the same continuous symmetric second-slab replacement, put
+D(u,epsilon)=4*pi*[C(mu_(u,epsilon))-C(mu_0)]. Throughout
+
+```text
+Omega={(u,epsilon): lambda<u, 0<epsilon<a-u},
+D_u(u,epsilon)>=epsilon^3/[48*(A+u+epsilon)^2]>0.
+```
+
+The full max makes the removed diagonal chord on this domain. The
+reflected block is either all chord or mixed, separated by the unique
+unsquared endpoint threshold tau(u) in (0,a-u). Its first half is always
+strictly chord and already gives the quantitative derivative bound;
+any chain contribution is positive. At the entry tie the clipped switch
+is only piecewise smooth, but D is C^1, with matching first derivatives.
+The proof retains both moving slab endpoints and the switch cost term.
+
+The coupling and cost extend continuously to lambda<=u<=a,
+0<=epsilon<=a-u. At u=lambda the two separate reflections touch only
+at zero-mass endpoints, preserving the same marginals and local balance.
+For every interior pair, D(lambda,epsilon)<D(u,epsilon), and
+
+```text
+inf_Omega D = inf_(0<epsilon<a-lambda) D(lambda,epsilon).
+```
+
+No interior point is a local minimum. This is an infimum reduction;
+boundary-width attainment, location and uniqueness are not determined.
+The zero-width edge has D=D_u=0 and is outside the strict-sign claim.
+No sign beyond the chord-diagonal domain, finite permutation recovery,
+R_full transfer or new R*(n) bound is supplied. The baseline minima are
+imported; the width minimum and numerical diagnostics are not proof
+premises. Independent external review remains separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_START_DOMAIN.md`,
+Sections 1-6; only rational baseline-admissibility gates and separate
+bounded raw-full-max diagnostics in
+`ops/TASK-20260906__second_block_start_domain/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
