@@ -17,12 +17,12 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The reflected-prefix construction at its exact alpha_hat and normalized
-minimizer x_*, now jointly minimized in the stated pre-wrap family,
+The fixed second-block construction at exactly alpha_hat, lambda=A*x_*
+and [1/3,103/300], with full-root transfer and deletion now proved,
 supplies the strongest exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -773,7 +773,8 @@ The width first derivative vanishes, but the first nonzero term is
 negative cubic at each fixed pre-wrap start except the diagonal switch,
 where the retained full max gives a positive quadratic term. An explicit
 rational block is strictly cheaper in the balanced continuum class.
-The existing recovered global coefficient C_hat is unchanged.
+This continuum result alone did not transfer the saving to geometry;
+the separate recovery and full-root results below complete that transfer.
 
 ## Resolved priority — Recover the fixed second-block witness
 
@@ -784,18 +785,30 @@ high permutations recovering both the baseline prefix and the second
 block [1/3,1/3+1/100], at exactly alpha_hat and lambda=A*x_*. The proof
 supplies exact occurrence, parity, floor, cyclic-predecessor and exception
 counts and a vanishing error for every continuous test. Marginals and
-local balance are not assumed sufficient. The full-root theorem has not
-been applied to this new family; the recorded geometric bound is unchanged.
+local balance are not assumed sufficient. The following full-root result
+completes the separate geometric transfer for this fixed family.
 
-## Priority 1 — Verify the fixed second-block full-root transfer
+## Resolved priority — Fixed second-block full-root transfer
 
-Exactly one next atomic task: verify the hypotheses of the all-pairs
-criterion and uniform full-root theorem for the recovered fixed family,
-including every cyclic cell and both max branches. Only then identify
-its full-radius coefficient and any geometric upper-bound consequence,
-with feasibility and odd-n deletion justified separately. Keep alpha_hat,
-lambda=A*x_* and [1/3,1/3+1/100] fixed; do not optimize new blocks or
-enumerate general permutations.
+**Status:** exact fixed-order feasibility/limit theorem and separate
+proved global limsup corollary.
+
+`research/PERMUTED_HALVES_SECOND_BLOCK_FULL_ROOT.md` matches every actual
+cyclic cell to the arbitrary-permutation criterion, retains both max
+branches, and supplies explicit O(1/m) empirical/score/root control.
+Separate deletion and necessary-cell arguments give the odd fixed-order
+limit. Only then does the fixed second-block saving yield the new global
+coefficient C_2<C_hat. Parameters and block endpoints remain unchanged;
+no broader optimization or global sharpness is established.
+
+## Priority 1 — Independent review of the fixed second-block transfer
+
+Exactly one next atomic task: independently review the full-root proof
+and its recovery/criterion dependencies at exactly alpha_hat, lambda=A*x_*
+and [1/3,103/300]. Reproduce the exact seam/branch and uniform-error gates,
+check the odd necessary-cell lower squeeze and global corollary, and
+record acceptance or a precise correction. Do not optimize parameters,
+add blocks or enumerate general permutations.
 
 ## Deferred dependency review — Joint reflected-prefix minimum
 
@@ -939,7 +952,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_hat]`, and whether they agree. Improve beyond the reflected-prefix
+`[C_term,C_2]`, and whether they agree. Improve beyond the fixed second-block
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

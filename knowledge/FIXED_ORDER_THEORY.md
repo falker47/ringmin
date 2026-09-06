@@ -1178,7 +1178,8 @@ The original continuum note does not establish finite recovery; the
 following entry resolves that separate question for the fixed witness.
 No moving-u or arbitrary larger-width sign classification, finite radius
 improvement, or new geometric/global upper bound is established by the
-continuum variation. The existing C_hat global bound is unchanged.
+continuum variation alone. The full-root entry below supplies the later
+geometric transfer for the fixed witness.
 Independent external review remains separate.
 
 **Source:** `research/PERMUTED_HALVES_SECOND_REFLECTED_BLOCK.md`;
@@ -1211,15 +1212,69 @@ used as a sufficient condition. The signed empirical difference
 from the baseline also recovers exactly the second-slab replacement.
 
 This recovers the preceding continuum witness, including its continuous
-g-integral. The full-root theorem is not applied here: no new R_full
-limit, finite radius improvement or geometric/global bound is recorded.
-The existing C_hat bound and its global ledger owner are unchanged.
-No general coupling recovery or optimization is asserted. Independent
-external review of the proof and its imported inputs remains separate.
+g-integral. The recovery theorem alone does not identify a full radius;
+the following entry supplies that separate transfer. No general coupling
+recovery or optimization is asserted. Independent external review of the
+proof and its imported inputs remains separate.
 
 **Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_RECOVERY.md`, Sections
 1-5; bounded independent list/cyclic checks and exact interval test
 integrals in `ops/TASK-20260905__second_block_recovery/`.
+
+### Fixed second reflected block: full-root transfer and odd-order limit
+
+**Status:** exact fixed-order feasibility and asymptotic theorem / exact
+coefficient comparison, after arXiv v1.
+
+Keep exactly alpha=alpha_hat, lambda=(1+alpha_hat)*x_* and [1/3,103/300]
+in the preceding recovery construction. Every resulting alternating
+order sigma_m satisfies the arbitrary-permutation all-pairs criterion:
+the highs are distinct, occupy [m+1,2m], and exceed every low. All actual
+cyclic cells, small coincident seams, both second-block junctions and the
+separate wrap endpoint/jump are retained in the full max. At its unique
+root rho_m, explicit positive valley gaps give actual all-pairs feasible
+placements, with both directed paths checked for every pair type.
+
+For the full cost g, t<=1/4 is always chord, making g globally
+4-Lipschitz on [0,1] x [1,2]^2. The independent weak-recovery theorem
+therefore gives |integral g dmu_m-integral g dmu_2|<=124/m for m>=200.
+Uniform angular errors first bracket rho_m/(2m)^2 in (1/32,1/2), then
+prove
+
+```text
+|R_full(sigma_m)/(2m)^2-C_2|
+ <=(1148/m+16384/(3*m^2))/(4*pi), m>=2048.
+```
+
+With A=1+alpha_hat, epsilon=1/100, h=1/200 and M=A+1/3+1/200,
+the exact coefficient and comparisons are
+
+```text
+J=integral_(-h)^h z^2/(M+sqrt(M^2-z^2)) dz,
+C_2=C_hat-J/(4*pi),
+C_2<C_hat-1/(144000000*pi), C_2<141913638/10^9,
+2290431561/10^18 < C_hat-C_2 < 2290454215/10^18.
+```
+
+The full integral retains both prefix branches and both diagonal-tail
+regimes; exact inequalities make the entire second block chord. At the
+finite roots, explicit sign margins also distinguish all seam branches
+for m>=100000; smaller m always use the full max.
+
+Deleting radius 2m defines an odd order sigma_m^- with a feasible
+placement at rho_m. Deletion alone is only an upper bound. A separate
+necessary sum of the m-2 surviving whole cells, with uniform O(1/m)
+cost for the two omitted cells, supplies the lower squeeze and proves
+R_full(sigma_m^-)/(2m-1)^2->C_2. Thus both parities have this prescribed
+fixed-order limit. The global corollary has its sole owner in
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under the fixed second-block
+transfer. No larger-family optimization, finite comparison cutoff,
+global sharpness or contact/floating statement is established.
+External independent proof review remains separate.
+
+**Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_FULL_ROOT.md`, Sections
+1-8; exact branch/seam gates, independent arctangent intervals, deletion
+incidence and recovery rerun in `ops/TASK-20260906__second_block_full_root/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

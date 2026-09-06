@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=01a944ad5d08234755dcd12fd7f4d9ba0b683d9c
+task_base_head=f69ef120252ba0a89308b4fa17bbd28cab530148
 observed_on=2026-09-06
 phase=post-arXiv-v1 active research
 ```
@@ -12,46 +12,50 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260905__second_block_recovery
+task=TASK-20260906__second_block_full_root
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
 ### Objective and current result
 
-Deterministic high permutations recover the baseline at exactly alpha_hat,
-lambda=(1+alpha_hat)*x_* together with the fixed second reflected block
-[1/3,1/3+1/100]. Disjoint parity reversals give exact occurrences and
-cyclic predecessors for every m>=2. For m>=200, six exceptional cells
-and explicit endpoint/Riemann estimates give continuous-test error
-omega_F(5/m)+omega_F(2/m)+32*||F||_infinity/m. The proof is in
-research/PERMUTED_HALVES_SECOND_BLOCK_RECOVERY.md. This task does not
-apply the full-root theorem; the recorded global bound remains C_hat.
+The full-root transfer for exactly alpha_hat, lambda=(1+alpha_hat)*x_*
+and [1/3,103/300] is proved in
+research/PERMUTED_HALVES_SECOND_BLOCK_FULL_ROOT.md. Every actual cyclic
+cell meets the all-pairs criterion. Quantitative weak recovery and a
+uniform compact root bracket give an explicit O(1/m) error. Feasibility,
+even root limit, odd deletion/necessary-cell squeeze and the global
+limsup are justified separately. The resulting fixed coefficient C_2
+strictly improves C_hat; definitions and global ownership are in the
+respective thematic ledgers. Local proof/checker work is ready for review.
 
 ### Allowed delta
 
-The new recovery proof, its three-file dossier and bounded exact checker;
-knowledge/FIXED_ORDER_THEORY.md as sole owner; this file and the roadmap.
+The new full-root proof, its three-file dossier and bounded exact checker;
+the fixed-order and global ledgers with separate claim ownership; this
+file and the roadmap. Nine paths total.
 
 ### Verification gates
 
-- Exact all-m occurrence/parity proof, full cell counts and quantitative
-  weak convergence for arbitrary continuous tests are written.
-- Independent stdlib checker exits 0: 1,244 bracket-compatible floor
-  cases, 759,032 cyclic cells, both residue periods, 121 interval moments
-  and invalid/mutation gates. Exact implicit parameters are enclosed,
-  never replaced by decimal minimizers.
-- Complete tracked diff and all five additions reviewed. The eight-path
-  source audit exits 0: whitespace, AST, six links, sole ledger ownership,
-  seven unchanged dependencies/global ledger and unchanged HEAD/staged
-  state. git diff --check exits 0; protected/generated paths unchanged.
+- All-m criterion matching, every pair type/direction, full-max cost,
+  uniform root bounds and odd necessary-cell argument are written.
+- New exact checker exits 0: 24,544 branch comparisons; 157 independent
+  interval angle/full-max error checks; 12,112 surviving directed edges;
+  rational continuum/seam/cutoff and coefficient-saving gates.
+- Recovery dependency rerun exits 0: 1,244 floor cases, 759,032 cyclic
+  cells, 121 interval moments and invalid/mutation gates.
+- Complete tracked/untracked reads and nine-file source audit pass:
+  explicit whitespace, AST, seven links, distinct ledger ownership,
+  eight unchanged dependencies and unchanged HEAD/staged state.
+  git diff --check exits 0; protected/generated paths unchanged.
 
 ### Blockers and limitations
 
-No blocker. The exact baseline minima are imported. Recovery and bounded
-local checks do not assert a general balanced-coupling theorem, finite
-radius improvement, new R_full limit, geometric bound or certificate.
-No Git/GitHub writes or external acceptance/hosted CI result are claimed.
+No mathematical blocker. The exact baseline minima are imported. C_2
+is a fixed-family coefficient and a global upper bound, with no claim of
+sharpness, broader optimization, finite comparison cutoff, contact or
+floating behavior, or expanded certification. External proof review is
+separate; no Git/GitHub writes or hosted CI result are claimed.
 
 Protected: all previous proof notes and dossiers, paper_assets/, results/,
 src/, tests/, scripts/, verify.py, publication metadata, README.md, REPORT.md,
@@ -60,7 +64,8 @@ RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Verify the all-pairs criterion and uniform full-root transfer for this
-fixed recovered family before identifying its full-radius coefficient
-or a geometric upper bound; justify feasibility and odd-n deletion
-separately. Keep every parameter fixed and do not enumerate permutations.
+Independently review the fixed second-block full-root theorem and its
+recovery/criterion dependencies, including exact branch/seam bounds,
+the odd necessary-cell lower squeeze and global corollary; record
+acceptance or a precise correction. Keep every parameter fixed and
+do not enumerate permutations or optimize further blocks.
