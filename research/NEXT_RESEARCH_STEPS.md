@@ -17,12 +17,12 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The fixed second-block construction at exactly alpha_hat, lambda=A*x_*
-and [1/3,103/300], with full-root transfer and deletion now proved,
+The adjacent-block boundary construction at exactly alpha_hat, lambda=A*x_*
+and epsilon_b, with full-root transfer and deletion now proved,
 supplies the strongest exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -862,19 +862,33 @@ finite rank blocks and one shared seam. All floor/parity/empty-block
 cases, true cyclic predecessors and high wrap are explicit. A direct
 panel proof gives weak recovery for every continuous test with error
 omega_F(4/m)+omega_F(7/m)+24*||F||_infinity/m. The finite checker uses
-only rational gates and integer identities. No full-root transfer or new
-radius/global claim is included; the existing upper coefficient is unchanged.
+only rational gates and integer identities. That theorem ends at weak
+recovery; the following result supplies its separate radius transfer.
 
-## Priority 1 — Independent review of the boundary recovery
+## Resolved priority — Boundary full-root transfer and odd fixed-order limit
+
+**Status:** exact fixed-order feasibility/limit theorem and separate
+proved global limsup corollary.
+
+`research/PERMUTED_HALVES_BOUNDARY_FULL_ROOT.md` verifies every
+arbitrary-permutation criterion hypothesis for the adjacent blocks,
+including the shared seam and all small cases. The complete mixed cost
+has explicit O(1/m) recovery, score and normalized-root errors. Deletion
+gives odd feasibility; a separate necessary-cell lower squeeze proves
+its fixed-order limit. Boundary-minimum and start-domain theorems with
+exact gates give C_b<C_2 and the improved global upper coefficient.
+No parameter is reoptimized, and no further block or enumeration is used.
+
+## Priority 1 — Independent review of the boundary full-root transfer
 
 Exactly one next atomic task: independently review
-`research/PERMUTED_HALVES_BOUNDARY_RECOVERY.md` from the accepted boundary
-minimum baseline. Audit the exact epsilon_b definition, adjacent floors,
-bijectivity, shared seam, high wrap, small cases, every exception, parity
-panel allocation and moving-boundary union estimate. Reproduce the bounded
-checker, including bracket-compatible floors and rejected mutations.
-Record acceptance or corrections. The review ends at quantitative weak
-recovery, without full-root transfer or a new radius/global claim.
+`research/PERMUTED_HALVES_BOUNDARY_FULL_ROOT.md`. Audit the exact parameter
+dependencies and recovered actual cells, all-pairs criterion, full mixed
+cost, uniform constants and compact root brackets. Check deletion upper
+feasibility separately from the odd necessary-cell squeeze, and verify
+the exact start/boundary comparison gates for C_b<C_2. Reproduce the
+standalone checkers and distinguish numerical diagnostics from proof.
+Record acceptance or corrections without optimizing further parameters.
 
 ## Deferred dependency review — Chord-diagonal domain theorem
 
@@ -1056,7 +1070,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_2]`, and whether they agree. Improve beyond the fixed second-block
+`[C_term,C_b]`, and whether they agree. Improve beyond the adjacent-block boundary
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

@@ -1476,13 +1476,69 @@ then compares true and rounded parameters outside a union of three
 short boundary intervals. Overlap of these intervals is allowed. The
 standalone bounded checker audits all bracket-compatible floor triples
 for m=2..512 using integer/Fraction arithmetic; the all-m theorem is
-analytic. No numerical minimizer, full-root transfer, new R_full or
-R*(n) conclusion, finite-m optimality or general recovery is asserted.
-The earlier fixed-width transfer retains its parameters.
+analytic. This recovery theorem alone asserts no full-root transfer or
+radius conclusion; the next entry supplies that separate step. It uses
+no numerical minimizer and asserts no finite-m optimality or general
+recovery. The earlier fixed-width transfer retains its parameters.
 
 **Source:** `research/PERMUTED_HALVES_BOUNDARY_RECOVERY.md`, Sections 1-6;
 bounded exact checker and task evidence in
 `ops/TASK-20260906__boundary_recovery/`.
+
+### Boundary recovery: exact full root, uniform limit and odd lower squeeze
+
+**Status:** exact fixed-order feasibility/limit theorem and proved
+coefficient comparison, after arXiv v1.
+
+Keep precisely alpha_hat, lambda=(1+alpha_hat)*x_* and epsilon_b in
+the adjacent-block recovery. For every m>=2, the resulting permutation
+satisfies all hypotheses of the arbitrary-high all-pairs criterion,
+including the shared seam, small identity/empty blocks and high wrap.
+The unique root rho_m of the sum of actual chain/chord maxima equals
+R_full(sigma_m); explicit positive gaps realize all pair constraints
+in both directions, including the m=2 two-cell case.
+
+For the complete cost g the preceding recovery gives
+|integral g dmu_m-integral g dmu_b|<=116/m for every m>=2.
+The uniform angular estimate and a separately verified compact root
+bracket give
+
+```text
+C_b=(integral g dmu_b)/(4*pi)=C_hat+D_b(epsilon_b)/(4*pi),
+|R_full(sigma_m)/(2m)^2-C_b|
+ <=[1140/m+16384/(3*m^2)]/(4*pi), m>=2048.
+```
+
+The second reflected block has a positive-length chord interval and a
+positive-length chain interval; its removed diagonal is chord. The
+full integral and the finite score retain both branches. The exact
+boundary-minimum and start-domain theorems, with rational domain gates
+for the old (1/3,1/100) comparison point, imply
+
+```text
+C_2-C_b>297881773/26740107869939200000>0.
+```
+
+Deleting only 2m gives a feasible odd order sigma_m^- at rho_m for
+every m>=2. A separate necessary sum of the m-2 surviving cells has
+root tau_m for m>=4 and proves tau_m<=R_full(sigma_m^-)<=rho_m.
+The two omitted cells have an explicit uniform O(1/m) score bound.
+This lower squeeze, with the normalization change, proves
+R_full(sigma_m^-)/(2m-1)^2 -> C_b and the explicit odd error in source
+equation (26). Deletion alone would give only the upper bound.
+
+The global consequence is owned solely by
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`, under boundary full-root
+transfer. No new parameter optimization, finite comparison cutoff,
+global sharpness, global optimum or floating-circle claim is made.
+The analytic proof supplies all-m quantifiers; finite arithmetic checks
+and numerical all-pairs diagnostics are separate evidence. Independent
+external mathematical review remains separate.
+
+**Source:** `research/PERMUTED_HALVES_BOUNDARY_FULL_ROOT.md`, Sections
+1-8; standalone exact audits, alternate-angle/Cartesian and all-pairs
+difference-constraint diagnostics, and dependency reruns in
+`ops/TASK-20260907__boundary_full_root/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 
