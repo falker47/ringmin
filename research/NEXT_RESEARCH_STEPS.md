@@ -848,21 +848,33 @@ the unique attained mixed minimum in (43/1000,11/250), exact cost and
 derivative formulas, all entry/endpoint cases, and analytic endpoint
 comparisons. A quantitative distance from entry reduces location to two
 rational squared comparisons. The preceding infimum reduction therefore
-has an identified boundary value. Finite recovery of this optimizer and
-any new radius/global consequence remain unproved and outside this task.
+has an identified boundary value. Finite recovery is supplied separately
+below; a new radius/global consequence is not established by either result.
 
-## Priority 1 — Independent review of the boundary-width minimum
+## Resolved priority — Recover the adjacent-block boundary optimizer
+
+**Status:** exact finite construction / quantitative weak-recovery theorem.
+
+`research/PERMUTED_HALVES_BOUNDARY_RECOVERY.md` constructs deterministic
+high permutations at exactly alpha_hat, lambda=A*x_*, u=lambda and
+epsilon_b for every m>=2. Separate even-slot reversals use adjacent
+finite rank blocks and one shared seam. All floor/parity/empty-block
+cases, true cyclic predecessors and high wrap are explicit. A direct
+panel proof gives weak recovery for every continuous test with error
+omega_F(4/m)+omega_F(7/m)+24*||F||_infinity/m. The finite checker uses
+only rational gates and integer identities. No full-root transfer or new
+radius/global claim is included; the existing upper coefficient is unchanged.
+
+## Priority 1 — Independent review of the boundary recovery
 
 Exactly one next atomic task: independently review
-`research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md`. Check
-the exact baseline definitions, touching-block measure, full-max formula,
-entry cancellation and loss of C^2 regularity, mixed curvature bound,
-endpoint inequalities, distance from entry and directed rational gates.
-Reproduce the minimal checker and distinguish the noncertified diagnostics.
-Record acceptance or corrections without finite recovery or geometric
-transfer. Inspect the imported start-domain theorem only as needed for
-the stated continuous corollary; do not treat its independent acceptance
-as already supplied.
+`research/PERMUTED_HALVES_BOUNDARY_RECOVERY.md` from the accepted boundary
+minimum baseline. Audit the exact epsilon_b definition, adjacent floors,
+bijectivity, shared seam, high wrap, small cases, every exception, parity
+panel allocation and moving-boundary union estimate. Reproduce the bounded
+checker, including bracket-compatible floors and rejected mutations.
+Record acceptance or corrections. The review ends at quantitative weak
+recovery, without full-root transfer or a new radius/global claim.
 
 ## Deferred dependency review — Chord-diagonal domain theorem
 

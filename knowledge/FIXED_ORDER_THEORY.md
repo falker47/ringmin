@@ -1433,15 +1433,56 @@ D_b(epsilon_b)=-0.00000235526264033607323... are numerical observations.
 Together with the preceding start-domain theorem, this identifies its
 open-domain infimum as D_b(epsilon_b) and the unique minimum of the
 closed continuous triangle as (lambda,epsilon_b). The open domain
-still has no minimizing point. No finite recovery of this touching-block
-optimizer, R_full limit or new R*(n) bound is supplied. The earlier
-fixed-width transfer keeps its original parameters; general coupling
-optimality and transfer remain outside the theorem. External independent
-review is separate.
+still has no minimizing point. This continuous theorem supplies no finite
+recovery; that is established separately below. No new R_full limit or
+R*(n) bound is supplied. The earlier fixed-width transfer keeps its
+original parameters; general coupling optimality and transfer remain
+outside the theorem. External independent review is separate.
 
 **Source:** `research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md`,
 Sections 1-7; Fraction-only endpoint gates and separate raw-full-max
 diagnostics in `ops/TASK-20260906__second_block_boundary_minimum/`.
+
+### Deterministic weak recovery of the adjacent-block boundary optimizer
+
+**Status:** exact finite construction / exact quantitative weak-recovery
+theorem, after arXiv v1.
+
+Keep the exact alpha_hat, lambda=(1+alpha_hat)*x_*, u=lambda and
+epsilon_b from the preceding boundary theorem. For every integer m>=2
+set s=floor(alpha_hat*m), q=2*floor(lambda*m/2),
+d=2*floor(epsilon_b*m/2). Rotate the high list by s, then reverse
+the even positions separately in the adjacent rank blocks 1,...,q
+and q+1,...,q+d. This gives a true permutation P_m of {m+1,...,2m}
+for both parities and every floor or empty/length-2 case.
+
+With the actual cyclic predecessor P_0=P_m, the empirical triples
+(i/m,P_(i-1)/m,P_i/m) converge weakly to the boundary coupling with
+its two separate adjacent reflections and unchanged diagonal tail.
+The shared first-block exit/second-block entry is ONE cell, with pair
+(m+s+2,m+s+q+1) when d>0. A complete cell partition has at most five
+exceptions, including the cyclic seam and high-wrap comparisons.
+No positive interblock gap from the older recovery is used.
+
+For every continuous F on [0,1] x [1,2]^2 and every m>=2,
+
+```text
+|integral F dmu_m - integral F dmu_b|
+ <=omega_F(4/m)+omega_F(7/m)+24*||F||_infinity/m.
+```
+
+The proof first allocates a rounded coupling exactly to parity panels,
+then compares true and rounded parameters outside a union of three
+short boundary intervals. Overlap of these intervals is allowed. The
+standalone bounded checker audits all bracket-compatible floor triples
+for m=2..512 using integer/Fraction arithmetic; the all-m theorem is
+analytic. No numerical minimizer, full-root transfer, new R_full or
+R*(n) conclusion, finite-m optimality or general recovery is asserted.
+The earlier fixed-width transfer retains its parameters.
+
+**Source:** `research/PERMUTED_HALVES_BOUNDARY_RECOVERY.md`, Sections 1-6;
+bounded exact checker and task evidence in
+`ops/TASK-20260906__boundary_recovery/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 
