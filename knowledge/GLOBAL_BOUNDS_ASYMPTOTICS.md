@@ -57,8 +57,9 @@ is supplied. The fixed finite-union theorem below closes the fixed-shape
 nonterminal optimization, and the later exact finite theorem closes every
 arbitrary `n`-dependent choice of one induced subset. For the first coupled
 case see the two-terminal-subset entries below; one-level coupling has
-subquadratic gain, while more general coupling and the true global
-coefficient remain open. The arXiv-v1 record
+subquadratic gain, and the macroscopic-discriminator entry identifies a
+candidate restricted-order excess without settling coupled minimax gain.
+More general coupling and the true global coefficient remain open. The arXiv-v1 record
 and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
@@ -278,6 +279,49 @@ counterexamples and single-subset theorems keep their own entries.
 **Source:** `research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md`;
 bounded exact checks, separate symbolic identities and optional prescribed
 numerical diagnostics in `ops/TASK-20260909__coupled_terminal_scale/`.
+
+### Macroscopic terminal deletion: exact prescribed-order discriminator
+
+**Status:** exact chain-limit theorem / exact strict-comparison theorem,
+after arXiv v1.
+
+For fixed 0<q<beta<1, let S_q(n) be the Supnick cycle on
+{floor(q*n),...,n} and I_{q,beta}(n) its cyclic restriction to
+{floor(beta*n),...,n}, retaining the original radii. Put s=1+q,c=s/2.
+The exact restricted edges, including the new step-two high chords and
+the closing seam, give in both cardinality parities
+
+```text
+R_chain(I_{q,beta}(n))/n^2=Psi(q,beta)+O_{q,beta}(1/n),
+pi*Psi(q,beta)
+ =2 integral_beta^c sqrt(x*(s-x)) dx+[1-(s-beta)^2]/2,  beta<=c,
+ =(1-beta^2)/2,                                       beta>=c.
+```
+
+The two branches agree at the midpoint; the proof covers floors and
+brackets the root before substituting uniform angular errors. The
+continuous extension Psi(q,q) is the outer terminal coefficient C(q).
+For beta<c the derivative has the exact sign of 1+q-5*beta.
+
+At the terminal optimizer q_*=1/lambda_* defined in this ledger's terminal
+entry, rational Taylor inequalities prove 3/17<q_*<1/5 and hence
+
+```text
+Psi(q_*,beta)>C_term       for every beta in [1/5,23/100].
+```
+
+Strictness actually holds throughout q_*<beta<=(1+q_*)/5. This refutes
+the proposed universal comparison for this prescribed common order and
+identifies only a candidate of quadratic incompatibility. It is not a
+positive lower bound on the minimax over common tours: other outer tours
+might trade the two costs. No minimax optimization, new global coefficient,
+R_full conclusion, upper construction or certification follows. Stable
+ownership of this discriminator is solely this entry; independent external
+mathematical acceptance remains separate.
+
+**Source:** `research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md`, Sections 1-7;
+bounded integer/Fraction checks, symbolic identities and optional numerical
+corroboration in `ops/TASK-20260909__macroscopic_terminal_discriminator/`.
 
 ### Increasing-order full asymptotic upper bound
 

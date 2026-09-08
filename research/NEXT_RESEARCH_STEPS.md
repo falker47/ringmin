@@ -38,8 +38,12 @@ The active scientific direction is now stronger lower bounds through
 coupled induced subsets. The two-terminal compatibility question is
 resolved by `research/COUPLED_TERMINAL_SUBSETS.md`. The one-level scale
 is resolved by `research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md`:
-this mechanism cannot improve the leading coefficient. More widely
-separated or simultaneously coupled levels remain open. Further third-block width
+this mechanism cannot improve the leading coefficient. The prescribed-order
+macroscopic discriminator is resolved by
+`research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md`: a rational beta interval
+has positive quadratic restricted-chain excess, but no coupled-minimax
+improvement follows yet. Widely separated minimax gain and simultaneously
+coupled levels remain open. Further third-block width
 refinement and transfer of the continuous optimal width are deferred.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
@@ -976,9 +980,30 @@ bound and explicit eventual equality for each fixed k, including k=1,2.
 This closes one-level leading-coefficient amplification, even with a moving
 endpoint; stable theorem detail belongs solely to the global-bounds ledger.
 
-## Priority 1 — Independent review of the one-level gain theorem
+## Resolved priority — Macroscopic prescribed-order discriminator
+
+`research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md` derives the actual induced
+edge families for two proportional terminal subsets, including the high
+replacement chords, both parities and the midpoint transition. It resolves
+the strict comparison at the terminal optimizer on a closed rational beta
+interval by analytic inequalities. The global-bounds ledger owns the
+classified result. This supplies a candidate of quadratic incompatibility;
+minimization over common tours and any stronger lower coefficient remain open.
+
+## Priority 1 — Independent review of the macroscopic discriminator
 
 Exactly one next atomic task: independently review
+`research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md` at committed HEAD.
+Audit the exact deleted-rank neighbors, retained/replacement edge counts,
+high-arm closure, both floors/parities and midpoint, uniform root transfer,
+and rational interval comparison at the existing q_*. Reproduce the
+standalone checker and record acceptance or corrections. Check especially
+that prescribed-order excess is not promoted to a minimax lower bound.
+Stop before common-tour optimization, R_full, certification or upper work.
+
+## Deferred dependency review — One-level gain theorem
+
+Independently review
 `research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md` at committed HEAD.
 Audit both cyclic modifications, the all-R closure derivative direction,
 the integrated seam bound, the degree-count root bracket, the strict
@@ -998,17 +1023,16 @@ and minimax equality. Reproduce the standalone exact checker and record
 acceptance or corrections. Stop before optimizing further subsets,
 asymptotic amplification, new certification or any upper construction.
 
-## Priority 2 — Separated terminal levels after review
+## Priority 2 — Stability test for one macroscopic pair after review
 
-State a bounded asymptotic discriminator for two proportional terminal
-subsets whose lower endpoints are separated by a positive fraction of n.
-Determine whether their coupling can beat the single-subset envelope at
-quadratic scale, using a constructive bound or rigorous obstruction.
-The one-level theorem closes the one-deletion case; it supplies neither
-a multilevel minimax theorem nor a conclusion for macroscopic separation.
-Do not infer amplification from the finite gaps or telescope separate
-minimizers without one common comparison order. This lower-bound question
-takes precedence over further upper-width work.
+Fix the outer terminal optimizer q_* and beta=23/100 from the positive
+discriminator interval. Seek a quantitative tradeoff, or a counterexample
+sequence, between asymptotically near-minimal outer chain cost and the
+induced inner cost. The prescribed Supnick excess alone supplies no
+uniform gap over competing common tours. Formulate a bounded stability
+question before broader minimax optimization; finite uniqueness is not
+asymptotic stability. This lower-bound direction takes precedence over
+further upper-width work and supplies no R_full or certification premise.
 
 ## Deferred dependency review — Mixed third-block width theorem
 
