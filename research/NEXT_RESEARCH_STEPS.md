@@ -36,8 +36,10 @@ the defining exact constants are recorded in the owning ledgers and proof.
 
 The active scientific direction is now stronger lower bounds through
 coupled induced subsets. The two-terminal compatibility question is
-resolved by `research/COUPLED_TERMINAL_SUBSETS.md`; its finite separation
-does not yet improve the lower coefficient. Further third-block width
+resolved by `research/COUPLED_TERMINAL_SUBSETS.md`. The one-level scale
+is resolved by `research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md`:
+this mechanism cannot improve the leading coefficient. More widely
+separated or simultaneously coupled levels remain open. Further third-block width
 refinement and transfer of the continuous optimal width are deferred.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
@@ -534,7 +536,8 @@ terminal subsets and converges to `C_term`, so the result is sharp. This
 closes every leading-coefficient improvement from a single induced-subset
 chain bound, without shape, component-count, endpoint, or cardinality-limit
 assumptions. The later two-terminal theorem resolves the first compatibility
-question; asymptotic coupled improvement and full geometry remain open.
+question. The later one-level scale theorem excludes leading improvement
+from a single adjacent level; more general coupling and full geometry remain open.
 
 ## Resolved priority — Increasing-order full asymptotic upper bound
 
@@ -964,9 +967,29 @@ The earlier five/four-rank
 compatibility obstruction also explains why incompatibility alone is
 insufficient. Stable claim detail belongs to the global-bounds ledger.
 
-## Priority 1 — Independent review of the coupled terminal-subset theorem
+## Resolved priority — One-level terminal incompatibility scale
+
+`research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md` resolves the fixed-k
+discriminator with constructive deletion/insertion tours and analytic
+angular and closure derivative estimates. It gives a uniform linear gain
+bound and explicit eventual equality for each fixed k, including k=1,2.
+This closes one-level leading-coefficient amplification, even with a moving
+endpoint; stable theorem detail belongs solely to the global-bounds ledger.
+
+## Priority 1 — Independent review of the one-level gain theorem
 
 Exactly one next atomic task: independently review
+`research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md` at committed HEAD.
+Audit both cyclic modifications, the all-R closure derivative direction,
+the integrated seam bound, the degree-count root bracket, the strict
+endpoint comparison at the sufficient cutoff, and the fixed-k versus
+uniform moving-k corollaries. Reproduce the standalone exact checker and
+record acceptance or corrections. Keep numerical comparisons diagnostic;
+stop before new coupling research, certification or upper constructions.
+
+## Deferred dependency review — Finite coupled terminal-subset theorem
+
+Independently review
 `research/COUPLED_TERMINAL_SUBSETS.md` at committed HEAD. Check the
 matrix-level Supnick premise under symmetric edge perturbation, quantitative
 rectangle slack, root derivative and all-tour separation, the eight rational
@@ -975,14 +998,17 @@ and minimax equality. Reproduce the standalone exact checker and record
 acceptance or corrections. Stop before optimizing further subsets,
 asymptotic amplification, new certification or any upper construction.
 
-## Priority 2 — Lower-bound scaling discriminator after review
+## Priority 2 — Separated terminal levels after review
 
-Determine whether proportional nested terminal subsets can yield a
-quadratic gain over the single-subset envelope, or whether their finite
-incompatibility costs are subquadratic. A dedicated task must first state
-an exact asymptotic discriminator and derive a uniform bound or obstruction;
-the finite separations are not evidence of a larger leading coefficient.
-This lower-bound question takes precedence over further upper-width work.
+State a bounded asymptotic discriminator for two proportional terminal
+subsets whose lower endpoints are separated by a positive fraction of n.
+Determine whether their coupling can beat the single-subset envelope at
+quadratic scale, using a constructive bound or rigorous obstruction.
+The one-level theorem closes the one-deletion case; it supplies neither
+a multilevel minimax theorem nor a conclusion for macroscopic separation.
+Do not infer amplification from the finite gaps or telescope separate
+minimizers without one common comparison order. This lower-bound question
+takes precedence over further upper-width work.
 
 ## Deferred dependency review — Mixed third-block width theorem
 

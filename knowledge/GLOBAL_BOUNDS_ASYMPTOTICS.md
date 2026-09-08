@@ -56,8 +56,9 @@ liminf/limsup, existence of a normalized limit, or floating-set conclusion
 is supplied. The fixed finite-union theorem below closes the fixed-shape
 nonterminal optimization, and the later exact finite theorem closes every
 arbitrary `n`-dependent choice of one induced subset. For the first coupled
-case see the two-terminal-subset entry below; asymptotic improvement from
-coupling and the true global coefficient remain open. The arXiv-v1 record
+case see the two-terminal-subset entries below; one-level coupling has
+subquadratic gain, while more general coupling and the true global
+coefficient remain open. The arXiv-v1 record
 and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
@@ -229,12 +230,54 @@ compatibility obstruction `M=5,N=4`. Yet the minimax equality holds at
 
 The finite strict gain does not compute either minimax or geometric
 optimum, improve `C_term`, establish asymptotic gain, classify all strict
-triples, or expand global certification. This entry solely owns the coupled result and its
-strictness/compatibility consequences; prior one-subset results are unchanged.
+triples, or expand global certification. This entry solely owns the finite
+coupled result and its strictness/compatibility consequences; the next entry
+resolves the one-level asymptotic scale. Prior one-subset results are unchanged.
 
 **Source:** `research/COUPLED_TERMINAL_SUBSETS.md`; eight rational closure
 gates corroborated by two independent angular formulas in
 `ops/TASK-20260908__coupled_terminal_subsets/check_exact.py`.
+
+### One-level terminal coupling: uniform linear gain and eventual equality
+
+**Status:** exact theorem / proved asymptotic corollaries, after arXiv v1.
+
+With precisely the preceding definitions, set M=n-k+1,N=n-k, so that
+T_M={k,...,n} and T_N={k+1,...,n}. For all integers k>=1,n>=k+3,
+
+```text
+0<=G_{k,n}:=B_{M,N}-max{A_M,A_N}<=n/2.
+n>=48k(k+1)^2 implies A_M<A_N, B_{M,N}=A_N, G_{k,n}=0.
+```
+
+Deleting k from the larger Supnick tour adds at most one pair angle;
+the global closure derivative inequality -F'(R)>=F(R)/(R+n) converts
+that seam defect to the uniform n/2 radius bound. For eventual equality,
+insert k into the smaller Supnick tour's (k+1,n) edge. A degree-count
+lower bound on its root and an analytic endpoint derivative estimate
+make this insertion strictly decrease the closure sum at A_N.
+Neither proof enumerates tours or assumes their full geometric feasibility.
+
+Thus every fixed k has G_{k,n}=o(n^2), indeed eventual zero. Explicit
+sufficient cutoffs are n>=192 for k=1 and n>=864 for k=2; these do not
+contradict the preceding strict finite gaps at n=8 and n=13 and are not
+claimed minimal. Both parities and the smallest admissible N=3 are covered.
+The imported terminal-array theorem gives B_{n-k+1,n-k}/n^2->1/8 for
+fixed k. Uniformity of n/2 also rules out a leading quadratic gain for
+any moving one-level k(n); its limsup remains at most C_term by the
+existing single-subset envelope.
+
+This result rules out the one-level mechanism as a route to a stronger
+leading coefficient. It does not classify all finite equality cases,
+give a sharp transient gain bound, settle simultaneous multilevel or
+widely separated coupling, prove any full feasibility or global optimum,
+or change the existing global coefficients or finite certification scope.
+This entry solely owns the one-level gain result; the earlier finite
+counterexamples and single-subset theorems keep their own entries.
+
+**Source:** `research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md`;
+bounded exact checks, separate symbolic identities and optional prescribed
+numerical diagnostics in `ops/TASK-20260909__coupled_terminal_scale/`.
 
 ### Increasing-order full asymptotic upper bound
 
