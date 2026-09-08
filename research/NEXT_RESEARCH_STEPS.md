@@ -26,8 +26,9 @@ limsup R*(n)/n^2<=C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_
 ```
 
 Here the unqualified C_3 still means C_3(1/1000). The separate continuous
-width theorem gives C_3(1/250)<C_3(1/1000); no finite recovery or geometric
-transfer at the larger width has been supplied.
+width theorems identify a unique mixed minimum below C_3(1/250), which is
+below C_3(1/1000). No finite recovery or geometric transfer at either
+larger width has been supplied.
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
 leaving a much narrower genuine coefficient gap. The decimals are diagnostic;
@@ -933,16 +934,28 @@ at Delta=1/250. It identifies the exact first endpoint switch tau_3
 and the positive chain correction beyond it. This stops at continuous
 cost; the existing finite/global coefficient remains at Delta=1/1000.
 
-## Priority 1 — Independent review of the continuous third-block width theorem
+## Resolved priority — Continuous mixed third-block width minimum
+
+**Status:** exact continuous theorem with two rational endpoint sign gates.
+
+`research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md` resolves exactly
+tau_3<Delta<=h with the four accepted inputs fixed. The full derivative
+retains the interior switch and positive chain correction; analytic
+curvature and endpoint signs give one strict minimum and refute
+monotonicity on the whole interval. Two rational gates locate it and
+analytic bounds compare its cost with the current widths. This remains
+continuous only; the existing finite/global coefficient is still C_3(1/1000).
+
+## Priority 1 — Independent review of the mixed third-block width theorem
 
 Exactly one next atomic task: independently review
-`research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md` at committed HEAD.
-Audit the unchanged exact inputs, all-width rational gates, separate
-reflections and marginals, complete-max cancellation, moving-width
-derivative and strict sign, first-switch definition, and rational
-comparison at 1/250. Reproduce the standalone checker and record
-acceptance or corrections. Stop before finite recovery, full-root
-transfer, any new global bound or reoptimization of the fixed parameters.
+`research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md` at committed HEAD.
+Audit the full-max derivative and second-derivative switch terms, the
+uniform curvature and endpoint signs, uniqueness and distance from entry,
+the inherited epsilon bound, two directed rational gates and cost bracket/
+comparison. Reproduce its standalone checker and record acceptance or
+corrections. Stop before finite recovery, full-root transfer, any new
+global bound or reoptimization of the fixed inputs.
 
 ## Deferred dependency review — Three-block full-root transfer
 

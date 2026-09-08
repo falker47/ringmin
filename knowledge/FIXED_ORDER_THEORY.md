@@ -1604,8 +1604,9 @@ The exact first switch is the unique unsquared endpoint root tau_3 in
 (D_g,h) of sqrt((v+Delta)/(B+Delta))+sqrt((v+Delta)/B)=1.
 The formula and strict decrease extend through tau_3, with a single
 endpoint tie. For tau_3<Delta<=h the third slab has one interior switch
-and a positive chain correction to the displayed chord formula. No
-monotonicity beyond tau_3 or third-width minimum is asserted.
+and a positive chain correction to the displayed chord formula. That
+chord-branch theorem stops at entry; the following entry resolves the
+mixed-regime derivative and stationary width.
 
 This supplies no finite recovery, R_full transfer or new global coefficient
 for the larger width. The imported parameter definitions/brackets are
@@ -1614,6 +1615,48 @@ unchanged, and independent external acceptance remains separate.
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md`, Sections 1-5;
 one standalone exact gate/formula checker and independent raw integral
 enclosures in `ops/TASK-20260908__third_block_width/`.
+
+### Unique continuous mixed-width minimum of the third reflection
+
+**Status:** exact continuous theorem with two rational endpoint sign gates,
+after arXiv v1.
+
+With the preceding entry's exact alpha_hat, x_*, lambda and epsilon_b
+fixed, put F(Delta)=4*pi*[C_3(Delta)-C_b] and Psi=F'. On precisely
+tau_3<Delta<=h=A/3-v retain the unique switch z in (Delta/2,Delta)
+defined by sqrt((v+z)/(B+z))+sqrt((v+z)/(B+Delta-z))=1. The full cost
+is F_ch plus its strictly positive chain correction. Its exact derivative
+is the chain endpoint cost minus (B+Delta), plus half the chord/chain
+partial-width integrals in the source's (5)-(6).
+
+Analytically Psi'>131/120>1 throughout the mixed interval, including the
+left derivative at h. Entry has -tau_3^2/(8*B)<Psi(tau_3)<0, whereas
+Psi(h)>11*h/280>0. Thus neither direction of monotonicity holds on the
+whole mixed interval: there is exactly one stationary width Delta_*, a
+strict minimum. C_3 decreases up to it and increases thereafter through h.
+Together with the preceding chord theorem it is the unique minimum on
+the continuous extension [0,h]. Two rational signed-square gates and the
+analytic distance from entry prove
+
+```text
+29/5000 < tau_3 < Delta_* < tau_3+tau_3^2/(8*B) < 27/4000 < h,
+C_3(Delta_*) < C_3(tau_3) < C_3(D_g) < C_3(1/250) < C_3(1/1000) < C_b,
+C_3(1/250)-C_3(Delta_*) > 12389/72000000000000 > 0,
+-2187/2048000000000 < C_3(Delta_*)-C_b < -24389/72000000000000.
+```
+
+The sharper input inequality epsilon_b<7/160 is a rational weakening of
+the already accepted boundary theorem's distance bound, not a new input
+optimization. All interval quantifiers and cost comparisons are analytic;
+the standalone Fraction checker checks only two fixed endpoint sign gates
+and rational implications. No width scan or numerical root is used.
+No finite recovery, R_full transfer, new global coefficient, reoptimization
+of fixed inputs, finite certification or paper revision follows. Existing
+unqualified C_3 in finite/global results remains C_3(1/1000).
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md`, Sections 1-7;
+bounded rational checker and local evidence in
+`ops/TASK-20260908__third_block_mixed_width/`. External review is separate.
 
 ### Deterministic finite weak recovery of mu_3
 
