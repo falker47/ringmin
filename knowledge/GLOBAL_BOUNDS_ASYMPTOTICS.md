@@ -462,7 +462,8 @@ Use C_b, its exact definition and strict comparison with C_2 solely
 from the fixed-order ledger's boundary full-root entry. Even orders
 are fully feasible at their exact roots for every m>=2; deleting only
 2m supplies odd feasible placements, with normalization ratio tending
-to one. These give the strongest current upper bound
+to one. These give the following upper bound, improved by the three-block
+corollary below:
 
 ```text
 C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_b<C_2.
@@ -478,6 +479,32 @@ production code retain their scope; external review is separate.
 **Source:** `research/PERMUTED_HALVES_BOUNDARY_FULL_ROOT.md`, Section 9;
 fixed-order dependencies in Sections 1-8 and local exact/numerical
 evidence in `ops/TASK-20260907__boundary_full_root/`.
+
+### Three-block full-root transfer: improved global upper bound
+
+**Status:** proved global limsup corollary of the exact three-block
+recovery, all-pairs transfer and separate odd lower squeeze, after arXiv v1.
+
+Use the definition of C_3 and strict comparison C_3<C_b solely from
+the fixed-order ledger's third-block entries. The exact recovered even
+orders and the odd orders deleting only 2m are fully feasible; their
+normalized fixed-order radii both tend to C_3. In particular
+
+```text
+C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_3<C_b.
+```
+
+This is the strongest current proved upper bound. Every finite cell
+retains the full maximum, including all actual seams. The odd order's
+lower squeeze is proved from retained disjoint cells, with no use of the
+alternating criterion after deletion. Parameters are unchanged and no
+third width/start is optimized. No global normalized limit, sharp endpoint,
+finite-n global optimum or expanded certificate is established. The lower
+bound and public arXiv-v1 assets retain their scope; external review is separate.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md`, Section 7;
+fixed-order hypotheses and quantitative even/odd limits in Sections 1-6,
+local exact/numerical evidence in `ops/TASK-20260908__third_block_full_root/`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -561,11 +588,11 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The boundary full-root construction above gives the strongest
+The three-block full-root construction above gives the strongest
 proved upper bound
 
 ```text
-limsup R*(n)/n^2<=C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
+limsup R*(n)/n^2<=C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
 ```
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
@@ -574,8 +601,8 @@ possible equality, and either endpoint's sharpness remain unresolved.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/PERMUTED_HALVES_BOUNDARY_FULL_ROOT.md` for the strongest upper
-side. The earlier fixed second-block, one-prefix, reflected, shifted,
+`research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md` for the strongest upper
+side. The earlier boundary, fixed second-block, one-prefix, reflected, shifted,
 unshifted and increasing-order theorems remain valid but are weaker.
 The single-subset envelope does not
 settle the remaining coefficient gap.
@@ -585,8 +612,8 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,C_b]`, including whether they agree; improve beyond the
-   current adjacent-block boundary construction or obtain sharper
+   `[C_term,C_3]`, including whether they agree; improve beyond the
+   current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.

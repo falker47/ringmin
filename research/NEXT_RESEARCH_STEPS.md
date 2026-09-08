@@ -17,12 +17,12 @@ mechanism, the uniform window `4k+1<=s_k<=4k+14`, and the eventual identity
 `s_k=4k+6` have now been converted into exact theorems. The sequence theorem
 in `research/SUPNICK_SEAM_SEQUENCES.md` proves this identity for every `k>=6`,
 completing all formal seam onsets without expanding global certification.
-The adjacent-block boundary construction at exactly alpha_hat, lambda=A*x_*
-and epsilon_b, with full-root transfer and deletion now proved,
+The three-block construction at exactly alpha_hat, lambda=A*x_*,
+epsilon_b and delta=1/1000, with full-root transfer and odd squeeze proved,
 supplies the strongest exact upper coefficient
 
 ```text
-limsup R*(n)/n^2<=C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
+limsup R*(n)/n^2<=C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
@@ -887,9 +887,9 @@ No parameter is reoptimized, and no further block or enumeration is used.
 separate reflection of exact width 1/1000 at v=lambda+epsilon_b lowers
 the current boundary coupling's full cost. Endpoint-only contact,
 marginals, local balance and the complete max branch domain are proved
-using only accepted brackets. That theorem ends at C_3<C_b; the separate
-finite recovery below adds no radius transfer, new global coefficient or
-parameter optimization. The current global bound at the top remains unchanged.
+using only accepted brackets. That theorem alone ends at C_3<C_b;
+the separate recovery and full-root results below complete the transfer
+without optimizing any third-block parameter.
 
 ## Resolved priority — Finite recovery of the third adjacent reflection
 
@@ -901,12 +901,37 @@ recovery at the unchanged exact constants with third even length
 proves the full occurrence, floor/parity, cyclic predecessor and exceptional
 cell inventory. The second-third seam occurs exactly once. The arbitrary
 continuous-test bound is omega_F(4/m)+omega_F(11/m)+38*||F||_infinity/m.
-The theorem stops at finite recovery; geometry and the current global
-coefficient remain unchanged.
+The theorem alone stops at finite recovery; the following result supplies
+the separate geometry and global consequence.
 
-## Priority 1 — Independent review of finite mu_3 recovery
+## Resolved priority — Three-block full-root transfer
+
+**Status:** exact fixed-order theorem and quantitative even/odd limits;
+separate proved global limsup corollary.
+
+`research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md` audits every criterion
+hypothesis with the actual q+1, e+1, z+1 seams, short/empty blocks and high
+wrap. It proves R_full(sigma_m)=rho_m for every m>=2 and a uniform
+O(1/m) normalized-root error while retaining the complete maximum.
+Deleting 2m and separately bounding the surviving disjoint cells proves
+the odd fixed-order limit. The unchanged continuous coefficient gives
+the strict global improvement C_3<C_b. No parameters are reoptimized.
+
+## Priority 1 — Independent review of three-block full-root transfer
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md` at the committed HEAD.
+Audit every arbitrary-high criterion hypothesis, actual seams and wrap,
+small cases, full-max recovery constants, angular error, compact brackets
+before root substitution and the separate odd necessary-cell squeeze.
+Check that the geometric coefficient is the unchanged continuous C_3,
+then verify the global corollary and strict comparison. Reproduce the
+bounded exact and independent numerical diagnostics; record acceptance
+or corrections without starting parameter optimization or a new search.
+
+## Deferred dependency review — Finite mu_3 recovery
+
+Independently review
 `research/PERMUTED_HALVES_THIRD_BLOCK_RECOVERY.md`. Audit the unchanged
 exact constants, three separate floor/parity blocks, empty and short
 cases, actual cyclic predecessors, both shared seams and complete counts.
@@ -1116,7 +1141,7 @@ the new global lower bound.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_b]`, and whether they agree. Improve beyond the adjacent-block boundary
+`[C_term,C_3]`, and whether they agree. Improve beyond the three-block
 upper construction or derive stronger valid lower bounds beyond the resolved
 envelope of every single induced-subset chain bound. Success must address
 full feasibility or genuinely coupled constraints. Neither known endpoint

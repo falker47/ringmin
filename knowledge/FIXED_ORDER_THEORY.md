@@ -1567,8 +1567,8 @@ C_b-C_3 > 1/(144000000000*pi) > 1/576000000000 > 0.
 The baseline definitions/brackets are imported; no new parameter bracket
 or optimizer is computed. This continuous cost theorem alone supplies no
 finite recovery, R_full transfer, new global bound or optimality of mu_3;
-the following entry supplies the separate finite recovery.
-The global upper coefficient remains C_b in its separate owning ledger.
+the following entries supply the separate finite recovery and geometric
+transfer. Current global bounds belong to their separate owning ledger.
 Independent external mathematical acceptance remains separate.
 
 **Source:** `research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md`, Sections
@@ -1613,14 +1613,57 @@ actual cyclic cells, exact third-floor onsets, counts, panel bounds,
 residual corners and negative controls. The finite scan does not replace
 the analytic all-m proof or select ambiguous implicit floors by decimals.
 
-This theorem ends at finite recovery: no R_full, full-root convergence,
-deletion, new global coefficient, finite-n optimum or third-block parameter
-optimization. The global coefficient remains C_b in its separate owner;
-independent external mathematical review remains separate.
+This theorem alone ends at finite recovery. The following entry supplies
+the separate full-root transfer and odd squeeze. No finite-n optimum or
+third-block parameter optimization is asserted; independent external
+mathematical review remains separate.
 
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_RECOVERY.md`, Sections
 1-6; standalone checker and evidence in
 `ops/TASK-20260908__third_block_recovery/`.
+
+### Three-block full-root transfer and quantitative even/odd limits
+
+**Status:** exact fixed-order theorem / quantitative limits, after arXiv v1.
+
+Keep precisely the preceding recovery's parameters and high permutation.
+For every integer m>=2, its full-cell root rho_m equals R_full(sigma_m).
+The actual q+1, e+1, z+1 seams, cyclic predecessor, high wrap and
+empty/short blocks meet every arbitrary-high criterion hypothesis. Every
+cell retains max(chain,chord); positive closed gaps realize both directed
+constraints for every pair. The criterion also covers m=2 separately.
+
+For the complete g and the preceding continuous definition of C_3,
+
+```text
+|integral g dmu_m-integral g dmu_3|<=174/m, m>=2,
+|rho_m/(2m)^2-C_3|<=[1198/m+16384/(3*m^2)]/(4*pi), m>=2048.
+```
+
+The proof brackets the unknown root before substituting the uniform
+angular error there. The max estimate allows finite/continuum branch
+disagreement; the mixed second block remains mixed. The strict C_3<C_b
+comparison and its exact rational saving are owned by the continuous
+third-block entry above; the geometric limit identifies exactly that C_3.
+
+Delete only 2m=P_r, r=m-s. For m>=4 the m-2 surviving disjoint cells
+give a necessary score root tau_m and the genuine lower/upper squeeze
+tau_m<=R_full(sigma_m^-)<=rho_m. The two removed cells have explicit
+uniform O(1/m) score. Source equation (19) proves the quantitative odd
+limit R_full(sigma_m^-)/(2m-1)^2 -> C_3. Small m=2,3 use deletion
+feasibility without asserting a positive retained-score root.
+
+The global corollary has its sole owner in
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`. No global optimum, sharpness,
+global normalized limit, finite comparison cutoff, new certificate,
+floating conclusion or third-parameter optimization follows. Exact finite
+checks and numerical observations support the analytic proof; independent
+external mathematical acceptance remains separate.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md`, Sections
+1-7; bounded exact seam/branch/deletion checks, independent all-pairs and
+Cartesian diagnostics and dependency reruns in
+`ops/TASK-20260908__third_block_full_root/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 
