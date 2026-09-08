@@ -3,69 +3,66 @@
 ## Repository snapshot
 
     repository=falker47/ringmin
-    task_base_head=dbb41f32613837a200e4f2213e4ee1583b60cc8e
+    task_base_head=cc35e14418362a38dee110c92ee4de4b607823a6
     observed_on=2026-09-08
     phase=post-arXiv-v1 active research
 
 ## Current task
 
-    task=TASK-20260908__third_block_full_root
+    task=TASK-20260908__third_block_width
     mode=STRICT
     state=READY_FOR_REVIEW
 
 ### Objective and current result
 
-Prove or refute geometric full-root transfer for the exact three-block
-recovery, retaining alpha_hat, lambda=A*x_*, epsilon_b and delta=1/1000.
-The proof in research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md establishes
-R_full(sigma_m)=rho_m for every m>=2, including all actual seams, short
-blocks and wrap. Full-max recovery error 174/m yields the uniform root
-error [1198/m+16384/(3*m^2)]/(4*pi) for m>=2048. A separate retained-cell
-lower squeeze proves the odd deletion limit. Both parities give
-limsup R*(n)/n^2<=C_3<C_b with the unchanged continuous strict saving.
+Characterize the third adjacent reflection's continuous C_3(Delta), with
+alpha_hat, x_*, lambda and epsilon_b fixed and start v=lambda+epsilon_b.
+research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md proves coordinate, marginal
+and strict full-max chord gates for 0<Delta<=1986317/400000000, an exact
+cost formula and strictly negative width derivative. Delta=1/250 is
+admissible and improves the old width by more than 1/9216000000 in C_3.
+The exact first endpoint switch tau_3 is uniquely defined; a positive
+chain correction is necessary beyond it. No mixed-regime minimum claimed.
 
 ### Allowed delta
 
-Ten paths: new canonical proof; STRICT dossier with two standalone
-checkers; fixed-order and global ledgers; this file; roadmap. Initial
-tree clean. The fixed-order ledger owns the coefficient and order limits;
-the global ledger owns the global corollary.
+Eight paths: new canonical proof; STRICT dossier with one standalone
+checker; fixed-order ledger; this file; roadmap. Initial tree clean at
+the exact requested HEAD. Only the fixed-order ledger owns the new claim.
 
 ### Verification gates
 
-- Fresh new exact checker exits 0: 57 floor cases, 156632 cells,
-  626528 rational branch signs, 504 independent angle/full-max enclosures,
-  313036 retained odd gaps, eight complete score/deletion enclosures,
-  negative controls and five invalid inputs.
-- Fresh independent numerical checker exits 0: 14 floor cases, 19822
-  even/deleted-odd pairs in both directions and Cartesian coordinates,
-  54 all-pairs difference-constraint probes at even/odd squeeze sides.
-- Fresh recovery, continuous-saving and boundary comparison checkers exit 0.
-- Complete source and tracked/untracked diff review: ten authorized paths,
-  whitespace and standalone imports pass; seven proof links, separate claim
-  owners and 12 protected texts equal baseline. Complete staged diff and
-  whitespace inspected; authorized commit and push use existing origin/main.
-  The final handoff records the
-  containing SHA, observed push result and working-tree state.
+- New standalone stdlib checker exits 0: five rational margins, 24 raw
+  full-max/closed-cost and Leibniz/closed-derivative enclosures, 120
+  reflection moments, 24 high partitions, eight chain/tie endpoint
+  controls, independent rational saving, five sign controls, six invalid inputs.
+- Fresh old third-block and boundary-minimum checkers each exit 0.
+- Complete source/protection audit exits 0: eight allowed paths, five proof
+  links, sole claim owner, standalone imports, tracked/untracked whitespace
+  and 16 protected texts equal baseline. Full source and staged diff inspected;
+  cached whitespace and absence of unstaged differences each exit 0.
+  Authorized commit/push use origin/main;
+  the final handoff records the containing SHA, push and remaining tree.
 
 ### Blockers and limitations
 
-No mathematical obstruction found. Exact parameter definitions/brackets
-are imported; ambiguous finite floors are overcovered, never selected
-from approximate minimizers. Numerical probes are observations; all-m
-statements are analytic. Independent external review and hosted CI remain
-separate. No global optimality, global normalized limit, sharpness,
-finite-n comparison cutoff, expanded certificate or parameter optimization.
+No blocker to the bounded continuous result. The first branch obstruction
+is identified beyond the rational interval; the chord formula is not
+continued through a positive chain interval. Exact input definitions and
+brackets are imported. External review and hosted CI remain separate.
+No finite recovery, full-root transfer, global limsup claim or fixed-input
+reoptimization was performed. The existing global coefficient and finite
+three-block results continue to use the unqualified C_3=C_3(1/1000).
 
 Protected: previous proofs/dossiers, paper_assets/, results/, src/, tests/,
 scripts/, verify.py, README.md, REPORT.md, publication metadata and CI;
-other knowledge modules, PROJECT_KNOWLEDGE.md, AGENTS.md and
+other knowledge modules (including global bounds), PROJECT_KNOWLEDGE.md, AGENTS.md and
 RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Independently review the three-block full-root transfer at committed HEAD:
-all-pairs hypotheses and seams, full-max recovery and angular constants,
-root brackets, genuine odd squeeze, identification of C_3 and global
-corollary. Reproduce bounded checks and record acceptance or corrections;
-stop before optimizing another parameter or launching a new search.
+Independently review the continuous third-block width theorem at committed
+HEAD: all-width gates, separate marginals, exact cost and derivative,
+first switch and rational 1/250 improvement. Reproduce its standalone
+checker and record acceptance or corrections; stop before finite recovery,
+full-root transfer, new global claims or fixed-parameter reoptimization.

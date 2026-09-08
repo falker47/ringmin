@@ -25,6 +25,10 @@ supplies the strongest exact upper coefficient
 limsup R*(n)/n^2<=C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift-1/(9984*pi)<C_shift<C_alt<1/(2*pi).
 ```
 
+Here the unqualified C_3 still means C_3(1/1000). The separate continuous
+width theorem gives C_3(1/250)<C_3(1/1000); no finite recovery or geometric
+transfer at the larger width has been supplied.
+
 Together with `C_term=0.1405690808452567...` it proves quadratic growth while
 leaving a much narrower genuine coefficient gap. The decimals are diagnostic;
 the defining exact constants are recorded in the owning ledgers and proof.
@@ -917,9 +921,32 @@ Deleting 2m and separately bounding the surviving disjoint cells proves
 the odd fixed-order limit. The unchanged continuous coefficient gives
 the strict global improvement C_3<C_b. No parameters are reoptimized.
 
-## Priority 1 — Independent review of three-block full-root transfer
+## Resolved priority — Continuous third-block width improvement
+
+**Status:** exact continuous theorem / explicit rational strict saving.
+
+`research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md` retains the exact accepted
+alpha_hat, x_*, lambda and epsilon_b, with start v=lambda+epsilon_b.
+It proves the full-max domain for 0<Delta<=1986317/400000000, the exact
+cost and strict width decrease, and rigorous admissibility/improvement
+at Delta=1/250. It identifies the exact first endpoint switch tau_3
+and the positive chain correction beyond it. This stops at continuous
+cost; the existing finite/global coefficient remains at Delta=1/1000.
+
+## Priority 1 — Independent review of the continuous third-block width theorem
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md` at committed HEAD.
+Audit the unchanged exact inputs, all-width rational gates, separate
+reflections and marginals, complete-max cancellation, moving-width
+derivative and strict sign, first-switch definition, and rational
+comparison at 1/250. Reproduce the standalone checker and record
+acceptance or corrections. Stop before finite recovery, full-root
+transfer, any new global bound or reoptimization of the fixed parameters.
+
+## Deferred dependency review — Three-block full-root transfer
+
+Independently review
 `research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md` at the committed HEAD.
 Audit every arbitrary-high criterion hypothesis, actual seams and wrap,
 small cases, full-max recovery constants, angular error, compact brackets

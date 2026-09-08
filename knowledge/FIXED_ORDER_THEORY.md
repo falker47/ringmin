@@ -1575,6 +1575,46 @@ Independent external mathematical acceptance remains separate.
 1-6; standalone rational gates, endpoint/marginal probes and independent
 raw-full-max integral enclosure in `ops/TASK-20260908__third_adjacent_block/`.
 
+### Third adjacent reflection with variable width: exact continuous cost
+
+**Status:** exact continuous theorem / explicit rational improvement,
+after arXiv v1.
+
+Keep alpha_hat, x_*, lambda=A*x_* and epsilon_b fixed; set
+v=lambda+epsilon_b, A=1+alpha_hat, B=A+v, h=A/3-v. Replacing the
+diagonal slab [v,v+Delta] by its own symmetric reflection defines
+mu_3(Delta) and C_3(Delta). The existing unqualified mu_3 and C_3 retain
+their width 1/1000, including in the finite and global results below.
+
+The accepted brackets alone prove the explicit interval
+0<Delta<=D_g=1986317/400000000. Throughout it, the coordinate domain,
+all three uniform marginals and equal (t,X)/(t,Y) marginals hold; both
+changed full maxima are strictly chord even at closed slab endpoints.
+All unchanged costs, including the mixed second block, cancel in full.
+With M=B+Delta/2 and q=Delta/(2*B+Delta),
+
+```text
+4*pi*[C_3(Delta)-C_b]
+  =(Delta/2)*sqrt(B*(B+Delta))+M^2*asin(q)-Delta*M,
+4*pi*C_3'(Delta)=sqrt(B*(B+Delta))+M*asin(q)-(B+Delta)<0,
+C_3(1/1000)-C_3(1/250)>1/(2304000000*pi)>1/9216000000>0.
+```
+
+The exact first switch is the unique unsquared endpoint root tau_3 in
+(D_g,h) of sqrt((v+Delta)/(B+Delta))+sqrt((v+Delta)/B)=1.
+The formula and strict decrease extend through tau_3, with a single
+endpoint tie. For tau_3<Delta<=h the third slab has one interior switch
+and a positive chain correction to the displayed chord formula. No
+monotonicity beyond tau_3 or third-width minimum is asserted.
+
+This supplies no finite recovery, R_full transfer or new global coefficient
+for the larger width. The imported parameter definitions/brackets are
+unchanged, and independent external acceptance remains separate.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md`, Sections 1-5;
+one standalone exact gate/formula checker and independent raw integral
+enclosures in `ops/TASK-20260908__third_block_width/`.
+
 ### Deterministic finite weak recovery of mu_3
 
 **Status:** exact finite construction / exact quantitative weak-recovery
