@@ -55,9 +55,10 @@ Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` remain
 liminf/limsup, existence of a normalized limit, or floating-set conclusion
 is supplied. The fixed finite-union theorem below closes the fixed-shape
 nonterminal optimization, and the later exact finite theorem closes every
-arbitrary `n`-dependent choice of one induced subset. Genuinely coupled
-subset methods and full geometry remain open. The arXiv-v1 record and finite
-certification scope remain unchanged.
+arbitrary `n`-dependent choice of one induced subset. For the first coupled
+case see the two-terminal-subset entry below; asymptotic improvement from
+coupling and the true global coefficient remain open. The arXiv-v1 record
+and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
 exact/symbolic audits in
@@ -180,6 +181,60 @@ coefficient.
 **Source:** `research/FINITE_INDUCED_SUBSET_DOMINANCE.md`; independent finite
 enumeration and task evidence in
 `ops/TASK-20260904__finite_induced_subset_dominance/`.
+
+### Two coupled terminal subsets: exact finite separation
+
+**Status:** exact counterexample / exact minimal-ambient-size theorem /
+disproved universal equality, after arXiv v1.
+
+For integers `3<=N<M<=n`, retain the original radii in
+`T_j={n-j+1,...,n}`, and define
+
+```text
+A_j=R_chain(Supnick(T_j)),
+B_{M,N}=min_{sigma on T_M}
+             max{R_chain(sigma),R_chain(sigma|T_N)}.
+```
+
+Deletion from actual feasible configurations gives
+`R*(n)>=B_{M,N}>=max{A_M,A_N}`. At `n=M=8,N=7`, with
+`r_0=R_chain((1,7,3,5,4,6,2,8))`, the exact result is
+
+```text
+A_7<23/4<r_0=A_8<144/25,
+B_{8,7}>max{A_8,A_7}+1/6000.
+```
+
+Every admissible triple with `n<=7` has equality, so 8 is the smallest
+ambient counterexample size. A matrix-level strict anti-Monge perturbation
+proves a positive cost gap for every other larger tour without enumeration;
+the unchanged tour incurs the positive induced seam defect.
+
+If the outer inclusion must be proper (`M<n`), the exact counterexample
+is `n=13,M=12,N=11`, with
+
+```text
+B_{12,11}>max{A_12,A_11}+1/5000.
+```
+
+Every proper-outer-set triple with `n<=12` has equality, so 13 is minimal
+under that convention. Both interpretations of the nested-set notation
+therefore have a negative answer.
+
+The same proof establishes uniqueness of the chain-optimal undirected
+Supnick cycle for distinct positive radii. The top-four restriction of the
+five-rank optimum is already nonoptimal, giving the smallest-cardinality
+compatibility obstruction `M=5,N=4`. Yet the minimax equality holds at
+`n=5`: simultaneous optimality is sufficient, not necessary for it.
+
+The finite strict gain does not compute either minimax or geometric
+optimum, improve `C_term`, establish asymptotic gain, classify all strict
+triples, or expand global certification. This entry solely owns the coupled result and its
+strictness/compatibility consequences; prior one-subset results are unchanged.
+
+**Source:** `research/COUPLED_TERMINAL_SUBSETS.md`; eight rational closure
+gates corroborated by two independent angular formulas in
+`ops/TASK-20260908__coupled_terminal_subsets/check_exact.py`.
 
 ### Increasing-order full asymptotic upper bound
 

@@ -34,6 +34,12 @@ Together with `C_term=0.1405690808452567...` it proves quadratic growth while
 leaving a much narrower genuine coefficient gap. The decimals are diagnostic;
 the defining exact constants are recorded in the owning ledgers and proof.
 
+The active scientific direction is now stronger lower bounds through
+coupled induced subsets. The two-terminal compatibility question is
+resolved by `research/COUPLED_TERMINAL_SUBSETS.md`; its finite separation
+does not yet improve the lower coefficient. Further third-block width
+refinement and transfer of the continuous optimal width are deferred.
+
 ## Resolved Priority 1 — First all-`n` seam obstruction
 
 **Status:** proved after arXiv v1.
@@ -527,7 +533,8 @@ The finite envelope over all subsets and cardinalities is attained among
 terminal subsets and converges to `C_term`, so the result is sharp. This
 closes every leading-coefficient improvement from a single induced-subset
 chain bound, without shape, component-count, endpoint, or cardinality-limit
-assumptions. Genuinely coupled-subset methods and full geometry remain open.
+assumptions. The later two-terminal theorem resolves the first compatibility
+question; asymptotic coupled improvement and full geometry remain open.
 
 ## Resolved priority — Increasing-order full asymptotic upper bound
 
@@ -946,9 +953,40 @@ monotonicity on the whole interval. Two rational gates locate it and
 analytic bounds compare its cost with the current widths. This remains
 continuous only; the existing finite/global coefficient is still C_3(1/1000).
 
-## Priority 1 — Independent review of the mixed third-block width theorem
+## Resolved priority — Two-terminal-subset compatibility
+
+`research/COUPLED_TERMINAL_SUBSETS.md` disproves the universal minimax
+equality with an exact positive-separation counterexample at n=M=8,N=7,
+and proves that ambient size 8 is minimal. If the outer subset must be
+proper, it gives the minimal ambient case n=13,M=12,N=11 instead.
+Its strict anti-Monge argument covers every competing tour analytically.
+The earlier five/four-rank
+compatibility obstruction also explains why incompatibility alone is
+insufficient. Stable claim detail belongs to the global-bounds ledger.
+
+## Priority 1 — Independent review of the coupled terminal-subset theorem
 
 Exactly one next atomic task: independently review
+`research/COUPLED_TERMINAL_SUBSETS.md` at committed HEAD. Check the
+matrix-level Supnick premise under symmetric edge perturbation, quantitative
+rectangle slack, root derivative and all-tour separation, the eight rational
+gates, the small-n path argument, and the distinction between compatibility
+and minimax equality. Reproduce the standalone exact checker and record
+acceptance or corrections. Stop before optimizing further subsets,
+asymptotic amplification, new certification or any upper construction.
+
+## Priority 2 — Lower-bound scaling discriminator after review
+
+Determine whether proportional nested terminal subsets can yield a
+quadratic gain over the single-subset envelope, or whether their finite
+incompatibility costs are subquadratic. A dedicated task must first state
+an exact asymptotic discriminator and derive a uniform bound or obstruction;
+the finite separations are not evidence of a larger leading coefficient.
+This lower-bound question takes precedence over further upper-width work.
+
+## Deferred dependency review — Mixed third-block width theorem
+
+Independently review
 `research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md` at committed HEAD.
 Audit the full-max derivative and second-derivative switch terms, the
 uniform curvature and endpoint signs, uniqueness and distance from entry,
@@ -1175,16 +1213,18 @@ new research direction.
 
 The previously proposed independent review remains pending. Its scope is
 the generalized triangle/path lemmas, closure-forced necessity, equality,
-small cycles and imported strict signs. This theorem is not a premise of
-the new global lower bound.
+small cycles and imported strict signs. Its path lemma is used to exclude
+smaller ambient counterexamples in the coupled terminal-subset proof;
+the single-subset asymptotic lower bound does not depend on it.
 
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_3]`, and whether they agree. Improve beyond the three-block
-upper construction or derive stronger valid lower bounds beyond the resolved
-envelope of every single induced-subset chain bound. Success must address
-full feasibility or genuinely coupled constraints. Neither known endpoint
+`[C_term,C_3]`, and whether they agree. Prioritize stronger valid lower
+bounds beyond the resolved envelope of every single induced-subset chain
+bound, with the coupled scaling discriminator above as the next research
+direction after review. Further three-block refinement is deferred.
+Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in
 `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`; it is not an open candidate.

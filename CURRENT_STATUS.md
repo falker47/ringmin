@@ -3,56 +3,56 @@
 ## Repository snapshot
 
     repository=falker47/ringmin
-    task_base_head=b21c2dff20ca7419db56545c67386b369b8d24ac
-    observed_on=2026-09-08
+    task_base_head=3c415b36ade354cfd9beff637ec98bb5cc6b7d0a
+    observed_on=2026-09-09
     phase=post-arXiv-v1 active research
 
 ## Current task
 
-    task=TASK-20260908__third_block_mixed_width
+    task=TASK-20260908__coupled_terminal_subsets
     mode=STRICT
     state=READY_FOR_REVIEW
 
 ### Objective and current result
 
-Resolve exactly tau_3<Delta<=h=A/3-v for the third reflection's continuous
-cost, holding alpha_hat, x_*, lambda and epsilon_b fixed. The new proof
-research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md retains the interior
-full-max switch and positive chain correction. The exact full derivative
-strictly increases throughout the mixed interval, is negative at
-entry and positive at h. Hence the cost decreases to one strict minimum
-and increases thereafter; two rational gates bracket the stationary width
-and analytic bounds compare its cost with the current widths.
+Resolve the simplest two-terminal induced-subset minimax bound and redirect
+research toward stronger lower bounds. The new analytic proof is
+research/COUPLED_TERMINAL_SUBSETS.md: at n=M=8,N=7 the coupled bound
+exceeds the maximum of separate Supnick minima by more than 1/6000.
+Ambient size 8 is minimal. The proof also distinguishes the earlier
+five/four-rank incompatibility from strict minimax separation.
+If T_M must be proper in {1,...,n}, the minimal ambient example is
+n=13,M=12,N=11, with a gap greater than 1/5000.
 
 ### Allowed delta
 
-Eight paths: new canonical proof; STRICT dossier with one standalone
-checker; fixed-order ledger; this file; roadmap. Initial tree clean at
-the exact requested HEAD. Only the fixed-order ledger owns the new claim.
+Eight paths: new canonical proof; STRICT dossier with one standalone exact
+checker; global-bounds ledger; this file; roadmap. Initial tree clean at
+the user-supplied accepted HEAD above. Only the global-bounds ledger owns
+the new stable claim. The compact knowledge index needs no change.
 
 ### Verification gates
 
-- New standalone Fraction checker exits 0: two directed endpoint signed
-  squares, positive pre-square residuals, inherited-bound/domain slacks,
-  analytic root-location and rational cost implications.
-- Fresh prior third-width and boundary-minimum checkers each exit 0.
-- Complete source/protection audit exits 0: eight allowed paths, four
-  proof links, sole owner, Fraction-only checker with exactly two gates,
-  explicit tracked/untracked whitespace and 17 protected texts unchanged.
-  Full source and complete staged diff inspected; cached whitespace and
-  absence of unstaged changes each exit 0. Final record-only edits are
-  inspected/restaged before authorized commit and normal origin/main push;
-  the final handoff records SHA/push/tree.
+- Eight rational closure gates pass using both arcsine and independent
+  arctangent formulas; exact pi bounds, gap constants and cyclic identities
+  pass. No production imports, floating-point root or tour enumeration.
+- Independent symbolic derivative identities and fresh radius-1/radius-2
+  exact endpoint checks pass. Analytic proof covers all competing tours
+  and every smaller ambient n under both inclusion conventions.
+- Full source/protection audit passes: eight allowed paths, explicit
+  tracked/untracked whitespace, eight rational table transcriptions, all
+  local proof links, sole ledger owner, eight imported texts unchanged.
+  Complete new sources and tracked diff inspected; git diff --check exits 0.
+- Final record-only edits are inspected/restaged before authorized commit
+  and normal origin/main push; final handoff records SHA/push/tree.
+  Independent acceptance and hosted CI remain separate.
 
 ### Blockers and limitations
 
-No blocker to the bounded continuous result. Accepted input definitions
-and theorem bounds are imported. All continuum signs and uniqueness are
-analytic; the checker has no width scan, root solver or quadrature.
-External review and hosted CI are separate. No finite recovery, R_full
-transfer, new global limsup coefficient, fixed-input reoptimization,
-finite certificate or paper revision. The existing unqualified C_3 in
-finite/global results continues to mean C_3(1/1000).
+No blocker. The matrix-level classical Supnick theorem and accepted exact
+triangle/seam results are imported. No exact value of either minimax, finite
+geometric optimum, asymptotic gain, improved C_term or expanded certificate
+is claimed. No third-block extension or Delta_* transfer was performed.
 
 Protected: previous proofs/dossiers, paper_assets/, results/, src/, tests/,
 scripts/, verify.py, README.md, REPORT.md, publication metadata and CI;
@@ -61,9 +61,8 @@ RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Independently review the continuous mixed third-width theorem at committed
-HEAD: full-max switch and derivative terms, analytic curvature, endpoint
-signs and unique minimum, inherited input bound, rational location/cost
-gates. Reproduce its standalone checker and record acceptance or corrections;
-stop before finite recovery, geometric/global transfer or fixed-input
-reoptimization.
+Independently review the coupled terminal-subset theorem at committed HEAD:
+matrix perturbation and uniqueness, rational gates, derivative/root gap,
+minimal ambient n and compatibility distinction. Reproduce its standalone
+checker and record acceptance or corrections; stop before asymptotic
+amplification, new subset optimization, certification or upper constructions.
