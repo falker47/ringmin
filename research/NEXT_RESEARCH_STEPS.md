@@ -887,13 +887,37 @@ No parameter is reoptimized, and no further block or enumeration is used.
 separate reflection of exact width 1/1000 at v=lambda+epsilon_b lowers
 the current boundary coupling's full cost. Endpoint-only contact,
 marginals, local balance and the complete max branch domain are proved
-using only accepted brackets. The task ends at C_3<C_b; no finite
-recovery, radius transfer, new global coefficient or parameter optimization
-is supplied. The current global bound at the top of this roadmap is unchanged.
+using only accepted brackets. That theorem ends at C_3<C_b; the separate
+finite recovery below adds no radius transfer, new global coefficient or
+parameter optimization. The current global bound at the top remains unchanged.
 
-## Priority 1 — Independent review of the third-block continuous theorem
+## Resolved priority — Finite recovery of the third adjacent reflection
+
+**Status:** exact finite construction / quantitative weak-recovery theorem.
+
+`research/PERMUTED_HALVES_THIRD_BLOCK_RECOVERY.md` extends the boundary
+recovery at the unchanged exact constants with third even length
+2*floor(m/2000). It preserves three separate adjacent reflections and
+proves the full occurrence, floor/parity, cyclic predecessor and exceptional
+cell inventory. The second-third seam occurs exactly once. The arbitrary
+continuous-test bound is omega_F(4/m)+omega_F(11/m)+38*||F||_infinity/m.
+The theorem stops at finite recovery; geometry and the current global
+coefficient remain unchanged.
+
+## Priority 1 — Independent review of finite mu_3 recovery
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_THIRD_BLOCK_RECOVERY.md`. Audit the unchanged
+exact constants, three separate floor/parity blocks, empty and short
+cases, actual cyclic predecessors, both shared seams and complete counts.
+Check the exact panel allocation and moving-boundary union bound for
+arbitrary continuous tests; reproduce the bounded standalone checker.
+Record acceptance or corrections, stopping before R_full, full-root
+convergence, deletion, global bounds or third-block parameter optimization.
+
+## Deferred dependency review — Third-block continuous theorem
+
+Independently review
 `research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md`. Audit the exact baseline,
 three separate reflections and endpoint contact, all marginal identities,
 full-max cancellation and branch gates, rationalized identity and explicit

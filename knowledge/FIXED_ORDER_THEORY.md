@@ -1565,14 +1565,62 @@ C_b-C_3 > 1/(144000000000*pi) > 1/576000000000 > 0.
 ```
 
 The baseline definitions/brackets are imported; no new parameter bracket
-or optimizer is computed. This is a continuous cost theorem only: no
-finite recovery, R_full transfer, new global bound or optimality of mu_3.
+or optimizer is computed. This continuous cost theorem alone supplies no
+finite recovery, R_full transfer, new global bound or optimality of mu_3;
+the following entry supplies the separate finite recovery.
 The global upper coefficient remains C_b in its separate owning ledger.
 Independent external mathematical acceptance remains separate.
 
 **Source:** `research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md`, Sections
 1-6; standalone rational gates, endpoint/marginal probes and independent
 raw-full-max integral enclosure in `ops/TASK-20260908__third_adjacent_block/`.
+
+### Deterministic finite weak recovery of mu_3
+
+**Status:** exact finite construction / exact quantitative weak-recovery
+theorem, after arXiv v1.
+
+Keep exactly alpha_hat, lambda=(1+alpha_hat)*x_*, epsilon_b and
+delta=1/1000 in the preceding mu_3. For every integer m>=2 use
+s=floor(alpha_hat*m), q=2*floor(lambda*m/2),
+d=2*floor(epsilon_b*m/2), f=2*floor(m/2000). Rotate the high list
+by s and reverse its even slots separately in the adjacent integer
+blocks (0,q], (q,q+d], (q+d,q+d+f]. This extends boundary recovery
+exactly, with no separately rounded starts or merged reflections.
+
+The permutation and actual cyclic predecessor P_0=P_m handle every
+floor tie, both parities, empty/length-2 blocks, fixed even midpoints,
+shared endpoints and high wrap. With e=q+d and r=m-s, the complete
+exception set is {1,r,r+1} union {q+1:q>0} union {e+1:d>0}
+union {e+f+1:f>0}, intersected with 1,...,m. It has at most six
+cells. When f>0, the second-third seam e+1 is one cell with ordered
+pair (m+s+q+2,m+s+e+1), using the actual second-block predecessor.
+The source gives the complete pair/parity/count tables and m=1 extension.
+
+For every continuous, possibly nonsymmetric F on [0,1] x [1,2]^2,
+
+```text
+|integral F dmu_m - integral F dmu_3|
+ <=omega_F(4/m)+omega_F(11/m)+38*||F||_infinity/m.
+```
+
+Exact parity-panel allocation and a union bound for all three moving
+block boundaries and the wrap prove weak convergence along all integers;
+overlapping bad intervals and disappearing rounded blocks are allowed.
+The standalone integer/Fraction checker covers all bracket-compatible
+floors for m=2..512 and 13 declared sizes through 8000. It checks
+actual cyclic cells, exact third-floor onsets, counts, panel bounds,
+residual corners and negative controls. The finite scan does not replace
+the analytic all-m proof or select ambiguous implicit floors by decimals.
+
+This theorem ends at finite recovery: no R_full, full-root convergence,
+deletion, new global coefficient, finite-n optimum or third-block parameter
+optimization. The global coefficient remains C_b in its separate owner;
+independent external mathematical review remains separate.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_RECOVERY.md`, Sections
+1-6; standalone checker and evidence in
+`ops/TASK-20260908__third_block_recovery/`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

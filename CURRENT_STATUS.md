@@ -3,26 +3,27 @@
 ## Repository snapshot
 
     repository=falker47/ringmin
-    task_base_head=ea35045da1032e64a6e7712d082b00fa30e8cb57
+    task_base_head=6f86fd1a98e9eb56cfbc78bc6444d8f816167879
     observed_on=2026-09-08
     phase=post-arXiv-v1 active research
 
 ## Current task
 
-    task=TASK-20260908__third_adjacent_block
+    task=TASK-20260908__third_block_recovery
     mode=STRICT
     state=READY_FOR_REVIEW
 
 ### Objective and current result
 
-Resolve the third adjacent reflection of exact width delta=1/1000 at
-v=lambda+epsilon_b on the current boundary coupling. The canonical proof
-is research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md. The continuous claim
-is true: C_b-C_3>1/576000000000. It proves endpoint-only contact and
-exact marginal/local-balance preservation, retains the full max, and uses
-only the accepted alpha_hat, x_* and epsilon_b brackets for all branch
-and coordinate-domain gates. The centered identity is an exact
-finite-width cost calculation. No finite recovery or geometric transfer.
+Construct deterministic finite recovery of mu_3 at exactly alpha_hat,
+lambda=(1+alpha_hat)*x_*, epsilon_b and delta=1/1000. The canonical proof
+is research/PERMUTED_HALVES_THIRD_BLOCK_RECOVERY.md. Three separate adjacent
+even-slot reversals give a high permutation for every m>=2, with a trivial
+m=1 extension. All floors, parities, short/empty blocks, actual cyclic
+predecessors, wrap and at most six exceptional cells are explicit. The
+second-third seam is counted once. The exact continuous-test bound is
+omega_F(4/m)+omega_F(11/m)+38*||F||_infinity/m, proving weak convergence.
+No geometric transfer.
 
 ### Allowed delta
 
@@ -33,24 +34,25 @@ and production code are protected.
 
 ### Verification gates
 
-- Fresh stdlib checker exits 0: five uniform rational margins, eight
-  endpoint partitions, 168 reflection moments, 24 full-max branch probes,
-  five sign/tie controls, and independent eight-panel raw-full-max upper
-  enclosure strictly below -1/36000000000.
-- Fresh prior boundary-minimum and start-domain checkers exit 0.
-- Source audit exits 0: eight authorized paths, explicit tracked/untracked
-  whitespace, standalone imports, five proof links, one owning ledger
-  and 15 protected texts identical to baseline. Complete sources and diff
-  inspected; complete staged diff and whitespace checks pass. Authorized
-  integration follows on existing origin/main. The final handoff records
-  SHA, push and tree state.
+- Fresh standalone checker exits 0: 632 floor cases, 365867 cyclic cells,
+  362724 nonexception panel bounds, exact floor/residual gates, all counts,
+  seven rejected mutations and 12 invalid inputs. Covers m=2..512 and
+  13 declared onset/parity sizes through 8000, plus m=1 separately.
+- Fresh prior boundary-recovery and third-continuous checkers exit 0.
+- Complete mathematical sources and tracked diff inspected. Source audit
+  exits 0: eight authorized paths, tracked/untracked whitespace, standalone
+  imports, five proof links, one owner and 14 protected texts equal baseline.
+  Complete staged diff and whitespace inspected; authorized integration uses
+  existing origin/main;
+  the final handoff records the containing SHA, push and working-tree state.
 
 ### Blockers and limitations
 
 No mathematical blocker. Baseline definitions and brackets are imported;
-independent external review and hosted CI are separate. No parameter
-optimization, finite recovery, R_full transfer, new global bound or
-general coupling optimum. The current global coefficient remains C_b.
+ambiguous implicit floors are overcovered by exact brackets in the checker.
+Independent external review and hosted CI are separate. No R_full,
+full-root convergence, deletion, new global bound or third-width/start
+optimization. The current global coefficient remains C_b.
 
 Protected: previous proof notes/dossiers, paper_assets/, results/, src/,
 tests/, scripts/, verify.py, publication metadata, README.md, REPORT.md,
@@ -59,8 +61,8 @@ RINGMIN_REVIEW_PROTOCOL.md.
 
 ## Exactly one next atomic task
 
-Independently review the third-block continuous theorem: exact baseline,
-endpoint-only contact, marginal identities, full-max branch gates and
-cancellation, centered identity and explicit rational saving. Reproduce
-the bounded checks and record acceptance or corrections, stopping before
-finite recovery, radius/global transfer or further parameter optimization.
+Independently review the finite mu_3 recovery: unchanged exact parameters,
+three separate floor/parity blocks, small cases, actual cyclic predecessors,
+both shared seams and full counts, arbitrary-test panel allocation and
+moving-boundary bound. Reproduce its bounded exact checker and record
+acceptance or corrections; stop before geometric transfer or optimization.
