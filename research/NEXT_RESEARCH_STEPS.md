@@ -879,9 +879,31 @@ its fixed-order limit. Boundary-minimum and start-domain theorems with
 exact gates give C_b<C_2 and the improved global upper coefficient.
 No parameter is reoptimized, and no further block or enumeration is used.
 
-## Priority 1 — Independent review of the boundary full-root transfer
+## Resolved priority — Third adjacent block continuous discriminator
+
+**Status:** exact continuous theorem with explicit rational strict saving.
+
+`research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md` proves that the third
+separate reflection of exact width 1/1000 at v=lambda+epsilon_b lowers
+the current boundary coupling's full cost. Endpoint-only contact,
+marginals, local balance and the complete max branch domain are proved
+using only accepted brackets. The task ends at C_3<C_b; no finite
+recovery, radius transfer, new global coefficient or parameter optimization
+is supplied. The current global bound at the top of this roadmap is unchanged.
+
+## Priority 1 — Independent review of the third-block continuous theorem
 
 Exactly one next atomic task: independently review
+`research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md`. Audit the exact baseline,
+three separate reflections and endpoint contact, all marginal identities,
+full-max cancellation and branch gates, rationalized identity and explicit
+saving. Reproduce the standalone rational checks and independent integral
+enclosure. Record acceptance or corrections; stop before finite recovery,
+R_full transfer, any global bound or further width/start optimization.
+
+## Deferred dependency review — Boundary full-root transfer
+
+Independently review
 `research/PERMUTED_HALVES_BOUNDARY_FULL_ROOT.md`. Audit the exact parameter
 dependencies and recovered actual cells, all-pairs criterion, full mixed
 cost, uniform constants and compact root brackets. Check deletion upper

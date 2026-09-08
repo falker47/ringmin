@@ -1540,6 +1540,40 @@ external mathematical review remains separate.
 difference-constraint diagnostics, and dependency reruns in
 `ops/TASK-20260907__boundary_full_root/`.
 
+### Third adjacent reflected block: strict continuous full-cost improvement
+
+**Status:** exact continuous theorem / explicit rational strict saving,
+after arXiv v1.
+
+Keep exactly alpha_hat, lambda=(1+alpha_hat)*x_* and epsilon_b in the
+boundary coupling mu_b. At v=lambda+epsilon_b replace the diagonal slab
+[v,v+1/1000] by its own symmetric reflection, defining mu_3 and C_3.
+All three uniform marginals and equality of the (t,X)/(t,Y) marginals
+are preserved. The second and third blocks and their high ranges touch
+only at null endpoints; they retain separate reflections.
+
+With delta=1/1000, A=1+alpha_hat, B=A+v and M=B+delta/2, the accepted
+brackets alone give A-3v-4delta>1586317/100000000 and M<3/2.
+Both the new slab and the removed diagonal are strictly chord in the
+full max, including both endpoints. All unchanged mixed costs cancel.
+The exact centered identity and its rational consequence are
+
+```text
+4*pi*(C_3-C_b)=-integral_(-delta/2)^(delta/2)
+                z^2/[M+sqrt(M^2-z^2)] dz < -1/36000000000,
+C_b-C_3 > 1/(144000000000*pi) > 1/576000000000 > 0.
+```
+
+The baseline definitions/brackets are imported; no new parameter bracket
+or optimizer is computed. This is a continuous cost theorem only: no
+finite recovery, R_full transfer, new global bound or optimality of mu_3.
+The global upper coefficient remains C_b in its separate owning ledger.
+Independent external mathematical acceptance remains separate.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_ADJACENT_BLOCK.md`, Sections
+1-6; standalone rational gates, endpoint/marginal probes and independent
+raw-full-max integral enclosure in `ops/TASK-20260908__third_adjacent_block/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
