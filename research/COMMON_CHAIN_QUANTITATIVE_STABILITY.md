@@ -1,7 +1,7 @@
 # Quantitative stability for one common pair of terminal chain tours
 
     status=PROVED
-    classification=exact theorem / quantitative asymptotic stability
+    classification=exact theorem / quantitative asymptotic stability / proved global corollary
     domain=all cyclic orders; all integers n>=10^14
     proved_on=2026-09-10
     published_snapshot=arXiv v1 remains unchanged
@@ -36,10 +36,11 @@ Thus the requested statement is **true**, with explicit
 epsilon=10^-12 and delta=10^-5. The constants and sufficient cutoff are
 not asserted sharp. No search at the cutoff is needed or proposed.
 
-The proof concerns precisely these two chain costs. It does not determine
-a minimizing common tour, optimize other cutoffs or a general tradeoff,
-transfer the result to R_full, update a global coefficient, provide an
-upper construction, or change finite certification or the public paper.
+Sections 2-7 concern precisely these two chain costs. Section 8 transfers
+their incompatibility to R_full and R*, with the same constants and cutoff.
+It proves R*(n)>(C+10^-12)*n^2 and liminf R*(n)/n^2>=C+10^-12.
+No minimizing common tour, optimized cutoff or general tradeoff, upper
+construction, finite certification or public-paper revision is supplied.
 Independent mathematical acceptance remains separate from this proof.
 
 ## 2. Uniform reduction to sqrt-product edge costs
@@ -336,7 +337,93 @@ with the requested non-strict conclusion. All hypotheses used above
 already hold at n>=102, so the stated larger cutoff also covers them.
 This completes the proof through all integer sizes and all cyclic orders.
 
-## 8. Evidence and ownership
+## 8. Global corollary by deletion from a full feasible configuration
+
+**Status: proved corollary, after arXiv v1.** With exactly the constants
+of (1), for every integer n>=10^14,
+
+```text
+R*(n) > (C_term+10^-12)*n^2,
+liminf_{n->infinity} R*(n)/n^2 >= C_term+10^-12.           (17)
+```
+
+Here R_full(omega) is the minimum all-pairs-feasible radius for a fixed
+cyclic order omega of {1,...,n}, and R*(n)=min_omega R_full(omega).
+The proof also works with fixed-order infima, without assuming their
+attainment. R_chain remains the closure root of the adjacent-angle sum;
+it is not identified with either geometric optimum.
+
+**Deletion at the same geometric radius.** By (8),
+1<=k<ell<=n-2, so T_beta(n) is contained in T_q(n) and both sets have
+at least three radii, for either cardinality parity. Take any full
+feasible configuration of {1,...,n} at R>0, with cyclic order omega.
+Its centers have the form
+
+```text
+p_a=(R+a)*(cos(phi_a),sin(phi_a)),
+|p_a-p_b|>=a+b                 for all distinct a,b.
+```
+
+For either retained set T, keep the same R, radii and centers. Every
+central tangency and every surviving pairwise distance inequality is
+unchanged. Let g_i be the positive directed gaps between consecutive
+survivors in omega|T, including the closing gap; their sum is 2*pi.
+For such an edge (a,b), the smaller angular separation is
+Delta_i=min(g_i,2*pi-g_i). The
+[published angular reformulation](../paper_assets/ringmin_paper.tex) gives
+
+```text
+Delta_i>=theta_R(a,b),
+theta_R(a,b)<=g_i<=2*pi-theta_R(a,b),
+sum_{edges of omega|T} theta_R(a,b)<=2*pi.
+```
+
+This covers gaps larger than pi, arbitrary consecutive deletions and
+the wrap edge. The new adjacency uses an existing full pairwise
+constraint; no triangle inequality for deleted chain edges is assumed.
+Strict decrease of the closure sum and its unique root now imply
+R_chain(omega|T)<=R. Deletion need not make the surviving circles
+mutually tangent, or make their chain root fully feasible.
+
+Put sigma=omega|T_q(n). Since restriction only removes entries,
+sigma|T_beta(n)=omega|T_beta(n), as cyclic orders. Thus both chain roots
+belong to the same common tour and satisfy, simultaneously,
+
+```text
+max{R_chain(sigma),R_chain(sigma|T_beta(n))} <= R.
+```
+
+Neither retained set is translated or rescaled; n^2 always refers to
+the original largest radius n. For fixed omega the two roots are fixed
+numbers, independent of the positions and of R. Taking the infimum over
+all feasible configurations in that order therefore gives
+
+```text
+max{R_chain(sigma),R_chain(sigma|T_beta(n))}
+    <= R_full(omega).                                  (18)
+```
+
+**Strict bound before global minimization.** Write
+A_n=(C+10^-12)*n^2 and B_n=(C+10^-5)*n^2, so B_n>A_n.
+If R_full(omega)<=A_n, (18) implies R_chain(sigma)<=A_n.
+The all-order theorem (1) then gives
+
+```text
+B_n <= R_chain(sigma|T_beta(n)) <= R_full(omega) <= A_n,
+```
+
+a contradiction. Hence R_full(omega)>A_n for every omega. For each fixed
+n there are only finitely many cyclic orders, so their minimum is also
+strictly greater than A_n. This proves the first part of (17), without
+inferring a strict infimum bound merely from R>A_n for feasible radii.
+
+Dividing by n^2 and taking the liminf proves the second part of (17).
+Strictness at each finite n does not assert a strict liminf above
+C+10^-12, or a lower coefficient C+10^-5. No constants from Sections 1-7
+were changed or optimized. This is an analytic global lower bound, not
+a finite optimum certificate, a sharp coefficient or a convergence theorem.
+
+## 9. Evidence and ownership
 
 The all-order inequalities, floor estimates and limiting scope are analytic.
 The [bounded standalone checker](../ops/TASK-20260910__common_chain_stability/check_stability.py)
@@ -345,6 +432,12 @@ small prescribed edge-cost examples and numerical root sandwiches. It
 imports no production implementation or saved result, does no tour search,
 and is not a finite global certificate. Numerical checks are observations,
 not premises of (1). Its exact ranges and outputs are in the dossier.
+
+The global transfer in Section 8 is analytic. Its
+[task evidence](../ops/TASK-20260910__common_chain_global_corollary/EVIDENCE.md)
+records the directed-gap, nested-order, fixed-order-infimum and finite-minimum
+checks, together with exact algebra and the unchanged rational constants.
+No new enumeration or numerical experiment is used for this corollary.
 
 The sole stable owner is the common-chain-stability entry in
 [the global ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).

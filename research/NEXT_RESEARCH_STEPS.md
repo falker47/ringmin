@@ -30,7 +30,8 @@ width theorems identify a unique mixed minimum below C_3(1/250), which is
 below C_3(1/1000). No finite recovery or geometric transfer at either
 larger width has been supplied.
 
-Together with `C_term=0.1405690808452567...` it proves quadratic growth while
+Together with the common-chain global lower endpoint `C_term+10^-12`,
+where `C_term=0.1405690808452567...`, it proves quadratic growth while
 leaving a much narrower genuine coefficient gap. The decimals are diagnostic;
 the defining exact constants are recorded in the owning ledgers and proof.
 
@@ -43,9 +44,10 @@ macroscopic discriminator is resolved by
 `research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md`: a rational beta interval
 has positive quadratic restricted-chain excess. The quantitative stability
 question for q_* and beta=23/100 is now resolved positively by
-`research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`; its uniform proof is
-the next review priority. Broader common-tour optimization and simultaneously
-coupled levels remain open. Further third-block width
+`research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`; Section 8 transfers it
+to a strict global lower bound at the unchanged cutoff. The uniform proof
+and its global corollary are the next review priority. Broader common-tour
+optimization and simultaneously coupled levels remain open. Further third-block width
 refinement and transfer of the continuous optimal width are deferred.
 
 ## Resolved Priority 1 — First all-`n` seam obstruction
@@ -1001,17 +1003,21 @@ explicit constants and an all-integer cutoff. Stable theorem detail belongs
 solely to the global-bounds ledger. The proof reduces roots uniformly to
 edge weights and controls deletion through an anti-Monge dual bound and
 maximal-run accounting. This resolves the previous bounded stability task;
-it does not optimize the common tours or perform geometric transfer.
+it does not optimize the common tours. Section 8 now supplies the analytic
+deletion transfer to the global problem with the same constants and cutoff,
+including strictness under the finite minimum over orders.
 
-## Priority 1 — Independent review of quantitative common-chain stability
+## Priority 1 — Independent review of common-chain stability and global corollary
 
 Exactly one next atomic task: independently review
 `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` at committed HEAD.
 Audit both directions of the root sandwich, the dual slack and reflected
 assignment normalization, consecutive-deletion run counts, floor errors,
-rational margin and final constants. Reproduce the bounded checker and
-record acceptance or corrections. Stop before R_full, finite certification,
-upper constructions or broader common-tour optimization.
+rational margin and final constants. Audit Section 8's full-feasible
+deletion, directed wrap gaps, nested restrictions, fixed-order infima,
+strict finite minimum and non-strict liminf. Reproduce the existing bounded
+checks and record acceptance or corrections. Stop before new enumeration,
+constant optimization, finite certification or upper constructions.
 
 ## Deferred dependency review — Macroscopic discriminator
 
@@ -1282,10 +1288,11 @@ the single-subset asymptotic lower bound does not depend on it.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term,C_3]`, and whether they agree. Prioritize stronger valid lower
-bounds beyond the resolved envelope of every single induced-subset chain
-bound. The fixed-pair common-chain stability result awaits independent
-review before further lower-bound work. Further three-block refinement is deferred.
+`[C_term+10^-12,C_3]`, and whether they agree. Prioritize stronger valid lower
+bounds beyond the current coupled-pair corollary, which already improves
+the resolved single-subset envelope. The fixed-pair stability theorem and
+its global transfer await independent review before further lower-bound
+work. Further three-block refinement is deferred.
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in

@@ -51,16 +51,17 @@ coefficient `rho/16` is strictly smaller than `C_term` but still exceeds
 `3/22>1/8` exactly.
 
 Both `R*(n)=n^2/8 (1+o(1))` and `n^2/8-R*(n)=O(sqrt(n))` remain
-**disproved claims**. No explicit threshold, matching upper bound, true
-liminf/limsup, existence of a normalized limit, or floating-set conclusion
-is supplied. The fixed finite-union theorem below closes the fixed-shape
+**disproved claims**. This single-subset theorem supplies no explicit
+threshold, matching upper bound, true liminf/limsup, existence of a normalized
+limit, or floating-set conclusion. The fixed finite-union theorem below closes the fixed-shape
 nonterminal optimization, and the later exact finite theorem closes every
 arbitrary `n`-dependent choice of one induced subset. For the first coupled
 case see the two-terminal-subset entries below; one-level coupling has
 subquadratic gain, and the macroscopic-discriminator entry identifies a
 restricted-order excess. The later common-chain-stability entry supplies
-the uniform argument for one fixed macroscopic pair. More general coupling
-and the true global coefficient remain open. The arXiv-v1 record
+the uniform argument and its global corollary for one fixed macroscopic
+pair. More general coupling and the true global coefficient remain open.
+The arXiv-v1 record
 and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
@@ -327,7 +328,8 @@ corroboration in `ops/TASK-20260909__macroscopic_terminal_discriminator/`.
 
 ### Quantitative stability for the fixed macroscopic common-chain pair
 
-**Status:** exact theorem / quantitative asymptotic stability, after arXiv v1.
+**Status:** exact theorem / quantitative asymptotic stability / proved global
+corollary, after arXiv v1.
 
 Fix the terminal optimizer q_*=1/lambda_* and beta=23/100, retaining the
 original radii in T_q(n)={floor(q*n),...,n}. For every integer n>=10^14
@@ -350,15 +352,34 @@ in edge-cost units; explicit floor errors finish the implication for both
 outer and inner parities. The reference is a relaxation, not a tour.
 
 This resolves the proposed uniform stability question positively, beyond
-the earlier prescribed-order discriminator. Constants and cutoff are
-conservative, not sharp. No minimizing common tour, broader common-tour
-optimization, R_full transfer, new global coefficient, upper construction,
-finite certificate or paper revision is supplied. External independent
-mathematical acceptance remains separate. This entry alone owns the result.
+the earlier prescribed-order discriminator.
 
-**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-8;
+Deleting from any full feasible order omega at radius R retains the
+original radii and all surviving pair constraints. The directed gaps,
+including the wrap, give both induced chain roots at most R. The two
+restrictions share sigma=omega|T_q_*(n); taking fixed-order infima gives
+their maximum at most R_full(omega). The implication above and
+10^-5>10^-12 force R_full(omega)>(C_term+10^-12)*n^2 for every omega.
+The finite minimum over cyclic orders then proves
+
+```text
+R*(n) > (C_term+10^-12)*n^2              for every integer n>=10^14,
+liminf R*(n)/n^2 >= C_term+10^-12.
+```
+
+This uses the unchanged constants and cutoff. The finite strictness is
+proved before taking the global minimum; the liminf conclusion is
+non-strict. Constants and cutoff are conservative, not sharp. No minimizing
+common tour, broader optimization, upper construction, finite optimum
+certificate or paper revision is supplied. External independent mathematical
+acceptance remains separate. This entry alone owns the stability theorem
+and its global corollary.
+
+**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-9;
 bounded exact and numerical corroboration in
 `ops/TASK-20260910__common_chain_stability/check_stability.py` and its dossier.
+The analytic global transfer and exact checks are recorded separately in
+`ops/TASK-20260910__common_chain_global_corollary/`.
 
 ### Increasing-order full asymptotic upper bound
 
@@ -776,6 +797,8 @@ limsup R*(n)/n^2<=C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi)
 
 and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
 possible equality, and either endpoint's sharpness remain unresolved.
+The stronger current lower endpoint is supplied by the common-chain
+stability/global-corollary entry above, which solely owns that improvement.
 
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
@@ -791,7 +814,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term,C_3]`, including whether they agree; improve beyond the
+   `[C_term+10^-12,C_3]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
