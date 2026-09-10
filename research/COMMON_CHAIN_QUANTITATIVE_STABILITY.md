@@ -66,6 +66,11 @@ of the deletion proof. No minimizing common tour, optimized cutoff,
 upper construction, finite certification or public-paper revision is supplied.
 Independent mathematical acceptance remains separate from this proof.
 
+Section 12 refines this lower bound using Section 11, with additive
+coefficient eta_new determined by a monotone cubic. Sections 2-11 retain
+their original statements and information scopes; the strongest current
+finite and asymptotic consequences are (42)-(48) below.
+
 ## 2. Uniform reduction to sqrt-product edge costs
 
 For any cyclic order omega of at least three distinct radii in {1,...,n},
@@ -937,3 +942,273 @@ record exact finite accounting, symbolic identities and deterministic
 prescribed-tour diagnostics. They do not enumerate general tours or
 serve as proof of the all-order theorem. Sole stable ownership remains
 the existing common-chain entry in the global-bounds ledger.
+
+## 12. Refined two-level minimax from the proved deletion envelope
+
+**Status: exact scalar theorem / analytic minimax lower bound / proved
+global corollary, after arXiv v1.** Keep exactly q=q_*, beta=23/100,
+the original radii, ambient normalization n^2 and B_n from Section 1.
+For every integer n>=102, (2), e=W-J_n>=0 and the proved (30) imply
+
+```text
+max{r(sigma),r(sigma|T_beta(n))}
+ >= [J_n+max{e,e+D_n-40*e^(2/3)-432*e}]/pi-1/n.          (40)
+```
+
+The positive outer excess is retained on both branches. All optimization
+below is over one scalar excess shared by the two restrictions. The
+all-tour premise is Section 11, not a sampled family or a new claim about
+the best possible deletion exponent.
+
+### 12.1 Exact global scalar minimum
+
+For d>0 define t(d) as the unique positive root and m(d) by
+
+```text
+P(t)=432*t^3+40*t^2,
+P(t(d))=d,                 m(d)=t(d)^3.
+```
+
+Existence and uniqueness follow because P is continuous, strictly
+increasing on [0,infinity), starts at zero and is unbounded. This root
+characterization is an exact algebraic definition, with no numerical
+root selection. Also set t(0)=m(0)=0 and m(d)=0 for d<0. For every real d,
+
+```text
+min_{e>=0} max{e,e+d-40*e^(2/3)-432*e} = m(d).           (41)
+```
+
+For d<=0 the value at e=0 is zero and the first branch is nonnegative.
+For d>0 set t=e^(1/3), r=t(d). The second branch becomes
+g(t)=d-40*t^2-431*t^3, strictly decreasing for t>=0, whereas t^3 is
+strictly increasing. Their difference is d-P(t), so they meet only
+at t=r. For 0<=t<=r, the dominating second branch obeys the identity
+
+```text
+g(t)-r^3=(r-t)*[40*(r+t)+431*(r^2+r*t+t^2)] >= 0.
+```
+
+For t>=r, the first branch satisfies
+t^3-r^3=(t-r)*(t^2+t*r+r^2)>=0. Equality holds only at t=r.
+Thus the unique minimizer is e=m(d), with value m(d). The proof covers
+zero, the crossing and arbitrarily large excess; it makes no small-e
+assumption or exchange of optimization and limits.
+
+Section 9.1 already proves 0<D_n<2 for all n>=102, including both
+cardinality parities. Taking the finite minimum over common tours in (40)
+therefore proves the exact finite lower bound
+
+```text
+B_n/n^2 >= [J_n+m(D_n)]/pi-1/n.                          (42)
+```
+
+For precision about scalar sharpness, the formal data
+e=m(d), W=J+e, W'=W have Delta=-d and saturate
+|Delta|<=40*e^(2/3)+432*e. They realize the scalar minimum; they do
+not assert the existence of any corresponding tour or configuration.
+Even retaining the old scalar inequality |Delta|<=60*sqrt(e) does not
+raise this minimum for 0<d<2: P(1/6)=28/9>2 implies r<1/6 and
+
+```text
+d^2/m(d)=r*(40+432*r)^2
+         < (1/6)*112^2=6272/3 < 3600.
+```
+
+Hence d<60*sqrt(m(d)) at the new crossing. This also proves
+m(d)>d^2/3600 on that domain. The scalar ceiling applies only to these
+aggregate inequalities, with e>=0; it does not upper-bound B_n or R*(n),
+limit sharper deletion constants or additional information about tours,
+or establish optimality of exponent 2/3.
+
+### 12.2 Asymptotic coefficient and exact rational enclosures
+
+Write t_*=t(D), eta_new=m(D)/pi, with the same actual integral D>0
+from Sections 5 and 9. Since J_n->pi*C, D_n->D and m is continuous,
+the uniform finite inequality (42) gives
+
+```text
+liminf B_n/n^2 >= C+eta_new,
+432*t_*^3+40*t_*^2=D,          eta_new=t_*^3/pi.           (43)
+```
+
+Every displayed terminating decimal below is an exact rational. The
+bounded checker proves strict enclosures
+
+```text
+0.00747297755774039228453004644791959838 < t_*
+  < 0.00747297755774039228453004644791959839,
+1.3284070181357731944366841527895847e-7 < eta_new
+  < 1.3284070181357731944366841527895848e-7,
+0.14056921368595858012283567471592395015 < C+eta_new
+  < 0.14056921368595858012283567471592395016.              (44)
+```
+
+Here is a reproducible rational derivation independent of floating
+quadrature. Recheck Section 9's Taylor gates for tau,q,pi. To independently
+enclose D, use the lower rational q endpoint q_0 from (23), and put
+
+```text
+s=1+q_0,       m_0=(q_0+beta)/2,       h=(beta-q_0)/2,
+A_0=m_0*(s-m_0),
+x=m_0+h*u,    -1<=u<=1,
+x*(s-x)=A_0*(1+v_1*u+v_2*u^2),
+v_1=(s-2*m_0)*h/A_0,      v_2=-h^2/A_0,
+rho=|v_1|+|v_2|<1/10.
+```
+
+Use the degree-40 binomial expansion of sqrt(1+v), whose coefficients
+b_j=binomial(1/2,j) satisfy b_0=1 and
+b_(j+1)=b_j*(1/2-j)/(j+1). Their absolute values are at most one,
+so the pointwise tail for |v|<=rho is at most rho^41/(1-rho).
+If
+
+```text
+S_40=integral_-1^1 sum_{j=0}^40 b_j*(v_1*u+v_2*u^2)^j du,
+T=2*rho^41/(1-rho),
+```
+
+then S_40 is rational by polynomial integration, S_40>T>0, and the
+integral of sqrt(1+v_1*u+v_2*u^2) lies in [S_40-T,S_40+T].
+Obtain rational A_-<=sqrt(A_0)<A_+ of width 10^-50 using an integer
+square root and verify A_-^2<=A_0<A_+^2. Consequently
+
+```text
+h*A_-*(S_40-T) <= integral_q0^beta sqrt(x*(s-x)) dx
+                <= h*A_+*(S_40+T).
+```
+
+Subtract twice these endpoints from
+s*(beta-q_0)-(beta^2-q_0^2)/2 in the outward directions; include
+4*(q_+-q_-) for the analytic moving-endpoint error from Section 9.2.
+Call the resulting rational bounds d_-<D<d_+. They reproduce (24).
+Use the unrounded bounds for the more precise cubic gates
+
+```text
+P(t_-)<d_-<D<d_+<P(t_+),
+t_-^3/pi_+ < eta_new < t_+^3/pi_-.
+```
+
+Strict monotonicity of P proves the root enclosure, and exact rational
+comparisons prove the eta_new bracket in (44). Finally
+C=tau*(1+q)/(2*pi), so the separate positive parameter bounds give
+outward rational bounds for C; add them to those for eta_new to prove
+the total coefficient bracket. No independence of these parameters is
+assumed by interval arithmetic. The same calculation proves
+257<eta_new/eta_60<258. This compares two lower-bound gains only.
+
+### 12.3 Propagating the existing finite errors
+
+For d>0 implicit differentiation, with t=t(d), gives
+
+```text
+m'(d)=3*t/(80+1296*t),             0<m'(d)<1/432,
+d/dt [3*t/(80+1296*t)]=240/(80+1296*t)^2>0.
+```
+
+Thus m is increasing and convex on [0,infinity), with right derivative
+zero at zero. Retain the tighter already-proved versions of (11)-(12):
+|J_n-pi*C|<=5/n and |D_n-D|<=19/(2*n). For x_+=max{x,0}, monotonicity
+in (42) first gives the explicit bound, without linearizing m,
+
+```text
+B_n/n^2 >= C+[m((D-19/(2*n))_+)-5/n]/pi-1/n.            (45)
+```
+
+This retains the nonlinear finite error for every integer n>=102,
+including the range where D-19/(2*n)<=0. It is stronger than the
+following convenient linear consequence. Set
+
+```text
+mu=m'(D)=3*t_* /(80+1296*t_*),
+A=1+[5+(19/2)*mu]/pi.
+```
+
+For every delta>=0, integrate the increasing derivative on
+[(D-delta)_+,D] to obtain
+
+```text
+0<=m(D)-m((D-delta)_+)<=mu*min{delta,D}<=mu*delta.
+```
+
+This also covers delta>=D; no positivity of D-delta is silently
+assumed. Applying delta=19/(2*n) in (45) gives
+
+```text
+B_n/n^2 >= C+eta_new-A/n
+         >= C+eta_new-2.592306/n,                    n>=102,
+2.5923053389421502294191108763168 < A
+  < 2.5923053389421502294191108763170 < 2.592306.          (46)
+```
+
+The displayed strict rational bounds follow by substituting t_-,t_+
+in the increasing function 3*t/(80+1296*t) and using opposite pi
+endpoints. For an algebraic check of the error direction, for 0<=t<=r
+the secant inequality follows from
+
+```text
+3*r*[40*(r+t)+432*(r^2+r*t+t^2)]
+ -(80+1296*r)*(r^2+r*t+t^2)=40*(r-t)*(r+2*t)>=0.
+```
+
+The checker verifies this coefficient identity independently. All finite
+statements use the same floor estimates, parities and common normalization
+as the input proof. No numerical evaluation of floor(q*n) is needed.
+
+### 12.4 Transfer through full-feasible deletion and stopping scope
+
+Take any full feasible configuration on {1,...,n} at radius R with
+order omega. Keeping either terminal subset preserves all its original
+radii, central tangencies and surviving pairwise distance constraints.
+For consecutive surviving radii a,b, let g be their positive directed
+gap, including the closing gap. Full feasibility gives
+min{g,2*pi-g}>=theta_R(a,b), hence g>=theta_R(a,b).
+Summing the surviving directed gaps gives 2*pi, so strict monotonicity
+of the chain closure sum implies R_chain(omega|T)<=R for each subset.
+This is valid for gaps above pi, consecutive deletions and cyclic wrap.
+
+The restrictions share sigma=omega|T_q(n), and restricting sigma again
+to T_beta(n) equals omega|T_beta(n). Their two chain roots are fixed
+numbers for fixed omega. Taking the infimum over full feasible
+configurations of that order, and then minimizing over full orders, gives
+
+```text
+R_full(omega)>=max{R_chain(sigma),R_chain(sigma|T_beta(n))}>=B_n,
+R*(n)>=B_n.                                               (47)
+```
+
+No attainment assumption, chain-only deletion or reconstruction at a
+chain root is used. In particular the strongest finite formula (42),
+its explicit finite-error form (45) and (46) all transfer to R*(n).
+Equations (43)-(47) prove
+
+```text
+liminf R*(n)/n^2 >= C+eta_new,
+R*(n)>=B_n>(C+1.3284e-7)*n^2                 for n>=10^13. (48)
+```
+
+The finite instance is the exact rational gate
+eta_- - 2.592306/10^13 > 1.3284e-7; it also has n>=102.
+More generally a fixed 0<eta'<eta_new gives strict finite bounds
+at C+eta' whenever n>=102 and n>A/(eta_new-eta'). Neither cutoff is
+claimed minimal. Liminf comparisons at C+eta_new are non-strict;
+the lower rational endpoint in (44) gives a strict comparison at that
+smaller total coefficient. Finite strictness at a smaller coefficient
+does not prove strictness at C+eta_new, equality, or a normalized limit.
+
+The [bounded independent checker](../ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py)
+uses only standard-library exact arithmetic by default: fixed Taylor
+degrees, 40 integrated midpoint terms and a proved tail, integer square
+roots, polynomial coefficient identities and rational inequalities.
+It imports neither production code, earlier checkers nor saved results.
+Optional SymPy identities and 80/120-dps quadrature/cubic bisection provide
+independent corroboration. The [task evidence](../ops/TASK-20260910__refined_two_level_minimax/EVIDENCE.md)
+records exact outputs and the analytic full-feasible transfer audit.
+These bounded checks support the scalar algebra and enclosures; they
+do not replace the analytic all-tour theorem or independently review its
+entire dependency chain. External mathematical acceptance remains separate.
+
+This resolves the requested refinement positively and stops here. No
+optimal exponent 2/3, sharp geometric coefficient, minimizing common tour,
+normalized limit, upper construction, finite optimum certificate or
+arXiv-v1 revision follows. Sole stable ownership remains the common-chain
+entry in `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`.

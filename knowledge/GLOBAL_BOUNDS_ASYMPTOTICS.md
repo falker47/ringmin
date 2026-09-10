@@ -368,7 +368,7 @@ liminf R*(n)/n^2 >= C_term+10^-12.
 ```
 
 This finite theorem and its original corollary retain their constants and
-cutoff. The asymptotic minimax extension now preserves the outer excess e
+cutoff. The Section 9 minimax extension preserves the outer excess e
 on both branches of the stated deletion inequality. With the same q, beta,
 original radii and ambient normalization, define
 
@@ -424,15 +424,48 @@ O(e); only crossings of a midpoint deletion cutoff remain after primitive
 cancellation. Exact strip counts cover arbitrarily small excess, floors,
 wrap and both parities without an additive mesh error. Thus no actual-tour
 family realizes a positive square-root lower scale. Exponent 2/3 is not
-asserted optimal. This supports refining the existing two-level deletion
-argument; the discriminator supplies no reason to abandon it for additional
-coupled information. No new scalar or global coefficient is computed, and
-the accepted eta_60 statement keeps its original information scope.
+asserted optimal. Section 11 supplies the improved information used by
+the refinement below; its proof alone does not compute a coefficient.
+The eta_60 statement retains its original scalar information scope.
+
+**Refined lower bound (Section 12; exact theorem / proved corollary).**
+For d>0, define t(d)>0 by 432*t(d)^3+40*t(d)^2=d and m(d)=t(d)^3;
+set m(d)=0 for d<=0. The exact scalar minimum over e>=0 of
+max{e,e+d-40*e^(2/3)-432*e} is m(d), uniquely attained at e=m(d).
+With t_*=t(D), eta_new=m(D)/pi and
+A=1+[5+(19/2)*3*t_* /(80+1296*t_*)]/pi<2.592306, the strongest
+finite formula and its propagated consequences are
+
+```text
+R*(n)>=B_n,
+B_n/n^2 >= [J_n+m(D_n)]/pi-1/n                         (n>=102),
+B_n/n^2 >= C_term+[m((D-19/(2*n))_+)-5/n]/pi-1/n        (n>=102),
+B_n/n^2 >= C_term+eta_new-A/n                          (n>=102),
+liminf B_n/n^2 >= C_term+eta_new,
+liminf R*(n)/n^2 >= C_term+eta_new,
+R*(n)>=B_n>(C_term+1.3284e-7)*n^2                      (n>=10^13),
+1.3284070181357731944366841527895847e-7 < eta_new
+  < 1.3284070181357731944366841527895848e-7,
+0.14056921368595858012283567471592395015 < C_term+eta_new
+  < 0.14056921368595858012283567471592395016.
+```
+
+Here x_+=max{x,0}. Rational Taylor gates, an independently implemented
+midpoint integral enclosure and cubic signs prove the coefficients;
+257<eta_new/eta_60<258. Monotonicity and convexity of m propagate exactly
+the existing 5/n and 19/(2*n) errors, including when the lower D estimate
+is nonpositive. Every bound transfers to R*(n) only by deletion from a
+full feasible configuration, with nested common orders and original radii.
+The old 60*sqrt(e) inequality is nonbinding at the new scalar crossing
+for 0<d<2. Sharpness is restricted to these aggregate scalar inequalities;
+no realizing tour, optimal exponent 2/3, sharp geometric coefficient or
+normalized limit is proved. Liminf comparisons at C_term+eta_new remain
+non-strict. No new finite certificate or publication change is supplied.
 
 This entry alone owns the stability theorem, deletion-exponent improvement,
 minimax extension and global corollaries.
 
-**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-11;
+**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-12;
 bounded exact and numerical corroboration in
 `ops/TASK-20260910__common_chain_stability/check_stability.py` and its dossier.
 The analytic global transfer and exact checks are recorded separately in
@@ -443,6 +476,10 @@ The uniform exponent improvement is proved in Section 11, with bounded
 deterministic exact/symbolic/numerical support in
 `ops/TASK-20260910__deletion_exponent_sharpness/check_sharpness.py`
 and its dossier; external independent review remains separate.
+The refined minimax, rational enclosures and finite/global consequences
+are proved in Section 12 and supported by
+`ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py`
+and its dossier, without production or previous-checker imports.
 
 ### Increasing-order full asymptotic upper bound
 
@@ -877,7 +914,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_60,C_3]`, including whether they agree; improve beyond the
+   `[C_term+eta_new,C_3]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
