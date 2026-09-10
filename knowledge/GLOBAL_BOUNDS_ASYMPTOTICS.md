@@ -407,16 +407,42 @@ non-strict; strict liminf comparisons hold at smaller rational endpoints.
 No minimizing common tour, sharp geometric coefficient, normalized limit,
 upper construction, finite optimum certificate or paper revision is
 supplied. External independent mathematical acceptance remains separate.
-This entry alone owns the stability theorem, minimax extension and global
-corollaries.
+The square-root loss in the deletion estimate is now **proved not sharp
+for actual cyclic orders**. With exactly e=W(sigma)-J_n and
+Delta=W(sigma|T_beta(n))-W(sigma)-D_n, every n>=102 and every outer tour
+satisfy the exact theorem
 
-**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-10;
+```text
+|Delta|<=40*e^(2/3)+432*e,
+sup_{n>=102, sigma: 0<e<=epsilon} |Delta|/sqrt(e)
+ <=40*epsilon^(1/6)+432*sqrt(epsilon) -> 0.
+```
+
+The proof retains signed first variations through an exact reflected-edge
+measure with equal grid marginals. Maximal nonisolated deleted runs cost
+O(e); only crossings of a midpoint deletion cutoff remain after primitive
+cancellation. Exact strip counts cover arbitrarily small excess, floors,
+wrap and both parities without an additive mesh error. Thus no actual-tour
+family realizes a positive square-root lower scale. Exponent 2/3 is not
+asserted optimal. This supports refining the existing two-level deletion
+argument; the discriminator supplies no reason to abandon it for additional
+coupled information. No new scalar or global coefficient is computed, and
+the accepted eta_60 statement keeps its original information scope.
+
+This entry alone owns the stability theorem, deletion-exponent improvement,
+minimax extension and global corollaries.
+
+**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-11;
 bounded exact and numerical corroboration in
 `ops/TASK-20260910__common_chain_stability/check_stability.py` and its dossier.
 The analytic global transfer and exact checks are recorded separately in
 `ops/TASK-20260910__common_chain_global_corollary/`.
 The minimax extension and its exact enclosures are supported by
 `ops/TASK-20260910__two_level_minimax_bound/check_minimax.py` and its dossier.
+The uniform exponent improvement is proved in Section 11, with bounded
+deterministic exact/symbolic/numerical support in
+`ops/TASK-20260910__deletion_exponent_sharpness/check_sharpness.py`
+and its dossier; external independent review remains separate.
 
 ### Increasing-order full asymptotic upper bound
 

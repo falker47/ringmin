@@ -693,3 +693,247 @@ The sole stable owner is the common-chain-stability entry in
 [the global ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
 The earlier prescribed-order proof and its historical limited scope remain
 unchanged; this note supplies the additional uniform argument.
+
+## 11. The square-root loss is not sharp for actual cyclic tours
+
+**Status: exact theorem / proved uniform little-o corollary, after arXiv v1.**
+Keep exactly q=q_*, beta=23/100, k, ell, a, s, W, J_n and D_n from
+Sections 1-4. For every integer n>=102 and every genuine cyclic order
+sigma on {k,...,n}, put
+
+```text
+e=W(sigma)-J_n,
+Delta=W(sigma|T_beta(n))-W(sigma)-D_n.
+```
+
+Then the following uniform improvement holds:
+
+```text
+|Delta| <= 40*e^(2/3)+432*e.                              (30)
+```
+
+In particular, for every 0<e<=epsilon the quotient satisfies
+
+```text
+|Delta|/sqrt(e) <= 40*epsilon^(1/6)+432*sqrt(epsilon) -> 0
+                                                   as epsilon -> 0. (31)
+```
+
+The supremum implicit here ranges over all n>=102 and all their cyclic
+orders with 0<e<=epsilon. Thus no deterministic or other family of actual
+tours with e->0 can have |Delta|>=c*sqrt(e) for a fixed c>0. The bound
+does not assert that exponent 2/3 is itself sharp. No new optimization of
+60, beta, q, the scalar minimax or a geometric coefficient is undertaken.
+
+### 11.1 Exact finite measure and a midpoint cutoff
+
+Let V={k/n,...,1}, r(x)=s-x and
+
+```text
+E=(1/n)*sum_{undirected cyclic edges {x,y}} (x+y-s)^2.
+```
+
+Here, as in Section 3, an undirected edge is counted once in the cycle.
+Equation (6) gives E<=8*e. Replace each cyclic edge by its two orientations
+(x,y) and (y,x), and define the finite measure
+
+```text
+mu=(1/(2*n))*sum_{oriented edges (x,y)} delta_(x,r(y)),
+nu=(1/n)*sum_{x in V} delta_x.
+```
+
+Both marginals of mu equal nu exactly: each vertex occurs twice as a
+first endpoint, twice as a second endpoint, and r permutes V. Consequently
+for every function F on V,
+
+```text
+integral [F(x)-F(z)] dmu(x,z)=0,
+integral (x-z)^2 dmu(x,z)=E.                              (32)
+```
+
+These are finite identities, not a continuum approximation. A reflection
+fixed point when n-k+1 is odd changes neither identity; it is a coordinate
+in the measure, not a loop added to the tour. The measure's total mass is
+(n-k+1)/n, with the normalization above unchanged.
+
+Place the cutoff at
+
+```text
+B=(ell-1/2)/n.
+```
+
+For x in V, x<B is exactly the condition that x is deleted. No grid
+point equals B, and each grid point has distance at least 1/(2*n) from B.
+For every real h>0 the following exact bound holds:
+
+```text
+nu({x: |x-B|<=h}) <= 4*h.                                (33)
+```
+
+Indeed the set is empty if h<1/(2*n). Otherwise its grid-point count
+is at most 2*n*h+1, whose mass is at most 2*h+1/n<=4*h.
+Truncation at k/n or 1 only decreases that count. This midpoint choice
+removes a possible mesh error even when h is smaller than a grid step.
+
+### 11.2 Deletion equals a signed first variation up to O(E)
+
+For x in [a,1] define
+
+```text
+p(x)=(1-sqrt(x/(s-x)))/2,
+P(x)=p(x)*1_{x<B},
+L=(1/n)*sum_{deleted vertices x} p(x)*sum_{y adjacent to x}(x+y-s)
+ =2*integral P(x)*(x-z) dmu(x,z).                         (34)
+```
+
+All adjacent vertices in the sums refer to the original cyclic tour.
+In particular L includes both endpoints of any LL edge. The factor 2
+in (34) follows from the mass 1/(2*n) for each oriented edge.
+
+Consider an isolated deleted vertex x with surviving neighbors y,z and
+t=s-x. Use g(x;y,z) from Section 4. Its two first derivatives at (t,t)
+are both p(x), and g(x;t,t)=D_a(x). Its Hessian in (y,z) has entries
+
+```text
+g_yy=(sqrt(x)-sqrt(z))/(4*y^(3/2)),
+g_zz=(sqrt(x)-sqrt(y))/(4*z^(3/2)),
+g_yz=1/(4*sqrt(y*z)).
+```
+
+Throughout [a,1]^3, with a>1/6, the absolute diagonal entries are less
+than 4 and the off-diagonal entries are less than 2. For example,
+1/(4*a^(3/2))<3*sqrt(6)/2<4. The symmetric Hessian has operator norm
+at most 6, so Taylor's theorem along the segment from (t,t) to (y,z)
+gives
+
+```text
+|g(x;y,z)-D_a(x)-p(x)*[(y-t)+(z-t)]|
+ <= 3*[(y-t)^2+(z-t)^2].                                 (35)
+```
+
+The segment stays in [a,1]^2. Summed over isolated deleted vertices,
+each incident edge occurs at most once; after division by n their total
+Taylor error is at most 3*E.
+
+For all nonisolated maximal deleted runs, let M_LL be the number of
+original edges with both endpoints deleted and V_bad their total number
+of deleted vertices. Section 4's exact cyclic accounting gives
+
+```text
+V_bad<=2*M_LL,
+|total discrepancy of these runs|<=8*M_LL/n.
+```
+
+For completeness, a run of length m>=2 replaces m+1 edges by one edge.
+Each weight lies in [0,1], so its cost change has absolute value at most
+m+1<=2*m. Subtracting its m ideal changes, each of absolute value at
+most 2, costs at most 4*m. Also m<=2*(m-1); summing proves these bounds.
+For every deleted x, 0<p(x)<1/2 because x<B<b<s/2. Since every defect
+has absolute value at most 1-a<1, the part of L incident to the bad
+vertices has absolute value at most V_bad/n<=2*M_LL/n.
+Every LL edge has |x+y-s|>1/2 by (8); hence M_LL/n<=4*E. Combining
+the isolated and nonisolated contributions proves
+
+```text
+|Delta-L| <= 3*E+10*M_LL/n <= 43*E.                       (36)
+```
+
+Runs partition removed and replacement edges even when a run crosses the
+written start: rotate to a survivor first. The surviving set has at least
+three vertices, so this operation always exists and produces exactly its
+cyclic restriction, including the final replacement edge. No adjacency
+pattern or independence assumption about the deleted vertices was used.
+
+### 11.3 Marginal cancellation leaves only threshold crossings
+
+On the whole interval [a,1], the smooth function p satisfies
+
+```text
+|p(x)|<1,
+p'(x)=-s/(4*sqrt(x)*(s-x)^(3/2)),
+|p'(x)| <= s/(4*a^2) < 54/5 < 11.                        (37)
+```
+
+Here s=1+a<6/5 and a>1/6. The square-root ratio is less than sqrt(6)<3,
+which proves the first bound. Define the continuous, piecewise smooth
+primitive F(u)=integral_a^u P(v) dv on [a,1]. For grid points x,z,
+integrating P(x)-P(v) along the segment gives
+
+```text
+|P(x)*(x-z)-[F(x)-F(z)]|
+ <= (11/2)*(x-z)^2
+      + |x-z|*1_{(x-B)*(z-B)<0}.                         (38)
+```
+
+One direct justification is
+P(x)-P(v)=1_{x<B}*[p(x)-p(v)]+p(v)*[1_{x<B}-1_{v<B}].
+The first term integrates to at most (11/2)*(x-z)^2. The second is
+zero unless the segment crosses B and otherwise integrates to at most
+|x-z|. This argument covers both directions of the segment; endpoints
+never equal B. Values at the single integration point B do not matter.
+
+Let
+
+```text
+K=integral |x-z|*1_{(x-B)*(z-B)<0} dmu(x,z).
+```
+
+Integrating (38), using the exact cancellation (32) and (34), gives
+|L|<=11*E+2*K. For any h>0 split K by |x-z|<=h and |x-z|>h.
+On a short crossing, |x-B|<=h; use the first marginal and (33).
+On a long crossing, |x-z|<=(x-z)^2/h. Therefore
+
+```text
+K <= h*nu({x: |x-B|<=h})+E/h <= 4*h^2+E/h.              (39)
+```
+
+If E>0 choose h=E^(1/3). There is no restriction on h relative to 1/n
+or to the interval endpoints. Equations (36)-(39) give
+
+```text
+|Delta| <= 54*E+10*E^(2/3)
+        <= 432*e+40*e^(2/3),
+```
+
+proving (30). If E=0, (32) concentrates mu on x=z, so L=0 and (36)
+gives Delta=0 directly. In fact a genuine cycle here has E>0: a zero
+defect would give every vertex only its unique reflected neighbor,
+inconsistent with two distinct neighbors in a cycle of at least three
+vertices. Thus e>0 for the actual tours, and division in (31) is valid.
+
+The accepted rational gates give (8) for every n>=102. No other
+information about floor(q*n) or floor(beta*n) was used. The exact grid
+reflection, midpoint mass bound, degrees and maximal-run accounting are
+independent of both outer and restricted cardinality parities. In
+particular there is no additive O(1/n) error to obstruct the little-o
+statement along extremely small-excess sequences. The near-minimizing
+regime is nonempty: (7) gives actual Supnick tours with e=O(n^-2).
+
+### 11.4 Precise implication for the two-level method
+
+The square-root barrier is an artifact of the absolute-value step in
+Section 4. Actual tour degrees enforce the signed cancellation (32),
+which its scalar relaxation omits. The fixed two-level method should
+therefore be refined using this cancellation; this discriminator gives
+no reason to abandon it in favor of additional coupled information.
+For example the available edge-cost envelope can now use
+
+```text
+max{e, e+D_n-40*e^(2/3)-432*e}
+```
+
+with the same exact e, J_n, D_n and root sandwich. Optimizing that
+envelope, improving its constants, determining the best deletion
+exponent, or deciding how much more coupling is ultimately needed are
+not part of this result. Section 9 remains the sharp scalar consequence
+of its explicitly stated old information; (30) supplies new information
+about actual tours and does not alter that historical statement or its
+accepted global coefficients. No geometric realization or sharpness of
+the broader common-tour minimax follows.
+
+The [task evidence](../ops/TASK-20260910__deletion_exponent_sharpness/EVIDENCE.md)
+and [bounded checker](../ops/TASK-20260910__deletion_exponent_sharpness/check_sharpness.py)
+record exact finite accounting, symbolic identities and deterministic
+prescribed-tour diagnostics. They do not enumerate general tours or
+serve as proof of the all-order theorem. Sole stable ownership remains
+the existing common-chain entry in the global-bounds ledger.

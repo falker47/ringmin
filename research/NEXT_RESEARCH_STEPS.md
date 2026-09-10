@@ -46,8 +46,11 @@ macroscopic discriminator is resolved by
 has positive quadratic restricted-chain excess. The quantitative stability
 question for q_* and beta=23/100 is now resolved positively by
 `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`; Section 8 transfers it
-to a strict global lower bound at the unchanged cutoff. The uniform proof
-and its global corollary are the next review priority. Broader common-tour
+to a strict global lower bound at the unchanged cutoff. Section 9 gives
+its accepted scalar minimax consequence. Section 11 resolves the deletion
+exponent discriminator: actual tour marginals permit a uniform improvement
+over the square-root loss. Review this new cancellation argument before
+refining the two-level bound. Broader common-tour
 optimization and simultaneously coupled levels remain open. Further third-block width
 refinement and transfer of the continuous optimal width are deferred.
 
@@ -1018,19 +1021,29 @@ and a full-feasible-deletion corollary. The scalar optimality statement
 does not cap sharper deletion estimates or the broader two-level method.
 Stable coefficients and claim detail belong solely to the global ledger.
 
-## Priority 1 — Independent review of the asymptotic two-level minimax extension
+## Resolved priority — Actual-tour deletion exponent discriminator
 
-Exactly one next atomic task: independently review
+Section 11 of `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` rules out
+square-root sharpness uniformly over genuine tours. It keeps the exact
+finite reference and deletion sum, uses degree-induced marginal cancellation,
+and handles the threshold with a midpoint grid cutoff. The classified bound
+and its limitations belong solely to the global-bounds ledger. Refine the
+two-level deletion argument after review; this outcome does not justify
+abandoning it for additional coupled information. The optimal improved
+exponent and any new minimax coefficient remain outside this resolved task.
+
+## Priority 1 — Independent review of the deletion exponent improvement
+
+Exactly one next atomic task: independently review Section 11 of
 `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` at committed HEAD.
-Audit the Section 9 scalar envelope, retained outer excess, global scalar
-minimum, finite D_n domain and uniform errors. Reproduce the rational
-Taylor/integral enclosures, checking the positive tail and moving-q error.
-Check full-feasible deletion and the finite versus liminf strictness.
-Inspect the root sandwich, dual and run-accounting dependencies and keep
-the scalar ceiling distinct from geometric sharpness or limits on improved
-deletion inequalities. Run the bounded checker and record acceptance or
-corrections. Stop before further constant refinement, enumeration,
-finite certification or upper constructions.
+Audit the signed first variation, orientation factor, exact reflected
+marginals, primitive cancellation, midpoint strip bound at submesh scales,
+nonisolated maximal runs, cyclic wrap and both parities. Reproduce the
+bounded checker and check uniform little-o without an additive floor error.
+Record acceptance or corrections, preserving the distinction between a
+proved improved exponent and its unproved optimality. Stop before another
+exponent/constant optimization, minimax refinement, general-tour enumeration,
+additional coupling, finite certification or upper constructions.
 
 ## Deferred dependency review — Macroscopic discriminator
 
@@ -1304,9 +1317,10 @@ Determine the true normalized liminf and limsup within
 `[C_term+eta_60,C_3]`, and whether they agree. Prioritize stronger valid lower
 bounds beyond the current coupled-pair corollary, which already improves
 the resolved single-subset envelope. The optimized scalar consequence is
-small in absolute size; larger progress needs information beyond the stated
-deletion estimate. The minimax extension awaits independent review before
-further lower-bound work. Further three-block refinement is deferred.
+small in absolute size; Section 11 now supplies stronger deletion information
+from actual tour marginals. Review that proof, then prioritize the indicated
+two-level refinement before deciding whether additional coupled information
+is needed. Further three-block refinement is deferred.
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in
