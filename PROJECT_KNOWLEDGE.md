@@ -79,10 +79,13 @@ reminders above do not replace the full classified entry in its owner.
 
 ## Navigation and authority rules
 
-1. Start here, then read only the thematic ledger or ledgers relevant to the
-   task.
-2. Within each ledger, use its explicit epistemic status and source links;
-   follow a link only when the task needs the underlying detail.
+1. Start with this compact index and `CURRENT_STATUS.md`, then locate only
+   the relevant thematic ledger sections. Use a heading search (for example,
+   `rg -n '^#{1,3} ' knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`) or a scoped
+   topic search before reading a range. Do not load a large ledger wholesale
+   when a targeted section or source suffices; do not preload unrelated ledgers.
+2. Within each selected section, use its explicit epistemic status and source
+   links; read only the proof-note sections and dependencies needed by the task.
    Source paths recorded in ledgers are repository-root-relative.
 3. For mathematical detail, the linked proof note or published theorem
    controls over every compact ledger summary.
@@ -95,3 +98,12 @@ reminders above do not replace the full classified entry in its owner.
    priorities belong only in `research/NEXT_RESEARCH_STEPS.md`.
 7. If a source and summary conflict, correct the summary in its owning ledger;
    do not silently revise the source, publication history, or another module.
+8. Treat `ops/TASK-*` as cold audit/provenance storage. Open only the specific
+   dossier or checker identified by the current task, reviewed diff, or a
+   relevant source link. Never scan dossiers broadly for orientation; required
+   review of the changed task's evidence remains part of verification.
+9. `docs/archive/` and explicitly historical submission/post-arXiv records
+   are non-authoritative for current priorities and status. The roadmap links
+   its historical snapshot for targeted history retrieval; do not load that
+   archive during routine orientation. Historical review requests do not
+   establish current priorities or imply that a review was completed.

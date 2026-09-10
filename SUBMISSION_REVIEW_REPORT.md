@@ -4,7 +4,10 @@
 > process record. arXiv v1 is now public as
 > [arXiv:2607.28654](https://arxiv.org/abs/2607.28654); see
 > [Post-ArXiv publication repo update](#post-arxiv-publication-repo-update) at
-> the end for current status and remaining manual tasks.
+> the end for the follow-up status and manual tasks recorded at that time.
+> This entire report is historical, including that later update. Current
+> priorities belong only to the [research roadmap](research/NEXT_RESEARCH_STEPS.md)
+> and current task state to [CURRENT_STATUS.md](CURRENT_STATUS.md).
 
 Date: 2026-06-16
 

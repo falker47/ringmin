@@ -1,5 +1,12 @@
 # Post-arXiv tasks
 
+> **Historical post-arXiv-v1 follow-up record; not a current task list.**
+> The suggestions below are preserved as originally recorded; their presence
+> does not establish whether they were completed or authorize an action now.
+> Current priorities belong only to the [research roadmap](../research/NEXT_RESEARCH_STEPS.md),
+> current task state to [CURRENT_STATUS.md](../CURRENT_STATUS.md), and
+> scientific navigation to [PROJECT_KNOWLEDGE.md](../PROJECT_KNOWLEDGE.md).
+
 The paper is public as arXiv v1:
 
 - arXiv: [2607.28654](https://arxiv.org/abs/2607.28654)

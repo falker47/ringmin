@@ -3,8 +3,10 @@
 > **Archived pre-publication material.** Endorsement and submission are
 > complete, and arXiv v1 is public as
 > [arXiv:2607.28654](https://arxiv.org/abs/2607.28654) in `cs.CG`. The unchecked
-> items below are retained only as process history; current follow-up items are
-> listed in `docs/post_arxiv_tasks.md`.
+> items below are retained only as process history. The later follow-up record
+> in [docs/post_arxiv_tasks.md](docs/post_arxiv_tasks.md) is also historical.
+> Current priorities belong only to the [research roadmap](research/NEXT_RESEARCH_STEPS.md)
+> and current task state to [CURRENT_STATUS.md](CURRENT_STATUS.md).
 
 ## Pre-Submission Repo Checks
 

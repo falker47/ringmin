@@ -91,7 +91,7 @@ Each document class has one role. Do not create overlapping global summaries.
 6. **`CURRENT_STATUS.md`** contains only the current task, its state, blockers, verification gates, and exactly one next atomic task.
 7. **`research/NEXT_RESEARCH_STEPS.md`** is the sole ranked research roadmap. It does not contain proofs or task chronology.
 8. **`results/`, `verify.py`, generation scripts, and recorded provenance** jointly support certification claims. An artifact flag or filename is never authoritative by itself.
-9. **`ops/TASK-*`** contains task-local status, append-only chronology, and evidence.
+9. **`ops/TASK-*`** is cold audit/provenance storage for task-local status, append-only chronology, and evidence. Open only dossiers/checkers identified by the current task, reviewed diff, or a relevant source link; never scan it broadly for orientation.
 10. **`README.md`** is the public overview and reproduction entry point. It must remain accurate but is not the detailed proof or certificate authority.
 11. **`REPORT.md`, generated tables, CSV mirrors, figures, PDFs, and other derived assets** are synchronized outputs, not independent sources of truth.
 
@@ -118,8 +118,8 @@ Before editing, Codex must:
 1. locate the repository root and read the applicable `AGENTS.md`;
 2. inspect `git status --short` and require a clean tree unless the task explicitly concerns the existing changes;
 3. read the canonical index `PROJECT_KNOWLEDGE.md` and `CURRENT_STATUS.md`;
-4. use the index to read only the `knowledge/*.md` thematic modules pertinent to the task; do not preload unrelated modules;
-5. read the relevant roadmap entry, linked proof note, task dossier, code, test, artifact, verifier, and publication source;
+4. use the compact index to locate relevant `knowledge/*.md` sections, then read only those sections and the proof/source detail needed for the task; use heading or scoped text searches before opening a large ledger, and do not load it wholesale when a targeted section/source suffices;
+5. read the relevant current roadmap entry and follow specific links to needed proof notes, dossiers, code, tests, artifacts, verifier, and publication sources; historical archives and `ops/TASK-*` are cold storage, not general orientation material or competing roadmap/status sources;
 6. identify the exact expected delta and protected paths before modifying anything;
 7. classify the task as `STANDARD` or `STRICT`;
 8. state which claims, artifacts, and verification layers may be affected;
