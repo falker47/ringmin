@@ -328,8 +328,8 @@ corroboration in `ops/TASK-20260909__macroscopic_terminal_discriminator/`.
 
 ### Quantitative stability for the fixed macroscopic common-chain pair
 
-**Status:** exact theorem / quantitative asymptotic stability / proved global
-corollary, after arXiv v1.
+**Status:** exact theorem / quantitative asymptotic stability / asymptotic
+minimax lower bound / proved global corollary, after arXiv v1.
 
 Fix the terminal optimizer q_*=1/lambda_* and beta=23/100, retaining the
 original radii in T_q(n)={floor(q*n),...,n}. For every integer n>=10^14
@@ -367,19 +367,56 @@ R*(n) > (C_term+10^-12)*n^2              for every integer n>=10^14,
 liminf R*(n)/n^2 >= C_term+10^-12.
 ```
 
-This uses the unchanged constants and cutoff. The finite strictness is
-proved before taking the global minimum; the liminf conclusion is
-non-strict. Constants and cutoff are conservative, not sharp. No minimizing
-common tour, broader optimization, upper construction, finite optimum
-certificate or paper revision is supplied. External independent mathematical
-acceptance remains separate. This entry alone owns the stability theorem
-and its global corollary.
+This finite theorem and its original corollary retain their constants and
+cutoff. The asymptotic minimax extension now preserves the outer excess e
+on both branches of the stated deletion inequality. With the same q, beta,
+original radii and ambient normalization, define
 
-**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-9;
+```text
+B_n=min_{sigma cyclic on T_q(n)}
+          max{R_chain(sigma),R_chain(sigma|T_beta(n))},
+D=integral_q^(23/100) [1+q-x-2*sqrt(x*(1+q-x))] dx,
+eta_60=D^2/(3600*pi).
+```
+
+The exact scalar minimum of max{e,e+D-60*sqrt(e)} is D^2/3600. The
+uniform finite estimates, followed by full-feasible deletion, prove
+
+```text
+R*(n)>=B_n,
+B_n/n^2 >= C_term+eta_60-3/n                    (n>=102),
+liminf B_n/n^2 >= C_term+eta_60,
+liminf R*(n)/n^2 >= C_term+eta_60,
+R*(n)>=B_n>(C_term+5.152e-10)*n^2               (n>=10^14).
+```
+
+Exact rational Taylor/integral enclosures give
+
+```text
+0.00241410289623904895465331017 < D
+  < 0.00241410289623904895465331018,
+5.1529885884211781970537738e-10 < eta_60
+  < 5.1529885884211781970537739e-10.
+```
+
+This is more than 515 times the old 10^-12 gap. It is the sharp scalar
+consequence of the stated 60*sqrt(e) estimate, not a ceiling on sharpened
+deletion estimates or the broader two-level method, and not a tour or
+geometric upper bound. Both liminf inequalities at C_term+eta_60 are
+non-strict; strict liminf comparisons hold at smaller rational endpoints.
+No minimizing common tour, sharp geometric coefficient, normalized limit,
+upper construction, finite optimum certificate or paper revision is
+supplied. External independent mathematical acceptance remains separate.
+This entry alone owns the stability theorem, minimax extension and global
+corollaries.
+
+**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-10;
 bounded exact and numerical corroboration in
 `ops/TASK-20260910__common_chain_stability/check_stability.py` and its dossier.
 The analytic global transfer and exact checks are recorded separately in
 `ops/TASK-20260910__common_chain_global_corollary/`.
+The minimax extension and its exact enclosures are supported by
+`ops/TASK-20260910__two_level_minimax_bound/check_minimax.py` and its dossier.
 
 ### Increasing-order full asymptotic upper bound
 
@@ -814,7 +851,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+10^-12,C_3]`, including whether they agree; improve beyond the
+   `[C_term+eta_60,C_3]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.

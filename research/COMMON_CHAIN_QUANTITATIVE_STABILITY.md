@@ -1,8 +1,8 @@
 # Quantitative stability for one common pair of terminal chain tours
 
     status=PROVED
-    classification=exact theorem / quantitative asymptotic stability / proved global corollary
-    domain=all cyclic orders; all integers n>=10^14
+    classification=exact theorem / asymptotic minimax lower bound / proved global corollary
+    domain=all cyclic orders; finite stability n>=10^14; minimax estimate n>=102
     proved_on=2026-09-10
     published_snapshot=arXiv v1 remains unchanged
 
@@ -36,11 +36,34 @@ Thus the requested statement is **true**, with explicit
 epsilon=10^-12 and delta=10^-5. The constants and sufficient cutoff are
 not asserted sharp. No search at the cutoff is needed or proposed.
 
-Sections 2-7 concern precisely these two chain costs. Section 8 transfers
-their incompatibility to R_full and R*, with the same constants and cutoff.
-It proves R*(n)>(C+10^-12)*n^2 and liminf R*(n)/n^2>=C+10^-12.
-No minimizing common tour, optimized cutoff or general tradeoff, upper
-construction, finite certification or public-paper revision is supplied.
+Sections 2-7 retain this finite theorem. Section 8 retains its original
+global transfer with the same constants and cutoff. Section 9 optimizes
+the asymptotic consequence of the stated deletion estimate (9), using
+the actual integral D rather than its coarse lower bound m. Define
+
+```text
+B_n=min_{sigma cyclic on T_q(n)}
+          max{R_chain(sigma), R_chain(sigma|T_beta(n))},
+eta_60=D^2/(3600*pi),
+D=integral_q^(23/100) [1+q-x-2*sqrt(x*(1+q-x))] dx.
+```
+
+The new exact theorem and full-feasible-deletion corollary are
+
+```text
+R*(n) >= B_n,
+B_n/n^2 >= C+eta_60-3/n                         (n>=102),
+liminf B_n/n^2 >= C+eta_60,
+liminf R*(n)/n^2 >= C+eta_60,
+5.1529885884211781970537738e-10 < eta_60
+                              < 5.1529885884211781970537739e-10.
+```
+
+In particular R*(n)>=B_n>(C+5.152e-10)*n^2 for n>=10^14.
+The coefficient eta_60 is sharp for the scalar information in (2),
+e>=0, (9), (11)-(12), not asserted sharp for tours or for refinements
+of the deletion proof. No minimizing common tour, optimized cutoff,
+upper construction, finite certification or public-paper revision is supplied.
 Independent mathematical acceptance remains separate from this proof.
 
 ## 2. Uniform reduction to sqrt-product edge costs
@@ -404,12 +427,12 @@ max{R_chain(sigma),R_chain(sigma|T_beta(n))}
 ```
 
 **Strict bound before global minimization.** Write
-A_n=(C+10^-12)*n^2 and B_n=(C+10^-5)*n^2, so B_n>A_n.
+A_n=(C+10^-12)*n^2 and U_n=(C+10^-5)*n^2, so U_n>A_n.
 If R_full(omega)<=A_n, (18) implies R_chain(sigma)<=A_n.
 The all-order theorem (1) then gives
 
 ```text
-B_n <= R_chain(sigma|T_beta(n)) <= R_full(omega) <= A_n,
+U_n <= R_chain(sigma|T_beta(n)) <= R_full(omega) <= A_n,
 ```
 
 a contradiction. Hence R_full(omega)>A_n for every omega. For each fixed
@@ -423,7 +446,227 @@ C+10^-12, or a lower coefficient C+10^-5. No constants from Sections 1-7
 were changed or optimized. This is an analytic global lower bound, not
 a finite optimum certificate, a sharp coefficient or a convergence theorem.
 
-## 9. Evidence and ownership
+## 9. Asymptotic two-level minimax with the actual deletion integral
+
+**Status: exact analytic lower-bound theorem / proved global corollary.**
+Throughout this section q=q_* and beta=23/100 are fixed. The minimax B_n
+is defined in Section 1; both restrictions use the original radii and
+the ambient normalization n^2. No order enumeration is involved.
+
+### 9.1 Preserve the outer excess on both branches
+
+For any outer tour write W=W(sigma), W'=W(sigma|T_beta(n)) and
+e=W-J_n>=0. Equations (2) and (9) imply, uniformly in the order,
+
+```text
+max{r(sigma),r(sigma|T_beta(n))}
+ >= [J_n+max{e,e+D_n-60*sqrt(e)}]/pi-1/n.                 (19)
+```
+
+The positive e in the second branch matters: replacing W by J_n before
+optimizing would lose information. One must minimize the maximum over a
+single common e, not minimize the two roots independently.
+
+Here is the exact scalar optimization, for any K>0 and 0<d<K^2/2:
+
+```text
+min_{e>=0} max{e,e+d-K*sqrt(e)} = d^2/K^2.               (20)
+```
+
+Set t=sqrt(e), t_0=d/K. If t>=t_0, the first branch is at least
+t_0^2. If 0<=t<=t_0, the second branch dominates and
+
+```text
+t^2+d-K*t-t_0^2 = (t_0-t)*(K-t_0-t) >= 0.
+```
+
+The second factor is positive because 2*t_0<K. Equality in the
+minimax occurs at t=t_0, where both branches equal t_0^2.
+This is a global argument on e>=0, including arbitrarily large excess,
+and does not presume that a minimizing sequence has e near zero.
+
+For n>=102, Section 4 gives a>1/6 and x<b<=23/100 for every deleted
+vertex. Thus 1+a-5*x>7/6-23/20=1/60>0, so D_a(x)>0. The deleted
+set is nonempty and |D_a(x)|<=2; consequently 0<D_n<2<1800.
+Use (20) with K=60,d=D_n in (19) and take the finite minimum over
+outer tours. This proves the exact finite bound
+
+```text
+B_n/n^2 >= J_n/pi + D_n^2/(3600*pi)-1/n.                 (21)
+```
+
+Since J_n->pi*C and D_n->D>0, it already follows that
+
+```text
+liminf B_n/n^2 >= C+eta_60,    eta_60=D^2/(3600*pi)>0.    (22)
+```
+
+No interchange of a limit and an order-dependent minimum is needed:
+(21) is uniform and holds before the limit. In the limit, the equivalent
+root-excess envelope is
+
+```text
+max{u, u+D/pi-(60/sqrt(pi))*sqrt(u)},       u>=0.
+```
+
+Its crossing is u=eta_60. At that point both branches equal eta_60;
+their maximum cannot be strictly above it on the whole scalar domain.
+The formal scalar data e=D^2/3600 and W'=W=pi*C+e obey the limiting
+deletion estimate with equality. Thus (22) is the strongest coefficient
+forced by these aggregate scalar inequalities. Such scalar data are
+not a construction of tours or configurations. This ceiling applies
+to the stated 60*sqrt(e) estimate (9); it does not limit a sharper
+deletion estimate, including reworking the unrounded run estimates in
+Section 4, nor does it upper-bound B_n or R*(n).
+
+### 9.2 Exact enclosure of the actual integral
+
+All terminating decimals in this subsection denote exact rationals.
+The following strict brackets are verified by rational Taylor gates:
+
+```text
+0.7390851332151606416553120876738734040134 < tau
+  < 0.7390851332151606416553120876738734040135,
+0.1950200913506069300798071259134151019366 < q
+  < 0.1950200913506069300798071259134151019367,
+3.1415926535897932384626433832795028841971 < pi
+  < 3.1415926535897932384626433832795028841972.            (23)
+```
+
+For explicit reproduction, let P_j,Q_j be the degree-j cosine and sine
+Taylor polynomials at zero and let tau_-,tau_+ denote the displayed
+endpoints. Alternating remainders on (0,1) give
+
+```text
+P_82(tau_-)>tau_-,        P_80(tau_+)<tau_+,
+Q_83(tau_-)<sin(tau)<Q_81(tau_+).
+```
+
+Strict decrease of cos(t)-t proves the tau bracket. Apply the decreasing
+map v -> (1-v)/(1+v) to the two sine bounds and compare rationally with
+the displayed q endpoints. For pi use Machin's identity
+pi=16*atan(1/5)-4*atan(1/239). Its angle identity follows from
+tan(4*atan(1/5))=120/119 and
+(120/119-1/239)/(1+120/(119*239))=1, on the branch (0,pi/2).
+The alternating atan sums through indices 40 and 41 enclose each atan;
+subtract in the outward directions and compare with (23).
+
+To enclose D without floating quadrature, set q_0 to the lower rational
+endpoint for q in (23), s_0=1+q_0, z_q=(1-q_0)/s_0 and
+z_b=(s_0-2*beta)/s_0. Then 0<z_b<z_q<1 and
+
+```text
+D(q_0,beta)=s_0*(beta-q_0)-(beta^2-q_0^2)/2-2*I,
+I=(s_0^2/4)*integral_(z_b)^(z_q) sqrt(1-z^2) dz.
+```
+
+Use the convergent expansion with positive decreasing coefficients
+
+```text
+sqrt(1-z^2)=1-sum_{j>=1} c_j*z^(2*j),
+c_1=1/2,       c_(j+1)=c_j*(2*j-1)/(2*(j+1)).
+```
+
+With M=80, termwise integration and a geometric majorant of the tail give
+
+```text
+I_+=(s_0^2/4)*[z_q-z_b
+       -sum_{j=1}^M c_j*(z_q^(2*j+1)-z_b^(2*j+1))/(2*j+1)],
+T=(s_0^2/4)*(z_q-z_b)*c_(M+1)*z_q^(2*M+2)/(1-z_q^2),
+I_+-T <= I <= I_+.
+```
+
+Every expression is rational. To restore the true q, differentiate the
+integral with its moving lower endpoint:
+
+```text
+partial_q D(q,beta)=-D_q(q)
+     + integral_q^beta [1-sqrt(x/(1+q-x))] dx.
+```
+
+The bounds |D_q(q)|<=2 and |partial_q D_q(x)|<=2 from (10) give
+|partial_q D(q,beta)|<=4 throughout the tiny q bracket. Thus add an
+outward error 4*(q_+-q_-)=4*10^-40 to the rational integral enclosure.
+The exact calculations yield
+
+```text
+0.00241410289623904895465331017 < D
+  < 0.00241410289623904895465331018.                       (24)
+```
+
+Squaring the positive endpoints of the internal (unrounded) enclosure
+and dividing by 3600 times the opposite pi endpoint gives
+
+```text
+5.1529885884211781970537738e-10 < eta_60
+  < 5.1529885884211781970537739e-10.                       (25)
+```
+
+The [standalone exact checker](../ops/TASK-20260910__two_level_minimax_bound/check_minimax.py)
+implements precisely these rational sums and comparisons with fixed term
+counts. No numerical solver or floating evaluation is a premise of
+(23)-(25). The optional independent 80/120-dps quadrature and elementary
+antiderivative checks are only numerical corroboration.
+
+### 9.3 Finite error, strictness and transfer to the full problem
+
+Equations (11)-(12) hold for every n>=102. By (24), D<1/100, while
+0<D_n<2. Therefore
+
+```text
+|D_n^2-D^2| <= (10/n)*(D_n+D) < 21/n,
+B_n/n^2 >= C+eta_60-[1+(6+21/3600)/pi]/n
+         >= C+eta_60-3/n.                                (26)
+```
+
+The last comparison is an exact rational consequence of the lower pi
+endpoint in (23). In particular, for every fixed 0<eta'<eta_60 and
+every integer n>=102 with n>3/(eta_60-eta'),
+
+```text
+B_n > (C+eta')*n^2.                                      (27)
+```
+
+This is finite strictness at a smaller coefficient, not at eta_60.
+Equation (25) gives the convenient explicit instance
+
+```text
+B_n > (C+5.152e-10)*n^2                for every n>=10^14. (28)
+```
+
+For the global transfer, take any full feasible order omega at radius R
+and apply Section 8's directed-gap argument separately to T_q(n) and
+T_beta(n). Both induced chain roots are at most R, including their
+new closing edges, and the smaller restriction belongs to the same
+sigma=omega|T_q(n). For each fixed omega, taking the infimum over its
+full feasible configurations gives, exactly as in (18),
+
+```text
+R_full(omega) >= max{R_chain(sigma),R_chain(sigma|T_beta(n))}
+             >= B_n.
+```
+
+Now minimize over the finitely many full orders to conclude
+
+```text
+R*(n) >= B_n                         (n>=102),
+liminf R*(n)/n^2 >= C+eta_60.                              (29)
+```
+
+Combining with (28) gives R*(n)>(C+5.152e-10)*n^2 for n>=10^14.
+This uses actual full-feasible deletion only; deletion from a chain at
+its root was never asserted feasible. No attainment assumption is needed.
+
+Both (22) and (29) have a non-strict comparison at C+eta_60. Since
+eta_60 is strictly greater than the rational lower endpoint in (25),
+they also give strict liminf comparisons with that smaller endpoint
+added to C. Neither fact implies liminf>C+eta_60, eventual finite
+strictness at C+eta_60, equality, convergence, or geometric optimality.
+The explicit improvement is more than 515 times 10^-12, but less than
+5.153e-10 in absolute coefficient. This quantifies the limited output
+of (9), without claiming a ceiling on the broader two-level method.
+
+## 10. Evidence and ownership
 
 The all-order inequalities, floor estimates and limiting scope are analytic.
 The [bounded standalone checker](../ops/TASK-20260910__common_chain_stability/check_stability.py)
@@ -438,6 +681,13 @@ The global transfer in Section 8 is analytic. Its
 records the directed-gap, nested-order, fixed-order-infimum and finite-minimum
 checks, together with exact algebra and the unchanged rational constants.
 No new enumeration or numerical experiment is used for this corollary.
+
+Section 9's [task evidence](../ops/TASK-20260910__two_level_minimax_bound/EVIDENCE.md)
+records the exact integral and coefficient enclosures, scalar minimax,
+finite-error gates, optional independent symbolic/high-precision checks,
+and the scope of the scalar ceiling. The prior finite theorem and its
+checker remain unchanged. These are analytic bounds with exact-arithmetic
+support, not finite Ringmin optimum certificates.
 
 The sole stable owner is the common-chain-stability entry in
 [the global ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).

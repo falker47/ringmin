@@ -3,69 +3,72 @@
 ## Repository snapshot
 
     repository=falker47/ringmin
-    task_base_head=26b596cad859c75b396a8a77e1dcf769a793a2b8
+    task_base_head=67742eddd05b4b61fc24c84820473ed8ee6bdc7a
     observed_on=2026-09-10
     phase=post-arXiv-v1 active research
 
 ## Current task
 
-    task=TASK-20260910__common_chain_global_corollary
+    task=TASK-20260910__two_level_minimax_bound
     mode=STRICT
     state=READY_FOR_REVIEW
 
 ### Objective and current result
 
-Derive the global corollary of the existing common-chain stability theorem
-using exactly q_*=1/lambda_*, beta=23/100, epsilon=10^-12, delta=10^-5
-and n>=10^14. Section 8 of research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md
-proves R*(n)>(C_term+10^-12)*n^2 for every such integer n and hence
-liminf R*(n)/n^2>=C_term+10^-12. Full-feasible deletion bounds the two
-nested chain roots simultaneously; fixed-order infima and the finite
-minimum over orders preserve the claimed finite strictness.
+Optimize the asymptotic two-level minimax consequence of the accepted
+common-chain inequalities at q=q_* and beta=23/100. Section 9 of
+research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md gives the exact scalar
+gap eta_60=D^2/(3600*pi), with D the actual deletion integral.
+Exact rational bounds place eta_60 between
+5.1529885884211781970537738e-10 and 5.1529885884211781970537739e-10.
+The proof gives B_n/n^2>=C_term+eta_60-3/n for n>=102,
+liminf B_n/n^2>=C_term+eta_60, and the same global liminf bound
+only through full-feasible deletion. For n>=10^14 it also proves
+R*(n)>=B_n>(C_term+5.152e-10)*n^2.
 
 ### Allowed delta
 
-Seven paths: the existing proof note; its sole owning global-bounds ledger;
-the research roadmap; this file; and the new dossier's TASK_STATUS.md,
-TASK_LOG.md and EVIDENCE.md. The compact index is
-unchanged because scope, navigation and thematic ownership remain valid.
+Eight paths: the existing proof note, its sole owning global-bounds ledger,
+the research roadmap, this file, and the task dossier's TASK_STATUS.md,
+TASK_LOG.md, EVIDENCE.md and bounded check_minimax.py. The compact index
+retains its scope, central guardrails, module ownership and navigation.
 
 ### Verification gates
 
-- Analytic transfer covers original radii, both induced orders, closing
-  gaps, all-pairs constraints, monotone roots and strictness under the
-  finite minimum. No attainment assumption or chain feasibility is used.
-- Local exact check exits 0: the existing 12 rational gates, one symbolic
-  Cartesian/angular identity, cutoff/floor/cardinality gates and
-  delta-epsilon=9999999/10^12>0. No enumeration or numerical experiment.
-- Complete tracked diff and all new dossier files inspected. Local audit
-  exits 0: seven-path scope/whitespace including untracked files, seven
-  proof links, sole ownership, unchanged statement/constants and Sections
-  2-7, and 442 protected tracked paths unchanged. git diff --check exits 0.
-  Final record edits receive the same audit before integration.
-- Staged inspection and whitespace checks precede authorized commit and
-  normal origin/main push; the final handoff reports the observed SHA,
-  push result and working-tree state. External review remains pending.
-- Independent mathematical acceptance and hosted CI remain separate.
+- Exact rational parameter gates, 80-term integral enclosure with rigorous
+  tail, coefficient bounds and finite-error gates passed locally (exit 0).
+- Independent symbolic identities and quadrature/primitive diagnostics at
+  80 and 120 dps passed (exit 0); their numerical output is not a premise.
+- Analytic audit: common e, full scalar domain, finite D_n positivity,
+  uniform floors and both parities, nested full-feasible deletion and
+  fixed-order infima; non-strict liminf at the exact coefficient.
+- Complete tracked/untracked inspection and local scope/whitespace audit
+  passed (exit 0): eight paths, nine proof links, 445 protected tracked
+  paths unchanged; prior finite theorem and Sections 2-7 unchanged.
+- Final record edits receive the same audit. Staged inspection and
+  whitespace checks precede authorized commit and normal origin/main push;
+  the final handoff reports the observed SHA, push and working-tree state.
+- Independent external mathematical review and hosted CI remain separate.
 
 ### Blockers and limitations
 
-No mathematical blocker. Constants and cutoff are unchanged and
-conservative. The result is a proved analytic global lower-bound corollary,
-not a finite optimum certificate or an independent acceptance decision.
-No sharpness, strict liminf above C_term+10^-12, coefficient C_term+10^-5,
-normalized limit, upper construction or paper revision is established.
+No mathematical blocker. The coefficient is sharp for the scalar
+information in the stated 60*sqrt(e) deletion estimate; it is not a
+ceiling on sharper deletion estimates or the broader two-level method.
+No tour realizing the scalar equality, geometric sharpness, normalized
+limit, finite optimum certification, upper construction or paper revision.
+No strict liminf above C_term+eta_60 is asserted.
 
-Protected: Sections 2-7 of the input proof, all other proofs and previous
-dossiers/checkers, other knowledge modules,
-PROJECT_KNOWLEDGE.md, AGENTS.md, RINGMIN_REVIEW_PROTOCOL.md, paper_assets/,
-results/, src/, tests/, scripts/, verify.py, README.md, REPORT.md,
+Protected: input proof Sections 2-7 and previous finite theorem; all other
+proof notes and prior dossiers/checkers; other knowledge modules;
+PROJECT_KNOWLEDGE.md; AGENTS.md; RINGMIN_REVIEW_PROTOCOL.md; paper_assets/;
+results/; src/; tests/; scripts/; verify.py; README.md; REPORT.md;
 publication metadata and CI.
 
 ## Exactly one next atomic task
 
-Independently review the common-chain stability theorem and its global
-corollary at committed HEAD, including the unchanged quantitative premise,
-full-feasible deletion, nested orders, fixed-order infima, finite strict
-minimum and non-strict liminf. Record acceptance or corrections without
-new enumeration, constant optimization, certification or upper work.
+Independently review the asymptotic two-level minimax extension and its
+root/dual/deletion dependencies at committed HEAD. Reproduce the exact
+enclosures and bounded checks, audit finite/liminf strictness and the
+scope of scalar optimality, and record acceptance or corrections without
+further refinement, enumeration, certification or upper work.

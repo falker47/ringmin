@@ -30,7 +30,8 @@ width theorems identify a unique mixed minimum below C_3(1/250), which is
 below C_3(1/1000). No finite recovery or geometric transfer at either
 larger width has been supplied.
 
-Together with the common-chain global lower endpoint `C_term+10^-12`,
+Together with the common-chain global lower endpoint `C_term+eta_60`
+(defined in the global-bounds ledger's common-chain-stability entry),
 where `C_term=0.1405690808452567...`, it proves quadratic growth while
 leaving a much narrower genuine coefficient gap. The decimals are diagnostic;
 the defining exact constants are recorded in the owning ledgers and proof.
@@ -1007,17 +1008,29 @@ it does not optimize the common tours. Section 8 now supplies the analytic
 deletion transfer to the global problem with the same constants and cutoff,
 including strictness under the finite minimum over orders.
 
-## Priority 1 — Independent review of common-chain stability and global corollary
+## Resolved priority — Asymptotic two-level minimax from fixed stability
+
+Section 9 of `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` optimizes
+the scalar consequence of the stated deletion inequality at the fixed
+q_* and beta. It encloses the actual deletion integral exactly, retains
+the outer excess on both branches, and supplies uniform finite errors
+and a full-feasible-deletion corollary. The scalar optimality statement
+does not cap sharper deletion estimates or the broader two-level method.
+Stable coefficients and claim detail belong solely to the global ledger.
+
+## Priority 1 — Independent review of the asymptotic two-level minimax extension
 
 Exactly one next atomic task: independently review
 `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` at committed HEAD.
-Audit both directions of the root sandwich, the dual slack and reflected
-assignment normalization, consecutive-deletion run counts, floor errors,
-rational margin and final constants. Audit Section 8's full-feasible
-deletion, directed wrap gaps, nested restrictions, fixed-order infima,
-strict finite minimum and non-strict liminf. Reproduce the existing bounded
-checks and record acceptance or corrections. Stop before new enumeration,
-constant optimization, finite certification or upper constructions.
+Audit the Section 9 scalar envelope, retained outer excess, global scalar
+minimum, finite D_n domain and uniform errors. Reproduce the rational
+Taylor/integral enclosures, checking the positive tail and moving-q error.
+Check full-feasible deletion and the finite versus liminf strictness.
+Inspect the root sandwich, dual and run-accounting dependencies and keep
+the scalar ceiling distinct from geometric sharpness or limits on improved
+deletion inequalities. Run the bounded checker and record acceptance or
+corrections. Stop before further constant refinement, enumeration,
+finite certification or upper constructions.
 
 ## Deferred dependency review — Macroscopic discriminator
 
@@ -1288,11 +1301,12 @@ the single-subset asymptotic lower bound does not depend on it.
 ## Deferred priority 8 — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term+10^-12,C_3]`, and whether they agree. Prioritize stronger valid lower
+`[C_term+eta_60,C_3]`, and whether they agree. Prioritize stronger valid lower
 bounds beyond the current coupled-pair corollary, which already improves
-the resolved single-subset envelope. The fixed-pair stability theorem and
-its global transfer await independent review before further lower-bound
-work. Further three-block refinement is deferred.
+the resolved single-subset envelope. The optimized scalar consequence is
+small in absolute size; larger progress needs information beyond the stated
+deletion estimate. The minimax extension awaits independent review before
+further lower-bound work. Further three-block refinement is deferred.
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in
