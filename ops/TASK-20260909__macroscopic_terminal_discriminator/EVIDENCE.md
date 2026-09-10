@@ -176,3 +176,108 @@ configuration was changed, and no mathematical counterexample was suppressed.
 The positive discriminator alone is not a lower bound on the coupled
 minimax: other common tours might trade outer cost against restricted cost.
 External mathematical acceptance and hosted CI remain separate.
+
+## 2026-09-10 — Fresh reproduction of the already committed result
+
+The repeated user request exactly matches the result already present at
+clean HEAD cf73a1be7db42eb85d11b55712123286ea449317. This section records
+commands actually run in the resumed task, separately from the historical
+commands above. It is a local reproduction, not an external acceptance.
+The complete analytic proof and checker were read with their canonical
+rank-edge, published ordering and exact optimizer dependencies. No correction
+to the proof, sole global ledger entry or roadmap was required.
+
+Commands from the repository root (PowerShell):
+
+```powershell
+python --version
+python -c "import mpmath, sympy; print('mpmath',mpmath.__version__); print('sympy',sympy.__version__)"
+python ops/TASK-20260909__macroscopic_terminal_discriminator/check_discriminator.py --symbolic --diagnostic
+$ringminGitRoot = (Get-Location).Path.Replace('\', '/')
+git -c "safe.directory=$ringminGitRoot" rev-parse HEAD
+git -c "safe.directory=$ringminGitRoot" ls-remote origin refs/heads/main
+```
+
+The environment commands exited 0: Python 3.14.3, mpmath 1.3.0 and
+SymPy 1.14.0. The checker exited 0 with the exact same arc counts,
+rational fractions and interval implications recorded above. Material
+output includes:
+
+```text
+PASS exact arcs: 13113 restrictions; 6627 below, 6348 above, 138 middle; all four parity pairs; rotations/reversals.
+PASS exact negative controls: omitted top seam rejected in both regimes.
+PASS symbolic: primitive, chord derivative, sign identity, midpoint continuity, replacement-chord integral (5 identities).
+PASS diagnostic: 28 prescribed roots; alternate-angle agreement <2e-12; all parity pairs; max normalized error 2.320e-03.
+DIAGNOSTIC C_term=0.140569080845; Psi(q_*,1/5)-C_term=0.000174024111589; Psi(q_*,23/100)-C_term=0.000768432818138.
+```
+
+The bounded checks remain independent of production imports and are only
+corroborative. The all-integer limit and comparison on the whole beta
+interval follow from Sections 2-5 of the proof, not these diagnostics.
+Production tests, certificate verification, paper builds and hosted CI
+were not run: no corresponding source, artifact or claim changed.
+
+The live remote query initially exited 1 because the sandbox could not
+connect to GitHub. Retried with the tool's approved network permissions,
+it exited 0 and returned the same SHA as local HEAD:
+
+```text
+cf73a1be7db42eb85d11b55712123286ea449317    refs/heads/main
+```
+
+No persistent Git configuration was changed. The initial plain Git
+ownership failure was resolved with the per-command safe.directory for
+the verified root. The global-ignore permission warning did not prevent
+tracked/untracked inventory or whitespace checks.
+
+Before making the four documentation edits, the Python source in
+"Reproducible scope/protection audit" above was executed verbatim from its
+fenced block via a PowerShell here-string piped to `python -`. It exited 0:
+
+```text
+PASS scope: exactly 8 task paths; all other tracked paths unchanged.
+PASS audit: whitespace including untracked additions; 5 local links; isolated imports; sole ledger owner.
+PASS protection: 10 dependency/contract/publication source comparisons; git diff --check exit 0.
+PASS current tracked/untracked state: ''
+```
+
+The resumed delta comprises only CURRENT_STATUS.md and this dossier's
+TASK_STATUS.md, TASK_LOG.md and EVIDENCE.md. The complete four-file diff was
+inspected. The following audit was run as a PowerShell single-quoted
+here-string piped to `python -` (exit 0), and rerun after this record edit:
+
+```python
+from pathlib import Path
+import subprocess
+root = Path.cwd()
+git = ['git', '-c', 'safe.directory=' + root.as_posix()]
+base = 'cf73a1be7db42eb85d11b55712123286ea449317'
+task = 'ops/TASK-20260909__macroscopic_terminal_discriminator/'
+expected = {'CURRENT_STATUS.md'} | {task + p for p in
+    ('TASK_STATUS.md', 'TASK_LOG.md', 'EVIDENCE.md')}
+def output(*args):
+    return subprocess.check_output(git + list(args)).decode('utf-8')
+assert set(output('diff', base, '--name-only').splitlines()) == expected
+assert not output('ls-files', '--others', '--exclude-standard').strip()
+for name in expected:
+    data = (root / name).read_text(encoding='utf-8')
+    assert data.endswith('\n') and not data.endswith('\n\n'), name
+    assert all(line == line.rstrip() for line in data.splitlines()), name
+subprocess.run(git + ['diff', '--check'], check=True)
+print('PASS resumed scope: exactly 4 documentation paths; no untracked additions; every other tracked path unchanged.')
+print('PASS resumed whitespace: all 4 complete files; git diff --check exit 0.')
+```
+
+Material output:
+
+```text
+PASS resumed scope: exactly 4 documentation paths; no untracked additions; every other tracked path unchanged.
+PASS resumed whitespace: all 4 complete files; git diff --check exit 0.
+```
+
+This checks scope and whitespace, not theorem validity. In particular the proof,
+checker, global ledger, roadmap, production/verifier code, results and
+arXiv-v1 assets retain their committed content. Staged inspection and
+`git diff --cached --check` precede commit/push; actual integration results
+are reported in the final handoff. Mathematical classification and the
+single next task (external independent review) are unchanged.

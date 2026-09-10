@@ -4,7 +4,8 @@
 
     repository=falker47/ringmin
     task_base_head=73a58f7a448ae61b5baa26afbfaf428a9c91c859
-    observed_on=2026-09-09
+    proof_commit=cf73a1be7db42eb85d11b55712123286ea449317
+    observed_on=2026-09-10
     phase=post-arXiv-v1 active research
 
 ## Current task
@@ -26,10 +27,13 @@ lower bound on the minimax over common tours. C_term is unchanged.
 
 ### Allowed delta
 
-Eight paths: new canonical proof; scoped STRICT dossier with one standalone
-bounded checker; global-bounds ledger; this file; roadmap. Initial tree
-clean at the base HEAD above. Only the global-bounds ledger owns the new
-stable theorem. The compact index needs no change.
+The original eight-path result is integrated at proof_commit above;
+origin/main was verified at that SHA on 2026-09-10. The repeated request
+was checked against a clean tree. Its only additional delta is this file
+and the existing dossier's TASK_STATUS.md, TASK_LOG.md and EVIDENCE.md,
+recording the fresh reproduction and actual integration state. The proof,
+sole owning global ledger and roadmap already match the requested outcome
+and need no mathematical or priority change. The compact index is unchanged.
 
 ### Verification gates
 
@@ -38,12 +42,16 @@ stable theorem. The compact index needs no change.
 - Local standalone checks pass 13,113 prescribed restrictions, four exact
   rational Taylor gates and interval implications, five symbolic identities
   and 28 optional numerical chain-root diagnostics. Numerics are diagnostic.
+  The full checker was rerun on 2026-09-10 with exit 0, after reading the
+  analytic proof and its ordering/terminal-optimizer dependencies.
 - Complete new sources and tracked diff inspected. The eight-path audit
   passes whitespace including untracked additions, five local links,
   isolated imports, sole ownership and ten protected source comparisons.
   git diff --check exits 0. Final record edits are inspected/re-audited.
-- Authorized staging, staged-diff checks, commit and normal origin/main push
-  follow; the final handoff records actual SHA, push result and tree.
+- The recorded eight-path scope/protection audit was reproduced with exit 0.
+  The four documentation changes receive their own complete diff and
+  whitespace inspection before authorized commit and normal origin/main
+  push; the final handoff records the new SHA, push result and tree.
 - Independent mathematical acceptance and hosted CI remain separate.
 
 ### Blockers and limitations

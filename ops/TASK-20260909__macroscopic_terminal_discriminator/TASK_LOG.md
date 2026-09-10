@@ -63,3 +63,30 @@ Append-only chronology.
 - Exactly one next atomic task: independently review the macroscopic
   discriminator, reproducing the checker and recording acceptance or
   corrections before common-tour optimization or any geometric work.
+
+## 2026-09-10 — Repeated request and local reproduction
+
+- The same requested discriminator was already implemented at clean HEAD
+  cf73a1be7db42eb85d11b55712123286ea449317 on main. Read the contract,
+  index/status, pertinent ledger and roadmap, entire proof and checker,
+  original dossier, rank-edge source, published ordering theorem and exact
+  terminal-optimizer derivation. No mathematical correction was needed.
+- Rechecked actual surviving and replacement edges, their densities,
+  midpoint/floor treatment, angular error, prior root bracket, rational
+  comparison and minimax inequality direction. The interval conclusion
+  remains analytic; reproducing local checks is not external acceptance.
+- Python 3.14.3, mpmath 1.3.0, SymPy 1.14.0. The full checker with
+  --symbolic --diagnostic exited 0, reproducing 13,113 restrictions,
+  four rational gates, five identities and 28 diagnostic roots. The
+  recorded eight-path audit also exited 0; startup tree remained clean.
+- Plain Git again encountered sandbox ownership; the per-command
+  safe.directory worked. The sandbox network could not reach GitHub;
+  the authorized read-only query outside that restriction exited 0 and
+  confirmed origin/main at the proof SHA. No persistent config changed.
+- Scoped the additional delta to CURRENT_STATUS.md and the three existing
+  dossier Markdown files. Proof, checker, global ledger and roadmap already
+  satisfy the repeated request and retain their content. Final documentation
+  diff/whitespace gates precede the authorized commit and normal push.
+- State stays READY_FOR_REVIEW. The sole next atomic task remains external
+  independent review of this discriminator; no minimax or geometric task
+  was begun.

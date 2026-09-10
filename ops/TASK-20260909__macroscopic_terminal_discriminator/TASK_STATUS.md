@@ -4,7 +4,7 @@
     mode=STRICT
     state=READY_FOR_REVIEW
     started_at=2026-09-09
-    updated_at=2026-09-09
+    updated_at=2026-09-10
 
 ## Objective and scientific question
 
@@ -24,6 +24,15 @@ Initial tree clean at 73a58f7a448ae61b5baa26afbfaf428a9c91c859 on main.
 Only the global-bounds ledger owns the stable new result; the compact
 index's scope and navigation remain appropriate without modification.
 
+The original result is committed at
+cf73a1be7db42eb85d11b55712123286ea449317, also observed on origin/main
+on 2026-09-10. The repeated request starts from that clean HEAD and stays
+within this same task. Its additional delta is restricted to
+CURRENT_STATUS.md and this dossier's three Markdown files: record the
+fresh local reproduction and replace pending integration wording with the
+observed proof-commit state. Proof, checker, sole ledger and roadmap already
+satisfy the request; no new theorem, claim owner or priority is introduced.
+
 ## Protected paths and out of scope
 
 Previous proofs/dossiers, other knowledge modules, PROJECT_KNOWLEDGE.md,
@@ -41,6 +50,9 @@ new upper construction, paper revision or unrelated cleanup.
 - [x] Sole ledger, roadmap, status and evidence updated.
 - [x] Complete tracked/untracked diff and whitespace/protection audit.
 - [x] READY_FOR_REVIEW for authorized integration; acceptance is separate.
+- [x] 2026-09-10 reproduction: analytic source inspection, complete standalone
+  checker and recorded scope/protection audit; all commands exit 0.
+- [x] Existing proof commit confirmed on origin/main by live read-only query.
 
 Final record edits are inspected/re-audited before staging. Staged diff and
 whitespace gates precede the authorized commit and normal origin/main push;
