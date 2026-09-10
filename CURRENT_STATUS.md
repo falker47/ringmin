@@ -3,73 +3,69 @@
 ## Repository snapshot
 
     repository=falker47/ringmin
-    task_base_head=73a58f7a448ae61b5baa26afbfaf428a9c91c859
-    proof_commit=cf73a1be7db42eb85d11b55712123286ea449317
+    task_base_head=0d46f6c7c2b0d44272b29803e1ba743f36732545
     observed_on=2026-09-10
     phase=post-arXiv-v1 active research
 
 ## Current task
 
-    task=TASK-20260909__macroscopic_terminal_discriminator
+    task=TASK-20260910__common_chain_stability
     mode=STRICT
     state=READY_FOR_REVIEW
 
 ### Objective and current result
 
-Derive the exact asymptotic coefficient of the restriction of S_q(n) to
-T_beta(n) for fixed 0<q<beta<1. The proof in
-research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md gives the two integral
-branches, the midpoint transition and a parity-uniform O(1/n) normalized
-root error. At q_*=1/lambda_*, analytic rational inequalities prove
-Psi(q_*,beta)>C_term for every beta in [1/5,23/100]. This is a candidate
-of quadratic incompatibility of the prescribed order, not a positive
-lower bound on the minimax over common tours. C_term is unchanged.
+Prove or refute uniform quantitative stability for common chain tours at
+q_*=1/lambda_* and beta=23/100. The exact positive theorem in
+research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md proves that, for every
+integer n>=10^14, an outer normalized chain radius at most C_term+10^-12
+forces the restricted normalized chain radius to be at least C_term+10^-5.
+The proof covers every cyclic order, all floors and both cardinality parities.
 
 ### Allowed delta
 
-The original eight-path result is integrated at proof_commit above;
-origin/main was verified at that SHA on 2026-09-10. The repeated request
-was checked against a clean tree. Its only additional delta is this file
-and the existing dossier's TASK_STATUS.md, TASK_LOG.md and EVIDENCE.md,
-recording the fresh reproduction and actual integration state. The proof,
-sole owning global ledger and roadmap already match the requested outcome
-and need no mathematical or priority change. The compact index is unchanged.
+Eight paths: the new proof note; its sole owning global-bounds ledger;
+the research roadmap; this file; and the new dossier's TASK_STATUS.md,
+TASK_LOG.md, EVIDENCE.md and check_stability.py. The compact index is
+unchanged because scope, navigation and thematic ownership remain valid.
 
 ### Verification gates
 
-- Analytic proof covers the actual surviving and replacement arcs, both
-  parities, floors, midpoint, angular error and prior root bracket.
-- Local standalone checks pass 13,113 prescribed restrictions, four exact
-  rational Taylor gates and interval implications, five symbolic identities
-  and 28 optional numerical chain-root diagnostics. Numerics are diagnostic.
-  The full checker was rerun on 2026-09-10 with exit 0, after reading the
-  analytic proof and its ordering/terminal-optimizer dependencies.
+- Exact root/edge sandwich, anti-Monge dual slack, reflected assignment
+  normalization, arbitrary deletion runs, explicit floor errors and
+  rational margin are proved analytically.
+- Local standalone checker exits 0: 12 rational gates, 376 deletion masks
+  in 1,128 orientations, five symbolic identities, 98 numerical dual
+  inequalities, eight exact-endpoint numerical floor comparisons, 16
+  prescribed tours in all four parity pairs and eight independent
+  cosine/bisection root sandwiches. Numerics are diagnostic.
 - Complete new sources and tracked diff inspected. The eight-path audit
-  passes whitespace including untracked additions, five local links,
-  isolated imports, sole ownership and ten protected source comparisons.
-  git diff --check exits 0. Final record edits are inspected/re-audited.
-- The recorded eight-path scope/protection audit was reproduced with exit 0.
-  The four documentation changes receive their own complete diff and
-  whitespace inspection before authorized commit and normal origin/main
-  push; the final handoff records the new SHA, push result and tree.
+  passes whitespace including untracked additions, five local proof links,
+  isolated imports, sole ownership and 438 protected tracked comparisons.
+  git diff --check exits 0. Final record edits receive the same audit.
+- Staged inspection and whitespace checks precede authorized commit and
+  normal origin/main push; the final handoff reports the observed SHA,
+  push result and working-tree state. External review remains pending.
 - Independent mathematical acceptance and hosted CI remain separate.
 
 ### Blockers and limitations
 
-No blocker. Supnick optimality and the terminal optimizer are imported.
-The positive restricted-order excess is not uniform over competing common
-tours. No minimax optimization, stronger global lower coefficient, R_full,
-certificate, new upper construction or paper revision is supplied.
+No mathematical blocker. Constants and cutoff are conservative. The
+terminal optimizer is imported; finite Supnick uniqueness is not used as
+a stability premise. No minimizing common tour, general tradeoff optimum,
+R_full transfer, new global coefficient, upper construction, finite
+certificate or paper revision is supplied.
 
-Protected: previous proofs/dossiers, paper_assets/, results/, src/, tests/,
-scripts/, verify.py, README.md, REPORT.md, publication metadata and CI;
-other knowledge modules, PROJECT_KNOWLEDGE.md, AGENTS.md and
-RINGMIN_REVIEW_PROTOCOL.md.
+Protected: previous proofs/dossiers, other knowledge modules,
+PROJECT_KNOWLEDGE.md, AGENTS.md, RINGMIN_REVIEW_PROTOCOL.md, paper_assets/,
+results/, src/, tests/, scripts/, verify.py, README.md, REPORT.md,
+publication metadata and CI.
 
 ## Exactly one next atomic task
 
-Independently review the macroscopic discriminator at committed HEAD:
-exact induced edges and counts, floors/parities and midpoint, root transfer,
-rational interval comparison and the distinction from a minimax lower
-bound. Reproduce the standalone checker and record acceptance or corrections;
-stop before common-tour optimization, R_full, certification or upper work.
+Independently review the quantitative common-chain stability theorem at
+committed HEAD: root sandwich, dual bound, assignment normalization,
+cyclic deletion runs, floor/parity errors, rational margin and constants.
+Reproduce the bounded checker and record acceptance or corrections;
+stop before R_full, finite certification, upper constructions or broader
+common-tour optimization.

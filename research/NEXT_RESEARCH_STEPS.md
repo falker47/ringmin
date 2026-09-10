@@ -41,8 +41,10 @@ is resolved by `research/COUPLED_TERMINAL_ONE_LEVEL_ASYMPTOTICS.md`:
 this mechanism cannot improve the leading coefficient. The prescribed-order
 macroscopic discriminator is resolved by
 `research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md`: a rational beta interval
-has positive quadratic restricted-chain excess, but no coupled-minimax
-improvement follows yet. Widely separated minimax gain and simultaneously
+has positive quadratic restricted-chain excess. The quantitative stability
+question for q_* and beta=23/100 is now resolved positively by
+`research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`; its uniform proof is
+the next review priority. Broader common-tour optimization and simultaneously
 coupled levels remain open. Further third-block width
 refinement and transfer of the continuous optimal width are deferred.
 
@@ -987,12 +989,33 @@ edge families for two proportional terminal subsets, including the high
 replacement chords, both parities and the midpoint transition. It resolves
 the strict comparison at the terminal optimizer on a closed rational beta
 interval by analytic inequalities. The global-bounds ledger owns the
-classified result. This supplies a candidate of quadratic incompatibility;
-minimization over common tours and any stronger lower coefficient remain open.
+classified result. This prescribed-order result alone supplies a candidate
+of quadratic incompatibility; the subsequent stability theorem provides
+the required uniform argument at beta=23/100.
 
-## Priority 1 — Independent review of the macroscopic discriminator
+## Resolved priority — Quantitative common-chain stability
+
+`research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` proves the requested
+positive implication for every common tour at q_* and beta=23/100, with
+explicit constants and an all-integer cutoff. Stable theorem detail belongs
+solely to the global-bounds ledger. The proof reduces roots uniformly to
+edge weights and controls deletion through an anti-Monge dual bound and
+maximal-run accounting. This resolves the previous bounded stability task;
+it does not optimize the common tours or perform geometric transfer.
+
+## Priority 1 — Independent review of quantitative common-chain stability
 
 Exactly one next atomic task: independently review
+`research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` at committed HEAD.
+Audit both directions of the root sandwich, the dual slack and reflected
+assignment normalization, consecutive-deletion run counts, floor errors,
+rational margin and final constants. Reproduce the bounded checker and
+record acceptance or corrections. Stop before R_full, finite certification,
+upper constructions or broader common-tour optimization.
+
+## Deferred dependency review — Macroscopic discriminator
+
+Independently review
 `research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md` at committed HEAD.
 Audit the exact deleted-rank neighbors, retained/replacement edge counts,
 high-arm closure, both floors/parities and midpoint, uniform root transfer,
@@ -1022,17 +1045,6 @@ gates, the small-n path argument, and the distinction between compatibility
 and minimax equality. Reproduce the standalone exact checker and record
 acceptance or corrections. Stop before optimizing further subsets,
 asymptotic amplification, new certification or any upper construction.
-
-## Priority 2 — Stability test for one macroscopic pair after review
-
-Fix the outer terminal optimizer q_* and beta=23/100 from the positive
-discriminator interval. Seek a quantitative tradeoff, or a counterexample
-sequence, between asymptotically near-minimal outer chain cost and the
-induced inner cost. The prescribed Supnick excess alone supplies no
-uniform gap over competing common tours. Formulate a bounded stability
-question before broader minimax optimization; finite uniqueness is not
-asymptotic stability. This lower-bound direction takes precedence over
-further upper-width work and supplies no R_full or certification premise.
 
 ## Deferred dependency review — Mixed third-block width theorem
 
@@ -1272,8 +1284,8 @@ the single-subset asymptotic lower bound does not depend on it.
 Determine the true normalized liminf and limsup within
 `[C_term,C_3]`, and whether they agree. Prioritize stronger valid lower
 bounds beyond the resolved envelope of every single induced-subset chain
-bound, with the coupled scaling discriminator above as the next research
-direction after review. Further three-block refinement is deferred.
+bound. The fixed-pair common-chain stability result awaits independent
+review before further lower-bound work. Further three-block refinement is deferred.
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in

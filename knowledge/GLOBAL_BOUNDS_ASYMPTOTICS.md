@@ -58,8 +58,9 @@ nonterminal optimization, and the later exact finite theorem closes every
 arbitrary `n`-dependent choice of one induced subset. For the first coupled
 case see the two-terminal-subset entries below; one-level coupling has
 subquadratic gain, and the macroscopic-discriminator entry identifies a
-candidate restricted-order excess without settling coupled minimax gain.
-More general coupling and the true global coefficient remain open. The arXiv-v1 record
+restricted-order excess. The later common-chain-stability entry supplies
+the uniform argument for one fixed macroscopic pair. More general coupling
+and the true global coefficient remain open. The arXiv-v1 record
 and finite certification scope remain unchanged.
 
 **Source:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`;
@@ -313,15 +314,51 @@ Psi(q_*,beta)>C_term       for every beta in [1/5,23/100].
 Strictness actually holds throughout q_*<beta<=(1+q_*)/5. This refutes
 the proposed universal comparison for this prescribed common order and
 identifies only a candidate of quadratic incompatibility. It is not a
-positive lower bound on the minimax over common tours: other outer tours
-might trade the two costs. No minimax optimization, new global coefficient,
-R_full conclusion, upper construction or certification follows. Stable
+positive lower bound on the minimax over common tours: controlling competing
+outer tours requires the additional stability theorem below. This
+prescribed-order result supplies no minimax optimization, new global
+coefficient, R_full conclusion, upper construction or certification. Stable
 ownership of this discriminator is solely this entry; independent external
 mathematical acceptance remains separate.
 
 **Source:** `research/MACROSCOPIC_TERMINAL_DISCRIMINATOR.md`, Sections 1-7;
 bounded integer/Fraction checks, symbolic identities and optional numerical
 corroboration in `ops/TASK-20260909__macroscopic_terminal_discriminator/`.
+
+### Quantitative stability for the fixed macroscopic common-chain pair
+
+**Status:** exact theorem / quantitative asymptotic stability, after arXiv v1.
+
+Fix the terminal optimizer q_*=1/lambda_* and beta=23/100, retaining the
+original radii in T_q(n)={floor(q*n),...,n}. For every integer n>=10^14
+and every cyclic order sigma of T_q_*(n),
+
+```text
+R_chain(sigma) <= (C_term+10^-12)*n^2
+    implies
+R_chain(sigma|T_beta(n)) >= (C_term+10^-5)*n^2.
+```
+
+An exact order-uniform sandwich places R_chain between
+sum_edges sqrt(a*b)/pi-n and sum_edges sqrt(a*b)/pi. For normalized
+sqrt-product weights, an anti-Monge dual potential bounds the mean squared
+deviation from reflected endpoints by eight times the outer cost excess
+over the reflected assignment reference. Explicit maximal-run accounting
+controls the induced cost even when deleted vertices are consecutive.
+Rational inequalities give an ideal deletion margin greater than 1/5000
+in edge-cost units; explicit floor errors finish the implication for both
+outer and inner parities. The reference is a relaxation, not a tour.
+
+This resolves the proposed uniform stability question positively, beyond
+the earlier prescribed-order discriminator. Constants and cutoff are
+conservative, not sharp. No minimizing common tour, broader common-tour
+optimization, R_full transfer, new global coefficient, upper construction,
+finite certificate or paper revision is supplied. External independent
+mathematical acceptance remains separate. This entry alone owns the result.
+
+**Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-8;
+bounded exact and numerical corroboration in
+`ops/TASK-20260910__common_chain_stability/check_stability.py` and its dossier.
 
 ### Increasing-order full asymptotic upper bound
 
