@@ -24,25 +24,27 @@ provenance question, not routine orientation.
   complete fixed-order full-feasibility classification are resolved. These
   do not establish global floating behavior. See the [classification entry](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification).
 - **Proved global bounds:** the strongest current lower endpoint is
-  `C_term+eta_3`; the strongest current upper coefficient is
+  `C_term+eta_4`; the strongest current upper coefficient is
   `C_3(1/250)`. Thus the current coefficient interval is
-  `[C_term+eta_3,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
-  The [three-level entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#three-level-common-chain-bound-from-a-shared-crossing-budget)
+  `[C_term+eta_4,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
+  The [four-level entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improvement-at-a-fixed-rational-witness)
   owns the lower endpoint, its exact integral definition and finite bounds;
   the [fixed 1/250 global entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#fixed-third-width-1250-improved-global-upper-bound)
   owns the upper corollary. The source statements are
-  [three-level Sections 1-6](THREE_LEVEL_COMMON_CHAIN.md)
+  [four-level Section 11](THREE_LEVEL_COMMON_CHAIN.md#11-a-fixed-four-level-rational-improvement)
   and [fixed 1/250 Section 7](PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md#7-consequence-bounded-checker-and-scope).
   Neither endpoint is established as sharp; no normalized global limit is proved.
 - **Resolved lower-bound discriminators:** a single induced-subset chain
   envelope and one-level terminal coupling cannot improve the leading
   coefficient. Macroscopic prescribed-order excess is resolved, and the
-  common-chain stability/global/minimax results and the simultaneous
-  beta_1=1/5, beta_2=23/100 shared crossing budget supply the current lower
-  improvement. See the corresponding sections of the [global-bounds ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
+  common-chain stability/global/minimax results and shared crossing budgets
+  supply successive lower improvements. The fixed rational three-cutoff
+  witness now proves eta_4>eta_3+1e-7 with all finite gates discharged.
+  See the corresponding sections of the [global-bounds ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
   The [arbitrary-finite-cutoff extension](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#arbitrarily-many-finite-cutoffs-with-one-shared-crossing-energy)
   now supplies the general shared-energy lemma and finite minimax corollary,
-  with a precise pointwise sharpness scope; it selects no new numerical endpoint.
+  with a precise pointwise sharpness scope. The user reports that extension
+  accepted; its fixed four-level application awaits independent review.
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours.
   [Section 11.5](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#115-the-crossing-exponent-23-is-sharp-for-genuine-cyclic-tours)
@@ -64,24 +66,22 @@ provenance question, not routine orientation.
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of the finite shared-crossing extension
+## Priority 1 — Independent review of the fixed four-level witness
 
-Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Sections 7-10, at
-committed HEAD. Audit every multi-crossing block, the scope of necessity
-of adjacent separation, the exact unseparated counterexample, and the
-finite minimax with its stability, floor and full-feasible deletion gates.
-Reproduce the new standalone checker and audit the existing three-level
-and stability dependencies as needed; the earlier three-level review is
-not thereby recorded as completed. Record acceptance or precise corrections;
-stop before coefficient optimization or further research.
+Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Section 11, at committed
+HEAD. Reproduce the fixed-witness arithmetic checker and audit the rational
+integral tails, moving-q errors, old eta_3 comparison, all-n floor/stability
+gates and finite/global transfer through the accepted corollary. Confirm
+the three supplied cutoffs and widths are unchanged. Record acceptance or
+precise corrections; stop before parameter search or further research.
 
 ## Deferred direction — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term+eta_3,C_3(1/250)]`, and whether they agree. The concrete three-level
-discriminator is resolved positively by a shared crossing budget at the
-two fixed cutoffs. Review that theorem before selecting further lower-bound
-work. Neither its fixed witnesses nor scalar sharpness of the preceding
+`[C_term+eta_4,C_3(1/250)]`, and whether they agree. The concrete four-level
+discriminator is resolved positively at the supplied rational witness.
+Review that application before selecting further lower-bound work.
+Neither the fixed witnesses nor scalar sharpness of the preceding
 two-level envelope establish a ceiling on common-order methods. The crossing and
 signed-discrepancy obstructions close improvements that require a uniform
 exponent above 2/3, or little-o at that scale, for K or |Delta| over tours.

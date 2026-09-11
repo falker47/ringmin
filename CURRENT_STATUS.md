@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=4510e5a9042603997deaab83bc553638b231306b
+task_base_head=f78dac1e1521d3cbd9eea8ca4ab38a298a86413c
 observed_on=2026-09-11
 phase=post-arXiv-v1 active research
 ```
@@ -12,48 +12,50 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260911__finite_shared_crossing
+task=TASK-20260911__four_level_rational_witness
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
-Proved the arbitrary finite shared-crossing extension and its natural
-common-chain minimax/deletion corollary in
-[Sections 7-10](research/THREE_LEVEL_COMMON_CHAIN.md#7-any-fixed-finite-number-of-shared-cutoffs).
-The [owning ledger entry](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#arbitrarily-many-finite-cutoffs-with-one-shared-crossing-energy)
-records its precise sharpness scope and separation requirements. Scope
-and audit: [task dossier](ops/TASK-20260911__finite_shared_crossing/TASK_STATUS.md).
+Proved the requested strict four-level improvement at the unchanged rational
+witness through the accepted finite shared-crossing corollary. The exact
+finite, asymptotic and full-geometric statements are in
+[Section 11](research/THREE_LEVEL_COMMON_CHAIN.md#11-a-fixed-four-level-rational-improvement);
+the [owning entry](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improvement-at-a-fixed-rational-witness)
+records the coefficient and scope. Audit and commands:
+[task dossier](ops/TASK-20260911__four_level_rational_witness/TASK_STATUS.md).
 
 ### Verification gates
 
-- New standalone checker, Python 3.14.3 with -I -S: exit 0. Checks cover
-  48 prescribed measures, including 16 tour/cutoff cases, both parities,
-  up to eight simultaneous crossings, scalar signs and finite floors.
-- Exact controls detect local overlap, insufficient outermost separation,
-  integrated overspending without separation, independent budgets and
-  missing midpoint/floor hypotheses. Disabled-assertion -O run exits 1
-  with the prescribed rejection. No optimization or enumeration is performed.
-- Existing three-level checker independently rerun with -I -S: exit 0.
-- Complete proof/checker/new-file and tracked-diff inspection passed, as
-  did explicit whitespace, 26 local link/anchor, import and protected-path
-  checks. Existing proof Sections 1-6 are preserved.
-- This is the precommit handoff. Staged inspection and authorized normal
-  commit/push follow; the final response reports SHA and remote result.
+- New standalone checker, Python 3.14.3 with `-I -S`: exit 0. Exact
+  rational gates enclose all three D_i, eta_4, independently recomputed
+  eta_3, their strict difference and the resulting global lower coefficient.
+- Analytic floor/stability gates hold for every n>=100000. The checker
+  verifies their sufficient rational inequalities and boundary examples;
+  the negative control rejects the unjustified n=1000 gate.
+- Existing three-level and finite shared-crossing checkers separately
+  rerun with `-I -S`: both exit 0. New checker with `-O`: prescribed exit 1
+  rejecting disabled assertions.
+- Full new-file and tracked-diff inspection passed, with explicit whitespace,
+  29 local link/anchor, standalone-import and eight-path scope checks.
+  Proof Sections 1-10 and all protected paths are preserved. The ten
+  displayed interval enclosures match the exact checker transcript.
+- This is the precommit handoff. Inspected staging, authorized commit and
+  normal push follow; the final response reports the SHA and remote result.
 
 ### Blockers and limitations
 
-No mathematical blocker. Analytic proofs supply the arbitrary fixed finite
-cutoff count and all-order quantifiers. Pointwise sharpness on the whole
-line is distinguished from integrated, grid and tour sharpness. The finite
-corollary checks the existing stability domain and actual grid separation;
-no new numerical endpoint, growing-cutoff limit, minimizing tour, geometric
-upper construction, finite certificate or paper revision is asserted.
-Independent mathematical acceptance remains separate. Hosted CI for the
-final SHA has not been inspected.
+No mathematical blocker. Parameters were neither changed nor searched.
+The user reports the general finite shared-crossing theorem accepted;
+independent acceptance of this new application remains separate. Universal
+quantifiers come from that analytic corollary, not a finite sample or
+floating evaluation. No sharpness, normalized global limit, minimizing tour,
+new certificate, solver change or paper revision is claimed. Hosted CI for
+the final SHA has not been inspected.
 
 ## Exactly one next atomic task
 
-Independently review the finite shared-crossing theorem and its natural
-common-chain corollary at committed HEAD, reproduce its standalone checker
-and audit the stability dependencies as needed; record acceptance or precise
-corrections without further research.
+Independently review the fixed four-level witness theorem in Section 11
+at committed HEAD, reproduce its arithmetic checker and audit the exact
+integral, finite/stability and global-transfer gates; record acceptance or
+precise corrections without parameter search or further research.

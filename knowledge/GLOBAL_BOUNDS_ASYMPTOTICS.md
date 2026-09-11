@@ -661,15 +661,75 @@ at every cutoff. The geometric transfer uses deletion from full feasible
 configurations, nested common orders, original radii and closing gaps.
 
 This entry owns the arbitrary-finite-cutoff extension and its corollary.
-The preceding entry retains the fixed three-level numerical theorem; no
-new numerical endpoint is claimed. No width/cutoff optimization, growing-m
-limit, minimax recovery, geometric upper bound or finite certificate follows.
+The preceding entry retains the fixed three-level numerical theorem; the
+following entry owns the new fixed four-level application. The general
+theorem itself selects no numerical endpoint. No width/cutoff optimization,
+growing-m limit, minimax recovery, geometric upper bound or finite certificate follows.
 
 **Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Sections 7-10; standalone
 exact checks in `ops/TASK-20260911__finite_shared_crossing/check_finite_crossing.py`
 and its dossier. Checks use prescribed measures and cycles, without tour
 enumeration or production imports. Universal quantifiers are analytic;
 external independent acceptance remains separate.
+
+### Four-level improvement at a fixed rational witness
+
+**Status:** exact theorem / order-uniform finite bound / proved asymptotic
+global corollary, after arXiv v1. The accepted finite shared-crossing
+corollary is the premise; independent acceptance of this application is
+separate.
+
+Fix the three cutoffs and widths, retaining q=q_* and original radii:
+
+```text
+beta=(2091/10000,10907/50000,23/100),
+h=(451/100000,451/100000,367/50000),
+B_n^(4)=min_sigma max_(0<=i<=3) R_chain(sigma_i),
+sigma_0=sigma on T_q(n), sigma_i=sigma|T_beta_i(n),
+D_i=integral_q^beta_i [1+q-x-2*sqrt(x*(1+q-x))] dx,
+H=409/25000, Q_3=sum_i h_i^3=289457303/500000000000000,
+L=16+432*H=72086/3125,
+F=sum_i h_i*D_i-8*Q_3>0, eta_4=F/(pi*L),
+A_4=1+[5+19*H/(2*L)]/pi<2.594.
+```
+
+The adjacent separation margins are exactly 1/50000 and 1/100000.
+The proof discharges actual midpoint/floor separation, the nonempty deleted
+sets, surviving cycle sizes and every existing stability gate for ALL
+n>=100000. With J_n,D_(i,n) as in the source and
+F_n=sum_i h_i*D_(i,n)-8*Q_3, the conclusions are
+
+```text
+R*(n)>=B_n^(4),
+B_n^(4)/n^2 >= [J_n+(F_n)_+/L]/pi-1/n
+             >= C_term+eta_4-A_4/n                    (n>=100000),
+liminf B_n^(4)/n^2 >= C_term+eta_4,
+liminf R*(n)/n^2 >= C_term+eta_4,
+3.8785322987835e-7 < eta_4 < 3.8785322987838e-7,
+1.2761769804449e-7 < eta_4-eta_3 < 1.2761769804452e-7,
+0.14056946869848664490 < C_term+eta_4 < 0.14056946869848664493,
+R*(n)>=B_n^(4)>(C_term+eta_3+1/10000000)*n^2          (n>=10^8).
+```
+
+The requested eta_4>eta_3+1e-7 is therefore proved with strict residual
+greater than 2.761769804449e-8. The source encloses all three D_i by
+80-term rational binomial integrals and explicit tails and moving-q
+errors; Taylor bounds enclose tau, q and pi. The old eta_3 is recomputed
+from its original definition, not from copied floating values. Analytic
+shared-energy minimax and full-feasible deletion supply the universal
+quantifiers, with common nested restrictions and both parities.
+
+This entry alone owns this fixed four-level improvement; eta_3 and its
+earlier theorem retain their meanings. The old 1/5 cutoff is absent here,
+so no pointwise B_n^(4)>=B_n^(3) follows. The unaltered witness fails the
+first floor separation at n=1000; it succeeds at the proved eventual
+threshold. No optimization, sharp coefficient, normalized global limit,
+tour recovery, expanded finite certification or arXiv-v1 change is asserted.
+
+**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Section 11, applying
+Sections 7 and 9; standalone exact checker
+`ops/TASK-20260911__four_level_rational_witness/check_four_level.py` and its
+dossier. No production, result, third-party or prior-checker imports.
 
 ### Increasing-order full asymptotic upper bound
 
@@ -1114,7 +1174,7 @@ where unqualified C_3=C_3(1/1000), and hence `R*(n)=Theta(n^2)`.
 The true normalized liminf and limsup, their
 possible equality, and either endpoint's sharpness remain unresolved.
 The strongest current lower endpoint is supplied by the
-[three-level common-chain entry](#three-level-common-chain-bound-from-a-shared-crossing-budget)
+[four-level common-chain entry](#four-level-improvement-at-a-fixed-rational-witness)
 above, which solely owns that improvement.
 
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
@@ -1131,7 +1191,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_3,C_3(1/250)]`, including whether they agree; improve beyond the
+   `[C_term+eta_4,C_3(1/250)]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.

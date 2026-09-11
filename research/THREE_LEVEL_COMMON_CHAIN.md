@@ -633,3 +633,184 @@ records fresh local commands and limitations. No cutoff/width optimization,
 tour enumeration, new numerical coefficient, geometric upper construction,
 normalized global limit, expanded finite certificate or paper revision is
 part of this corollary. Independent mathematical acceptance remains separate.
+
+## 11. A fixed four-level rational improvement
+
+**Status: exact theorem / proved finite and asymptotic global corollary,
+after arXiv v1.** This section applies the finite shared-crossing theorem
+and corollary in Sections 7 and 9 to the following fixed user-supplied
+rationals, without optimizing or changing any parameter:
+
+```text
+beta=(2091/10000, 10907/50000, 23/100),
+h=(451/100000, 451/100000, 367/50000).
+```
+
+Retain q=q_*, C=C_term, T_b(n) and the original radii as in Section 9.
+For one cyclic order sigma on T_q(n), let sigma_i be its restriction to
+T_beta_i(n), and define the FOUR-level minimax
+
+```text
+B_n^(4)=M_(n,4)=min_sigma max{R_chain(sigma),
+                  R_chain(sigma_1),R_chain(sigma_2),R_chain(sigma_3)},
+D_i=integral_q^beta_i [1+q-x-2*sqrt(x*(1+q-x))] dx,
+H=409/25000, Q_3=sum_i h_i^3=289457303/500000000000000,
+L=16+432*H=72086/3125,
+F=sum_i h_i*D_i-8*Q_3, eta_4=F/(pi*L),
+A_4=1+[5+19*H/(2*L)]/pi < 2.594.
+```
+
+The positive numerator F is proved below; hence this eta_4 agrees with
+the positive-part definition in Section 9. Here Q_3 still denotes the
+sum of cubes, not the number of levels or an upper-bound construction.
+The old eta_3, with its old cutoffs and widths in Section 1, is unchanged.
+In particular B_n^(4) does not contain the old cutoff 1/5, and no pointwise
+comparison B_n^(4)>=B_n^(3) is asserted.
+
+### 11.1 Exact separations and every finite stability gate
+
+The two adjacent macroscopic margins are exactly
+
+```text
+beta_2-beta_1=113/12500, h_1+h_2=451/50000,
+delta_1=beta_2-beta_1-h_1-h_2=1/50000,
+beta_3-beta_2=593/50000, h_2+h_3=237/20000,
+delta_2=beta_3-beta_2-h_2-h_3=1/100000.                 (28)
+```
+
+Both are strictly positive. Fix N=100000. The checked q bracket in
+Section 6 gives N*(beta_1-q)>1, N*delta_1=2 and N*delta_2=1.
+For EVERY integer n>=N, put k=floor(q*n), a=k/n, s=1+a,
+ell_i=floor(beta_i*n), B_i=(ell_i-1/2)/n. Then
+
+```text
+1/6 < q_- - 1/N <= q-1/n < a <= q < 1/5 < beta_1,
+ell_1/n > beta_1-1/n >= beta_1-1/N > q,
+B_(i+1)-B_i=(ell_(i+1)-ell_i)/n
+            > beta_(i+1)-beta_i-1/n >= h_i+h_(i+1),
+ell_1<ell_2<ell_3<=n-2,
+s-2*(ell_i/n) > 7/6-2*beta_3=53/75>1/2.              (29)
+```
+
+For the surviving-size gate, n-ell_3>=n*(1-beta_3)=77*n/100>=2;
+thus each restriction has at least three vertices. Also ell_1>k, so all
+three deleted sets are nonempty. All cutoffs are below s/2, all radii
+are positive, and reflection permutes the outer grid. Every h_i>0.
+Midpoints avoid grid points: a strip of radius t<1/(2n) is empty;
+otherwise its mass is at most 2t+1/n<=4t. This proves the strip gate
+for every t>0, in particular at each of the unchanged h_i.
+
+These are the full hypotheses (23), including n>=102. They also justify
+the stability inputs (26) individually at all three cutoffs: 1/6<a<1/5
+supplies the Hessian norm bound 6, isolated-deletion remainder 3E,
+|p|<1 and |p'|<11; the LL-edge defect is >1/2, so maximal cyclic runs
+cost at most 40E in addition to 3E. Marginal cancellation adds 11E+2K_i,
+giving |W_i-W_0-D_(i,n)|<=54E+2K_i. The moving-endpoint/rectangle
+bounds remain 5/n and 19/(2n), and the angular lower loss remains 1/n.
+They all use the SAME outer measure and E<=8e, with no extra copies
+of the energy budget. No parity or adjacency-pattern restriction is used.
+
+Summing the finite adjacent inequalities in (29) also controls a pair crossing all
+three cutoffs: sum_i h_i<=B_3-B_1-h_2<B_3-B_1. Thus the third crossing
+is covered by the single energy term, not by a separate budget.
+The floor gate cannot simply be claimed at the older N=1000: there
+ell=(209,218,230), and (ell_2-ell_1)/1000=9/1000<451/50000.
+This refutes that smaller finite gate, not the fixed witness or its limit.
+
+### 11.2 Rational enclosures and the strict discriminator
+
+The [bounded arithmetic checker](../ops/TASK-20260911__four_level_rational_witness/check_four_level.py)
+reproves the tau, q and pi brackets by alternating rational Taylor sums.
+It imports neither production code, saved results nor a prior checker.
+For each new beta_i it then uses exactly the Section 6 integral enclosure:
+at q_-, set s=1+q_-, u=(s-2*beta_i)/s, v=(1-q_-)/s, and
+
+```text
+c_j=binomial(2j,j)/(4^j*(2j-1)),
+P=v-u-sum_(j=1)^80 c_j*(v^(2j+1)-u^(2j+1))/(2j+1),
+T=(v-u)*c_81*v^162/(1-v^2),
+I_-=(s^2/4)*(P-T), I_+=(s^2/4)*P,
+d_-=s*(beta_i-q_-)-(beta_i^2-q_-^2)/2-2*I_+-4*(q_+-q_-),
+d_+=s*(beta_i-q_-)-(beta_i^2-q_-^2)/2-2*I_-+4*(q_+-q_-).
+```
+
+All entries are rational and 0<u<v<1. The positive decreasing c_j give
+a geometric majorant T for the omitted integral, so d_-<=D_i<=d_+.
+For the moving parameter, |partial_q D(q,beta_i)|<=4 follows from
+the endpoint bound 2 and integrand derivative bound 2, on a domain
+of length at most one. Thus the displayed widening is outward.
+This is an enclosure proof, not quadrature or an unbounded numerical sum.
+
+Unrounded rational bounds are propagated through the positive h_i and L.
+The old eta_3 is recomputed from its defining cutoffs 1/5 and 23/100
+and widths 3/1000 and 9/1000; its decimal enclosure is not a premise.
+Opposite pi endpoints give outward quotient bounds. Finally the existing
+terminal theorem gives C=tau/(pi*(1+sin(tau)))=tau*(1+q)/(2*pi), so
+its positive endpoint products also enclose the full lower coefficient.
+The resulting strict rational enclosures are
+
+```text
+0.00136820131190299899 < D_1 < 0.00136820131190299902,
+0.00196196296152142893 < D_2 < 0.00196196296152142896,
+0.00241410289623904894 < D_3 < 0.00241410289623904897,
+0.00002810723928353877 < F < 0.00002810723928353880,
+0.00000038785322987835 < eta_4 < 0.00000038785322987838,
+0.00000026023553183385 < eta_3 < 0.00000026023553183388,
+0.00000012761769804449 < eta_4-eta_3 < 0.00000012761769804452,
+0.00000002761769804449 < eta_4-eta_3-1e-7
+                                      < 0.00000002761769804452,
+0.14056946869848664490 < C+eta_4 < 0.14056946869848664493,
+2.59369407943386457250 < A_4 < 2.59369407943386457253.   (30)
+```
+
+Every displayed terminating decimal denotes an exact rational, enlarged
+outwards by integer division of the internal rational endpoints. In
+particular F>0 and the requested strict eta_4>eta_3+1/10000000 is proved.
+
+### 11.3 All-n and global consequences of the proved corollary
+
+Let J_n and D_(i,n) retain exactly their Section 9 definitions for these
+three cutoffs, and F_n=sum_i h_i*D_(i,n)-8*Q_3. Equations (24)-(26),
+with all their gates discharged in (29), prove for every integer n>=100000
+
+```text
+R*(n)>=B_n^(4),
+B_n^(4)/n^2 >= [J_n+(F_n)_+/L]/pi-1/n
+             >= C+eta_4-A_4/n.                        (31)
+```
+
+The second inequality uses |J_n-pi*C|<=5/n,
+F_n>=F-19H/(2n) and (F_n)_+>=F_n. It holds even if a finite numerator
+is negative. The scalar coefficient is L=8*(54H+2)>H, exactly as in
+Section 9; the energy is spent once. Full-geometric transfer is that
+corollary's separate deletion argument for every full feasible order:
+retain original radii, sum the directed surviving gaps including closure,
+then minimize over the same outer order and its nested restrictions.
+This never assumes chain feasibility implies all-pairs feasibility.
+
+Consequently the exact asymptotic statements are
+
+```text
+liminf B_n^(4)/n^2 >= C+eta_4,
+liminf R*(n)/n^2 >= C+eta_4 > C+eta_3+1/10000000.       (32)
+```
+
+There is also an explicit finite strict conclusion. Since (30) gives
+eta_4-eta_3-1/10000000>2.761769804449e-8>2.594/10^8,
+(31) yields
+
+```text
+R*(n)>=B_n^(4)>(C+eta_3+1/10000000)*n^2
+                                      for EVERY n>=10^8. (33)
+```
+
+These are analytic all-order and all-n results via the accepted
+corollary, supported by bounded exact parameter arithmetic. The checker
+does not enumerate tours or prove those universal quantifiers by sampling.
+The fixed witness succeeds; no cutoff/width search or adjustment occurred.
+No sharp endpoint, normalized global limit, minimizing tour, geometric
+upper construction, expanded finite certificate or paper revision follows.
+The [owning ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improvement-at-a-fixed-rational-witness)
+and [task evidence](../ops/TASK-20260911__four_level_rational_witness/EVIDENCE.md)
+record scope and reproducibility. Independent acceptance of this new
+fixed-witness theorem remains separate from its accepted general premise.
