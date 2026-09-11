@@ -865,7 +865,7 @@ normalized fixed-order radii both tend to C_3. In particular
 C_term<=liminf R*(n)/n^2<=limsup R*(n)/n^2<=C_3<C_b.
 ```
 
-This is the strongest current proved upper bound. Every finite cell
+This bound retains C_3=C_3(1/1000); the next entry improves it. Every finite cell
 retains the full maximum, including all actual seams. The odd order's
 lower squeeze is proved from retained disjoint cells, with no use of the
 alternating criterion after deletion. Parameters are unchanged and no
@@ -876,6 +876,31 @@ bound and public arXiv-v1 assets retain their scope; external review is separate
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md`, Section 7;
 fixed-order hypotheses and quantitative even/odd limits in Sections 1-6,
 local exact/numerical evidence in `ops/TASK-20260908__third_block_full_root/`.
+
+### Fixed third width 1/250: improved global upper bound
+
+**Status:** proved global limsup corollary of the exact recovered even
+orders and odd deletion, after arXiv v1; external acceptance is separate.
+
+Use C_3(1/250) and the fixed-order limits solely from the fixed-order
+ledger's [fixed 1/250 transfer entry](FIXED_ORDER_THEORY.md#fixed-third-width-1250-integer-recovery-and-full-root-transfer).
+The recovered full-feasible orders in both parities imply
+
+```text
+limsup R*(n)/n^2 <= C_3(1/250) < C_3(1/1000).
+```
+
+This is the strongest current proved upper bound. The strict comparison
+is the existing continuous-width theorem, now connected to actual
+geometric constructions. The lower endpoint is unchanged and retains its
+own entry. No finite-n comparison between the two families, sharpness,
+global normalized limit, global optimum, expanded certificate or optimized
+third width is asserted. The continuous mixed-width minimum has no transfer
+from this fixed-width result.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md`, Section 7;
+fixed-order recovery, all-pairs proof and odd squeeze in Sections 1-6;
+local exact finite evidence in `ops/TASK-20260911__third_block_250_transfer/`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -959,14 +984,15 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The three-block full-root construction above gives the strongest
+The fixed 1/250 three-block full-root construction above gives the strongest
 proved upper bound
 
 ```text
-limsup R*(n)/n^2<=C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
+limsup R*(n)/n^2<=C_3(1/250)<C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
 ```
 
-and hence `R*(n)=Theta(n^2)`. The true normalized liminf and limsup, their
+where unqualified C_3=C_3(1/1000), and hence `R*(n)=Theta(n^2)`.
+The true normalized liminf and limsup, their
 possible equality, and either endpoint's sharpness remain unresolved.
 The stronger current lower endpoint is supplied by the common-chain
 stability/global-corollary entry above, which solely owns that improvement.
@@ -974,7 +1000,7 @@ stability/global-corollary entry above, which solely owns that improvement.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/PERMUTED_HALVES_THIRD_BLOCK_FULL_ROOT.md` for the strongest upper
+`research/PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md` for the strongest upper
 side. The earlier boundary, fixed second-block, one-prefix, reflected, shifted,
 unshifted and increasing-order theorems remain valid but are weaker.
 The single-subset envelope does not
@@ -985,7 +1011,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_split,C_3]`, including whether they agree; improve beyond the
+   `[C_term+eta_split,C_3(1/250)]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.

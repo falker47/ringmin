@@ -4,7 +4,7 @@
 
 ```text
 repository=falker47/ringmin
-task_base_head=d2fd4fc42f1cd5bfae883a40027d5f0bda704c7c
+task_base_head=d895d5592ea6422c404ffc85c5b1d36972bf146d
 observed_on=2026-09-11
 phase=post-arXiv-v1 active research
 ```
@@ -12,42 +12,43 @@ phase=post-arXiv-v1 active research
 ## Current task
 
 ```text
-task=TASK-20260911__optimized_midpoint_split
+task=TASK-20260911__third_block_250_transfer
 mode=STRICT
 state=READY_FOR_REVIEW
 ```
 
-Optimized the proved midpoint split and propagated its improved constant
-through the finite/asymptotic two-level minimax and full-feasible deletion.
-The proof is in [Sections 11.3-12](research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md#113-marginal-cancellation-leaves-only-threshold-crossings);
-the [owning ledger](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#quantitative-stability-for-the-fixed-macroscopic-common-chain-pair)
-holds the classified result. Scope and checks:
-[task dossier](ops/TASK-20260911__optimized_midpoint_split/TASK_STATUS.md).
+Closed the fixed 1/250 third-block geometric transfer in the
+[new proof](research/PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md).
+The [fixed-order ledger](knowledge/FIXED_ORDER_THEORY.md#fixed-third-width-1250-integer-recovery-and-full-root-transfer)
+owns the construction and even/odd limits; the
+[global ledger](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#fixed-third-width-1250-improved-global-upper-bound)
+owns only the resulting limsup improvement. Scope and audit:
+[task dossier](ops/TASK-20260911__third_block_250_transfer/TASK_STATUS.md).
 
 ### Verification gates
 
-- New standalone checker: isolated Python 3.14.3 run exit 0. Exact split,
-  E-to-e, scalar crossing, derivative and secant identities; rational
-  parameter/integral/cubic enclosures and finite cutoff all pass.
-- Disabled-assertion guard: isolated `-O` run exits 1 with the prescribed
-  rejection. No production, previous-checker or result imports.
-- Complete proof/diff and direct new-file inspections, explicit whitespace,
-  local-link and protected-range checks passed. Sections 2-10, the inputs
-  through (39), and the Section 11.5-11.6 family proofs are unchanged.
+- New standalone checker, isolated Python 3.14.3 with site disabled: exit 0.
+  Exact floor, cell, seam, panel, gate and deletion checks pass; rational
+  root brackets and both directed pair paths pass, including active third
+  blocks. Negative controls reject malformed constructions and a lost chord.
+- Disabled-assertion guard: isolated -O run exits 1 with the prescribed
+  rejection. Existing continuous-width checker independently rerun: exit 0.
+- Complete proof/checker/new-file and tracked-diff inspection, explicit
+  whitespace/link, import and protected-path/range checks passed.
 - This is the precommit handoff. Staged inspection and authorized normal
   commit/push follow it; the final response reports SHA and remote result.
 
 ### Blockers and limitations
 
-No blocker or new structural assumption. Sharpness of the split objective
-and aggregate scalar minimum does not prove tour realizability, the best
-tour constant, geometric sharpness or a normalized global limit. Finite
-certification and arXiv v1 remain unchanged. No hosted CI or external
-independent mathematical acceptance is asserted.
+No mathematical blocker. Imported exact parameter theorems are unchanged.
+The new checker gives bounded exact arithmetic evidence; the analytic proof
+supplies the all-m quantifiers. External mathematical acceptance remains
+separate. No global normalized limit, sharpness, optimized width, new lower
+bound, expanded finite certificate or arXiv-v1 revision is asserted.
+Hosted CI for the final SHA has not been inspected.
 
 ## Exactly one next atomic task
 
-Independently review the optimized midpoint split and Section 12 propagation
-at committed HEAD, audit the unchanged all-tour inputs as needed, and
-reproduce the new bounded checker. Record acceptance or precise corrections
-without further research.
+Independently review the fixed 1/250 transfer at committed HEAD, audit the
+unchanged dependencies as needed and reproduce its bounded checker. Record
+acceptance or precise corrections without further research.

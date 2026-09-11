@@ -1608,9 +1608,10 @@ and a positive chain correction to the displayed chord formula. That
 chord-branch theorem stops at entry; the following entry resolves the
 mixed-regime derivative and stationary width.
 
-This supplies no finite recovery, R_full transfer or new global coefficient
-for the larger width. The imported parameter definitions/brackets are
-unchanged, and independent external acceptance remains separate.
+This continuous theorem alone supplies no finite recovery or geometric
+transfer. The fixed 1/250 transfer entry below now supplies that separate
+step; the imported parameter definitions/brackets remain unchanged.
+Independent external acceptance remains separate.
 
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md`, Sections 1-5;
 one standalone exact gate/formula checker and independent raw integral
@@ -1650,9 +1651,10 @@ the already accepted boundary theorem's distance bound, not a new input
 optimization. All interval quantifiers and cost comparisons are analytic;
 the standalone Fraction checker checks only two fixed endpoint sign gates
 and rational implications. No width scan or numerical root is used.
-No finite recovery, R_full transfer, new global coefficient, reoptimization
-of fixed inputs, finite certification or paper revision follows. Existing
-unqualified C_3 in finite/global results remains C_3(1/1000).
+No finite recovery or geometric transfer at Delta_* follows; the separate
+fixed 1/250 entry below does not extend to that mixed-width minimum.
+No reoptimization of fixed inputs, finite certification or paper revision
+follows. Unqualified C_3 retains its historical meaning C_3(1/1000).
 
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md`, Sections 1-7;
 bounded rational checker and local evidence in
@@ -1747,6 +1749,48 @@ external mathematical acceptance remains separate.
 1-7; bounded exact seam/branch/deletion checks, independent all-pairs and
 Cartesian diagnostics and dependency reruns in
 `ops/TASK-20260908__third_block_full_root/`.
+
+### Fixed third width 1/250: integer recovery and full-root transfer
+
+**Status:** exact fixed-order theorem / quantitative even and odd limits,
+after arXiv v1; independent mathematical acceptance remains separate.
+
+Keep the exact alpha_hat, lambda=(1+alpha_hat)*x_* and epsilon_b.
+In the preceding three-block construction replace only the third length
+by f=2*floor(m/500), corresponding to Delta=1/250. The strict half-wrap
+margin is 23541513/1000000000; the new third block is empty at m<500,
+identity of length 2 at 500<=m<1000, and nonidentity at m>=1000.
+Every actual cyclic predecessor, shared second/third seam and exit remains
+in the full maximum. In particular r=m-s>=q+d+f+2 and P_r=2m.
+
+The recovered measures converge to precisely mu_3(1/250), with the same
+arbitrary-continuous-test error omega_F(4/m)+omega_F(11/m)+38*||F||/m.
+For EVERY integer m>=2 the full-cell root rho_m equals R_full(sigma_m)
+and admits an all-pairs placement. Its quantitative limit is
+
+```text
+|rho_m/(2m)^2-C_3(1/250)|
+  <=[1198/m+16384/(3*m^2)]/(4*pi), m>=2048.
+```
+
+Deletion of only 2m gives an odd feasible placement. For m>=4, the m-2
+surviving disjoint cells give a necessary-score root tau_m and the separate
+squeeze tau_m<=R_full(sigma_m^-)<=rho_m. Equation (12) of the source
+proves R_full(sigma_m^-)/(2m-1)^2 -> C_3(1/250), also with an explicit
+error at m>=2048. This gate concerns error bounds; even root feasibility
+and deletion feasibility hold already at m>=2. Finite odd minima are not
+identified with either bounding root.
+
+The strict continuous saving remains owned by the variable-width entry
+above. The global limsup consequence belongs only to the global ledger.
+This transfer concerns exactly 1/250, without optimizing any parameter,
+enumerating tours, changing lower bounds, proving global sharpness or
+expanding finite certification. Old unqualified C_3 remains C_3(1/1000).
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md`,
+Sections 1-6; independent bounded integer/rational root, seam, panel,
+deletion and direct both-path checks in
+`ops/TASK-20260911__third_block_250_transfer/check_transfer.py`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 
