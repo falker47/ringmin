@@ -1,4 +1,11 @@
-# Versioned v2 / journal candidate
+# Superseded replacement candidate - historical provenance
+
+**EDITORIALLY_SUPERSEDED.** Do not use this directory as the next upload.
+The current architecture is the [standalone sequel](../asymptotic_sequel/README.md)
+plus the [conservative correction](../v1_correction/README.md), described in
+the canonical [publication history](../../knowledge/PUBLICATION_HISTORY.md).
+The source, PDF, upload source and original build/audit evidence below are
+preserved. The build command below reproduces a historical candidate only.
 
 This is an unsubmitted post-v1 candidate by Maurizio Falconi. The historical
 `paper_assets/ringmin_paper.tex`, its PDF, tables, figures and citation metadata
@@ -6,8 +13,8 @@ remain unchanged. Internal adversarial validation is not independent external
 acceptance or the author's final publication approval.
 
 - [Candidate PDF](ringmin_v2.pdf) and [LaTeX source](ringmin_v2.tex).
-- [Final arXiv replacement handoff](ARXIV_SUBMISSION.md), with the minimal
-  source-only [upload directory](arxiv_submission/), verified metadata and hashes.
+- [Superseded arXiv replacement handoff](ARXIV_SUBMISSION.md), with the historical
+  source-only [bundle](arxiv_submission/), then-verified metadata and hashes.
 - [Final review packet](../../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md),
   [claim matrix](../../ops/GOAL-20260911__conclude_study/CLAIM_MATRIX.md) and
   [complete command index](../../ops/GOAL-20260911__conclude_study/VERIFICATION.md).

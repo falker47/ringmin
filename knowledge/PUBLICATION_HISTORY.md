@@ -14,19 +14,45 @@ snapshot recorded in the canonical index. Publication-facing source and
 derived assets remain synchronized historical material and require a
 dedicated `STRICT` revision task before any change.
 
-## Versioned post-v1 candidate, 2026-09-11
+## Current two-manuscript architecture, 2026-09-11
 
-**Status:** unsubmitted v2/journal candidate, internally validated and prepared
-for one independent external review; not a published replacement or external
-acceptance. The user's research-completion goal explicitly authorized this
-new version while preserving the historical record.
+**Status:** `READY_FOR_REVIEW`, unsubmitted, without external acceptance.
+The primary finite/Supnick reference remains the real public v1. Default
+citation and `CITATION.cff` remain anchored to it.
+
+- [Standalone asymptotic sequel](../paper_assets/asymptotic_sequel/README.md):
+  *Minimum central circles: an effective characterization of the global
+  asymptotic constant*. It presents the angular-to-line reduction, existence,
+  effective balanced-word LP characterization, full geometric recovery and
+  explicit endpoints. Historical finite algorithms and tables are cited only.
+- [Conservative corrective v2](../paper_assets/v1_correction/README.md):
+  *Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP
+  and certified finite optima*. It preserves the historical finite core and
+  corrects superseded conjectures and witness quantifiers. Its distinct
+  publication state is `AWAITING_STANDALONE_ARXIV_ID`; no identifier is invented.
+
+The [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
+and [overlap/policy audit](../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
+identify the separation and residual moderation risk. The next action is
+independent review of the standalone. Only later, if arXiv accepts a distinct
+submission and assigns a real identifier, may a separate task replace the
+corrective placeholder and rebuild/re-audit before submission. If moderation
+requires versioning, prepare a genuinely integrated reference paper containing
+both the finite core and asymptotic theory. The old nine-page candidate is not
+that fallback. This sequence is documented, not executed.
+
+## Superseded replacement strategy, 2026-09-11
+
+**Status:** `EDITORIALLY_SUPERSEDED`. Its technical audit remains historical
+evidence; this artifact is no longer a recommended upload or current candidate.
+Its source, PDF, original source-only bundle and build evidence are preserved.
 
 The source/PDF and reproducible build manifest are in
 [`paper_assets/v2/`](../paper_assets/v2/README.md). The effective global
 asymptotic theorem is central; its mathematical status remains owned by
 [`GLOBAL_BOUNDS_ASYMPTOTICS.md`](GLOBAL_BOUNDS_ASYMPTOTICS.md), while the
 fixed-order and finite-certificate owners retain their separate scopes.
-The [final review packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
+The historical [final review packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
 identifies the source supplement, claims, dependencies, checks and final
 containing commit. Historical TeX/PDF, derived assets and CITATION.cff are
 unchanged. No arXiv submission, journal submission, tag or release occurred.

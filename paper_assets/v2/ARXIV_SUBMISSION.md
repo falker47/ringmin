@@ -1,14 +1,19 @@
-# arXiv v2 replacement handoff
+# Superseded arXiv replacement handoff
 
-**ARXIV_READY** for the author's manual replacement workflow after the STRICT
-audit of 2026-09-11. This is local submission preparation, not arXiv processing
-or external mathematical acceptance. No submission, release or push occurred.
-No new scientific conclusion was introduced.
+**EDITORIALLY_SUPERSEDED.** This is historical technical-audit evidence, not
+current upload instructions. The current action is independent review of the
+[standalone sequel](../asymptotic_sequel/README.md); see the canonical
+[publication history](../../knowledge/PUBLICATION_HISTORY.md). Instructions
+and metadata below document the abandoned replacement strategy only. The
+unaltered original handoff is recoverable at commit
+`227d09d480c2d88d09d3450c9015fc9737440c17`. No submission occurred and no new
+scientific conclusion was introduced by that audit.
 
 ## Exact upload inventory
 
-Upload only [arxiv_submission/ringmin_v2.tex](arxiv_submission/ringmin_v2.tex),
-at the root of the submission. The directory contains this single file:
+The historical upload inventory was
+[arxiv_submission/ringmin_v2.tex](arxiv_submission/ringmin_v2.tex),
+at the root of the submission. The preserved directory contains this single file:
 
 | Filename | Bytes | SHA-256 |
 |---|---:|---|
@@ -121,10 +126,8 @@ Historical v1, proof notes, ledgers, production code and certificates are
 unchanged. Full exact command results are in
 [EVIDENCE.md](../../ops/TASK-20260911__arxiv_submission_audit/EVIDENCE.md).
 
-## Exactly one next atomic task
+## Superseded next action
 
-The author performs the manual arXiv replacement preview: verify the inherited
-record/metadata and sole upload file, select pdflatex / TeX Live 2025, and
-inspect every page of **arXiv's own compiled PDF** against the reviewed local
-candidate before deciding to finalize the replacement. This external workflow
-was not started here.
+The earlier proposed manual replacement preview was never started and is no
+longer the next action. Independent review of the standalone is the current
+single next atomic task; follow [CURRENT_STATUS.md](../../CURRENT_STATUS.md).

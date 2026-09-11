@@ -1,5 +1,9 @@
 # Task Log
 
+Historical append-only chronology. Preparation labels and proposed actions
+below describe the state at the recorded event, not current readiness; see the
+later supersession entry and the canonical CURRENT_STATUS.md.
+
 ## 2026-09-11 — Startup
 
 - Read the user-supplied goal objective and applicable AGENTS.md.
@@ -65,3 +69,11 @@
   submission or external acceptance decision is authorized in this task.
 - Exactly one next atomic task: author-run arXiv replacement preview and
   inspection of every server-generated PDF page before finalization.
+
+## 2026-09-11 - Subsequent editorial supersession
+
+The publication-architecture task preserved this technical audit but replaced
+its publication routing with a standalone sequel and a conservative correction.
+The earlier preparation label above is a historical event only; the old
+candidate is EDITORIALLY_SUPERSEDED. Current next action: independent review
+of the standalone. No arXiv preview or submission was performed.

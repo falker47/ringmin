@@ -1,0 +1,14 @@
+{
+  "Status": "AWAITING_STANDALONE_ARXIV_ID",
+  "Title": "Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima",
+  "Authors": "Maurizio Falconi",
+  "Abstract": "We study a discrete-geometric optimization problem: circles of radii $1,2,\\dots,n$ are all externally tangent to a central circle, and the central radius $R$ is minimized over cyclic orders of the surrounding circles. We prove that the chain-ordering component is governed by a fixed Supnick/anti-Monge traveling-salesman order. For every $R$, the angular-separation matrix is symmetric anti-Monge, so Supnick's theorem gives one minimizing cyclic order, independent of $R$. This proves the conjectured ``pyramid'' order optimal whenever the corresponding chain necklace is geometrically realizable, and gives an unconditional lower bound in all cases. Full geometric feasibility can fail because non-adjacent circle constraints are not captured by the chain equation; from $n=8$ the smallest circle can become a floating circle tangent only to the central circle. We formulate the full problem as a circular system of pairwise angular constraints, equivalently a simple temporal network, and certify global optima for $3\\le n\\le14$ using branch-and-bound plus an independent 50-digit verifier. Continuation of the floating-circle pattern beyond that range remains conjectural. The v1 conjecture $R^\\ast(n)=n^2/8(1+o(1))$ has been disproved by subsequent work (see the cited standalone sequel); this correction does not invalidate the finite results. The repository contains the saved certificate artifacts, verifier, and reproducibility commands.",
+  "Abstract characters": 1447,
+  "Pages": 12,
+  "Processor": "pdflatex",
+  "Main file": "ringmin_finite_v2.tex",
+  "Primary category proposed from existing record": "cs.CG",
+  "Cross-lists": [],
+  "Purpose": "Review consistency record; not an upload authorization",
+  "Comments proposal": "Deferred until a real standalone identifier exists; no copy-ready replacement metadata."
+}

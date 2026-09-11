@@ -1,5 +1,11 @@
 # Task Status
 
+**Historical dossier; publication action superseded.** The later
+[architecture task](../TASK-20260911__publication_architecture/TASK_STATUS.md)
+replaces this handoff. The original technical checks remain evidence; this
+dossier gives no current upload authorization or recommendation. Original
+wording is preserved in commit `227d09d480c2d88d09d3450c9015fc9737440c17`.
+
 ```text
 task=TASK-20260911__arxiv_submission_audit
 mode=STRICT
@@ -59,10 +65,11 @@ submission handoff and do not block preparation.
 
 ## Handoff
 
-ARXIV_READY; seven IMPORTANT findings corrected, no new scientific conclusion.
+EDITORIALLY_SUPERSEDED; seven IMPORTANT findings were corrected by the
+historical technical audit, with no new scientific conclusion.
 Complete findings, metadata and exact one-file inventory are in
 [ARXIV_SUBMISSION.md](../../paper_assets/v2/ARXIV_SUBMISSION.md).
-Exactly one next atomic task: the author performs the manual arXiv replacement
-preview and inspects every page of the PDF compiled by arXiv before finalization.
+The historical proposed preview is superseded. The current next atomic task
+is independent review of the standalone; see the architecture dossier above.
 Local integration is recorded by the containing commit; push is prohibited in
 this task. External mathematical acceptance remains pending.

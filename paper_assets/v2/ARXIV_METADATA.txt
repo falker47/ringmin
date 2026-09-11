@@ -1,6 +1,8 @@
-Proposed arXiv replacement metadata
+EDITORIALLY_SUPERSEDED - historical arXiv replacement metadata
 
-Copy each field value below, without its field heading. Do not upload this file.
+Do not use these fields for a current submission. They preserve the abandoned
+replacement strategy. Current architecture: ../asymptotic_sequel/README.md
+and ../v1_correction/README.md. Do not upload this file.
 
 Title:
 Minimum central circles: certified finite optima and an effective global asymptotic constant

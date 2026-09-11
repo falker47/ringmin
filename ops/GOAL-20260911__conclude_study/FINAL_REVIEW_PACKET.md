@@ -1,5 +1,12 @@
 # Ringmin final external review packet
 
+**Historical scientific dependency packet.** Its replacement-candidate
+publication routing is superseded by the
+[two-manuscript architecture](../../knowledge/PUBLICATION_HISTORY.md).
+The proof/checker evidence below remains relevant. For the current review
+object and next action use
+[CURRENT_STATUS.md](../../CURRENT_STATUS.md).
+
     goal=GOAL-20260911__conclude_study
     mode=STRICT
     terminal_state=SCIENTIFICALLY_COMPLETE

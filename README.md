@@ -23,8 +23,14 @@ The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
 `0.14056946887766098063257 > 1/8`. The four-block upper bound now has
 [genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
 These post-v1 theorems have passed internal adversarial review; independent
-external acceptance is pending. See the [final review packet](ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
-and the [versioned v2 candidate](paper_assets/v2/ringmin_v2.pdf).
+external acceptance is pending. The current publication architecture is a
+[standalone asymptotic sequel](paper_assets/asymptotic_sequel/README.md) and a
+[conservative correction of the finite paper](paper_assets/v1_correction/README.md),
+which awaits a real sequel identifier. See the
+[publication history](knowledge/PUBLICATION_HISTORY.md) and
+[review dossier](ops/TASK-20260911__publication_architecture/TASK_STATUS.md).
+The former [replacement candidate](paper_assets/v2/README.md) is superseded
+provenance, not the recommended next upload.
 
 The historical paper is unchanged. The fixed-order
 feasibility oracle is a high-precision Simple Temporal Network check over all
@@ -232,16 +238,18 @@ The [reproduction dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENC
 records a successful clean-source Windows run and its failure controls.
 POSIX execution and hosted CI for the current SHA are not inferred from it.
 
-With `pdflatex` available, build the versioned candidate and its source/PDF
-hash manifest with:
+With `pdflatex` available, build both current review candidates from clean
+source-only trees and record their input/PDF hashes with:
 
 ```bash
-python paper_assets/v2/build.py
+python paper_assets/build_publications.py all
 ```
 
-The [v2 build notes](paper_assets/v2/README.md) identify TeX requirements and
-the proof supplement. Historical v1 source/PDF and citation metadata remain
-the original publication record.
+The [sequel](paper_assets/asymptotic_sequel/README.md) and
+[corrective-v2](paper_assets/v1_correction/README.md) build notes identify their
+source bundles and review boundaries. Each bundle also compiles directly with
+pdflatex. Historical v1 source/PDF and citation metadata remain the original
+publication record.
 
 ## Certified Results
 

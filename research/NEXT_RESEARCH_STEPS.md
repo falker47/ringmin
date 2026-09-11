@@ -33,12 +33,16 @@ Supnick classification remains distinct from global contact/cascade claims.
 
 ## Priority 1 — One independent external review
 
-The authorized goal concluded at the effective-characterization level after
-complete internal dependency, restoration and manuscript gates. Review the
-entire final delta using the [final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
-under RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; the new
-candidate is versioned and unsubmitted. Only the actual external reviewer
-may advance external Review State. This is the single next atomic task.
+The research goal concluded at the effective-characterization level. The
+publication architecture now separates a standalone asymptotic sequel from
+a conservative correction of the finite paper. Independently review the
+[standalone manuscript](../paper_assets/asymptotic_sequel/README.md), using the
+[architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
+and the scientific dependency checks in the historical
+[final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md), under
+RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; neither candidate
+is submitted. Only the actual external reviewer may advance external Review
+State. This is the single next atomic task.
 
 ## Subsequent scientific questions
 

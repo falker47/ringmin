@@ -1,5 +1,7 @@
 {
-  "status": "ARXIV_READY for manual replacement preview; not submitted",
+  "status": "EDITORIALLY_SUPERSEDED; historical technical audit, not a current upload",
+  "superseded_by": "../asymptotic_sequel/README.md and ../v1_correction/README.md",
+  "original_manifest_commit": "227d09d480c2d88d09d3450c9015fc9737440c17",
   "reviewed_supplement_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
   "upload_directory": "arxiv_submission",
   "upload_files": [

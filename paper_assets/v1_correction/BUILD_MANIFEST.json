@@ -1,0 +1,40 @@
+{
+  "status": "AWAITING_STANDALONE_ARXIV_ID",
+  "publication_action": "none; independent review pending",
+  "source_date_epoch": 1789084800,
+  "command": "python paper_assets/build_publications.py correction",
+  "direct_compile": "pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder ringmin_finite_v2.tex",
+  "engine": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.13)",
+  "passes": 3,
+  "warnings": [],
+  "source_files": [
+    {
+      "name": "ringmin_finite_v2.tex",
+      "bytes": 34550,
+      "sha256": "4724d3d6f222e22293a61b5bbed70685550c8a341f4a070f535ebd6fbfc7d2af"
+    },
+    {
+      "name": "appendix_tables.tex",
+      "bytes": 2178,
+      "sha256": "b79e4deaffbdb6a9b8864210337b492b8ae96bdcc7f44d432c577cf2c4730056"
+    },
+    {
+      "name": "figures/n14.png",
+      "bytes": 196107,
+      "sha256": "6c5719cb6089437e4f03baeb1b42ff34155dfcbfc41a5de0b3402da87b1cdcea"
+    },
+    {
+      "name": "figures/radii_vs_n.png",
+      "bytes": 129898,
+      "sha256": "f4d3b900bbec1c3e0555d9e9f38d97df68d5ea4fda3ba6f314324b6eb085a9eb"
+    }
+  ],
+  "pdf": {
+    "name": "ringmin_finite_v2.pdf",
+    "sha256": "6cc92c516894606901c14ee1280b4cd392b575861e83b26264186f3573d26cf6"
+  },
+  "builder_sha256": "90685e8c959aee3643c15c7a0982a10244a7cb58c2baf2832da71c349cabc618",
+  "scientific_supplement_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+  "publication_generation_commit": "Containing commit; see git log for this manifest",
+  "limits": "Local TeX Live 2025 package snapshot is newer than arXiv 2025-08-03. Byte reproducibility needs identical packages, fonts and input bytes. Git line-ending conversion can change text hashes."
+}
