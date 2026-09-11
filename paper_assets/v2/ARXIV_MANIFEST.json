@@ -1,0 +1,22 @@
+{
+  "status": "ARXIV_READY for manual replacement preview; not submitted",
+  "reviewed_supplement_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+  "upload_directory": "arxiv_submission",
+  "upload_files": [
+    {
+      "name": "ringmin_v2.tex",
+      "bytes": 28286,
+      "sha256": "189232a42ab4e8d2a77d1fd3535f08ab8e0aa9c22cbdcee1427a472f152ee39a"
+    }
+  ],
+  "candidate_pdf_sha256": "c3fc42c1f8796d86938260dc7764277458982306315668d244a94686bc9f3ef9",
+  "clean_pdf_sha256": "2d3deef7df68e4ef69353fed17d8c4e15577402c88eebed5a93b6fd3ebc23b3b",
+  "pages": 9,
+  "figures": 0,
+  "tables": 1,
+  "compiler": "pdflatex / LaTeX PDF mode",
+  "recommended_arxiv_texlive": "2025",
+  "local_engine": "pdfTeX 1.40.28 / TinyTeX TeX Live 2025; packages updated after arXiv snapshot",
+  "clean_passes": 3,
+  "limitations": "The local package tree is newer than arXiv TL2025 frozen 2025-08-03. Actual server PDF inspection remains manual. Upload-file hashes cover actual file bytes; Git EOL conversion can change text hashes in another checkout."
+}

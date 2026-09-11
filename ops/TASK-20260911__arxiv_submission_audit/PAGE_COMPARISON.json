@@ -1,0 +1,61 @@
+{
+  "dpi": 110,
+  "pages": [
+    {
+      "page": 1,
+      "png_sha256": "c95154f7747cd5387a92eefb76818a5b269446a4aef3bfdeb8a697866f247e15",
+      "candidate_identical": true
+    },
+    {
+      "page": 2,
+      "png_sha256": "4b62df1eb3550fa967d1eb07412ef52a501d3c91bb98867aa03d5167a2173e95",
+      "candidate_identical": true
+    },
+    {
+      "page": 3,
+      "png_sha256": "5b8a5fdd281a64951111baf4f02bca3f30346f82961c4d96454a5f819a0c6b8e",
+      "candidate_identical": true
+    },
+    {
+      "page": 4,
+      "png_sha256": "8ef087da78a99d5d99e95db1b9639995c3d1661533f9643c31f6ba658bd39e14",
+      "candidate_identical": true
+    },
+    {
+      "page": 5,
+      "png_sha256": "b612604c82b7c949680a27171a37cc9a447aaa03c3e758b53efefb4b09675b5f",
+      "candidate_identical": true
+    },
+    {
+      "page": 6,
+      "png_sha256": "b7943627a838816f23fe037b4ca85a8ea1de3216d11689d3868d82afee23c88e",
+      "candidate_identical": true
+    },
+    {
+      "page": 7,
+      "png_sha256": "a6d55669b245e0f8a1302f3b2f7640706f95d4b8f99acbc79865204b554dd770",
+      "candidate_identical": true
+    },
+    {
+      "page": 8,
+      "png_sha256": "b6810fa548ee84b7b9290b51f9177f71941f81fc1f8cf286ec28eb37d4b4161c",
+      "candidate_identical": true
+    },
+    {
+      "page": 9,
+      "png_sha256": "ae22ef6d72b89e169626c9cd6060322d70bd382b8fb30ac1de0833b7287b22a0",
+      "candidate_identical": true
+    }
+  ],
+  "visually_inspected_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

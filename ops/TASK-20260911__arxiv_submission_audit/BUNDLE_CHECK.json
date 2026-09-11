@@ -1,0 +1,226 @@
+{
+  "active_content": false,
+  "candidate_pdf_sha256": "c3fc42c1f8796d86938260dc7764277458982306315668d244a94686bc9f3ef9",
+  "citation_keys": 9,
+  "embedded_fonts": {
+    "/BNGLIH+LMRoman10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "246b75750864a3da02e1212d09963bb1ded437d8ea5e5c43a77a541b5a21844e",
+      "subtype": "/Type1"
+    },
+    "/CETFTH+LMMathItalic8-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "e553239138a23d560d8689691f8b9edd5e27271614c1d6351e1d2c961de4c9f8",
+      "subtype": "/Type1"
+    },
+    "/DOTNLD+LMRoman12-Bold": {
+      "embedding": "/FontFile",
+      "stream_sha256": "4b58cc2a9509e4b959778e072e1bb8d82e6b8112111ab18ae457fa3727ed741a",
+      "subtype": "/Type1"
+    },
+    "/FADDJR+LMRoman10-Bold": {
+      "embedding": "/FontFile",
+      "stream_sha256": "cf17f5c94f1d609c27f9f578573e02bbed8eac6419defd9093a8a7bfd8671d31",
+      "subtype": "/Type1"
+    },
+    "/FNPGCN+LMRoman7-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "3c0175b89f630932e63e00a7882c2c17e6b8cd3eeea2d5b8cd88e2a1a15837f1",
+      "subtype": "/Type1"
+    },
+    "/ILQVAK+LMMono10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "e5ee7cbbfd9380e2c64af2296d79c255d0623bb8fa8e74136375fc9638341698",
+      "subtype": "/Type1"
+    },
+    "/ITTHQE+LMMathItalic6-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "9ba730202d70c42bdc8918a14bc8239a62eb95a8fb24cc3729829fb43ace1d0a",
+      "subtype": "/Type1"
+    },
+    "/NTCDCR+LMMathSymbols7-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "a0c7830fbbb6035de46079e68e4741696172ffab74b0b37a6c1b8e3b354c230b",
+      "subtype": "/Type1"
+    },
+    "/OIMNMB+LMRoman17-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "937dd55d588acff289ab29d3d0cee511a944302186c300682b1e6a1d18fb47ab",
+      "subtype": "/Type1"
+    },
+    "/OULHZS+LMMathItalic10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "44ba60d4cf77f8a80adb38b0bbb0b8817570c041a84b70ba09391b83145e8d3a",
+      "subtype": "/Type1"
+    },
+    "/OWDCOV+LMMathSymbols8-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "bfed186f55b9020de1ca6532c0f55877b018eb46bd0e3ba5e860771870ea4b3f",
+      "subtype": "/Type1"
+    },
+    "/PFVKHS+LMRoman8-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "74e37b1e087ac7c19ea8f77b70b2499d1414c763668278cce47bc82594f84331",
+      "subtype": "/Type1"
+    },
+    "/RTYZZL+LMRoman10-Italic": {
+      "embedding": "/FontFile",
+      "stream_sha256": "4cb253ffa9effe4743d5c4047fd880b6ba065fd42bc009143bf3c2106a8b6f9c",
+      "subtype": "/Type1"
+    },
+    "/RVDIED+LMMathExtension10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "9980c7b6c5024b9daab4acc27224a0d34cc610029d51e16b815acabd586900ba",
+      "subtype": "/Type1"
+    },
+    "/ZAFTDN+LMMathSymbols10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "4399b1352354877814878473c315e849f5f5986dd991328e8723344a39efce51",
+      "subtype": "/Type1"
+    },
+    "/ZWQGCX+LMRoman12-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "9c31366df2e9e40326f786d9dbfbaf27ab43fdc6ecee421853cee8b2b9662964",
+      "subtype": "/Type1"
+    }
+  },
+  "exact_page_content_match": true,
+  "external_uris": [
+    "https://arxiv.org/abs/2607.28654v1",
+    "https://doi.org/10.1137/S0036144596297514",
+    "https://doi.org/10.20382/jocg.v9i1a10",
+    "https://github.com/falker47/ringmin",
+    "https://github.com/falker47/ringmin/tree/3beb8d70c5b3748d370a92855847bdf574e5a14f"
+  ],
+  "labels": 20,
+  "local_environment": "pdfTeX 1.40.28 / TinyTeX TeX Live 2025; packages updated after arXiv snapshot",
+  "metadata": {
+    "/Author": "Maurizio Falconi",
+    "/CreationDate": "D:20260911000000Z",
+    "/Creator": "LaTeX with hyperref",
+    "/Keywords": "",
+    "/ModDate": "D:20260911000000Z",
+    "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+    "/Producer": "pdfTeX-1.40.28",
+    "/Subject": "",
+    "/Title": "Minimum central circles: certified finite optima and an effective global asymptotic constant",
+    "/Trapped": "/False"
+  },
+  "pages": 9,
+  "pdf_metadata_match": true,
+  "sha256": "2d3deef7df68e4ef69353fed17d8c4e15577402c88eebed5a93b6fd3ebc23b3b",
+  "source_files": [
+    "ringmin_v2.tex"
+  ],
+  "source_sha256": "189232a42ab4e8d2a77d1fd3535f08ab8e0aa9c22cbdcee1427a472f152ee39a",
+  "tex_dependencies": {
+    "distribution-root/texmf.cnf": "4cc000a89591bc4eae25ed62b7996870979907f5a1ddd0ba8098506e5bbf80a6",
+    "texmf-dist/fonts/enc/dvips/lm/lm-ec.enc": "7f9932c402d22a937b853406cfdf4166b80260e3ff21a03fe9a4c05105a2918c",
+    "texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc": "7ecd3eb53329d24551d4e125c741037a4bf94872bf545492b6fb4c7d21f381c4",
+    "texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc": "0d7b9e82ad6274470876761c22573c28db1f1b32d647b688230b3a366f0e373b",
+    "texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc": "a2980b38288ef4024b8a3e170c19c9d4e2ee8b7dde97a59e8148291ffd3443db",
+    "texmf-dist/fonts/enc/dvips/lm/lm-rm.enc": "8bf8f9bd48d49aa3f3c597716908854e4d9207b009c109e6d9c5887feb856844",
+    "texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm": "6a3850cd71bbb2f43d98b7eb6b47f925de25626f5f4a0648c2d9d7b4b774eb2a",
+    "texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm": "3b54bde5cb0e0bd071eea7bc702ed3a1a284f786779ef8e75b06eba4104bb9f2",
+    "texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm": "c800d1dfd533040219fcc06d52e0e00c2a20fb9b0039fe9f58ccec53fd003a9f",
+    "texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm": "719d100c110fa1cfae9ad0b63e6c21753f4980f925fa516c1a04961e206f69d5",
+    "texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm": "d9f5f519ec718e9dbccb8527c1f5d3b4a008dfb946377f97f71611b385d3d010",
+    "texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm": "9e0909a297a3097e50960158d324006ddd5302db665400fa1fdf966df14e1a17",
+    "texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm": "361b5530a4b410c6274e9330c11e993843c62e394323aeaa6e0aee61e8042444",
+    "texmf-dist/fonts/tfm/public/cm/cmr10.tfm": "87f2d8981927644cbecaf3d639e96e348ea4e7be49d8804468bd8ba9ff3f5244",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm": "0895c940bd2e763b70dcab18ebf27fd3f93c2490f43b2a8c028fc7fc24b2e855",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm": "d19c45859d453c0802699d27aa2bff735574b9bc97d8791aa76e3c7de6c38a36",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm": "cd13479f463b9a575d053dd7bf0884daa46bfdeffe4b7f537c193861652ac9e5",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm": "299021120f0a29ef61278a2363903bd8defbb8faaade458eb79067342aecb56f",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm": "67fb845ec934b2d50e788280d2c6d63ae719c9d8ac16a02d42fd346c81196c0c",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm": "372f968b4eeb47bf6a6c941c8793bce118d1800f12e194a351c7493ecc158f2a",
+    "texmf-dist/fonts/tfm/public/lm/ec-lmtt10.tfm": "d1d413f1d0d07f65ff7bc3ebc09a3c104087e20eccd10ccb384da5c4f175c485",
+    "texmf-dist/fonts/tfm/public/lm/lmex10.tfm": "9547b25fd525782610200d794a82de33037887422751fcc29c5768cfa650e626",
+    "texmf-dist/fonts/tfm/public/lm/lmmi10.tfm": "d9fce8963e8cb075bf31a5715a8f4a54688f7026b3a06e882ff2eb9c0d110320",
+    "texmf-dist/fonts/tfm/public/lm/lmmi12.tfm": "06870b7e003008214eefcf9bc4215006faff9edf5d99bee75211de57620d1818",
+    "texmf-dist/fonts/tfm/public/lm/lmmi5.tfm": "7bc98c12006eb1d784ce276f5dc008e0d631ee6bc659efadec24801c00d2a462",
+    "texmf-dist/fonts/tfm/public/lm/lmmi6.tfm": "e7305bead3f6b2c8313e1234cb52376219d4283227c23295fe2f654e3ba3b551",
+    "texmf-dist/fonts/tfm/public/lm/lmmi7.tfm": "8548d4d19fc2b3671a5e11526f9013df8828b5b9b0f8277dc0ae7148bd1d33f5",
+    "texmf-dist/fonts/tfm/public/lm/lmmi8.tfm": "8d8514f9b0d11e443d9a3cdc059622b06797c1dbcb3cee994f6ac3329c462a82",
+    "texmf-dist/fonts/tfm/public/lm/lmsy10.tfm": "11f429b2c08f944627faa5942277297d7f8fef40edae2bae46cb238b838400ba",
+    "texmf-dist/fonts/tfm/public/lm/lmsy5.tfm": "cac282b076edc89a2bbc8cdd1bd899117cd1af05612bca2b203e8b5ebe715431",
+    "texmf-dist/fonts/tfm/public/lm/lmsy6.tfm": "8548e4b09655eb2b166bf95df4be4f2a7ae54d5df2069bc04ef233bfd941167b",
+    "texmf-dist/fonts/tfm/public/lm/lmsy7.tfm": "3e92767469b4df54c985a533b8064789df60f21ab69d381dbf01bb608e3fbff8",
+    "texmf-dist/fonts/tfm/public/lm/lmsy8.tfm": "b6b96268d56481a5bc7cbb34b140ca1fa5017d2767acc4e11a94b30eabd114f7",
+    "texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm": "50dc8240a67003c1ec5bcd55f703c87189aeab0d199c42b4dc3e141a02488998",
+    "texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm": "9d4e3d8e39a41b93d91f79c1c47d2297efb7b1af220b94860693c08361f227aa",
+    "texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm": "420a4fc1563b171e5a791bb71211d85e6bf62fd2f2ed2a7f34f742049d6e5071",
+    "texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm": "eb0bfdf8db3ae1409639fac9c88f84923872500d882d9ff8dc37aff445c723fe",
+    "texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm": "373a4f72b5a088f9caee2cfd75adb2b25116e0cba3ad2bfa99b5f8a7e902a482",
+    "texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm": "80bcbfd844d2310ac1d3bead45aee25e91b1a4a0a60ff1771959b9a1e90ec1a2",
+    "texmf-dist/fonts/type1/public/lm/lmbx10.pfb": "4acd67f9ece59a12e073aa863dbb1d5cea194f7f7b88ecce4659184d8275aa42",
+    "texmf-dist/fonts/type1/public/lm/lmbx12.pfb": "fb9b7cf1d13a8a837c2c6b238e7255f8d6f4cd6608bf3024ee68e43d04f01a08",
+    "texmf-dist/fonts/type1/public/lm/lmex10.pfb": "8e12eda1d29f55271bcef9a5022b42c8c10f8e65060dd6a8880556aa5484c052",
+    "texmf-dist/fonts/type1/public/lm/lmmi10.pfb": "c24662506b402f3e0033cc75eb746eb490a1b7477e6b3ef52053f5025ec0fc57",
+    "texmf-dist/fonts/type1/public/lm/lmmi6.pfb": "84b90db59b216d7f25f89a45c7565d7cccccc6c32961fe972b1a53558fa2035e",
+    "texmf-dist/fonts/type1/public/lm/lmmi8.pfb": "ec3aa1701ea2dbbd9ea2b7316ffe81726a3a2ecb31442fbaf719800f2625e68d",
+    "texmf-dist/fonts/type1/public/lm/lmr10.pfb": "84eb01245abb17c0530ca3909427256d73df8bed2d7243b9f2717ca08c010ac8",
+    "texmf-dist/fonts/type1/public/lm/lmr12.pfb": "d5fd4fdecfdbc8f97e955964aa2574927182303df178fe0c2e568fe9056e326c",
+    "texmf-dist/fonts/type1/public/lm/lmr17.pfb": "03b0f1f3e62a2866480f8f12edd465349a8f18afac0d5fb906dd493254d950fb",
+    "texmf-dist/fonts/type1/public/lm/lmr7.pfb": "cf94a1a79a32c446f11e585164463234a515721d509d2f2cfb0ab61f6f744ddc",
+    "texmf-dist/fonts/type1/public/lm/lmr8.pfb": "4a117a1dd9cf4f8b7eea4587eaa4f612be7ca329cb1d8255a2c6bb20febbfa69",
+    "texmf-dist/fonts/type1/public/lm/lmri10.pfb": "1239c71330ac8f0584e22f4d6abd0f016421fc73c545b15512ccf80b263f5c66",
+    "texmf-dist/fonts/type1/public/lm/lmsy10.pfb": "9969fd5ae5281ad40cdf6d8caf50084636a43ed7b7647e0e9e1195e859cec7cc",
+    "texmf-dist/fonts/type1/public/lm/lmsy7.pfb": "c434f5fb70bc41978ac63c673556a2d913211f297947aa1f0d18b93da25ebe4b",
+    "texmf-dist/fonts/type1/public/lm/lmsy8.pfb": "e23c98a5dadbaf4f156082cfcfa7b3366f849ee86b0410db53a9c6fe4e67920b",
+    "texmf-dist/fonts/type1/public/lm/lmtt10.pfb": "4b266a3e09581283d72e31df9f240811c77e02f8debf720744cc4614f7493616",
+    "texmf-dist/tex/generic/bigintcalc/bigintcalc.sty": "050f2ad3a3671a1f4f9bcf97784836301bc751507e7ada546632379406aea103",
+    "texmf-dist/tex/generic/bitset/bitset.sty": "af5c7196c69dc9d28225189169b60c9b9039125bc1756c04d54886f0a3e1891e",
+    "texmf-dist/tex/generic/gettitlestring/gettitlestring.sty": "26ab10fd43fd5a90f98bcbed3a99978808da8878eb73835db4e0346371aee41e",
+    "texmf-dist/tex/generic/iftex/iftex.sty": "0dc0cefe2131f82330a3b8e62034c184455329d7d9bb94abe21e740821630381",
+    "texmf-dist/tex/generic/iftex/ifvtex.sty": "1138730b9ad7d9f664b4760a4ea0ae0945afd21c006b76b67e623e863bbf3756",
+    "texmf-dist/tex/generic/infwarerr/infwarerr.sty": "8c3e23b8bb7d940ff26cb0cf96e0151f540acf55020dc3c1aa8bcdb2eb66305c",
+    "texmf-dist/tex/generic/intcalc/intcalc.sty": "1343ba1b10b245bfd199c22947249af1d756808690c7811c90f07fe0a3772080",
+    "texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty": "c42f0c2628dc5fbd95b535cf8cd3cc964347653c099d38c0d416f896d84e8240",
+    "texmf-dist/tex/generic/ltxcmds/ltxcmds.sty": "8fea89995d37ba4c69137186faafc589c470edcc5026d8a31aadbe5cef47dcb4",
+    "texmf-dist/tex/generic/pdfescape/pdfescape.sty": "b3f0e56366c11b85dae521f9a48a6fd415dec1ce8c83152fde813a9f64445b49",
+    "texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty": "2df7e0bd148c99d8097352b8ac9948dccf91d61ba360dcf43f82206933b6045b",
+    "texmf-dist/tex/generic/stringenc/stringenc.sty": "b134a7bba648a6987afc83ddfb6a3fcdad43bcae6b616e533eb484306d56ac45",
+    "texmf-dist/tex/generic/uniquecounter/uniquecounter.sty": "9d11c81501953d689787ff14c073d2f1eda5874068db9e882b8dbbf9a9d863b0",
+    "texmf-dist/tex/latex/amscls/amsthm.sty": "8d5e2bdb117297385971927b14fe4804314133dc0027b3171249a08280894626",
+    "texmf-dist/tex/latex/amsfonts/amsfonts.sty": "dab8b0e621267acfd89736cf97bdcc02647c545c0719c4997be8a7d1bf98f9c3",
+    "texmf-dist/tex/latex/amsfonts/amssymb.sty": "70838b061b56569dd3ed9f339b1bdd1c78ba185de49f27ceae331c97f48b5986",
+    "texmf-dist/tex/latex/amsfonts/umsa.fd": "48355e960333be747dd7b4500e76fde7c3ef0b1fa9c74ec0f1438af0d3a661a4",
+    "texmf-dist/tex/latex/amsfonts/umsb.fd": "e20f21f6ed631cbe3a627d5da5fef82367732a7d51207f8df5ee7e9c77ee342e",
+    "texmf-dist/tex/latex/amsmath/amsbsy.sty": "c09b1b14dfe8a81b6791673b3bc5a7fd8b794fb063b6e8b5ce79fc28c7e59c8c",
+    "texmf-dist/tex/latex/amsmath/amsgen.sty": "e7ef677a56e22d8da915e613c65fe2d4c2fe8744ffb283c2ccfdfc066e45e158",
+    "texmf-dist/tex/latex/amsmath/amsmath.sty": "4c0bfd7d67ea18214810a21244f8426da40d04af5bb90ed201b85cc5e211d321",
+    "texmf-dist/tex/latex/amsmath/amsopn.sty": "c50239a5acc1037ff4df482878e5546be3cd9b8ac725151bc14748a103d800a8",
+    "texmf-dist/tex/latex/amsmath/amstext.sty": "7a6d33e95e168f90cec6d4172aeae7da885924a8f587ccc11817e1dab4d50ba9",
+    "texmf-dist/tex/latex/base/article.cls": "f9c8770a909e5b6526eb72284e457cd379b9bedbf3b508a96bd7f922d4cb24ec",
+    "texmf-dist/tex/latex/base/fontenc.sty": "9ac0a88ddda40526aa1ec403c27a6325d3723c14fa9f02918011a79f93a72ef0",
+    "texmf-dist/tex/latex/base/size11.clo": "f2a208d3ff388ce24290aac6a36c9edb20e10bc7ea5b5a6222e965b91fc4132d",
+    "texmf-dist/tex/latex/booktabs/booktabs.sty": "3fe694a5406f84847143e56ba1841385364277cfe7694a9f4bc0072ca8656abc",
+    "texmf-dist/tex/latex/etoolbox/etoolbox.sty": "e48026fcea59b4906d1fd47bde658cb5caf0a7928c45a45ea563b18d5b40ebd4",
+    "texmf-dist/tex/latex/geometry/geometry.sty": "d5d36ad74051ad36288242b51438e2d9a5db2bd6c063b9b5704d0931fbc9f439",
+    "texmf-dist/tex/latex/graphics/keyval.sty": "d3faa310a1e4485b8efb1ed3ae8b11f9552e70b630dc35290a7aabdcd064b09a",
+    "texmf-dist/tex/latex/hycolor/hycolor.sty": "8acaa03eda19a8158780356701e905e354e1dc47dc736e6e26fc860c12a15e14",
+    "texmf-dist/tex/latex/hyperref/hpdftex.def": "586ebf72aa9ef78a8cf7b44060977700f1a749d0d5beca276d2c0fe028430d2f",
+    "texmf-dist/tex/latex/hyperref/hyperref.sty": "16f517b35f656dc26b6917f2bbb31e3af0ccd734806b1ce0ba70efc3e7ffb41c",
+    "texmf-dist/tex/latex/hyperref/nameref.sty": "567afe6847e20afcd0cbc5898274b815055cf96db3bee2fc74b97b310d17f602",
+    "texmf-dist/tex/latex/hyperref/pd1enc.def": "ff70c355a16fe9c4331f46a606f7180233e83b88bb4b3f685cbe7cb43bafa59f",
+    "texmf-dist/tex/latex/hyperref/puenc.def": "7b135494506277e77229b64f3b924f7519e0a3929bf42cefa51e782515b1fa4b",
+    "texmf-dist/tex/latex/kvoptions/kvoptions.sty": "70595629ec990ba8c0b6e6a54afcff2603464e6fce380a54a98549a78d2fc74a",
+    "texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty": "e3fcf7f3372a27bb478eb9488eca1e25ed382480d02a6898f190bd955388e055",
+    "texmf-dist/tex/latex/l3backend/l3backend-pdftex.def": "24c194c31928335f4e29eee52bd200efac11263d4b69ef7350ef989e55ffe111",
+    "texmf-dist/tex/latex/lm/lmodern.sty": "d2877369dcb4bfe7b1b6bba1a3d96c46e93366459c9b46576f1b221009bbe359",
+    "texmf-dist/tex/latex/lm/omllmm.fd": "0713fd8996320f03e8085c8da713bdc3a238b32c7ef83f5729151450d4bebbb5",
+    "texmf-dist/tex/latex/lm/omslmsy.fd": "e1df006d08c2a73bba6b1a1f804e96160f2f8aeb7d8518b07da455b7dd45d1ff",
+    "texmf-dist/tex/latex/lm/omxlmex.fd": "57ae2bb311d1126b02d61b9d26de8590d831f7f9a98ca1788cb62de920a495c1",
+    "texmf-dist/tex/latex/lm/ot1lmr.fd": "51291fc1c1086c51d64f914ecc8051fe0dbe3f7601e89f2a5e18a5df5c6da1ea",
+    "texmf-dist/tex/latex/lm/t1lmr.fd": "6b61abc8a6796f1884f819afcfc4c33558564f7e5c1d47b720e50ee15dba829a",
+    "texmf-dist/tex/latex/lm/t1lmtt.fd": "eb5aca0fcd27d1d7d97d35e7a4d01eb12ba1a054f9fe1114a779c9ae084be602",
+    "texmf-dist/tex/latex/refcount/refcount.sty": "1bd5d42025520bef74f8808af99cf3f3be7d2e3774b9931bf85c11ba81bb6cab",
+    "texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty": "7771d8fb8f76147d1d6fc5b205c8989feb270bafccd6021570cd7e5152ead1d6",
+    "texmf-dist/tex/latex/tools/longtable.sty": "aa616239c15b0d4ce13f35287cfe5309d2d53caac4f3a52fbb7a06e37f16594a",
+    "texmf-dist/tex/latex/url/url.sty": "2373f56849ac606473e77053e5c1d14c92aba312b3f684e02a130eaf36f2de47",
+    "texmf-dist/web2c/texmf.cnf": "13836992830cff05863fd6cbe6ad58dc819d85cafcff61c36df3df244d2cee78",
+    "texmf-var/fonts/map/pdftex/updmap/pdftex.map": "dcf35eb5ddfeb291a38274ac8466d4ab0d7e2db75d10fa1fc9b5266434e1cb5e",
+    "texmf-var/web2c/pdftex/pdflatex.fmt": "321324d8ce50dd2883753d04ed92c6dcb8d13074c07e8911b95b4f7a4245fdf0"
+  }
+}

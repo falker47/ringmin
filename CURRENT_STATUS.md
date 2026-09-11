@@ -1,40 +1,41 @@
 # Current Status
 
     repository=falker47/ringmin
-    task=GOAL-20260911__conclude_study
+    task=TASK-20260911__arxiv_submission_audit
     observed_on=2026-09-11
     mode=STRICT
     state=READY_FOR_REVIEW
-    terminal_state=SCIENTIFICALLY_COMPLETE
+    submission_preparation=ARXIV_READY
 
-The research-completion goal has closed its primary mathematical target by
-an effective variational characterization of the global leading constant.
-The [final review packet](ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
-identifies the complete delta, exact endpoints, proof/claim matrix, command
-record and versioned v2 candidate. The [compact goal state](ops/GOAL-20260911__conclude_study/STATE.md)
-records the final evaluation vector and checkpoint commits.
+The [submission handoff](paper_assets/v2/ARXIV_SUBMISSION.md) records the final
+v2 audit, all findings, source-only upload inventory, exact hashes, clean build
+and proposed metadata. The [task dossier](ops/TASK-20260911__arxiv_submission_audit/TASK_STATUS.md)
+records the scope and evidence. No new scientific conclusion was introduced.
 
 ## Completed verification gates
 
-All surviving material dependencies, new proofs/checkers, restoration code
-and manuscript statements passed separate internal adversarial gates. A clean
-source export restored tracked original logs, passed 15 tests, smoke n=3..8,
-full n=3..14 frontier verification and all new checker normal/-O runs.
-The nine-page candidate was built, visually checked and reproduced byte for
-byte under the recorded TeX environment. Historical v1 and finite artifacts
-are unchanged. Final inspected integration uses normal commit/push.
+Seven IMPORTANT findings were corrected and re-reviewed. Scientific claims,
+explicit endpoints, fixed-order theory and bibliography were checked against
+their actual sources. Fresh full local verification passed all twelve sizes
+3..14, retaining the inherited numerical guards and saved-frontier scope.
+The sole-source bundle compiles directly with pdflatex in three clean passes.
+All nine pages were inspected; candidate and clean rendering match exactly,
+with 16 embedded scalable fonts and no active content. Historical v1, proof
+notes, ledgers, original certificate artifacts and production code are unchanged.
 
 ## Blockers and acceptance boundary
 
-No blocker or known unpaid final-study proof/transfer debt remains. This is
-internal scientific completion at the effective-characterization level, not
-external acceptance, an elementary closed form or a cheap numerical algorithm.
-The unchanged external accepted baseline is
-c45162f7df1b1b482b9dbecea7b619ecdaa02227. Hosted CI for final HEAD was not
-inspected; no submission or publication action occurred.
+No submission-preparation blocker remains. Local TeX Live 2025 packages are
+newer than arXiv's frozen snapshot; the arXiv-generated PDF still requires
+manual inspection. Optional missing Supnick DOI and the public v1 date anomaly
+are documented. External acceptance remains separate and pending; the external
+accepted baseline remains c45162f7df1b1b482b9dbecea7b619ecdaa02227.
+No hosted-CI claim, external registry update, submission, release or push was
+made. The current task's explicit no-external-action instruction overrides
+standing push authorization; integration is local only.
 
 ## Exactly one next atomic task
 
-Perform one independent external review of the entire delta from that accepted
-baseline to the final containing commit, following RINGMIN_REVIEW_PROTOCOL.md
-and the final packet. Do not infer acceptance from internal reviewer results.
+The author performs the manual arXiv replacement preview for arXiv:2607.28654,
+checks the sole upload file and proposed metadata, and inspects every page of
+arXiv's own compiled PDF against the reviewed candidate before finalization.

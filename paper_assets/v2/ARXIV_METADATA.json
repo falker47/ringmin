@@ -1,0 +1,20 @@
+{
+  "Title": "Minimum central circles: certified finite optima and an effective global asymptotic constant",
+  "Authors": "Maurizio Falconi",
+  "Abstract": "Let $R^\\ast(n)$ be the least radius of a central circle to which nonoverlapping circles of radii $1,\\ldots,n$ are externally tangent. We prove that $R^\\ast(n)=C_\\ast n^2+o(n^2)$ and characterize $C_\\ast$ by finite linear programs with an explicit error tending to zero. The reduction preserves arbitrary orders and all pairwise constraints: the limiting problem places marked points on a line at pairwise separation at least the geometric mean of their marks. Concatenation with a bounded boundary cost proves existence, and balanced finite-word programs supply matching effective upper and lower bounds. Their certified gap is $(1/k+1/r)/\\pi$, before directed arithmetic error, for $k$ mark types and words of length $r$. We also transfer every finite or countable adjacent reflected-block construction whose total slab length is strictly below $1-\\alpha$, where $0\\le\\alpha<1$ is the shift parameter, to genuine permutations and full ring geometry, including a strict four-block improvement. The best retained explicit interval is $C_{\\mathrm{term}}+\\eta_{\\mathrm{width}}\\le C_\\ast\\le U_4$. The original computer-certified scope $3\\le n\\le14$ and exact fixed-order Supnick feasibility theory remain distinct from global asymptotics. The earlier $n^2/8$ conjecture is false. Efficient evaluation of the variational constant, an elementary expression and global floating-circle structure remain open. This candidate has undergone internal adversarial checks; independent external acceptance is pending.",
+  "Comments": "9 pages, 0 figures. Substantially revised: proves existence and an effective variational characterization of the global asymptotic constant, disproves the earlier n^2/8 conjecture, and adds exact fixed-order feasibility results. Certified finite scope remains 3<=n<=14. Source code, proofs and certificate artifacts: https://github.com/falker47/ringmin",
+  "Primary category": "cs.CG",
+  "Cross-lists": [],
+  "MSC": [
+    "52C26",
+    "52C15",
+    "05C85",
+    "90C27"
+  ],
+  "Replacement of": "arXiv:2607.28654",
+  "Processor": "pdflatex",
+  "TeX Live": "2025",
+  "Main file": "ringmin_v2.tex",
+  "Abstract characters": 1502,
+  "Instructions": "Preserve actual existing license, journal-reference and publication-DOI fields; no new journal metadata is proposed. Do not upload this metadata JSON."
+}

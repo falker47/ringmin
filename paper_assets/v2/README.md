@@ -6,6 +6,8 @@ remain unchanged. Internal adversarial validation is not independent external
 acceptance or the author's final publication approval.
 
 - [Candidate PDF](ringmin_v2.pdf) and [LaTeX source](ringmin_v2.tex).
+- [Final arXiv replacement handoff](ARXIV_SUBMISSION.md), with the minimal
+  source-only [upload directory](arxiv_submission/), verified metadata and hashes.
 - [Final review packet](../../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md),
   [claim matrix](../../ops/GOAL-20260911__conclude_study/CLAIM_MATRIX.md) and
   [complete command index](../../ops/GOAL-20260911__conclude_study/VERIFICATION.md).
@@ -36,3 +38,10 @@ The recorded build used pdfTeX 1.40.28 / TeX Live 2025, with scalable Latin
 Modern fonts. Poppler rendered every page for visual inspection. The main
 paper has nine pages. Full layout and repeat-build evidence is in the
 [publication dossier](../../ops/TASK-20260911__versioned_publication/EVIDENCE.md).
+The corrected submission candidate was independently compiled from only its
+upload source in a fresh directory and inspected on every page; the final
+[submission audit evidence](../../ops/TASK-20260911__arxiv_submission_audit/EVIDENCE.md)
+supersedes the initial candidate hashes for this submission handoff. The PDF
+and build manifest remain synchronized. The public proof supplement is pinned
+to the reviewed commit in the manuscript; the arXiv bundle does not include
+repository audits or build scripts.
