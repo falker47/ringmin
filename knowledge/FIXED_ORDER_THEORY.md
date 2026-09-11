@@ -1838,6 +1838,48 @@ limit, expanded finite certification or paper revision follows.
 Sections 1-5; precise bounded endpoint/floor/panel discriminator and local
 executable evidence in `ops/TASK-20260911__third_block_uniform_transfer/EVIDENCE.md`.
 
+### Fourth independent reflection after the exact third-width minimum
+
+**Status:** exact continuous theorem with an explicit rational width witness,
+after arXiv v1; independent mathematical review remains separate.
+
+Keep alpha_hat, x_*, epsilon_b and Delta_* exact and fixed. With
+A=1+alpha_hat, v=A*x_*+epsilon_b, w=v+Delta_* and B_4=A+w, replace
+only the diagonal slab [w,w+eta] by its own symmetric reflection, retaining
+all three old reflections. The domain, uniform individual marginals and
+equality of the (t,X)/(t,Y) marginals are preserved. For the normalized
+complete-max increment J_4(eta)=C_4(eta)-C_3(Delta_*), the exact result is
+
+```text
+eta_0=1/20000, M=B_4+eta/2,
+4*pi*J_4(eta)=-integral_(-eta/2)^(eta/2) z^2/[M+sqrt(M^2-z^2)] dz,
+J_4(eta)=-eta^3/(96*pi*B_4)+R_4(eta),
+0<=R_4(eta)<=eta^4/(192*pi*B_4^2),              0<eta<=eta_0,
+J_4(eta)<-eta^3/576<0,
+C_3(Delta_*)-C_4(1/20000)>1/4608000000000000.
+```
+
+The first nonzero unilateral term is cubic; the linear and quadratic terms
+vanish. The inherited brackets yield A-3*w-4*eta>154539/1000000000,
+so BOTH changed full maxima are strictly chord throughout the closed slab.
+Old mixed blocks cancel with their full costs. The exact first new switch
+is the unique unsquared root tau_4 in (eta_0,A/3-w) of
+sqrt((w+eta)/(B_4+eta))+sqrt((w+eta)/B_4)=1. Beyond it a positive
+chain integral is required; the witness does not encounter it.
+
+This is a continuous improvement in an additional independent-block
+direction, not an improvement by varying the third width alone. The
+rational witness specifies only eta; all baseline minimizers stay exact.
+The source identifies the later route's required genuine high permutations,
+actual complete-cost recovery and existing shell full-cell criterion,
+without constructing new finite orders or executing that transfer. The
+transferred global bound remains owned by the global ledger; no new global
+coefficient, finite certification, four-block optimum or paper claim follows.
+
+**Source:** `research/PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md`, Sections 1-6;
+bounded rational gates, raw-full-max enclosure and evidence in
+`ops/TASK-20260911__fourth_adjacent_block/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade

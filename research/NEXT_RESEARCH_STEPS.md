@@ -74,17 +74,22 @@ provenance question, not routine orientation.
   criterion handles the mixed branch and every actual seam. See the
   [uniform transfer entry](../knowledge/FIXED_ORDER_THEORY.md#uniform-third-width-recovery-and-full-feasibility-transfer).
   The endpoint h is not established as a maximal geometric transfer threshold.
+- **Resolved fourth-block continuous discriminator:** an independent
+  reflection immediately after the exact third-width minimum has a strictly
+  negative cubic cost increment and a rational positive-width saving. The
+  [fourth-block entry](../knowledge/FIXED_ORDER_THEORY.md#fourth-independent-reflection-after-the-exact-third-width-minimum)
+  owns this result and its switch/domain limits. Its finite/full-feasibility
+  transfer has not been performed, so the global coefficient above is unchanged.
 
-## Priority 1 — Independent review of uniform third-width transfer
+## Priority 1 — Independent review of the fourth-block continuous direction
 
-Independently review `PERMUTED_HALVES_THIRD_BLOCK_UNIFORM_TRANSFER.md` at
-committed HEAD. Reproduce its focused arithmetic audit and relevant dependency
-checks. Audit the [0,h] quantifier, exact floor and shared-seam inventory,
-branch-independent all-pairs criterion, uniform arbitrary-test and radius
-estimates, separate odd lower squeeze and transfer of the existing Delta_*
-minimum to the global limsup. Check the limits of the asserted interval and
-preservation of earlier proof and publication sources. Record acceptance
-or precise corrections; stop after this review.
+Independently review `PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md` and its
+bounded arithmetic checker at committed HEAD. Audit the exact fixed inputs,
+separate reflections, full-max cancellation and switches, cubic coefficient
+with signed remainder, interval margins and rational witness. Check that
+the listed future transfer obligations do not assert a completed transfer
+or a new global coefficient. Record acceptance or precise corrections and
+stop; a later transfer remains a separate task.
 
 ## Deferred direction — Determine the true leading asymptotics
 
@@ -103,7 +108,10 @@ exponent above 2/3, or little-o at that scale, for K or |Delta| over tours.
 They do not establish an optimal envelope constant or minimax tour.
 The entire existing continuous third-width improvement is now transferred;
 repeating isolated rational-width transfers inside [0,h] is closed.
-Further construction refinement is deferred.
+The fourth independent-block continuous direction is now resolved. A future
+finite/full-feasibility transfer at its fixed rational witness is deferred
+until the new continuous proof is reviewed; see its precise obligations in
+[Section 6](PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md#6-bounded-independent-support-and-later-transfer-obligations).
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in
