@@ -727,8 +727,9 @@ In particular, for every 0<e<=epsilon the quotient satisfies
 The supremum implicit here ranges over all n>=102 and all their cyclic
 orders with 0<e<=epsilon. Thus no deterministic or other family of actual
 tours with e->0 can have |Delta|>=c*sqrt(e) for a fixed c>0. The bound
-does not assert that exponent 2/3 is sharp for the signed Delta.
-Section 11.5 proves that it is sharp for the nonnegative crossing term K.
+alone does not assert that exponent 2/3 is sharp for the signed Delta.
+Section 11.5 proves sharpness for the nonnegative crossing term K;
+Section 11.6 proves it for signed Delta using that same cyclic family.
 No new optimization of 60, beta, q, the scalar minimax or a geometric
 coefficient is undertaken.
 
@@ -1058,8 +1059,8 @@ e->0 and likewise obstructs K=O(e^alpha) for alpha>2/3.
 
 This resolves the crossing-term discriminator using the exact cyclic
 structure. The upper estimate |L|<=11*E+2*K alone cannot turn a lower
-bound on K into one on the signed L or Delta; no sharpness assertion
-for Delta is made here. The Section 12 minimax and global coefficients
+bound on K into one on the signed L or Delta. Section 11.6 separately
+computes Delta for this family. The Section 12 minimax and global coefficients
 remain unchanged. No geometric feasibility or optimality of sigma_m
 at its chain root is asserted, and no new coupling method is started.
 
@@ -1070,6 +1071,217 @@ Its [evidence](../ops/TASK-20260911__midpoint_crossing_sharpness/EVIDENCE.md)
 is finite corroboration, not the proof of the infinite family or external
 mathematical acceptance. The common-chain ledger entry is the sole
 thematic owner.
+
+### 11.6 Signed discrepancy of the same explicit cyclic family
+
+**Status: exact formula / rigorous asymptotic theorem / proved sharp
+exponent for signed Delta, after arXiv v1.** Use precisely sigma_m from
+Section 11.5, with m in 10N, m>=40, n=m^2, k=floor(q*n),
+ell=23*n/100, S=n+k and N=n-k+1. No tour is changed or optimized here.
+Put
+
+```text
+a=k/n,  t_beta=1+q-beta,  beta=23/100,
+A_q=1-sqrt(beta/t_beta)>0,
+C_q=1/(4*sqrt(beta*t_beta)).
+```
+
+Then, along all these m without a parity restriction,
+
+```text
+Delta < 0,
+Delta = -A_q/m^2-C_q/m^3+O(m^-4),                       (39c)
+|Delta|/E^(2/3) -> A_q/4^(2/3) > 0.                     (39d)
+```
+
+The remainder is uniform in the actual floor and both parities. In
+particular this is a signed-discrepancy sharpness family, not merely a
+crossing-term obstruction. We first give an exact finite formula so that
+no mesh, seam or replacement contribution is hidden in (39c).
+
+**Exact deletion accounting.** Every deleted vertex is isolated and all
+its neighbors survive. The label k retains neighbors n-1,n, including
+the written closing edge (n,k). Every other deleted label j has neighbors
+
+```text
+S-j-1,   S-j+1       for k+1 <= j <= ell-m-1,
+S-j-m-1, S-j-m+1     for ell-m <= j <= ell-1.             (39e)
+```
+
+Indeed the second interval consists of the images of the original labels
+j+m in the upper exchanged block. The original lower exchanged block now
+survives. Section 11.5 places both blocks inside the low-label portion;
+the fixed-k edge lists also give the first line of (39e) in both parities.
+All these neighbors exceed n/2. The parity-dependent middle edges have
+only surviving endpoints and cancel between the two costs. No deleted
+run has length two. Deleting an isolated vertex removes its two incident
+edges and adds the edge joining exactly those two neighbors. These local
+changes partition the removed and replacement edges of the induced cycle,
+including its wrap: rotating to any survivor makes this explicit. There
+are at least three survivors, so there is no degenerate two-vertex cycle.
+
+For integer j,d occurring below, set T=S-j and define the radical expression
+
+```text
+H(j,d)=sqrt((T-d)^2-1)
+       -sqrt(j*(T-d-1))-sqrt(j*(T-d+1))
+       -T+2*sqrt(j*T),
+H_seam=(sqrt(n)-sqrt(k))*(sqrt(n-1)-sqrt(n)).
+```
+
+The first radical of H is the induced replacement weight; the next two
+are the removed weights; -T+2*sqrt(j*T) subtracts that label's ideal
+deletion contribution in D_n. The seam analog simplifies to H_seam.
+With the ambient n^2 normalization of W and D_n, the exact formula is
+
+```text
+Delta = [H_seam
+         + sum_{j=k+1}^{ell-m-1} H(j,0)
+         + sum_{j=ell-m}^{ell-1} H(j,m)]/n^2.             (39f)
+```
+
+Thus the actual integer k appears everywhere it is required; there is no
+replacement of floor(q*n) by q*n in this identity. It accounts for all
+original and induced edges, independently of the parity of N or of the
+surviving cardinality.
+
+It also proves the strict sign for every stated m. H_seam<0. For H(j,0),
+write U=sqrt(T-1)+sqrt(T+1)<2*sqrt(T). Then
+
+```text
+H(j,0)=(U-2*sqrt(T))*[(U+2*sqrt(T))/2-sqrt(j)]<0,
+```
+
+because T>j. For H(j,m), both new neighbors are strictly below T and
+strictly above j. The function
+G(j;y,z)=sqrt(y*z)-sqrt(j*y)-sqrt(j*z) is strictly increasing in each
+neighbor whenever y,z>j, as its partial derivatives are
+(sqrt(z)-sqrt(j))/(2*sqrt(y)) and its symmetric counterpart. Hence
+G(j;T-m-1,T-m+1)<G(j;T,T), proving H(j,m)<0.
+
+**Signed first variations.** This independently identifies which terms
+can have leading size. With p=p_a from (34), the exact sum of the two
+integer defects at a deleted vertex is -1 at k, zero on the first
+interval of (39e), and -2m on the second. Therefore
+
+```text
+L = -[p_a(a)+2*m*sum_{j=ell-m}^{ell-1} p_a(j/n)]/n^2.    (39g)
+```
+
+The interior +1/-1 mesh defects cancel before any absolute value is taken.
+Both defects of each newly deleted label have negative sum. The labels
+exchanged upwards survive and supply no positive deleted-vertex term in
+L. Their cost changes are already accounted for in the exact difference
+(39f). Also M_LL=0, so (35) gives |Delta-L|<=3*E. This explains why the
+crossing contribution need not cancel, but the sharper expansion below
+comes directly from (39f), retaining the quadratic terms as well.
+
+**Uniform Taylor expansion.** To avoid confusing a mesh step with the
+block width, write h=1/m and epsilon=1/n=h^2. Normalize j to x=j/n,
+t=1+a-x and define smooth functions
+
+```text
+A_a(x)=1-sqrt(x/(1+a-x)),
+Q_a(x)=sqrt(x)/(4*(1+a-x)^(3/2)).
+```
+
+For the shifted block, the normalized neighbors are t-h-epsilon and
+t-h+epsilon. On this block x=beta-r*epsilon, 1<=r<=m. The bound
+3/17<q<1/5 and m>=40 place a>1/6, h<=1/40 and all the relevant x and
+neighbor arguments in a fixed compact subset of (0,infinity), bounded
+above by 1. For example x>=beta-1/40>1/6 and
+t-h-epsilon>1+1/6-beta-1/40-1/1600>9/10.
+All derivatives used here consequently have common finite bounds, with
+no dependence on k or a parity choice.
+
+The symmetry of the two neighbor offsets eliminates their linear mesh
+term. Taylor's theorem first in epsilon and then in h gives, uniformly,
+
+```text
+H(j,m)/n
+ = g(x;t-h-epsilon,t-h+epsilon)-D_a(x)
+ = -h-2*sqrt(x)*(sqrt(t-h)-sqrt(t))+O(epsilon^2)
+ = -h*A_a(x)+h^2*Q_a(x)+O(h^3+epsilon^2).               (39h)
+```
+
+Here g is exactly Section 4's normalized replacement-minus-removal cost;
+no formal infinite series is assumed. Bounded second derivatives control
+the symmetric mesh error and bounded third derivatives control the h
+remainder on the same compact set. Since W uses an additional factor
+1/n=epsilon, summing the m shifted labels makes the remainder in (39h)
+O(epsilon*m*h^3)=O(h^4), with the mesh part even smaller, O(h^5).
+
+The actual one-sided grid ends at beta-epsilon, not beta. Taylor in x
+and the exact sums of r and r^2 yield
+
+```text
+sum_{r=1}^m A_a(beta-r*epsilon)
+ = m*A_a(beta)-epsilon*m*(m+1)*A_a'(beta)/2
+   +O(epsilon^2*m^3),
+sum_{r=1}^m Q_a(beta-r*epsilon)
+ = m*Q_a(beta)+O(epsilon*m^2).
+```
+
+Substitution into epsilon times (39h) gives the shifted contribution
+
+```text
+-h^2*A_a(beta)+h^3*[A_a'(beta)/2+Q_a(beta)]+O(h^4).
+```
+
+The two signed terms in the second coefficient simplify exactly:
+
+```text
+A_a'(x)=-(1+a)/(2*sqrt(x)*(1+a-x)^(3/2)),
+A_a'(beta)/2+Q_a(beta)=-1/(4*sqrt(beta*(1+a-beta))).
+```
+
+For the unshifted interior, (35) with defects +/-epsilon bounds each
+normalized H(j,0)/n by 6*epsilon^2. There are fewer than n such labels,
+so their total normalized contribution is O(epsilon^2)=O(h^4).
+The exact H_seam is bounded in absolute value by
+sqrt(n)/(sqrt(n)+sqrt(n-1))<1, hence its contribution is also O(h^4).
+These statements include the closing replacement edge, rather than
+discarding a boundary term of unexamined size. We have proved
+
+```text
+Delta=-A_a(beta)/m^2
+      -1/(4*sqrt(beta*(1+a-beta))*m^3)+O(m^-4).
+```
+
+Finally 0<=q-a<1/n=h^2. Bounded a-derivatives change the leading term
+by O(h^4) and the next term by O(h^5), proving (39c) with the actual
+floor. There is no premise about fractional parts or equidistribution.
+The exact formula (39f) retains the finite floor dependence that this
+remainder absorbs.
+
+**Sharpness and scope.** From (39a),
+E=4/m^3+O(m^-4), with 0<N-c_N<=m^2 for either parity. Combining with
+(39c), and noting t_beta>beta, proves (39d). More generally,
+
+```text
+|Delta|/E^alpha ~ (A_q/4^alpha)*m^(3*alpha-2).
+```
+
+Consequently no finite uniform |Delta|<=C_0*E^alpha with alpha>2/3,
+and no uniform |Delta|=o(E^(2/3)), can hold for genuine tours even at
+arbitrarily small E. Section 11.3 supplies the matching uniform upper
+exponent, without asserting an optimal multiplicative constant. The
+comparison E/8<=e<=E/(8*a), with a>1/6, proves the same obstruction to
+stronger exponents and to little-o(e^(2/3)) for e; it does not identify
+a limit for |Delta|/e^(2/3). This settles the exponent for the signed
+discrepancy, not the optimal scalar envelope, common-tour minimax or a
+geometric coefficient. No geometric feasibility of sigma_m, new global
+bound, certification or publication change follows.
+
+The [bounded independent checker](../ops/TASK-20260911__signed_discrepancy_family/check_signed_discrepancy.py)
+constructs and filters the cyclic rank lists, compares the full signed
+edge sums to (39f) as exact formal radical expressions, and checks the
+defect sums in (39g), both parities, rotations and reversals. Exact square
+root enclosures provide only finite asymptotic corroboration; the uniform
+Taylor argument above is the proof. Its
+[evidence](../ops/TASK-20260911__signed_discrepancy_family/EVIDENCE.md)
+records the bounded domain and limits. The existing common-chain entry
+in the global-bounds ledger remains the sole thematic owner.
 
 ## 12. Refined two-level minimax from the proved deletion envelope
 

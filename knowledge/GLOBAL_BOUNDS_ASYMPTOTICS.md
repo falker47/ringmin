@@ -423,10 +423,10 @@ measure with equal grid marginals. Maximal nonisolated deleted runs cost
 O(e); only crossings of a midpoint deletion cutoff remain after primitive
 cancellation. Exact strip counts cover arbitrarily small excess, floors,
 wrap and both parities without an additive mesh error. Thus no actual-tour
-family realizes a positive square-root lower scale. Exponent 2/3 is not
-asserted optimal for the signed Delta. Section 11 supplies the improved
-information used by the refinement below; its proof alone does not compute
-a coefficient.
+family realizes a positive square-root lower scale. Section 11.6 now proves
+exponent 2/3 sharp for the signed Delta, as recorded below. Section 11
+supplies the improved information used by the refinement below; its
+deletion estimates alone do not compute a global coefficient.
 The eta_60 statement retains its original scalar information scope.
 
 **Midpoint crossing sharpness (Section 11.5; exact counterexample family /
@@ -451,6 +451,29 @@ the actual floor, both parities, the cyclic wrap and the oriented-atom
 factor 1/(2*n). This obstruction also holds with e in place of E since
 E/8<=e<=E/(8*a). It does not by itself prove sharpness for signed Delta,
 optimize a multiplicative constant or change a global coefficient.
+
+**Signed discrepancy sharpness (Section 11.6; exact formula / rigorous
+asymptotic theorem / disproved stronger uniform bounds).** For precisely
+the same sigma_m, let t_beta=1+q-beta, A_q=1-sqrt(beta/t_beta)>0 and
+C_q=1/(4*sqrt(beta*t_beta)). Exact isolated-deletion accounting gives
+
+```text
+Delta<0                       for every m in 10N, m>=40,
+Delta=-A_q/m^2-C_q/m^3+O(m^-4),
+|Delta|/E^(2/3) -> A_q/4^(2/3)>0.
+```
+
+The exact finite radical formula (39f) retains k=floor(q*n), the seam,
+both outer parities and every induced replacement edge. The unshifted
+interior first variations cancel; newly deleted block labels have two
+negative defects and produce the leading signed term. Uniform Taylor
+remainders include the one-sided endpoint grid and floor error. Thus no
+uniform |Delta|=O(E^alpha) for alpha>2/3, nor little-o(E^(2/3)), is possible
+even near E=0. With the existing upper envelope, exponent 2/3 is sharp.
+The comparison E/8<=e<=E/(8*a) proves the same stronger-exponent and
+little-o obstructions in e, without asserting a limit for |Delta|/e^(2/3).
+No optimal multiplicative constant, minimax tour, geometric feasibility,
+new global coefficient or expanded finite certification follows.
 
 **Refined lower bound (Section 12; exact theorem / proved corollary).**
 For d>0, define t(d)>0 by 432*t(d)^3+40*t(d)^2=d and m(d)=t(d)^3;
@@ -482,13 +505,15 @@ is nonpositive. Every bound transfers to R*(n) only by deletion from a
 full feasible configuration, with nested common orders and original radii.
 The old 60*sqrt(e) inequality is nonbinding at the new scalar crossing
 for 0<d<2. Sharpness is restricted to these aggregate scalar inequalities;
-no tour realizing the scalar minimum, sharp exponent for signed Delta,
-sharp geometric coefficient or normalized limit is proved.
+no tour realizing the scalar minimum, sharp geometric coefficient or
+normalized global limit is proved. Signed-exponent sharpness is the
+separate Section 11.6 result above and does not alter this coefficient.
 Liminf comparisons at C_term+eta_new remain
 non-strict. No new finite certificate or publication change is supplied.
 
 This entry alone owns the stability theorem, deletion-exponent improvement,
-crossing-term sharpness, minimax extension and global corollaries.
+crossing-term and signed-discrepancy sharpness, minimax extension and
+global corollaries.
 
 **Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-12;
 bounded exact and numerical corroboration in
@@ -505,6 +530,10 @@ The exact crossing obstruction is proved in Section 11.5 and has bounded
 integer/rational corroboration in
 `ops/TASK-20260911__midpoint_crossing_sharpness/check_crossing.py` and its
 dossier; no general-tour enumeration or production imports are used.
+The signed discrepancy is proved analytically in Section 11.6, with
+bounded exact radical identities and rational numerical enclosures in
+`ops/TASK-20260911__signed_discrepancy_family/check_signed_discrepancy.py`
+and its dossier; no production or previous-checker imports are used.
 The refined minimax, rational enclosures and finite/global consequences
 are proved in Section 12 and supported by
 `ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py`
