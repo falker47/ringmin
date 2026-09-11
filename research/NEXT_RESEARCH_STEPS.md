@@ -47,7 +47,12 @@ provenance question, not routine orientation.
   with a precise pointwise sharpness scope. The user identifies the fixed
   four-level witness HEAD as accepted. Its width-only optimization is now
   proved with a unique global maximum and a rigorously bounded gain;
-  independent review of that extension is the next gate.
+  its review remains deferred. The
+  [Section 13 method ceiling](THREE_LEVEL_COMMON_CHAIN.md#13-a-universal-ceiling-for-the-section-9-shared-crossing-gain)
+  now bounds the general Section 9 gain for every finite cutoff count in
+  its specified domain, including m=1 and the nonnegative weak closure.
+  Independent review of this ceiling is the next gate. It does not change
+  the strongest lower endpoint or bound other coupled methods.
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours.
   [Section 11.5](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#115-the-crossing-exponent-23-is-sharp-for-genuine-cyclic-tours)
@@ -69,23 +74,26 @@ provenance question, not routine orientation.
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of the fixed-cutoff width optimum
+## Priority 1 — Independent review of the shared-crossing method ceiling
 
-Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Section 12, at committed
-HEAD. Reproduce its standalone width checker and audit the cubic root
-isolation, global remainder/multiplier certificate, rational maximum-gain
-enclosures, accepted-width local nonoptimality and weak/strict finite-floor
-distinction. Confirm the three cutoffs and the earlier witness theorem
-are unchanged. Record acceptance or precise corrections; stop before any
-new parameter search or further research.
+Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Section 13, at committed
+HEAD. Reproduce its focused arithmetic checker and audit the universal
+width budget, m=1 sign split, monotonicity, rational q/D/pi enclosures and
+strict ceiling. Check the nonnegative weak closure and the distinction
+between a scalar-method ceiling, finite floor gates, other coupled bounds
+and full geometry. Confirm Sections 1-12 are preserved. Record acceptance
+or precise corrections; stop after this review.
 
 ## Deferred direction — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
 `[C_term+eta_width,C_3(1/250)]`, and whether they agree. The concrete
 four-level discriminator and the global width-only optimization at its
-fixed cutoffs are resolved. Review the latter before selecting further
-lower-bound work; repeating width optimization at these cutoffs is closed.
+fixed cutoffs are resolved; repeating width optimization at these cutoffs
+is closed. Section 13 now also resolves the requested universal ceiling
+for the Section 9 scalar gain. Seeking to exceed that ceiling by adding
+or moving finitely many cutoffs inside that same family is closed; this
+does not establish its exact supremum or limit other coupled estimates.
 Neither the fixed witnesses nor scalar sharpness of the preceding
 two-level envelope establish a ceiling on common-order methods. The crossing and
 signed-discrepancy obstructions close improvements that require a uniform
@@ -99,6 +107,12 @@ is established as sharp. The coefficient `1/8` is already disproved by
 The claim that the floating set is `o(n)` remains unproved.
 
 ## Deferred dependency reviews
+
+The Section 12 fixed-cutoff width-optimum review is deferred, not completed:
+audit its cubic root isolation, global remainder/multiplier certificate,
+rational maximum-gain enclosures, accepted-width local nonoptimality and
+weak/strict finite-floor distinction; reproduce its standalone checker.
+It is not a premise of the Section 13 ceiling.
 
 The previously prioritized fixed 1/250 transfer review remains deferred,
 not completed: audit `PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md`, its exact

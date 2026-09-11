@@ -1043,3 +1043,191 @@ records its result beside the accepted witness; the [dossier](../ops/TASK-202609
 records fresh arithmetic and dependency checks. No cutoff search, new
 geometric optimizer, finite optimum certificate, upper construction or
 arXiv-v1 revision is part of this theorem.
+
+## 13. A universal ceiling for the Section 9 shared-crossing gain
+
+**Status: exact theorem, after arXiv v1; independent acceptance is separate.**
+This bounds the output of the specified method, not a geometric optimum.
+
+### 13.1 Family and statement
+
+Keep the exact q=q_* from Section 1, and put b=23/100. For EVERY finite
+integer m>=1, every q<beta_1<...<beta_m<=b, and every vector of real widths
+
+```text
+h_i>=0, h_i+h_(i+1)<=beta_(i+1)-beta_i    (1<=i<m),
+D(beta)=integral_q^beta [1+q-x-2*sqrt(x*(1+q-x))] dx,
+H=sum_i h_i, F=sum_i h_i*D(beta_i)-8*sum_i h_i^3,
+eta(h)=max{F,0}/[pi*(16+432*H)],
+```
+
+the following strict, uniform method ceiling holds:
+
+```text
+0 <= eta(h) < U := 8444510567073/5026544000000000000
+             < 21/12500000 = 0.00000168.                (44)
+```
+
+There is no adjacent condition for m=1. Zero widths and weak equality
+are included; all-zero widths have eta=0. This is the nonnegative weak
+closure of the Section 9 macroscopic width family. Its weighted estimate
+extends to zero widths by omitting zero terms (and H=0 uses the outer
+bound alone). Equivalently, first scale by 0<t<1 to create strict margins,
+add sufficiently small positive widths at zero coordinates, and pass to
+the limit. The fixed cutoff collection and eta are continuous in these
+width limits. The Section 9 finite floor gates remain additional conditions.
+
+### 13.2 Exact rational enclosures
+
+All terminating decimals here denote exact rationals. We will prove
+
+```text
+0.19502009 < q < 0.19502010 < 1/5,
+0.00241410289 < D(b) < 0.00241410290 < d_U=0.002414103,
+p_L=3.14159 < pi < 3.14160.                            (45)
+```
+
+For an explicit finite arithmetic certificate, set
+
+```text
+t_-=0.739085133215160, t_+=0.739085133215161,
+q_-=0.195020091350606, q_+=0.195020091350608,
+T_(N,o)(x)=sum_(j=0)^(N-1) (-1)^j*x^(2j+o)/(2j+o)!,
+A_N(x)=sum_(j=0)^(N-1) (-1)^j*x^(2j+1)/(2j+1).
+```
+
+On 0<x<1, the even-N sums are strict lower bounds for cosine (o=0),
+sine (o=1) and arctangent, and odd-N sums are strict upper bounds.
+The alternating terms decrease to zero. Exact rational comparisons give
+
+```text
+T_(12,0)(t_-)>t_-, T_(13,0)(t_+)<t_+,
+s_-=T_(12,1)(t_-), s_+=T_(13,1)(t_+),
+q_- < (1-s_+)/(1+s_+) < (1-s_-)/(1+s_-) < q_+.
+```
+
+Since cos(t)-t is strictly decreasing on (0,1), these isolate its unique
+root tau. Sine is increasing there and (1-s)/(1+s) decreases, so they
+prove q_-<q<q_+, and thus the first line of (45).
+
+Machin's identity pi=16*atan(1/5)-4*atan(1/239) gives the rational bounds
+
+```text
+3.14159 < 16*A_6(1/5)-4*A_7(1/239)
+         < pi < 16*A_7(1/5)-4*A_6(1/239) < 3.14160.
+```
+
+For completeness, tangent doubling sends 1/5 to 5/12 and then 120/119;
+subtracting the angle with tangent 1/239 yields tangent exactly 1.
+The angle 4*atan(1/5)-atan(1/239) lies in (0,4/5), hence in (0,pi/2),
+so it is pi/4. The elementary pi>2 needed for this branch follows from
+pi/4=integral_0^1 dx/(1+x^2)>1/2. Thus no decimal pi value is assumed.
+
+To enclose D(b), use s=1+q_-, u=(s-2*b)/s, v=(1-q_-)/s. Then 0<u<v<1.
+The substitution in Section 6 and the binomial series give
+
+```text
+c_j=binomial(2j,j)/(4^j*(2j-1)),
+P=v-u-sum_(j=1)^40 c_j*(v^(2j+1)-u^(2j+1))/(2j+1),
+T=(v-u)*c_41*v^82/(1-v^2),
+I_-=(s^2/4)*(P-T), I_+=(s^2/4)*P,
+V=s*(b-q_-)-(b^2-q_-^2)/2,
+d_-=V-2*I_+-4*(q_+-q_-),
+d_+=V-2*I_-+4*(q_+-q_-).
+```
+
+Here c_j>0 and c_(j+1)/c_j=(2j-1)/(2j+2)<1. For z in [u,v], the
+omitted positive series is bounded by c_41*v^82/(1-v^2); integrating
+gives the stated tail. Therefore I_- and I_+ enclose the radical
+integral at q_-. For a moving parameter r in [q_-,q_+], the endpoint
+term in partial_r D(r,b) has absolute value below 2. The derivative of
+the integrand is 1-sqrt(x/(1+r-x)), also of absolute value below 2
+on r<=x<=b, an interval of length below 1. Thus |partial_r D(r,b)|<4,
+and the widening is outward. Exact rational comparisons give
+
+```text
+0.00241410289 < d_- <= D(b) <= d_+ < 0.00241410290.
+```
+
+These finite sums, tails, root signs and quotient inequalities are
+reproduced by the [focused arithmetic checker](../ops/TASK-20260911__shared_crossing_method_ceiling/check_method_ceiling.py).
+No floating-point quadrature or saved decimal value is a premise.
+
+### 13.3 Width budget, including the one-cutoff case
+
+For q<=x<=b, (45) implies 5x<=5b=23/20<1+q. Consequently 1+q-x>4x>0
+and
+
+```text
+1+q-x-2*sqrt(x*(1+q-x)) > 0.
+```
+
+Thus D is strictly increasing, and 0<D(beta_i)<=D(b)<d_U.
+
+When m>=2, summing all adjacent conditions gives
+
+```text
+H+sum_(i=2)^(m-1) h_i
+ = sum_(i=1)^(m-1) (h_i+h_(i+1)) <= beta_m-beta_1,
+H <= beta_m-beta_1 < b-q < 0.03497991.                 (46)
+```
+
+The internal sum is empty for m=2. This includes all weak-boundary and
+zero-width cases without dividing by any width.
+
+When m=1, write h=h_1. If F<=0, eta=0 and no width bound is needed.
+If F>0, then h>0 and
+
+```text
+h^2 < D(beta_1)/8 <= D(b)/8 < d_U/8 < (3/100)^2,
+h < 3/100 < b-q < 0.03497991.                         (47)
+```
+
+The penultimate inequality uses q<1/5. In particular one cannot apply
+(46) unconditionally to m=1: beta_1=b, h=1/20 is admissible, has
+h>b-q, and satisfies F<0 because d_U<8*(1/20)^2. The checker includes
+this control, a positive-F one-cutoff width h=1/100, and the zero width.
+
+### 13.4 Strict comparison and scope
+
+If F<=0 the theorem is immediate. Otherwise H>0, and (46) or (47) gives
+
+```text
+F <= sum_i h_i*D(beta_i) <= H*D(b) < (b-q)*D(b),
+pi*(16+432*H) >= 16*pi > 16*p_L,
+eta(h) < (b-q)*D(b)/(16*pi)
+       < (0.03497991*0.002414103)/(16*3.14159) = U.
+```
+
+The remaining comparison is exact integer arithmetic:
+
+```text
+21/12500000 - U = 83352927/5026544000000000000 > 0.     (48)
+```
+
+This proves (44) for every finite m, every permitted cutoff collection,
+and every admissible width vector. No sampling establishes those quantifiers.
+
+The ceiling covers precisely the Section 9 gain with q=q_*, original
+radii, nested terminal cutoffs no larger than 23/100, weak adjacent
+macroscopic separation, the shared crossing penalty 8*sum h_i^3 and
+the denominator pi*(16+432*H). In particular changing the number or
+locations of finitely many cutoffs within this family cannot reach a
+gain of 1.68e-6; the supremum of these gains is at most U, and U itself
+is only a convenient bound, not a proved sharp supremum.
+
+The estimate is on a lower-bound formula's gain. It gives NO upper bound
+on M_(n,m+1), R*(n), their normalized limits, or the improvements obtainable
+from other coupled constraints, sharper stability/strip estimates, other
+q or cutoff domains, or recovery using full pairwise geometry. It leaves
+the current best lower endpoint C_term+eta_width unchanged. Although the
+arithmetic bound is uniform over all finite m, it neither transfers the
+Section 9 corollary to m growing with n nor proves an infinite-cutoff
+corollary. Weak macroscopic equality still requires the separate finite
+floor gate or the fixed-width scaling argument of Section 9.
+
+The [existing arbitrary-cutoff ledger owner](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#arbitrarily-many-finite-cutoffs-with-one-shared-crossing-energy)
+records the result. The [task evidence](../ops/TASK-20260911__shared_crossing_method_ceiling/EVIDENCE.md)
+records the local arithmetic and dependency checks. This resolves only
+the stated method-ceiling question, without a new geometric result,
+finite certificate, parameter search or revision of arXiv v1.

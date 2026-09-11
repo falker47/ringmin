@@ -613,7 +613,8 @@ supply the universal quantifiers; independent acceptance remains separate.
 ### Arbitrarily many finite cutoffs with one shared crossing energy
 
 **Status:** exact theorem / sharp unrestricted pointwise width condition /
-proved finite common-chain and global corollary, after arXiv v1.
+proved finite common-chain and global corollary / universal ceiling for
+its scalar gain, after arXiv v1. The new ceiling awaits independent review.
 
 For any fixed finite m>=1, ordered cutoffs B_1<...<B_m and positive
 widths satisfying h_i+h_(i+1)<=B_(i+1)-B_i, one common measure with the
@@ -663,14 +664,41 @@ configurations, nested common orders, original radii and closing gaps.
 This entry owns the arbitrary-finite-cutoff extension and its corollary.
 The preceding entry retains the fixed three-level numerical theorem; the
 following entry owns the new fixed four-level application. The general
-theorem itself selects no numerical endpoint. No width/cutoff optimization,
-growing-m limit, minimax recovery, geometric upper bound or finite certificate follows.
+corollary itself selects no numerical lower endpoint.
 
-**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Sections 7-10; standalone
+The method-ceiling question for this ENTIRE family is now resolved. For
+every finite m>=1, q<beta_1<...<beta_m<=23/100 and nonnegative widths
+with weak adjacent macroscopic separation, the unchanged functional obeys
+
+```text
+0 <= eta(h) < U=8444510567073/5026544000000000000
+             < 21/12500000 = 1.68e-6.
+```
+
+The proof sums adjacent separations to bound H<23/100-q for m>=2.
+For m=1 there is no separation condition: F>0 implies
+h<3/100<23/100-q; F<=0 gives eta=0, and does NOT bound h.
+Positivity of the deletion integrand makes D(beta) increasing on this
+domain. Exact Taylor/binomial-tail enclosures of q, D(23/100) and pi,
+and pi*(16+432*H)>=16*pi, give the displayed strict rational ceiling.
+Zero widths, weak equality and all finite cutoff counts are included.
+
+This bounds only Section 9's gain with q=q_*, the specified cutoff domain,
+shared penalty 8*sum h_i^3 and denominator pi*(16+432*H). It does not
+identify its sharp supremum, bound the actual common-chain minimax or
+full geometry from above, limit other coupled bounds or sharper estimates,
+discharge finite floor gates, or prove growing-m/infinite-cutoff transfer.
+The best lower endpoint is unchanged. No width/cutoff optimization,
+minimax recovery, geometric upper bound or finite certificate follows.
+
+**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Sections 7-10 and 13; standalone
 exact checks in `ops/TASK-20260911__finite_shared_crossing/check_finite_crossing.py`
-and its dossier. Checks use prescribed measures and cycles, without tour
-enumeration or production imports. Universal quantifiers are analytic;
-external independent acceptance remains separate.
+and its dossier, plus
+`ops/TASK-20260911__shared_crossing_method_ceiling/check_method_ceiling.py`
+and its dossier. The latter independently reproduces the ceiling's rational
+gates and one-cutoff sign controls, without production, prior-checker or
+saved-result imports. Universal quantifiers are analytic; bounded checks
+and external independent acceptance remain separate.
 
 ### Four-level improvement at a fixed rational witness
 
