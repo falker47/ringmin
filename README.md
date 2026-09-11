@@ -205,8 +205,19 @@ python -m pytest
 python verify.py --start 3 --stop 8 --skip-frontier
 ```
 
-The smoke verifier skips the frontier/progress-log audit because
-`results/checkpoints/` is intentionally not tracked in git.
+The smoke verifier skips the frontier/progress-log audit. To run the complete
+certified scope from a fresh clone, restore the exact historical logs from
+their tracked, hash-checked archives first:
+
+```bash
+python scripts/frontier_logs.py restore
+python verify.py --start 3 --stop 14
+```
+
+This restores original evidence; it does not rerun exhaustive searches.
+The [reproduction dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENCE.md)
+records a successful clean-source Windows run and its failure controls.
+POSIX execution and hosted CI for the current SHA are not inferred from it.
 
 If a LaTeX distribution with `pdflatex` is available, compile the paper with:
 

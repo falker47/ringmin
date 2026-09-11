@@ -1,7 +1,7 @@
 # Implementation
 
 This thematic ledger owns stable implementation and verification-architecture
-facts, including the known full-verifier portability limitation. It is not a
+facts, including full-verifier evidence restoration. It is not a
 substitute for code, tests, artifacts, or verifier inspection.
 
 ## Current implementation facts
@@ -15,13 +15,14 @@ substitute for code, tests, artifacts, or verifier inspection.
 - The test suite contains property checks and SciPy SLSQP cross-checks, but it is not a replacement for the independent verifier.
 - Hosted CI runs the unit suite and `verify.py --start 3 --stop 8 --skip-frontier`; this is a smoke gate, not full `3..14` global-certificate verification.
 
-### Full-verifier portability limitation
+### Full-verifier evidence restoration
 
-**Status:** engineering and certification-reproducibility limitation at the bootstrap snapshot.
+**Status:** engineering fact, independently reproduced locally from a clean source export on Windows.
 
-The tracked frontier JSON files refer to `results\checkpoints\progress_nNN_lb3.log`, while `results/checkpoints/` is Git-ignored. Those logs were present in this Windows checkout and the full local `3..14` verifier passed. A fresh clone cannot reproduce the current full-verifier run without restoring or regenerating the logs; the stored backslash paths also require portable handling before a POSIX full-frontier run can be claimed. Hosted CI avoids this dependency by using `--skip-frontier`. This limitation does not turn the smoke verifier into a global certificate and was not repaired in the documentation-only bootstrap task.
+The tracked frontier JSON files refer to `results\checkpoints\progress_nNN_lb3.log`, while `results/checkpoints/` is Git-ignored. Their exact historical bytes are now distributed as deterministic gzip archives in `reproducibility/frontier_logs/`, with original/archive hashes and capture provenance. Run `python scripts/frontier_logs.py restore` before the full verifier. Restoration validates every archive and existing target before creating missing logs, refuses differing existing evidence, and checks readback. It preserves evidence rather than regenerating a search.
+
+The verifier accepts relative paths with either separator and rejects absolute, drive-qualified and parent-traversal paths. It still imports no production code. A tracked-source clean export with these changes, initially without ignored logs, passed restoration, all 15 tests, smoke verification and complete `3..14` frontier verification. POSIX execution was not available and is not claimed. Exact source hashes, commands, outputs and failure controls are in the [reproduction dossier](../ops/TASK-20260911__portable_frontier_evidence/EVIDENCE.md). Hosted CI remains a separate smoke gate; no exact-SHA hosted status is inferred.
 
 ## Non-implications owned by this module
 
 - Generated README/report/table agreement does not replace source and verifier agreement.
-

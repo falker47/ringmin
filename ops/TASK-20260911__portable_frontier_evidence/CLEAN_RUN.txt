@@ -1,0 +1,93 @@
+Clean tracked-source export plus explicit delta; original ignored logs absent.
+Same installed CPython 3.14.3 and pinned dependencies; no package reinstall.
+
+$ python scripts/frontier_logs.py restore
+PASS 12 exact log archives; 9649682 original bytes; restored/existing readback identical
+
+EXIT 0
+
+$ python -m pytest -p no:cacheprovider --basetemp=tmp-tests
+...............                                                          [100%]
+15 passed in 41.19s
+
+EXIT 0
+
+$ python verify.py --start 3 --stop 8 --skip-frontier
+n=03 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=04 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=05 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=06 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=07 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=08 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+
+EXIT 0
+
+$ python verify.py --start 3 --stop 14
+n=03 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=1
+n=04 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=3
+n=05 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=12
+n=06 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=60
+n=07 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=360
+n=08 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=2520
+n=09 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=20160
+n=10 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=4 total=181440
+n=11 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=6 total=1814400
+n=12 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=9 total=19958400
+n=13 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=10 total=239500800
+n=14 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=11 total=3113510400
+
+EXIT 0
+
+$ python -I -S ops/TASK-20260911__general_block_transfer/check_general_blocks.py
+PASS exact small domain: 30034 orders; 580560 cells; 173010 reflected and 254543 ordinary panel assignments
+PASS rational-surrogate diagnostics: 18 orders; 1080000 cells; fourth lengths 0,2,2,2,4,4
+PASS directed literal full max: 342 probes; 438 panel Lipschitz probes
+PASS 4 negative controls: duplicate high, cyclic predecessor, reversed panel orientation, negative radical
+NOTE finite arithmetic and rational-surrogate diagnostics only;
+analytic proof supplies arbitrary parameters/k/m, full geometry and limits
+
+EXIT 0
+
+$ python -I -S -O ops/TASK-20260911__general_block_transfer/check_general_blocks.py
+PASS exact small domain: 30034 orders; 580560 cells; 173010 reflected and 254543 ordinary panel assignments
+PASS rational-surrogate diagnostics: 18 orders; 1080000 cells; fourth lengths 0,2,2,2,4,4
+PASS directed literal full max: 342 probes; 438 panel Lipschitz probes
+PASS 4 negative controls: duplicate high, cyclic predecessor, reversed panel orientation, negative radical
+NOTE finite arithmetic and rational-surrogate diagnostics only;
+analytic proof supplies arbitrary parameters/k/m, full geometry and limits
+
+EXIT 0
+
+$ python -I -S ops/TASK-20260911__global_variational_limit/check_line_recovery.py
+PASS: 1089 rational words; 13995 independent paths; 13941 pair/closure checks; 1089 all-pair concatenations; 94620 genuine-label quantiles; 4 negative controls rejected.
+
+EXIT 0
+
+$ python -I -S -O ops/TASK-20260911__global_variational_limit/check_line_recovery.py
+PASS: 1089 rational words; 13995 independent paths; 13941 pair/closure checks; 1089 all-pair concatenations; 94620 genuine-label quantiles; 4 negative controls rejected.
+
+EXIT 0
+
+$ python -I ops/TASK-20260911__global_variational_limit/check_word_lp.py
+PASS k=1 r=2: 1 words; 1 primal blocks; lambda in [0.500000000,0.500000000]; all rational primal/dual gates
+PASS k=1 r=5: 1 words; 1 primal blocks; lambda in [0.800000000,0.800000000]; all rational primal/dual gates
+PASS k=2 r=2: 4 words; 1 primal blocks; lambda in [0.353553390,0.353553391]; all rational primal/dual gates
+PASS k=2 r=3: 8 words; 2 primal blocks; lambda in [0.436886723,0.436886724]; all rational primal/dual gates
+PASS k=3 r=4: 81 words; 2 primal blocks; lambda in [0.409906398,0.409906399]; all rational primal/dual gates
+PASS k=4 r=5: 1024 words; 3 primal blocks; lambda in [0.396136075,0.396136076]; all rational primal/dual gates
+PASS 1119 complete word inequalities; 18 corrupt certificates rejected
+Scope: bounded exact LP certificates; no finite Ringmin optimum, simple closed form, or asymptotic proof by computation.
+
+EXIT 0
+
+$ python -I -O ops/TASK-20260911__global_variational_limit/check_word_lp.py
+PASS k=1 r=2: 1 words; 1 primal blocks; lambda in [0.500000000,0.500000000]; all rational primal/dual gates
+PASS k=1 r=5: 1 words; 1 primal blocks; lambda in [0.800000000,0.800000000]; all rational primal/dual gates
+PASS k=2 r=2: 4 words; 1 primal blocks; lambda in [0.353553390,0.353553391]; all rational primal/dual gates
+PASS k=2 r=3: 8 words; 2 primal blocks; lambda in [0.436886723,0.436886724]; all rational primal/dual gates
+PASS k=3 r=4: 81 words; 2 primal blocks; lambda in [0.409906398,0.409906399]; all rational primal/dual gates
+PASS k=4 r=5: 1024 words; 3 primal blocks; lambda in [0.396136075,0.396136076]; all rational primal/dual gates
+PASS 1119 complete word inequalities; 18 corrupt certificates rejected
+Scope: bounded exact LP certificates; no finite Ringmin optimum, simple closed form, or asymptotic proof by computation.
+
+EXIT 0

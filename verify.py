@@ -4,7 +4,7 @@ import argparse
 import hashlib
 import json
 import math
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 from typing import Any
 
 import mpmath as mp
@@ -288,7 +288,13 @@ def expected_canonical_count(n: int) -> int:
 
 def progress_log_has_prefixes(root: Path, payload: dict[str, Any]) -> tuple[bool, list[str]]:
     messages: list[str] = []
-    log_path = root / str(payload.get("progress_log", ""))
+    # Historical frontier payloads use Windows separators, including on POSIX.
+    relative = PurePosixPath(str(payload.get("progress_log", "")).replace("\\", "/"))
+    if relative.is_absolute() or PureWindowsPath(str(relative)).drive or ".." in relative.parts:
+        return False, ["progress log path must remain inside the repository"]
+    log_path = root.joinpath(*relative.parts)
+    if not log_path.resolve().is_relative_to(root.resolve()):
+        return False, ["progress log path must remain inside the repository"]
     if not log_path.exists():
         return False, [f"progress log missing: {payload.get('progress_log')}"]
     expected = {

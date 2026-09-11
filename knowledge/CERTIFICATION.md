@@ -23,12 +23,14 @@ Evidence chain:
 
 - `results/nNN/optimum.json` and companion text artifacts;
 - tracked `results/frontiers/nNN_frontier.json` artifacts and their coverage metadata;
-- locally present, Git-ignored `results/checkpoints/progress_nNN_lb3.log` files referenced by those frontier artifacts;
+- exact historical `results/checkpoints/progress_nNN_lb3.log` files referenced by those frontier artifacts, restored from tracked hash-checked archives as described in [IMPLEMENTATION.md](IMPLEMENTATION.md#full-verifier-evidence-restoration);
 - standalone `verify.py`, which does not import `src/ringmin`;
 - source and generation metadata embedded in artifacts, including generation commit `fea000523a1ec4193d8ba9c4637563fd65e86d1a`;
 - public paper tables and appendix.
 
 A `certified` field is not sufficient by itself. The full verifier mode must include frontier verification. The bootstrap did not regenerate any artifact or prove that the current source tree is identical to the recorded generation commit.
+
+The research-completion goal reproduced the complete `3..14` audit from a clean source export after restoring the tracked archives. This preserves the certified scope and historical generation provenance; it is not a rerun of exhaustive generation. See the [recorded clean run](../ops/TASK-20260911__portable_frontier_evidence/CLEAN_RUN.txt).
 
 ## Non-implications owned by this module
 
@@ -37,4 +39,3 @@ A `certified` field is not sufficient by itself. The full verifier mode must inc
 - A best-known heuristic is not certified.
 - Certified cases through `n=14` do not prove the cascade or asymptotics.
 - One recovered contact graph does not establish uniqueness or a universal contact graph for all optima.
-

@@ -18,9 +18,9 @@ snapshot_date=2026-08-04
 The commit records the post-arXiv-v1 repository update. Detailed published
 proofs remain in `paper_assets/ringmin_paper.tex`. Finite certificate claims
 require the optimum and frontier artifacts, their provenance, and
-`verify.py`. The full frontier audit also reads local progress logs that are
-intentionally ignored by Git; tracked files alone are not currently
-sufficient to reproduce that audit in a fresh clone.
+`verify.py`. Restore the exact historical progress logs from the tracked
+archives before a full frontier audit; the canonical procedure and its tested
+scope are in [IMPLEMENTATION.md](knowledge/IMPLEMENTATION.md#full-verifier-evidence-restoration).
 
 ## Central definitions and guardrails
 

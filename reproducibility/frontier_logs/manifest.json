@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "source_checkout_commit": "13ddb41180b3911940f4fe5cf7d61c0545f9f834",
+  "generator_sha256": "3b2cab47679457729166bd4fb295c8ea00f76b054e697dfcde575bf1bc3ef994",
+  "provenance": "Exact locally preserved historical logs; not regenerated searches.",
+  "compression": "gzip level 9; mtime=0; CPython 3.14.3",
+  "logs": [
+    {
+      "n": 3,
+      "archive": "progress_n03_lb3.log.gz",
+      "target": "results/checkpoints/progress_n03_lb3.log",
+      "bytes": 668,
+      "sha256": "8f2f18147e9de40a87e1a180bb2afb7d4f1c4cbe00492d88c5cebf9054037807",
+      "archive_sha256": "7dc93bd881b23b929df03ef0f1024cec22d1c5540109fec397b5e88aa109de64"
+    },
+    {
+      "n": 4,
+      "archive": "progress_n04_lb3.log.gz",
+      "target": "results/checkpoints/progress_n04_lb3.log",
+      "bytes": 982,
+      "sha256": "34c80191979b54050186283db5a8f35fb17a6cec633c04fc3b215ad140219b7d",
+      "archive_sha256": "4608d93dd589ebc6b7f60d667c4dc2b82d0fd2d7ac79e180a2dc46dadc5bba75"
+    },
+    {
+      "n": 5,
+      "archive": "progress_n05_lb3.log.gz",
+      "target": "results/checkpoints/progress_n05_lb3.log",
+      "bytes": 1293,
+      "sha256": "128fba1a1366441ab72520ac783af6f59c1c9cb864fcd78cc63adc9e609e1a60",
+      "archive_sha256": "933b9b4aeace774968387ef2964a941f192fe4dbc0def3069b7ba83ee34b9169"
+    },
+    {
+      "n": 6,
+      "archive": "progress_n06_lb3.log.gz",
+      "target": "results/checkpoints/progress_n06_lb3.log",
+      "bytes": 1615,
+      "sha256": "4dbfae94ae16d343cb117ac298fe77669f425817efb3783af1901162614261f8",
+      "archive_sha256": "e31da9cebb1ce18ddfaec0ee4e36d0d19979916e2103b96ed939e823c8d48048"
+    },
+    {
+      "n": 7,
+      "archive": "progress_n07_lb3.log.gz",
+      "target": "results/checkpoints/progress_n07_lb3.log",
+      "bytes": 1939,
+      "sha256": "1f57292bf92f87b0d3936867104ccc2a90c2d96a9e391b3a3ed948ff8bf084c2",
+      "archive_sha256": "a8c347e101aef0beb269fcbd720631ff3ca2c254afcb020003c197d243a26549"
+    },
+    {
+      "n": 8,
+      "archive": "progress_n08_lb3.log.gz",
+      "target": "results/checkpoints/progress_n08_lb3.log",
+      "bytes": 1343,
+      "sha256": "c93f36627b1e012ef2656751b1e20c5e91cf646e9067c050f6384c5d5df30c45",
+      "archive_sha256": "88e987ba9d46788a09449a9bf5332e71dadca9f76fd6f23ae2e2e88f64c93cac"
+    },
+    {
+      "n": 9,
+      "archive": "progress_n09_lb3.log.gz",
+      "target": "results/checkpoints/progress_n09_lb3.log",
+      "bytes": 1541,
+      "sha256": "7f7927bfb246c8800e788ce41178f368866cc51c32ddc5182b1cf9667d86c765",
+      "archive_sha256": "36f916825f7ca38bad9ff8a6786077caf50a910d35d5549cde392e89e4438828"
+    },
+    {
+      "n": 10,
+      "archive": "progress_n10_lb3.log.gz",
+      "target": "results/checkpoints/progress_n10_lb3.log",
+      "bytes": 1925,
+      "sha256": "05d0294199624a5719554f047e7d82af649fedcf0baeac27bbad6eced7bee844",
+      "archive_sha256": "92619f46132ef1c32aff3a712926d3006a27faa6a3b15c58177982c4d6f47380"
+    },
+    {
+      "n": 11,
+      "archive": "progress_n11_lb3.log.gz",
+      "target": "results/checkpoints/progress_n11_lb3.log",
+      "bytes": 6569,
+      "sha256": "8a860830422e719764600ffe0e66145cb4a16ce5e179f5cbda268a3d0d190a38",
+      "archive_sha256": "16e33d5c78fa4ef0fe7c96ec86315b3416680623df738b5b9641027e6269d9b7"
+    },
+    {
+      "n": 12,
+      "archive": "progress_n12_lb3.log.gz",
+      "target": "results/checkpoints/progress_n12_lb3.log",
+      "bytes": 57534,
+      "sha256": "6562138052d8bdd90504d881df698ff43e2dd7ccd3ea5175c239e6d0ee7a031a",
+      "archive_sha256": "8cd97b5b667c4975d9b16e31b403a1b432df5a725a68e4692d86a7fa2ce82105"
+    },
+    {
+      "n": 13,
+      "archive": "progress_n13_lb3.log.gz",
+      "target": "results/checkpoints/progress_n13_lb3.log",
+      "bytes": 677994,
+      "sha256": "34a73299578d221a137e83dfef57bf408b47c1ee42ca9eb97caafee55e36c3fc",
+      "archive_sha256": "4164e29b4127378b5369d6b7a3a5ad07b6e9ede21a920f12b9f4c812d2514264"
+    },
+    {
+      "n": 14,
+      "archive": "progress_n14_lb3.log.gz",
+      "target": "results/checkpoints/progress_n14_lb3.log",
+      "bytes": 8896279,
+      "sha256": "5ff142ee7f27daa08ce454da2413f124d1d7da08bdec03d9e79355d99729d346",
+      "archive_sha256": "09f31f52fc74745eb8c7b19055b5e0e047f7ae5a92d7ae7b746ec904d314afea"
+    }
+  ]
+}
