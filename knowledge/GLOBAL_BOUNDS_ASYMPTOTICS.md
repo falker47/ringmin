@@ -7,6 +7,49 @@ mathematical detail.
 
 ## Exact post-arXiv-v1 global and asymptotic results
 
+### Global normalized limit and effective variational characterization
+
+**Status:** exact theorem with matching variational upper/lower theory,
+after arXiv v1; separately internally adversarially validated, external
+acceptance pending. This entry solely owns the global theorem.
+
+For marks a_i in [0,1], let b(a) be the minimum span of a line placement
+with every pair separated by at least sqrt(a_i*a_j), allowing zero marks
+to coincide. Let b_n=b(1/n,...,1). Then
+
+```text
+C_* = lim_(n->infinity) R*(n)/n^2 = (1/pi)*lim b_n/n,
+C_* = (1/pi)*inf_(n>=2) (b_n+1)/n,
+b_n/(pi*n)-1/n <= R*(n)/n^2 <= (b_n+1)/(pi*n), n>=3.
+```
+
+The proof uses exact angular inequalities, a unit closing gap, genuine-label
+concatenation and sorted quantile reassignment. It covers arbitrary orders,
+all pairs, both arcs, every large integer size and both parities.
+
+An effective finite variational characterization is as follows. For all
+words w of length r over {1/k,...,1}, compute their exact minimum line span
+ell(w) by the all-predecessor longest-path recurrence. Minimize
+lambda_(k,r)=(1/r)*sum_w p_w*ell(w) over p_w>=0 with total mass one and
+expected count r/k of each type. For every k>=1 and r>=2,
+
+```text
+(lambda_(k,r)-1/k)/pi <= C_* <= (lambda_(k,r)+1/r)/pi.
+```
+
+The type-quantization error is at most 1/k; the omitted block-boundary cost
+is at most 1/r. Rational mixtures recover actual feasible placements, so
+there is no unquantified cyclic relaxation or continuum transfer debt.
+Directed radical costs and rational primal/dual LP certificates yield
+arbitrarily small certified intervals in principle. There are k^r words;
+efficient high-precision evaluation, an elementary closed form and a unique
+microscopic extremizer are not asserted. Current explicit endpoint bounds
+remain useful and are owned by their respective entries below.
+
+**Source:** `research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md`, Sections 1-6;
+independent bounded line/quantile and rational word-LP checkers, corrections
+and internal review in `ops/TASK-20260911__global_variational_limit/`.
+
 ### Optimized induced-terminal-subset global lower bound
 
 **Status:** exact theorem / proved corollary, after arXiv v1.
@@ -1169,7 +1212,8 @@ including the already defined mixed minimum Delta_*. Therefore
 limsup_(n->infinity) R*(n)/n^2 <= C_3(Delta_*) < C_3(1/250).
 ```
 
-This is the strongest current proved upper bound. The exact continuous
+This was the strongest proved upper bound at its checkpoint; the general
+block transfer below now improves it. The exact continuous
 minimum and quantitative strict saving retain their sole owner in the
 [mixed-width entry](FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection).
 The new result transfers that existing improvement to actual geometry;
@@ -1181,6 +1225,32 @@ Unqualified C_3 retains its historical meaning C_3(1/1000).
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_UNIFORM_TRANSFER.md`,
 Section 6; uniform fixed-order recovery and full-root limits in Sections 1-5;
 local evidence in `ops/TASK-20260911__third_block_uniform_transfer/EVIDENCE.md`.
+
+### General reflected-block transfer and the fourth-block global upper bound
+
+**Status:** proved global upper constructions, after arXiv v1; internally
+adversarially validated, external acceptance pending.
+
+The [general recovery theorem](FIXED_ORDER_THEORY.md#general-finite-and-countable-reflected-block-recovery)
+transfers every fixed finite or countably infinite adjacent reflected partition
+of total length T<1-alpha, retaining the full max. In particular the exact
+fourth-block witness gives
+
+```text
+U_4=C_4(1/20000),
+C_* <= U_4 < C_3(Delta_*)-1/4608000000000000.
+```
+
+This is the strongest explicit construction coefficient currently established.
+Its exact implicit baseline parameters retain their original definitions.
+The lower endpoint remains C_term+eta_width. Combined with the global-limit
+entry, the explicit enclosure is C_term+eta_width <= C_* <= U_4. Neither
+explicit endpoint is proved sharp; the finite-word variational scheme gives
+a separate arbitrarily refinable characterization of their common target.
+No finite optimum beyond n=14 or optimal reflected partition is asserted.
+
+**Source:** `research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md`, Section 5;
+continuous strict saving in `research/PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md`.
 
 ### First-order one-gap local optimality of the optimized terminal interval
 
@@ -1264,16 +1334,17 @@ theorem: `liminf R*(n)/n^2>=C_term>rho/16>3/22>1/8`. In particular,
 eventually `n^2/8-R*(n)<-n^2/88`. This is a post-v1 correction to active
 knowledge, not a revision of the historical paper.
 
-The uniform three-block transfer at the mixed minimum above gives the
-strongest proved upper bound
+The general reflected-block transfer above gives the strongest explicit
+construction upper bound
 
 ```text
-limsup R*(n)/n^2<=C_3(Delta_*)<C_3(1/250)<C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
+C_*<=U_4<C_3(Delta_*)<C_3(1/250)<C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_alt<1/(2*pi),
 ```
 
 where unqualified C_3=C_3(1/1000), and hence `R*(n)=Theta(n^2)`.
-The true normalized liminf and limsup, their
-possible equality, and either endpoint's sharpness remain unresolved.
+The global-limit theorem above proves equality of the normalized liminf and
+limsup and characterizes their value by a finite-word variational limit with
+explicit error. Neither displayed construction/lower endpoint is proved sharp.
 The strongest current lower endpoint is supplied by the
 [four-level common-chain entry](#four-level-improvement-at-a-fixed-rational-witness)
 above, which solely owns that improvement.
@@ -1281,8 +1352,9 @@ above, which solely owns that improvement.
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
 `research/FINITE_INDUCED_SUBSET_DOMINANCE.md` for the lower side, and
-`research/PERMUTED_HALVES_THIRD_BLOCK_UNIFORM_TRANSFER.md` for the strongest upper
-side. The earlier boundary, fixed second-block, one-prefix, reflected, shifted,
+`research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md` for the strongest explicit
+upper side, and `research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md` for the exact
+effective limiting characterization. The earlier boundary, fixed second-block, one-prefix, reflected, shifted,
 unshifted and increasing-order theorems remain valid but are weaker.
 The single-subset envelope does not
 settle the remaining coefficient gap.
@@ -1291,11 +1363,11 @@ settle the remaining coefficient gap.
 
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
-3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_width,C_3(Delta_*)]`, including whether they agree; improve beyond the
-   current three-block construction or obtain sharper
-   genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
-   bound. The proposed coefficient `1/8` is disproved.
+3. Evaluate the now-proved variational constant C_* efficiently, identify
+   an elementary expression if one exists, and characterize optimal microscopic
+   structure. Improve the explicit interval `[C_term+eta_width,U_4]` using
+   tractable primal/dual certificates or better constructions. Existence and
+   arbitrary-precision computability in principle are resolved; `1/8` is disproved.
 4. Extend the structural analysis from radii `k` to `k^alpha` or general sequences without silently importing conclusions.
 
 The sole ranked priority is maintained in `research/NEXT_RESEARCH_STEPS.md`.

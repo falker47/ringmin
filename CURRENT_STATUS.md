@@ -1,51 +1,39 @@
 # Current Status
 
-## Repository snapshot
-
     repository=falker47/ringmin
-    task_base_head=c45162f7df1b1b482b9dbecea7b619ecdaa02227
+    starting_head=372f96c0a9f14d968e7ecb3b1a039e7867340005
     observed_on=2026-09-11
-    phase=post-arXiv-v1 active research
-
-## Current task
-
-    task=TASK-20260911__fourth_adjacent_block
+    task=GOAL-20260911__conclude_study
     mode=STRICT
-    state=READY_FOR_REVIEW
+    state=IN_PROGRESS
 
-The [fourth-block proof](research/PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md)
-resolves the specified continuous discriminator after the exact third-width
-minimum. Its sole stable owner is the
-[fixed-order entry](knowledge/FIXED_ORDER_THEORY.md#fourth-independent-reflection-after-the-exact-third-width-minimum).
-The [task dossier](ops/TASK-20260911__fourth_adjacent_block/TASK_STATUS.md)
-records scope and evidence. The user identifies base HEAD as accepted.
+The user authorizes a long-horizon research-completion goal, with internally
+reviewed checkpoint commits and autonomous continuation. The compact
+[goal state](ops/GOAL-20260911__conclude_study/STATE.md) records decisions and
+the [dependency map](ops/GOAL-20260911__conclude_study/DEPENDENCIES.md) records
+source/audit scope. The external registry was read without mutation and gives
+accepted baseline c45162f7df1b1b482b9dbecea7b619ecdaa02227.
 
-### Verification gates
+## Current checkpoint and verification gates
 
-- Bounded independent stdlib rational checker: exit 0; all domain/saving margins,
-  16 corner partitions, 448 reflection moments, 48 branch probes, 6 sign/tie
-  controls and a 16-panel raw full-max enclosure passed.
-- The cutoff control detects a chain excess with a diagonal tie; 3 invalid
-  chord gates are rejected. No width scan or parameter solving.
-- Disabled-assertion control (-O): exit 0 with identical checks and output.
-- Accepted mixed-width dependency: exit 0; both rational sign gates and the
-  inherited location/cost implications reproduced.
-- Complete tracked/untracked content inspection, 12 local links/anchors,
-  explicit UTF-8/whitespace and exact eight-path checks pass.
-- Precommit handoff: authorized staged review, commit and normal push follow;
-  the final response reports the SHA, remote result and working-tree state.
+The fourth continuous block has passed a separate internal adversarial audit.
+The general finite/countable reflected-block transfer and the intrinsic
+global-limit/finite-word variational theorem have passed separate internal
+mathematical and checker audits. The explicit lower endpoint's minimal
+dependency path is also internally validated. Canonical owners are synchronized;
+the coherent mathematical checkpoint is being integrated.
 
-### Blockers and limitations
+Required remaining gates: remaining final dependency audits, tracked-files-only
+reproducibility, versioned v2 manuscript, publication consistency and one
+external review packet. Historical v1 and finite artifacts remain protected.
+No hosted CI or external acceptance of goal results is claimed.
 
-No mathematical blocker. Independent review of the new proof remains
-separate. No four-block finite recovery, full-feasibility transfer or new
-global upper coefficient is supplied. The existing transferred coefficient
-remains C_3(Delta_*). Fixed inputs, old proofs, lower results, production,
-certificates and arXiv v1 are preserved. Hosted CI has not been inspected.
+## Blockers
 
-## Exactly one next atomic task
+None. Existing ignored frontier-log portability debt must be resolved or
+precisely accounted for at the reproducibility checkpoint.
 
-Independently review the committed fourth-block continuous proof and its
-bounded checker, auditing the full-max identity, switches, exact cubic term,
-interval/witness margins and limits of the future transfer obligations;
-record acceptance or precise corrections and stop.
+## Exactly one next atomic checkpoint
+
+Bundle and restore the exact historical frontier progress logs, then verify
+the finite certificate chain from tracked files with portable path handling.

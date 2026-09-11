@@ -64,9 +64,9 @@ reminders above do not replace the full classified entry in its owner.
   Supnick chain theory, formal seam onsets, fixed-order feasibility, and the
   boundary between those theorems and the floating-cascade conjecture.
 - [`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md)
-  — induced-subset bounds, global asymptotic bounds, explicit constructions,
-  heuristic larger-`n` observations, disproved claims, and open global
-  questions.
+  — the global normalized-limit theorem and effective finite-word variational
+  characterization, induced-subset bounds, explicit constructions, heuristic
+  larger-`n` observations, disproved claims, and open global questions.
 - [`knowledge/CERTIFICATION.md`](knowledge/CERTIFICATION.md) — certified
   finite scope, finite regimes, evidence-chain requirements, and
   certification-specific limitations.

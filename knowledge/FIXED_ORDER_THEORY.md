@@ -1880,6 +1880,41 @@ coefficient, finite certification, four-block optimum or paper claim follows.
 bounded rational gates, raw-full-max enclosure and evidence in
 `ops/TASK-20260911__fourth_adjacent_block/`.
 
+### General finite and countable reflected-block recovery
+
+**Status:** exact recovery and full-feasibility theorem, after arXiv v1;
+separately internally adversarially validated, external acceptance pending.
+
+Fix 0<=alpha<1 and nonnegative adjacent slab lengths ell_1,...,ell_k
+with T=sum ell_j<1-alpha. Round each length downward to an even integer,
+form starts from those rounded lengths, reverse even high ranks within
+each block, and apply the cyclic shift floor(alpha*m). These are genuine
+high permutations for all m>=max(2,ceil(2/(1-alpha-T))). Every shared
+boundary, zero block, length-two identity, cyclic predecessor and wrap
+cell is included. The empirical measures recover the separately reflected
+slabs and unchanged shifted diagonal; no finite branch agreement is needed.
+
+For the complete max g and C(mu)=integral g/(4*pi), the actual full minima
+of the resulting even orders obey
+
+```text
+|R_full(sigma_m)/(2m)^2-C(mu)|
+ <=[(6*k^2+28*k+1060)/m+16384/(3*m^2)]/(4*pi),
+m>=max(2048,2,ceil(2/(1-alpha-T))).
+```
+
+The arbitrary-high cell theorem supplies every pair and both arc directions.
+Deleting the largest high gives odd feasible placements. Countably many
+slabs with total length strictly below 1-alpha also recover by finite
+truncation and a diagonal sequence, so no indefinite transfer debt accumulates.
+For the exact fourth-block inputs, k=4 gives coefficient 1268/m in the
+root estimate and actual geometric realization of the continuous saving.
+The global corollary has its sole owner in the global-bounds ledger.
+
+**Source:** `research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md`, Sections 1-5;
+bounded exact arithmetic and internal review in
+`ops/TASK-20260911__general_block_transfer/`.
+
 ## Conjectural global interpretation of the fixed-order pattern
 
 ### Floating cascade
