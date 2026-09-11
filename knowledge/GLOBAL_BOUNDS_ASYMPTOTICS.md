@@ -610,6 +610,67 @@ exact arithmetic, prescribed grid-coupling checks and negative controls in
 dossier. No tour enumeration or production imports. Analytic arguments
 supply the universal quantifiers; independent acceptance remains separate.
 
+### Arbitrarily many finite cutoffs with one shared crossing energy
+
+**Status:** exact theorem / sharp unrestricted pointwise width condition /
+proved finite common-chain and global corollary, after arXiv v1.
+
+For any fixed finite m>=1, ordered cutoffs B_1<...<B_m and positive
+widths satisfying h_i+h_(i+1)<=B_(i+1)-B_i, one common measure with the
+midpoint strip bound nu(|x-B_i|<=h_i)<=4*h_i satisfies
+
+```text
+sum_i h_i*K_i <= 4*sum_i h_i^3+E.
+```
+
+Crossed cutoffs form one consecutive block; summing adjacent separations
+bounds the whole block's long contribution by |x-z|^2. The widths are
+necessary and sufficient for that pointwise charging rule on the entire
+real line. They are only sufficient on a fixed grid or for the integrated
+bound; no optimal strip constant or tour saturation is asserted. An exact
+four-cutoff equal-grid-marginal coupling, also obtained by reflection from
+a symmetric edge measure, violates the unseparated integrated claim by
+1/1250. It is not asserted to be a single cyclic tour.
+
+With q=q_* and any fixed q<beta_1<...<beta_m<=23/100, retain original
+radii and let M_(n,m+1) minimize the largest chain root of one outer order
+on T_q(n) and all its nested restrictions. There are m+1 levels. Set
+
+```text
+H=sum_i h_i, Q_3=sum_i h_i^3, L=16+432*H,
+F_n=sum_i h_i*D_(i,n)-8*Q_3, F=sum_i h_i*D_i-8*Q_3,
+eta(h)=F_+/(pi*L), A(h)=1+[5+19*H/(2*L)]/pi.
+```
+
+Here the reflected reference J_n and deletion sums/integrals are defined
+in the source. For every n satisfying its explicit finite stability and
+midpoint separation gates, with the SAME outer energy at each cutoff,
+
+```text
+R*(n)>=M_(n,m+1),
+M_(n,m+1)/n^2 >= [J_n+(F_n)_+/L]/pi-1/n,
+M_(n,m+1)/n^2 >= C_term+eta(h)-A(h)/n.
+```
+
+Strict macroscopic separation supplies an explicit eventual finite gate;
+weak macroscopic separation gives both liminf bounds at C_term+eta(h)
+by a limiting scaling of widths. Weak separation alone does not discharge
+the finite floor loss. The constants 8 and 54 and the errors 5/n and
+19/(2n) come from the existing stability proof with its domain checked
+at every cutoff. The geometric transfer uses deletion from full feasible
+configurations, nested common orders, original radii and closing gaps.
+
+This entry owns the arbitrary-finite-cutoff extension and its corollary.
+The preceding entry retains the fixed three-level numerical theorem; no
+new numerical endpoint is claimed. No width/cutoff optimization, growing-m
+limit, minimax recovery, geometric upper bound or finite certificate follows.
+
+**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Sections 7-10; standalone
+exact checks in `ops/TASK-20260911__finite_shared_crossing/check_finite_crossing.py`
+and its dossier. Checks use prescribed measures and cycles, without tour
+enumeration or production imports. Universal quantifiers are analytic;
+external independent acceptance remains separate.
+
 ### Increasing-order full asymptotic upper bound
 
 **Status:** exact asymptotic theorem / explicit feasible construction /

@@ -40,6 +40,9 @@ provenance question, not routine orientation.
   common-chain stability/global/minimax results and the simultaneous
   beta_1=1/5, beta_2=23/100 shared crossing budget supply the current lower
   improvement. See the corresponding sections of the [global-bounds ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
+  The [arbitrary-finite-cutoff extension](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#arbitrarily-many-finite-cutoffs-with-one-shared-crossing-energy)
+  now supplies the general shared-energy lemma and finite minimax corollary,
+  with a precise pointwise sharpness scope; it selects no new numerical endpoint.
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours.
   [Section 11.5](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#115-the-crossing-exponent-23-is-sharp-for-genuine-cyclic-tours)
@@ -61,15 +64,16 @@ provenance question, not routine orientation.
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of the three-level common-chain theorem
+## Priority 1 — Independent review of the finite shared-crossing extension
 
-Independently review `THREE_LEVEL_COMMON_CHAIN.md` at committed HEAD.
-Audit reuse of stability at both fixed cutoffs, the single shared energy
-in the joint crossing inequality (including pairs crossing both cutoffs),
-the necessary continuum relaxation, floors and finite minimax, and the
-full-feasible deletion transfer. Reproduce the standalone rational checker
-and audit its dependency gates as needed. Record acceptance or precise
-corrections; stop before further coefficient optimization or research.
+Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Sections 7-10, at
+committed HEAD. Audit every multi-crossing block, the scope of necessity
+of adjacent separation, the exact unseparated counterexample, and the
+finite minimax with its stability, floor and full-feasible deletion gates.
+Reproduce the new standalone checker and audit the existing three-level
+and stability dependencies as needed; the earlier three-level review is
+not thereby recorded as completed. Record acceptance or precise corrections;
+stop before coefficient optimization or further research.
 
 ## Deferred direction — Determine the true leading asymptotics
 

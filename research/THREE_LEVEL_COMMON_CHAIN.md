@@ -338,3 +338,298 @@ records commands, environment, negative evidence and limitations. Stable
 claim ownership is the new three-level entry in the global-bounds ledger.
 Existing two-level theorems, upper constructions, certificates and the
 arXiv-v1 record retain their meanings and contents.
+
+## 7. Any fixed finite number of shared cutoffs
+
+**Status: exact theorem.** Sections 7-10 generalize the crossing argument
+and its natural finite corollary; Sections 1-6 retain their fixed constants.
+Let m>=1 be finite, B_1<...<B_m, and h_i>0. Let mu be a finite nonnegative
+measure on the real plane with finite energy and first marginal nu. Assume
+
+```text
+nu({x: |x-B_i|<=h_i}) <= 4*h_i,                          (16)
+E = integral |x-z|^2 dmu,
+K_i = integral |x-z|*1_{(x-B_i)*(z-B_i)<0} dmu.
+```
+
+Equal reflected grid marginals, as in Section 2, imply (16) at midpoint
+cutoffs. The crossing lemma itself needs only the displayed first-marginal
+bounds. There is exactly one mu and one E, with no probability renormalization.
+
+**Finite shared-crossing lemma.** The explicit adjacent conditions
+
+```text
+h_i+h_(i+1) <= B_(i+1)-B_i,       1<=i<m,                (17)
+```
+
+imply
+
+```text
+sum_i h_i*K_i <= 4*sum_i h_i^3+E.                       (18)
+```
+
+For m=1 condition (17) is empty. It permits equality for any m.
+
+Proof. Write d=|x-z| and split each cutoff crossing into short d<=h_i
+and long d>h_i. Its short integrand is at most
+h_i^2*1_{|x-B_i|<=h_i}; by (16) the sum of all short integrals is at
+most 4*sum_i h_i^3. It remains to bound the TOTAL long integrand by d^2.
+
+The strictly crossed cutoffs form a consecutive index block [p,q]. If
+there are none, the long integrand is zero; if there is one, it is either
+zero or h_p*d<d^2. If q>p, summing (17) gives
+
+```text
+sum_(i=p)^q h_i
+ = sum_(i=p)^(q-1) (h_i+h_(i+1))-sum_(i=p+1)^(q-1) h_i
+ <= B_q-B_p-sum_(i=p+1)^(q-1) h_i
+ <= B_q-B_p < d.                                        (19)
+```
+
+The empty internal sum is zero. Thus EVERY crossing of this pair is
+long, even when it crosses three, four or all m cutoffs, and their total
+weighted integrand is d*sum_(i=p)^q h_i<=d^2. Integration spends E once.
+A pair with d=h_i belongs to the short part; a pair endpoint exactly at
+a cutoff does not strictly cross that cutoff. Neither convention leaves
+an unaccounted pair. This proves (18).
+
+Equivalently, (17) says that every block with p<q has
+sum_(i=p)^q h_i<=B_q-B_p: adjacent blocks give necessity for this
+equivalence, and (19) gives sufficiency. Requiring only the single
+outermost-block inequality is insufficient.
+
+## 8. What is sharp, and what fails without separation
+
+**Exact pointwise sharpness.** Define the long weight at a pair by
+
+```text
+A_h(x,z) = sum_{i: (x-B_i)*(z-B_i)<0, h_i<|x-z|} h_i.
+```
+
+Conditions (17) are necessary and sufficient for the pointwise statement
+
+```text
+A_h(x,z) <= |x-z|       for EVERY x!=z in the real line. (20)
+```
+
+Sufficiency was proved above. For necessity suppose an adjacent gap
+g=B_(j+1)-B_j violates (17). Put
+
+```text
+M=max{g,h_j,h_(j+1)}, S=h_j+h_(j+1),
+d=(M+S)/2, epsilon=(d-g)/2,
+x=B_j-epsilon, z=B_(j+1)+epsilon.
+```
+
+Positivity of both widths and g<S imply M<d<S. Both cutoffs are strictly
+crossed and long, so A_h(x,z)>=S>d. Any additional crossed cutoffs can
+only increase A_h. This is a local obstruction to paying the long terms
+by d^2; it proves sharpness of (17) for precisely (20).
+
+For example B=(0,1), h=(3/5,3/5), x=-1/20, z=21/20 give d=11/10 and
+long integrand 33/25>121/100=d^2. With B=(0,1,3) and
+h=(3/4,3/4,1/4), the outermost sum 7/4<=3 holds, but x=-1/8,z=9/8
+already violate (20) at the first two cutoffs.
+
+**Domain qualification.** On a specified grid V, the exact condition for
+this pointwise proof is instead the finite family
+
+```text
+sum_{i: min(x,z)<B_i<max(x,z), h_i<|x-z|} h_i <= |x-z|
+                                      for x,z in V, x!=z. (21)
+```
+
+One may further restrict to the support of a particular mu. Condition
+(17) suffices for (21), but need not be necessary: if all h_i>=diam(V),
+there are no long pairs, regardless of adjacent overlap. This also gives
+(18) directly from the short estimate. On a fixed grid, absence of
+attainable intermediate distances can matter even for smaller widths.
+Thus (17) is sharp for the unrestricted local charging rule (20), not
+a claimed necessary condition for the integrated inequality, the best
+constant 4, equal-marginal couplings, genuine tours or a geometric minimax.
+
+**Exact negative control for the unrestricted integrated claim.** Merely
+dropping separation is in fact invalid for the equal-grid-marginal lemma.
+Take n=200, V={j/200:39<=j<=200}, nu=(1/200)*sum_{x in V} delta_x,
+and the permutation
+
+```text
+T(j)=j+60  for 60<=j<=119,
+T(j)=j-60  for 120<=j<=179,
+T(j)=j     otherwise.
+mu=(1/200)*sum_(j=39)^200 delta_(j/200,T(j)/200),
+B=(237/400,239/400,241/400,243/400), h_i=1/10.
+```
+
+Both marginals are nu. All cutoffs are grid midpoints, so the original
+strip bound holds for every positive width. Reflection r(x)=239/200-x
+commutes with this involution T; hence reflecting the second coordinate
+back gives a symmetric equal-marginal edge measure as well. It is a
+coupling, not a claim of realization as one cyclic tour.
+
+There are 120 moved atoms, each of length 3/10. The four crossing atom
+counts are respectively 118,120,118,116; many pairs cross all four.
+Exact arithmetic gives
+
+```text
+E=27/500,
+(K_1,K_2,K_3,K_4)=(177/1000,9/50,177/1000,87/500),
+sum_i h_i*K_i=177/2500 > 7/100=4*sum_i h_i^3+E,
+excess=1/1250.                                          (22)
+```
+
+This refutes the unseparated general lemma even with its correct
+marginals and strip counts. It is not a counterexample to (18) under
+(17), to the stability theorem, or a statement about tour sharpness.
+
+## 9. The natural finite common-chain minimax corollary
+
+**Status: proved corollary under the existing stability hypotheses.**
+Keep q=q_*, C=C_term and all original radii. A concrete domain requiring
+no new stability estimates is any fixed finite collection
+
+```text
+q<beta_1<...<beta_m<=23/100,
+T_b(n)={floor(b*n),...,n}.
+```
+
+There are m cutoffs and m+1 chain levels, including the outer chain.
+For m TOTAL levels use m-1 cutoffs in the formulas below. Define
+
+```text
+sigma_0=sigma cyclic on T_q(n), sigma_i=sigma|T_beta_i(n),
+M_(n,m+1)=min_sigma max_(0<=i<=m) R_chain(sigma_i),
+k=floor(q*n), a=k/n, s=1+a, ell_i=floor(beta_i*n),
+B_i=(ell_i-1/2)/n,
+J_n=(1/n)*sum_(j=k)^n sqrt((j/n)*(s-j/n)),
+D_(i,n)=(1/n)*sum_(j=k)^(ell_i-1) [s-j/n-2*sqrt((j/n)*(s-j/n))],
+D_i=integral_q^beta_i [1+q-x-2*sqrt(x*(1+q-x))] dx,
+H=sum_i h_i, Q_3=sum_i h_i^3, L=16+432*H,
+F_n=sum_i h_i*D_(i,n)-8*Q_3,
+F=sum_i h_i*D_i-8*Q_3, eta(h)=F_+/(pi*L),
+A(h)=1+[5+19*H/(2*L)]/pi,       u_+=max{u,0}.
+```
+
+At any integer n and positive widths (allowed to depend on n) satisfying
+
+```text
+n>=102, ell_1/n>q, ell_1<...<ell_m<=n-2,
+h_i+h_(i+1) <= (ell_(i+1)-ell_i)/n    for 1<=i<m,       (23)
+```
+
+the finite, order-uniform conclusions are
+
+```text
+R*(n) >= M_(n,m+1),
+M_(n,m+1)/n^2 >= [J_n+(F_n)_+/L]/pi-1/n,               (24)
+M_(n,m+1)/n^2 >= C+[(F-19*H/(2*n))_+/L-5/n]/pi-1/n
+              >= C+eta(h)-A(h)/n.                     (25)
+```
+
+In the m=1 case omit all adjacent conditions. The positive part handles
+negative, zero and positive numerators; no gain is asserted when F<=0.
+
+To justify every reused input, n>=102 implies 1/6<a<=q<1/5. Every
+deleted x satisfies x<ell_i/n<=23/100, and
+s-2*(ell_i/n)>7/6-46/100=53/75>1/2. The cutoff is a midpoint, the
+deleted set is nonempty, and at least three vertices survive. Thus the
+Hessian bounds, cyclic maximal-run accounting, primitive derivative
+bounds and moving-endpoint estimates in Sections 2 and the linked
+common-chain Sections 2-5 and 11.1-11.3 apply at EACH cutoff unchanged.
+In particular for the SAME outer measure, with W_i the normalized
+sqrt-product edge costs and e=W_0-J_n, they give
+
+```text
+e>=0, E<=8*e, |W_i-W_0-D_(i,n)|<=54*E+2*K_i,
+|J_n-pi*C|<=5/n, |D_(i,n)-D_i|<=19/(2*n),
+W_i/pi-1/n <= R_chain(sigma_i)/n^2 <= W_i/pi.           (26)
+```
+
+No new stability theorem for arbitrary cutoffs or arbitrary radius
+sequences is inferred. More generally, (24) is conditional on precisely
+the first and last lines of (26) and (18); (25) additionally uses the
+middle error bounds. The domain above explicitly supplies all of them.
+
+Multiply each lower deletion estimate by h_i, sum, and use (18):
+
+```text
+sum_i h_i*W_i >= H*(J_n+e)+F_n-(54*H+2)*E
+              >= H*(J_n+e)+F_n-L*e.
+```
+
+The energy coefficient is 8*(54*H+2)=L, not m copies of 16. Taking the
+positive weighted average of the inner costs and retaining the outer
+one yields
+
+```text
+max_(0<=i<=m) W_i >= J_n+max{e,F_n/H-(L/H-1)*e}.
+```
+
+Since L>H>0, the exact scalar infimum over e>=0 is (F_n)_+/L: at
+F_n>0 the branches meet at e=F_n/L, and at F_n<=0 the minimum is zero
+at e=0. This is sharp only for these two aggregate scalar branches.
+Taking finite minima and the angular lower sandwich proves (24) for
+M. The error estimates and the monotone, 1-Lipschitz positive-part map
+prove (25). All orders, both cardinality parities, wrap and floors are
+included; the error is uniform in the order. Setting m=2 and the fixed
+witnesses of Section 1 recovers (14) and its A_3 exactly.
+
+For fixed widths with strict macroscopic margins
+
+```text
+delta_i=beta_(i+1)-beta_i-h_i-h_(i+1)>0,
+```
+
+choose any integer N>=102 with N*(beta_1-q)>1 and N*delta_i>=1 for
+all i. Then (23) holds for every n>=N, since
+(ell_(i+1)-ell_i)/n>=beta_(i+1)-beta_i-1/n; the last surviving-cycle
+size condition follows from beta_m<=23/100. Hence
+
+```text
+liminf_(n->infinity) M_(n,m+1)/n^2 >= C+eta(h),
+liminf_(n->infinity) R*(n)/n^2 >= C+eta(h).              (27)
+```
+
+Weak macroscopic separation also suffices for (27): apply the strict
+result to t*h with any fixed 0<t<1, then let t increase to 1 and use
+continuity of eta. This limit neither optimizes widths nor exchanges a
+minimum and a limit. Weak macroscopic separation alone does NOT imply
+the finite (23) at the unchanged widths; the floor loss must be checked.
+The theorem fixes m independently of n and asserts no infinite-cutoff
+or growing-m limit.
+
+Finally the geometric inequality must be proved from full feasibility.
+Take any full feasible configuration at R and order omega on {1,...,n}.
+Deletion to each T_b(n), for b=q,beta_1,...,beta_m, preserves original
+radii and every surviving pair constraint. Each consecutive directed
+gap g in its restricted cycle satisfies
+min{g,2*pi-g}>=theta_R(u,v), hence g>=theta_R(u,v). Summing all gaps,
+including the closing one, and using strict decrease of the chain sum
+gives R_chain(omega|T_b(n))<=R. All restrictions come from the same
+sigma=omega|T_q(n), and remain nested. Thus M_(n,m+1)<=R for EVERY
+full feasible configuration; taking infima proves R*(n)>=M_(n,m+1).
+No attainment, deletion from a merely chain-feasible arrangement, or
+reconstruction at the chain root is required. This proves the global
+parts of (24)-(27) separately from the scalar calculation.
+
+## 10. Bounded checks and stopping scope for the generalization
+
+The [finite-cutoff standalone checker](../ops/TASK-20260911__finite_shared_crossing/check_finite_crossing.py)
+uses only standard-library rational arithmetic and no production, prior
+checker or saved-result imports. Prescribed small grid couplings exercise
+one, two, four and eight cutoffs, short/long equality, adjacent separation
+equality, both parities and pairs crossing every cutoff. Exact controls
+check the local overlap obstruction, insufficient outermost separation,
+the integrated counterexample (22), a harmless overlap on a bounded
+domain, separate-budget overspending and macroscopic/finite floor loss.
+Scalar and finite-domain gates include all signs of F_n and recovery of
+the existing two-cutoff constants. The earlier three-level checker is
+rerun as a separate dependency check, without imports between checkers.
+
+These bounded checks corroborate accounting and constants; the analytic
+proof supplies the arbitrary finite m, all-order and all-n quantifiers.
+The [task evidence](../ops/TASK-20260911__finite_shared_crossing/EVIDENCE.md)
+records fresh local commands and limitations. No cutoff/width optimization,
+tour enumeration, new numerical coefficient, geometric upper construction,
+normalized global limit, expanded finite certificate or paper revision is
+part of this corollary. Independent mathematical acceptance remains separate.
