@@ -1609,8 +1609,9 @@ chord-branch theorem stops at entry; the following entry resolves the
 mixed-regime derivative and stationary width.
 
 This continuous theorem alone supplies no finite recovery or geometric
-transfer. The fixed 1/250 transfer entry below now supplies that separate
-step; the imported parameter definitions/brackets remain unchanged.
+transfer. The [uniform transfer entry](#uniform-third-width-recovery-and-full-feasibility-transfer)
+below supplies that separate step on [0,h]; the imported parameter
+definitions/brackets remain unchanged.
 Independent external acceptance remains separate.
 
 **Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_WIDTH.md`, Sections 1-5;
@@ -1651,8 +1652,9 @@ the already accepted boundary theorem's distance bound, not a new input
 optimization. All interval quantifiers and cost comparisons are analytic;
 the standalone Fraction checker checks only two fixed endpoint sign gates
 and rational implications. No width scan or numerical root is used.
-No finite recovery or geometric transfer at Delta_* follows; the separate
-fixed 1/250 entry below does not extend to that mixed-width minimum.
+Finite recovery and geometric transfer at Delta_* require the separate
+[uniform transfer theorem](#uniform-third-width-recovery-and-full-feasibility-transfer)
+below; they are not consequences of this continuous calculation alone.
 No reoptimization of fixed inputs, finite certification or paper revision
 follows. Unqualified C_3 retains its historical meaning C_3(1/1000).
 
@@ -1791,6 +1793,50 @@ expanding finite certification. Old unqualified C_3 remains C_3(1/1000).
 Sections 1-6; independent bounded integer/rational root, seam, panel,
 deletion and direct both-path checks in
 `ops/TASK-20260911__third_block_250_transfer/check_transfer.py`.
+
+### Uniform third-width recovery and full-feasibility transfer
+
+**Status:** exact fixed-order theorem / uniform quantitative even and odd
+limits, after arXiv v1; independent mathematical acceptance remains separate.
+
+Keep precisely alpha_hat, x_*, lambda=A*x_* and epsilon_b from the
+continuous-width entries. With v=lambda+epsilon_b and h=A/3-v, EVERY
+real Delta in [0,h] admits the deterministic construction (6) in the source,
+for every integer m>=2. It uses f=2*floor(Delta*m/2), with all starts
+sums of rounded even lengths. Zero width, exact floor ties, short blocks,
+both midpoint parities, actual shared seams and both cyclic paths are covered.
+
+The uniform gates h<epsilon_b and alpha+v+Delta<1/2-523/25000 imply
+f<=d<=q, r>=q+d+f+2 and P_r=2m. The high-shell triangle inequality
+then makes the actual full-cell score a necessary and sufficient condition
+for full feasibility, independently of its chord/chain branch. In particular
+the old chord gate fails at h but is not a geometric necessity.
+
+The empirical measures recover mu_3(Delta) uniformly on [0,h], with
+arbitrary-test error omega_F(4/m)+omega_F(11/m)+38*||F||/m. Their
+full-cell roots equal the actual even fixed-order full minima and satisfy
+
+```text
+sup_(0<=Delta<=h) |R_full(sigma_(m,Delta))/(2m)^2-C_3(Delta)|
+  <=[1198/m+16384/(3*m^2)]/(4*pi), m>=2048.
+```
+
+Deleting only 2m gives odd feasible orders. The separate surviving-cell
+lower root proves the uniform limit of their actual full minima, with
+the explicit error (15). Feasibility holds at m>=2; only the error bound
+requires m>=2048. Width sequences Delta_m->Delta in [0,h] also transfer,
+using the width-continuity estimate (10).
+
+Thus the entire mixed regime through the already defined Delta_* transfers.
+The continuous minimum and strict saving remain owned by the mixed-width
+entry; the global corollary belongs only to the global ledger. The endpoint
+h is the studied cost-domain boundary, not a proved maximal geometric
+threshold. No parameter reoptimization, global optimality, normalized global
+limit, expanded finite certification or paper revision follows.
+
+**Source:** `research/PERMUTED_HALVES_THIRD_BLOCK_UNIFORM_TRANSFER.md`,
+Sections 1-5; precise bounded endpoint/floor/panel discriminator and local
+executable evidence in `ops/TASK-20260911__third_block_uniform_transfer/EVIDENCE.md`.
 
 ## Conjectural global interpretation of the fixed-order pattern
 

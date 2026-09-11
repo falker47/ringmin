@@ -25,15 +25,15 @@ provenance question, not routine orientation.
   do not establish global floating behavior. See the [classification entry](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification).
 - **Proved global bounds:** the strongest current lower endpoint is
   `C_term+eta_width`; the strongest current upper coefficient is
-  `C_3(1/250)`. Thus the current coefficient interval is
-  `[C_term+eta_width,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
+  `C_3(Delta_*)`. Thus the current coefficient interval is
+  `[C_term+eta_width,C_3(Delta_*)]`, and `R*(n)=Theta(n^2)`.
   The [four-level entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improvement-at-a-fixed-rational-witness)
   owns the lower endpoint, the unique fixed-cutoff width optimum and the
   distinction between its weak-boundary limit and strict finite gates;
-  the [fixed 1/250 global entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#fixed-third-width-1250-improved-global-upper-bound)
+  the [mixed-minimum global entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#uniform-third-width-transfer-mixed-minimum-global-upper-bound)
   owns the upper corollary. The source statements are
   [four-level Section 12](THREE_LEVEL_COMMON_CHAIN.md#12-the-global-width-optimum-at-the-same-three-cutoffs)
-  and [fixed 1/250 Section 7](PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md#7-consequence-bounded-checker-and-scope).
+  and [uniform transfer Section 6](PERMUTED_HALVES_THIRD_BLOCK_UNIFORM_TRANSFER.md#6-transfer-of-the-already-proved-mixed-minimum-and-scope).
   Neither endpoint is established as sharp; no normalized global limit is proved.
 - **Resolved lower-bound discriminators:** a single induced-subset chain
   envelope and one-level terminal coupling cannot improve the leading
@@ -51,7 +51,7 @@ provenance question, not routine orientation.
   [Section 13 method ceiling](THREE_LEVEL_COMMON_CHAIN.md#13-a-universal-ceiling-for-the-section-9-shared-crossing-gain)
   now bounds the general Section 9 gain for every finite cutoff count in
   its specified domain, including m=1 and the nonnegative weak closure.
-  Independent review of this ceiling is the next gate. It does not change
+  Independent review of this ceiling remains deferred. It does not change
   the strongest lower endpoint or bound other coupled methods.
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours.
@@ -68,26 +68,28 @@ provenance question, not routine orientation.
   full-feasible deletion. This closes optimization of that particular
   split, without identifying the best tour constant or a minimizing tour.
   External acceptance of these proofs remains separate.
-- **Continuous-only upper improvement:** a unique mixed third-block width
-  minimum lies below `C_3(1/250)`, whose fixed-width geometric transfer is
-  now proved. The mixed-width minimum still has no geometric transfer. See the
-  [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
-  these continuous costs do not replace the current global upper bound.
+- **Resolved upper-transfer discriminator:** the entire studied third-width
+  interval `[0,h]`, including the existing mixed minimum `Delta_*`, now has
+  uniform all-integer recovery and full-root feasibility. The full-cell
+  criterion handles the mixed branch and every actual seam. See the
+  [uniform transfer entry](../knowledge/FIXED_ORDER_THEORY.md#uniform-third-width-recovery-and-full-feasibility-transfer).
+  The endpoint h is not established as a maximal geometric transfer threshold.
 
-## Priority 1 — Independent review of the shared-crossing method ceiling
+## Priority 1 — Independent review of uniform third-width transfer
 
-Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Section 13, at committed
-HEAD. Reproduce its focused arithmetic checker and audit the universal
-width budget, m=1 sign split, monotonicity, rational q/D/pi enclosures and
-strict ceiling. Check the nonnegative weak closure and the distinction
-between a scalar-method ceiling, finite floor gates, other coupled bounds
-and full geometry. Confirm Sections 1-12 are preserved. Record acceptance
+Independently review `PERMUTED_HALVES_THIRD_BLOCK_UNIFORM_TRANSFER.md` at
+committed HEAD. Reproduce its focused arithmetic audit and relevant dependency
+checks. Audit the [0,h] quantifier, exact floor and shared-seam inventory,
+branch-independent all-pairs criterion, uniform arbitrary-test and radius
+estimates, separate odd lower squeeze and transfer of the existing Delta_*
+minimum to the global limsup. Check the limits of the asserted interval and
+preservation of earlier proof and publication sources. Record acceptance
 or precise corrections; stop after this review.
 
 ## Deferred direction — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term+eta_width,C_3(1/250)]`, and whether they agree. The concrete
+`[C_term+eta_width,C_3(Delta_*)]`, and whether they agree. The concrete
 four-level discriminator and the global width-only optimization at its
 fixed cutoffs are resolved; repeating width optimization at these cutoffs
 is closed. Section 13 now also resolves the requested universal ceiling
@@ -99,7 +101,9 @@ two-level envelope establish a ceiling on common-order methods. The crossing and
 signed-discrepancy obstructions close improvements that require a uniform
 exponent above 2/3, or little-o at that scale, for K or |Delta| over tours.
 They do not establish an optimal envelope constant or minimax tour.
-Further three-block refinement is deferred.
+The entire existing continuous third-width improvement is now transferred;
+repeating isolated rational-width transfers inside [0,h] is closed.
+Further construction refinement is deferred.
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in
@@ -107,6 +111,12 @@ is established as sharp. The coefficient `1/8` is already disproved by
 The claim that the floating set is `o(n)` remains unproved.
 
 ## Deferred dependency reviews
+
+The previously prioritized Section 13 shared-crossing ceiling review is
+deferred, not completed: audit the universal width budget, m=1 sign split,
+monotonicity, rational q/D/pi enclosures and strict ceiling, including the
+nonnegative weak closure and distinction from other coupled bounds and
+full geometry. Reproduce its focused checker and preserve Sections 1-12.
 
 The Section 12 fixed-cutoff width-optimum review is deferred, not completed:
 audit its cubic root isolation, global remainder/multiplier certificate,
