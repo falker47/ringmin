@@ -33,14 +33,13 @@ Existing proofs are dependencies, not rewritten history.
 - [x] General family and scope reviewed independently internally.
 - [x] Deterministic checker including failure controls passes.
 - [x] Sole owning ledgers and goal state synchronized.
-- [ ] Final staged diff and explicit untracked whitespace inspection.
-- [ ] Verified checkpoint committed and normally pushed (integration step).
+- [x] Final staged diff and explicit untracked whitespace inspection.
+- [x] Verified checkpoint committed and normally pushed as 13ddb41180b3911940f4fe5cf7d61c0545f9f834.
 
 ## Blockers and handoff
 
 No blocker. Continue this authorized goal after the checkpoint; independent
 external acceptance is reserved for the final review packet.
 
-Internal scientific/checker gates passed. Final path/diff checks and the
-authorized commit/push are executed as the last integration step; the goal
-continues after this checkpoint. External acceptance remains separate.
+Internal gates and checkpoint integration passed. The goal continued through
+reproducibility and publication; the final packet supplies external review scope.

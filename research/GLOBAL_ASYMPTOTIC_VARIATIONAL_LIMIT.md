@@ -35,7 +35,7 @@ It is not a relaxation to edge or triple marginals.
 
 ## 2. Exact comparison with the original circle geometry
 
-Let B(a) be the least circumference of a circle carrying the marked points
+Let B(a) be the infimum circumference of a circle carrying the marked points
 with BOTH directed arcs for every pair at least sqrt(a_i*a_j). Cutting
 any such circle at a point and reading its order yields a feasible line
 placement, so b(a)<=B(a). Conversely, close any feasible line placement

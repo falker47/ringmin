@@ -11,10 +11,21 @@ goal is to minimize the central radius `R`.
 The public arXiv v1 is accompanied here by the solver code, independent
 verifier, certificate artifacts, and paper source/PDF. The repository certifies
 the global optimum for `n=3..14` by exhaustive enumeration of cyclic orderings.
-Larger-`n` candidate optima remain heuristic. A post-v1 analytic theorem
-proves `liminf R*(n)/n^2 >= rho/16 > 3/22 > 1/8`, disproving the paper's
-`n^2/8` asymptotic conjecture; see the
-[induced-subset proof](research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md).
+Larger-`n` candidate optima remain heuristic. The post-v1
+[global theorem](research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md) proves
+`R*(n)=C_* n^2+o(n^2)` and characterizes `C_*` by finite balanced-word linear
+programs with rigorous bracket width `(1/k+1/r)/pi`. This is effective
+arbitrary-precision characterization in principle; an elementary formula
+and an efficient evaluation algorithm remain open.
+
+The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
+`C_term+eta_width <= C_* <= U_4`, with the lower endpoint greater than
+`0.14056946887766098063257 > 1/8`. The four-block upper bound now has
+[genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
+These post-v1 theorems have passed internal adversarial review; independent
+external acceptance is pending. See the [final review packet](ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
+and the [versioned v2 candidate](paper_assets/v2/ringmin_v2.pdf).
+
 The historical paper is unchanged. The fixed-order
 feasibility oracle is a high-precision Simple Temporal Network check over all
 pairwise angular constraints; chain-only values are used only as lower bounds.
@@ -123,10 +134,12 @@ We call this a **"Floating Circle"**.
 graph TD
     A["Ideal Configuration (closed chain)"] -->|Increase to n >= 8| B["Large circles touch directly"]
     B --> C["Small circle (radius 1) floats"]
-    C -->|n increases further| D["Circle 2 also floats, etc."]
+    C -->|reported optimum at n = 14| D["Circles 1 and 2 float"]
 ```
 
-As $n$ grows, this effect cascades: first circle $1$ floats, then circle $2$, and so on, progressively breaking the simple chain topology.
+The certified small cases exhibit successive floating circles. An indefinite
+global cascade and its universal contact quantifiers remain open; the exact
+fixed-order seam classification does not establish them.
 
 ---
 
@@ -165,7 +178,7 @@ Our method, by splitting the problem into two stages (Supnick TSP optimization +
 In summary, this research makes three main contributions:
 
 1. **Theoretical:** Connected a geometric circle problem to combinatorial optimization (TSP), explaining the optimal pyramid order through Supnick's theorem and anti-Monge matrices.
-2. **Geometric:** Discovered and characterized the breakdown of the chain topology and the emergence of the **floating circle cascade** for $n \ge 8$.
+2. **Geometric:** Characterized chain breakdown and the reported floating configurations in the certified range; later exact theory classifies fixed-order seam feasibility for all terminal sets.
 3. **Computational:** Developed a verified search algorithm and provided open-source code and data that **certify the global optima** for all non-trivial cases up to $n = 14$.
 
 ---
@@ -219,12 +232,16 @@ The [reproduction dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENC
 records a successful clean-source Windows run and its failure controls.
 POSIX execution and hosted CI for the current SHA are not inferred from it.
 
-If a LaTeX distribution with `pdflatex` is available, compile the paper with:
+With `pdflatex` available, build the versioned candidate and its source/PDF
+hash manifest with:
 
 ```bash
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=paper_assets paper_assets/ringmin_paper.tex
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=paper_assets paper_assets/ringmin_paper.tex
+python paper_assets/v2/build.py
 ```
+
+The [v2 build notes](paper_assets/v2/README.md) identify TeX requirements and
+the proof supplement. Historical v1 source/PDF and citation metadata remain
+the original publication record.
 
 ## Certified Results
 

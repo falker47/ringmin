@@ -31,14 +31,14 @@ is asserted sharp.
 The finite certification scope remains 3<=n<=14. Existing exact fixed-order
 Supnick classification remains distinct from global contact/cascade claims.
 
-## Priority 1 — Complete the authorized research-completion goal
+## Priority 1 — One independent external review
 
-Finish the final dependency and reproducibility audit, resolve the ignored
-frontier-log distribution limitation, and prepare a versioned v2/journal
-candidate centered on the effective global asymptotic theorem. Preserve
-historical v1. Build a claim matrix and one independent external review packet.
-Internal reviewer checks do not advance external Review State. The goal may
-continue across verified checkpoint commits under the user's explicit scope.
+The authorized goal concluded at the effective-characterization level after
+complete internal dependency, restoration and manuscript gates. Review the
+entire final delta using the [final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
+under RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; the new
+candidate is versioned and unsubmitted. Only the actual external reviewer
+may advance external Review State. This is the single next atomic task.
 
 ## Subsequent scientific questions
 

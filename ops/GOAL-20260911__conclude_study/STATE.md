@@ -1,11 +1,12 @@
 # Ringmin research-completion goal
 
     mode=STRICT
-    state=IN_PROGRESS
+    state=READY_FOR_REVIEW
+    terminal_state=SCIENTIFICALLY_COMPLETE
     starting_head=372f96c0a9f14d968e7ecb3b1a039e7867340005
     externally_accepted_baseline=c45162f7df1b1b482b9dbecea7b619ecdaa02227
     baseline_read_on=2026-09-11
-    checkpoint=core theorem and general transfer internally validated; integration
+    checkpoint=final versioned publication and external review packet
 
 The user authorizes one long-horizon goal with atomic checkpoint commits and
 continuation after internal review. External acceptance and publication remain
@@ -25,20 +26,28 @@ no registry write occurred. Historical arXiv v1 is protected.
 | Best explicit construction | Four independent reflected blocks; entire finite/countable family transferred |
 | Global lower mechanism | All-pair line packing, finite-word LP dual and quantization |
 | Unpaid advertised transfers | Zero |
-| Final-claim dependencies | Core theorem/transfer internally audited; explicit endpoint and final claim audits ongoing |
+| Final-claim dependencies | Zero known unresolved premises after complete minimal endpoint/fixed-order and manuscript audits |
 | Deterministic checks | New line, word-LP and general-block checks pass normal/-O; corruption controls reject |
-| Repository checks | 12 pytest tests pass; smoke and full 3..14 verifier pass locally |
-| Internal review | Separate reviewers validate both new analytic proofs and checkers |
-| Publication consistency | v1 protected; versioned v2 candidate still required |
+| Repository checks | Clean-source restoration, 15 tests, smoke, full 3..14 and all new checkers normal/-O pass |
+| Internal review | New proofs/checkers, surviving endpoint/fixed-order dependencies, manuscript and restoration implementation validated |
+| Publication consistency | v1 unchanged; nine-page v2 candidate inspected; identical repeat-build PDF; one external review packet |
 
 ## Decision and obligations
 
-Commit the verified mathematical checkpoint, then resolve distribution of exact
-ignored frontier logs and run a tracked-files-only restoration/verification gate.
-Prepare the versioned manuscript, claim matrix and final external review packet.
+The mathematical target is closed at the goal's permitted effective
+variational level, with matching upper/lower error tending explicitly to zero.
+The general recovery pays all advertised block transfers. The clean-source
+gate restores original evidence from tracked files and passes the full verifier.
+The versioned manuscript, claim matrix and final external review packet are
+complete; normal final integration is the remaining operational step at writing.
 The global theorem is self-contained from the angular definition; it does not
 depend on the long historical reflected-parameter or common-chain proof chains.
 Those chains are audited separately only for the retained explicit endpoints.
+Complete claim scope, proof/checker links and local/hosted/external distinctions
+are in [FINAL_REVIEW_PACKET.md](FINAL_REVIEW_PACKET.md), [CLAIM_MATRIX.md](CLAIM_MATRIX.md)
+and [VERIFICATION.md](VERIFICATION.md). This state does not mark external
+acceptance or authorize a submission. Exactly one next atomic task is independent
+external review of the complete accepted-baseline delta.
 
 The [dependency map](DEPENDENCIES.md) and separate lower/upper audit records
 identify source scope. The [global theorem dossier](../TASK-20260911__global_variational_limit/TASK_STATUS.md)
@@ -55,6 +64,10 @@ and effective characterization of the leading coefficient are resolved internall
 
 ## Checkpoint commits
 
-Pending integration of core theorem/transfer. Initial baseline delta is fourth
-continuous-block commit 372f96c. Goal remains active until reproducibility,
-publication and the final review packet satisfy its terminal conditions.
+- Initial fourth continuous result: 372f96c0a9f14d968e7ecb3b1a039e7867340005.
+- Core theorem/general transfer, committed and pushed:
+  13ddb41180b3911940f4fe5cf7d61c0545f9f834.
+- Exact frontier restoration and clean-source gate, committed and pushed:
+  df9c4f8fd3f27dad8b774feffed3d5102ef02994.
+- Final publication integration: containing commit of FINAL_REVIEW_PACKET.md;
+  the final handoff reports its literal SHA after successful commit/push.

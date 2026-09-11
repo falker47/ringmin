@@ -18,13 +18,14 @@ No production solver, finite certificate or historical manuscript change.
 - [x] Existence and effective finite LP upper/lower characterization reviewed.
 - [x] Bounded exact checker, dual failure controls and normal/-O runs pass.
 - [x] Canonical ledgers and goal state synchronized.
-- [ ] Final staged inspection, commit and normal push (integration step).
+- [x] Final staged inspection, commit and normal push as 13ddb41180b3911940f4fe5cf7d61c0545f9f834.
 
 ## Blockers and handoff
 
 None. The internally validated theorem is now recorded by its canonical owner. Continue the overall
 goal through final dependency audit, reproducibility and versioned publication.
 
-Internal scientific/checker gates passed. Final path/diff checks and the
-authorized commit/push are executed as the last integration step; the goal
-continues after this checkpoint. External acceptance remains separate.
+Internal gates and checkpoint integration passed. A later manuscript review
+clarified B(a) as an infimum for degenerate marks without changing the theorem.
+The goal continued through reproducibility and publication. External acceptance
+remains separate.

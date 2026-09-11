@@ -1,0 +1,38 @@
+# Versioned v2 / journal candidate
+
+This is an unsubmitted post-v1 candidate by Maurizio Falconi. The historical
+`paper_assets/ringmin_paper.tex`, its PDF, tables, figures and citation metadata
+remain unchanged. Internal adversarial validation is not independent external
+acceptance or the author's final publication approval.
+
+- [Candidate PDF](ringmin_v2.pdf) and [LaTeX source](ringmin_v2.tex).
+- [Final review packet](../../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md),
+  [claim matrix](../../ops/GOAL-20260911__conclude_study/CLAIM_MATRIX.md) and
+  [complete command index](../../ops/GOAL-20260911__conclude_study/VERIFICATION.md).
+- The main new theorem is proved self-contained in Sections 2-4. The
+  explicit endpoints and fixed-order classification use the full proof notes
+  identified by the bibliography and claim matrix. Ship the repository at the
+  reviewed commit with this PDF: it is the proof/checker supplement.
+
+## Build
+
+From the repository root, with Python and a TeX distribution providing
+`pdflatex`, `geometry`, AMS packages, `booktabs`, `longtable`, `hyperref`,
+T1 encoding and Latin Modern fonts:
+
+```text
+python paper_assets/v2/build.py
+```
+
+Use `--engine PATH_TO_PDFLATEX` when the executable is not on PATH. The script
+runs two passes into the ignored `reproducibility/.work/paper-v2/`, rejects
+unresolved references or overflowing boxes, and writes only the versioned PDF
+and [BUILD_MANIFEST.json](BUILD_MANIFEST.json). Metadata uses a fixed UTC epoch.
+The manifest records source/build/PDF hashes and the actual pdfTeX version.
+Matching PDF bytes requires the same TeX packages/fonts and input bytes;
+the command does not install packages or alter historical v1 files.
+
+The recorded build used pdfTeX 1.40.28 / TeX Live 2025, with scalable Latin
+Modern fonts. Poppler rendered every page for visual inspection. The main
+paper has nine pages. Full layout and repeat-build evidence is in the
+[publication dossier](../../ops/TASK-20260911__versioned_publication/EVIDENCE.md).

@@ -51,5 +51,8 @@ was corrected to exclude code spans. Protected paths are absent from the diff.
 
 ## Residual uncertainty
 
-No new finite/global optimality claim. Global asymptotic limit and coefficient
-characterization remain candidates until proved and adversarially checked.
+No new finite optimum or optimality within the reflected family is claimed.
+The separate global-limit proof and characterization passed their own internal
+gate and were integrated with this checkpoint as 13ddb411. The later clean-source
+gate in df9c4f8 resolves the original log-distribution limitation and reruns this
+checker normal/-O. External acceptance remains separate.

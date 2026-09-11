@@ -243,6 +243,10 @@ n=4k+5,k>=6 is included. No global-optimum or floating conclusion is drawn.
 identities, exact small-cycle checks and a separate finite falsification
 check in `ops/TASK-20260904__supnick_feasibility_classification/`.
 The earlier boundary-family dossier remains historical evidence.
+The complete surviving chain, including all twelve initial bridges and the
+unified all-k sign argument, was internally re-audited for the v2 candidate in
+`ops/GOAL-20260911__conclude_study/FIXED_ORDER_INTERNAL_AUDIT.md`.
+External acceptance of that final review packet remains pending.
 
 ### Exact all-`n` radius-1 seam threshold
 

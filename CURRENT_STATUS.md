@@ -1,39 +1,40 @@
 # Current Status
 
     repository=falker47/ringmin
-    starting_head=372f96c0a9f14d968e7ecb3b1a039e7867340005
-    observed_on=2026-09-11
     task=GOAL-20260911__conclude_study
+    observed_on=2026-09-11
     mode=STRICT
-    state=IN_PROGRESS
+    state=READY_FOR_REVIEW
+    terminal_state=SCIENTIFICALLY_COMPLETE
 
-The user authorizes a long-horizon research-completion goal, with internally
-reviewed checkpoint commits and autonomous continuation. The compact
-[goal state](ops/GOAL-20260911__conclude_study/STATE.md) records decisions and
-the [dependency map](ops/GOAL-20260911__conclude_study/DEPENDENCIES.md) records
-source/audit scope. The external registry was read without mutation and gives
-accepted baseline c45162f7df1b1b482b9dbecea7b619ecdaa02227.
+The research-completion goal has closed its primary mathematical target by
+an effective variational characterization of the global leading constant.
+The [final review packet](ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
+identifies the complete delta, exact endpoints, proof/claim matrix, command
+record and versioned v2 candidate. The [compact goal state](ops/GOAL-20260911__conclude_study/STATE.md)
+records the final evaluation vector and checkpoint commits.
 
-## Current checkpoint and verification gates
+## Completed verification gates
 
-The fourth continuous block has passed a separate internal adversarial audit.
-The general finite/countable reflected-block transfer and the intrinsic
-global-limit/finite-word variational theorem have passed separate internal
-mathematical and checker audits. The explicit lower endpoint's minimal
-dependency path is also internally validated. Canonical owners are synchronized;
-the coherent mathematical checkpoint is being integrated.
+All surviving material dependencies, new proofs/checkers, restoration code
+and manuscript statements passed separate internal adversarial gates. A clean
+source export restored tracked original logs, passed 15 tests, smoke n=3..8,
+full n=3..14 frontier verification and all new checker normal/-O runs.
+The nine-page candidate was built, visually checked and reproduced byte for
+byte under the recorded TeX environment. Historical v1 and finite artifacts
+are unchanged. Final inspected integration uses normal commit/push.
 
-Required remaining gates: remaining final dependency audits, tracked-files-only
-reproducibility, versioned v2 manuscript, publication consistency and one
-external review packet. Historical v1 and finite artifacts remain protected.
-No hosted CI or external acceptance of goal results is claimed.
+## Blockers and acceptance boundary
 
-## Blockers
+No blocker or known unpaid final-study proof/transfer debt remains. This is
+internal scientific completion at the effective-characterization level, not
+external acceptance, an elementary closed form or a cheap numerical algorithm.
+The unchanged external accepted baseline is
+c45162f7df1b1b482b9dbecea7b619ecdaa02227. Hosted CI for final HEAD was not
+inspected; no submission or publication action occurred.
 
-None. Existing ignored frontier-log portability debt must be resolved or
-precisely accounted for at the reproducibility checkpoint.
+## Exactly one next atomic task
 
-## Exactly one next atomic checkpoint
-
-Bundle and restore the exact historical frontier progress logs, then verify
-the finite certificate chain from tracked files with portable path handling.
+Perform one independent external review of the entire delta from that accepted
+baseline to the final containing commit, following RINGMIN_REVIEW_PROTOCOL.md
+and the final packet. Do not infer acceptance from internal reviewer results.

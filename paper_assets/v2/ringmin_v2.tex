@@ -1,0 +1,565 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\hypersetup{pdftitle={Minimum central circles: an effective global asymptotic constant},
+ pdfauthor={Maurizio Falconi}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Rstar}{R^\ast}
+\newcommand{\ch}{R_{\mathrm{chain}}}
+\newcommand{\full}{R_{\mathrm{full}}}
+\newcommand{\CC}{C_\ast}
+\DeclareMathOperator{\atan}{arctan}
+\DeclareMathOperator{\asin}{arcsin}
+\title{Minimum central circles:\\certified finite optima and an effective global asymptotic constant}
+\author{Maurizio Falconi}
+\date{September 11, 2026\\\small Versioned v2 / journal candidate; not submitted}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\Rstar(n)$ be the least radius of a central circle to which nonoverlapping
+circles of radii $1,\ldots,n$ are externally tangent. We prove that
+$\Rstar(n)=\CC n^2+o(n^2)$ and characterize $\CC$ by finite linear programs
+with an explicit error tending to zero. The reduction preserves arbitrary
+orders and all pairwise constraints: the limiting problem places marked
+points on a line at pairwise separation at least the geometric mean of their
+marks. Concatenation with a bounded boundary cost proves existence, and
+balanced finite-word programs supply matching effective upper and lower
+bounds. Their certified gap is $(1/k+1/r)/\pi$, before directed arithmetic
+error, for $k$ mark types and words of length $r$.
+We also transfer every finite or countable adjacent reflected-block
+construction to genuine permutations and full ring geometry, including a
+strict four-block improvement. The best retained explicit interval is
+$C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$.
+The original computer-certified scope $3\le n\le14$ and exact fixed-order
+Supnick feasibility theory remain distinct from global asymptotics.
+The earlier $n^2/8$ conjecture is false. Efficient evaluation of the
+variational constant, an elementary expression and global floating-circle
+structure remain open. This candidate has undergone internal adversarial
+checks; independent external acceptance is pending.
+\end{abstract}
+
+\section{Problem, scope and relation to the historical version}
+
+All outer circles are tangent to the central circle; outer circles need
+not be tangent to each other. For a cyclic order $\sigma$, the adjacent
+chain radius $\ch(\sigma)$ ignores nonadjacent constraints, whereas
+$\full(\sigma)$ is the least radius satisfying every pair constraint in
+that order. The global quantity is $\Rstar(n)=\min_\sigma\full(\sigma)$.
+Always $\ch(\sigma)\le\full(\sigma)$. A feasible construction supplies
+an upper bound, not an optimum certificate.
+
+The public arXiv-v1 manuscript \cite{v1} reported certified finite optima
+and proposed the asymptotic coefficient $1/8$. That version is an immutable
+historical record. Post-v1 lower bounds disprove its asymptotic conjecture.
+The central contribution of this version is an effective characterization
+of the true leading coefficient, proved in Sections~\ref{sec:line}--\ref{sec:lp}.
+It is independent of the longer proof chains used for the explicit lower
+and upper endpoints. Those endpoints and fixed-order results are retained
+with their exact definitions and source dependencies in the supplement.
+
+The line problem has a familiar geometric interpretation. Disks of radii
+$a_i$ tangent to the horizontal axis, with centers $(2x_i,a_i)$, are
+nonoverlapping precisely when $|x_i-x_j|\ge\sqrt{a_i a_j}$.
+For $a_i\le1$, their horizontal envelope span differs from twice the
+center span by at most two. Minimum-span disks on a shelf are studied by
+Alt et al.\ \cite{shelf}. We do not claim this underlying model as new;
+our asymptotic reduction, uniform-label recovery and effective balanced-word
+characterization are proved directly below, without importing an approximation
+or complexity theorem for that model.
+
+\section{Exact angular comparison}\label{sec:line}
+
+The cosine law gives the required pair angle
+\begin{equation}\label{eq:theta}
+ \theta_R(u,v)=2\asin\sqrt{\frac{uv}{(R+u)(R+v)}}
+ =2\atan\sqrt{\frac{uv}{R(R+u+v)}}.
+\end{equation}
+Both directed cyclic arcs between a pair must be at least this angle.
+This is equivalent to non-overlap, since their smaller separation belongs
+to $[0,\pi]$. The angle is positive, symmetric, increasing in either
+outer radius and strictly decreasing in $R>0$.
+
+\begin{definition}
+For a finite multiset $a=(a_1,\ldots,a_N)$ of marks in $[0,1]$, let $b(a)$
+be the least span of a line placement satisfying
+\begin{equation}\label{eq:line}
+ |x_i-x_j|\ge\sqrt{a_i a_j}\quad(i\ne j).
+\end{equation}
+Distinct zero-mark points may coincide. Write $b_n=b(1/n,2/n,\ldots,1)$.
+\end{definition}
+
+For a fixed word $w=(w_1,\ldots,w_N)$ in left-to-right order, its minimum
+span $\ell(w)$ is attained by
+\begin{equation}\label{eq:recurrence}
+ x_1=0,\qquad x_i=\max_{j<i}\{x_j+\sqrt{w_iw_j}\},\qquad \ell(w)=x_N.
+\end{equation}
+Induction proves that these coordinates are componentwise no larger than
+any feasible ordered coordinates with $x_1=0$; they also satisfy every
+constraint. Nonnegative weights ensure ordered coordinates. Equivalently,
+$\ell(w)$ is the longest increasing-index path from $1$ to $N$, with
+edge weight $\sqrt{w_iw_j}$. Thus $b(a)$ is an attained minimum over a
+finite set of orders. Deleting or decreasing marks cannot increase it;
+scaling all marks by $h$ scales the minimum span by $h$.
+
+\begin{lemma}[Bounded closing cost]\label{lem:closing}
+Let $B(a)$ be the infimum circumference with both pair arcs at least
+$\sqrt{a_i a_j}$. Then $b(a)\le B(a)\le b(a)+1$.
+\end{lemma}
+\begin{proof}
+Cut a feasible circle to obtain a feasible line placement. Conversely,
+close a feasible line placement by an additional gap of length one. One
+arc for every pair is its line separation; the other contains the added
+gap and is at least $1\ge\sqrt{a_i a_j}$. Both arcs are controlled.
+\end{proof}
+
+\begin{lemma}[Exact geometric squeeze]\label{lem:squeeze}
+For every $n\ge3$,
+\begin{equation}\label{eq:squeeze}
+ \frac{b_n}{\pi n}-\frac1n
+ \le\frac{\Rstar(n)}{n^2}\le\frac{b_n+1}{\pi n}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $1\le u,v\le n$, the two expressions in \eqref{eq:theta} give
+\[
+ \frac{2\sqrt{uv}}{R+n}\le\theta_R(u,v)\le\frac{2\sqrt{uv}}R.
+\]
+The first uses $\asin z\ge z$ and
+$\sqrt{(R+u)(R+v)}\le R+n$; the second uses $\atan z\le z$.
+Scaling a feasible ring's angles by $(R+n)/(2n)$ gives a feasible linear
+circle of circumference $\pi(R+n)/n$, proving the lower inequality.
+Conversely, the circumference $b_n+1$ from Lemma~\ref{lem:closing},
+scaled to $2\pi$, satisfies every original pair angle at
+$R=n(b_n+1)/\pi$. This proves the upper inequality. No Taylor expansion,
+adjacency reduction or assumption on the optimal order was used.
+\end{proof}
+
+\section{Existence by genuine-label concatenation}
+
+\begin{theorem}[The leading limit exists]\label{thm:existence}
+There is a constant $\CC$ such that
+\begin{equation}\label{eq:limit}
+ \Rstar(n)=\CC n^2+o(n^2),\qquad
+ \pi\CC=E:=\lim_{n\to\infty}\frac{b_n}{n}
+ =\inf_{n\ge2}\frac{b_n+1}{n}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Copies of a feasible line template, separated by unit gaps, satisfy all
+cross-copy constraints as well as the internal ones. Fix $n\ge2$. Given
+$N\ge n$, let $q=\lceil N/n\rceil$ and concatenate $q$ copies of an
+optimal $b_n$ template. Its span is $q(b_n+1)-1$.
+Retain the $N$ smallest marks. The $i$th sorted retained mark is
+$\lceil i/q\rceil/n$. Scale all marks and coordinates by $h=nq/N$.
+The resulting $i$th mark is at least $i/N$, so decreasing it to $i/N$
+preserves every constraint. Each target label is assigned exactly once
+to an actual retained point, with ties broken arbitrarily. Hence
+\begin{equation}\label{eq:copies}
+ b_N\le\frac{nq}{N}\bigl[q(b_n+1)-1\bigr].
+\end{equation}
+Intermediate marks exceeding one cause no problem: the line inequalities
+are homogeneous, and final marks are exactly $1/N,\ldots,1$.
+
+As $N\to\infty$, $q/N\to1/n$, giving
+$\limsup_N b_N/N\le(b_n+1)/n$ for every fixed $n$.
+The sequence is bounded between zero and one by equally spaced placements.
+Taking $n$ along a subsequence attaining its liminf gives equality of
+limsup and liminf. Taking the infimum and then $n\to\infty$ proves
+the last equality in \eqref{eq:limit}. Lemma~\ref{lem:squeeze} transfers
+the limit to the original ring problem for all sizes and both parities.
+Finally, at least $n/2$ marks are at least $1/2$. Their successive line
+separations are at least $1/2$, so $E\ge1/4$ and $\CC>0$.
+\end{proof}
+
+\section{Effective finite-word characterization}\label{sec:lp}
+
+\subsection{Finite types and a uniform quantization error}
+For $k\ge1$, let $A_{k,q}$ contain $q$ copies of each mark
+$1/k,\ldots,1$, and let $A^-_{k,q}$ instead contain $q$ copies of
+$0,1/k,\ldots,(k-1)/k$. Define
+$e_k=\lim_{q\to\infty}b(A_{k,q})/(kq)$ and
+$e^-_k=\lim_{q\to\infty}b(A^-_{k,q})/(kq)$; these limits exist.
+Indeed $a_q=b(A_{k,q})+1$ is subadditive by unit-gap concatenation.
+Writing $q=hp+s$ at fixed $p$ proves
+$\limsup a_q/q\le a_p/p$; then taking $p$ along a liminf subsequence
+proves the limit. The same argument applies to the lower types.
+
+The two multisets share every nonzero type except the top type. Zero marks
+cost nothing. Adding the $q$ unit marks as a separate equally spaced
+block costs at most $q$, including the join. Thus, also for $k=1$,
+\[
+ e^-_k\le e_k\le e^-_k+\frac1k.
+\]
+For $n=kq$, the sorted uniform marks $i/n$ lie between the two sorted
+type multisets. Theorem~\ref{thm:existence} and monotonicity imply
+\begin{equation}\label{eq:types}
+ e_k-\frac1k\le E\le e_k.
+\end{equation}
+
+\subsection{Balanced words and the quantified boundary relaxation}
+Fix $k\ge1$ and $r\ge2$, and use all $k^r$ words
+$w\in\{1/k,\ldots,1\}^r$, including repetitions. Let $c_j(w)$ count
+occurrences of $j/k$. Compute $\ell(w)$ by \eqref{eq:recurrence}, and define
+\begin{equation}\label{eq:lp}
+\begin{split}
+ \lambda_{k,r}=\min_p\ &\frac1r\sum_w p_w\ell(w),\\
+ p_w\ge0,\quad &\sum_w p_w=1,\quad
+ \sum_w p_wc_j(w)=\frac rk\quad(1\le j\le k).
+\end{split}
+\end{equation}
+The polytope is nonempty: equally mix the $k$ constant words.
+
+\begin{theorem}[Matching effective variational bounds]\label{thm:lp}
+For every $k\ge1,r\ge2$,
+\begin{equation}\label{eq:effective}
+ \boxed{\quad\frac{\lambda_{k,r}-1/k}{\pi}\le\CC
+ \le\frac{\lambda_{k,r}+1/r}{\pi}\quad}.
+\end{equation}
+Consequently $\CC=\pi^{-1}\lim_{k,r\to\infty}\lambda_{k,r}$, jointly,
+with certified bracket width $(1/k+1/r)/\pi$.
+\end{theorem}
+\begin{proof}
+Partition an optimal ordering of $A_{k,q}$ into consecutive blocks of
+$r$ vertices, discarding fewer than $r$ leftover vertices. Their spans
+sum to at most the full span and each is at least its word cost.
+Empirical word distributions have convergent subsequences in the finite
+simplex. Their limiting mean type counts are $r/k$, since the discarded
+counts vanish after normalization. Hence $\lambda_{k,r}\le e_k$.
+
+Conversely, the rational feasible polytope in \eqref{eq:lp} has a minimizing
+rational vertex even though its cost entries are algebraic. Choose a
+common denominator $D$. A batch with $Dp_w$ copies of each word has
+exactly $Dr/k$ copies of each type, an integer by the count constraints.
+Place every word at its minimum span and separate blocks by unit gaps.
+All within-block and cross-block pairs are feasible. Repeating batches
+gives asymptotic mean span
+$\sum_w p_w(\ell(w)+1)/r=\lambda_{k,r}+1/r$.
+The finite-type limit therefore satisfies
+$e_k\le\lambda_{k,r}+1/r$. Combine with \eqref{eq:types}.
+\end{proof}
+
+\subsection{Exact certificates and computational meaning}
+Directed rational square-root enclosures of width $\epsilon$ give
+word-span enclosures of width at most $(r-1)\epsilon$: every path in
+\eqref{eq:recurrence} has at most $r-1$ edges. Rational endpoint LPs
+then enclose $\lambda_{k,r}$ with additional width at most
+$(r-1)\epsilon/r$. They can be solved by finite exact vertex enumeration.
+Practical solvers may instead discover candidates, followed by exact checks.
+For a rational lower cost $\ell^-(w)$, dual coefficients satisfying
+\[
+ y_0+\sum_j y_jc_j(w)\le\ell^-(w)/r\quad\hbox{for every word}
+\]
+certify the lower value $y_0+(r/k)\sum_jy_j$. Feasible rational $p$
+certifies an upper value using upper costs. All such checks are finite
+rational comparisons; equality is not decided by indefinite interval
+refinement. Together with a rational enclosure of $\pi$, this proves
+arbitrary-precision computability of $\CC$ in principle.
+
+The word count is exponential in $r$. No claim of cheap high-precision
+evaluation or a closed-form constant follows. The bounded implementation
+uses SciPy only to propose sparse primal and dual candidates; exact Fraction
+arithmetic validates every equality and word inequality. Small word programs
+need not improve the stronger explicit endpoint bounds below.
+
+\section{Explicit geometric upper constructions}\label{sec:upper}
+
+Fix $0\le\alpha<1$ and nonnegative adjacent slab lengths
+$\ell_1,\ldots,\ell_k$ of total $T<1-\alpha$. Put $A=1+\alpha$,
+$t_0=0$, $t_j=\sum_{h\le j}\ell_h$. On each slab
+$[t_{j-1},t_j]$, use equal masses at
+\[
+ (t,A+t,A+t_{j-1}+t_j-t),\qquad
+ (t,A+t_{j-1}+t_j-t,A+t).
+\]
+After $T$, use the diagonal $(t,1+\{t+\alpha\},1+\{t+\alpha\})$.
+This defines a measure $\mu$ on $[0,1]\times[1,2]^2$ with uniform low
+and separate high marginals. Its complete cell cost is
+\begin{equation}\label{eq:blockcost}
+ C(\mu)=\frac1{4\pi}\int
+ \max\{\sqrt t(\sqrt X+\sqrt Y),\sqrt{XY}\}\,d\mu.
+\end{equation}
+Correct marginals alone do not establish finite recovery.
+
+\begin{theorem}[General block transfer]\label{thm:blocks}
+Every such finite partition has genuine alternating-half permutations with
+all-pairs-feasible radii $\rho_m=\full(\sigma_m)$ and
+\[
+ \left|\frac{\rho_m}{(2m)^2}-C(\mu)\right|
+ \le\frac{(6k^2+28k+1060)/m+16384/(3m^2)}{4\pi}
+\]
+for $m\ge\max\{2048,\lceil2/(1-\alpha-T)\rceil\}$.
+It follows that $\CC\le C(\mu)$. Countably many slabs also transfer
+if their total length is strictly below $1-\alpha$.
+\end{theorem}
+\begin{proof}[Proof with explicit construction]
+Let $s=\lfloor\alpha m\rfloor$, $l_j=2\lfloor\ell_jm/2\rfloor$ and
+$a_j=\sum_{h\le j}l_h$. Reverse only the even ranks within each
+$(a_{j-1},a_j]$, fixing odd ranks, to obtain a permutation $J$.
+Set $P_i=m+1+((J(i)+s-1)\bmod m)$ and
+$\sigma_m=(1,P_1,\ldots,m,P_m)$, with $P_0=P_m$.
+Disjoint involutions and the cyclic shift prove bijectivity, including
+zero blocks and length-two identities. The integer gate keeps the final
+block endpoint at least two ranks before the high wrap, and its exit
+strictly before that wrap.
+
+Double panels of width $2/m$, allocated half to each parity, recover
+the two reflected orientations. Interior coordinate error is at most
+$4/m$. There are at most $k+3$ exceptional actual cells: shared exits,
+the cyclic predecessor, and the two wrap cells. Rounded slab boundaries
+and wrap differ on a set of length at most $[k(k+1)+1]/m$, with remaining
+coordinate error at most $(4k-1)/m$. The literal max in
+\eqref{eq:blockcost} is $4$-Lipschitz and lies in $[1,3)$.
+Thus the actual normalized full-cell moment $G_m$ differs from
+$\int g\,d\mu$ by at most $(6k^2+28k+36)/m$.
+
+For arbitrary distinct highs in $[m+1,2m]$, the exact full-feasibility
+criterion for this alternating order is
+\[
+ \sum_{i=1}^m\max\{\theta_R(P_{i-1},i)+\theta_R(i,P_i),
+                         \theta_R(P_{i-1},P_i)\}\le2\pi.
+\]
+Its sufficiency follows from the high-shell triangle inequality
+$2\theta_R(m+1,m+1)>\theta_R(2m,2m)$ and high/low separation:
+each directed high path contracts through whole cells, and paths with
+low endpoints either contain such a high path or an incident high gap
+that already exceeds the endpoint requirement. Both directions are
+treated separately. At its unique root, choose the first half of each
+cell at its required low/high angle and put any excess in the other half.
+This closes at $2\pi$ and satisfies all pairs.
+
+At $R=4cm^2$, $c\ge1/32$, the full score differs from $G_m/(2c)$ by
+at most $1024/m+16384/(3m^2)$. For $m\ge2048$ this first brackets
+the actual normalized root in $(1/32,1/2)$, then yields the stated error.
+Deleting label $2m$ gives the odd upper bound. For countably many slabs,
+truncate and use that the omitted complete-cost integral is at most six
+times the omitted length. A diagonal sequence with $m$ growing faster
+than $k^3$ pays both finite and tail errors. Full cell/seam formulas and
+the angle estimate are supplied in the versioned proof supplement \cite{blocks}.
+\end{proof}
+
+For the retained explicit construction, let $x_*$ be the unique minimizer
+on $[0,1]$ of
+\[
+ E(x)=\int_0^x\!\left[
+ \max\{\sqrt{(1+t)(1+x-t)},\sqrt t(\sqrt{1+t}+\sqrt{1+x-t})\}
+ -\max\{1+t,2\sqrt{t(1+t)}\}\right]dt.
+\]
+Let $K(\alpha)=\int_0^1\max\{\sqrt{t h_\alpha(t)},h_\alpha(t)/2\}\,dt$,
+where $h_\alpha(t)=1+\{t+\alpha\}$, and let $\widehat\alpha$ be the
+unique zero of $K'(\alpha)+(1+\alpha)E(x_*)$ on $[0,1/2]$.
+Set $A=1+\widehat\alpha$ and $\lambda=Ax_*$.
+The second width $\epsilon_b$ is the unique mixed-branch stationary
+minimum for a separate reflection starting at $\lambda$; the third width
+$\Delta_*$ is the analogous unique minimum starting at
+$v=\lambda+\epsilon_b$. Each width is minimized over
+$[0,A/3-u]$ at its fixed start $u$, retaining the full max.
+The supplement \cite{upperinputs} gives their exact defining integrals,
+existence/uniqueness proofs and rational isolations:
+\[
+\begin{gathered}
+ .1093<\widehat\alpha<.10931,\qquad .2876<x_*<.2877,\\
+ .043<\epsilon_b<7/160,\qquad 29/5000<\Delta_*<27/4000.
+\end{gathered}
+\]
+These terminating decimals are rational bracket endpoints, not definitions
+or numerical replacements for the parameters.
+
+Let $C_3(d)$ be \eqref{eq:blockcost} for the three lengths
+$(\lambda,\epsilon_b,d)$, and $C_4(\eta)$ the same cost for the four
+lengths $(\lambda,\epsilon_b,\Delta_*,\eta)$.
+Use $\eta=1/20000$ and define $U_4=C_4(1/20000)$.
+If $w=\lambda+\epsilon_b+\Delta_*$, $B=A+w$ and
+$M=B+\eta/2$, the fourth increment at $0<\eta\le1/20000$ is exactly
+\[
+ C_4(\eta)-C_3(\Delta_*)=
+ -\frac1{4\pi}\int_{-\eta/2}^{\eta/2}
+       \frac{z^2}{M+\sqrt{M^2-z^2}}\,dz.
+\]
+Rational input margins keep both changed maxima strictly chord.
+Since $2B\le M+\sqrt{M^2-z^2}\le2M$, $M<3/2$ and $\pi<4$,
+\begin{equation}\label{eq:U4}
+ \CC\le U_4<C_3(\Delta_*)-\frac1{4608000000000000}.
+\end{equation}
+The leading decrement is $-\eta^3/(96\pi B)$, with remainder between
+zero and $\eta^4/(192\pi B^2)$. The theorem transfers this literal
+continuous saving to genuine full geometry. It does not make four blocks
+globally optimal or optimize an infinite partition.
+
+\section{The strongest retained explicit lower endpoint}
+
+Define $\tau$ as the unique root of $\cos\tau=\tau$ in $(0,1)$, set
+$q=(1-\sin\tau)/(1+\sin\tau)$ and
+$C_{\rm term}=\tau(1+q)/(2\pi)$.
+For the fixed cutoffs
+\[
+ (\beta_1,\beta_2,\beta_3)=(2091/10000,10907/50000,23/100)
+\]
+put
+\[
+ D_i=\int_q^{\beta_i}[1+q-x-2\sqrt{x(1+q-x)}]\,dx,
+ \quad F(h)=\sum_i h_iD_i-8\sum_i h_i^3.
+\]
+Let $a=113/12500$, $b=593/50000$. On
+$h_i\ge0$, $h_1+h_2\le a$, $h_2+h_3\le b$, define
+\[
+ \eta_{\rm width}=\max_h
+ \frac{\max\{F(h),0\}}{\pi(16+432\sum_i h_i)}.
+\]
+This maximum is uniquely attained at $(a-z_*,z_*,b-z_*)$, where $z_*$
+is the unique zero on $[0,a]$ of $G=N'L+432N$,
+$N(z)=F(a-z,z,b-z)$ and $L(z)=16+432(a+b-z)$.
+
+\begin{proposition}[Explicit lower bound, post-v1]\label{prop:lower}
+The global constant satisfies $\CC\ge C_{\rm term}+\eta_{\rm width}$,
+with exact directed enclosure
+\[
+ .14056946887766098063257
+ < C_{\rm term}+\eta_{\rm width}
+ < .14056946887766098063392.
+\]
+In particular $\CC>1/8$, so both the v1 coefficient conjecture and its
+stronger $n^2/8-\Rstar(n)=O(\sqrt n)$ claim are false.
+\end{proposition}
+\begin{proof}[Dependency-explicit proof outline]
+The complete proof and exact arithmetic certificates are in \cite{lower}.
+Its essential coupled information is one shared crossing energy for the
+same order and all three nested terminal restrictions. An explicit assignment
+dual bounds the reflected-grid energy by eight times the excess chain cost.
+The absolute signed deletion discrepancy at cutoff $i$ is at most $54$
+times this energy plus twice its crossing term. Separated strips charge
+the common energy once, yielding
+the scalar gain $\max\{F(h),0\}/(16+432\sum h_i)$.
+The exact angular squeeze transfers each induced chain bound to any original
+full feasible configuration. Uniform finite errors vanish at every fixed
+strictly separated width vector.
+
+For the width optimum, $G'<0$ and rational endpoint gates isolate its zero.
+Set $u=(a-z_*,z_*,b-z_*)$, $\mathcal L(h)=16+432\sum_i h_i$ and
+$\rho=F(u)/\mathcal L(u)$. The gradient of $F-\rho\mathcal L$ at $u$ is a positive
+combination of the two constraint normals. Its exact remainder is
+$-8\sum_i(h_i-u_i)^2(h_i+2u_i)$, proving global uniqueness on the whole
+closed region. To pass to the geometric limit, first use $tu$ at fixed
+$0<t<1$, take $n\to\infty$, then $t\uparrow1$. The unchanged boundary
+widths fail finite floor separation infinitely often; the proof never uses
+them as an eventual finite gate. The separate internal lower audit in
+\cite{lower} rederives this minimal dependency path. The result is not a
+claim that this particular lower mechanism reaches $\CC$.
+\end{proof}
+
+\section{Fixed-order theory and finite certification}
+
+For increasing positive radii, the positive mixed derivative of
+$\theta_R(a,b)$ makes its matrix anti-Monge. Applying the classical maximum
+Supnick-tour theorem to its negative selects one minimizing chain order,
+independently of $R$ \cite{supnick,survey}. This proves chain optimality,
+not full feasibility after a seam obstruction.
+
+For integers $k\ge1$ and $n\ge k+2$, consider the canonical order on
+$\{k,\ldots,n\}$. Write $R_{k,n}$ for its chain
+root and
+$\delta_{k,n}=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$ at that root.
+The exact post-v1 all-pairs classification \cite{fixed} is:
+\begin{center}\begin{tabular}{lll}\toprule
+$k$ & Feasible at the chain root & Infeasible there\\\midrule
+1 & $3\le n\le7$ & $n\ge8$\\
+2 & $4\le n\le12$ & $n\ge13$\\
+3 & $5\le n\le16$ & $n\ge17$\\
+4 & $6\le n\le20$ & $n\ge21$\\
+5 & $7\le n\le24$ & $n\ge25$\\
+$k\ge6$ & $k+2\le n\le4k+5$ & $n\ge4k+6$\\\bottomrule
+\end{tabular}\end{center}
+The underlying iff criterion is $\delta_{k,n}\ge0$: its seam is the minimum
+triangle defect, and fan telescoping controls both arcs for every pair.
+At the chain root every adjacent gap is forced tight, so a negative seam
+cannot be repaired there. The integer seam signs are strict. None of this
+determines the global floating set or the full optimum on the larger set
+after selected radii are deleted.
+
+The original finite certificates report global optima for every
+$3\le n\le14$, with absolute radius tolerance $10^{-10}$ and local bracket
+scale $10^{-12}$. The independent verifier reconstructs all-pair and Cartesian
+feasibility at 50 decimal digits, checks the local brackets, and audits the
+complete saved pruning frontiers and their provenance. This candidate does
+not expand that finite scope or regenerate the exhaustive searches.
+The full current local run passes at all twelve sizes, including the
+$3{,}113{,}510{,}400$ canonical orders covered at $n=14$.
+Larger-$n$ reported candidates remain heuristic upper bounds subject to
+feasibility checks, not certified optima.
+
+\section{Reproducibility, review status and remaining questions}
+
+The repository supplement contains complete mathematical proofs, exact
+parameter checkers, independent arithmetic controls and task-specific internal
+audits. New line/word checks include omitted nonadjacent constraints, absent
+closing gaps, invalid label recovery, corrupt primal/dual certificates and
+disabled-assertion runs. Their bounded computations corroborate finite cores;
+the analytic proofs establish infinite quantifiers.
+
+The original progress logs are preserved byte for byte in deterministic gzip
+archives with original/archive hashes. Restore them before the full verifier:
+\begin{verbatim}
+python scripts/frontier_logs.py restore
+python -m pytest
+python verify.py --start 3 --stop 8 --skip-frontier
+python verify.py --start 3 --stop 14
+\end{verbatim}
+The smoke command skips global frontiers and must not be called a global
+certificate check. Exact new checker commands, environment and clean-source
+reproduction evidence are listed in the review packet \cite{packet}.
+No hosted CI status or external acceptance is inferred from local success.
+
+The leading normalized behavior is now characterized effectively. Remaining
+questions concern practical evaluation or simplification of $\CC$, sharp
+explicit constructions, microscopic optimizer structure, subleading terms,
+and the global floating set. The current study neither claims an elementary
+closed form nor infers contact structure from the variational limit.
+No external submission, tag or release accompanies this candidate.
+AI assistance was used for proof exploration, software, drafting and internal
+adversarial checks. These checks remain distinct from the author's final
+approval and independent external review.
+
+\begin{thebibliography}{10}
+\small\raggedright
+\bibitem{v1} M. Falconi, \emph{Arranging circles of radii $1,2,\ldots,n$
+around a central circle: a Supnick TSP and certified finite optima},
+arXiv:2607.28654, version 1 (2026). Historical snapshot.
+\url{https://arxiv.org/abs/2607.28654v1}.
+\bibitem{shelf} H. Alt, K. Buchin, S. Chaplick, O. Cheong, P. Kindermann,
+C. Knauer and F. Stehn, \emph{Placing your coins on a shelf}, Journal of
+Computational Geometry 9(1), 312--327 (2018).
+\url{https://doi.org/10.20382/jocg.v9i1a10}.
+\bibitem{supnick} F. Supnick, \emph{Extreme Hamiltonian lines},
+Annals of Mathematics 66(1), 179--201 (1957).
+\bibitem{survey} R. E. Burkard, V. G. Deineko, R. van Dal, J. A. A. van der
+Veen and G. J. Woeginger, \emph{Well-solvable special cases of the traveling
+salesman problem: a survey}, SIAM Review 40(3), 496--546 (1998).
+\url{https://doi.org/10.1137/S0036144596297514}.
+\bibitem{blocks} Ringmin proof supplement,
+\nolinkurl{research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md} and
+\nolinkurl{research/PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md},
+mathematical checkpoint \texttt{13ddb41180b3911940f4fe5cf7d61c0545f9f834}.
+\bibitem{upperinputs} Ringmin supplement,
+\nolinkurl{ops/GOAL-20260911__conclude_study/UPPER_INTERNAL_AUDIT.md},
+with the four linked exact parameter proofs, at the same mathematical checkpoint.
+\bibitem{lower} Ringmin supplement,
+\nolinkurl{research/THREE_LEVEL_COMMON_CHAIN.md}, Sections 7, 9, 11--12;
+\nolinkurl{ops/GOAL-20260911__conclude_study/LOWER_INTERNAL_AUDIT.md},
+with the minimal proof dependency graph and exact checks, at that checkpoint.
+\bibitem{fixed} Ringmin supplement,
+\nolinkurl{research/SUPNICK_FULL_FEASIBILITY.md} and
+\nolinkurl{research/SUPNICK_SEAM_SEQUENCES.md}; final dependency audit in
+\nolinkurl{ops/GOAL-20260911__conclude_study/FIXED_ORDER_INTERNAL_AUDIT.md}.
+\bibitem{packet} Ringmin final review packet and source manifest,
+\nolinkurl{ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md}.
+Repository: \url{https://github.com/falker47/ringmin}. Internal validation
+and independent external acceptance are explicitly separated there.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,14 @@
+{
+  "status": "Versioned v2 / journal candidate; not submitted",
+  "source_date_epoch": 1789084800,
+  "command": "python paper_assets/v2/build.py",
+  "engine": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.13)",
+  "passes": 2,
+  "files": {
+    "ringmin_v2.tex": "528498d131b2d942c15b39b642aa33f8e9b8424bb081d6f826e2479dc986122f",
+    "build.py": "cdf525ee1fd9ac5da88f6030bf94ef361910e19315d834f70f88e19dc023980a",
+    "ringmin_v2.pdf": "a3b0d50f40a843024d84065fcafd181ce8d048ab67e9185cc5d3c748a8ee1c0a"
+  },
+  "supplement_math_checkpoint": "13ddb41180b3911940f4fe5cf7d61c0545f9f834",
+  "limits": "PDF reproducibility additionally requires the same TeX packages/fonts. Complete final source and review evidence are identified by the containing Git commit."
+}
