@@ -552,6 +552,64 @@ without production, saved-result or previous-checker imports. The prior
 `ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py`
 and its dossier retain the historical 40-envelope coefficient checks.
 
+### Three-level common-chain bound from a shared crossing budget
+
+**Status:** exact theorem / rigorous continuum relaxation / order-uniform
+finite minimax bound / proved global corollary, after arXiv v1.
+
+Fix q=q_*, beta_1=1/5, beta_2=23/100, and original radii in
+T_b(n)={floor(b*n),...,n}. For the SAME cyclic order sigma on T_q(n),
+put sigma_i=sigma|T_beta_i(n) and
+
+```text
+B_n^(3)=min_sigma max{R_chain(sigma),R_chain(sigma_1),R_chain(sigma_2)},
+D_i=integral_q^beta_i [1+q-x-2*sqrt(x*(1+q-x))] dx,
+h_1=3/1000, h_2=9/1000, H=h_1+h_2, Q_3=h_1^3+h_2^3,
+L=16+432*H,
+eta_3=(h_1*D_1+h_2*D_2-8*Q_3)/(pi*L),
+A_3=1+[5+19*H/(2*L)]/pi<2.593263.
+```
+
+The outer reflected-edge measure has one energy E shared by both cutoff
+crossings K_i. The new exact joint inequality
+h_1*K_1+h_2*K_2<=4*Q_3+E holds whenever the two strip widths sum to at
+most the cutoff separation. Pairs crossing both cutoffs spend E only once.
+The existing anti-Monge and run estimates apply at each cutoff after their
+finite domain hypotheses are checked; their constants remain unchanged.
+A continuum relaxation retains both deletion discrepancies against this
+same outer measure and follows rigorously from simultaneous weak limits.
+No recovery of arbitrary relaxed measures as tours is asserted.
+
+Writing J_n and D_(i,n) for the reflected grid reference and deletion
+sums in the proof, and F_n=h_1*D_(1,n)+h_2*D_(2,n)-8*Q_3, the theorem is
+
+```text
+R*(n)>=B_n^(3),
+B_n^(3)/n^2 >= [J_n+(F_n)_+/L]/pi-1/n                 (n>=1000),
+B_n^(3)/n^2 >= C_term+eta_3-A_3/n                     (n>=1000),
+liminf B_n^(3)/n^2 >= C_term+eta_3,
+liminf R*(n)/n^2 >= C_term+eta_3,
+2.6023553183e-7 < eta_3 < 2.6023553184e-7,
+5.5513553e-9 < eta_3-eta_split < 5.5513554e-9,
+R*(n)>=B_n^(3)>(C_term+eta_split+11/2000000000)*n^2    (n>=10^12).
+```
+
+Full-feasible deletion proves the global transfer for all orders, with
+nested restrictions, original radii, both parities and cyclic wrap.
+Liminf at C_term+eta_3 is non-strict; the comparison with the old bound is
+strict. The fixed witnesses establish a positive improvement without
+optimizing strip widths or tuning the old two-level constants. They do not
+identify the three-level minimax or any sharp geometric coefficient, imply
+a normalized global limit, expand finite certification or revise arXiv v1.
+The preceding entry retains ownership of eta_split and the two-level theory;
+this entry alone owns the new three-level theorem and its global corollary.
+
+**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Sections 1-6; standalone
+exact arithmetic, prescribed grid-coupling checks and negative controls in
+`ops/TASK-20260911__three_level_common_chain/check_three_level.py` and its
+dossier. No tour enumeration or production imports. Analytic arguments
+supply the universal quantifiers; independent acceptance remains separate.
+
 ### Increasing-order full asymptotic upper bound
 
 **Status:** exact asymptotic theorem / explicit feasible construction /
@@ -994,8 +1052,9 @@ limsup R*(n)/n^2<=C_3(1/250)<C_3<C_b<C_2<C_hat<C_107<C_rp<C_30<C_ref<C_shift<C_a
 where unqualified C_3=C_3(1/1000), and hence `R*(n)=Theta(n^2)`.
 The true normalized liminf and limsup, their
 possible equality, and either endpoint's sharpness remain unresolved.
-The stronger current lower endpoint is supplied by the common-chain
-stability/global-corollary entry above, which solely owns that improvement.
+The strongest current lower endpoint is supplied by the
+[three-level common-chain entry](#three-level-common-chain-bound-from-a-shared-crossing-budget)
+above, which solely owns that improvement.
 
 **Sources:** `research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md`,
 `research/ONE_GAP_TERMINAL_SUBSET_VARIATION.md`, and
@@ -1011,7 +1070,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_split,C_3(1/250)]`, including whether they agree; improve beyond the
+   `[C_term+eta_3,C_3(1/250)]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.

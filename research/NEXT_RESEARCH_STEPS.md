@@ -24,20 +24,21 @@ provenance question, not routine orientation.
   complete fixed-order full-feasibility classification are resolved. These
   do not establish global floating behavior. See the [classification entry](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification).
 - **Proved global bounds:** the strongest current lower endpoint is
-  `C_term+eta_split`; the strongest current upper coefficient is
+  `C_term+eta_3`; the strongest current upper coefficient is
   `C_3(1/250)`. Thus the current coefficient interval is
-  `[C_term+eta_split,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
-  The [common-chain entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#quantitative-stability-for-the-fixed-macroscopic-common-chain-pair)
+  `[C_term+eta_3,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
+  The [three-level entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#three-level-common-chain-bound-from-a-shared-crossing-budget)
   owns the lower endpoint, its exact integral definition and finite bounds;
   the [fixed 1/250 global entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#fixed-third-width-1250-improved-global-upper-bound)
   owns the upper corollary. The source statements are
-  [common-chain Section 12](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#12-refined-two-level-minimax-from-the-proved-deletion-envelope)
+  [three-level Sections 1-6](THREE_LEVEL_COMMON_CHAIN.md)
   and [fixed 1/250 Section 7](PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md#7-consequence-bounded-checker-and-scope).
   Neither endpoint is established as sharp; no normalized global limit is proved.
 - **Resolved lower-bound discriminators:** a single induced-subset chain
   envelope and one-level terminal coupling cannot improve the leading
   coefficient. Macroscopic prescribed-order excess is resolved, and the
-  common-chain stability/global/minimax results supply the current lower
+  common-chain stability/global/minimax results and the simultaneous
+  beta_1=1/5, beta_2=23/100 shared crossing budget supply the current lower
   improvement. See the corresponding sections of the [global-bounds ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours.
@@ -60,27 +61,24 @@ provenance question, not routine orientation.
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of the fixed 1/250 transfer
+## Priority 1 — Independent review of the three-level common-chain theorem
 
-Independently review `PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md` at
-committed HEAD. Audit the exact f=2*floor(m/500) construction, shared
-seams, width-dependent gates, full-root all-pairs criterion, quantitative
-recovery and separate odd lower squeeze. Reproduce the new bounded checker,
-including its rational root signs and both-path witnesses. Verify that only
-the resulting global limsup was propagated and old C_3 retains its meaning.
-Record acceptance or precise corrections; stop before width optimization,
-tour enumeration or new lower-bound work.
+Independently review `THREE_LEVEL_COMMON_CHAIN.md` at committed HEAD.
+Audit reuse of stability at both fixed cutoffs, the single shared energy
+in the joint crossing inequality (including pairs crossing both cutoffs),
+the necessary continuum relaxation, floors and finite minimax, and the
+full-feasible deletion transfer. Reproduce the standalone rational checker
+and audit its dependency gates as needed. Record acceptance or precise
+corrections; stop before further coefficient optimization or research.
 
 ## Deferred direction — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term+eta_split,C_3(1/250)]`, and whether they agree. Prioritize stronger valid lower
-bounds beyond the current coupled-pair corollary, which already improves
-the resolved single-subset envelope. The optimized scalar consequence is
-small in absolute size; Section 12 now incorporates Section 11's stronger
-deletion information. Review the refined bound before choosing further
-deletion estimates or additional coupled information. Scalar sharpness of
-the stated envelope does not limit the broader method. The crossing and
+`[C_term+eta_3,C_3(1/250)]`, and whether they agree. The concrete three-level
+discriminator is resolved positively by a shared crossing budget at the
+two fixed cutoffs. Review that theorem before selecting further lower-bound
+work. Neither its fixed witnesses nor scalar sharpness of the preceding
+two-level envelope establish a ceiling on common-order methods. The crossing and
 signed-discrepancy obstructions close improvements that require a uniform
 exponent above 2/3, or little-o at that scale, for K or |Delta| over tours.
 They do not establish an optimal envelope constant or minimax tour.
@@ -92,6 +90,13 @@ is established as sharp. The coefficient `1/8` is already disproved by
 The claim that the floating set is `o(n)` remains unproved.
 
 ## Deferred dependency reviews
+
+The previously prioritized fixed 1/250 transfer review remains deferred,
+not completed: audit `PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md`, its exact
+f=2*floor(m/500) construction, shared seams, width-dependent gates, full-root
+all-pairs criterion, quantitative recovery and separate odd lower squeeze.
+Reproduce its checker including rational root signs and both-path witnesses;
+check the global limsup propagation and preservation of the old C_3 meaning.
 
 Earlier dependency-review scopes remain deferred, without implying completion
 or changing acceptance status. Retrieve only the relevant scope from the
