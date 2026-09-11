@@ -24,9 +24,9 @@ provenance question, not routine orientation.
   complete fixed-order full-feasibility classification are resolved. These
   do not establish global floating behavior. See the [classification entry](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification).
 - **Proved global bounds:** the strongest current lower endpoint is
-  `C_term+eta_new`; the strongest current upper coefficient is `C_3`, still
+  `C_term+eta_split`; the strongest current upper coefficient is `C_3`, still
   exactly `C_3(1/1000)`. Thus the current coefficient interval is
-  `[C_term+eta_new,C_3]`, and `R*(n)=Theta(n^2)`.
+  `[C_term+eta_split,C_3]`, and `R*(n)=Theta(n^2)`.
   The [common-chain entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#quantitative-stability-for-the-fixed-macroscopic-common-chain-pair)
   owns the lower endpoint, its exact integral definition and finite bounds;
   the [three-block global entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#three-block-full-root-transfer-improved-global-upper-bound)
@@ -49,32 +49,33 @@ provenance question, not routine orientation.
   and a rigorous expansion: its normalized absolute discrepancy has a
   positive limit at exponent 2/3. Seeking a uniform stronger exponent or
   little-o at that scale for K or signed Delta is therefore closed.
-  Section 12 resolves the scalar minimax
-  consequence and transfers the refined lower bound through full-feasible
-  deletion. External acceptance of these proofs remains separate.
+  Sections 11.3-12 now optimize the existing midpoint split and propagate
+  its improved constant through the scalar minimax, finite errors and
+  full-feasible deletion. This closes optimization of that particular
+  split, without identifying the best tour constant or a minimizing tour.
+  External acceptance of these proofs remains separate.
 - **Continuous-only upper improvement:** a unique mixed third-block width
   minimum lies below `C_3(1/250)`, which lies below `C_3(1/1000)`. Neither
   larger width has finite recovery or geometric transfer. See the
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of signed discrepancy sharpness
+## Priority 1 — Independent review of the optimized midpoint split
 
-Independently review Section 11.6 of
-`research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` at committed HEAD.
-Audit the exact seam/interior/shifted-block radical formula, isolated
-deletions and induced replacement edges, signed cancellations, one-sided
-grid expansion and uniform Taylor remainder. Check the actual floor and
-both parities, including the Section 11.5 family/E formula as dependencies;
-reproduce the new bounded independent checker. Verify the positive limit
-and its stronger-exponent/little-o consequences. Record acceptance or
-precise corrections without inferring geometry or a new global coefficient.
-Stop before constant optimization, new coupling methods or tour enumeration.
+Independently review the midpoint optimization in Sections 11.3-11.4 and
+its Section 12 propagation in `COMMON_CHAIN_QUANTITATIVE_STABILITY.md`
+at committed HEAD. Check the h>0 domain and E=0 boundary, the coefficient
+transfer, global scalar minimum, rational enclosures, finite error
+directions and nested full-feasible deletion. Reproduce the new bounded
+independent checker and audit the unchanged Section 11 inputs as needed.
+Record acceptance or precise corrections, preserving the distinction
+between scalar sharpness, tour realizability and global geometry.
+Stop before new structural estimates, q/beta optimization or enumeration.
 
 ## Deferred direction — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term+eta_new,C_3]`, and whether they agree. Prioritize stronger valid lower
+`[C_term+eta_split,C_3]`, and whether they agree. Prioritize stronger valid lower
 bounds beyond the current coupled-pair corollary, which already improves
 the resolved single-subset envelope. The optimized scalar consequence is
 small in absolute size; Section 12 now incorporates Section 11's stronger
@@ -103,14 +104,16 @@ history, not a second queue of current priorities. Revisit a dependency when
 it materially affects the chosen task; success remains acceptance or precise
 corrections within that dependency's stated scope.
 
-The previously prioritized Section 12 review is deferred; this task does
-not record its completion. Its scope remains to
-audit its scalar minimum, rational cubic/integral enclosures, finite error
-directions and full-feasible-deletion transfer, together with the Section 11
-dependency and their bounded checkers. Neither sharpness result accepts
-or revises that lower bound. The prior standalone Section 11.5 crossing
-review has also not been recorded as completed; retrieve that scope through
-its proof and linked dossier when auditing the current dependency.
+The Section 12 review now concerns the optimized split and is part of
+Priority 1; no earlier independent acceptance is implied. The previously
+prioritized Section 11.6 signed-discrepancy review is deferred, not
+completed: its scope is the exact radical formula, isolated deletions,
+signed cancellations, one-sided expansion, uniform remainder, actual
+floor and both parities, with the Section 11.5 family as dependency and
+the linked bounded checker. The standalone Section 11.5 crossing review
+also remains unrecorded. Neither family is a premise for the optimized
+all-tour envelope or its global transfer; retrieve their specific proofs
+and dossiers when those reviews become the chosen task.
 
 ## Deferred direction — Certification architecture beyond `n=14`
 

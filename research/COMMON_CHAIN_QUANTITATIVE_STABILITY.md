@@ -4,6 +4,7 @@
     classification=exact theorem / asymptotic minimax lower bound / proved global corollary
     domain=all cyclic orders; finite stability n>=10^14; minimax estimate n>=102
     proved_on=2026-09-10
+    midpoint_split_optimized_on=2026-09-11
     published_snapshot=arXiv v1 remains unchanged
 
 ## 1. Statement and exact scope
@@ -67,9 +68,11 @@ upper construction, finite certification or public-paper revision is supplied.
 Independent mathematical acceptance remains separate from this proof.
 
 Section 12 refines this lower bound using Section 11, with additive
-coefficient eta_new determined by a monotone cubic. Sections 2-11 retain
-their original statements and information scopes; the strongest current
-finite and asymptotic consequences are (42)-(48) below.
+coefficient eta_split determined by a monotone cubic after the exact
+midpoint-split optimization. The preceding coefficient eta_new remains
+a valid weaker bound with its original provenance. Sections 2-10 and
+the family proofs in Sections 11.5-11.6 retain their statements; the
+strongest current finite and asymptotic consequences are (42)-(48) below.
 
 ## 2. Uniform reduction to sqrt-product edge costs
 
@@ -714,13 +717,13 @@ Delta=W(sigma|T_beta(n))-W(sigma)-D_n.
 Then the following uniform improvement holds:
 
 ```text
-|Delta| <= 40*e^(2/3)+432*e.                              (30)
+|Delta| <= 24*e^(2/3)+432*e.                              (30)
 ```
 
 In particular, for every 0<e<=epsilon the quotient satisfies
 
 ```text
-|Delta|/sqrt(e) <= 40*epsilon^(1/6)+432*sqrt(epsilon) -> 0
+|Delta|/sqrt(e) <= 24*epsilon^(1/6)+432*sqrt(epsilon) -> 0
                                                    as epsilon -> 0. (31)
 ```
 
@@ -730,8 +733,10 @@ tours with e->0 can have |Delta|>=c*sqrt(e) for a fixed c>0. The bound
 alone does not assert that exponent 2/3 is sharp for the signed Delta.
 Section 11.5 proves sharpness for the nonnegative crossing term K;
 Section 11.6 proves it for signed Delta using that same cyclic family.
-No new optimization of 60, beta, q, the scalar minimax or a geometric
-coefficient is undertaken.
+The optimized midpoint split below replaces the original coefficient 40
+by 24 without changing any structural premise. Section 12 propagates
+this coefficient through the scalar minimax and global lower bound.
+Neither 60, beta, q nor the other deletion estimates are optimized here.
 
 ### 11.1 Exact finite measure and a midpoint cutoff
 
@@ -895,15 +900,37 @@ On a long crossing, |x-z|<=(x-z)^2/h. Therefore
 K <= h*nu({x: |x-B|<=h})+E/h <= 4*h^2+E/h.              (39)
 ```
 
-If E>0 choose h=E^(1/3). There is no restriction on h relative to 1/n
-or to the interval endpoints. Equations (36)-(39) give
+For E>0, set u=2*h/E^(1/3)>0. The objective in (39) is
+E^(2/3)*(u^2+2/u), and the exact identity
 
 ```text
-|Delta| <= 54*E+10*E^(2/3)
-        <= 432*e+40*e^(2/3),
+u^2+2/u-3 = (u-1)^2*(u+2)/u >= 0
 ```
 
-proving (30). If E=0, (32) concentrates mu on x=z, so L=0 and (36)
+has equality only at u=1. Thus the unique minimizing choice is
+h=E^(1/3)/2=(E/8)^(1/3), and
+
+```text
+inf_{h>0} (4*h^2+E/h) = 3*E^(2/3),
+K <= 3*E^(2/3).                                         (39opt)
+```
+
+There is no restriction on h relative to 1/n or the interval endpoints:
+(33) and (39) hold for every h>0, including below the mesh spacing.
+The value 3 is optimal for this scalar split objective. It does not prove
+that a tour saturates the strip/long-crossing bounds, or that 3 is the
+best crossing constant for tours. Equations (36)-(39opt) now give
+
+```text
+|Delta| <= 54*E+6*E^(2/3)
+        <= 432*e+24*e^(2/3),
+```
+
+proving (30), since E<=8*e and 8^(2/3)=4. Keeping all other estimates
+fixed, this is the best coefficient supplied by optimization of (39);
+no claim of an optimal tour-deletion constant is made. For E=0 the
+split infimum is zero as h decreases to zero and is not attained at any
+h>0. Independently (32) concentrates mu on x=z, so K=L=0 and (36)
 gives Delta=0 directly. In fact a genuine cycle here has E>0: a zero
 defect would give every vertex only its unique reflected neighbor,
 inconsistent with two distinct neighbors in a cycle of at least three
@@ -927,22 +954,24 @@ no reason to abandon it in favor of additional coupled information.
 For example the available edge-cost envelope can now use
 
 ```text
-max{e, e+D_n-40*e^(2/3)-432*e}
+max{e, e+D_n-24*e^(2/3)-432*e}
 ```
 
-with the same exact e, J_n, D_n and root sandwich. Optimizing that
-envelope, improving its constants, determining the best deletion
-exponent, or deciding how much more coupling is ultimately needed are
-not part of this result. Section 9 remains the sharp scalar consequence
-of its explicitly stated old information; (30) supplies new information
-about actual tours and does not alter that historical statement or its
-accepted global coefficients. No geometric realization or sharpness of
-the broader common-tour minimax follows.
+with the same exact e, J_n, D_n and root sandwich. Section 12 now optimizes
+this envelope and propagates its finite errors and global corollary.
+Section 9 remains the sharp scalar consequence of its explicitly stated
+old information. Its coefficients and the previous Section 12 coefficient
+remain valid weaker bounds. Sections 11.5-11.6 separately settle the
+deletion exponent; they do not establish the best multiplicative constant.
+No geometric realization or sharpness of the broader common-tour minimax
+follows from this split optimization.
 
 The [task evidence](../ops/TASK-20260910__deletion_exponent_sharpness/EVIDENCE.md)
 and [bounded checker](../ops/TASK-20260910__deletion_exponent_sharpness/check_sharpness.py)
 record exact finite accounting, symbolic identities and deterministic
-prescribed-tour diagnostics. They do not enumerate general tours or
+prescribed-tour diagnostics for the original coefficient 40. The new
+optimization and enclosures have separate evidence linked in Section 12.
+These checks do not enumerate general tours or
 serve as proof of the all-order theorem. Sole stable ownership remains
 the existing common-chain entry in the global-bounds ledger.
 
@@ -1292,7 +1321,7 @@ For every integer n>=102, (2), e=W-J_n>=0 and the proved (30) imply
 
 ```text
 max{r(sigma),r(sigma|T_beta(n))}
- >= [J_n+max{e,e+D_n-40*e^(2/3)-432*e}]/pi-1/n.          (40)
+ >= [J_n+max{e,e+D_n-24*e^(2/3)-432*e}]/pi-1/n.          (40)
 ```
 
 The positive outer excess is retained on both branches. All optimization
@@ -1305,7 +1334,7 @@ the best possible deletion exponent.
 For d>0 define t(d) as the unique positive root and m(d) by
 
 ```text
-P(t)=432*t^3+40*t^2,
+P(t)=432*t^3+24*t^2,
 P(t(d))=d,                 m(d)=t(d)^3.
 ```
 
@@ -1315,17 +1344,17 @@ characterization is an exact algebraic definition, with no numerical
 root selection. Also set t(0)=m(0)=0 and m(d)=0 for d<0. For every real d,
 
 ```text
-min_{e>=0} max{e,e+d-40*e^(2/3)-432*e} = m(d).           (41)
+min_{e>=0} max{e,e+d-24*e^(2/3)-432*e} = m(d).           (41)
 ```
 
 For d<=0 the value at e=0 is zero and the first branch is nonnegative.
 For d>0 set t=e^(1/3), r=t(d). The second branch becomes
-g(t)=d-40*t^2-431*t^3, strictly decreasing for t>=0, whereas t^3 is
+g(t)=d-24*t^2-431*t^3, strictly decreasing for t>=0, whereas t^3 is
 strictly increasing. Their difference is d-P(t), so they meet only
 at t=r. For 0<=t<=r, the dominating second branch obeys the identity
 
 ```text
-g(t)-r^3=(r-t)*[40*(r+t)+431*(r^2+r*t+t^2)] >= 0.
+g(t)-r^3=(r-t)*[24*(r+t)+431*(r^2+r*t+t^2)] >= 0.
 ```
 
 For t>=r, the first branch satisfies
@@ -1344,14 +1373,14 @@ B_n/n^2 >= [J_n+m(D_n)]/pi-1/n.                          (42)
 
 For precision about scalar sharpness, the formal data
 e=m(d), W=J+e, W'=W have Delta=-d and saturate
-|Delta|<=40*e^(2/3)+432*e. They realize the scalar minimum; they do
+|Delta|<=24*e^(2/3)+432*e. They realize the scalar minimum; they do
 not assert the existence of any corresponding tour or configuration.
 Even retaining the old scalar inequality |Delta|<=60*sqrt(e) does not
-raise this minimum for 0<d<2: P(1/6)=28/9>2 implies r<1/6 and
+raise this minimum for 0<d<2: P(1/6)=8/3>2 implies r<1/6 and
 
 ```text
-d^2/m(d)=r*(40+432*r)^2
-         < (1/6)*112^2=6272/3 < 3600.
+d^2/m(d)=r*(24+432*r)^2
+         < (1/6)*96^2=1536 < 3600.
 ```
 
 Hence d<60*sqrt(m(d)) at the new crossing. This also proves
@@ -1362,87 +1391,73 @@ or establish optimality of exponent 2/3.
 
 ### 12.2 Asymptotic coefficient and exact rational enclosures
 
-Write t_*=t(D), eta_new=m(D)/pi, with the same actual integral D>0
+Write t_*=t(D), eta_split=m(D)/pi, with the same actual integral D>0
 from Sections 5 and 9. Since J_n->pi*C, D_n->D and m is continuous,
 the uniform finite inequality (42) gives
 
 ```text
-liminf B_n/n^2 >= C+eta_new,
-432*t_*^3+40*t_*^2=D,          eta_new=t_*^3/pi.           (43)
+liminf B_n/n^2 >= C+eta_split,
+432*t_*^3+24*t_*^2=D,          eta_split=t_*^3/pi.         (43)
 ```
 
 Every displayed terminating decimal below is an exact rational. The
 bounded checker proves strict enclosures
 
 ```text
-0.00747297755774039228453004644791959838 < t_*
-  < 0.00747297755774039228453004644791959839,
-1.3284070181357731944366841527895847e-7 < eta_new
-  < 1.3284070181357731944366841527895848e-7,
-0.14056921368595858012283567471592395015 < C+eta_new
-  < 0.14056921368595858012283567471592395016.              (44)
+0.0092836183568361125168565556 < t_*
+  < 0.0092836183568361125168565557,
+2.546841764900829732093748e-7 < eta_split
+  < 2.546841764900829732093749e-7,
+0.1405693355294332566284894404 < C+eta_split
+  < 0.1405693355294332566284894405.                      (44)
 ```
 
 Here is a reproducible rational derivation independent of floating
-quadrature. Recheck Section 9's Taylor gates for tau,q,pi. To independently
-enclose D, use the lower rational q endpoint q_0 from (23), and put
-
-```text
-s=1+q_0,       m_0=(q_0+beta)/2,       h=(beta-q_0)/2,
-A_0=m_0*(s-m_0),
-x=m_0+h*u,    -1<=u<=1,
-x*(s-x)=A_0*(1+v_1*u+v_2*u^2),
-v_1=(s-2*m_0)*h/A_0,      v_2=-h^2/A_0,
-rho=|v_1|+|v_2|<1/10.
-```
-
-Use the degree-40 binomial expansion of sqrt(1+v), whose coefficients
-b_j=binomial(1/2,j) satisfy b_0=1 and
-b_(j+1)=b_j*(1/2-j)/(j+1). Their absolute values are at most one,
-so the pointwise tail for |v|<=rho is at most rho^41/(1-rho).
-If
-
-```text
-S_40=integral_-1^1 sum_{j=0}^40 b_j*(v_1*u+v_2*u^2)^j du,
-T=2*rho^41/(1-rho),
-```
-
-then S_40 is rational by polynomial integration, S_40>T>0, and the
-integral of sqrt(1+v_1*u+v_2*u^2) lies in [S_40-T,S_40+T].
-Obtain rational A_-<=sqrt(A_0)<A_+ of width 10^-50 using an integer
-square root and verify A_-^2<=A_0<A_+^2. Consequently
-
-```text
-h*A_-*(S_40-T) <= integral_q0^beta sqrt(x*(s-x)) dx
-                <= h*A_+*(S_40+T).
-```
-
-Subtract twice these endpoints from
-s*(beta-q_0)-(beta^2-q_0^2)/2 in the outward directions; include
-4*(q_+-q_-) for the analytic moving-endpoint error from Section 9.2.
-Call the resulting rational bounds d_-<D<d_+. They reproduce (24).
-Use the unrounded bounds for the more precise cubic gates
+quadrature. Recheck the Section 9.2 Taylor gates for tau,q,pi and use its
+endpoint substitution z=(1+q_0-2*x)/(1+q_0), q_0=q_-. Integrate the first
+80 terms of the positive-coefficient expansion of sqrt(1-z^2) with the
+explicit geometric tail given there, and include 4*(q_+-q_-) for the
+moving-endpoint error. The new standalone checker implements these
+rational sums directly; it imports neither the Section 9 checker nor the
+previous Section 12 midpoint-integration checker. Call its unrounded
+rational bounds d_-<D<d_+. They reproduce (24) and prove
 
 ```text
 P(t_-)<d_-<D<d_+<P(t_+),
-t_-^3/pi_+ < eta_new < t_+^3/pi_-.
+t_-^3/pi_+ < eta_split < t_+^3/pi_-.
 ```
 
 Strict monotonicity of P proves the root enclosure, and exact rational
-comparisons prove the eta_new bracket in (44). Finally
+comparisons prove the eta_split bracket in (44). Finally
 C=tau*(1+q)/(2*pi), so the separate positive parameter bounds give
-outward rational bounds for C; add them to those for eta_new to prove
+outward rational bounds for C; add them to those for eta_split to prove
 the total coefficient bracket. No independence of these parameters is
-assumed by interval arithmetic. The same calculation proves
-257<eta_new/eta_60<258. This compares two lower-bound gains only.
+assumed by interval arithmetic.
+
+For comparison only, denote the preceding coefficient by
+eta_new=t_40^3/pi, where 432*t_40^3+40*t_40^2=D. It is the value proved
+before the midpoint optimization, with its original checker and dossier
+linked below. More generally let t_40(d)>0 solve
+P_40(t_40(d))=d for d>0. Since P_40(t)=P(t)+16*t^2>P(t) at positive t,
+t(d)>t_40(d) and m(d)>t_40(d)^3. The strongest finite bound (42) and
+asymptotic gain therefore strictly improve the preceding lower formulas.
+Fresh rational root gates for P_40, with the same d_-,d_+, give
+
+```text
+1.917 < eta_split/eta_new < 1.918.
+```
+
+This compares lower-bound gains, not the total global coefficients and
+not the unknown geometric optimum. The old 40-envelope is weaker at
+every e>0 and is nonbinding at the new scalar minimum.
 
 ### 12.3 Propagating the existing finite errors
 
 For d>0 implicit differentiation, with t=t(d), gives
 
 ```text
-m'(d)=3*t/(80+1296*t),             0<m'(d)<1/432,
-d/dt [3*t/(80+1296*t)]=240/(80+1296*t)^2>0.
+m'(d)=3*t/(48+1296*t),             0<m'(d)<1/432,
+d/dt [3*t/(48+1296*t)]=144/(48+1296*t)^2>0.
 ```
 
 Thus m is increasing and convex on [0,infinity), with right derivative
@@ -1459,7 +1474,7 @@ including the range where D-19/(2*n)<=0. It is stronger than the
 following convenient linear consequence. Set
 
 ```text
-mu=m'(D)=3*t_* /(80+1296*t_*),
+mu=m'(D)=3*t_* /(48+1296*t_*),
 A=1+[5+(19/2)*mu]/pi.
 ```
 
@@ -1474,20 +1489,20 @@ This also covers delta>=D; no positivity of D-delta is silently
 assumed. Applying delta=19/(2*n) in (45) gives
 
 ```text
-B_n/n^2 >= C+eta_new-A/n
-         >= C+eta_new-2.592306/n,                    n>=102,
-2.5923053389421502294191108763168 < A
-  < 2.5923053389421502294191108763170 < 2.592306.          (46)
+B_n/n^2 >= C+eta_split-A/n
+         >= C+eta_split-2.592953/n,                    n>=102,
+2.592952349827745447477519 < A
+  < 2.592952349827745447477520 < 2.592953.                (46)
 ```
 
 The displayed strict rational bounds follow by substituting t_-,t_+
-in the increasing function 3*t/(80+1296*t) and using opposite pi
+in the increasing function 3*t/(48+1296*t) and using opposite pi
 endpoints. For an algebraic check of the error direction, for 0<=t<=r
 the secant inequality follows from
 
 ```text
-3*r*[40*(r+t)+432*(r^2+r*t+t^2)]
- -(80+1296*r)*(r^2+r*t+t^2)=40*(r-t)*(r+2*t)>=0.
+3*r*[24*(r+t)+432*(r^2+r*t+t^2)]
+ -(48+1296*r)*(r^2+r*t+t^2)=24*(r-t)*(r+2*t)>=0.
 ```
 
 The checker verifies this coefficient identity independently. All finite
@@ -1522,33 +1537,42 @@ its explicit finite-error form (45) and (46) all transfer to R*(n).
 Equations (43)-(47) prove
 
 ```text
-liminf R*(n)/n^2 >= C+eta_new,
-R*(n)>=B_n>(C+1.3284e-7)*n^2                 for n>=10^13. (48)
+liminf R*(n)/n^2 >= C+eta_split,
+R*(n)>=B_n>(C+2.5468e-7)*n^2                 for n>=10^12. (48)
 ```
 
 The finite instance is the exact rational gate
-eta_- - 2.592306/10^13 > 1.3284e-7; it also has n>=102.
-More generally a fixed 0<eta'<eta_new gives strict finite bounds
-at C+eta' whenever n>=102 and n>A/(eta_new-eta'). Neither cutoff is
-claimed minimal. Liminf comparisons at C+eta_new are non-strict;
+eta_- - 2.592953/10^12 > 2.5468e-7; it also has n>=102.
+More generally a fixed 0<eta'<eta_split gives strict finite bounds
+at C+eta' whenever n>=102 and n>A/(eta_split-eta'). Neither cutoff is
+claimed minimal. Liminf comparisons at C+eta_split are non-strict;
 the lower rational endpoint in (44) gives a strict comparison at that
 smaller total coefficient. Finite strictness at a smaller coefficient
-does not prove strictness at C+eta_new, equality, or a normalized limit.
+does not prove strictness at C+eta_split, equality, or a normalized limit.
 
-The [bounded independent checker](../ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py)
-uses only standard-library exact arithmetic by default: fixed Taylor
-degrees, 40 integrated midpoint terms and a proved tail, integer square
-roots, polynomial coefficient identities and rational inequalities.
-It imports neither production code, earlier checkers nor saved results.
-Optional SymPy identities and 80/120-dps quadrature/cubic bisection provide
-independent corroboration. The [task evidence](../ops/TASK-20260910__refined_two_level_minimax/EVIDENCE.md)
-records exact outputs and the analytic full-feasible transfer audit.
-These bounded checks support the scalar algebra and enclosures; they
+The [new bounded independent checker](../ops/TASK-20260911__optimized_midpoint_split/check_split.py)
+uses only standard-library exact arithmetic: polynomial coefficient
+identities, fixed rational Taylor gates, 80 endpoint integral terms with
+a proved tail, and rational cubic/enclosure/finite-cutoff inequalities.
+It checks the split identity, E-to-e constants, scalar crossing,
+inverse derivative and secant identity, and new coefficient enclosures.
+It imports neither production code, earlier checkers nor saved results,
+and does not sample tours or use floating quadrature. The
+[new task evidence](../ops/TASK-20260911__optimized_midpoint_split/EVIDENCE.md)
+records exact outputs and the analytic propagation/full-deletion audit.
+The [previous checker](../ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py)
+and [its evidence](../ops/TASK-20260910__refined_two_level_minimax/EVIDENCE.md)
+retain the historical 40-envelope and eta_new provenance unchanged.
+These bounded checks support the new identities and enclosures; they
 do not replace the analytic all-tour theorem or independently review its
 entire dependency chain. External mathematical acceptance remains separate.
 
-This resolves the requested refinement positively and stops here. No
-optimal exponent 2/3, sharp geometric coefficient, minimizing common tour,
-normalized limit, upper construction, finite optimum certificate or
-arXiv-v1 revision follows. Sole stable ownership remains the common-chain
-entry in `knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`.
+The midpoint optimization propagates without an obstruction and stops
+here. The constant 3 is sharp for the objective in (39), and m(d) is sharp
+for the stated aggregate scalar envelope. Neither assertion proves tour
+realizability or the best constant for tours. The separate exponent
+sharpness proofs in Sections 11.5-11.6 remain unchanged. No sharp global
+geometric coefficient, minimizing common tour, normalized limit, upper
+construction, finite optimum certificate or arXiv-v1 revision follows.
+Sole stable ownership remains the common-chain entry in
+`knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md`.

@@ -413,9 +413,9 @@ Delta=W(sigma|T_beta(n))-W(sigma)-D_n, every n>=102 and every outer tour
 satisfy the exact theorem
 
 ```text
-|Delta|<=40*e^(2/3)+432*e,
+|Delta|<=24*e^(2/3)+432*e,
 sup_{n>=102, sigma: 0<e<=epsilon} |Delta|/sqrt(e)
- <=40*epsilon^(1/6)+432*sqrt(epsilon) -> 0.
+ <=24*epsilon^(1/6)+432*sqrt(epsilon) -> 0.
 ```
 
 The proof retains signed first variations through an exact reflected-edge
@@ -445,8 +445,8 @@ E -> 0,  K/E^(2/3) -> 2^(-1/3).
 ```
 
 Consequently no uniform K=O(E^alpha) for alpha>2/3, no K=O(E), and no
-uniform K=o(E^(2/3)) hold over genuine tours. The existing uniform
-K<=5*E^(2/3) gives the matching exponent. The exact formulas include
+uniform K=o(E^(2/3)) hold over genuine tours. The optimized uniform
+K<=3*E^(2/3) gives the matching exponent. The exact formulas include
 the actual floor, both parities, the cyclic wrap and the oriented-atom
 factor 1/(2*n). This obstruction also holds with e in place of E since
 E/8<=e<=E/(8*a). It does not by itself prove sharpness for signed Delta,
@@ -475,41 +475,52 @@ little-o obstructions in e, without asserting a limit for |Delta|/e^(2/3).
 No optimal multiplicative constant, minimax tour, geometric feasibility,
 new global coefficient or expanded finite certification follows.
 
-**Refined lower bound (Section 12; exact theorem / proved corollary).**
-For d>0, define t(d)>0 by 432*t(d)^3+40*t(d)^2=d and m(d)=t(d)^3;
+**Optimized midpoint split (Sections 11.3-12; exact scalar theorem /
+proved corollary).** For E>0, h=E^(1/3)/2 uniquely minimizes the already
+proved 4*h^2+E/h, giving K<=3*E^(2/3). At E=0 the infimum is zero and
+is not attained for h>0; the exact measure gives K=Delta=0 directly.
+The previous remainders and E<=8*e give the 24-envelope above. The
+constant 3 is sharp only for this split objective; no tour saturation or
+optimal tour-deletion constant follows.
+
+For d>0, define t(d)>0 by 432*t(d)^3+24*t(d)^2=d and m(d)=t(d)^3;
 set m(d)=0 for d<=0. The exact scalar minimum over e>=0 of
-max{e,e+d-40*e^(2/3)-432*e} is m(d), uniquely attained at e=m(d).
-With t_*=t(D), eta_new=m(D)/pi and
-A=1+[5+(19/2)*3*t_* /(80+1296*t_*)]/pi<2.592306, the strongest
+max{e,e+d-24*e^(2/3)-432*e} is m(d), uniquely attained at e=m(d).
+With t_*=t(D), eta_split=m(D)/pi and
+A=1+[5+(19/2)*3*t_* /(48+1296*t_*)]/pi<2.592953, the strongest
 finite formula and its propagated consequences are
 
 ```text
 R*(n)>=B_n,
 B_n/n^2 >= [J_n+m(D_n)]/pi-1/n                         (n>=102),
 B_n/n^2 >= C_term+[m((D-19/(2*n))_+)-5/n]/pi-1/n        (n>=102),
-B_n/n^2 >= C_term+eta_new-A/n                          (n>=102),
-liminf B_n/n^2 >= C_term+eta_new,
-liminf R*(n)/n^2 >= C_term+eta_new,
-R*(n)>=B_n>(C_term+1.3284e-7)*n^2                      (n>=10^13),
-1.3284070181357731944366841527895847e-7 < eta_new
-  < 1.3284070181357731944366841527895848e-7,
-0.14056921368595858012283567471592395015 < C_term+eta_new
-  < 0.14056921368595858012283567471592395016.
+B_n/n^2 >= C_term+eta_split-A/n                        (n>=102),
+liminf B_n/n^2 >= C_term+eta_split,
+liminf R*(n)/n^2 >= C_term+eta_split,
+R*(n)>=B_n>(C_term+2.5468e-7)*n^2                      (n>=10^12),
+2.546841764900829732093748e-7 < eta_split
+  < 2.546841764900829732093749e-7,
+0.1405693355294332566284894404 < C_term+eta_split
+  < 0.1405693355294332566284894405.
 ```
 
-Here x_+=max{x,0}. Rational Taylor gates, an independently implemented
-midpoint integral enclosure and cubic signs prove the coefficients;
-257<eta_new/eta_60<258. Monotonicity and convexity of m propagate exactly
-the existing 5/n and 19/(2*n) errors, including when the lower D estimate
-is nonpositive. Every bound transfers to R*(n) only by deletion from a
-full feasible configuration, with nested common orders and original radii.
-The old 60*sqrt(e) inequality is nonbinding at the new scalar crossing
-for 0<d<2. Sharpness is restricted to these aggregate scalar inequalities;
-no tour realizing the scalar minimum, sharp geometric coefficient or
-normalized global limit is proved. Signed-exponent sharpness is the
-separate Section 11.6 result above and does not alter this coefficient.
-Liminf comparisons at C_term+eta_new remain
-non-strict. No new finite certificate or publication change is supplied.
+Here x_+=max{x,0}. Fresh rational Taylor/integral/cubic gates prove these
+enclosures and 1.917<eta_split/eta_new<1.918, where eta_new=t_40^3/pi,
+432*t_40^3+40*t_40^2=D denotes the preceding 40-envelope coefficient.
+That prior bound remains valid, with its original dossier unchanged.
+The strict improvement of m(d) holds for every d>0. Monotonicity and
+convexity of the new m propagate the same 5/n and 19/(2*n) errors,
+including when the lower D estimate is nonpositive. Each lower bound
+transfers to R*(n) only by deletion from a full feasible configuration,
+with nested common orders and original radii.
+
+The old 60*sqrt(e) inequality and 40-envelope are nonbinding at the new
+scalar crossing for 0<d<2. Scalar sharpness concerns only the stated
+aggregate inequalities; no tour realizing the scalar minimum, sharp
+geometric coefficient or normalized global limit is proved. Signed-exponent
+sharpness is the separate Section 11.6 result above. Liminf comparisons
+at C_term+eta_split remain non-strict. No new finite certificate or
+publication change is supplied.
 
 This entry alone owns the stability theorem, deletion-exponent improvement,
 crossing-term and signed-discrepancy sharpness, minimax extension and
@@ -534,10 +545,12 @@ The signed discrepancy is proved analytically in Section 11.6, with
 bounded exact radical identities and rational numerical enclosures in
 `ops/TASK-20260911__signed_discrepancy_family/check_signed_discrepancy.py`
 and its dossier; no production or previous-checker imports are used.
-The refined minimax, rational enclosures and finite/global consequences
-are proved in Section 12 and supported by
+The optimized split, updated Section 12 minimax, rational enclosures
+and finite/global consequences are supported by
+`ops/TASK-20260911__optimized_midpoint_split/check_split.py` and its dossier,
+without production, saved-result or previous-checker imports. The prior
 `ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py`
-and its dossier, without production or previous-checker imports.
+and its dossier retain the historical 40-envelope coefficient checks.
 
 ### Increasing-order full asymptotic upper bound
 
@@ -972,7 +985,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_new,C_3]`, including whether they agree; improve beyond the
+   `[C_term+eta_split,C_3]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.
