@@ -424,9 +424,33 @@ O(e); only crossings of a midpoint deletion cutoff remain after primitive
 cancellation. Exact strip counts cover arbitrarily small excess, floors,
 wrap and both parities without an additive mesh error. Thus no actual-tour
 family realizes a positive square-root lower scale. Exponent 2/3 is not
-asserted optimal. Section 11 supplies the improved information used by
-the refinement below; its proof alone does not compute a coefficient.
+asserted optimal for the signed Delta. Section 11 supplies the improved
+information used by the refinement below; its proof alone does not compute
+a coefficient.
 The eta_60 statement retains its original scalar information scope.
+
+**Midpoint crossing sharpness (Section 11.5; exact counterexample family /
+proved sharp exponent for K).** Retain exactly the reflected-edge measure
+mu, its energy E and midpoint B from Section 11. For every multiple m of
+10 with m>=40, take n=m^2, k=floor(q*n), ell=23*n/100 and relabel the
+canonical Supnick cycle by swapping the adjacent label blocks
+{ell-m,...,ell-1} and {ell,...,ell+m-1}. This remains a single genuine
+cyclic tour with exact degree two and both grid marginals. For N=n-k+1
+and c_N=1 for odd N, c_N=2 for even N, its crossing term is exactly
+
+```text
+E=(4*m^3+N-c_N)/n^3,
+K=(2*m^2-m+1)/n^2,
+E -> 0,  K/E^(2/3) -> 2^(-1/3).
+```
+
+Consequently no uniform K=O(E^alpha) for alpha>2/3, no K=O(E), and no
+uniform K=o(E^(2/3)) hold over genuine tours. The existing uniform
+K<=5*E^(2/3) gives the matching exponent. The exact formulas include
+the actual floor, both parities, the cyclic wrap and the oriented-atom
+factor 1/(2*n). This obstruction also holds with e in place of E since
+E/8<=e<=E/(8*a). It does not by itself prove sharpness for signed Delta,
+optimize a multiplicative constant or change a global coefficient.
 
 **Refined lower bound (Section 12; exact theorem / proved corollary).**
 For d>0, define t(d)>0 by 432*t(d)^3+40*t(d)^2=d and m(d)=t(d)^3;
@@ -458,12 +482,13 @@ is nonpositive. Every bound transfers to R*(n) only by deletion from a
 full feasible configuration, with nested common orders and original radii.
 The old 60*sqrt(e) inequality is nonbinding at the new scalar crossing
 for 0<d<2. Sharpness is restricted to these aggregate scalar inequalities;
-no realizing tour, optimal exponent 2/3, sharp geometric coefficient or
-normalized limit is proved. Liminf comparisons at C_term+eta_new remain
+no tour realizing the scalar minimum, sharp exponent for signed Delta,
+sharp geometric coefficient or normalized limit is proved.
+Liminf comparisons at C_term+eta_new remain
 non-strict. No new finite certificate or publication change is supplied.
 
 This entry alone owns the stability theorem, deletion-exponent improvement,
-minimax extension and global corollaries.
+crossing-term sharpness, minimax extension and global corollaries.
 
 **Source:** `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md`, Sections 1-12;
 bounded exact and numerical corroboration in
@@ -476,6 +501,10 @@ The uniform exponent improvement is proved in Section 11, with bounded
 deterministic exact/symbolic/numerical support in
 `ops/TASK-20260910__deletion_exponent_sharpness/check_sharpness.py`
 and its dossier; external independent review remains separate.
+The exact crossing obstruction is proved in Section 11.5 and has bounded
+integer/rational corroboration in
+`ops/TASK-20260911__midpoint_crossing_sharpness/check_crossing.py` and its
+dossier; no general-tour enumeration or production imports are used.
 The refined minimax, rational enclosures and finite/global consequences
 are proved in Section 12 and supported by
 `ops/TASK-20260910__refined_two_level_minimax/check_refined_minimax.py`

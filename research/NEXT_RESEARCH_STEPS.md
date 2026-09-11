@@ -41,29 +41,30 @@ provenance question, not routine orientation.
   improvement. See the corresponding sections of the [global-bounds ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours. Its improved
-  exponent is not asserted optimal. Section 12 resolves its scalar minimax
+  exponent is not asserted optimal for signed deletion. The new
+  [Section 11.5](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#115-the-crossing-exponent-23-is-sharp-for-genuine-cyclic-tours)
+  resolves the crossing-term discriminator: an explicit infinite family of
+  genuine cycles makes exponent 2/3 sharp for K. Seeking a uniform stronger
+  exponent for K is therefore closed. Section 12 resolves the scalar minimax
   consequence and transfers the refined lower bound through full-feasible
-  deletion. External acceptance of either proof remains separate.
+  deletion. External acceptance of these proofs remains separate.
 - **Continuous-only upper improvement:** a unique mixed third-block width
   minimum lies below `C_3(1/250)`, which lies below `C_3(1/1000)`. Neither
   larger width has finite recovery or geometric transfer. See the
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of the refined two-level lower bound
+## Priority 1 — Independent review of midpoint crossing sharpness
 
-First scientific priority: independently review Section 12 of
+Independently review Section 11.5 of
 `research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md` at committed HEAD.
-Audit the global scalar minimum, rational cubic/integral enclosures,
-finite J_n/D_n error directions (including a nonpositive lower D estimate),
-strictness and transfer solely through full-feasible deletion. Reproduce
-the bounded independent checker. The needed Section 11 dependency audit
-retains signed first variation, orientation factor, exact reflected
-marginals, primitive cancellation, midpoint strips at submesh scales,
-nonisolated runs, wrap and both parities; no external acceptance is implied
-by reproducing diagnostics. Record acceptance or precise corrections within
-this lower-bound review. Stop before exponent/constant optimization, new
-couplings, tour enumeration, finite certification or upper constructions.
+Audit the explicit label permutation, preservation of one cyclic tour,
+the two interior Supnick neighbors, parity-dependent zero defects, the
+two noncrossing exceptions and the oriented-atom normalization. Check
+the exact E/K formulas and the uniform stronger-exponent contradiction;
+reproduce the bounded checker. Record acceptance or precise corrections
+without inferring signed-deletion sharpness or a new geometric coefficient.
+Stop before constant optimization, new coupling methods or tour enumeration.
 
 ## Deferred direction — Determine the true leading asymptotics
 
@@ -74,8 +75,10 @@ the resolved single-subset envelope. The optimized scalar consequence is
 small in absolute size; Section 12 now incorporates Section 11's stronger
 deletion information. Review the refined bound before choosing further
 deletion estimates or additional coupled information. Scalar sharpness of
-the stated envelope does not limit the broader method. Further three-block
-refinement is deferred.
+the stated envelope does not limit the broader method. The crossing
+obstruction closes improvements that require K=O(E^alpha), alpha>2/3,
+uniformly over tours; it does not settle signed-deletion sharpness.
+Further three-block refinement is deferred.
 Success must address full feasibility or genuinely coupled constraints. Neither known endpoint
 is established as sharp. The coefficient `1/8` is already disproved by
 `liminf R*(n)/n^2>=C_term>1/8`, as recorded in
@@ -93,6 +96,13 @@ upper/recovery/full-root chain. Their detailed audit instructions are cold
 history, not a second queue of current priorities. Revisit a dependency when
 it materially affects the chosen task; success remains acceptance or precise
 corrections within that dependency's stated scope.
+
+The previously prioritized Section 12 review is deferred; this task does
+not record its completion. Its scope remains to
+audit its scalar minimum, rational cubic/integral enclosures, finite error
+directions and full-feasible-deletion transfer, together with the Section 11
+dependency and their bounded checkers. The crossing result does not accept
+or revise that lower bound.
 
 ## Deferred direction — Certification architecture beyond `n=14`
 

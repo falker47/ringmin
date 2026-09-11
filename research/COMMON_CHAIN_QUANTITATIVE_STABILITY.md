@@ -727,8 +727,10 @@ In particular, for every 0<e<=epsilon the quotient satisfies
 The supremum implicit here ranges over all n>=102 and all their cyclic
 orders with 0<e<=epsilon. Thus no deterministic or other family of actual
 tours with e->0 can have |Delta|>=c*sqrt(e) for a fixed c>0. The bound
-does not assert that exponent 2/3 is itself sharp. No new optimization of
-60, beta, q, the scalar minimax or a geometric coefficient is undertaken.
+does not assert that exponent 2/3 is sharp for the signed Delta.
+Section 11.5 proves that it is sharp for the nonnegative crossing term K.
+No new optimization of 60, beta, q, the scalar minimax or a geometric
+coefficient is undertaken.
 
 ### 11.1 Exact finite measure and a midpoint cutoff
 
@@ -942,6 +944,132 @@ record exact finite accounting, symbolic identities and deterministic
 prescribed-tour diagnostics. They do not enumerate general tours or
 serve as proof of the all-order theorem. Sole stable ownership remains
 the existing common-chain entry in the global-bounds ledger.
+
+### 11.5 The crossing exponent 2/3 is sharp for genuine cyclic tours
+
+**Status: exact counterexample family / proved sharp exponent for K,
+after arXiv v1.** The definitions of mu, E, B and K in Sections 11.1-11.3
+are unchanged. There is no finite constant C_0 and exponent alpha>2/3 for which
+K<=C_0*E^alpha holds uniformly over all n>=102 and their genuine cyclic
+tours, even if the inequality is required only for sufficiently small E.
+There is also no uniform K=o(E^(2/3)) as E->0. Together with (39), this
+settles the exponent for K exactly; in particular K=O(E) is false.
+
+Here is an explicit infinite family. For every multiple m of 10 with
+m>=40, set
+
+```text
+n=m^2,  k=floor(q*n),  ell=23*n/100,
+S=n+k,  N=n-k+1,
+c_N=1 if N is odd, and c_N=2 if N is even.
+```
+
+Use the canonical shifted Supnick cyclic order sigma*_{k,n}, explicitly
+given by its two rank lists in
+[the fixed-k note, Section 1](FIXED_K_SUPNICK_SEAM.md#1-canonical-shifted-supnick-order).
+Define a permutation of the vertex labels by
+
+```text
+phi(i)=i+m   for ell-m <= i <= ell-1,
+phi(i)=i-m   for ell   <= i <= ell+m-1,
+phi(i)=i     otherwise,
+sigma_m=(phi(i) : i occurs in sigma*_{k,n}), cyclically.
+```
+
+This is one cycle through exactly {k,...,n}: a bijective relabeling of
+one cycle cannot split it, introduce a loop or repeat a vertex. In
+particular its reflected-edge measure has the exact marginals (32),
+as well as all the undirected-edge symmetry and degree restrictions.
+It is not a doubly stochastic relaxation or a union of short cycles.
+
+The two exchanged blocks lie strictly inside the low-label portion of
+the Supnick tour. Indeed q<1/5 gives
+ell-m-k>3*m^2/100-m>=8, and
+ell+m=23*m^2/100+m<=51*m^2/200<n/2. Thus each exchanged label i has
+exactly the two original neighbors
+
+```text
+j_-=S-1-i,  j_+=S+1-i.
+```
+
+This follows directly from the fixed-k edge formulas in both parities;
+neither the seam nor the middle edge meets the blocks. Both neighbors
+are above n/2 and hence are fixed by phi. The affected edges are
+therefore exactly 4m distinct edges, with one exchanged endpoint each.
+For an exchanged i put t_i=phi(i)-i in {m,-m}. Their new integer defects
+phi(i)+j-S are t_i-1 and t_i+1.
+
+In the base tour, all integer defects are +1 or -1 except for exactly
+c_N zero defects (the seam, and also the middle edge when N is even).
+Its sum of squared integer defects is N-c_N. At each exchanged vertex,
+the new pair of squares totals
+(t_i-1)^2+(t_i+1)^2=2*m^2+2, replacing 2. Summing over the 2m vertices,
+and retaining exactly the normalization in E, proves
+
+```text
+E(sigma_m) = (4*m^3+N-c_N)/n^3.                         (39a)
+```
+
+For K, orient each affected edge first from its relabeled low endpoint.
+In integer coordinates the two measure pairs are
+
+```text
+(phi(i), S-j_-)=(phi(i),i+1),
+(phi(i), S-j_+)=(phi(i),i-1).
+```
+
+The cutoff is ell-1/2 in these coordinates. All 4m such pairs cross it,
+except (i, S-j)=(ell-1,ell) before relabeling and
+(i, S-j)=(ell,ell-1) before relabeling. Those two pairs end on the same
+side after relabeling and have absolute integer defect m-1. For every
+exchanged vertex the two absolute defects sum to (m-1)+(m+1)=2m.
+The sum of crossing absolute integer defects is consequently
+4*m^2-2*(m-1).
+
+The reverse orientations contribute zero to K: both their coordinates
+are above n/2. No unaffected edge contributes either. In the base tour
+|x-z| is at most one mesh step, so its only crossing pairs have integer
+coordinates (ell-1,ell) or (ell,ell-1), and both belong to the affected
+edges just accounted for. This also checks every closing edge. Each
+oriented atom has mass 1/(2*n), and a normalized defect is its integer
+defect divided by n. Hence
+
+```text
+K(sigma_m) = (2*m^2-m+1)/n^2.                           (39b)
+```
+
+These identities are exact for the actual floor k and either parity of
+N. Since 0<N-c_N<=n=m^2, they give
+
+```text
+E(sigma_m)=4/m^3+O(m^-4) -> 0,
+K(sigma_m)=2/m^2-1/m^3+1/m^4,
+K(sigma_m)/E(sigma_m)^(2/3) -> 2^(-1/3),
+K(sigma_m)/E(sigma_m)^alpha
+  ~ (2/4^alpha)*m^(3*alpha-2) -> infinity   (alpha>2/3).
+```
+
+For an explicit nonasymptotic obstruction, E<=5/m^3 and K>=1/m^2
+imply K>=5^(-2/3)*E^(2/3) throughout the family. Equation (39), with
+h=E^(1/3), gives the matching uniform exponent K<=5*E^(2/3) for every
+tour. No claim of optimality of either multiplicative constant is made.
+The degree identity and (5) also give E/8<=e<=E/(8*a), so the family has
+e->0 and likewise obstructs K=O(e^alpha) for alpha>2/3.
+
+This resolves the crossing-term discriminator using the exact cyclic
+structure. The upper estimate |L|<=11*E+2*K alone cannot turn a lower
+bound on K into one on the signed L or Delta; no sharpness assertion
+for Delta is made here. The Section 12 minimax and global coefficients
+remain unchanged. No geometric feasibility or optimality of sigma_m
+at its chain root is asserted, and no new coupling method is started.
+
+The [bounded checker](../ops/TASK-20260911__midpoint_crossing_sharpness/check_crossing.py)
+scores fixed prescribed tours directly in integer arithmetic, including
+both orientations, rotations and reversals, against (39a)-(39b).
+Its [evidence](../ops/TASK-20260911__midpoint_crossing_sharpness/EVIDENCE.md)
+is finite corroboration, not the proof of the infinite family or external
+mathematical acceptance. The common-chain ledger entry is the sole
+thematic owner.
 
 ## 12. Refined two-level minimax from the proved deletion envelope
 
