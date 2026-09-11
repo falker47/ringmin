@@ -675,9 +675,10 @@ external independent acceptance remains separate.
 ### Four-level improvement at a fixed rational witness
 
 **Status:** exact theorem / order-uniform finite bound / proved asymptotic
-global corollary, after arXiv v1. The accepted finite shared-crossing
-corollary is the premise; independent acceptance of this application is
-separate.
+global corollary / unique fixed-cutoff width optimum, after arXiv v1.
+The user identifies the Section 11 witness HEAD as accepted. The new
+Section 12 width optimum awaits independent review; the accepted finite
+shared-crossing corollary is its premise.
 
 Fix the three cutoffs and widths, retaining q=q_* and original radii:
 
@@ -723,13 +724,59 @@ This entry alone owns this fixed four-level improvement; eta_3 and its
 earlier theorem retain their meanings. The old 1/5 cutoff is absent here,
 so no pointwise B_n^(4)>=B_n^(3) follows. The unaltered witness fails the
 first floor separation at n=1000; it succeeds at the proved eventual
-threshold. No optimization, sharp coefficient, normalized global limit,
-tour recovery, expanded finite certification or arXiv-v1 change is asserted.
+threshold. That fixed-witness theorem does not itself optimize widths.
 
-**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Section 11, applying
+At these SAME cutoffs the closed width-only problem is now resolved.
+Let a=113/12500, b=593/50000 and retain the functional eta(h) from the
+general corollary. On h_i>=0, h_1+h_2<=a and h_2+h_3<=b, its unique
+global maximizer is
+
+```text
+h^opt=(a-x_*,x_*,b-x_*),
+0.00451910758124826 < x_* < 0.00451910758124827,
+eta_width=eta(h^opt),
+0.00000038803240421408705 < eta_width < 0.00000038803240421408841,
+0.00000000017917433572119 < eta_width-eta_4
+                        < 0.00000000017917433572254,
+0.14056946887766098063257 < C_term+eta_width
+                        < 0.14056946887766098063392,
+liminf B_n^(4)/n^2 >= C_term+eta_width,
+liminf R*(n)/n^2 >= C_term+eta_width.
+```
+
+The proof characterizes x_* as the unique root of an explicit cubic
+G=N'L+432N with G'<0 on [0,a]. Rational enclosures of the existing exact
+D_i certify its endpoint signs and strictly positive constraint
+multipliers. An exact cubic remainder identity proves global uniqueness
+on the ENTIRE closed region, including zero widths and F<=0. This is
+not a numerical parameter search. The maximum gain is about 0.0461964
+percent of eta_4; it is an exact ceiling only on this fixed-cutoff
+variational expression, not on the geometric or common-chain optimum.
+
+The accepted rational widths are not even locally maximizing: their
+first-coordinate derivative is positive with feasible slack. The concrete
+rational w^+=(452/100000,451/100000,367/50000) has both strict margins
+1/100000, improves eta by more than 4.864271653624e-11, and satisfies
+the finite corollary for every n>=100000. It does not redefine eta_4.
+
+Both constraints are active at h^opt. The same value is the unattained
+supremum with strict separation, giving the displayed liminf bounds by
+fixed scaling and continuity. Unchanged h^opt fails BOTH finite floor
+separations at every n=50000k+1, k>=1. For 0<t<1, widths t*h^opt
+have the sufficient all-n gate N(t)=ceil(1/((1-t)*a)) and
+0<eta_width-eta(t*h^opt)<(1-t)/2000000. A weak-boundary optimum is
+therefore not an eventual finite gate at the unchanged widths.
+
+This entry alone owns the fixed four-level witness and its width-only
+extension. No new cutoffs, geometrically sharp coefficient, normalized
+global limit, tour recovery, expanded finite certification or arXiv-v1
+change is asserted.
+
+**Source:** `research/THREE_LEVEL_COMMON_CHAIN.md`, Sections 11-12, applying
 Sections 7 and 9; standalone exact checker
 `ops/TASK-20260911__four_level_rational_witness/check_four_level.py` and its
-dossier. No production, result, third-party or prior-checker imports.
+dossier, plus `ops/TASK-20260911__four_level_width_optimum/check_width_optimum.py`
+and its dossier. No production, result, third-party or prior-checker imports.
 
 ### Increasing-order full asymptotic upper bound
 
@@ -1191,7 +1238,7 @@ settle the remaining coefficient gap.
 1. Prove or refute the parts of the floating-cascade conjecture that concern global optima rather than formal Supnick seams.
 2. Characterize the floating set `F(n)` asymptotically.
 3. Determine the true global normalized liminf and limsup inside
-   `[C_term+eta_4,C_3(1/250)]`, including whether they agree; improve beyond the
+   `[C_term+eta_width,C_3(1/250)]`, including whether they agree; improve beyond the
    current three-block construction or obtain sharper
    genuinely coupled-subset or full-geometric lower bounds beyond every single induced-subset chain
    bound. The proposed coefficient `1/8` is disproved.

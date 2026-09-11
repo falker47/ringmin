@@ -814,3 +814,232 @@ The [owning ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improve
 and [task evidence](../ops/TASK-20260911__four_level_rational_witness/EVIDENCE.md)
 record scope and reproducibility. Independent acceptance of this new
 fixed-witness theorem remains separate from its accepted general premise.
+
+## 12. The global width optimum at the same three cutoffs
+
+**Status: exact theorem / rigorously enclosed variational optimum / proved
+asymptotic global corollary, after arXiv v1.** The user identifies the
+Section 11 HEAD as accepted. This section optimizes only its three widths;
+the cutoffs, q, D_i, stability constants and common-chain problem are
+unchanged. The Section 11 rational witness and its finite theorem retain
+their original meanings. Independent acceptance of this new theorem is separate.
+
+### 12.1 Domain, unique maximizer and exact scalar characterization
+
+Write
+
+```text
+a=beta_2-beta_1=113/12500, b=beta_3-beta_2=593/50000,
+s=a+b=209/10000, ell=16+432*s,
+P={h in [0,infinity)^3: h_1+h_2<=a, h_2+h_3<=b},
+F(h)=sum_i h_i*D_i-8*sum_i h_i^3,
+L(h)=16+432*sum_i h_i, eta(h)=F(h)_+/(pi*L(h)).
+```
+
+Here s is a local width sum, not the reflected finite-grid parameter in
+Section 9. The set P is compact: h_1<=a, h_2<=a<b and h_3<=b.
+The objective is continuous, including F=0, so a maximum exists.
+
+The unique maximizer is
+
+```text
+h^opt=(a-x_*, x_*, b-x_*),
+eta_width=eta(h^opt)>0,
+0.00451910758124826 < x_* < 0.00451910758124827.         (34)
+```
+
+The following cubic with the EXISTING exact integral coefficients defines
+x_* without any numerical optimization. On the intersection of the two
+separation faces, for 0<=x<=a, put
+
+```text
+c_0=a*D_1+b*D_3-8*(a^3+b^3),
+c_1=D_2-D_1-D_3+24*(a^2+b^2),
+N(x)=F(a-x,x,b-x)=c_0+c_1*x-24*s*x^2+8*x^3,
+l(x)=L(a-x,x,b-x)=ell-432*x,
+G(x)=N'(x)*l(x)+432*N(x)
+    =ell*c_1+432*c_0-48*ell*s*x
+       +(24*ell+10368*s)*x^2-6912*x^3.                (35)
+```
+
+Its derivative is exactly
+
+```text
+G'(x)=N''(x)*l(x)=48*(x-s)*l(x)<0   (0<=x<=a).        (36)
+```
+
+The strict sign uses a<s and l(x)>=16+432*b>0. The rational gates in
+Section 12.3 prove G(0)>0, G(a)<0 and, more narrowly, opposite strict
+signs at the two rational endpoints in (34). The intermediate value
+theorem and (36) give exactly one root x_* on the whole edge. In
+particular every coordinate of h^opt is strictly positive.
+
+This alone would only optimize the edge. The next argument certifies the
+entire three-dimensional closed region, including all other faces, zeros
+and vertices; it does not assume beforehand that both constraints are active.
+
+### 12.2 An exact global certificate and the accepted-width classification
+
+Set u=h^opt and rho=F(u)/L(u)=pi*eta_width. Define
+
+```text
+g_i=D_i-24*u_i^2-432*rho,
+lambda_1=g_1, lambda_2=g_3.
+```
+
+The rational gates prove F(u)>0, lambda_1>0.00035 and
+lambda_2>0.00059. Equation G(x_*)=0, divided by l(x_*), is
+
+```text
+-g_1+g_2-g_3=0,
+grad(F-rho*L)(u)=(lambda_1,lambda_1+lambda_2,lambda_2).
+```
+
+For EVERY h in P, the cubic identity
+h_i^3-u_i^3-3*u_i^2*(h_i-u_i)=(h_i-u_i)^2*(h_i+2*u_i)
+therefore gives the exact certificate
+
+```text
+F(h)-rho*L(h)
+ =lambda_1*(h_1+h_2-a)+lambda_2*(h_2+h_3-b)
+   -8*sum_i (h_i-u_i)^2*(h_i+2*u_i) <= 0.             (37)
+```
+
+Both linear terms are nonpositive. Since every u_i>0, the final sum is
+strictly positive whenever h!=u. Thus F(h)/L(h)<rho for h!=u. If F(h)<=0,
+eta(h)=0<rho/pi as well. This proves the unique GLOBAL maximizer of the
+positive-part quotient, without a face search. Equivalently, (37) is an
+explicit strict-concavity/KKT certificate for F-rho*L. It also shows why
+zero-width solutions or a disconnected positive-part plateau cannot tie.
+
+Let w=(451/100000,451/100000,367/50000) be the accepted witness and
+rho_4=F(w)/L(w). Both separation margins are positive by (28), and
+
+```text
+partial_(h_1) eta(w)
+ =[D_1-24*w_1^2-432*rho_4]/(pi*L(w))>0,
+D_1-24*w_1^2-432*rho_4>0.00035.                       (38)
+```
+
+For sufficiently small epsilon>0, w+epsilon*(1,0,0) is feasible and
+strictly improves eta; feasibility permits epsilon<1/50000. Hence the
+accepted widths are neither globally nor locally maximizing. A concrete
+strictly separated rational improvement, without changing any cutoff, is
+
+```text
+w^+=(452/100000,451/100000,367/50000),
+delta_1(w^+)=delta_2(w^+)=1/100000,
+0.00000000004864271653624 < eta(w^+)-eta_4
+                         < 0.00000000004864271653627. (39)
+```
+
+Section 9 consequently gives its fixed-width finite bound for every
+n>=100000, with eta(w^+) and A(w^+) in place of eta_4 and A_4. This is
+an additional witness, not a redefinition of the accepted one.
+
+### 12.3 Rational enclosures and the maximum possible gain
+
+The [standalone checker](../ops/TASK-20260911__four_level_width_optimum/check_width_optimum.py)
+rederives tau, q and pi by the alternating rational sums and the three
+D_i by the 80-term integrated binomial series, explicit positive tail and
+moving-q error from Section 11.2. Those formulas enclose the exact
+transcendental constants; no quadrature, floating constants, optimizer or
+saved results are premises. After enclosing each D_i it rounds OUTWARDS
+to rational endpoints at 30 decimal places, then evaluates the polynomial
+endpoint signs and all subsequent interval expressions by Fraction arithmetic.
+
+In particular, substituting the two FIXED rational endpoints in (34)
+gives G(left)>0 and G(right)<0 even with the full D_i uncertainties.
+Widths in (34) give positive F and the multiplier lower bounds used in
+(37). The accepted eta_4 is recomputed with these same integral enclosures.
+Subtracting opposite endpoints encloses the actual maximum gain; the
+positive-part branch has been discharged for both values. Exact results are
+
+```text
+0.00136820131190299900276 < D_1 < 0.00136820131190299900279,
+0.00196196296152142894680 < D_2 < 0.00196196296152142894683,
+0.00241410289623904895464 < D_3 < 0.00241410289623904895467,
+0.00452089241875173 < h^opt_1 < 0.00452089241875174,
+0.00734089241875173 < h^opt_3 < 0.00734089241875174,
+0.00000038803240421408705 < eta_width
+                        < 0.00000038803240421408841,
+0.00000000017917433572119 < eta_width-eta_4
+                        < 0.00000000017917433572254,
+0.04619642739017392470216 < 100*(eta_width-eta_4)/eta_4
+                        < 0.04619642739051527365913,
+0.14056946887766098063257 < C_term+eta_width
+                        < 0.14056946887766098063392.   (40)
+```
+
+All displayed decimals are exact rationals and all inequalities are
+strict. The relative gain is about 0.0461964 percent of eta_4, not of
+the full coefficient C_term+eta_4. Formula (37) proves that NO other
+feasible widths at these cutoffs can gain more than the upper endpoint
+for eta_width-eta_4 in (40). Sharpness here is for this variational
+expression only, not for the common-chain minimax or the geometric optimum.
+
+### 12.4 Weak separation, strict widths and finite floors
+
+Both separation sums of u=h^opt are equalities. For every fixed 0<t<1,
+t*u has strictly positive widths and strict margins (1-t)*a and (1-t)*b.
+It follows from Section 9 and then continuity as t increases to 1 that
+
+```text
+sup_{h_i>0, h_1+h_2<a, h_2+h_3<b} eta(h)=eta_width,
+liminf B_n^(4)/n^2 >= C_term+eta_width,
+liminf R*(n)/n^2 >= C_term+eta_width.                  (41)
+```
+
+The strict-domain supremum is not attained: (37) makes u the unique
+maximizer on the closure. The minimax B_n^(4) depends on the cutoffs and
+common order, not on the auxiliary widths, so the same liminf is bounded
+for every fixed t. Passing to the supremum does not exchange an n-limit
+with minimizing tours, assume a normalized limit, or require n-dependent widths.
+
+There is an explicit quantitative approach to the boundary. Set
+U=sum_i u_i*D_i, V=sum_i u_i^3, H=sum_i u_i and L_*=16+432*H.
+Since U-8V>0, F(t*u)=t*(U-8*t^2*V)>0 for 0<t<=1. For 0<t<1,
+direct algebra gives
+
+```text
+0<eta_width-eta(t*u)
+ =(1-t)*[16*U-128*(1+t+t^2)*V-3456*H*t*(1+t)*V]
+   /[pi*L_*(16+432*t*H)]
+ <=(1-t)*U/(pi*L_*) < (1-t)/2000000.                 (42)
+```
+
+Strict positivity follows from uniqueness, while the upper bound drops
+the negative terms and uses 16+432*t*H>=16. The final rational gate is
+checked. For every fixed t in (0,1), the explicit sufficient gate
+
+```text
+N(t)=ceil(1/((1-t)*a))
+```
+
+discharges (23) for every n>=N(t). Indeed b>a,
+N(t)*(1-t)*a>=1, beta_1-q>a and 1/a>102, so all Section 9 domain and
+separation conditions follow. For example, t=9999/10000 gives
+N(t)=1106195 and eta_width-eta(t*u)<5e-11. Its finite conclusion is
+B_n^(4)/n^2>=C_term+eta(t*u)-A(t*u)/n; neither the scaling loss nor the
+1/n loss is discarded at finite n.
+
+The unchanged boundary widths have NO eventual all-n floor gate. For
+every integer k>=1, at n=50000*k+1, the exact floors are
+
+```text
+(ell_1,ell_2,ell_3)=(10455*k,10907*k,11500*k),
+(ell_2-ell_1)/n=a*(n-1)/n<a=u_1+u_2,
+(ell_3-ell_2)/n=b*(n-1)/n<b=u_2+u_3.                 (43)
+```
+
+Thus BOTH finite separations fail infinitely often, despite (41).
+At n divisible by 50000 both floor separations instead equal a and b;
+the other stability gates hold there, so Section 9 can be applied at
+u on that subsequence. This does not supply a finite bound at every
+sufficiently large n with the unchanged boundary widths.
+
+The width-only problem is resolved globally. The [owning ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improvement-at-a-fixed-rational-witness)
+records its result beside the accepted witness; the [dossier](../ops/TASK-20260911__four_level_width_optimum/EVIDENCE.md)
+records fresh arithmetic and dependency checks. No cutoff search, new
+geometric optimizer, finite optimum certificate, upper construction or
+arXiv-v1 revision is part of this theorem.

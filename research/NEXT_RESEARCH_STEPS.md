@@ -24,14 +24,15 @@ provenance question, not routine orientation.
   complete fixed-order full-feasibility classification are resolved. These
   do not establish global floating behavior. See the [classification entry](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification).
 - **Proved global bounds:** the strongest current lower endpoint is
-  `C_term+eta_4`; the strongest current upper coefficient is
+  `C_term+eta_width`; the strongest current upper coefficient is
   `C_3(1/250)`. Thus the current coefficient interval is
-  `[C_term+eta_4,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
+  `[C_term+eta_width,C_3(1/250)]`, and `R*(n)=Theta(n^2)`.
   The [four-level entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#four-level-improvement-at-a-fixed-rational-witness)
-  owns the lower endpoint, its exact integral definition and finite bounds;
+  owns the lower endpoint, the unique fixed-cutoff width optimum and the
+  distinction between its weak-boundary limit and strict finite gates;
   the [fixed 1/250 global entry](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#fixed-third-width-1250-improved-global-upper-bound)
   owns the upper corollary. The source statements are
-  [four-level Section 11](THREE_LEVEL_COMMON_CHAIN.md#11-a-fixed-four-level-rational-improvement)
+  [four-level Section 12](THREE_LEVEL_COMMON_CHAIN.md#12-the-global-width-optimum-at-the-same-three-cutoffs)
   and [fixed 1/250 Section 7](PERMUTED_HALVES_THIRD_BLOCK_250_TRANSFER.md#7-consequence-bounded-checker-and-scope).
   Neither endpoint is established as sharp; no normalized global limit is proved.
 - **Resolved lower-bound discriminators:** a single induced-subset chain
@@ -43,8 +44,10 @@ provenance question, not routine orientation.
   See the corresponding sections of the [global-bounds ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md).
   The [arbitrary-finite-cutoff extension](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md#arbitrarily-many-finite-cutoffs-with-one-shared-crossing-energy)
   now supplies the general shared-energy lemma and finite minimax corollary,
-  with a precise pointwise sharpness scope. The user reports that extension
-  accepted; its fixed four-level application awaits independent review.
+  with a precise pointwise sharpness scope. The user identifies the fixed
+  four-level witness HEAD as accepted. Its width-only optimization is now
+  proved with a unique global maximum and a rigorously bounded gain;
+  independent review of that extension is the next gate.
 - **Exact deletion-exponent theorem:** [Section 11](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#11-the-square-root-loss-is-not-sharp-for-actual-cyclic-tours)
   rules out square-root sharpness uniformly over actual tours.
   [Section 11.5](COMMON_CHAIN_QUANTITATIVE_STABILITY.md#115-the-crossing-exponent-23-is-sharp-for-genuine-cyclic-tours)
@@ -66,21 +69,23 @@ provenance question, not routine orientation.
   [mixed-width entry](../knowledge/FIXED_ORDER_THEORY.md#unique-continuous-mixed-width-minimum-of-the-third-reflection);
   these continuous costs do not replace the current global upper bound.
 
-## Priority 1 — Independent review of the fixed four-level witness
+## Priority 1 — Independent review of the fixed-cutoff width optimum
 
-Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Section 11, at committed
-HEAD. Reproduce the fixed-witness arithmetic checker and audit the rational
-integral tails, moving-q errors, old eta_3 comparison, all-n floor/stability
-gates and finite/global transfer through the accepted corollary. Confirm
-the three supplied cutoffs and widths are unchanged. Record acceptance or
-precise corrections; stop before parameter search or further research.
+Independently review `THREE_LEVEL_COMMON_CHAIN.md`, Section 12, at committed
+HEAD. Reproduce its standalone width checker and audit the cubic root
+isolation, global remainder/multiplier certificate, rational maximum-gain
+enclosures, accepted-width local nonoptimality and weak/strict finite-floor
+distinction. Confirm the three cutoffs and the earlier witness theorem
+are unchanged. Record acceptance or precise corrections; stop before any
+new parameter search or further research.
 
 ## Deferred direction — Determine the true leading asymptotics
 
 Determine the true normalized liminf and limsup within
-`[C_term+eta_4,C_3(1/250)]`, and whether they agree. The concrete four-level
-discriminator is resolved positively at the supplied rational witness.
-Review that application before selecting further lower-bound work.
+`[C_term+eta_width,C_3(1/250)]`, and whether they agree. The concrete
+four-level discriminator and the global width-only optimization at its
+fixed cutoffs are resolved. Review the latter before selecting further
+lower-bound work; repeating width optimization at these cutoffs is closed.
 Neither the fixed witnesses nor scalar sharpness of the preceding
 two-level envelope establish a ceiling on common-order methods. The crossing and
 signed-discrepancy obstructions close improvements that require a uniform
