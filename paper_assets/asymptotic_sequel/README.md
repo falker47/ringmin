@@ -1,65 +1,68 @@
 # Standalone asymptotic sequel
 
-**READY_FOR_REVIEW.** Unsubmitted; independent external review is pending.
+**ARXIV_SUBMISSION_CANDIDATE.** This is the single standalone artifact prepared
+for manual NEW arXiv submission. Task state: `READY_FOR_REVIEW`; no submission
+or external mathematical acceptance is claimed.
 
 *Minimum central circles: an effective characterization of the global
-asymptotic constant*, Maurizio Falconi.
+asymptotic constant*, Maurizio Falconi. September 12, 2026. Eight pages.
 
-The [source](ringmin_asymptotic.tex) and [PDF](ringmin_asymptotic.pdf) present
-the global asymptotic theorem, its effective finite-word LP characterization,
-explicit error, geometric recovery and explicit bounds. The historical
-finite/Supnick study is cited as arXiv:2607.28654; its algorithm, finite tables
-and Supnick proof are not republished here. Minimal angular/chain/full
-definitions are included for self-containment.
+The [manuscript](ringmin_asymptotic.tex) and [PDF](ringmin_asymptotic.pdf)
+present the angular-to-line reduction, global limit, effective finite-word LP
+characterization, full geometric recovery and explicit endpoints. The finite
+study is cited as arXiv:2607.28654v1; finite algorithms and tables stay there.
+The [architecture claim map](../../ops/TASK-20260911__publication_architecture/SEQUEL_CLAIM_MAP.md)
+still describes the unchanged science. The proof supplement remains pinned to
+`3beb8d70c5b3748d370a92855847bdf574e5a14f`.
 
-## Contents
+## Exact upload and metadata
 
-1. Problem and relation to prior finite work.
-2. Exact angular comparison.
-3. Existence by genuine-label concatenation.
-4. Effective finite-word characterization.
-5. Explicit geometric upper constructions.
-6. An explicit global lower endpoint.
-7. Reproducibility and open questions.
+- Upload only [source_bundle/ringmin_asymptotic.tex](source_bundle/ringmin_asymptotic.tex).
+  It is byte-identical to the manuscript and contains its bibliography.
+- Copy the fields in [ARXIV_METADATA.md](ARXIV_METADATA.md), also available as
+  [JSON](ARXIV_METADATA.json). The prior author's non-exclusive arXiv license
+  choice is preserved in the guidance; no new identifier, journal reference
+  or DOI is supplied.
+- [BUILD_MANIFEST.json](BUILD_MANIFEST.json) identifies exact filenames, byte
+  sizes, SHA-256 hashes, processor, main file, TeX environment and builder.
+  Metadata, manifest, PDF and this README are outside the upload directory.
+- The [finalization evidence](../../ops/TASK-20260912__standalone_submission_candidate/EVIDENCE.md)
+  records independent package checks, every-page inspection, references,
+  overlap and fresh bounded mathematical checks.
 
-See the [claim map](../../ops/TASK-20260911__publication_architecture/SEQUEL_CLAIM_MAP.md)
-and [policy/overlap audit](../../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md).
-The complete mathematical supplement is pinned to the public commit
-`3beb8d70c5b3748d370a92855847bdf574e5a14f` in the bibliography. Its exact
-theorems remain distinct from bounded checker evidence and external acceptance.
+## Rebuild
 
-## Source-only build and metadata
-
-The complete [source bundle](source_bundle/) contains only
-`ringmin_asymptotic.tex`, with inline bibliography and no external assets.
-From its root run the following command until references stabilize (three
-passes in the recorded build):
+From the source bundle in a clean directory, run this command three times:
 
 ```text
 pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder ringmin_asymptotic.tex
 ```
 
-Alternatively, from the repository root:
+Or from the repository root:
 
 ```text
 python paper_assets/build_publications.py sequel
 ```
 
 The builder copies only declared inputs into a fresh ignored directory,
-requires stable references and zero box/glyph/citation warnings, then records
-input/PDF/build hashes in [BUILD_MANIFEST.json](BUILD_MANIFEST.json).
-The [review metadata](REVIEW_METADATA.json) agree with the source and PDF;
-they are not an authorization to submit. Python is unnecessary for direct TeX
-compilation. Use pdfLaTeX with geometry, AMS packages, booktabs, longtable,
-hyperref, T1 and Latin Modern. Local TL2025 packages are newer than arXiv's
-frozen snapshot; actual arXiv PDF inspection remains a later human gate.
+requires at least three passes with stable references and zero box, glyph or
+citation warnings, and regenerates the manifest and both metadata formats.
+Python is unnecessary for direct compilation. The source uses geometry, AMS
+packages, booktabs, longtable, hyperref, T1 and Latin Modern. Scoped LF
+attributes preserve source bytes on checkout. Identical PDF bytes additionally
+require the recorded TeX package/font snapshot and source-date epoch; the
+epoch is fixed at September 11 for reproducibility, independently of the
+manuscript's September 12 date. The build report records system-input hashes.
 
-## Publication sequence and boundary
+## Publication boundary
 
-First independently review this standalone. A later author-controlled
-submission may request a new identifier. Only if a real identifier is assigned
-should a separate atomic task finalize the [corrective original-paper v2](../v1_correction/README.md).
-Moderators may require versioning or consolidation even without large textual
-overlap. In that event prepare the fully integrated fallback specified in the
-policy audit; the old nine-page candidate is insufficient. No submission,
-release, tag or external acceptance is part of this task.
+The next human action is to manually create a **NEW** arXiv submission with
+this bundle and inspect arXiv's compiled PDF before finalizing. Local builds
+do not establish equivalence to arXiv's TeX distribution or moderation approval.
+The [policy/overlap audit](../../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
+explains the residual possibility of consolidation or versioning.
+
+The [corrective finite-paper v2](../v1_correction/README.md) remains
+`AWAITING_STANDALONE_ARXIV_ID`; it cannot be finalized until a real identifier
+exists. The [former replacement](../v2/README.md) remains
+`EDITORIALLY_SUPERSEDED`. Historical sources and audit evidence are preserved.

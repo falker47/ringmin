@@ -1,4 +1,4 @@
-"""Build the two review candidates from isolated, source-only directories.
+"""Build the standalone submission candidate or pending finite correction.
 
 The source bundles also compile directly with pdflatex, without this script.
 No historical asset is modified. Matching bytes requires matching TeX inputs.
@@ -16,7 +16,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES = {
-    'sequel': ('asymptotic_sequel', 'ringmin_asymptotic', 'READY_FOR_REVIEW'),
+    'sequel': ('asymptotic_sequel', 'ringmin_asymptotic', 'ARXIV_SUBMISSION_CANDIDATE'),
     'correction': ('v1_correction', 'ringmin_finite_v2',
                    'AWAITING_STANDALONE_ARXIV_ID'),
 }
@@ -73,7 +73,9 @@ def build(key, engine):
                            + work.relative_to(ROOT).as_posix())
     shutil.copyfile(work / (stem + '.pdf'), candidate / (stem + '.pdf'))
     manifest = {
-        'status': status, 'publication_action': 'none; independent review pending',
+        'status': status,
+        'publication_action': ('author to create a NEW arXiv submission and inspect server PDF'
+                               if key == 'sequel' else 'none; independent review pending'),
         'source_date_epoch': 1789084800,
         'command': f'python paper_assets/build_publications.py {key}',
         'direct_compile': ' '.join(['pdflatex'] + args[1:]),
@@ -89,11 +91,97 @@ def build(key, engine):
                   'Byte reproducibility needs identical packages, fonts and input bytes. '
                   'Git line-ending conversion can change text hashes.',
     }
+    if key == 'sequel':
+        manifest.update(main_file=stem + '.tex', processor='pdflatex',
+                        builder_bytes=Path(__file__).stat().st_size)
+        manifest['pdf']['bytes'] = (candidate / (stem + '.pdf')).stat().st_size
+        write_submission_metadata(candidate, stem, log)
     (candidate / 'BUILD_MANIFEST.json').write_text(
-        json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+        json.dumps(manifest, indent=2) + '\n', encoding='utf-8',
+        newline='\n' if key == 'sequel' else None)
     print(f'PASS {key}: {passes} clean passes; stable aux/out; zero warnings', flush=True)
     print('CLEAN_BUILD=' + work.relative_to(ROOT).as_posix(), flush=True)
     print('PDF_SHA256=' + manifest['pdf']['sha256'], flush=True)
+
+
+def write_submission_metadata(candidate, stem, log):
+    """Derive copy-ready fields from the exact manuscript outside the bundle."""
+    source = (candidate / (stem + '.tex')).read_text(encoding='utf-8')
+    title = re.search(r'pdftitle=\{([^}]+)\}', source).group(1)
+    author = re.search(r'\\author\{([^}]+)\}', source).group(1)
+    abstract = re.search(r'\\begin\{abstract\}(.*?)\\end\{abstract\}', source, re.S).group(1)
+    abstract = re.sub(r'\s+', ' ', abstract).strip()
+    for before, after in [(r'\Rstar', r'{R^\ast}'), (r'\CC', r'{C_\ast}'),
+                          (r'\rm term', r'\mathrm{term}'),
+                          (r'\rm width', r'\mathrm{width}')]:
+        abstract = abstract.replace(before, after)
+    if (len(abstract) > 1920 or not abstract.isascii() or
+            not set(re.findall(r'\\([A-Za-z]+)', abstract)) <=
+            {'ast', 'ldots', 'pi', 'mathrm', 'eta', 'le'}):
+        raise RuntimeError('Abstract needs an explicit metadata expansion')
+    pages = int(re.search(r'Output written on .*?\((\d+) pages?', log, re.S).group(1))
+    supplement = 'https://github.com/falker47/ringmin/tree/3beb8d70c5b3748d370a92855847bdf574e5a14f'
+    comments = (f'{pages} pages, no figures. Asymptotic sequel to arXiv:2607.28654v1. '
+                'Proves existence and an effective finite-program characterization of the '
+                'global asymptotic constant. Proofs and code: ' + supplement)
+    license_name = 'arXiv.org perpetual, non-exclusive license'
+    license_url = 'https://arxiv.org/licenses/nonexclusive-distrib/1.0/license.html'
+    metadata = {
+        'Status': 'ARXIV_SUBMISSION_CANDIDATE', 'Title': title, 'Authors': author,
+        'Abstract': abstract, 'Abstract characters': len(abstract), 'Pages': pages,
+        'Comments': comments, 'Primary category': 'cs.CG',
+        'Cross-lists recommended': ['math.MG'],
+        'MSC2020': {'Primary': ['52C15'], 'Secondary': ['52C26', '90C05']},
+        'License guidance': 'Preserve the author\'s choice displayed on arXiv:2607.28654v1: ' + license_name,
+        'License URL': license_url, 'Processor': 'pdflatex', 'Main file': stem + '.tex',
+        'Submission type': 'NEW', 'Scientific supplement': supplement,
+    }
+    (candidate / 'ARXIV_METADATA.json').write_text(
+        json.dumps(metadata, indent=2) + '\n', encoding='utf-8', newline='\n')
+    handoff = f'''# arXiv submission metadata
+
+Copy the fields below for a **NEW** submission. Upload only the contents of
+`source_bundle/`; the PDF, manifest and metadata stay outside that directory.
+Inspect arXiv's compiled PDF before finalizing the submission.
+
+## Title
+
+{title}
+
+## Authors
+
+{author}
+
+## Abstract
+
+```text
+{abstract}
+```
+
+## Comments
+
+{comments}
+
+## Classification
+
+- Primary category: `cs.CG` (Computational Geometry).
+- Recommended cross-list: `math.MG` (Metric Geometry), subject to arXiv classification.
+- MSC2020: Primary `52C15`; Secondary `52C26`, `90C05`.
+
+## License and source
+
+- Preserve the prior paper's author-selected [{license_name}]({license_url}).
+  The repository's MIT code license does not select a paper license.
+- Processor: `pdflatex`.
+- Main source: `{stem}.tex`.
+- Leave journal reference, DOI and report number blank; none is assigned here.
+
+The manuscript is {pages} pages. Exact source/PDF hashes are in
+[BUILD_MANIFEST.json](BUILD_MANIFEST.json). The machine-readable copy is
+[ARXIV_METADATA.json](ARXIV_METADATA.json). This is prepared metadata, not a
+record of submission, moderation or external mathematical acceptance.
+'''
+    (candidate / 'ARXIV_METADATA.md').write_text(handoff, encoding='utf-8', newline='\n')
 
 
 def main():

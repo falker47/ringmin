@@ -16,7 +16,9 @@ dedicated `STRICT` revision task before any change.
 
 ## Current two-manuscript architecture, 2026-09-11
 
-**Status:** `READY_FOR_REVIEW`, unsubmitted, without external acceptance.
+**Status:** standalone `ARXIV_SUBMISSION_CANDIDATE`, task `READY_FOR_REVIEW`,
+unsubmitted and without external acceptance. Finalized on 2026-09-12 in the
+[standalone finalization dossier](../ops/TASK-20260912__standalone_submission_candidate/TASK_STATUS.md).
 The primary finite/Supnick reference remains the real public v1. Default
 citation and `CITATION.cff` remain anchored to it.
 
@@ -33,8 +35,10 @@ citation and `CITATION.cff` remain anchored to it.
 
 The [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
 and [overlap/policy audit](../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
-identify the separation and residual moderation risk. The next action is
-independent review of the standalone. Only later, if arXiv accepts a distinct
+identify the separation and residual moderation risk. The exact eight-page
+standalone source bundle and copy-ready metadata are the manual NEW-submission
+handoff; server PDF inspection is required before finalizing. Only later,
+if arXiv accepts a distinct
 submission and assigns a real identifier, may a separate task replace the
 corrective placeholder and rebuild/re-audit before submission. If moderation
 requires versioning, prepare a genuinely integrated reference paper containing

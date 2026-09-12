@@ -1,6 +1,6 @@
 {
-  "status": "READY_FOR_REVIEW",
-  "publication_action": "none; independent review pending",
+  "status": "ARXIV_SUBMISSION_CANDIDATE",
+  "publication_action": "author to create a NEW arXiv submission and inspect server PDF",
   "source_date_epoch": 1789084800,
   "command": "python paper_assets/build_publications.py sequel",
   "direct_compile": "pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder ringmin_asymptotic.tex",
@@ -10,16 +10,20 @@
   "source_files": [
     {
       "name": "ringmin_asymptotic.tex",
-      "bytes": 25680,
-      "sha256": "28853635a65267e1772352436f29d6c19d0a0b8ace823aa72a0d77f52ad8622f"
+      "bytes": 26863,
+      "sha256": "5248445a3a1b92c494466fdfe266555023bbc13606f93ffc07ec229538b886e6"
     }
   ],
   "pdf": {
     "name": "ringmin_asymptotic.pdf",
-    "sha256": "fb909549dd9b123a8e97b84d015682788244bb8996e65f86bd1be8656b237d8b"
+    "sha256": "1f3bb01a8088b7b345eea710c99653ee4f06fb27cc45c58642333510e2d96454",
+    "bytes": 325473
   },
-  "builder_sha256": "90685e8c959aee3643c15c7a0982a10244a7cb58c2baf2832da71c349cabc618",
+  "builder_sha256": "01eaa7bb01ef93e6c91c8cd2de693234a310d3892e52b7b635f62e4c54a432f7",
   "scientific_supplement_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
   "publication_generation_commit": "Containing commit; see git log for this manifest",
-  "limits": "Local TeX Live 2025 package snapshot is newer than arXiv 2025-08-03. Byte reproducibility needs identical packages, fonts and input bytes. Git line-ending conversion can change text hashes."
+  "limits": "Local TeX Live 2025 package snapshot is newer than arXiv 2025-08-03. Byte reproducibility needs identical packages, fonts and input bytes. Git line-ending conversion can change text hashes.",
+  "main_file": "ringmin_asymptotic.tex",
+  "processor": "pdflatex",
+  "builder_bytes": 9187
 }

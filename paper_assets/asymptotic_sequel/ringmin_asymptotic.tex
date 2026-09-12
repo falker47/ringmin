@@ -20,7 +20,7 @@
 \DeclareMathOperator{\asin}{arcsin}
 \title{Minimum central circles:\\an effective characterization of the global asymptotic constant}
 \author{Maurizio Falconi}
-\date{September 11, 2026}
+\date{September 12, 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -38,7 +38,7 @@ A quantitative reflected-block recovery theorem supplies genuine permutations
 and full ring geometry, with a countable extension and a strict four-block
 improvement. The explicit interval is
 $C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$; neither endpoint is asserted sharp.
-In particular, the earlier proposed coefficient $1/8$ is false.
+In particular, the coefficient $1/8$ proposed in the preceding finite study is false.
 An elementary expression for $\CC$, efficient high-precision evaluation and
 global floating-circle structure remain open.
 \end{abstract}
@@ -69,7 +69,7 @@ concatenation and balanced finite-word programs. The lower and upper bounds
 converge to the same constant with a prescribed error. Separate explicit
 constructions give the interval stated in the abstract and disprove the
 coefficient conjecture of \cite{v1}. Their complete proof dependencies are
-specified in the supplement; the main variational characterization does
+given in the supplementary material; the main variational characterization does
 not assume either endpoint mechanism is optimal.
 
 The line problem has a familiar geometric interpretation. Disks of radii
@@ -264,7 +264,7 @@ word-span enclosures of width at most $(r-1)\epsilon$: every path in
 \eqref{eq:recurrence} has at most $r-1$ edges. Rational endpoint LPs
 then enclose $\lambda_{k,r}$ with additional width at most
 $(r-1)\epsilon/r$. They can be solved by finite exact vertex enumeration.
-Practical solvers may instead discover candidates, followed by exact checks.
+Practical solvers may instead find solutions for subsequent exact verification.
 For a rational lower cost $\ell^-(w)$, dual coefficients satisfying
 \[
  y_0+\sum_j y_jc_j(w)\le\ell^-(w)/r\quad\hbox{for every word}
@@ -275,9 +275,9 @@ rational comparisons; equality is not decided by indefinite interval
 refinement. Together with a rational enclosure of $\pi$, this proves
 arbitrary-precision computability of $\CC$ in principle.
 
-The word count is exponential in $r$. No claim of cheap high-precision
-evaluation or a closed-form constant follows. The bounded implementation
-uses SciPy only to propose sparse primal and dual candidates; exact Fraction
+The word count is exponential in $r$. No efficient high-precision
+algorithm or closed-form constant follows. The supplementary implementation
+uses SciPy to find sparse primal and dual solutions; exact rational
 arithmetic validates every equality and word inequality. Small word programs
 need not improve the stronger explicit endpoint bounds below.
 
@@ -318,7 +318,7 @@ $(a_{j-1},a_j]$, fixing odd ranks, to obtain a permutation $J$.
 Set $P_i=m+1+((J(i)+s-1)\bmod m)$ and
 $\sigma_m=(1,P_1,\ldots,m,P_m)$, with $P_0=P_m$.
 Disjoint involutions and the cyclic shift prove bijectivity, including
-zero blocks and length-two identities. The integer gate keeps the final
+zero blocks and length-two identities. The lower bound on $m$ keeps the final
 block endpoint at least two ranks before the high wrap, and its exit
 strictly before that wrap.
 
@@ -362,7 +362,7 @@ than $k^3$ pays both finite and tail errors. Full cell/seam formulas and
 the angle estimate are supplied in the versioned proof supplement \cite{blocks}.
 \end{proof}
 
-For the retained explicit construction, let $x_*$ be the unique minimizer
+For the explicit four-block construction, let $x_*$ be the unique minimizer
 on $[0,1]$ of
 \[
  E(x)=\int_0^x\!\left[
@@ -445,7 +445,7 @@ with exact directed enclosure
 In particular $\CC>1/8$, so both the v1 coefficient conjecture and its
 stronger $n^2/8-\Rstar(n)=O(\sqrt n)$ claim are false.
 \end{proposition}
-\begin{proof}[Dependency-explicit proof outline]
+\begin{proof}[Proof outline]
 The complete proof and exact arithmetic certificates are in \cite{lower}.
 Its essential coupled information is one shared crossing energy for the
 same order and all three nested terminal restrictions. An explicit assignment
@@ -458,7 +458,7 @@ The exact angular squeeze transfers each induced chain bound to any original
 full feasible configuration. Uniform finite errors vanish at every fixed
 strictly separated width vector.
 
-For the width optimum, $G'<0$ and rational endpoint gates isolate its zero.
+For the width optimum, $G'<0$ and rational endpoint bounds isolate its zero.
 Set $u=(a-z_*,z_*,b-z_*)$, $\mathcal L(h)=16+432\sum_i h_i$ and
 $\rho=F(u)/\mathcal L(u)$. The gradient of $F-\rho\mathcal L$ at $u$ is a positive
 combination of the two constraint normals. Its exact remainder is
@@ -466,7 +466,7 @@ $-8\sum_i(h_i-u_i)^2(h_i+2u_i)$, proving global uniqueness on the whole
 closed region. To pass to the geometric limit, first use $tu$ at fixed
 $0<t<1$, take $n\to\infty$, then $t\uparrow1$. The boundary
 widths fail finite floor separation infinitely often; the proof never uses
-them as an eventual finite gate. The uniform finite error bounds for this
+them as an eventual finite separation condition. The uniform finite error bounds for this
 limiting argument are supplied in \cite{lower}. The result does not assert
 that this particular lower mechanism reaches $\CC$.
 \end{proof}
@@ -502,31 +502,33 @@ presentation rests with the author.
 \small\raggedright
 \bibitem{v1} M. Falconi, \emph{Arranging circles of radii $1,2,\ldots,n$
 around a central circle: a Supnick TSP and certified finite optima},
-arXiv:2607.28654, version 1 (2026).
+arXiv:2607.28654v1 (2026).
 \url{https://arxiv.org/abs/2607.28654v1}.
 \bibitem{shelf} H. Alt, K. Buchin, S. Chaplick, O. Cheong, P. Kindermann,
 C. Knauer and F. Stehn, \emph{Placing your coins on a shelf}, Journal of
 Computational Geometry 9(1), 312--327 (2018).
 \url{https://doi.org/10.20382/jocg.v9i1a10}.
-\bibitem{blocks} M. Falconi, Ringmin proof supplement,
-\nolinkurl{research/PERMUTED_ALTERNATING_HALVES.md}, Sections 1--6;
-\nolinkurl{research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md};
-\nolinkurl{research/PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md}.
-Snapshot specified in \cite{supplement}.
-\bibitem{upperinputs} M. Falconi, Ringmin proof supplement,
-\nolinkurl{research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md}, Sections 2--7;
-\nolinkurl{research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md}, Sections 1, 3--4;
-\nolinkurl{research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md};
-\nolinkurl{research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md}.
-Snapshot specified in \cite{supplement}.
-\bibitem{lower} M. Falconi, Ringmin proof supplement,
-\nolinkurl{research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md}, Sections 2--5, 11;
-\nolinkurl{research/THREE_LEVEL_COMMON_CHAIN.md}, Sections 7, 9, 11--12.
-Snapshot specified in \cite{supplement}.
+\bibitem{blocks} M. Falconi, Supplementary proofs on alternating halves and
+reflected blocks (2026):
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_ALTERNATING_HALVES.md}{alternating-half feasibility}, Sections 1--6;
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md}{general block transfer};
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_HALVES_FOURTH_ADJACENT_BLOCK.md}{the fourth adjacent block}.
+Part of the versioned supplement \cite{supplement}.
+\bibitem{upperinputs} M. Falconi, Supplementary proofs for the upper-endpoint
+parameters (2026):
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_HALVES_REFLECTED_PREFIX_LAMBDA.md}{reflected-prefix length}, Sections 2--7;
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_HALVES_REFLECTED_PREFIX_ALPHA_MINIMUM.md}{shift minimum}, Sections 1, 3--4;
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_HALVES_SECOND_BLOCK_BOUNDARY_MINIMUM.md}{second-block minimum};
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/PERMUTED_HALVES_THIRD_BLOCK_MIXED_WIDTH.md}{third-block mixed width}.
+Part of the versioned supplement \cite{supplement}.
+\bibitem{lower} M. Falconi, Supplementary proofs for the lower endpoint (2026):
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md}{common-chain quantitative stability}, Sections 2--5, 11;
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/THREE_LEVEL_COMMON_CHAIN.md}{three-level common-chain bounds}, Sections 7, 9, 11--12.
+Part of the versioned supplement \cite{supplement}.
 \bibitem{supplement} M. Falconi, Ringmin mathematical and computational
 supplement, commit \texttt{3beb8d70c5b3748d370a92855847bdf574e5a14f}.
-\href{https://github.com/falker47/ringmin/tree/3beb8d70c5b3748d370a92855847bdf574e5a14f}{Repository snapshot}.
+\url{https://github.com/falker47/ringmin/tree/3beb8d70c5b3748d370a92855847bdf574e5a14f}.
 Main variational proof:
-\nolinkurl{research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md}.
+\href{https://github.com/falker47/ringmin/blob/3beb8d70c5b3748d370a92855847bdf574e5a14f/research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md}{Global asymptotic variational limit}.
 \end{thebibliography}
 \end{document}

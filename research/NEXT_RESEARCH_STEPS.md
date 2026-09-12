@@ -34,15 +34,18 @@ Supnick classification remains distinct from global contact/cascade claims.
 ## Priority 1 — One independent external review
 
 The research goal concluded at the effective-characterization level. The
-publication architecture now separates a standalone asymptotic sequel from
-a conservative correction of the finite paper. Independently review the
+publication architecture separates a standalone asymptotic sequel from
+a conservative correction of the finite paper. The standalone is now the
+exact `ARXIV_SUBMISSION_CANDIDATE`; the immediate manual submission handoff
+is recorded in [CURRENT_STATUS.md](../CURRENT_STATUS.md). Independent external
+review remains the scientific priority. Review the
 [standalone manuscript](../paper_assets/asymptotic_sequel/README.md), using the
 [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
 and the scientific dependency checks in the historical
 [final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md), under
 RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; neither candidate
 is submitted. Only the actual external reviewer may advance external Review
-State. This is the single next atomic task.
+State. Submission preparation does not advance that state.
 
 ## Subsequent scientific questions
 

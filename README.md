@@ -24,11 +24,13 @@ The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
 [genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
 These post-v1 theorems have passed internal adversarial review; independent
 external acceptance is pending. The current publication architecture is a
-[standalone asymptotic sequel](paper_assets/asymptotic_sequel/README.md) and a
+[standalone asymptotic sequel](paper_assets/asymptotic_sequel/README.md), now
+the `ARXIV_SUBMISSION_CANDIDATE` with an exact source bundle and copy-ready
+metadata, and a
 [conservative correction of the finite paper](paper_assets/v1_correction/README.md),
 which awaits a real sequel identifier. See the
 [publication history](knowledge/PUBLICATION_HISTORY.md) and
-[review dossier](ops/TASK-20260911__publication_architecture/TASK_STATUS.md).
+[finalization dossier](ops/TASK-20260912__standalone_submission_candidate/TASK_STATUS.md).
 The former [replacement candidate](paper_assets/v2/README.md) is superseded
 provenance, not the recommended next upload.
 
@@ -238,16 +240,16 @@ The [reproduction dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENC
 records a successful clean-source Windows run and its failure controls.
 POSIX execution and hosted CI for the current SHA are not inferred from it.
 
-With `pdflatex` available, build both current review candidates from clean
-source-only trees and record their input/PDF hashes with:
+With `pdflatex` available, rebuild the standalone submission candidate from a
+clean source-only tree and record its input/PDF hashes and metadata with:
 
 ```bash
-python paper_assets/build_publications.py all
+python paper_assets/build_publications.py sequel
 ```
 
 The [sequel](paper_assets/asymptotic_sequel/README.md) and
 [corrective-v2](paper_assets/v1_correction/README.md) build notes identify their
-source bundles and review boundaries. Each bundle also compiles directly with
+source bundles and distinct publication states. Each bundle compiles directly with
 pdflatex. Historical v1 source/PDF and citation metadata remain the original
 publication record.
 
