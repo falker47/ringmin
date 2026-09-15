@@ -10,8 +10,8 @@
   "source_files": [
     {
       "name": "ringmin_finite_v2.tex",
-      "bytes": 34411,
-      "sha256": "2f15b3c2e9e7c7d957767f666010160bb4e31be1785ec44bb51ac938b6f420e3"
+      "bytes": 34396,
+      "sha256": "3885be864e06b4a9851285df4cefc4dce2a5e791038a7d65db3bddbd7da9034d"
     },
     {
       "name": "appendix_tables.tex",
@@ -31,7 +31,7 @@
   ],
   "pdf": {
     "name": "ringmin_finite_v2.pdf",
-    "sha256": "64e3889dca456173cfcb7d30d3f407e7d73bb15d28b3f8dc70ed12a7420002bf"
+    "sha256": "39ad9b546323cd1754ddf19ce0e0cbbfc7ef553a600dd888062fce67692703d6"
   },
   "builder_sha256": "620ddf8a9c703cc8d9ccdf22756612cc7b535848d221edff0cf8c42ac9902a08",
   "scientific_supplement_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",

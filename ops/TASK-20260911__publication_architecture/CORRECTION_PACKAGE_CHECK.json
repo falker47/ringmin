@@ -111,7 +111,7 @@
     "https://math.stackexchange.com/q/4619480",
     "https://uq.stanford.edu/question/295"
   ],
-  "independent_clean_pdf_sha256": "64e3889dca456173cfcb7d30d3f407e7d73bb15d28b3f8dc70ed12a7420002bf",
+  "independent_clean_pdf_sha256": "39ad9b546323cd1754ddf19ce0e0cbbfc7ef553a600dd888062fce67692703d6",
   "labels": 20,
   "metadata": {
     "/Author": "Maurizio Falconi",
@@ -127,12 +127,12 @@
   },
   "pages": 12,
   "pending_identifier": false,
-  "sha256": "64e3889dca456173cfcb7d30d3f407e7d73bb15d28b3f8dc70ed12a7420002bf",
+  "sha256": "39ad9b546323cd1754ddf19ce0e0cbbfc7ef553a600dd888062fce67692703d6",
   "source_files": [
     {
-      "bytes": 34411,
+      "bytes": 34396,
       "name": "ringmin_finite_v2.tex",
-      "sha256": "2f15b3c2e9e7c7d957767f666010160bb4e31be1785ec44bb51ac938b6f420e3"
+      "sha256": "3885be864e06b4a9851285df4cefc4dce2a5e791038a7d65db3bddbd7da9034d"
     },
     {
       "bytes": 2178,
