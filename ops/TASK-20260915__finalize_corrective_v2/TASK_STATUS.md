@@ -3,7 +3,7 @@
 ```text
 task=TASK-20260915__finalize_corrective_v2
 mode=STRICT
-state=BLOCKED
+state=READY_FOR_REVIEW
 started_at=2026-09-15
 updated_at=2026-09-15
 ```
@@ -75,10 +75,10 @@ dossier.
       unchanged; the standalone README change is navigation-only;
 - [x] status, metadata, manifest and dossier agree after this update;
 - [x] full diff, additions and whitespace inspected;
-- [ ] commit and normal push verified under repository authorization;
-- [ ] state set to `READY_FOR_REVIEW`.
+- [x] commit and normal push verified under repository authorization;
+- [x] state set to `READY_FOR_REVIEW`.
 
-## Blockers
+## Integration record
 
 The author-run builder completed three clean passes with zero warnings and
 produced the current PDF/manifest/metadata. The builder's actual clean
@@ -86,28 +86,34 @@ directory is
 `reproducibility/.work/publication-correction-cb650a4f8a1144d28846f13ff0e894e2`;
 the existing checker passes against it.
 
-The author then independently compiled the four-file source bundle in a
-TeX-capable environment with `SOURCE_DATE_EPOCH=1789084800` and
-`FORCE_SOURCE_DATE=1`. The resulting independent clean build is
+The author independently compiled the four-file source bundle in a TeX-capable
+environment with `SOURCE_DATE_EPOCH=1789084800` and `FORCE_SOURCE_DATE=1`. The
+resulting independent clean build is
 `reproducibility/.work/independent-correction-local`; the existing checker
 passes against it. Codex did not rerun the completed TeX compilation. The
-earlier sandbox failure remains historical negative evidence only; no
-indirect TeX workaround was used.
+earlier sandbox AppData failure remains historical negative evidence only.
 
-The only remaining blocker is repository integration. The sandbox cannot
-write `.git/index.lock`; the required escalated scoped `git add` retry was
-rejected because the host usage limit is exhausted. No files were staged,
-committed or pushed, and no arXiv action was attempted.
+After the Codex sandbox could not create `.git/index.lock`, the author verified
+that the local repository itself was writable, staged exactly the inspected
+14 tracked changes plus the three-file task dossier, ran
+`git diff --cached --check` successfully, committed the package as
+`79c784e5300fd98c454eaa59c10507191ec86b69` (`Finalize corrective v2 after
+sequel publication`) and pushed `main` to `origin`. The remote commit was read
+back after the push. Therefore no repository-integration blocker remains.
+
+`TASK_LOG.md` and `EVIDENCE.md` retain the earlier sandbox blocker entries as
+chronological evidence; this status file is the current disposition and
+supersedes those blocker states.
 
 ## Handoff
 
 The identifier/source edit, builder artifact, package audit, source/data
-preservation check, PDF inspection and independent source-only compile are
-complete. The corrective package is ready for author review and replacement
-submission, but this task remains blocked until the authorized commit and
-push can be completed. ArXiv submission remains out of scope for this task.
-The next atomic task is to restore Git metadata write access, stage only the
-inspected paths, complete the normal commit and push, and then set this task
-to `READY_FOR_REVIEW`. The author's subsequent action is to upload only
+preservation check, PDF inspection, independent source-only compile and
+repository integration are complete. The corrective package is ready for the
+author's arXiv replacement step. No arXiv replacement was submitted by this
+task.
+
+The next atomic task is to upload only the contents of
 `paper_assets/v1_correction/source_bundle/` as the replacement of
-arXiv:2607.28654v1 and inspect arXiv's compiled PDF before finalizing it.
+arXiv:2607.28654v1, inspect arXiv's compiled PDF and metadata against the
+reviewed candidate, and finalize only if the server output is correct.
