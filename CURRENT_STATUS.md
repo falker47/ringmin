@@ -1,43 +1,59 @@
 # Current Status
 
     repository=falker47/ringmin
-    task=TASK-20260912__standalone_submission_candidate
-    observed_on=2026-09-12
+    task=TASK-20260915__finalize_corrective_v2
+    observed_on=2026-09-15
     mode=STRICT
-    state=READY_FOR_REVIEW
-    standalone=ARXIV_SUBMISSION_CANDIDATE
-    corrective_original=AWAITING_STANDALONE_ARXIV_ID
+    state=BLOCKED
+    standalone=ARXIV:2609.13630
+    corrective_original=ARXIV_REPLACEMENT_CANDIDATE
     old_replacement=EDITORIALLY_SUPERSEDED
 
-The exact eight-page [standalone manuscript](paper_assets/asymptotic_sequel/README.md)
-is the sole standalone submission candidate. Its one-file source bundle,
-copy-ready metadata and hash/build manifest are linked there. The
-[current dossier](ops/TASK-20260912__standalone_submission_candidate/TASK_STATUS.md)
-records finalization; the [publication ledger](knowledge/PUBLICATION_HISTORY.md)
-retains the established two-paper architecture.
+The standalone sequel has the permanent arXiv identifier
+[arXiv:2609.13630](https://arxiv.org/abs/2609.13630). Its source bundle,
+manuscript, PDF and metadata remain unchanged; its README navigation now
+reflects the permanent identifier. The prepared [corrective v2](paper_assets/v1_correction/README.md)
+is now a prepared replacement candidate for arXiv:2607.28654; this task did
+not submit it. The [current dossier](ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md)
+records the identifier update, final local verification and author handoff.
 
-## Completed verification gates
+## Verification state
 
-Public prose, six bibliography entries and ten pinned supplement targets
-audited; five fresh bounded mathematical checkers pass. The builder and an
-independent direct source-only build each pass three pdflatex runs with zero
-warnings. Every page was visually inspected. Package checks pass for all
-eight numbered pages, text/painting/metadata agreement, 16 embedded scalable
-fonts, no active content, exact hashes and ten negative controls.
+The corrective source now cites arXiv:2609.13630 and contains no pending
+identifier or draft-readiness marker. The author-run builder completed three
+clean passes with zero warnings and produced the 12-page PDF, manifest and
+metadata. The actual clean-build directory is
+`reproducibility/.work/publication-correction-cb650a4f8a1144d28846f13ff0e894e2`;
+the previously reported `...ff0e891e2` path is a one-character mismatch and
+does not exist. The existing publication checker passes against the builder
+clean build, including both figure inputs. The author also independently
+compiled the four-file source bundle with `SOURCE_DATE_EPOCH=1789084800` and
+`FORCE_SOURCE_DATE=1`; the existing publication checker passes against that
+independent clean build at
+`reproducibility/.work/independent-correction-local`.
 
-Historical v1, both other manuscript trees, mathematical proof sources and
-mathematical ledgers, certified results, production code, verifier and citation
-metadata are unchanged. No new science or exhaustive finite search was performed.
+Historical v1, the old replacement, and the standalone sequel's source bundle,
+manuscript, PDF and mathematical content remain unchanged; mathematical proof
+sources and ledgers, certified results, production code, verifier and citation
+metadata are unchanged. No new science or exhaustive finite search was
+performed.
 
 ## Blockers and acceptance boundary
 
-No local preparation blocker remains. Local TeX package equivalence to arXiv
-is not assumed; server PDF inspection and moderation remain unperformed.
-Internal validation and commit/push do not claim external mathematical
-acceptance or hosted CI. The corrective paper still requires a real
-standalone identifier. Neither manuscript has been submitted by this task.
+All content, build and audit gates are satisfied. The independent source-only
+compile is recorded as author-supplied evidence from a TeX-capable environment;
+Codex did not rerun that completed compilation. The only remaining blocker is
+repository integration: the sandbox cannot write `.git/index.lock` and the
+escalated scoped Git retry was rejected because the host usage limit is
+exhausted. Local TeX package equivalence to arXiv is not assumed; replacement
+submission, server PDF inspection, moderation and external mathematical
+acceptance remain outside this task. This task made no arXiv submission.
 
 ## Exactly one next atomic task
 
-Manually create a NEW arXiv submission using the prepared standalone bundle
-and inspect arXiv's compiled PDF before finalizing.
+Restore Git metadata write access, then stage only the inspected paths,
+complete the normal commit and push to `origin/main`, and leave this task
+`READY_FOR_REVIEW`. The author's subsequent action is to create the REPLACEMENT
+arXiv submission for arXiv:2607.28654v1 using only the contents of
+`paper_assets/v1_correction/source_bundle/`, then inspect arXiv's compiled PDF
+before finalizing it.

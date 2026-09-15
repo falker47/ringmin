@@ -23,14 +23,13 @@ The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
 `0.14056946887766098063257 > 1/8`. The four-block upper bound now has
 [genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
 These post-v1 theorems have passed internal adversarial review; independent
-external acceptance is pending. The current publication architecture is a
-[standalone asymptotic sequel](paper_assets/asymptotic_sequel/README.md), now
-the `ARXIV_SUBMISSION_CANDIDATE` with an exact source bundle and copy-ready
-metadata, and a
+external acceptance is pending. The current publication architecture is the
+[standalone asymptotic sequel](https://arxiv.org/abs/2609.13630), with its
+repository source preserved, and a
 [conservative correction of the finite paper](paper_assets/v1_correction/README.md),
-which awaits a real sequel identifier. See the
+now a prepared replacement candidate for arXiv:2607.28654. See the
 [publication history](knowledge/PUBLICATION_HISTORY.md) and
-[finalization dossier](ops/TASK-20260912__standalone_submission_candidate/TASK_STATUS.md).
+[finalization dossier](ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md).
 The former [replacement candidate](paper_assets/v2/README.md) is superseded
 provenance, not the recommended next upload.
 

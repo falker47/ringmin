@@ -1,8 +1,8 @@
 # Standalone asymptotic sequel
 
-**ARXIV_SUBMISSION_CANDIDATE.** This is the single standalone artifact prepared
-for manual NEW arXiv submission. Task state: `READY_FOR_REVIEW`; no submission
-or external mathematical acceptance is claimed.
+**arXiv:2609.13630.** This repository preserves the standalone artifact and
+its source bundle. The identifier is external to this repository; this task
+performs no standalone submission or external mathematical acceptance.
 
 *Minimum central circles: an effective characterization of the global
 asymptotic constant*, Maurizio Falconi. September 12, 2026. Eight pages.
@@ -15,14 +15,15 @@ The [architecture claim map](../../ops/TASK-20260911__publication_architecture/S
 still describes the unchanged science. The proof supplement remains pinned to
 `3beb8d70c5b3748d370a92855847bdf574e5a14f`.
 
-## Exact upload and metadata
+## Source and metadata provenance
 
-- Upload only [source_bundle/ringmin_asymptotic.tex](source_bundle/ringmin_asymptotic.tex).
-  It is byte-identical to the manuscript and contains its bibliography.
-- Copy the fields in [ARXIV_METADATA.md](ARXIV_METADATA.md), also available as
-  [JSON](ARXIV_METADATA.json). The prior author's non-exclusive arXiv license
-  choice is preserved in the guidance; no new identifier, journal reference
-  or DOI is supplied.
+- The [source bundle](source_bundle/ringmin_asymptotic.tex) is byte-identical
+  to the manuscript and contains its bibliography; it is retained as the exact
+  source archive for arXiv:2609.13630.
+- [ARXIV_METADATA.md](ARXIV_METADATA.md), also available as
+  [JSON](ARXIV_METADATA.json), preserves the prepared metadata and the prior
+  author's non-exclusive arXiv license choice; no new identifier, journal
+  reference or DOI is supplied here.
 - [BUILD_MANIFEST.json](BUILD_MANIFEST.json) identifies exact filenames, byte
   sizes, SHA-256 hashes, processor, main file, TeX environment and builder.
   Metadata, manifest, PDF and this README are outside the upload directory.
@@ -56,13 +57,14 @@ manuscript's September 12 date. The build report records system-input hashes.
 
 ## Publication boundary
 
-The next human action is to manually create a **NEW** arXiv submission with
-this bundle and inspect arXiv's compiled PDF before finalizing. Local builds
-do not establish equivalence to arXiv's TeX distribution or moderation approval.
+The standalone record is arXiv:2609.13630. No further standalone submission
+action is performed by this task. Local builds do not establish equivalence to
+arXiv's TeX distribution or moderation approval.
 The [policy/overlap audit](../../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
 explains the residual possibility of consolidation or versioning.
 
-The [corrective finite-paper v2](../v1_correction/README.md) remains
-`AWAITING_STANDALONE_ARXIV_ID`; it cannot be finalized until a real identifier
-exists. The [former replacement](../v2/README.md) remains
+The [corrective finite-paper v2](../v1_correction/README.md) is now
+`ARXIV_REPLACEMENT_CANDIDATE` and cites arXiv:2609.13630; it remains
+unsubmitted until the author performs the replacement action. The [former
+replacement](../v2/README.md) remains
 `EDITORIALLY_SUPERSEDED`. Historical sources and audit evidence are preserved.

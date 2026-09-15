@@ -17,11 +17,6 @@
       "stream_sha256": "36d331a3bf0217d5042e496849fc1dd967bb3850e988eee53aacbdfbcbe70ff8",
       "subtype": "/Type1"
     },
-    "/EJKOPK+LMRoman10-Regular": {
-      "embedding": "/FontFile",
-      "stream_sha256": "79931eb6bd5a7877caa5eef2b35ad88e9314b17c9451cb91e5e6c1b889f8d768",
-      "subtype": "/Type1"
-    },
     "/EQHAZO+LMRoman17-Regular": {
       "embedding": "/FontFile",
       "stream_sha256": "1051059fdf479588635db6b652201b2ed20f26ecbf373cbe904aaf870dc70de9",
@@ -47,24 +42,29 @@
       "stream_sha256": "0c414cc52f5af5f2ec1d64dbec98e2dbdebdecbe87fa6c8454166d4bbc9e6adb",
       "subtype": "/Type1"
     },
-    "/HZYRZB+LMRoman10-Bold": {
-      "embedding": "/FontFile",
-      "stream_sha256": "93242d0411eb48c6ed5a06f7ae10c3bb0d381bc7d171db09ac64e2a66d099e58",
-      "subtype": "/Type1"
-    },
     "/JHCKAD+LMRoman12-Bold": {
       "embedding": "/FontFile",
       "stream_sha256": "8682f6f1c80bebd97b6b7d40e7efdffdea972c7ad9b9da5eaa3394cd8c43c796",
       "subtype": "/Type1"
     },
-    "/LUNVOY+LMMono10-Regular": {
+    "/LDUSYV+LMRoman10-Bold": {
       "embedding": "/FontFile",
-      "stream_sha256": "aab2f714e12201041f7ed781e359a44b8d782b2030ef4a3d1b0ce0194bf6c98e",
+      "stream_sha256": "dd6abbbcd5b77960d5c9983ee92c9edccdd983a0f7be16d7877c5f6de8d69565",
       "subtype": "/Type1"
     },
     "/LYLHDU+LMMathItalic10-Regular": {
       "embedding": "/FontFile",
       "stream_sha256": "a20c9caac37e7cc3c84a7277531b77b1755d7938e51e2f7f7e640d4b35aee572",
+      "subtype": "/Type1"
+    },
+    "/OEHUSH+LMMono10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "977f3574498965caac4962964a13d21902453dd4578cd3fa6c57e736f8622826",
+      "subtype": "/Type1"
+    },
+    "/PMYNJT+LMRoman10-Regular": {
+      "embedding": "/FontFile",
+      "stream_sha256": "c9ca66f51e8f2d54bd1e3aeb77f9c18af760062869a66cbdf253584b71195766",
       "subtype": "/Type1"
     },
     "/QBKXAN+LMRoman8-Regular": {
@@ -105,12 +105,13 @@
   },
   "exact_page_content_match": true,
   "external_uris": [
+    "https://arxiv.org/abs/2609.13630",
     "https://github.com/falker47/ringmin",
     "https://github.com/falker47/ringmin/tree/3beb8d70c5b3748d370a92855847bdf574e5a14f",
     "https://math.stackexchange.com/q/4619480",
     "https://uq.stanford.edu/question/295"
   ],
-  "independent_clean_pdf_sha256": "6cc92c516894606901c14ee1280b4cd392b575861e83b26264186f3573d26cf6",
+  "independent_clean_pdf_sha256": "64e3889dca456173cfcb7d30d3f407e7d73bb15d28b3f8dc70ed12a7420002bf",
   "labels": 20,
   "metadata": {
     "/Author": "Maurizio Falconi",
@@ -125,13 +126,13 @@
     "/Trapped": "/False"
   },
   "pages": 12,
-  "pending_identifier": true,
-  "sha256": "6cc92c516894606901c14ee1280b4cd392b575861e83b26264186f3573d26cf6",
+  "pending_identifier": false,
+  "sha256": "64e3889dca456173cfcb7d30d3f407e7d73bb15d28b3f8dc70ed12a7420002bf",
   "source_files": [
     {
-      "bytes": 34550,
+      "bytes": 34411,
       "name": "ringmin_finite_v2.tex",
-      "sha256": "4724d3d6f222e22293a61b5bbed70685550c8a341f4a070f535ebd6fbfc7d2af"
+      "sha256": "2f15b3c2e9e7c7d957767f666010160bb4e31be1785ec44bb51ac938b6f420e3"
     },
     {
       "bytes": 2178,

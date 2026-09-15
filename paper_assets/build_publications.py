@@ -1,4 +1,4 @@
-"""Build the standalone submission candidate or pending finite correction.
+"""Build the standalone submission candidate or finite correction.
 
 The source bundles also compile directly with pdflatex, without this script.
 No historical asset is modified. Matching bytes requires matching TeX inputs.
@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES = {
     'sequel': ('asymptotic_sequel', 'ringmin_asymptotic', 'ARXIV_SUBMISSION_CANDIDATE'),
     'correction': ('v1_correction', 'ringmin_finite_v2',
-                   'AWAITING_STANDALONE_ARXIV_ID'),
+                   'ARXIV_REPLACEMENT_CANDIDATE'),
 }
 
 
@@ -75,7 +75,9 @@ def build(key, engine):
     manifest = {
         'status': status,
         'publication_action': ('author to create a NEW arXiv submission and inspect server PDF'
-                               if key == 'sequel' else 'none; independent review pending'),
+                               if key == 'sequel' else
+                               'author to create a REPLACEMENT arXiv submission of '
+                               'arXiv:2607.28654v1 and inspect server PDF'),
         'source_date_epoch': 1789084800,
         'command': f'python paper_assets/build_publications.py {key}',
         'direct_compile': ' '.join(['pdflatex'] + args[1:]),

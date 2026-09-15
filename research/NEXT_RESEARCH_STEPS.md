@@ -35,17 +35,19 @@ Supnick classification remains distinct from global contact/cascade claims.
 
 The research goal concluded at the effective-characterization level. The
 publication architecture separates a standalone asymptotic sequel from
-a conservative correction of the finite paper. The standalone is now the
-exact `ARXIV_SUBMISSION_CANDIDATE`; the immediate manual submission handoff
-is recorded in [CURRENT_STATUS.md](../CURRENT_STATUS.md). Independent external
-review remains the scientific priority. Review the
+a conservative correction of the finite paper. The standalone sequel now has
+the permanent identifier [arXiv:2609.13630](https://arxiv.org/abs/2609.13630);
+the corrective replacement finalization is recorded in
+[CURRENT_STATUS.md](../CURRENT_STATUS.md). Independent external review
+remains the scientific priority. Review the
 [standalone manuscript](../paper_assets/asymptotic_sequel/README.md), using the
 [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
 and the scientific dependency checks in the historical
 [final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md), under
-RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; neither candidate
-is submitted. Only the actual external reviewer may advance external Review
-State. Submission preparation does not advance that state.
+RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; the corrective
+v2 is not submitted by this task. Only the actual external reviewer may
+advance external Review State. Submission preparation does not advance that
+state.
 
 ## Subsequent scientific questions
 

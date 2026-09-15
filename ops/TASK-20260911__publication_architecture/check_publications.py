@@ -14,9 +14,11 @@ spec.loader.exec_module(audit)
 require, sha = audit.require, audit.sha
 DATA = {
     'sequel': ('asymptotic_sequel', 'ringmin_asymptotic', 8,
-               'Minimum central circles: an effective characterization of the global asymptotic constant'),
+               'Minimum central circles: an effective characterization of the global asymptotic constant',
+               'ARXIV_SUBMISSION_CANDIDATE'),
     'correction': ('v1_correction', 'ringmin_finite_v2', 12,
-                  'Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima'),
+                  'Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima',
+                  'ARXIV_REPLACEMENT_CANDIDATE'),
 }
 
 
@@ -25,11 +27,12 @@ def main():
     parser.add_argument('candidate', choices=DATA)
     parser.add_argument('clean_directory', type=Path)
     args = parser.parse_args()
-    dirname, stem, pages, title = DATA[args.candidate]
+    dirname, stem, pages, title, status = DATA[args.candidate]
     candidate = ROOT / 'paper_assets' / dirname
     bundle = candidate / 'source_bundle'
     clean = args.clean_directory.resolve()
     manifest = json.loads((candidate / 'BUILD_MANIFEST.json').read_text())
+    require(manifest['status'] == status, 'Manifest status mismatch')
     inputs = {row['name'] for row in manifest['source_files']}
     require(inputs == ({stem + '.tex'} if args.candidate == 'sequel' else
                        {stem + '.tex', 'appendix_tables.tex', 'figures/n14.png',
@@ -97,22 +100,31 @@ def main():
             'Unexpanded or accidentally joined abstract macro')
     require(len(abstract) <= 1920 and abstract.isascii(), 'Abstract metadata length/encoding')
     pending = 'PENDING_STANDALONE_ARXIV_ID'
-    require((pending in source) == (args.candidate == 'correction'), 'Identifier placeholder status')
+    awaiting = 'AWAITING_STANDALONE_ARXIV_ID'
+    require(pending not in source and awaiting not in source,
+            'Obsolete standalone identifier marker')
+    if args.candidate == 'correction':
+        require('arXiv:2609.13630' in source and
+                'https://arxiv.org/abs/2609.13630' in source,
+                'Final standalone identifier citation missing')
     metadata = {'Status': manifest['status'], 'Title': title, 'Authors': 'Maurizio Falconi',
                 'Abstract': abstract, 'Abstract characters': len(abstract), 'Pages': pages,
                 'Processor': 'pdflatex', 'Main file': stem + '.tex',
                 'Primary category proposed from existing record': 'cs.CG', 'Cross-lists': [],
-                'Purpose': 'Review consistency record; not an upload authorization',
+                'Purpose': ('Copy-ready replacement metadata; no submission performed in this task'
+                            if args.candidate == 'correction' else
+                            'Review consistency record; not an upload authorization'),
                 'Comments proposal': (f'{pages} pages, no figures. Standalone asymptotic sequel to '
                     'arXiv:2607.28654; prior finite results and model are explicitly attributed. '
                     'Proof and code supplement: https://github.com/falker47/ringmin'
                     if args.candidate == 'sequel' else
-                    'Deferred until a real standalone identifier exists; no copy-ready replacement metadata.')}
+                    'Replacement of arXiv:2607.28654v1; standalone sequel: arXiv:2609.13630. '
+                    'Proof and code supplement: https://github.com/falker47/ringmin')}
     (candidate / 'REVIEW_METADATA.json').write_text(json.dumps(metadata, indent=2) + '\n', encoding='utf-8')
     report.update(source_files=manifest['source_files'], tex_dependencies=dependencies,
                   labels=len(labels), bibliography_keys=len(bib),
                   independent_clean_pdf_sha256=comparison['sha256'],
-                  exact_page_content_match=True, pending_identifier=args.candidate == 'correction')
+                  exact_page_content_match=True, pending_identifier=False)
     (Path(__file__).parent / (args.candidate.upper() + '_PACKAGE_CHECK.json')).write_text(
         json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8')
     print(f'PASS {args.candidate}: {len(inputs)} inputs; {len(labels)} labels; {len(bib)} references; '

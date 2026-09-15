@@ -14,15 +14,18 @@ snapshot recorded in the canonical index. Publication-facing source and
 derived assets remain synchronized historical material and require a
 dedicated `STRICT` revision task before any change.
 
-## Current two-manuscript architecture, 2026-09-11
+## Current two-manuscript architecture, 2026-09-15
 
-**Status:** standalone `ARXIV_SUBMISSION_CANDIDATE`, task `READY_FOR_REVIEW`,
-unsubmitted and without external acceptance. Finalized on 2026-09-12 in the
-[standalone finalization dossier](../ops/TASK-20260912__standalone_submission_candidate/TASK_STATUS.md).
+**Status:** standalone `arXiv:2609.13630`; the corrective finite paper is an
+`ARXIV_REPLACEMENT_CANDIDATE`, unsubmitted in this task. The identifier is
+recorded from the official arXiv record; no arXiv submission was performed by
+this task. Corrective finalization is recorded in the
+[current dossier](../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md).
 The primary finite/Supnick reference remains the real public v1. Default
 citation and `CITATION.cff` remain anchored to it.
 
-- [Standalone asymptotic sequel](../paper_assets/asymptotic_sequel/README.md):
+- [Standalone asymptotic sequel](../paper_assets/asymptotic_sequel/README.md),
+  [arXiv:2609.13630](https://arxiv.org/abs/2609.13630):
   *Minimum central circles: an effective characterization of the global
   asymptotic constant*. It presents the angular-to-line reduction, existence,
   effective balanced-word LP characterization, full geometric recovery and
@@ -31,19 +34,19 @@ citation and `CITATION.cff` remain anchored to it.
   *Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP
   and certified finite optima*. It preserves the historical finite core and
   corrects superseded conjectures and witness quantifiers. Its distinct
-  publication state is `AWAITING_STANDALONE_ARXIV_ID`; no identifier is invented.
+  publication state is `ARXIV_REPLACEMENT_CANDIDATE`; it cites the standalone
+  sequel at `arXiv:2609.13630` and remains unsubmitted here.
 
 The [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
 and [overlap/policy audit](../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
-identify the separation and residual moderation risk. The exact eight-page
-standalone source bundle and copy-ready metadata are the manual NEW-submission
-handoff; server PDF inspection is required before finalizing. Only later,
-if arXiv accepts a distinct
-submission and assigns a real identifier, may a separate task replace the
-corrective placeholder and rebuild/re-audit before submission. If moderation
-requires versioning, prepare a genuinely integrated reference paper containing
-both the finite core and asymptotic theory. The old nine-page candidate is not
-that fallback. This sequence is documented, not executed.
+identify the separation and residual moderation risk. The standalone now has
+its permanent identifier; the corrective placeholder has been replaced in the
+source, the local builder/package audit, and the author-supplied independent
+direct source-only compile now pass. The finalization
+[dossier](../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md) records
+the package as ready for the author's replacement handoff. The old nine-page
+candidate remains historical provenance, not the fallback. Any arXiv
+moderation or versioning decision remains external to this task.
 
 ## Superseded replacement strategy, 2026-09-11
 
