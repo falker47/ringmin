@@ -11,47 +11,46 @@
 
 The standalone sequel has the permanent arXiv identifier
 [arXiv:2609.13630](https://arxiv.org/abs/2609.13630). Its source bundle,
-manuscript, PDF and metadata remain unchanged; its README navigation reflects
-the permanent identifier. The prepared [corrective v2](paper_assets/v1_correction/README.md)
-is a replacement candidate for arXiv:2607.28654; this task did not submit it.
-The [current dossier](ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md)
-records the identifier update, final local verification, repository integration
-and author handoff.
+manuscript, PDF and metadata remain unchanged. The prepared
+[corrective v2](paper_assets/v1_correction/README.md) is the reviewed replacement
+candidate for arXiv:2607.28654; no arXiv replacement has yet been finalized.
 
 ## Verification state
 
-The corrective source cites arXiv:2609.13630 and contains no pending identifier
-or draft-readiness marker. The author-run builder completed three clean passes
-with zero warnings and produced the 12-page PDF, manifest and metadata. The
-actual clean-build directory is
-`reproducibility/.work/publication-correction-cb650a4f8a1144d28846f13ff0e894e2`;
-the previously reported `...ff0e891e2` path is a one-character mismatch and
-does not exist. The existing publication checker passes against the builder
-clean build, including both figure inputs. The author also independently
-compiled the four-file source bundle with `SOURCE_DATE_EPOCH=1789084800` and
-`FORCE_SOURCE_DATE=1`; the existing publication checker passes against that
-independent clean build at
-`reproducibility/.work/independent-correction-local`.
+The final corrective source cites arXiv:2609.13630, contains no obsolete pending
+identifier or draft-readiness marker, and no longer carries the transient
+`not submitted` legend in the manuscript date line. The final builder run
+completed three clean passes with zero warnings and produced the 12-page PDF,
+manifest and metadata from
+`reproducibility/.work/publication-correction-21d5f1d54f204f87bc5e95992f475e83`.
+The final PDF SHA256 is
+`39ad9b546323cd1754ddf19ce0e0cbbfc7ef553a600dd888062fce67692703d6`.
+The publication checker passes against that builder clean build.
 
-Historical v1, the old replacement, and the standalone sequel's source bundle,
-manuscript, PDF and mathematical content remain unchanged; mathematical proof
-sources and ledgers, certified results, production code, verifier and citation
-metadata are unchanged. No new science or exhaustive finite search was
-performed.
+The canonical independent compile script
+`ops/TASK-20260911__publication_architecture/clean_compile.ps1 -Candidate correction`
+then passed with four inputs, three passes and zero warnings, producing
+`reproducibility/.work/independent-correction-b32e59a7752b47a9a665c1b95814f0bb`.
+The publication checker also passes against that exact independent clean build:
+12 exact pages, 20 embedded scalable fonts, system-only dependencies, no active
+content and consistent metadata.
+
+Historical v1, the superseded replacement, the standalone sequel's mathematical
+content, proof sources, ledgers, certified results, production code, verifier
+and citation metadata remain unchanged. No new science or exhaustive finite
+search was performed.
 
 ## Integration and acceptance boundary
 
-All content, build and audit gates are satisfied. The author completed the
-scoped stage, commit and push outside the Codex sandbox after confirming local
-Git metadata write access. The corrective package was integrated in commit
-`79c784e5300fd98c454eaa59c10507191ec86b69` and pushed to `origin/main`; the
-remote commit was independently read back after the push. The earlier sandbox
-`.git/index.lock` failure is historical environment evidence, not a current
-repository blocker.
+The principal corrective package was integrated in
+`79c784e5300fd98c454eaa59c10507191ec86b69`; repository-state housekeeping
+followed in `97a9be7b5f0c3444d8ab68d34ddadaf4cfc4bb03`. The final submission wording,
+rebuilt PDF/manifest and refreshed package check were integrated in
+`d12ee52232eaad880b88dbce5726e96b9aacf52b` and pushed to `origin/main`.
 
 Local TeX package equivalence to arXiv is not assumed. Replacement submission,
 arXiv server compilation, moderation and external mathematical acceptance
-remain outside this task. No arXiv replacement has yet been finalized.
+remain outside the completed local task.
 
 ## Exactly one next atomic task
 
