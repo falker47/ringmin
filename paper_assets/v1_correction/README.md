@@ -1,6 +1,6 @@
 # Conservative corrective v2 of the finite paper
 
-**ARXIV_REPLACEMENT_CANDIDATE.** Corrective v2; not submitted.
+**ARXIV_V2_PUBLISHED.** The official arXiv notification received on 2026-09-16 states that replacement submission `submit/8082087` for `arXiv:2607.28654` has been made public. The announced v2 revision is dated 2026-09-15 10:14:17 GMT.
 
 *Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP
 and certified finite optima*, Maurizio Falconi.
@@ -11,17 +11,22 @@ finite tables and geometric regimes. All obsolete coefficient-1/8 statements
 are identified as disproved by the [standalone sequel](../asymptotic_sequel/README.md).
 Floating claims distinguish existence of strict-slack placements at reported
 radii from universal properties of all optima. The sequel's LP theory and endpoint proofs are cited,
-not reproduced. Historical public-v1 files and default citation are unchanged.
+not reproduced. Historical v1 files remain preserved as publication provenance.
 
 The citation identifies the standalone sequel as
-[arXiv:2609.13630](https://arxiv.org/abs/2609.13630), with the finalized
-replacement status on the first page. The author-run builder has produced the
-current 12-page PDF, manifest and metadata, and the existing package checker
-passes against its actual isolated clean-build directory. The author also
-independently compiled this four-input source bundle with
-`SOURCE_DATE_EPOCH=1789084800` and `FORCE_SOURCE_DATE=1`; the existing package
-checker passes against that independent clean build. This task performs no
-submission.
+[arXiv:2609.13630](https://arxiv.org/abs/2609.13630). The author-run builder
+produced the reviewed 12-page corrective PDF, manifest and metadata before the
+replacement handoff, and the existing package checker passed against its actual
+isolated clean-build directory. The author also independently compiled this
+four-input source bundle with `SOURCE_DATE_EPOCH=1789084800` and
+`FORCE_SOURCE_DATE=1`; the existing package checker passed against that
+independent clean build.
+
+The official arXiv message lists the public replacement source contents as the
+same four logical inputs used by this bundle: `ringmin_finite_v2.tex`,
+`appendix_tables.tex`, `figures/n14.png`, and `figures/radii_vs_n.png`. This
+repository record does not claim byte identity with arXiv's server-generated
+PDF unless that server artifact is separately retrieved and compared.
 
 ## Contents
 
@@ -63,15 +68,19 @@ Python is not needed for direct TeX compilation. The required packages are
 geometry, AMS packages, booktabs, graphicx, hyperref, T1 and Latin Modern.
 The [manifest](BUILD_MANIFEST.json) records exact bundle hashes, compiler and
 stable passes. [REVIEW_METADATA.json](REVIEW_METADATA.json) is a consistency
-record with the finalized identifier and replacement status, not a submission
-record. The builder, package audit and independent direct bundle compile have
-passed for the current local artifact. The actual arXiv server environment has
-not been exercised.
+record for the reviewed local artifact; it is not an arXiv service record.
 
 The [correction audit](../../ops/TASK-20260911__publication_architecture/CORRECTION_AUDIT.md)
-lists every changed claim, retained finite scope and contents. The current
-finalization [task dossier](../../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md)
-records the identifier update and final local verification. The next author
-action is to create the replacement submission for arXiv:2607.28654v1 using
-only this directory's `source_bundle/`, then inspect arXiv's compiled PDF
-before finalizing the replacement.
+lists every changed claim, retained finite scope and contents. The finalization
+[dossier](../../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md)
+records the pre-handoff identifier update and local verification. That dossier
+is historical evidence and may still describe the replacement as unsubmitted
+because it records the state at the time the local task ended.
+
+## Journal continuation
+
+Do not overwrite this public-v2 source for journal development. The next
+editorial phase is tracked separately in
+`../../ops/TASK-20260916__journal_readiness/`, with Discrete & Computational
+Geometry as the current working target. A journal manuscript should be created
+as a separate artifact after the substantive referee blockers are resolved.
