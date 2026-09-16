@@ -1,28 +1,27 @@
 # Publication History
 
-This thematic ledger owns the separation between the immutable public
-arXiv-v1 record and active post-publication knowledge.
+This thematic ledger owns the separation between the historical arXiv-v1
+record, the current public corrective v2, and active post-publication knowledge.
 
-## Public snapshot
+## Current public finite-paper record
 
-The public snapshot is arXiv v1, `arXiv:2607.28654`. Its claims, tables, and
-wording remain historical publication content. This knowledge migration does
-not revise or back-project later results into that snapshot.
+The current finite-paper record is
+[arXiv:2607.28654](https://arxiv.org/abs/2607.28654). The official arXiv
+notification received on 2026-09-16 states that replacement submission
+`submit/8082087` has been made public. The announced corrective v2 is dated
+2026-09-15 10:14:17 GMT, has 12 pages and 2 figures, preserves the finite
+certified results, corrects the superseded v1 asymptotic conjectures, clarifies
+floating-circle quantifiers and cites the standalone sequel
+`arXiv:2609.13630`.
 
-The bootstrap provenance for active durable knowledge remains the repository
-snapshot recorded in the canonical index. Publication-facing source and
-derived assets remain synchronized historical material and require a
-dedicated `STRICT` revision task before any change.
+The original v1 dated 2026-06-25 remains historical publication provenance and
+must not be silently rewritten. Public HTTP mirrors or cached arXiv views may
+lag the official replacement notification; a stale v1 page is not by itself
+evidence that the replacement was rolled back.
 
-## Current two-manuscript architecture, 2026-09-15
+## Current two-manuscript architecture, 2026-09-16
 
-**Status:** standalone `arXiv:2609.13630`; the corrective finite paper is an
-`ARXIV_REPLACEMENT_CANDIDATE`, unsubmitted in this task. The identifier is
-recorded from the official arXiv record; no arXiv submission was performed by
-this task. Corrective finalization is recorded in the
-[current dossier](../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md).
-The primary finite/Supnick reference remains the real public v1. Default
-citation and `CITATION.cff` remain anchored to it.
+**Status:** both manuscripts now have public arXiv records.
 
 - [Standalone asymptotic sequel](../paper_assets/asymptotic_sequel/README.md),
   [arXiv:2609.13630](https://arxiv.org/abs/2609.13630):
@@ -30,23 +29,45 @@ citation and `CITATION.cff` remain anchored to it.
   asymptotic constant*. It presents the angular-to-line reduction, existence,
   effective balanced-word LP characterization, full geometric recovery and
   explicit endpoints. Historical finite algorithms and tables are cited only.
-- [Conservative corrective v2](../paper_assets/v1_correction/README.md):
+- [Conservative corrective v2](../paper_assets/v1_correction/README.md),
+  [arXiv:2607.28654](https://arxiv.org/abs/2607.28654):
   *Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP
-  and certified finite optima*. It preserves the historical finite core and
-  corrects superseded conjectures and witness quantifiers. Its distinct
-  publication state is `ARXIV_REPLACEMENT_CANDIDATE`; it cites the standalone
-  sequel at `arXiv:2609.13630` and remains unsubmitted here.
+  and certified finite optima*. It preserves the finite core, explicitly
+  retracts the superseded asymptotic conjectures, distinguishes existential
+  floating placements from universal claims, and cites the standalone sequel.
+  Publication state: `ARXIV_V2_PUBLISHED`.
 
-The [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
-and [overlap/policy audit](../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
-identify the separation and residual moderation risk. The standalone now has
-its permanent identifier; the corrective placeholder has been replaced in the
-source, the local builder/package audit, and the author-supplied independent
-direct source-only compile now pass. The finalization
-[dossier](../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md) records
-the package as ready for the author's replacement handoff. The old nine-page
-candidate remains historical provenance, not the fallback. Any arXiv
-moderation or versioning decision remains external to this task.
+The historical [publication-architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md),
+[overlap/policy audit](../ops/TASK-20260911__publication_architecture/POLICY_AND_OVERLAP.md)
+and [corrective finalization dossier](../ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md)
+record the state and checks at the time those tasks completed. They are not
+retroactively rewritten merely because arXiv later made the replacement public.
+
+The old nine-page replacement candidate remains historical provenance and is
+not the recommended source for any future publication.
+
+## Journal-readiness phase, 2026-09-16
+
+The arXiv v2 source is now frozen as the public correction. Journal development
+must happen in a separate manuscript rather than by editing the public-v2
+artifact in place.
+
+A strict internal mock-referee pass is recorded under
+[`ops/TASK-20260916__journal_readiness/`](../ops/TASK-20260916__journal_readiness/REFEREE_REPORT.md).
+The working primary target is **Discrete & Computational Geometry** because its
+scope explicitly includes packing/configurations, geometric algorithms and
+geometrically flavored combinatorial optimization. The two substantive
+pre-submission blockers are:
+
+1. make the numerical meaning of the finite global certificates fully robust
+   for journal scrutiny — ideally by a rigorous worst-case directed/interval
+   error envelope for pruning, otherwise by narrower terminology;
+2. make the all-`n` fixed-order seam theorem used by the finite paper
+   self-contained or cite it through a stable publication-quality source rather
+   than relying on a repository proof supplement.
+
+Venue and compliance details are tracked in
+[`VENUE_AND_SUBMISSION_PLAN.md`](../ops/TASK-20260916__journal_readiness/VENUE_AND_SUBMISSION_PLAN.md).
 
 ## Superseded replacement strategy, 2026-09-11
 
@@ -61,8 +82,7 @@ asymptotic theorem is central; its mathematical status remains owned by
 fixed-order and finite-certificate owners retain their separate scopes.
 The historical [final review packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md)
 identifies the source supplement, claims, dependencies, checks and final
-containing commit. Historical TeX/PDF, derived assets and CITATION.cff are
-unchanged. No arXiv submission, journal submission, tag or release occurred.
+containing commit.
 
 ## Navigation by epistemic role
 
@@ -75,6 +95,7 @@ unchanged. No arXiv submission, journal submission, tag or release occurred.
 - Published finite claims and their current evidence-chain limitations are
   owned by [`CERTIFICATION.md`](CERTIFICATION.md).
 
-Historical publication wording controls only what arXiv v1 said. For current
-mathematical detail, the proof note linked by the owning thematic ledger
-controls.
+Historical v1 wording controls only what v1 said. The public corrective v2
+controls the current finite-paper arXiv record. For post-v2 mathematical detail,
+the owning thematic ledgers and proof notes remain the active repository source
+until a journal manuscript freezes its own exact scope.
