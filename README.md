@@ -4,11 +4,11 @@ Exact solver and certificate artifacts for the minimum central circle problem:
 circles of radii `1,2,...,n` are externally tangent to a central circle, and the
 goal is to minimize the central radius `R`.
 
-**Paper (arXiv v1):** [arXiv:2607.28654](https://arxiv.org/abs/2607.28654)
+**Paper (current arXiv v2):** [arXiv:2607.28654](https://arxiv.org/abs/2607.28654)
 
 **Citation:** Maurizio Falconi, Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima, arXiv:2607.28654 [cs.CG], 2026.
 
-The public arXiv v1 is accompanied here by the solver code, independent
+The current public arXiv v2 is accompanied here by the solver code, independent
 verifier, certificate artifacts, and paper source/PDF. The repository certifies
 the global optimum for `n=3..14` by exhaustive enumeration of cyclic orderings.
 Larger-`n` candidate optima remain heuristic. The post-v1
@@ -23,17 +23,18 @@ The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
 `0.14056946887766098063257 > 1/8`. The four-block upper bound now has
 [genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
 These post-v1 theorems have passed internal adversarial review; independent
-external acceptance is pending. The current publication architecture is the
+external acceptance is pending. The current publication architecture has two
+public arXiv records: the
 [standalone asymptotic sequel](https://arxiv.org/abs/2609.13630), with its
-repository source preserved, and a
-[conservative correction of the finite paper](paper_assets/v1_correction/README.md),
-now a prepared replacement candidate for arXiv:2607.28654. See the
+repository source preserved, and the
+[conservative corrective v2 of the finite paper](paper_assets/v1_correction/README.md),
+now public as arXiv:2607.28654v2. See the
 [publication history](knowledge/PUBLICATION_HISTORY.md) and
 [finalization dossier](ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md).
 The former [replacement candidate](paper_assets/v2/README.md) is superseded
 provenance, not the recommended next upload.
 
-The historical paper is unchanged. The fixed-order
+The historical v1 artifact is unchanged. The fixed-order
 feasibility oracle is a high-precision Simple Temporal Network check over all
 pairwise angular constraints; chain-only values are used only as lower bounds.
 
@@ -239,7 +240,7 @@ The [reproduction dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENC
 records a successful clean-source Windows run and its failure controls.
 POSIX execution and hosted CI for the current SHA are not inferred from it.
 
-With `pdflatex` available, rebuild the standalone submission candidate from a
+With `pdflatex` available, rebuild the standalone sequel artifact from a
 clean source-only tree and record its input/PDF hashes and metadata with:
 
 ```bash
