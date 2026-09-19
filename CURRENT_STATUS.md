@@ -2,47 +2,43 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20260919__dcg_presubmission_revision
+task=TASK-20260919__archival_metadata
 observed_on=2026-09-19
 mode=STRICT
 state=READY_FOR_REVIEW
-accepted_baseline=bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6
+accepted_baseline=2a1118b1236a8c8f9e356a5e01bd2afb4f689276
 ```
 
 ## Current task and scope
 
-Completed the bounded [finite DCG pre-submission revision](paper_assets/journal_dcg/README.md):
-fixed minimizing-order wording, explicit existing A.5 boundary comparison,
-two relevant circle-packing references, and pinned/content-addressed Git
-provenance. The [source map](paper_assets/journal_dcg/SOURCE_MAP.md) and
-[revision dossier](ops/TASK-20260919__dcg_presubmission_revision/TASK_STATUS.md)
-record scope; [evidence](ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
-separates local verification from independent acceptance. No new mathematics
-or certificate logic was introduced.
+Prepared `CITATION.cff` as the sole metadata source for the forthcoming archival
+GitHub/Zenodo snapshot of the accepted finite DCG pre-submission companion.
+The [task dossier](ops/TASK-20260919__archival_metadata/TASK_STATUS.md) records
+candidate version/tag, exact release title, archive contents and expected
+Zenodo mapping. The preferred publication citation remains the public finite
+paper, explicitly pinned to `arXiv:2607.28654v2`.
 
 ## Verification gates and blockers
 
-The unchanged complete exact verifier passes all twelve brackets and pinned
-inputs: 47 witnesses and 3,374,988,556 covered full classes. The STRICT seam
-checker with symbolic checks passes. The manuscript audit preserves all 27
-source displays, 21 tags, six vectors, endpoints/coverage, mathematical body
-and floating quantifiers, and confines seam edits to the A.5 clarification.
-Two successful two-pass LaTeX builds produce the same 18-page PDF, without
-unresolved references or overfull boxes. All pages were rendered and visually
-inspected. Source/build hashes and protected-path/whitespace checks pass.
+CFF 1.2.0 schema validation and semantic checks pass. The local Zenodo conversion
+matches the intended software metadata. GitHub's preferred-paper rendering was
+inspected in APA/BibTeX, with the v2 URL as the expected display update.
+All 695 protected baseline tracked paths and the exempted ZIP hash are unchanged.
+[Evidence](ops/TASK-20260919__archival_metadata/EVIDENCE.md) separates local
+checks, hosted rendering and later archival ingestion. No mathematical claim
+is changed or newly certified; no new stable conclusion requires a thematic
+ledger or index update. No preparation blocker remains.
 
-Public arXiv v1/v2, asymptotic sequel, solver, results, certificates, verifiers,
-tests, proof notes and thematic ledgers are unchanged. The user explicitly
-re-exempted the pre-existing untracked publication ZIP, which remains intact
-and unstaged. No new stable claim or duplicate claim owner requires a ledger
-or index update. No mathematical or environment blocker remains.
-
-Authorized scoped commit/push, remote identity and final working-tree state
-are reported in the handoff. Local checks do not imply independent acceptance
-or hosted CI. No tag, release, archival DOI, cover letter or submission was
-created; archival publication remains a separate task.
+All manuscripts, public arXiv sources, asymptotic sequel, certificates, results,
+verifiers, solver, tests and dependencies are protected. The user explicitly
+exempted the pre-existing untracked public-v2 source ZIP for this task; leave
+it untouched and unstaged. No tag, GitHub release, Zenodo deposit or DOI is
+created here. Independent metadata review remains required before archival
+publication; it is separate from the authorized scoped commit and push.
+Final staged checks, commit/push result, remote identity and working-tree state
+are reported in the handoff. No hosted-CI success is inferred.
 
 ## Exactly one next atomic task
 
-Independent review della pre-submission revision; se accettata, freeze
-release/archival DOI.
+After independent review, create the authorized GitHub release/tag and archive
+it through Zenodo, then verify the issued DOI and archived record.

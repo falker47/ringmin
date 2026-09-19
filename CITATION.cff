@@ -1,13 +1,32 @@
 cff-version: 1.2.0
-message: "If you use this software or its certificate artifacts, please cite it as below."
-title: "Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima"
+type: software
+message: "If you use Ringmin or its certificate artifacts, please cite the public finite paper specified in preferred-citation."
+title: "Ringmin: minimum central circle software and exact finite certificates"
+abstract: >-
+  Ringmin provides software, exact finite certificate artifacts, and independent
+  verification for the minimum central circle problem with surrounding circles
+  of radii 1,2,...,n. This finite DCG pre-submission companion snapshot includes
+  the standalone exact-arithmetic verifier for global brackets
+  L_n < R*(n) <= U_n of width 10^-11 for n=3,...,14, their preserved inputs and
+  provenance, and the working manuscript for Discrete & Computational Geometry.
+  The public finite paper remains arXiv:2607.28654v2. This snapshot does not
+  extend the finite certificate scope beyond n=14 or imply journal acceptance.
 authors:
   - family-names: "Falconi"
     given-names: "Maurizio"
 repository-code: "https://github.com/falker47/ringmin"
 url: "https://github.com/falker47/ringmin"
 license: "MIT"
-version: "1.0-arxiv-v1"
+# Archival companion version, distinct from the Python package and arXiv versions.
+version: "1.1.0-dcg-presubmission"
+keywords:
+  - minimum central circle
+  - circle packing
+  - computational geometry
+  - geometric optimization
+  - exact arithmetic
+  - finite certificates
+  - reproducible research
 preferred-citation:
   type: article
   title: "Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima"
@@ -15,8 +34,8 @@ preferred-citation:
     - family-names: "Falconi"
       given-names: "Maurizio"
   year: 2026
-  url: "https://arxiv.org/abs/2607.28654"
+  url: "https://arxiv.org/abs/2607.28654v2"
   identifiers:
     - type: other
-      value: "arXiv:2607.28654"
-      description: "arXiv identifier"
+      value: "arXiv:2607.28654v2"
+      description: "Public finite paper, arXiv version 2"

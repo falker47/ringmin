@@ -34,18 +34,19 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independent review of the finite DCG pre-submission revision; if accepted, freeze release/archival DOI
+## Priority 1 — Review archival metadata, then create and verify the finite companion archive
 
-Review the [standalone working manuscript](../paper_assets/journal_dcg/README.md)
-and [revision evidence](../ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
-at the committed revision HEAD against the user-supplied accepted baseline
-`bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6`. Review the four editorial
-findings and preservation of exact bracket scope and strictness for the infimum,
-complete lower coverage, rational upper witnesses, the self-contained seam
-appendix and narrow onset quantifiers, and the separation of numerical floating
-descriptions from exact claims. The source map provides detailed dependencies.
-If the revision is accepted, proceed to freeze release/archival DOI in that
-separate task; the current revision creates neither.
+The user supplied accepted finite DCG pre-submission baseline
+`2a1118b1236a8c8f9e356a5e01bd2afb4f689276`. Independently review the
+[archival metadata preparation](../ops/TASK-20260919__archival_metadata/TASK_STATUS.md)
+against that baseline, including the CFF software identity, preferred public
+finite-v2 citation and preservation of protected files. This preparation
+creates no tag, release, Zenodo deposit or DOI.
+
+After independent review, exactly one next atomic task: create the authorized
+GitHub release/tag and archive it through Zenodo, then verify the issued DOI
+and archived record. Use the candidate version, release title and complete
+tracked-snapshot inventory in the metadata dossier.
 
 The numerical-certification blocker is closed for the accepted finite bracket
 claim through the new exact global route. Historical float64 pruning is not
