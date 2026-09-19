@@ -16,11 +16,13 @@ snapshot_date=2026-08-04
 ```
 
 The commit records the post-arXiv-v1 repository update. Detailed published
-proofs remain in `paper_assets/ringmin_paper.tex`. Finite certificate claims
-require the optimum and frontier artifacts, their provenance, and
-`verify.py`. Restore the exact historical progress logs from the tracked
-archives before a full frontier audit; the canonical procedure and its tested
-scope are in [IMPLEMENTATION.md](knowledge/IMPLEMENTATION.md#full-verifier-evidence-restoration).
+proofs remain in `paper_assets/ringmin_paper.tex`. The accepted exact global
+bracket route and the historical float64 frontier route have distinct evidence
+requirements; [CERTIFICATION.md](knowledge/CERTIFICATION.md#independent-exact-arithmetic-global-brackets)
+owns their scope and limitations. The historical route uses optimum/frontier
+artifacts, provenance and `verify.py`. Restore its exact progress logs from the
+tracked archives before a full frontier audit; the procedure and tested scope
+are in [IMPLEMENTATION.md](knowledge/IMPLEMENTATION.md#full-verifier-evidence-restoration).
 
 ## Central definitions and guardrails
 

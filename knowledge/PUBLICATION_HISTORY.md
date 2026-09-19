@@ -46,7 +46,7 @@ retroactively rewritten merely because arXiv later made the replacement public.
 The old nine-page replacement candidate remains historical provenance and is
 not the recommended source for any future publication.
 
-## Journal-readiness phase, 2026-09-16
+## Finite journal preparation after bracket acceptance
 
 The arXiv v2 source is now frozen as the public correction. Journal development
 must happen in a separate manuscript rather than by editing the public-v2
@@ -56,17 +56,19 @@ A strict internal mock-referee pass is recorded under
 [`ops/TASK-20260916__journal_readiness/`](../ops/TASK-20260916__journal_readiness/REFEREE_REPORT.md).
 The working primary target is **Discrete & Computational Geometry** because its
 scope explicitly includes packing/configurations, geometric algorithms and
-geometrically flavored combinatorial optimization. The two substantive
-pre-submission blockers are:
+geometrically flavored combinatorial optimization. That dated report identified
+two substantive blockers and remains unchanged historical evidence.
 
-1. make the numerical meaning of the finite global certificates fully robust
-   for journal scrutiny — ideally by a rigorous worst-case directed/interval
-   error envelope for pruning, otherwise by narrower terminology;
-2. make the all-`n` fixed-order seam theorem used by the finite paper
-   self-contained or cite it through a stable publication-quality source rather
-   than relying on a repository proof supplement.
+The numerical blocker is now closed for the finite bracket claim by the
+[accepted exact route](CERTIFICATION.md#independent-exact-arithmetic-global-brackets),
+with the historical float64 limitations preserved. The remaining substantive
+gate for the finite paper is to make the required fixed-order seam theorem
+self-contained or supply a stable publication-quality source. No journal
+manuscript has been created. A separate DCG version follows that gate; this is
+neither peer review nor a declaration of overall journal readiness, and it does
+not advance the asymptotic sequel's separate journal track.
 
-Venue and compliance details are tracked in
+Historical venue and compliance planning is recorded in
 [`VENUE_AND_SUBMISSION_PLAN.md`](../ops/TASK-20260916__journal_readiness/VENUE_AND_SUBMISSION_PLAN.md).
 
 ## Superseded replacement strategy, 2026-09-11

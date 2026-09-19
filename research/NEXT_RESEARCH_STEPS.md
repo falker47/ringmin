@@ -28,28 +28,56 @@ The [global ledger](../knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) owns these
 claims and links the exact endpoint definitions. Neither explicit endpoint
 is asserted sharp.
 
-The finite certification scope remains 3<=n<=14. Existing exact fixed-order
-Supnick classification remains distinct from global contact/cascade claims.
+The accepted finite global bracket certification has scope 3<=n<=14; its
+claim and historical float64 boundary are owned by the
+[certification ledger](../knowledge/CERTIFICATION.md#independent-exact-arithmetic-global-brackets).
+Existing exact fixed-order Supnick classification remains distinct from global
+contact/cascade claims.
 
-## Priority 1 — One independent external review
+## Priority 1 — Fixed-order seam theorem for the finite journal paper
+
+Make the fixed-order seam result actually needed by the finite paper
+self-contained or otherwise publication-quality. Start from the
+[fixed-order ledger](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification),
+[full-feasibility proof](SUPNICK_FULL_FEASIBILITY.md) and
+[seam-sequence proof](SUPNICK_SEAM_SEQUENCES.md); isolate the required theorem,
+hypotheses and proof dependencies without inferring global contact structure.
+Completion means a self-contained proof suitable for incorporation, or a stable
+publication-quality source resolving those dependencies.
+
+The numerical-certification blocker is closed for the accepted finite bracket
+claim through the new exact global route. Historical float64 pruning is not
+retroactively certified; checkpoint recovery, Stage A replay and a historical
+float64 error-envelope proof are no longer prerequisite gates for this claim.
+The [2026-09-16 journal dossier](../ops/TASK-20260916__journal_readiness/REFEREE_REPORT.md)
+records the issues as then open, not current priorities.
+
+Only after the seam/self-containedness gate comes construction of a separate
+**Discrete & Computational Geometry** finite journal manuscript, preserving the
+public arXiv v2 source. No journal manuscript exists yet, and the accepted
+brackets imply neither overall journal readiness nor peer review. That later
+construction must still address the remaining presentation and archival items
+in the historical report. It is not the asymptotic paper's journal track.
+
+## Separate asymptotic track — Independent external review
 
 The research goal concluded at the effective-characterization level. The
 publication architecture separates a standalone asymptotic sequel from
 a conservative correction of the finite paper. The standalone sequel now has
 the permanent identifier [arXiv:2609.13630](https://arxiv.org/abs/2609.13630);
-the corrective replacement finalization is recorded in
-[CURRENT_STATUS.md](../CURRENT_STATUS.md). Independent external review
-remains the scientific priority. Review the
+the corrective replacement publication is recorded in
+[PUBLICATION_HISTORY.md](../knowledge/PUBLICATION_HISTORY.md). Independent external review
+remains pending for this distinct manuscript. Review the
 [standalone manuscript](../paper_assets/asymptotic_sequel/README.md), using the
 [architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
 and the scientific dependency checks in the historical
 [final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md), under
 RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; the corrective
-v2 is not submitted by this task. Only the actual external reviewer may
-advance external Review State. Submission preparation does not advance that
-state.
+v2 remains the separate public finite-paper correction. The finite-bracket
+acceptance does not accept the asymptotic theorem or settle this manuscript's
+external review. Submission preparation does not advance Review State.
 
-## Subsequent scientific questions
+## Subsequent asymptotic scientific questions
 
 After the goal's final review packet, the highest mathematical opportunity is
 a tractable primal/dual method for the finite-word variational value. The
