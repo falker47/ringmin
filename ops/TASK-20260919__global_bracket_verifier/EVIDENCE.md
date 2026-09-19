@@ -114,6 +114,26 @@ test suite/smoke gate. No historical Stage A workflow is invoked. Hosted status
 must be read for that exact SHA after push; none is inferred from local results.
 No baseline or Review State Registry is promoted.
 
+### Actual integration attempt
+
+- `git commit -m "Integrate independent complete global bracket verifier"`:
+  exit 0, commit `ff1a51b6827535dd16f92d13389ffe0f4ad866b4`, 31 task paths.
+- `git push origin main`: exit 1, rejected with `fetch first` because remote
+  history is not contained in the requested starting checkout.
+- Read-only GitHub API `repos/falker47/ringmin/branches/main` returned
+  `5c98063a9a38d6f7f76d7ec7a073f3cdf8d5717a`. Comparison from the starting base
+  reported ahead_by=2, behind_by=0. The remote-only commits are
+  `c0d9d6e66afc8ec94918adbe23345bdc7a7fa43b` and
+  `5c98063a9a38d6f7f76d7ec7a073f3cdf8d5717a`; they include changes to
+  CURRENT_STATUS.md, README, publication history and correction-package status.
+- Exact-SHA Actions query
+  `repos/falker47/ringmin/actions/runs?head_sha=ff1a51b6827535dd16f92d13389ffe0f4ad866b4&per_page=5`
+  returned total_count=0. **No hosted CI pass is claimed.**
+- No history reconciliation or force push was attempted. The standing Git
+  authorization forbids merge/rebase without explicit user approval. A local
+  documentation-only follow-up records this blocker; implementation bytes and
+  all verification results above remain applicable.
+
 ## Residual uncertainty
 
 No new independent external review, Registry acceptance, proof-assistant proof,

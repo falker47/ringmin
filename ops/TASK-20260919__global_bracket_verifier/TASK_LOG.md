@@ -67,3 +67,19 @@
 - `git diff --check` and `git diff --cached --check`: exit 0. Protected-path
   diff empty; no unstaged task content. Full staged code/document diff and
   archive content checks completed before commit.
+
+## 2026-09-19 — Commit created; normal push blocked
+
+- Implementation commit: ff1a51b6827535dd16f92d13389ffe0f4ad866b4.
+- `git push origin main`: exit 1, `[rejected] main -> main (fetch first)`.
+- Read-only GitHub branch/compare queries show remote main at
+  5c98063a9a38d6f7f76d7ec7a073f3cdf8d5717a, two commits ahead of the starting
+  base: c0d9d6e66afc8ec94918adbe23345bdc7a7fa43b and 5c98063a9a38d6f7f76d7ec7a073f3cdf8d5717a.
+  Remote changes include CURRENT_STATUS.md and publication-state documents.
+- Exact implementation-SHA workflow query returned total_count=0.
+- No merge/rebase/force push or alternate-branch publication attempted. Git
+  status after the implementation commit showed only the exempt ZIP.
+- Recorded the integration blocker in a documentation-only follow-up; no code,
+  proof, tests or preserved inputs changed. Final state BLOCKED for integration.
+- Next atomic task is authorized reconciliation with remote main and normal
+  publication of the verified change; external review remains separate.

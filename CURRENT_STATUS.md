@@ -5,7 +5,7 @@ repository=falker47/ringmin
 task=TASK-20260919__global_bracket_verifier
 observed_on=2026-09-19
 mode=STRICT
-state=READY_FOR_REVIEW
+state=BLOCKED
 ```
 
 The supplied global bracket certificate has a complete standalone verifier:
@@ -26,17 +26,22 @@ and [proof note](research/GLOBAL_BRACKET_CERTIFICATE.md).
   public results and publications remain unchanged. The explicitly exempted
   untracked publication ZIP stays untouched and outside the commit.
 - No generator replay, historical Stage A rerun or Registry promotion occurred.
-- Final staging/commit/push follows the standing authorization. The resulting
-  exact SHA and hosted CI observation are reported in the task handoff; local
-  evidence is not a hosted-CI claim. External acceptance remains pending.
+- Implementation commit: `ff1a51b6827535dd16f92d13389ffe0f4ad866b4`.
+  Normal push was rejected (`fetch first`). No hosted run exists for that SHA;
+  local evidence is not a hosted-CI claim. External acceptance remains pending.
 
 ## Blockers
 
-None for implementation. Review of the exact integration commit is a separate
-gate; READY_FOR_REVIEW does not accept a baseline or establish journal readiness.
+Implementation and local verification are complete, but integration is blocked.
+Remote main is `5c98063a9a38d6f7f76d7ec7a073f3cdf8d5717a`, two commits ahead
+of the requested starting base. Those commits modify CURRENT_STATUS.md as well
+as publication-state documents. No merge, rebase, reset or force push was used;
+AGENTS section 3 requires explicit authorization before merge/rebase.
+This local state is not baseline acceptance or journal readiness.
 
 ## Exactly one next atomic task
 
-Independently review the exact global bracket verifier integration commit,
-including the proof, preserved payload, falsification tests and its hosted CI,
-under RINGMIN_REVIEW_PROTOCOL.md.
+After explicit authorization, integrate the local verifier commits with the two
+remote main commits using a non-rewriting merge, resolve CURRENT_STATUS.md while
+preserving the separate publication state, and complete normal push and exact-SHA
+CI verification. Independent review remains a separate acceptance gate.

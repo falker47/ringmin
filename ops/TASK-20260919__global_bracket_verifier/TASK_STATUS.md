@@ -3,7 +3,7 @@
 ```text
 task=TASK-20260919__global_bracket_verifier
 mode=STRICT
-state=READY_FOR_REVIEW
+state=BLOCKED
 started_at=2026-09-19
 updated_at=2026-09-19
 ```
@@ -50,16 +50,22 @@ is authorized. The external supplied directory is read-only.
 - [x] original bytes and protected paths checked;
 - Final integration gate: inspect staged diff and whitespace, commit, normal
   push, inspect exact-SHA hosted status and report at handoff.
-- [x] READY_FOR_REVIEW, without accepting a baseline.
+- Local implementation is reviewable; integration is BLOCKED by remote history.
 
 ## Blockers
 
-None after the user supplied the original package and the specific ZIP exception.
+Normal push of `ff1a51b6827535dd16f92d13389ffe0f4ad866b4` was rejected
+(`fetch first`, exit 1). Remote main is
+`5c98063a9a38d6f7f76d7ec7a073f3cdf8d5717a`, two commits ahead of the requested
+base. Merge/rebase is not authorized by the standing commit/push permission.
+No hosted run exists for the unpushed implementation commit.
 
 ## Handoff
 
 Implementation and local verification are complete; see EVIDENCE.md and
 VERIFICATION_FINAL.json. The verifier is independent of production and the
 generator, but derives from supplied reviewer code; another execution is not
-another independent review. Exactly one next atomic task: independent review
-of the integration commit.
+another independent review. Exactly one next atomic task: after explicit
+authorization, merge the two remote main commits without history rewriting,
+preserve publication-state changes, and finish push and exact-SHA CI checks.
+Independent review remains the later acceptance gate.
