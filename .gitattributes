@@ -1,0 +1,4 @@
+# Preserve imported certificate and review evidence byte for byte on every OS.
+reproducibility/global_brackets/originals/** -text
+# Preserve the supplied review's blank EOF without rewriting evidence.
+reproducibility/global_brackets/originals/STRICT_REVIEW_IT.md whitespace=-blank-at-eof

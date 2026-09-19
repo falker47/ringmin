@@ -1,0 +1,70 @@
+{
+  "description": "Selected byte-identical originals from the supplied STRICT review; historical evidence, not new executions. DELIBERATELY_INVALID files are negative fixtures only.",
+  "files": [
+    {
+      "path": "source/ringmin_global_interval_candidate.json",
+      "bytes": 350175,
+      "sha256": "cfb95a8354c9ea0529f5ece85118712a3e94c36aed1e14a43b6f32c6e98549db"
+    },
+    {
+      "path": "source/ringmin_global_interval_replay.py",
+      "bytes": 27499,
+      "sha256": "e785b43bd2a24cf74d807479b5719e5f1b5e762027e41c4a69af07a655531549"
+    },
+    {
+      "path": "source/global_interval_replay_20260917T101809Z_3399172f.json",
+      "bytes": 350201,
+      "sha256": "96bdf9b53977724f1b8c0640425365bf32897fd4415104f17bfd1afbfa52c693"
+    },
+    {
+      "path": "source/ringmin_global_interval_proof.md",
+      "bytes": 14410,
+      "sha256": "6761d60394f721e0680dcb12d0287d548a56a67075a289c257e7135dd1c7ced0"
+    },
+    {
+      "path": "STRICT_REVIEW_IT.md",
+      "bytes": 24958,
+      "sha256": "9db3615fffbcc474bff5652c62515bc3beb57f1685866a80584a6b41105fe92c"
+    },
+    {
+      "path": "reviewer_verify.py",
+      "bytes": 16707,
+      "sha256": "b88849e23c461c4f738974ea34ee947b2b203d36a9d774731e9d482d44770534"
+    },
+    {
+      "path": "reviewer_adversarial_tests.py",
+      "bytes": 15091,
+      "sha256": "3723750913c4fc34a21ef8b10d6ace5f9433e57783b6ca0f99f78c6ae323bf13"
+    },
+    {
+      "path": "tests/reviewer_independent_verification.json",
+      "bytes": 32507,
+      "sha256": "6889bf8bd3eca59e02c5267dc401aeebe6a455374435f118969037583204294a"
+    },
+    {
+      "path": "tests/reviewer_analytic_counterexample.json",
+      "bytes": 1242,
+      "sha256": "08a2664127a06424fcb6a72279fa186551385d1d6edcd77d913c90e4b886f203"
+    },
+    {
+      "path": "tests/adversarial_run/adversarial_results.json",
+      "bytes": 13291,
+      "sha256": "9ed13b46eb36a9895130a5b03ca8cc5d0308e0800a95b5beb1e7343ccd99e6e7"
+    },
+    {
+      "path": "tests/adversarial_run/FALSE_n4_bracket_empty_witness/DELIBERATELY_INVALID_windows.json",
+      "bytes": 348263,
+      "sha256": "bbc664909f32338d8407cd3d84e6a07bec03f63317a0db009cdbdbf725261212"
+    },
+    {
+      "path": "tests/adversarial_run/FALSE_n4_bracket_47_total_witnesses/DELIBERATELY_INVALID_windows.json",
+      "bytes": 349931,
+      "sha256": "321d6939328a258ab0b37a00d1abf68bd61df4ef3106de496a2cd8ef6661b03b"
+    },
+    {
+      "path": "tests/adversarial_run/one_ulp_false_L_angle_rehashed/DELIBERATELY_INVALID_windows.json",
+      "bytes": 350201,
+      "sha256": "e0968678f984d3bfc52746629e3a9e7cc188b06eea541f03e61309a0660e6504"
+    }
+  ]
+}

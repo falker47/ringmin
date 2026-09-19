@@ -28,3 +28,6 @@ jobs:
 
       - name: Run verifier smoke test
         run: python verify.py --start 3 --stop 8 --skip-frontier
+
+      - name: Verify complete global brackets and original input binding
+        run: python -I -S verify_global_brackets.py

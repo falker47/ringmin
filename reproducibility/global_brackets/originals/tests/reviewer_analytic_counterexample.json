@@ -1,0 +1,19 @@
+{
+  "kind": "Reviewer exact analytical counterexample and pinned provenance test",
+  "false_upper": "50000000001/100000000000",
+  "smallest_pair_q": "20000000000000000000000/37500000000400000000001",
+  "q_minus_one_half": "2499999999599999999999/75000000000800000000002",
+  "four_minus_denominator_product": "2499999999599999999999/10000000000000000000000",
+  "all_angles_above_pi_over_2": true,
+  "reason": "q_ab increases with both positive radii at fixed R; q_12>1/2. Hence all four cyclic gaps strictly exceed pi/2 and their sum exceeds 2*pi.",
+  "pinned_input_cases_hash_test": {
+    "actual_mutant_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "expected_from_AST_literal_CASES": "cb24657c443010573cf85a54f9991e4288b46054094fd3069fe3d917a63a56f0",
+    "rejected_by_exact_comparison": true,
+    "note": "This exercises source-to-input binding separately; verify(..., pinned=False) is only the mathematical checker and intentionally ignores this provenance field."
+  },
+  "original_zip_sha256": "5b12b4580d6712b5d682defd569a5b32ef669d766c2c468d8b6aa4785d7ddefe",
+  "original_zip_members_CRC_OK": true,
+  "all_15_extracted_files_identical_to_uploaded_zip": true,
+  "pruning_insertion_threshold_tests": 22
+}

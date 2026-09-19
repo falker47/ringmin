@@ -1,0 +1,417 @@
+{
+  "status": "COMPLETED_WITH_REPRODUCED_VERIFIER_SOUNDNESS_DEFECT",
+  "original_source_unchanged": true,
+  "source_sha256": {
+    "packet_manifest.json": "fcfe48462dcf6dd887ea56fb29619de0eac91a137031bdd8827406cea8a7d56a",
+    "REVIEW_REQUEST.md": "b85396de87de59eaf979d82eba7fc92dafda6de39e11aec6c1b09fb3763778f8",
+    "ringmin_bundle_review.json": "1e9caf1082d0ffefbe2fdc0f18b9581f405903c20f6fac678d34f6707fc5f9dd",
+    "INTERNAL_REVIEW_ADDENDUM.md": "0a1d5dd99090bd6c70bfe5a565ba0584f5060e85d49f53e27e5bb26f26c6f015",
+    "global_interval_replay_20260917T101809Z_3399172f.json": "96bdf9b53977724f1b8c0640425365bf32897fd4415104f17bfd1afbfa52c693",
+    "ringmin_candidate_package_manifest.json": "a9b97f4b3034919a706d83464616314e0453bdcba70cd80d42dcad6f81e15ebf",
+    "WINDOWS_RECEIPT_CHECK.json": "8038e3701f73cd660ead19d53becefe0fcd0ec208e19912a1d3d2955300551c1",
+    "ringmin_global_interval_proof.md": "6761d60394f721e0680dcb12d0287d548a56a67075a289c257e7135dd1c7ced0",
+    "KERNEL_REGRESSION.json": "3206eccd1d88cde8de5e9c19b847f2bd839132000256f45d6ac011b68395dffb",
+    "ringmin_global_interval_replay.py": "e785b43bd2a24cf74d807479b5719e5f1b5e762027e41c4a69af07a655531549",
+    "ringmin_global_interval_candidate.json": "cfb95a8354c9ea0529f5ece85118712a3e94c36aed1e14a43b6f32c6e98549db",
+    "windows_receipt_check.py": "11d00bc3872938f725caa5287e37c9a5b37a2b24fdd1ed4c7cdcb71b9425e48b",
+    "WINDOWS_SECOND_DP_CHECK.txt": "b04df672b0b5e6a42ffe9783bfb706a1bddfb8a0564ecddf6a2e1500e600f628",
+    "README_REVIEW.md": "e1e3323f5f38785cab69c1107f61b3c9cf0a82e681f0a9427fa4652e86546c10",
+    "ringmin_global_interval_crosscheck.py": "2dc9066a64c9dbb33c14c79f389486b598cba1fab3e1796029bf0f43bb759afb"
+  },
+  "adversarial_certificate_tests": [
+    {
+      "name": "missing_n4_upper_witness",
+      "certificate_sha256": "1341bd574fc0d08f23518a95476495988ab338a8d6edfe3454bffed92ce4d745",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "cfc60e469c6899a89817a30c083417d2d7eb8a08b0e17cd3cd1da747f01b54b6",
+        "DELIBERATELY_INVALID_linux.json": "60fcfb4b13b86ef2668fdf29758fae8d7c748b119c2bf17ec5d406394e499b27"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "MISSING existential upper witness n=4"
+      }
+    },
+    {
+      "name": "FALSE_n4_bracket_empty_witness",
+      "certificate_sha256": "762dc0e0f22593c37b735aa39471d33c44d614de6478b2578b8ef0b20dc9ff53",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "bbc664909f32338d8407cd3d84e6a07bec03f63317a0db009cdbdbf725261212",
+        "DELIBERATELY_INVALID_linux.json": "e5d263b15655a0c390cd37b05eb4cf43b930bfcba84f7dcf1aca0f5ed484025c"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "MISSING existential upper witness n=4"
+      }
+    },
+    {
+      "name": "FALSE_n4_bracket_47_total_witnesses",
+      "certificate_sha256": "69a199682df2f5a3d9ff277c36f737d8821901a5e7668a01850a4d93d0f3b702",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "321d6939328a258ab0b37a00d1abf68bd61df4ef3106de496a2cd8ef6661b03b",
+        "DELIBERATELY_INVALID_linux.json": "71ac3d218e1ff71d7a72c366f938f01e6bb2db93327861f74dba2bc45adf6ce3"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "duplicate witness order"
+      }
+    },
+    {
+      "name": "one_ulp_false_L_angle_rehashed",
+      "certificate_sha256": "5210abccae20dab42749d540c9e40dfa60510cf62e374ead906fba7eca7f0a01",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "e0968678f984d3bfc52746629e3a9e7cc188b06eea541f03e61309a0660e6504",
+        "DELIBERATELY_INVALID_linux.json": "5b4c39005f7a5d7a37d34393f4a870bbb0b8dfc04d160480bea6dd27561e4c4f"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: angle enclosure not confirmed n=3"
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "false angular LOWER endpoint"
+      }
+    },
+    {
+      "name": "false_U_angle_rehashed",
+      "certificate_sha256": "8cec8dcd0f031327adaa4a3b9e9a32fd4e1564d0a7ff8d7822f20fabf5f79360",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "647bea51cca69ffc1de6bb0fdbc76029d9eade7007828edcfe64fd24b9c5b32d",
+        "DELIBERATELY_INVALID_linux.json": "873be33091ad1431738338769fbcb8c700b509a20b5479ddd961fa44574d4450"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: angle enclosure not confirmed n=4"
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "angle interval schema/domain"
+      }
+    },
+    {
+      "name": "collapsed_cartesian_direction",
+      "certificate_sha256": "85167c4e61cf766e2d69e3040c875ce5f9411b4ec11363f60f6adbfe80795d40",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "425f1c4b682c37fda233a8cba2b744ae7068aad004cdc131f569969bb1cc6690",
+        "DELIBERATELY_INVALID_linux.json": "75c8a7c4f73c46e9266ae3d2c230c3dc4f32d96a4e47a5fbce5d837913b78732"
+      },
+      "crosschecker": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: cyclic directions"
+      },
+      "receipt": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: strict polar ordering"
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "Cartesian polar order"
+      }
+    },
+    {
+      "name": "wrong_case_coverage",
+      "certificate_sha256": "2e451609447f39533dcbd6791e279c0ea97fdb9a96fe09a88f7691a92755ab13",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "c552d3606689a1e04715715f902eb80e69fc6ad824aa945300c3793fd463e2eb",
+        "DELIBERATELY_INVALID_linux.json": "463833d74b632f94b3f6746bd0fb16454c244fac2a84edb7e3c0f43318ea27f2"
+      },
+      "crosschecker": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: n coverage"
+      },
+      "receipt": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: case coverage"
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "case coverage"
+      }
+    },
+    {
+      "name": "wrong_canonical_count",
+      "certificate_sha256": "4be3e9979f8a03fbb48d1ea5d5fd1984acc01895c9f91f65173dd188ef2b37c6",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "10210f6021e4787cd6cc3ec37a564b94307817ee631f9d8445730d1f3613d4d6",
+        "DELIBERATELY_INVALID_linux.json": "1081ebe9c90e1779e56f8d2a1dc4e104ee35a78fa89312404a5ec07318278129"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 1,
+        "accepted": false,
+        "last_error": "ValueError: canonical count"
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "lower metadata 4 canonical_orders_covered"
+      }
+    },
+    {
+      "name": "unchecked_DP_and_pruning_hashes",
+      "certificate_sha256": "ac972a89e62bf15e00a8fa501dc4903f1214b32e1201151d0f705bb66338acb1",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "262f3b3d03444c87b563798ce154fe645b3a641ed59dd0d315a9d2753604025d",
+        "DELIBERATELY_INVALID_linux.json": "525bd50c0e14ec12875eb8ccf3595d869d38e4380dd45ae4a294b85c697911b6"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "reviewer_oracle": {
+        "rejected": true,
+        "reason": "lower metadata 14 dp_table_sha256"
+      }
+    },
+    {
+      "name": "unchecked_input_cases_hash",
+      "certificate_sha256": "7b6badb884993996b5802cf9aa966d600bb1a92da8280345778bae609eed6878",
+      "files_sha256": {
+        "DELIBERATELY_INVALID_windows.json": "dcfb6463bd122b7fc6f2410e4cd11ad6e0e0d7d755be81655ad971bacd61878c",
+        "DELIBERATELY_INVALID_linux.json": "b6b4a66b26654776c34633520018de0dd7c47ec400ec14748c0528fb50494bda"
+      },
+      "crosschecker": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "receipt": {
+        "exit_code": 0,
+        "accepted": true,
+        "last_error": null
+      },
+      "reviewer_oracle": {
+        "rejected": false
+      }
+    }
+  ],
+  "false_upper_counterexample": {
+    "n": 4,
+    "false_L": "1/2",
+    "false_U": "50000000001/100000000000",
+    "independent_lower_proof_at_the_false_U": {
+      "canonical_orders_covered": 3,
+      "explicit_full_orders_checked": 3,
+      "witness_counts_full_remove1_remove12": [
+        3,
+        0,
+        0
+      ],
+      "minimum_explicit_angular_margin_scaled": "389980756458987491138532080958344493997",
+      "explicit_order_witness_sha256": "ba80fffb007cc72772460fb83f5778010ca01aabcf0165e1051ba1078ec18326",
+      "raw_noncanonical_explicit_tuples": 0
+    },
+    "meaning": "All three order classes are infeasible even at the claimed U; nevertheless both packet checkers accept the forged report."
+  },
+  "DP_bruteforce_instances": 36,
+  "DP_nonroot_states_checked": 1926,
+  "DP_symmetric_instances": 18,
+  "DP_asymmetric_instances": 18,
+  "small_pruning_and_insertion_tests": [
+    {
+      "n": 4,
+      "threshold": 209,
+      "explicit_classes": 0,
+      "pruned_oriented": 2
+    },
+    {
+      "n": 4,
+      "threshold": 210,
+      "explicit_classes": 3,
+      "pruned_oriented": 0
+    },
+    {
+      "n": 5,
+      "threshold": 108,
+      "explicit_classes": 0,
+      "pruned_oriented": 6
+    },
+    {
+      "n": 5,
+      "threshold": 109,
+      "explicit_classes": 4,
+      "pruned_oriented": 4
+    },
+    {
+      "n": 5,
+      "threshold": 129,
+      "explicit_classes": 8,
+      "pruned_oriented": 2
+    },
+    {
+      "n": 5,
+      "threshold": 162,
+      "explicit_classes": 12,
+      "pruned_oriented": 0
+    },
+    {
+      "n": 6,
+      "threshold": 226,
+      "explicit_classes": 0,
+      "pruned_oriented": 24
+    },
+    {
+      "n": 6,
+      "threshold": 227,
+      "explicit_classes": 5,
+      "pruned_oriented": 22
+    },
+    {
+      "n": 6,
+      "threshold": 294,
+      "explicit_classes": 35,
+      "pruned_oriented": 10
+    },
+    {
+      "n": 6,
+      "threshold": 357,
+      "explicit_classes": 60,
+      "pruned_oriented": 0
+    },
+    {
+      "n": 7,
+      "threshold": 164,
+      "explicit_classes": 0,
+      "pruned_oriented": 120
+    },
+    {
+      "n": 7,
+      "threshold": 165,
+      "explicit_classes": 6,
+      "pruned_oriented": 118
+    },
+    {
+      "n": 7,
+      "threshold": 242,
+      "explicit_classes": 186,
+      "pruned_oriented": 58
+    },
+    {
+      "n": 7,
+      "threshold": 320,
+      "explicit_classes": 360,
+      "pruned_oriented": 0
+    },
+    {
+      "n": 8,
+      "threshold": 168,
+      "explicit_classes": 0,
+      "pruned_oriented": 720
+    },
+    {
+      "n": 8,
+      "threshold": 169,
+      "explicit_classes": 7,
+      "pruned_oriented": 718
+    },
+    {
+      "n": 8,
+      "threshold": 353,
+      "explicit_classes": 1281,
+      "pruned_oriented": 354
+    },
+    {
+      "n": 8,
+      "threshold": 530,
+      "explicit_classes": 2520,
+      "pruned_oriented": 0
+    },
+    {
+      "n": 9,
+      "threshold": 182,
+      "explicit_classes": 0,
+      "pruned_oriented": 5040
+    },
+    {
+      "n": 9,
+      "threshold": 183,
+      "explicit_classes": 8,
+      "pruned_oriented": 5038
+    },
+    {
+      "n": 9,
+      "threshold": 344,
+      "explicit_classes": 10128,
+      "pruned_oriented": 2508
+    },
+    {
+      "n": 9,
+      "threshold": 529,
+      "explicit_classes": 20160,
+      "pruned_oriented": 0
+    }
+  ],
+  "strict_comparison_mutant": {
+    "detected": true,
+    "n": 6,
+    "threshold": 5,
+    "correct_explicit": 60,
+    "incorrect_explicit": 0,
+    "factorial_metadata_still_passed": true
+  },
+  "missing_closing_insertion_gap_mutant_rejected": true,
+  "alternate_atan_exact_512term_tests": 30,
+  "reviewer_cosine_exact_160term_tests": 44,
+  "pair_kernel_cosine_and_alternate_tests": 20,
+  "invalid_domains_rejected": 12,
+  "seconds": 26.749597969999968,
+  "notes": [
+    "Tests use scratch reports and in-memory mutants only.",
+    "Mock leaf tests check traversal structure, not geometric infeasibility.",
+    "The original pinned certificate is not invalidated by a verifier accepting other false certificates."
+  ]
+}
