@@ -1,0 +1,6 @@
+n=03 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=04 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=05 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=06 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=07 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
+n=08 incumbent=PASS local=PASS frontier=SKIP eta=1.0e-12 frontier_size=NA total=NA
