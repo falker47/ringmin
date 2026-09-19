@@ -1,0 +1,669 @@
+\newcommand{\DoNotLoadEpstopdf}{}
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,tabularx,array}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Minimum central circles: chain order, seam obstructions, and exact finite certification},pdfauthor={Maurizio Falconi}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Rchain}{R_{\mathrm{chain}}}
+\newcommand{\Rfull}{R_{\mathrm{full}}}
+\newcommand{\Rstar}{R^*}
+\newcommand{\snapshot}{6c16af422d1cb38641c62d43b6e0e547921b9ba9}
+\setlength{\emergencystretch}{2em}
+\title{Minimum central circles:\\chain order, seam obstructions,\\and exact finite certification}
+\author{Maurizio Falconi\\[3pt]\small Independent researcher, Parma, Italy\\
+\small Corresponding author: \texttt{maurizio.falconi47@gmail.com}}
+\date{September 19, 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We minimize the radius of a central circle externally tangent to pairwise
+non-overlapping circles of radii $1,2,\ldots,n$. The adjacent-chain relaxation
+has an angular kernel with strict anti-Monge structure. Supnick's classical
+theorem therefore supplies a single minimizing cyclic order at every central
+radius, and a monotonicity argument transfers this order to the chain-radius
+problem. The full geometry additionally requires every pairwise angular
+constraint. We give a self-contained criterion for feasibility of the
+canonical Supnick necklace on $\{k,\ldots,n\}$ at its chain root, expressed
+by one seam deficit. For every fixed $k$ the seam eventually fails and its
+failure persists. We prove the complete classifications for $k=1,2,3$, whose
+first failures occur at $n=8,13,17$, respectively. For the global problem,
+we certify rational brackets $L_n<R^*(n)\le U_n$ of exact width $10^{-11}$
+for every $3\le n\le14$. The lower proof combines independently enclosed
+angles, integer dynamic programming, and complete cyclic-order coverage;
+the upper proof uses exact rational Cartesian witnesses. It does not depend
+on floating-point pruning in the numerical search. We distinguish these
+finite brackets and fixed-order theorems from numerical descriptions of
+floating circles and from unresolved claims about all optimal placements.
+\end{abstract}
+
+\noindent\textbf{Keywords:} circle packing; discrete geometry; computational
+geometry; traveling salesman problem; Monge matrices; certified computation.
+
+\medskip\noindent\textbf{Mathematics Subject Classification (2020):}
+52C26, 52C15, 05C85, 90C27.
+
+\section{Introduction and contributions}
+Consider $n\ge3$ circles with radii $1,2,\ldots,n$, each externally tangent
+to a central circle. Their interiors must be pairwise disjoint, and the
+central radius is to be minimized. Denote its global infimum by $\Rstar(n)$.
+The freedom to permute the surrounding circles makes this both a geometric
+feasibility problem and a discrete optimization problem. In particular,
+an order minimizing the angle needed by consecutive circles need not
+admit a non-overlapping placement at its chain-closing radius.
+
+The problem and a conjectured ``pyramid'' order were posed by Dan in
+January 2023 on Mathematics Stack Exchange
+(\href{https://math.stackexchange.com/q/4619480}{question 4619480}).
+The present paper gives a finite, standalone treatment. Its main certified
+numerical result is an enclosure of the global optimum, not an assertion
+that a printed decimal is an exact optimum:
+\begin{equation}\label{eq:mainclaim}
+ L_n<\Rstar(n)\le U_n,\qquad U_n-L_n=\frac1{10^{11}},
+ \qquad n=3,\ldots,14.
+\end{equation}
+All endpoints are stated explicitly in Section~\ref{sec:results}.
+
+There are four mathematical contributions. First, the geometric angular
+kernel is strictly anti-Monge for every central radius. Applying the
+classical extreme-tour theorem of Supnick~\cite{supnick} and then comparing
+closure roots solves the adjacent-chain relaxation, including for arbitrary
+distinct positive radii. Second, we formulate full fixed-order feasibility
+using both directed angular constraints for every pair. Third, a single
+seam deficit characterizes feasibility at the chain root of the canonical
+order on $\{k,\ldots,n\}$. Its eventual persistent failure is proved for
+each fixed $k$; the complete strict classifications proved here are precisely
+those for $k=1,2,3$. Fourth, an exact finite certificate proves
+\eqref{eq:mainclaim} by combining exhaustive lower-bound coverage with
+rational geometric existence witnesses.
+
+The new geometric conclusions are not part of Supnick's tour theorem.
+That theorem supplies a minimizing order for a cost matrix with the specified
+structure. The identification of that structure in the angular kernel,
+the transfer from fixed radius to closure radius, the failure of the chain
+relaxation as full geometry, and the subsequent exact global certificates
+are separate steps. In particular, neither the chain theorem nor the seam
+theorem establishes floating behavior at global optima.
+
+The Monge sign conventions and well-solvable traveling salesman problems
+are surveyed in~\cite{survey}. The all-pairs formulation is a system of
+difference constraints, as in temporal constraint networks~\cite{stn}.
+Container packing has different boundary conditions: here every surrounding
+circle must touch the same central circle, and angular order is a primary
+variable. We use no general packing theorem to infer global optimality.
+
+An earlier finite preprint is available as
+\href{https://arxiv.org/abs/2607.28654}{arXiv:2607.28654v2}.
+The separate asymptotic study,
+\emph{Minimum central circles: an effective characterization of the global
+asymptotic constant}, is available as
+\href{https://arxiv.org/abs/2609.13630}{arXiv:2609.13630}.
+No asymptotic theorem or conjectural asymptotic coefficient is needed for
+any result proved here.
+
+\section{Geometric angular reformulation}\label{sec:geometry}
+Place the central center at the origin. An outer circle of radius $a>0$
+has center $(R+a)(\cos\phi_a,\sin\phi_a)$. For $R,a,b>0$ put
+\begin{equation}\label{eq:kernel}
+ \theta_R(a,b)=2\arcsin\sqrt{\frac{ab}{(R+a)(R+b)}}\in(0,\pi).
+\end{equation}
+\begin{lemma}[Both directed arcs]\label{lem:angular}
+If the counterclockwise angular separation of two outer centers is
+$A\in[0,2\pi]$, their circles have disjoint interiors if and only if
+\begin{equation}\label{eq:arcs}
+ \theta_R(a,b)\le A\le2\pi-\theta_R(a,b).
+\end{equation}
+The kernel is symmetric, strictly decreasing in $R$, and strictly increasing
+in each outer radius.
+\end{lemma}
+\begin{proof}
+The squared center distance is
+$(a-b)^2+4(R+a)(R+b)\sin^2(A/2)$. Comparison with $(a+b)^2$
+is equivalent to $\cos A\le1-2ab/((R+a)(R+b))$, which proves
+\eqref{eq:arcs} on the full directed interval. The square-root argument in
+\eqref{eq:kernel} lies in $(0,1)$, and its monotonicities prove the rest.
+\end{proof}
+
+For a cyclic order $\sigma=(s_0,\ldots,s_{N-1})$ of at least three
+positive radii define
+\[
+ C_\sigma(R)=\sum_{i=0}^{N-1}\theta_R(s_i,s_{i+1}),\qquad s_N=s_0.
+\]
+It decreases continuously from $N\pi>2\pi$ to zero. Thus
+$C_\sigma(\Rchain(\sigma))=2\pi$ defines a unique positive
+\emph{chain radius}. Let $\Rfull(\sigma)$ be the infimum of radii
+admitting an all-pairs-feasible placement in this order. Summing adjacent
+gap constraints, including the closing gap, gives
+\begin{equation}\label{eq:hierarchy}
+ \Rchain(\sigma)\le\Rfull(\sigma),\qquad
+ \min_\sigma\Rchain(\sigma)\le\Rstar(n)=\min_\sigma\Rfull(\sigma).
+\end{equation}
+For sufficiently large $R$, equal angular gaps give a feasible placement,
+since every $\theta_R(a,b)$ tends to zero. These infima are finite; none
+of the certificate arguments below presumes attainment of an infimum.
+
+\section{Anti-Monge structure and the Supnick chain order}\label{sec:chain}
+Our sign convention calls a symmetric kernel anti-Monge when
+\begin{equation}\label{eq:antimonge}
+ \theta_R(a,b)+\theta_R(a',b')>
+ \theta_R(a,b')+\theta_R(a',b)
+ \quad(a<a',\ b<b').
+\end{equation}
+\begin{lemma}
+The kernel \eqref{eq:kernel} satisfies \eqref{eq:antimonge} for every $R>0$.
+\end{lemma}
+\begin{proof}
+Direct differentiation gives
+\begin{equation}\label{eq:mixed}
+ \frac{\partial^2\theta_R}{\partial a\,\partial b}
+ =\frac{\sqrt R}{2\sqrt{ab}(R+a+b)^{3/2}}>0.
+\end{equation}
+Integrating over $[a,a']\times[b,b']$ proves the strict inequality.
+Analytic diagonal values are allowed in this calculation; they are not
+self-pair constraints in the geometric model.
+\end{proof}
+
+Here is an unambiguous definition of the relevant tour on $N$ ranked
+vertices. Set $H=\lceil N/2\rceil$. For successive $j=0,1,\ldots$,
+append $1+2j$ to list $A$ when it is at most $H$, and then append
+$N-1-2j$ when it is greater than $H$. Construct list $B$ by appending
+$2+2j$ when it is at most $H$, followed by $N-2-2j$ when it is greater
+than $H$. Stop each list when neither entry qualifies. Concatenate
+$A$, the reverse of $B$, and $N$, and close the cycle. Every rank occurs
+once. Denote this rank cycle by $\sigma^*_N$. For example,
+$\sigma^*_4=(1,3,2,4)$ and $\sigma^*_7=(1,6,3,4,5,2,7)$.
+
+For a symmetric Monge cost matrix, Supnick's extreme-tour theorem
+identifies this rank cycle as a maximum-cost tour; see the maximum-tour
+discussion in~\cite{survey}. Apply it to the Monge matrix $-\theta_R$.
+The sign reversal makes $\sigma^*_N$ a minimum-angle tour. The classical
+tour theorem is the only imported ordering theorem.
+
+\begin{theorem}[Chain optimization]\label{thm:chain}
+For arbitrary distinct radii $0<r_1<\cdots<r_N$, the order obtained by
+replacing rank $i$ in $\sigma^*_N$ by $r_i$ minimizes $C_\sigma(R)$
+at every $R>0$, and hence minimizes $\Rchain(\sigma)$. Its chain
+radius is a lower bound for the global geometric optimum. If its cumulative
+adjacent-angle placement is all-pairs feasible at that radius, the bound
+is attained and the placement is globally optimal.
+\end{theorem}
+\begin{proof}
+The fixed-radius assertion follows from \eqref{eq:antimonge} and Supnick's
+theorem. At $R=\Rchain(\sigma)$ for any competing order, the minimizing
+tour has angle sum at most $2\pi$. Strict decrease of its sum in $R$
+places its root no higher than $\Rchain(\sigma)$. Now use
+\eqref{eq:hierarchy}. An all-pairs-feasible placement at the lower bound
+proves equality.
+\end{proof}
+
+\section{Fixed-order geometric feasibility}\label{sec:fixed}
+Fix $R$ and $\sigma$, and unroll angles as
+$\phi_0<\cdots<\phi_{N-1}<\phi_0+2\pi$. For every $i<j$ impose
+\begin{equation}\label{eq:difference}
+ \theta_R(s_i,s_j)\le\phi_j-\phi_i
+ \le2\pi-\theta_R(s_i,s_j).
+\end{equation}
+The positivity and upper bound already enforce the indicated order and
+wrap interval. By Lemma~\ref{lem:angular}, this system is equivalent to
+full geometric feasibility. Written as $x_v-x_u\le c_{uv}$ it is
+feasible exactly when its directed constraint graph has no negative cycle.
+Necessity follows by summing around a cycle; for sufficiency, distances
+from an added zero-edge source provide feasible potentials. Floyd--Warshall
+therefore gives a fixed-radius decision procedure using $O(N^3)$ arithmetic
+operations on the real edge costs. Numerical implementations still need
+their own error control. The constraint set expands with $R$, justifying
+bisection when suitably enclosed comparisons are available.
+
+At the chain root the sum of all adjacent lower bounds is exactly $2\pi$.
+Every feasible adjacent gap must therefore equal its lower bound. Thus
+failure of one nonadjacent constraint at the cumulative-angle placement
+cannot be repaired by redistributing gaps at that same root and order.
+This is the mechanism of the seam obstruction.
+
+\section{The seam criterion and the first three onsets}\label{sec:seam}
+For integers $k\ge1$ and $n\ge k+2$, let $\sigma_{k,n}$ be the
+rank cycle just defined, with rank $i$ replaced by $k+i-1$. Write
+$R_{k,n}=\Rchain(\sigma_{k,n})$ and define its seam deficit
+\begin{equation}\label{eq:seam-main}
+ \Delta_{k,n}=\theta_{R_{k,n}}(n,k)+\theta_{R_{k,n}}(k,n-1)
+                    -\theta_{R_{k,n}}(n,n-1).
+\end{equation}
+The neighbors of $k$ are $n-1,n$ in both parities.
+
+\begin{theorem}[Fixed-order seam criterion and persistence]\label{thm:seam}
+For every $k\ge1$, $n\ge k+2$, a placement in order $\sigma_{k,n}$
+is feasible at $R_{k,n}$ if and only if $\Delta_{k,n}\ge0$.
+In that case the cumulative-angle placement is feasible and
+$\Rfull(\sigma_{k,n})=R_{k,n}$.
+
+For every fixed $k$ there is a finite $s_k\ge4k+1$ such that the
+deficit is negative for all $n\ge s_k$. For $k+2\le n<s_k$ it is
+positive, except possibly for equality at $n=s_k-1$. For $k=1,2,3$
+there is no integer equality case, and the full strict classifications
+are given in Table~\ref{tab:onsets}.
+\end{theorem}
+
+\begin{table}[htbp]\centering
+\caption{Complete chain-root classifications for the three specified values
+of $k$. These are fixed-order results, not floating-circle thresholds.}
+\label{tab:onsets}
+\begin{tabular}{cccc}\toprule
+$k$ & $\Delta_{k,n}>0$ & $\Delta_{k,n}<0$ & $s_k$\\\midrule
+1 & $3\le n\le7$ & $n\ge8$ & 8\\
+2 & $4\le n\le12$ & $n\ge13$ & 13\\
+3 & $5\le n\le16$ & $n\ge17$ & 17\\\bottomrule
+\end{tabular}
+\end{table}
+
+Appendix~\ref{app:seam} contains a complete proof, including both parity
+edge lists, the two angular directions, the closing gap, small cycles,
+equality cases and six rational endpoint bridges. The key inequality is
+that every triangle defect is at least
+$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$.
+A fan decomposition transfers this lower bound to every directed path.
+At the root, the two complementary paths have total length $2\pi$,
+which proves sufficiency; the forced adjacent gaps prove necessity.
+
+Persistence follows by comparing the strictly increasing chain root with
+a strictly decreasing algebraic threshold. This comparison, rather than
+monotonicity of the raw deficit, proves eventual failure. We give no
+explicit formula for $s_k$ when $k\ge4$ and do not exclude an equality
+case there. The criterion itself includes equality.
+
+\begin{corollary}\label{cor:small}
+For $3\le n\le7$, $\Rstar(n)=R_{1,n}$ and the complete canonical
+necklace is a global optimum. For every $n\ge8$, its cumulative-angle
+placement at $R_{1,n}$ is infeasible.
+\end{corollary}
+\begin{proof}
+Combine Theorems~\ref{thm:chain} and~\ref{thm:seam}. The second assertion
+concerns the specified chain root, not a global optimizing contact graph.
+\end{proof}
+
+\section{Exact finite global certification}\label{sec:cert}
+The finite proof has two independent mathematical obligations: exclude
+every order at and slightly above $L_n$, and exhibit a feasible placement
+at $U_n$. It uses the exact certificate data and verifier pinned in
+Section~\ref{sec:repro}. Historical floating-point candidate generation,
+Stage-A pruning and retained Top-K lists are not premises of either obligation.
+
+\subsection{Necessary induced-cycle inequalities}
+In any feasible placement, take any subset with at least three members
+in its induced cyclic order. Its directed gaps sum to $2\pi$, and each
+gap is at least the angle required for its endpoints. Consequently
+\begin{equation}\label{eq:induced}
+ \sum_{(a,b)\text{ consecutive in the induced cycle}}\theta_R(a,b)
+ \le2\pi.
+\end{equation}
+This necessity holds even if a directed gap exceeds $\pi$. The verifier
+tests the full order and the induced orders after deleting $1$ or
+$\{1,2\}$, omitting subsets of size less than three. One strict violation
+suffices to exclude a full order. We do not assume these tests are sufficient
+for feasibility.
+
+\subsection{Independent outward enclosures}
+Let $S=2^{128}$. For each unordered pair at both endpoints the certificate
+supplies integer bounds $\ell,u$ for $S\theta_R(a,b)$, with
+$0<\ell\le u<3S$ and $u-\ell\le2$. Set
+$q=ab/((R+a)(R+b))$, computed as a rational number. The verifier proves
+\begin{equation}\label{eq:coscheck}
+ \cos(\ell/S)>1-2q>\cos(u/S).
+\end{equation}
+Since $\cos$ is strictly decreasing on $(0,3)$, this places the true
+angle strictly inside the proposed interval. No generator accuracy is assumed.
+
+Cosine is enclosed by its Taylor series using outward integer rounding on
+the internal grid $B=2^{224}$. Starting with the exact term $B$, multiply
+successive absolute terms by $x^2/((2j+1)(2j+2))$, rounding the lower
+bound down and the upper bound up. Signed addition uses the opposite bound
+on a subtracted term. After 112 terms, the remaining terms decrease for
+$0\le x\le4$; the first omitted term bounds the alternating remainder
+with its proper sign. This argument does not require the early terms to
+decrease. Appendix~\ref{app:arithmetic} gives the recurrence explicitly.
+
+The circumference bounds $T_-,T_+$ satisfy $6S<T_-<T_+<7S$.
+Opposite strict cosine signs at $T_-/(4S)$ and $T_+/(4S)$ enclose
+the unique zero $\pi/2$ in $(1.5,1.75)$, proving
+$T_-/S<2\pi<T_+/S$. All 908 pair intervals and this circumference
+interval are independently checked. Use $w_{ab}=\ell_{ab}$ at $L_n$
+as symmetric integer lower edge weights. A cycle cost strictly greater
+than $T_+$ proves a strict violation of \eqref{eq:induced}.
+
+\subsection{Complete canonical coverage and exact pruning}
+For $n\le9$, pin the largest label first and retain one of each pair of
+reflected permutations. Distinct labels give exactly $(n-1)!/2$ classes.
+Every class receives an explicit induced-cycle violation.
+
+For $n\ge10$, delete radius $1$. A full cyclic order becomes a skeleton
+on $\{2,\ldots,n\}$; insertion into each of its $n-1$ gaps recovers
+all full orders, including insertion in the closing gap. Deletion is the
+inverse. Working modulo rotation and reflection preserves this bijection
+between full classes and canonical skeletons with a chosen gap. With at
+least three distinct skeleton labels, reflection fixes no oriented cycle.
+
+Put $V=\{2,\ldots,n-1\}$ and anchor the skeleton at $n$. Compute the
+forward dynamic program
+\begin{align}
+ D[\{j\},j]&=w_{nj},\nonumber\\
+ D[M,j]&=\min_{i\in M\setminus\{j\}}
+           \bigl(D[M\setminus\{j\},i]+w_{ij}\bigr).
+ \label{eq:dp}
+\end{align}
+Induction on $|M|$ shows that this is the minimum weight of a path from
+$n$ through $M$ ending at $j$. The root cycle cost is
+$\min_j(D[V,j]+w_{jn})$. For a prefix of cost $c$ ending at $j$ with
+unvisited set $M$, symmetry and path reversal give the exact minimum
+completion cost $D[M\cup\{j\},j]$. Prune precisely when
+\begin{equation}\label{eq:prune}
+ c+D[M\cup\{j\},j]>T_+.
+\end{equation}
+Every true angular completion then violates the skeleton's necessary cycle
+inequality. Equality is retained. At the root use the root cycle cost.
+At a leaf the completion is the closing edge. All remaining choices are
+visited without a candidate cap. The DP has $O(n2^n)$ states and
+$O(n^2 2^n)$ arithmetic operations; traversal can still be factorial.
+
+A pruned prefix with $h$ unvisited labels covers exactly $h!$ oriented
+completions. If their total is $P$ and $K$ canonical skeletons remain,
+the independently recomputed partition satisfies
+\begin{equation}\label{eq:coverage}
+ P+2K=(n-2)!,\qquad
+ \frac{P(n-1)}2+K(n-1)=\frac{(n-1)!}2.
+\end{equation}
+The verifier also checks that $P$ is even, there are exactly $K$ reversed
+leaves, and exactly $K(n-1)$ explicit insertions with distinct normalized
+full-order classes. Every insertion must exhibit a strict induced-cycle
+violation. The complete traversal and valid pruning justify coverage;
+the factorial identity alone would not prove it. Trace hashes identify
+recomputed DP, pruning and witness streams, rather than replacing them.
+
+\subsection{Strictness for the infimum}\label{sec:strict}
+Infeasibility at $L=L_n$ alone would not establish $L<\Rstar(n)$.
+Here there is a smallest positive integer margin $m$ among all explicit
+violations and pruning bounds. Every covered order has a necessary cycle
+whose true angular excess at $L$ is at least $m/S$.
+For $R\ge L$, differentiating \eqref{eq:kernel} gives the rational bound
+\begin{align*}
+ |\theta'_R(a,b)|
+ &=\sqrt{\frac{q_R}{1-q_R}}
+          \left(\frac1{R+a}+\frac1{R+b}\right)\\
+ &\le d_{ab}:=\max\!\left(1,\frac{q_L}{1-q_L}\right)
+          \left(\frac1{L+a}+\frac1{L+b}\right).
+\end{align*}
+We used decreasing $q_R$ and $\sqrt z\le\max(1,z)$ for $z\ge0$.
+Let $D_n=n\max_{a<b}d_{ab}$ and
+$\varepsilon_n=m/(2SD_n)>0$. Each relevant cycle has at most $n$
+edges, so its violation persists on $[L,L+\varepsilon_n]$ with at
+least half the margin. At smaller positive radii the angles are larger.
+Therefore $\Rstar(n)\ge L+\varepsilon_n>L$. The verifier constructs
+this positive rational buffer and checks $\varepsilon_n<U_n-L_n$.
+No assertion about attainment is needed.
+
+\subsection{Exact rational existence witnesses}
+Each row contains at least one rational stereographic parameter $t_r$ for
+every radius $r$, defining a center
+\begin{equation}\label{eq:stereo}
+ C_r=(U_n+r)\left(\frac{1-t_r^2}{1+t_r^2},
+                         \frac{2t_r}{1+t_r^2}\right).
+\end{equation}
+Exact rational arithmetic checks $\|C_r\|^2=(U_n+r)^2$ and, for
+every $a<b$, $\|C_a-C_b\|^2>(a+b)^2$. These centers alone prove
+existence at $U_n$. Half-plane and cross-product comparisons check the
+claimed polar order and distinct directions. Missing per-row witnesses
+are rejected; checking an empty list would not prove existence.
+
+The data additionally contain scaled angular positions. All directed and
+wrap inequalities are checked with positive padding $\lceil S/10^{16}\rceil$,
+using upper pair-angle bounds and the lower circumference bound. This is
+constructive positive slack, not a negative error allowance. The angular
+and rational Cartesian witnesses need not describe exactly the same angles.
+There are 47 Cartesian witnesses in total. Their feasibility at $U_n$
+does not identify the minimizing orders or their contact graphs at $\Rstar(n)$.
+
+\section{Certified results for \texorpdfstring{$3\le n\le14$}{3 <= n <= 14}}\label{sec:results}
+\begin{theorem}[Computer-certified finite brackets]\label{thm:brackets}
+For each integer $n=3,\ldots,14$, the rational endpoints in
+Table~\ref{tab:brackets} satisfy \eqref{eq:mainclaim}.
+\end{theorem}
+\begin{proof}[Computer-assisted proof]
+The complete exact verifier checks the outward intervals, recomputes the
+lower coverage in Section~\ref{sec:cert}, and validates at least one
+rational Cartesian witness per row. The strict-margin argument in
+Section~\ref{sec:strict} proves the open lower bound; the witnesses prove
+the closed upper bound. All twelve endpoint differences equal $1/10^{11}$
+as rational numbers. The pinned data, code, and complete execution command
+are specified in Section~\ref{sec:repro}.
+\end{proof}
+
+\begin{table}[htbp]\centering
+\caption{Exact global brackets. Every decimal is a rational endpoint;
+the certified statement is $L_n<\Rstar(n)\le U_n$. The last column counts
+supplied feasible upper witnesses, not exact optimal orders.}
+\label{tab:brackets}
+\input{bracket_rows.tex}
+\end{table}
+
+Table~\ref{tab:coverage} records the coverage sizes. For $n=10,11,12$
+the minimum skeleton cycle already exceeds the upper circumference bound,
+so the root DP comparison excludes every order without explicit insertions.
+For $n=13,14$ some skeletons survive and all their insertions are tested.
+Across the twelve cases, 268,648 full classes are explicitly checked and
+3,374,988,556 are covered in total. These are finite combinatorial counts,
+not evidence for any larger value of $n$.
+
+\begin{table}[htbp]\centering
+\caption{Complete lower coverage recomputed by the exact verifier.
+An en dash indicates direct full-order enumeration. Zero explicit orders
+at $n=10,11,12$ means the root skeleton bound excludes the whole domain.}
+\label{tab:coverage}
+\input{coverage_rows.tex}
+\end{table}
+
+The certificate does not assert exact decimal equality, uniqueness, or
+a complete list of optimizing orders. Corollary~\ref{cor:small} gives
+an additional analytic characterization for $n\le7$; it is logically
+separate from the uniform bracket certificate.
+
+\section{Interpreting finite floating regimes}\label{sec:floating}
+At a specified placement, call circle $c$ \emph{strictly floating} if
+every outer pair involving $c$ is strictly separated; its required tangency
+to the central circle remains. An existential statement at the optimum
+would assert that there exists an optimal placement with this property.
+A universal statement would assert it for every optimal placement. Neither
+follows from a nonessential constraint, a numerical slack, or a witness
+at a radius above the optimum.
+
+The public finite preprint and its saved numerical reconstructions describe
+the pattern in Table~\ref{tab:regimes}. We retain it as interpretation of
+those reconstructions. The floating entries for $n\ge8$ are numerical
+descriptions, not additional exact consequences of Theorem~\ref{thm:brackets}.
+For $3\le n\le7$, the displayed canonical optimum has every adjacent
+pair tangent, so it has no strictly floating member; this is a statement
+about that exhibited optimum.
+
+\begin{table}[htbp]\centering\small
+\caption{Finite geometric interpretation of the historical reconstructed
+solutions (public finite preprint, arXiv:2607.28654v2). ``Paid'' and ``free''
+describe comparison with a reduced-chain value. Except for the exhibited
+necklace in the first row, these are numerical descriptions.}
+\label{tab:regimes}
+\begin{tabularx}{\textwidth}{llX}\toprule
+$n$ & Reported floating set & Interpretation of the reconstruction\\\midrule
+$3$--$7$ & $\varnothing$ & Complete canonical necklace; analytic global optimum.\\
+$8,9$ & $\{1\}$ & Reduced necklace adjusted at a radius above its chain bound (paid placement).\\
+$10$--$12$ & $\{1\}$ & Circle 1 accommodated at the reduced canonical chain value to reported numerical precision (free placement).\\
+$13$ & $\{1\}$ & Second seam obstruction in the canonical order beginning at 2; a constrained reconstruction is used.\\
+$14$ & $\{1,2\}$ & Reconstruction with two reported floating circles and a constrained remaining necklace.\\\bottomrule
+\end{tabularx}
+\end{table}
+
+For an adjacent tangent pair $a,b$, the radius $\rho$ at which insertion
+uses exactly their angular gap satisfies
+$\theta_R(a,\rho)+\theta_R(\rho,b)=\theta_R(a,b)$.
+Appendix~\ref{app:seam} derives the corresponding pocket curvature by
+tangent addition, without importing a packing formula. Strict inequality
+in the direction $\theta_R(a,\rho)+\theta_R(\rho,b)<\theta_R(a,b)$
+permits slack against the two boundary circles. Strict floating in the
+whole placement still requires all the other pair constraints.
+
+The new upper witnesses illustrate the quantifier issue sharply: every
+outer pair is strictly separated at $U_n$, so every outer circle is
+strictly floating there under the placement-level definition. This does
+not imply that every circle can float at $\Rstar(n)$; slack can disappear
+as the radius decreases. Likewise, the exact seam onsets $8,13,17$ are
+failures of three specified chain necklaces and are not thresholds at
+which particular circles must float in globally optimal configurations.
+
+\section{Limitations and open questions}
+The exact global certificate stops at $n=14$. Extending its finite scope
+requires new complete lower coverage and new feasible upper witnesses.
+Numerical searches may guide those choices, but a best-known radius is only
+an upper bound when feasibility is established. The present certificate
+does not classify all optimizing orders, exact optimal contact graphs,
+or the dimension of the set of optimal placements.
+
+The most direct geometric question is to prove or refute the existential
+floating descriptions at the exact optimum, with simultaneous strict slack
+against every other outer circle. Universal floating assertions require
+a separate argument. Fixed-$k$ persistent seam failure does not prove an
+indefinite global floating cascade or repeated paid-then-free regimes.
+
+The anti-Monge chain theorem extends to arbitrary distinct positive radii.
+The integer-family seam onset statements do not automatically extend to
+arbitrary sequences or deletions. Nor does any finite table establish an
+asymptotic coefficient. The separate asymptotic manuscript mentioned in
+the introduction treats that different question; no part of its proof is
+imported into the present finite certification.
+
+\section{Reproducibility statement}\label{sec:repro}
+The complete computational inputs and exact verifier are available in the
+immutable repository snapshot
+\href{https://github.com/falker47/ringmin/tree/6c16af422d1cb38641c62d43b6e0e547921b9ba9}{\texttt{falker47/ringmin}, commit \texttt{6c16af4}}.
+The full commit identifier is
+\begin{center}\small\texttt{\snapshot}\end{center}
+From its repository root, Python 3.11 or later with only the standard
+library suffices for the complete command:
+\begin{verbatim}
+python -I -S verify_global_brackets.py
+\end{verbatim}
+There is no partial-case or skip-frontier success mode in this entrypoint.
+It checks all twelve cases and their pinned input binding. The local
+reproduction for this manuscript used Python 3.14.3 and returned
+\texttt{PASS\_GLOBAL\_BRACKETS}, 908 angle intervals, 47 witnesses,
+540 central tangencies, 3,004 outer pairs and 6,008 angular inequalities.
+No runtime claim is needed for the theorem.
+
+The data file is
+\begin{quote}\small\ttfamily\raggedright
+reproducibility/global\_brackets/originals/source/\allowbreak
+ringmin\_global\_interval\_candidate.json
+\end{quote}
+The SHA-256 of the canonical serialization of its certificate field is
+\begin{center}\small\ttfamily
+6f6c15e1db037a3faadadc52893a9a90ae7b5\\
+9d6d5b42e934c81c1a0abd21cc0
+\end{center}
+This identifies the certificate field, not the bytes of the whole file.
+The snapshot's manifest identifies the preserved original files separately.
+
+The verifier is independent of the production solver and original generator:
+it imports neither, uses cosine enclosures rather than the generator's
+arcsine/Machin evaluations, and recomputes the lower dynamic program in
+the forward direction. The integrated verifier derives from an independent
+reviewer's implementation; rerunning it is reproduction of that lineage,
+not a new independent design. The generator is parsed only as static data
+for input binding. Historical runtime labels, platform statements and
+execution authenticity are not certified by source hashes.
+
+Regression tests at the same snapshot reject false brackets, missing
+witnesses, altered interval endpoints, collapsed directions, malformed
+coverage and trace metadata, and changed pinned inputs. Separate small
+enumeration oracles exercise the DP and closing-gap coverage. The manuscript
+package supplies its own build instructions and a source-to-claim map.
+This is an exact-arithmetic computer-assisted proof, not a proof-assistant
+formalization; finite tests and successful reproduction do not remove the
+need to review the mathematics and verifier.
+
+\section*{Statements and Declarations}
+\paragraph{Funding.} No specific funding was received for this work.
+\paragraph{Competing interests.} The author declares no relevant financial
+or non-financial competing interests.
+\paragraph{Author contribution.} Maurizio Falconi is the sole author and is
+responsible for the research and the submitted manuscript.
+\paragraph{Data and code availability.} All inputs required for the finite
+certificate and its verifier are available at the immutable snapshot in
+Section~\ref{sec:repro}. The proof of the selected seam theorem is included
+in Appendix~\ref{app:seam}.
+\paragraph{Use of artificial intelligence.} OpenAI ChatGPT/Codex assisted
+with mathematical exploration, software, computational experiments,
+manuscript drafting and repository organization, including preparation of
+this journal version. This assistance extended beyond copy editing.
+The author retains responsibility for the final text, proofs and code.
+Automated checks and AI-assisted review do not constitute independent
+journal peer review.
+
+\appendix
+\input{seam_appendix.tex}
+
+\section{Outward integer cosine arithmetic}\label{app:arithmetic}
+For completeness, the enclosure used in \eqref{eq:coscheck} can be
+implemented using the following exact recurrence. Write $x^2=a/d$ with
+$a\ge0,d>0$, and let $B=2^{224}$. The $j$th absolute series term
+is $t_j=x^{2j}/(2j)!$. Start $l_0=u_0=B$, and set
+\[
+ l_{j+1}=\left\lfloor\frac{a l_j}{d(2j+1)(2j+2)}\right\rfloor,
+ \qquad
+ u_{j+1}=\left\lceil\frac{a u_j}{d(2j+1)(2j+2)}\right\rceil.
+\]
+Induction gives $l_j\le Bt_j\le u_j$ for every $j$. Form lower and
+upper sums through $j=N-1$ by using $(l_j,u_j)$ for even $j$ and
+$(-u_j,-l_j)$ for odd $j$. For $N=112$ and $0\le x\le4$, the
+tail beginning with $t_N$ decreases, since
+$t_{N+1}/t_N=x^2/((2N+1)(2N+2))<1$ and subsequent ratios are
+smaller. As $N$ is even, the remainder lies in $[0,t_N]$: add $u_N$
+only to the upper sum. Division by $B$ gives a rigorous interval for
+$\cos x$. For an odd cutoff one would instead subtract $u_N$ from the
+lower sum. All rounding is integer floor or ceiling, so no library
+floating-point or transcendental error assumption enters this calculation.
+
+For the actual circumference check the scaled endpoints are
+\begin{align*}
+T_-&=2138057168129933495719360746323741566601,\\
+T_+&=2138057168129933495719360746323741566602.
+\end{align*}
+The interval checks require strict inequalities; an inconclusive enclosure
+is a verification failure, not permission to infer a sign. Integer arithmetic
+also evaluates every pruning margin exactly. Rational arithmetic evaluates
+\eqref{eq:stereo}, the strict squared-distance comparisons and the buffers
+in Section~\ref{sec:strict}. Thus analytic enclosure, combinatorial coverage
+and geometric existence are separate, explicitly checked parts of the proof.
+
+\begin{thebibliography}{9}
+\small\raggedright
+\bibitem{supnick}
+Supnick, F.: Extreme Hamiltonian lines. Annals of Mathematics (2)
+\textbf{66}, 179--201 (1957). \url{https://doi.org/10.2307/1970124}
+\bibitem{survey}
+Burkard, R.E., Deineko, V.G., van Dal, R., van der Veen, J.A.A., Woeginger,
+G.J.: Well-solvable special cases of the traveling salesman problem:
+a survey. SIAM Review \textbf{40}(3), 496--546 (1998).
+\url{https://doi.org/10.1137/S0036144596297514}
+\bibitem{stn}
+Dechter, R., Meiri, I., Pearl, J.: Temporal constraint networks.
+Artificial Intelligence \textbf{49}(1--3), 61--95 (1991).
+\url{https://doi.org/10.1016/0004-3702(91)90006-6}
+\end{thebibliography}
+\end{document}

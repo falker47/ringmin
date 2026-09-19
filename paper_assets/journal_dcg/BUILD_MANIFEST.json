@@ -1,0 +1,36 @@
+{
+  "artifact": "First complete standalone finite DCG working manuscript",
+  "mathematical_source_commit": "6c16af422d1cb38641c62d43b6e0e547921b9ba9",
+  "manuscript_generation_commit": "The task commit containing this manifest; see git log -- paper_assets/journal_dcg/BUILD_MANIFEST.json",
+  "command_from_repository_root": "python paper_assets/journal_dcg/build.py",
+  "compiler": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025)",
+  "passes": 2,
+  "SOURCE_DATE_EPOCH": "1789776000",
+  "FORCE_SOURCE_DATE": "1",
+  "shell_escape": false,
+  "pdf_dates_and_path_identifiers": "suppressed in source",
+  "inputs_sha256": {
+    "paper_assets/journal_dcg/bracket_rows.tex": "58666265324e0cf9c3ad7cf811107f795893ccf0e43954fec2ce65d32d93a5d1",
+    "paper_assets/journal_dcg/coverage_rows.tex": "4f4bf81b65c68fcd68d337b36ca43c1582f495ca6bf41ad71ccf3b90afceb87a",
+    "paper_assets/journal_dcg/ringmin_dcg.tex": "b3efececab4368f60d4a2a6cb92d7444076bd543aeecb3a70ae2dd4b4b20ae1a",
+    "paper_assets/journal_dcg/seam_appendix.tex": "5511d778612ab0301c52cafbb6b2dc0cca78b5a4e8480e33d56e7e563aa670b9",
+    "paper_assets/journal_dcg/build.py": "2026da55511caa24dd77bf3f56a5c7922028219eb7da7f11dfda04b12f8e666e",
+    "paper_assets/journal_dcg/export_tables.py": "773caaee77afc74a6a887e1550647962a7202e3c864959cb1cb1bc1a533d86ba",
+    "paper_assets/journal_dcg/.gitattributes": "6aa3ae93467e0b9d33e7f2c2f53cc572c269c9302250074b39f8ae32ffadbc59"
+  },
+  "protected_input_hash_convention": "CRLF normalized to LF for tracked text sources; preserved originals hashed byte for byte",
+  "protected_mathematical_inputs_sha256": {
+    "paper_assets/v1_correction/ringmin_finite_v2.tex": "3885be864e06b4a9851285df4cefc4dce2a5e791038a7d65db3bddbd7da9034d",
+    "research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md": "dadcb9584ce58fbd0fbbd693a55f8651e6866f1035e3321e68468f0f38b6a1b7",
+    "research/GLOBAL_BRACKET_CERTIFICATE.md": "02ee467849364b29e0b9c064b6e116825b6c3bb1708c18e9fdb15f9a50953795",
+    "verify_global_brackets.py": "599b49afc3718738a4adf04ec797c4c0e52c5d53076bfbb00e826dde260d4e95",
+    "reproducibility/global_brackets/originals/source/ringmin_global_interval_candidate.json": "cfb95a8354c9ea0529f5ece85118712a3e94c36aed1e14a43b6f32c6e98549db"
+  },
+  "output_sha256": {
+    "paper_assets/journal_dcg/ringmin_dcg.pdf": "b88f54715fcf3468274131c08eeb7d23d7260b38ba163f1facc5a7030bee710a"
+  },
+  "pages": 18,
+  "unresolved_references": [],
+  "overfull_boxes": [],
+  "portability": "Byte identity tested only with the recorded local TeX toolchain; other TeX/font versions may differ."
+}

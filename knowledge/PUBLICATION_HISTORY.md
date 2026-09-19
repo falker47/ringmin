@@ -61,12 +61,17 @@ two substantive blockers and remains unchanged historical evidence.
 
 The numerical blocker is now closed for the finite bracket claim by the
 [accepted exact route](CERTIFICATION.md#independent-exact-arithmetic-global-brackets),
-with the historical float64 limitations preserved. The remaining substantive
-gate for the finite paper is to make the required fixed-order seam theorem
-self-contained or supply a stable publication-quality source. No journal
-manuscript has been created. A separate DCG version follows that gate; this is
-neither peer review nor a declaration of overall journal readiness, and it does
-not advance the asymptotic sequel's separate journal track.
+with the historical float64 limitations preserved. The user supplied accepted
+baseline `6c16af422d1cb38641c62d43b6e0e547921b9ba9` and identified the
+publication-quality seam package as accepted on 2026-09-19. The first complete
+[standalone DCG working manuscript](../paper_assets/journal_dcg/README.md)
+now incorporates that proof and the exact finite route. It remains separate
+from public v2 and the asymptotic sequel. Its
+[source map](../paper_assets/journal_dcg/SOURCE_MAP.md) and
+[local evidence](../ops/TASK-20260919__finite_journal_manuscript/EVIDENCE.md)
+distinguish accepted source claims from transposition and reproduction.
+The manuscript awaits independent STRICT review; it has not been submitted,
+peer reviewed, or declared journal-ready. No release or archival DOI is claimed.
 
 Historical venue and compliance planning is recorded in
 [`VENUE_AND_SUBMISSION_PLAN.md`](../ops/TASK-20260916__journal_readiness/VENUE_AND_SUBMISSION_PLAN.md).

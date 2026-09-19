@@ -34,18 +34,16 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independent STRICT review of the journal seam package
+## Priority 1 — Independent STRICT review of the complete finite DCG manuscript
 
-Independently review
-[the self-contained fixed-order theorem package](JOURNAL_FIXED_ORDER_SEAM_THEOREM.md)
-and its [exact audit evidence](../ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md).
-The chosen journal scope is the general fixed-order feasibility criterion,
-persistence for each fixed k, and the complete k=1,2,3 classifications.
-Review the parity edge matching, triangle equality cases, both directed
-constraints, closing gap, positive threshold branch and six exact bridges.
-The broader explicit all-k onset formula remains in its development sources;
-it is not a dependency of this selected package. Acceptance of this proof
-package, rather than its preparation alone, resolves the seam presentation gate.
+Review the [standalone working manuscript](../paper_assets/journal_dcg/README.md)
+and [its evidence](../ops/TASK-20260919__finite_journal_manuscript/EVIDENCE.md)
+at the committed manuscript HEAD. The user supplied accepted baseline
+`6c16af422d1cb38641c62d43b6e0e547921b9ba9` and identified the seam package
+as accepted. Review exact bracket scope and strictness for the infimum,
+complete lower coverage, rational upper witnesses, the self-contained seam
+appendix and narrow onset quantifiers, and the separation of numerical floating
+descriptions from exact claims. The source map provides detailed dependencies.
 
 The numerical-certification blocker is closed for the accepted finite bracket
 claim through the new exact global route. Historical float64 pruning is not
@@ -54,12 +52,11 @@ float64 error-envelope proof are no longer prerequisite gates for this claim.
 The [2026-09-16 journal dossier](../ops/TASK-20260916__journal_readiness/REFEREE_REPORT.md)
 records the issues as then open, not current priorities.
 
-Only after the seam/self-containedness gate comes construction of a separate
-**Discrete & Computational Geometry** finite journal manuscript, preserving the
-public arXiv v2 source. No journal manuscript exists yet, and the accepted
-brackets imply neither overall journal readiness nor peer review. That later
-construction must still address the remaining presentation and archival items
-in the historical report. It is not the asymptotic paper's journal track.
+The separate **Discrete & Computational Geometry** working manuscript now
+exists, with computational inputs pinned to an immutable accepted commit.
+Its construction is not peer review or permission to submit; no submission,
+release or archival DOI has been created. The public arXiv v2 and asymptotic
+sequel remain unchanged and on separate publication tracks.
 
 ## Separate asymptotic track — Independent external review
 

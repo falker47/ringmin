@@ -257,8 +257,11 @@ bridges are proved in that single package. Direct parity edge matching
 removes chain optimality as a premise of root growth, and tangent addition
 derives the threshold identity without importing a pocket theorem.
 The existing development notes remain provenance and sources for the
-stronger scope. The new presentation and its bounded exact/symbolic audit
-await independent STRICT review; see
+stronger scope. The user identified this presentation as accepted at baseline
+`6c16af422d1cb38641c62d43b6e0e547921b9ba9` for the 2026-09-19 journal task.
+Appendix A of the [separate journal manuscript](../paper_assets/journal_dcg/README.md)
+transposes its selected scope; that manuscript requires its own independent
+review. Original preparation-time evidence is retained in
 [`ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md`](../ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md).
 
 ### Exact all-`n` radius-1 seam threshold
