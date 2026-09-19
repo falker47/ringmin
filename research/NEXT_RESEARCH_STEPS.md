@@ -34,16 +34,18 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Fixed-order seam theorem for the finite journal paper
+## Priority 1 — Independent STRICT review of the journal seam package
 
-Make the fixed-order seam result actually needed by the finite paper
-self-contained or otherwise publication-quality. Start from the
-[fixed-order ledger](../knowledge/FIXED_ORDER_THEORY.md#complete-exact-supnick-fixed-order-feasibility-classification),
-[full-feasibility proof](SUPNICK_FULL_FEASIBILITY.md) and
-[seam-sequence proof](SUPNICK_SEAM_SEQUENCES.md); isolate the required theorem,
-hypotheses and proof dependencies without inferring global contact structure.
-Completion means a self-contained proof suitable for incorporation, or a stable
-publication-quality source resolving those dependencies.
+Independently review
+[the self-contained fixed-order theorem package](JOURNAL_FIXED_ORDER_SEAM_THEOREM.md)
+and its [exact audit evidence](../ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md).
+The chosen journal scope is the general fixed-order feasibility criterion,
+persistence for each fixed k, and the complete k=1,2,3 classifications.
+Review the parity edge matching, triangle equality cases, both directed
+constraints, closing gap, positive threshold branch and six exact bridges.
+The broader explicit all-k onset formula remains in its development sources;
+it is not a dependency of this selected package. Acceptance of this proof
+package, rather than its preparation alone, resolves the seam presentation gate.
 
 The numerical-certification blocker is closed for the accepted finite bracket
 claim through the new exact global route. Historical float64 pruning is not

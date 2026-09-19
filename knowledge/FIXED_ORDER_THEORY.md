@@ -248,6 +248,19 @@ unified all-k sign argument, was internally re-audited for the v2 candidate in
 `ops/GOAL-20260911__conclude_study/FIXED_ORDER_INTERNAL_AUDIT.md`.
 External acceptance of that final review packet remains pending.
 
+For the finite journal paper, the self-contained presentation is
+[`research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md`](../research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md).
+Its selected scope is the general equivalence and fixed-k persistence,
+plus the first three complete classifications; it does not re-prove the
+stronger explicit all-k onset table above. All its lemmas and six endpoint
+bridges are proved in that single package. Direct parity edge matching
+removes chain optimality as a premise of root growth, and tangent addition
+derives the threshold identity without importing a pocket theorem.
+The existing development notes remain provenance and sources for the
+stronger scope. The new presentation and its bounded exact/symbolic audit
+await independent STRICT review; see
+[`ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md`](../ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md).
+
 ### Exact all-`n` radius-1 seam threshold
 
 **Status:** exact theorem, proved after arXiv v1.

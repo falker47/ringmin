@@ -2,69 +2,48 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20260919__journal_readiness_reconciliation
+task=TASK-20260919__journal_fixed_order_seam
 observed_on=2026-09-19
 mode=STRICT
 state=READY_FOR_REVIEW
-accepted_baseline=f6f22e95af495a4b0385322a5b6add5966cd7296
-standalone=ARXIV:2609.13630_PUBLIC
-corrective_original=ARXIV:2607.28654v2_PUBLIC
-old_replacement=EDITORIALLY_SUPERSEDED
+accepted_baseline=2169bd429e25682777175ed31248b76feea8fabd
 ```
 
-## Accepted baseline and finite claim
+## Current task and scope
 
-The completed independent STRICT review accepted the global exact bracket
-certification, exclusively for every integer `n=3,...,14`:
+Prepared the [self-contained fixed-order seam theorem](research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md)
+for the finite journal paper. The selected narrow theorem proves the general
+feasibility criterion, eventual persistent failure for each fixed k, and
+complete strict classifications for k=1,2,3. Its proof includes both parities,
+small cycles, both angular directions, the closing gap and six exact bridges.
+The [dossier](ops/TASK-20260919__journal_fixed_order_seam/TASK_STATUS.md) and
+[evidence](ops/TASK-20260919__journal_fixed_order_seam/EVIDENCE.md) explain the
+choice over the longer explicit all-k onset classification.
 
-```text
-L_n < R*(n) <= U_n,       U_n - L_n = 10^-11 (exact).
-```
+The accepted baseline above is supplied by the user from the Review State
+Registry; this task neither reads nor changes the Registry. The accepted
+finite global bracket scope remains owned by
+[the certification ledger](knowledge/CERTIFICATION.md#independent-exact-arithmetic-global-brackets).
+This fixed-order work neither extends nor re-certifies that scope.
 
-The accepted Review State Registry baseline is
-`f6f22e95af495a4b0385322a5b6add5966cd7296`, as supplied by the user with the
-review outcome. This reconciliation records that decision; it is not a fresh
-Registry read/write or an acceptance decision for the new documentation commit.
-The [certification ledger](knowledge/CERTIFICATION.md#independent-exact-arithmetic-global-brackets)
-owns the stable claim and links the unchanged proof and certificate.
+## Verification gates and blockers
 
-The former numerical-certification journal blocker is closed for this finite
-claim through the accepted exact global-bracket route: the historical
-Stage-A/Top-K/frontier float64 path is no longer a necessary dependency of its
-proof. This does not retroactively certify historical float64 pruning.
+No mathematical or environment blocker is identified. Normal and optimized
+local independent exact/symbolic runs passed all six bridges, 128 rank/edge
+and growth comparisons, 30,976 directed fan identities, 512 threshold-boundary
+comparisons, and 12 independently enclosed small/boundary roots. Final
+transcription, link, whitespace and protected-path audits passed. The dossier
+records corrected draft annotations and distinguishes these local checks from
+external review. Authorized commit/push and the remote SHA are reported in
+the final task handoff after staged-diff inspection.
 
-## Remaining journal gate
-
-The substantive open blocker for the finite journal paper is the **fixed-order
-seam theorem / self-containedness**: supply the proof actually needed by that
-paper in a self-contained or stable publication-quality form. The bracket
-review did not settle this gate, general optimizer structure, universal
-floating/contact classification, results for n>14, asymptotics, peer review or
-overall journal readiness.
-
-No journal manuscript has been created. Construction of a separate DCG finite
-journal version follows the seam gate and remains distinct from both the public
-arXiv v2 and the asymptotic sequel's journal track. Publication provenance stays
-in [PUBLICATION_HISTORY.md](knowledge/PUBLICATION_HISTORY.md); the
-[2026-09-16 mock report](ops/TASK-20260916__journal_readiness/REFEREE_REPORT.md)
-and its upgrade/venue plans remain unchanged historical evidence.
-
-## Current task verification and handoff
-
-This STRICT task reconciles current status, certification, publication
-navigation and priorities only. The [task dossier](ops/TASK-20260919__journal_readiness_reconciliation/TASK_STATUS.md)
-and [evidence](ops/TASK-20260919__journal_readiness_reconciliation/EVIDENCE.md)
-separate the supplied review, inspected baseline CI and current document checks.
-Local link/SHA, scope, endpoint-metadata, preservation and whitespace checks
-passed. Final integration requires the staged diff audit, authorized commit
-and normal push; their exact result is reported in the task handoff.
-The explicitly exempt publication ZIP remains untouched and unstaged. Solver,
-verifiers, tests, original evidence, results and paper/citation artifacts stay
-unchanged; no Stage A, generator replay or checkpoint recovery is needed.
+The self-containedness package awaits independent STRICT review; preparation
+does not imply mathematical acceptance or overall journal readiness. Public
+arXiv sources, prior proof notes, solver, results, verifiers, certificates and
+asymptotic sequel remain protected. The explicitly exempt publication ZIP
+remains untouched and unstaged. No DCG manuscript directory is created.
 
 ## Exactly one next atomic task
 
-Address the **fixed-order seam theorem / self-containedness for the finite
-journal paper**, isolating the required statement and proof dependencies and
-providing a self-contained or stable publication-quality treatment. Do not
-begin construction of the DCG manuscript in that task.
+Independent STRICT review of the theorem package
+`research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md` and its task-local evidence.
