@@ -34,16 +34,18 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independent STRICT review of the complete finite DCG manuscript
+## Priority 1 — Independent review of the finite DCG pre-submission revision; if accepted, freeze release/archival DOI
 
 Review the [standalone working manuscript](../paper_assets/journal_dcg/README.md)
-and [its evidence](../ops/TASK-20260919__finite_journal_manuscript/EVIDENCE.md)
-at the committed manuscript HEAD. The user supplied accepted baseline
-`6c16af422d1cb38641c62d43b6e0e547921b9ba9` and identified the seam package
-as accepted. Review exact bracket scope and strictness for the infimum,
+and [revision evidence](../ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
+at the committed revision HEAD against the user-supplied accepted baseline
+`bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6`. Review the four editorial
+findings and preservation of exact bracket scope and strictness for the infimum,
 complete lower coverage, rational upper witnesses, the self-contained seam
 appendix and narrow onset quantifiers, and the separation of numerical floating
 descriptions from exact claims. The source map provides detailed dependencies.
+If the revision is accepted, proceed to freeze release/archival DOI in that
+separate task; the current revision creates neither.
 
 The numerical-certification blocker is closed for the accepted finite bracket
 claim through the new exact global route. Historical float64 pruning is not

@@ -33,7 +33,7 @@
 We minimize the radius of a central circle externally tangent to pairwise
 non-overlapping circles of radii $1,2,\ldots,n$. The adjacent-chain relaxation
 has an angular kernel with strict anti-Monge structure. Supnick's classical
-theorem therefore supplies a single minimizing cyclic order at every central
+theorem therefore supplies a fixed minimizing cyclic order at every central
 radius, and a monotonicity argument transfers this order to the chain-radius
 problem. The full geometry additionally requires every pairwise angular
 constraint. We give a self-contained criterion for feasibility of the
@@ -101,6 +101,14 @@ theorem establishes floating behavior at global optima.
 The Monge sign conventions and well-solvable traveling salesman problems
 are surveyed in~\cite{survey}. The all-pairs formulation is a system of
 difference constraints, as in temporal constraint networks~\cite{stn}.
+Related circle-packing work prescribes tangency structure. Mathews and
+Zymaris~\cite{mathews-zymaris} generalize Descartes' circle theorem to
+$n$-flowers, whose petals are tangent to the central circle and to their
+cyclic neighbors. Collins and Stephenson~\cite{collins-stephenson} compute
+circle packings realizing a specified pattern of tangencies. In Ringmin,
+the outer radii are fixed, the cyclic order must be chosen, and full
+pairwise non-overlap must be imposed without assuming tangency between
+consecutive outer circles.
 Container packing has different boundary conditions: here every surrounding
 circle must touch the same central circle, and angular order is a primary
 variable. We use no general packing theorem to infer global optimality.
@@ -550,7 +558,7 @@ imported into the present finite certification.
 
 \section{Reproducibility statement}\label{sec:repro}
 The complete computational inputs and exact verifier are available in the
-immutable repository snapshot
+pinned, content-addressed Git commit
 \href{https://github.com/falker47/ringmin/tree/6c16af422d1cb38641c62d43b6e0e547921b9ba9}{\texttt{falker47/ringmin}, commit \texttt{6c16af4}}.
 The full commit identifier is
 \begin{center}\small\texttt{\snapshot}\end{center}
@@ -577,7 +585,7 @@ The SHA-256 of the canonical serialization of its certificate field is
 9d6d5b42e934c81c1a0abd21cc0
 \end{center}
 This identifies the certificate field, not the bytes of the whole file.
-The snapshot's manifest identifies the preserved original files separately.
+The commit's manifest identifies the preserved original files separately.
 
 The verifier is independent of the production solver and original generator:
 it imports neither, uses cosine enclosures rather than the generator's
@@ -604,8 +612,9 @@ or non-financial competing interests.
 \paragraph{Author contribution.} Maurizio Falconi is the sole author and is
 responsible for the research and the submitted manuscript.
 \paragraph{Data and code availability.} All inputs required for the finite
-certificate and its verifier are available at the immutable snapshot in
-Section~\ref{sec:repro}. The proof of the selected seam theorem is included
+certificate and its verifier are available at the pinned, content-addressed
+Git commit in Section~\ref{sec:repro}; this is not an archival repository
+deposit. The proof of the selected seam theorem is included
 in Appendix~\ref{app:seam}.
 \paragraph{Use of artificial intelligence.} OpenAI ChatGPT/Codex assisted
 with mathematical exploration, software, computational experiments,
@@ -665,5 +674,13 @@ a survey. SIAM Review \textbf{40}(3), 496--546 (1998).
 Dechter, R., Meiri, I., Pearl, J.: Temporal constraint networks.
 Artificial Intelligence \textbf{49}(1--3), 61--95 (1991).
 \url{https://doi.org/10.1016/0004-3702(91)90006-6}
+\bibitem{mathews-zymaris}
+Mathews, D.V., Zymaris, O.: Spinors and the Descartes circle theorem.
+Journal of Geometry and Physics \textbf{212}, 105458 (2025).
+\url{https://doi.org/10.1016/j.geomphys.2025.105458}
+\bibitem{collins-stephenson}
+Collins, C.R., Stephenson, K.: A circle packing algorithm.
+Computational Geometry \textbf{25}, 233--256 (2003).
+\url{https://doi.org/10.1016/S0925-7721(02)00099-8}
 \end{thebibliography}
 \end{document}

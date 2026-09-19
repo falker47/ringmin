@@ -58,7 +58,8 @@ def main():
     ]
     version = subprocess.check_output(["pdflatex", "--version"], env=env).decode().splitlines()[0]
     manifest = {
-        "artifact": "First complete standalone finite DCG working manuscript",
+        "artifact": "Pre-submission revision of the finite DCG working manuscript",
+        "revision_baseline_commit": "bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6",
         "mathematical_source_commit": BASELINE,
         "manuscript_generation_commit": "The task commit containing this manifest; see git log -- paper_assets/journal_dcg/BUILD_MANIFEST.json",
         "command_from_repository_root": "python paper_assets/journal_dcg/build.py",

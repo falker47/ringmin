@@ -1,5 +1,6 @@
 {
-  "artifact": "First complete standalone finite DCG working manuscript",
+  "artifact": "Pre-submission revision of the finite DCG working manuscript",
+  "revision_baseline_commit": "bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6",
   "mathematical_source_commit": "6c16af422d1cb38641c62d43b6e0e547921b9ba9",
   "manuscript_generation_commit": "The task commit containing this manifest; see git log -- paper_assets/journal_dcg/BUILD_MANIFEST.json",
   "command_from_repository_root": "python paper_assets/journal_dcg/build.py",
@@ -12,9 +13,9 @@
   "inputs_sha256": {
     "paper_assets/journal_dcg/bracket_rows.tex": "58666265324e0cf9c3ad7cf811107f795893ccf0e43954fec2ce65d32d93a5d1",
     "paper_assets/journal_dcg/coverage_rows.tex": "4f4bf81b65c68fcd68d337b36ca43c1582f495ca6bf41ad71ccf3b90afceb87a",
-    "paper_assets/journal_dcg/ringmin_dcg.tex": "b3efececab4368f60d4a2a6cb92d7444076bd543aeecb3a70ae2dd4b4b20ae1a",
-    "paper_assets/journal_dcg/seam_appendix.tex": "5511d778612ab0301c52cafbb6b2dc0cca78b5a4e8480e33d56e7e563aa670b9",
-    "paper_assets/journal_dcg/build.py": "2026da55511caa24dd77bf3f56a5c7922028219eb7da7f11dfda04b12f8e666e",
+    "paper_assets/journal_dcg/ringmin_dcg.tex": "dd1c4fb2db7282e9365466357a3df31424cca04ce623f46d067e30e3111f6b8e",
+    "paper_assets/journal_dcg/seam_appendix.tex": "5d518283d993967489968ced9804d1476a41a49bad1596808862d1cffd66515d",
+    "paper_assets/journal_dcg/build.py": "b8364b5bf42c426d4c68f0715d25e0d0e19aefc85d7ece5afdebe5646c073e08",
     "paper_assets/journal_dcg/export_tables.py": "773caaee77afc74a6a887e1550647962a7202e3c864959cb1cb1bc1a533d86ba",
     "paper_assets/journal_dcg/.gitattributes": "6aa3ae93467e0b9d33e7f2c2f53cc572c269c9302250074b39f8ae32ffadbc59"
   },
@@ -27,7 +28,7 @@
     "reproducibility/global_brackets/originals/source/ringmin_global_interval_candidate.json": "cfb95a8354c9ea0529f5ece85118712a3e94c36aed1e14a43b6f32c6e98549db"
   },
   "output_sha256": {
-    "paper_assets/journal_dcg/ringmin_dcg.pdf": "b88f54715fcf3468274131c08eeb7d23d7260b38ba163f1facc5a7030bee710a"
+    "paper_assets/journal_dcg/ringmin_dcg.pdf": "115772f6fdab87f3cd2aa9340060b23347990dbaec7df24eb13442c2977e2fb4"
   },
   "pages": 18,
   "unresolved_references": [],

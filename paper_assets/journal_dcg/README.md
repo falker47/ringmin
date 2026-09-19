@@ -1,6 +1,6 @@
 # Ringmin finite journal manuscript for DCG
 
-The first complete standalone **working submission manuscript** for Discrete
+The revised standalone **working submission manuscript** for Discrete
 & Computational Geometry is separate from the public finite arXiv v2 and the
 asymptotic sequel. It has not been submitted, peer reviewed, or declared
 publication-ready by this task.
@@ -70,13 +70,16 @@ attestation. No release/tag or archival DOI was created or inferred.
 ## Review package and metadata
 
 The [source map](SOURCE_MAP.md) records dependencies and editorial decisions.
-The [task evidence](../../ops/TASK-20260919__finite_journal_manuscript/EVIDENCE.md)
+The [revision evidence](../../ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
 records actual local checks separately from inherited acceptance.
+The revision baseline is `bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6`;
+the earlier mathematical code/data pin remains unchanged. Both identify
+content-addressed Git commits, not archival repository deposits.
 
 The paper has a 184-word abstract by whitespace count, six keywords, MSC,
 the author's already-public affiliation/contact details, declarations and
 disclosure of substantive AI assistance. The author confirmed no specific
-funding and no relevant conflicts in this task. No ORCID was supplied or
+funding and no relevant conflicts during initial preparation. No ORCID was supplied or
 inferred. Actual submission requires author approval and portal metadata.
-The sole next atomic task is independent STRICT review of the complete
-manuscript and evidence.
+The sole next atomic task is independent review of the pre-submission
+revision; if accepted, freeze release/archival DOI.

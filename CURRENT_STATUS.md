@@ -2,47 +2,47 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20260919__finite_journal_manuscript
+task=TASK-20260919__dcg_presubmission_revision
 observed_on=2026-09-19
 mode=STRICT
 state=READY_FOR_REVIEW
-accepted_baseline=6c16af422d1cb38641c62d43b6e0e547921b9ba9
+accepted_baseline=bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6
 ```
 
 ## Current task and scope
 
-Prepared the first complete [finite DCG working manuscript](paper_assets/journal_dcg/README.md),
-an 18-page standalone paper with an exact global-bracket proof route and a
-self-contained seam appendix. The [source map](paper_assets/journal_dcg/SOURCE_MAP.md)
-records scope and provenance; the
-[task dossier](ops/TASK-20260919__finite_journal_manuscript/TASK_STATUS.md)
-and [evidence](ops/TASK-20260919__finite_journal_manuscript/EVIDENCE.md)
-record local work and limits. The user supplied the accepted baseline and
-accepted seam source; the Review State Registry was neither read nor changed.
+Completed the bounded [finite DCG pre-submission revision](paper_assets/journal_dcg/README.md):
+fixed minimizing-order wording, explicit existing A.5 boundary comparison,
+two relevant circle-packing references, and pinned/content-addressed Git
+provenance. The [source map](paper_assets/journal_dcg/SOURCE_MAP.md) and
+[revision dossier](ops/TASK-20260919__dcg_presubmission_revision/TASK_STATUS.md)
+record scope; [evidence](ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
+separates local verification from independent acceptance. No new mathematics
+or certificate logic was introduced.
 
 ## Verification gates and blockers
 
-The complete exact verifier passed all twelve brackets and pinned inputs;
-the 44 existing bracket tests passed. The seam exact/symbolic checker passed
-all bridges and bounded combinatorial/interval checks. The manuscript audit
-preserved all 27 displayed seam formulas and 21 tags, six rational vectors,
-and all endpoint/coverage rows. Final two-pass TeX builds have no unresolved
-references or overfull boxes; two successive builds were byte-identical.
-All 18 rendered pages were inspected. No mathematical or environment blocker
-remains for this working manuscript.
+The unchanged complete exact verifier passes all twelve brackets and pinned
+inputs: 47 witnesses and 3,374,988,556 covered full classes. The STRICT seam
+checker with symbolic checks passes. The manuscript audit preserves all 27
+source displays, 21 tags, six vectors, endpoints/coverage, mathematical body
+and floating quantifiers, and confines seam edits to the A.5 clarification.
+Two successful two-pass LaTeX builds produce the same 18-page PDF, without
+unresolved references or overfull boxes. All pages were rendered and visually
+inspected. Source/build hashes and protected-path/whitespace checks pass.
 
-Public v1/v2 assets, asymptotic sequel, solver, results, certificates,
-verifiers, tests and proof notes remain unchanged. The user explicitly
-exempted the pre-existing publication ZIP; it remains untouched and unstaged.
-Only publication navigation and the current review priority change outside
-the new artifact and dossier. No new thematic claim owner was created.
+Public arXiv v1/v2, asymptotic sequel, solver, results, certificates, verifiers,
+tests, proof notes and thematic ledgers are unchanged. The user explicitly
+re-exempted the pre-existing untracked publication ZIP, which remains intact
+and unstaged. No new stable claim or duplicate claim owner requires a ledger
+or index update. No mathematical or environment blocker remains.
 
-Independent manuscript review and author approval remain separate from
-source acceptance and local reproduction. No hosted CI, external submission,
-release, archival DOI or journal acceptance is asserted. Authorized scoped
-commit/push and final remote/working-tree checks are reported in the handoff.
+Authorized scoped commit/push, remote identity and final working-tree state
+are reported in the handoff. Local checks do not imply independent acceptance
+or hosted CI. No tag, release, archival DOI, cover letter or submission was
+created; archival publication remains a separate task.
 
 ## Exactly one next atomic task
 
-Independent STRICT review of the complete finite DCG manuscript and its
-evidence at the resulting committed HEAD.
+Independent review della pre-submission revision; se accettata, freeze
+release/archival DOI.

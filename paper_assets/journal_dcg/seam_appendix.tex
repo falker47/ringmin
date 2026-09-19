@@ -363,8 +363,17 @@ two angles with the inserted radius gives, for every $R>0$,
 The function $P_n$ is continuous and strictly increasing for $x\ge0$,
 and tends to infinity. Its value at zero is
 $(1/\sqrt n+1/\sqrt{n-1})^2$, strictly decreasing in $n$.
-At $n=4k$ it is strictly greater than $1/k$, whereas at
-$n=4k+1$ it is strictly less. Thus $\delta_R>0$ for every
+For $k\ge1$, strict decrease of $t\mapsto1/\sqrt t$ gives
+\[
+ P_{4k}(0)=\left(\frac1{\sqrt{4k}}+\frac1{\sqrt{4k-1}}\right)^2
+ >\left(\frac2{\sqrt{4k}}\right)^2=\frac1k,
+\]
+\[
+ P_{4k+1}(0)=\left(\frac1{\sqrt{4k+1}}+\frac1{\sqrt{4k}}\right)^2
+ <\left(\frac2{\sqrt{4k}}\right)^2=\frac1k,
+\]
+where squaring preserves the strict inequalities because all terms are
+positive. Thus $P_{4k}(0)>1/k>P_{4k+1}(0)$, and $\delta_R>0$ for every
 $R>0$ when $k+2\le n\le4k$; a unique positive crossing
 $P_n(x)=1/k$ exists exactly when $n\ge4k+1$.
 
