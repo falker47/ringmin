@@ -7,6 +7,8 @@ central circle, and the goal is to minimize the central radius `R`.
 The project has produced **two public papers** covering complementary sides of
 the problem: certified finite optimization and global asymptotic theory.
 
+**Navigate:** [Publications](#publications) · [How to cite](#how-to-cite) · [Quick verification](#quick-verification) · [Certified results](#certified-results) · [Full certification and regeneration](#full-certification-and-regeneration) · [Repository layout](#layout)
+
 ## Publications
 
 ### Paper I — finite problem and certified optima
