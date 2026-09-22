@@ -1,35 +1,50 @@
 # ringmin
 
-Exact solver and certificate artifacts for the minimum central circle problem:
-circles of radii `1,2,...,n` are externally tangent to a central circle, and the
-goal is to minimize the central radius `R`.
+Ringmin is a computational-geometry research project on the **minimum central
+circle problem**: circles of radii `1,2,...,n` are externally tangent to a
+central circle, and the goal is to minimize the central radius `R`.
 
-**Paper (current arXiv v2):** [arXiv:2607.28654](https://arxiv.org/abs/2607.28654)
+The project has produced **two public papers** covering complementary sides of
+the problem: certified finite optimization and global asymptotic theory.
 
-**Citation:** Maurizio Falconi, Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima, arXiv:2607.28654 [cs.CG], 2026.
+## Publications
 
-The current public arXiv v2 is accompanied here by the solver code, independent
-verifier, certificate artifacts, and paper source/PDF. The repository certifies
-the global optimum for `n=3..14` by exhaustive enumeration of cyclic orderings.
-Larger-`n` candidate optima remain heuristic. The post-v1
-[global theorem](research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md) proves
+### Paper I — finite problem and certified optima
+
+**arXiv:** [2607.28654v2](https://arxiv.org/abs/2607.28654)
+
+> Maurizio Falconi, *Arranging circles of radii 1,2,...,n around a central
+> circle: a Supnick TSP and certified finite optima*, arXiv:2607.28654
+> [cs.CG], 2026.
+
+The finite paper is accompanied here by the solver code, independent verifier,
+certificate artifacts, and paper source/PDF. The repository certifies the
+global optimum for `n=3..14`; larger-`n` candidate optima remain heuristic.
+
+### Paper II — global asymptotic theory
+
+**arXiv:** [2609.13630](https://arxiv.org/abs/2609.13630)
+
+> Maurizio Falconi, *Minimum central circles: an effective characterization of
+> the global asymptotic constant*, arXiv:2609.13630, 2026.
+
+The standalone sequel studies the asymptotic regime. It proves
 `R*(n)=C_* n^2+o(n^2)` and characterizes `C_*` by finite balanced-word linear
-programs with rigorous bracket width `(1/k+1/r)/pi`. This is effective
-arbitrary-precision characterization in principle; an elementary formula
-and an efficient evaluation algorithm remain open.
+programs with rigorous bracket width `(1/k+1/r)/pi`. This gives an effective
+arbitrary-precision characterization in principle; an elementary formula and
+an efficient evaluation algorithm remain open.
 
 The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
 `C_term+eta_width <= C_* <= U_4`, with the lower endpoint greater than
-`0.14056946887766098063257 > 1/8`. The four-block upper bound now has
+`0.14056946887766098063257 > 1/8`. The four-block upper bound has
 [genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
 These post-v1 theorems have passed internal adversarial review; independent
-external acceptance is pending. The current publication architecture has two
-public arXiv records: the
-[standalone asymptotic sequel](https://arxiv.org/abs/2609.13630), with its
-repository source preserved, and the
-[conservative corrective v2 of the finite paper](paper_assets/v1_correction/README.md),
-now public as arXiv:2607.28654v2. See the
-[publication history](knowledge/PUBLICATION_HISTORY.md) and
+external acceptance is pending.
+
+The two-paper publication architecture is preserved in the repository: the
+[standalone asymptotic sequel](paper_assets/asymptotic_sequel/README.md) and the
+[conservative corrective v2 of the finite paper](paper_assets/v1_correction/README.md).
+See the [publication history](knowledge/PUBLICATION_HISTORY.md) and
 [finalization dossier](ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md).
 The former [replacement candidate](paper_assets/v2/README.md) is superseded
 provenance, not the recommended next upload.
@@ -38,25 +53,40 @@ The historical v1 artifact is unchanged. The fixed-order
 feasibility oracle is a high-precision Simple Temporal Network check over all
 pairwise angular constraints; chain-only values are used only as lower bounds.
 
-> 🇮🇹 Per una spiegazione semplice e non tecnica del problema e dei risultati del paper, consulta il documento [SPIEGAMI.md](SPIEGAMI.md).
+> 🇮🇹 Per una spiegazione semplice e non tecnica del problema e dei risultati principali, consulta il documento [SPIEGAMI.md](SPIEGAMI.md).
 
 ## How to cite
 
-Please cite the public arXiv version as:
+Ringmin has two public papers. Cite the one corresponding to the result you use;
+cite both when referring to the project across its finite and asymptotic scope.
 
-> Maurizio Falconi, Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima, arXiv:2607.28654 [cs.CG], 2026.
+**Paper I — finite problem and certified optima**
 
-Machine-readable citation metadata is available in `CITATION.cff`.
+> Maurizio Falconi, *Arranging circles of radii 1,2,...,n around a central
+> circle: a Supnick TSP and certified finite optima*, arXiv:2607.28654
+> [cs.CG], 2026.
+
+**Paper II — global asymptotic theory**
+
+> Maurizio Falconi, *Minimum central circles: an effective characterization of
+> the global asymptotic constant*, arXiv:2609.13630, 2026.
+
+`CITATION.cff` remains the machine-readable citation metadata for the software
+and finite-certificate companion.
 
 ## Mathematical scope
 
-This project studies a finite geometric optimization problem about arranging
-circles of radii `1,2,...,n` around a central circle while minimizing the
-central radius. The paper proves that the chain-ordering lower-bound problem is
-a fixed Supnick/anti-Monge TSP, then uses explicit certificate artifacts and an
-independent verifier to certify global optima for `3 <= n <= 14`. Larger-`n`
-global optima remain uncertified; current exact post-v1 results and remaining
-open claims are recorded in [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md).
+This project studies the geometric optimization problem of arranging circles
+of radii `1,2,...,n` around a central circle while minimizing the central
+radius. **Paper I** treats the finite problem: it proves that the chain-ordering
+lower-bound problem is a fixed Supnick/anti-Monge TSP and uses explicit
+certificate artifacts plus an independent verifier to certify global optima for
+`3 <= n <= 14`. Larger-`n` global optima remain uncertified.
+
+**Paper II** treats the global asymptotic regime, proving the existence of the
+quadratic-scale limit and giving an effective finite-word LP characterization
+of its constant `C_*`. Current exact results, publication boundaries, and
+remaining open claims are recorded in [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md).
 
 ## The Minimum Central Circle Problem: An Intuitive Explainer
 
