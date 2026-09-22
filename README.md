@@ -29,13 +29,13 @@ global optimum for `n=3..14`; larger-`n` candidate optima remain heuristic.
 > the global asymptotic constant*, arXiv:2609.13630, 2026.
 
 The standalone sequel studies the asymptotic regime. It proves
-$R^*(n)=C_* n^2+o(n^2)$ and characterizes $C_*$ by finite balanced-word linear
+$R^{*}(n)=C_{*}n^2+o(n^2)$ and characterizes $C_{*}$ by finite balanced-word linear
 programs with rigorous bracket width $(1/k+1/r)/\pi$. This gives an effective
 arbitrary-precision characterization in principle; an elementary formula and
 an efficient evaluation algorithm remain open.
 
 The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
-$C_{\mathrm{term}}+\eta_{\mathrm{width}}\le C_*\le U_4$, with the lower endpoint greater than
+$C_{\mathrm{term}}+\eta_{\mathrm{width}}\le C_{*}\le U_4$, with the lower endpoint greater than
 $0.14056946887766098063257 > 1/8$. The four-block upper bound has
 [genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
 These post-v1 theorems have passed internal adversarial review; independent
@@ -85,7 +85,7 @@ certificate artifacts plus an independent verifier to certify global optima for
 
 **Paper II** treats the global asymptotic regime, proving the existence of the
 quadratic-scale limit and giving an effective finite-word LP characterization
-of its constant $C_*$. Current exact results, publication boundaries, and
+of its constant $C_{*}$. Current exact results, publication boundaries, and
 remaining open claims are recorded in [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md).
 
 ## The Minimum Central Circle Problem: An Intuitive Explainer
