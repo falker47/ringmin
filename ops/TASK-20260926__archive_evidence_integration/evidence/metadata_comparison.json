@@ -1,0 +1,117 @@
+[
+  {
+    "field": "title",
+    "expected": "Ringmin: minimum central circle software and exact finite certificates",
+    "observed": "Ringmin: minimum central circle software and exact finite certificates",
+    "result": "PASS",
+    "note": "CFF software title intentionally differs from release title."
+  },
+  {
+    "field": "resource_type",
+    "expected": "software",
+    "observed": "software",
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "field": "creator",
+    "expected": [
+      {
+        "name": "Falconi, Maurizio"
+      }
+    ],
+    "observed": [
+      {
+        "name": "Falconi, Maurizio",
+        "affiliation": null
+      }
+    ],
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "field": "license",
+    "expected": "MIT",
+    "observed": {
+      "id": "mit-license"
+    },
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "field": "keywords",
+    "expected": [
+      "minimum central circle",
+      "circle packing",
+      "computational geometry",
+      "geometric optimization",
+      "exact arithmetic",
+      "finite certificates",
+      "reproducible research"
+    ],
+    "observed": [
+      "minimum central circle",
+      "circle packing",
+      "computational geometry",
+      "geometric optimization",
+      "exact arithmetic",
+      "finite certificates",
+      "reproducible research"
+    ],
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "field": "description",
+    "expected": "Ringmin provides software, exact finite certificate artifacts, and independent verification for the minimum central circle problem with surrounding circles of radii 1,2,...,n. This finite DCG pre-submission companion snapshot includes the standalone exact-arithmetic verifier for global brackets L_n < R*(n) <= U_n of width 10^-11 for n=3,...,14, their preserved inputs and provenance, and the working manuscript for Discrete & Computational Geometry. The public finite paper remains arXiv:2607.28654v2. This snapshot does not extend the finite certificate scope beyond n=14 or imply journal acceptance.",
+    "observed": "Ringmin provides software, exact finite certificate artifacts, and independent verification for the minimum central circle problem with surrounding circles of radii 1,2,...,n. This finite DCG pre-submission companion snapshot includes the standalone exact-arithmetic verifier for global brackets L_n < R*(n) <= U_n of width 10^-11 for n=3,...,14, their preserved inputs and provenance, and the working manuscript for Discrete & Computational Geometry. The public finite paper remains arXiv:2607.28654v2. This snapshot does not extend the finite certificate scope beyond n=14 or imply journal acceptance.",
+    "result": "PASS",
+    "note": "Only HTML entities decoded in metadata; archive bytes never normalized."
+  },
+  {
+    "field": "repository",
+    "expected": "https://github.com/falker47/ringmin",
+    "observed": "https://github.com/falker47/ringmin",
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "field": "version",
+    "expected": "1.1.0-dcg-presubmission",
+    "observed": "v1.1.0-dcg-presubmission",
+    "result": "PASS",
+    "note": "Literal difference: Zenodo includes v, equals actual release tag; CFF omits v. Identity is unambiguous. No undocumented conversion algorithm assumed."
+  },
+  {
+    "field": "release_link",
+    "expected": "https://github.com/falker47/ringmin/tree/v1.1.0-dcg-presubmission",
+    "observed": [
+      {
+        "identifier": "https://github.com/falker47/ringmin/tree/v1.1.0-dcg-presubmission",
+        "relation": "isSupplementTo",
+        "resource_type": "software",
+        "scheme": "url"
+      }
+    ],
+    "result": "PASS",
+    "note": "Actual relation points to tagged GitHub tree, not /releases/tag/ URL; same tag verified."
+  },
+  {
+    "field": "publication_state",
+    "expected": "published/done/submitted",
+    "observed": {
+      "status": "published",
+      "state": "done",
+      "submitted": true
+    },
+    "result": "PASS",
+    "note": ""
+  },
+  {
+    "field": "version_doi",
+    "expected": "10.5281/zenodo.22849826",
+    "observed": "10.5281/zenodo.22849826",
+    "result": "PASS",
+    "note": ""
+  }
+]

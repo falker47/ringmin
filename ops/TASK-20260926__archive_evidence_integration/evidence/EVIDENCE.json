@@ -1,0 +1,338 @@
+{
+  "task": "POST-RING-6_ARCHIVE_EVIDENCE_AUDIT",
+  "mode": "STRICT",
+  "phase": "read_only_audit",
+  "result": "PASS",
+  "completed_at_utc": "2026-09-26T16:31:13.845049+00:00",
+  "repository": "https://github.com/falker47/ringmin",
+  "local_root": "REPOSITORY_ROOT",
+  "local_head": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+  "local_branch": "main",
+  "observed_main": "7201f788b586ae059078dde6221d58b0ce8f79a1",
+  "accepted_review_baseline": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+  "baseline_source": {
+    "kind": "LIVE_REGISTRY_READ",
+    "url": "REVIEW_STATE_REGISTRY",
+    "state_range": "State!A1:AA10",
+    "history_ranges": [
+      "History!A1:AA50",
+      "History!A51:G100"
+    ],
+    "updated_at_utc": "2026-09-19T18:33:13Z",
+    "status": "accepted"
+  },
+  "prior_acceptances": {
+    "historical_numerical_audit_baseline": "c0d9d6e66afc8ec94918adbe23345bdc7a7fa43b",
+    "exact_integrated_route": "f6f22e95af495a4b0385322a5b6add5966cd7296",
+    "fixed_order_seam": "6c16af422d1cb38641c62d43b6e0e547921b9ba9",
+    "presubmission_revision": "2a1118b1236a8c8f9e356a5e01bd2afb4f689276",
+    "classification": "Received history with relevant acceptance transitions reread live; no new acceptance."
+  },
+  "ancestry": {
+    "result": "PASS",
+    "source": "GitHub compare API with all six parent links checked",
+    "merge_base": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+    "ahead_by": 6,
+    "behind_by": 0,
+    "changed_paths": [
+      "README.md"
+    ],
+    "commits": [
+      "f6f4b492487913b2f7d6bdf65dc70382e0d0fdaa",
+      "844ca75438435e7866b7710692d910afae4b63d2",
+      "6feafd169ca8f2f78374004608014fc3e4992f17",
+      "81f0a7f123f071c5b7f4f98fdb6a71e953f537de",
+      "c05614127c6d72dac4bfa32e7102c5551d9bf84b",
+      "7201f788b586ae059078dde6221d58b0ce8f79a1"
+    ]
+  },
+  "release": {
+    "id": 392208463,
+    "url": "https://github.com/falker47/ringmin/releases/tag/v1.1.0-dcg-presubmission",
+    "tag": "v1.1.0-dcg-presubmission",
+    "title": "Ringmin 1.1.0-dcg-presubmission - finite DCG pre-submission companion",
+    "published_at": "2026-09-19T20:41:26Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [],
+    "target_commitish_observed": "main",
+    "resolved_commit": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+    "tag_object_type": "commit",
+    "identity_source": "Live ls-remote and git/ref API, not target_commitish."
+  },
+  "zenodo": {
+    "id": 22849826,
+    "status": "published",
+    "submitted": true,
+    "state": "done",
+    "url": "https://zenodo.org/records/22849826",
+    "version_doi": "10.5281/zenodo.22849826",
+    "version_doi_resolution": "https://zenodo.org/records/22849826",
+    "concept_doi": "10.5281/zenodo.22849825",
+    "concept_doi_scope": "Observed in record, not separately resolved or used as version DOI.",
+    "metadata_comparison": [
+      {
+        "field": "title",
+        "expected": "Ringmin: minimum central circle software and exact finite certificates",
+        "observed": "Ringmin: minimum central circle software and exact finite certificates",
+        "result": "PASS",
+        "note": "CFF software title intentionally differs from release title."
+      },
+      {
+        "field": "resource_type",
+        "expected": "software",
+        "observed": "software",
+        "result": "PASS",
+        "note": ""
+      },
+      {
+        "field": "creator",
+        "expected": [
+          {
+            "name": "Falconi, Maurizio"
+          }
+        ],
+        "observed": [
+          {
+            "name": "Falconi, Maurizio",
+            "affiliation": null
+          }
+        ],
+        "result": "PASS",
+        "note": ""
+      },
+      {
+        "field": "license",
+        "expected": "MIT",
+        "observed": {
+          "id": "mit-license"
+        },
+        "result": "PASS",
+        "note": ""
+      },
+      {
+        "field": "keywords",
+        "expected": [
+          "minimum central circle",
+          "circle packing",
+          "computational geometry",
+          "geometric optimization",
+          "exact arithmetic",
+          "finite certificates",
+          "reproducible research"
+        ],
+        "observed": [
+          "minimum central circle",
+          "circle packing",
+          "computational geometry",
+          "geometric optimization",
+          "exact arithmetic",
+          "finite certificates",
+          "reproducible research"
+        ],
+        "result": "PASS",
+        "note": ""
+      },
+      {
+        "field": "description",
+        "expected": "Ringmin provides software, exact finite certificate artifacts, and independent verification for the minimum central circle problem with surrounding circles of radii 1,2,...,n. This finite DCG pre-submission companion snapshot includes the standalone exact-arithmetic verifier for global brackets L_n < R*(n) <= U_n of width 10^-11 for n=3,...,14, their preserved inputs and provenance, and the working manuscript for Discrete & Computational Geometry. The public finite paper remains arXiv:2607.28654v2. This snapshot does not extend the finite certificate scope beyond n=14 or imply journal acceptance.",
+        "observed": "Ringmin provides software, exact finite certificate artifacts, and independent verification for the minimum central circle problem with surrounding circles of radii 1,2,...,n. This finite DCG pre-submission companion snapshot includes the standalone exact-arithmetic verifier for global brackets L_n < R*(n) <= U_n of width 10^-11 for n=3,...,14, their preserved inputs and provenance, and the working manuscript for Discrete & Computational Geometry. The public finite paper remains arXiv:2607.28654v2. This snapshot does not extend the finite certificate scope beyond n=14 or imply journal acceptance.",
+        "result": "PASS",
+        "note": "Only HTML entities decoded in metadata; archive bytes never normalized."
+      },
+      {
+        "field": "repository",
+        "expected": "https://github.com/falker47/ringmin",
+        "observed": "https://github.com/falker47/ringmin",
+        "result": "PASS",
+        "note": ""
+      },
+      {
+        "field": "version",
+        "expected": "1.1.0-dcg-presubmission",
+        "observed": "v1.1.0-dcg-presubmission",
+        "result": "PASS",
+        "note": "Literal difference: Zenodo includes v, equals actual release tag; CFF omits v. Identity is unambiguous. No undocumented conversion algorithm assumed."
+      },
+      {
+        "field": "release_link",
+        "expected": "https://github.com/falker47/ringmin/tree/v1.1.0-dcg-presubmission",
+        "observed": [
+          {
+            "identifier": "https://github.com/falker47/ringmin/tree/v1.1.0-dcg-presubmission",
+            "relation": "isSupplementTo",
+            "resource_type": "software",
+            "scheme": "url"
+          }
+        ],
+        "result": "PASS",
+        "note": "Actual relation points to tagged GitHub tree, not /releases/tag/ URL; same tag verified."
+      },
+      {
+        "field": "publication_state",
+        "expected": "published/done/submitted",
+        "observed": {
+          "status": "published",
+          "state": "done",
+          "submitted": true
+        },
+        "result": "PASS",
+        "note": ""
+      },
+      {
+        "field": "version_doi",
+        "expected": "10.5281/zenodo.22849826",
+        "observed": "10.5281/zenodo.22849826",
+        "result": "PASS",
+        "note": ""
+      }
+    ],
+    "draft_access": "NOT_NEEDED; no claims about unseen drafts.",
+    "structured_arxiv_relation": "ABSENT; mapping does not require it; arXiv v2 present in description."
+  },
+  "archive": {
+    "acquisition": {
+      "time_utc": "2026-09-26T16:17:23.975530+00:00",
+      "url": "https://zenodo.org/api/records/22849826/files/falker47/ringmin-v1.1.0-dcg-presubmission.zip/content",
+      "resolved_url": "https://zenodo.org/api/records/22849826/files/falker47/ringmin-v1.1.0-dcg-presubmission.zip/content",
+      "http_status": 200,
+      "headers": {
+        "server": "nginx",
+        "date": "Sat, 26 Sep 2026 16:17:24 GMT",
+        "content-type": "application/octet-stream",
+        "content-length": "7121271",
+        "content-disposition": "attachment; filename=ringmin-v1.1.0-dcg-presubmission.zip",
+        "oc-checksum": "MD5:c9521218ecd506a591d9de508d065370",
+        "accept-ranges": "bytes",
+        "content-security-policy": "default-src 'self' fonts.googleapis.com *.gstatic.com data: 'unsafe-inline' 'unsafe-eval' blob: zenodo-broker.web.cern.ch zenodo-broker-qa.web.cern.ch maxcdn.bootstrapcdn.com cdnjs.cloudflare.com ajax.googleapis.com webanalytics.web.cern.ch",
+        "x-content-type-options": "nosniff",
+        "x-download-options": "noopen",
+        "x-permitted-cross-domain-policies": "none",
+        "x-frame-options": "sameorigin",
+        "x-xss-protection": "1; mode=block",
+        "x-ratelimit-limit": "133",
+        "x-ratelimit-remaining": "131",
+        "x-ratelimit-reset": "1790439505",
+        "retry-after": "60",
+        "strict-transport-security": "max-age=31556926; includeSubDomains",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Content-Type, ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "x-source": "files-primary",
+        "connection": "close"
+      },
+      "bytes": 7121271,
+      "sha256": "fa23122ab8907af001b0ecdde0900530573a61b5d4749971f141115d7017d087"
+    },
+    "service_file": {
+      "id": "3944e710-07e7-41a5-a8f4-9dcc6cf8344e",
+      "key": "falker47/ringmin-v1.1.0-dcg-presubmission.zip",
+      "size": 7121271,
+      "checksum": "md5:c9521218ecd506a591d9de508d065370",
+      "links": {
+        "self": "https://zenodo.org/api/records/22849826/files/falker47/ringmin-v1.1.0-dcg-presubmission.zip/content"
+      }
+    },
+    "comparison": {
+      "time_utc": "2026-09-26T16:24:02.358639+00:00",
+      "acquisition": {
+        "bytes": 7121271,
+        "sha256": "fa23122ab8907af001b0ecdde0900530573a61b5d4749971f141115d7017d087",
+        "md5": "c9521218ecd506a591d9de508d065370",
+        "service_bytes": 7121271,
+        "service_checksum": "md5:c9521218ecd506a591d9de508d065370"
+      },
+      "git_commit": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+      "packaging_prefix_removed": "falker47-ringmin-8091966/",
+      "tracked_files": 701,
+      "archive_files": 701,
+      "directory_members": 152,
+      "mismatches": [],
+      "all_directory_members_expected": true
+    },
+    "content_match": "PASS",
+    "originals_match": "13/13 byte-identical to manifest",
+    "windows_report": {
+      "bytes": 350201,
+      "sha256": "96bdf9b53977724f1b8c0640425365bf32897fd4415104f17bfd1afbfa52c693"
+    },
+    "certificate_field_canonical_digest": "6f6c15e1db037a3faadadc52893a9a90ae7b59d6d5b42e934c81c1a0abd21cc0",
+    "byte_normalization": "NONE",
+    "exclusions": "Exact full tracked set; no .git, extra/untracked files or exempt ZIP. DELIBERATELY_INVALID fixtures retain negative-test role."
+  },
+  "verifier_execution": {
+    "started_at_utc": "2026-09-26T16:24:21.969465+00:00",
+    "finished_at_utc": "2026-09-26T16:24:26.016113+00:00",
+    "elapsed_seconds": 4.046594200015534,
+    "command": [
+      "python",
+      "-I",
+      "-S",
+      "verify_global_brackets.py"
+    ],
+    "cwd": "AUDIT_ORIGINALS\\extracted",
+    "exit_code": 0,
+    "stdout": "{\r\n  \"status\": \"PASS_GLOBAL_BRACKETS\",\r\n  \"certificate_sha256\": \"6f6c15e1db037a3faadadc52893a9a90ae7b59d6d5b42e934c81c1a0abd21cc0\",\r\n  \"angles_verified_by_cosine\": 908,\r\n  \"tau_verified_by_cosine_zero\": true,\r\n  \"witnesses\": 47,\r\n  \"central_tangencies\": 540,\r\n  \"outer_pairs\": 3004,\r\n  \"angular_inequalities\": 6008,\r\n  \"explicit_order_classes\": 268648,\r\n  \"all_order_classes_covered\": 3374988556,\r\n  \"preserved_original_files\": 13,\r\n  \"pinned_input_verification\": \"PASS\",\r\n  \"python\": \"3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]\",\r\n  \"platform\": \"Windows-11-10.0.26200-SP0\",\r\n  \"seconds\": 3.8511666999547742,\r\n  \"verifier_sha256\": \"599b49afc3718738a4adf04ec797c4c0e52c5d53076bfbb00e826dde260d4e95\",\r\n  \"unchecked_metadata\": [\r\n    \"Historical runtime/platform/timestamps, regression labels, input frontier blob provenance and generation-execution authenticity.\"\r\n  ]\r\n}\r\n",
+    "stderr": "",
+    "execution_count": 1,
+    "input_changes": "NONE",
+    "scope": "Execution of the same archived complete verifier; not new independent proof review"
+  },
+  "verifier_result": {
+    "status": "PASS_GLOBAL_BRACKETS",
+    "certificate_sha256": "6f6c15e1db037a3faadadc52893a9a90ae7b59d6d5b42e934c81c1a0abd21cc0",
+    "angles_verified_by_cosine": 908,
+    "tau_verified_by_cosine_zero": true,
+    "witnesses": 47,
+    "central_tangencies": 540,
+    "outer_pairs": 3004,
+    "angular_inequalities": 6008,
+    "explicit_order_classes": 268648,
+    "all_order_classes_covered": 3374988556,
+    "preserved_original_files": 13,
+    "pinned_input_verification": "PASS",
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "seconds": 3.8511666999547742,
+    "verifier_sha256": "599b49afc3718738a4adf04ec797c4c0e52c5d53076bfbb00e826dde260d4e95",
+    "unchecked_metadata": [
+      "Historical runtime/platform/timestamps, regression labels, input frontier blob provenance and generation-execution authenticity."
+    ]
+  },
+  "build_manifest": {
+    "hash_checks": 13,
+    "result": "PASS",
+    "build_executed": false
+  },
+  "repository_preservation": {
+    "tracked_and_named_untracked_bytes_unchanged": true,
+    "git_metadata_unchanged": true,
+    "status_unchanged": true,
+    "tracked_count": 701,
+    "named_untracked_count": 1,
+    "scope": "All tracked files, named untracked ZIP, HEAD/index/config/packed-refs and named branch/tag refs; ignored caches not scanned."
+  },
+  "missing_evidence": [],
+  "material_discrepancies": [],
+  "nonmaterial_literal_differences": [
+    "Zenodo version includes v prefix matching tag; CFF omits it.",
+    "Zenodo related identifier uses /tree/tag, not /releases/tag/."
+  ],
+  "not_executed": [
+    "generator/replay",
+    "retained pilots",
+    "historical verifier/checkpoint recovery",
+    "new scientific search",
+    "unit tests",
+    "manuscript builds",
+    "independent proof review",
+    "hosted CI inspection"
+  ],
+  "hosted_ci": "Run 35830854156 success is received handoff only; not reread or treated as archival evidence.",
+  "external_writes": "NONE",
+  "external_writes_meaning": "No writes to remote services; authorized local audit files only in evidence_directory.",
+  "registry_promotion": "NONE",
+  "scientific_claim_changes": "NONE",
+  "evidence_directory": "AUDIT_ORIGINALS",
+  "next_atomic_action_proposed": "Riconciliare la documentazione archivistica con release e DOI verificati, in una task distinta senza modificare i claim scientifici."
+}

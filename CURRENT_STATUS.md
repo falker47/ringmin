@@ -2,43 +2,49 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20260919__archival_metadata
-observed_on=2026-09-19
+task=POST-RING-6_ARCHIVE_EVIDENCE_INTEGRATION
+phase=implementation
+observed_on=2026-09-26
 mode=STRICT
 state=READY_FOR_REVIEW
-accepted_baseline=2a1118b1236a8c8f9e356a5e01bd2afb4f689276
+base_head=7201f788b586ae059078dde6221d58b0ce8f79a1
+accepted_review_baseline=80919666c3c54f8ce20cf66c456d413f6a2c075f
 ```
 
 ## Current task and scope
 
-Prepared `CITATION.cff` as the sole metadata source for the forthcoming archival
-GitHub/Zenodo snapshot of the accepted finite DCG pre-submission companion.
-The [task dossier](ops/TASK-20260919__archival_metadata/TASK_STATUS.md) records
-candidate version/tag, exact release title, archive contents and expected
-Zenodo mapping. The preferred publication citation remains the public finite
-paper, explicitly pinned to `arXiv:2607.28654v2`.
+Persisted the completed POST-RING-6 archival audit and reconciled current archive
+references. The [integration dossier](ops/TASK-20260926__archive_evidence_integration/TASK_STATUS.md)
+and [evidence](ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md) identify
+original copies, public derivatives, hashes and documentary checks.
+
+The previous audit reports PASS for release `v1.1.0-dcg-presubmission` at
+`80919666c3c54f8ce20cf66c456d413f6a2c075f`, archived under version DOI
+`10.5281/zenodo.22849826`. Its 701-file comparison, 13 original-input checks and
+single complete verifier execution are historical evidence, not repeated here.
+The integration and later HEAD are outside that archived snapshot.
+
+The accepted baseline above was read live from the Registry's `ringmin` row
+on 2026-09-26; it is unchanged. Neither main nor this implementation is thereby
+accepted. No scientific claim, fixed-order theorem or paper citation changes.
 
 ## Verification gates and blockers
 
-CFF 1.2.0 schema validation and semantic checks pass. The local Zenodo conversion
-matches the intended software metadata. GitHub's preferred-paper rendering was
-inspected in APA/BibTeX, with the v2 URL as the expected display update.
-All 695 protected baseline tracked paths and the exempted ZIP hash are unchanged.
-[Evidence](ops/TASK-20260919__archival_metadata/EVIDENCE.md) separates local
-checks, hosted rendering and later archival ingestion. No mathematical claim
-is changed or newly certified; no new stable conclusion requires a thematic
-ledger or index update. No preparation blocker remains.
+Originals have been copied outside Temp and the repository, without changing
+them. Public evidence distinguishes byte-identical copies from disclosed
+derivatives. Integrity, staged-blob hashes, CFF schema, local links and
+protected-path checks pass as recorded in the dossier. No scientific verifier, proof review,
+submission or Registry promotion is part of this task.
 
-All manuscripts, public arXiv sources, asymptotic sequel, certificates, results,
-verifiers, solver, tests and dependencies are protected. The user explicitly
-exempted the pre-existing untracked public-v2 source ZIP for this task; leave
-it untouched and unstaged. No tag, GitHub release, Zenodo deposit or DOI is
-created here. Independent metadata review remains required before archival
-publication; it is separate from the authorized scoped commit and push.
-Final staged checks, commit/push result, remote identity and working-tree state
-are reported in the handoff. No hosted-CI success is inferred.
+All paths outside the four authorized current documents and the new dossier
+are protected. The pre-existing untracked arXiv source ZIP remains exempt,
+unchanged and unstaged. Historical dossiers retain their original wording.
+The authorized fast-forward resolved the initial local-checkout blocker.
+No implementation blocker remains. The final handoff records the scoped commit,
+normal push, remote SHA and exact-SHA CI observation; none implies acceptance.
 
 ## Exactly one next atomic task
 
-After independent review, create the authorized GitHub release/tag and archive
-it through Zenodo, then verify the issued DOI and archived record.
+After successful integration push: independent review of the exact new commit
+and the full delta from accepted baseline
+`80919666c3c54f8ce20cf66c456d413f6a2c075f`.

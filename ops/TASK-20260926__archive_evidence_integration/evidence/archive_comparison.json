@@ -1,0 +1,17 @@
+{
+  "time_utc": "2026-09-26T16:24:02.358639+00:00",
+  "acquisition": {
+    "bytes": 7121271,
+    "sha256": "fa23122ab8907af001b0ecdde0900530573a61b5d4749971f141115d7017d087",
+    "md5": "c9521218ecd506a591d9de508d065370",
+    "service_bytes": 7121271,
+    "service_checksum": "md5:c9521218ecd506a591d9de508d065370"
+  },
+  "git_commit": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+  "packaging_prefix_removed": "falker47-ringmin-8091966/",
+  "tracked_files": 701,
+  "archive_files": 701,
+  "directory_members": 152,
+  "mismatches": [],
+  "all_directory_members_expected": true
+}

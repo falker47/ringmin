@@ -34,19 +34,20 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Review archival metadata, then create and verify the finite companion archive
+## Priority 1 — Independently review the archive evidence integration
 
-The user supplied accepted finite DCG pre-submission baseline
-`2a1118b1236a8c8f9e356a5e01bd2afb4f689276`. Independently review the
-[archival metadata preparation](../ops/TASK-20260919__archival_metadata/TASK_STATUS.md)
-against that baseline, including the CFF software identity, preferred public
-finite-v2 citation and preservation of protected files. This preparation
-creates no tag, release, Zenodo deposit or DOI.
+The accepted baseline remains `80919666c3c54f8ce20cf66c456d413f6a2c075f`,
+confirmed in the Review State Registry on 2026-09-26. The completed
+POST-RING-6 archival audit reports PASS for the release snapshot at that commit
+and version DOI `10.5281/zenodo.22849826`; its
+[persisted evidence](../ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md)
+separates the historical audit from the later documentary integration.
 
-After independent review, exactly one next atomic task: create the authorized
-GitHub release/tag and archive it through Zenodo, then verify the issued DOI
-and archived record. Use the candidate version, release title and complete
-tracked-snapshot inventory in the metadata dossier.
+The next atomic task, after the integration commit is pushed, is independent
+review of that exact commit and the full delta from the accepted baseline.
+The DOI identifies the release snapshot, not the integration or subsequent HEAD.
+The [metadata preparation dossier](../ops/TASK-20260919__archival_metadata/TASK_STATUS.md)
+retains its historical pre-release wording.
 
 The numerical-certification blocker is closed for the accepted finite bracket
 claim through the new exact global route. Historical float64 pruning is not
@@ -57,8 +58,8 @@ records the issues as then open, not current priorities.
 
 The separate **Discrete & Computational Geometry** working manuscript now
 exists, with computational inputs pinned to an immutable accepted commit.
-Its construction is not peer review or permission to submit; no submission,
-release or archival DOI has been created. The public arXiv v2 and asymptotic
+Its construction and archiving are not peer review or permission to submit;
+no submission is performed by this integration. The public arXiv v2 and asymptotic
 sequel remain unchanged and on separate publication tracks.
 
 ## Separate asymptotic track — Independent external review

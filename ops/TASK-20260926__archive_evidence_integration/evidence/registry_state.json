@@ -1,0 +1,31 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "range": "State!A1:AA10",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "project_key",
+        "repository",
+        "accepted_baseline",
+        "updated_at_utc",
+        "baseline_status",
+        "schema_version"
+      ],
+      [
+        "ringmin",
+        "falker47/ringmin",
+        "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+        "2026-09-19T18:33:13Z",
+        "accepted",
+        "2"
+      ]
+    ]
+  },
+  "isError": false
+}

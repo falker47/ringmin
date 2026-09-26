@@ -1,0 +1,569 @@
+{
+  "schema": "ringmin-archive-evidence-integration-v1",
+  "historical_task": "POST-RING-6_ARCHIVE_EVIDENCE_AUDIT",
+  "release_commit": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+  "version_doi": "10.5281/zenodo.22849826",
+  "durable_directory_name": "POST-RING-6_ARCHIVE_EVIDENCE_INTEGRATION_20260926T182736Z_9ae979aa",
+  "private_copy_manifest": {
+    "bytes": 47197,
+    "sha256": "05d8f60cc418e621c75e92b67d6e133326158a803a652656e87c4bdc5defe8c3"
+  },
+  "local_copy_file_count": 68,
+  "scope": "Public selection from preserved original audit outputs; no new audit or verifier execution.",
+  "aliases": {
+    "AUDIT_ORIGINALS": "Original audit directory; full origin/copy mapping is local only.",
+    "REPOSITORY_ROOT": "Local repository root.",
+    "USER_HOME": "Local account home directory.",
+    "REVIEW_STATE_REGISTRY": "Private Review State Registry; ringmin row preserved."
+  },
+  "files": [
+    {
+      "source_relative_path": "AUDIT.md",
+      "durable_relative_path": "originals/AUDIT.md",
+      "public_path": "evidence/AUDIT.md",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 9876,
+        "sha256": "43f10e3936f129bd7d7aad5c3560319fa62c695a0ea6971ccb99c1ba4f519a39"
+      },
+      "durable_after_copy": {
+        "bytes": 9876,
+        "sha256": "43f10e3936f129bd7d7aad5c3560319fa62c695a0ea6971ccb99c1ba4f519a39"
+      },
+      "public": {
+        "bytes": 9644,
+        "sha256": "9c5056bb58f6b710d141af140dcb4c8c9ca49289aa3496da6ff6e6829876beda"
+      },
+      "transformations": [
+        "Add DERIVED banner; replace local path roots/private Registry URL; use UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "EVIDENCE.json",
+      "durable_relative_path": "originals/EVIDENCE.json",
+      "public_path": "evidence/EVIDENCE.json",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 15596,
+        "sha256": "00c89195664df2830f4206137c5c37de7f36ab987a0781cce5471fbae22f4f16"
+      },
+      "durable_after_copy": {
+        "bytes": 15596,
+        "sha256": "00c89195664df2830f4206137c5c37de7f36ab987a0781cce5471fbae22f4f16"
+      },
+      "public": {
+        "bytes": 14987,
+        "sha256": "47d43c38714c41eddd9c03d046bdb2e96ccd4054c93ac717eba899e7691fea91"
+      },
+      "transformations": [
+        "Replace local path roots/private Registry URL; JSON reserialized as UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "ARCHIVE_INVENTORY.csv",
+      "durable_relative_path": "originals/ARCHIVE_INVENTORY.csv",
+      "public_path": "evidence/ARCHIVE_INVENTORY.csv",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 172849,
+        "sha256": "418f48987496ed38663924323194a07c00bf63e0e2149c45a73c670e90a657cb"
+      },
+      "durable_after_copy": {
+        "bytes": 172849,
+        "sha256": "418f48987496ed38663924323194a07c00bf63e0e2149c45a73c670e90a657cb"
+      },
+      "public": {
+        "bytes": 172849,
+        "sha256": "418f48987496ed38663924323194a07c00bf63e0e2149c45a73c670e90a657cb"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "CHECKPOINT.md",
+      "durable_relative_path": "originals/CHECKPOINT.md",
+      "public_path": "evidence/CHECKPOINT.md",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 1294,
+        "sha256": "16443e0059b7f61337d524d5041dd8dadf3942d1b1d73a0119de7d13c5533d52"
+      },
+      "durable_after_copy": {
+        "bytes": 1294,
+        "sha256": "16443e0059b7f61337d524d5041dd8dadf3942d1b1d73a0119de7d13c5533d52"
+      },
+      "public": {
+        "bytes": 1287,
+        "sha256": "1e113404f3fed55775822ff92c4e3a28fc80a95f9a55b418b1e8c461ed57ea7f"
+      },
+      "transformations": [
+        "Add DERIVED banner; replace local path roots/private Registry URL; use UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "COMMAND_LOG.md",
+      "durable_relative_path": "originals/COMMAND_LOG.md",
+      "public_path": "evidence/COMMAND_LOG.md",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 7024,
+        "sha256": "7e046817419bfcbd38bf4275ccea224364eb2189969fc722722800ccc9e54782"
+      },
+      "durable_after_copy": {
+        "bytes": 7024,
+        "sha256": "7e046817419bfcbd38bf4275ccea224364eb2189969fc722722800ccc9e54782"
+      },
+      "public": {
+        "bytes": 6426,
+        "sha256": "c8fbcec21e5b69b5ba67c3bc149c63f424bd26ab7720c7cbef26c1d247f9ac45"
+      },
+      "transformations": [
+        "Add DERIVED banner; replace local path roots/private Registry URL; use UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "commands.jsonl",
+      "durable_relative_path": "originals/commands.jsonl",
+      "public_path": "evidence/commands.jsonl",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 256499,
+        "sha256": "443b00af48bc94de37b4a7e939d36582df973d0fe240d5b7baec0be5685a7531"
+      },
+      "durable_after_copy": {
+        "bytes": 256499,
+        "sha256": "443b00af48bc94de37b4a7e939d36582df973d0fe240d5b7baec0be5685a7531"
+      },
+      "public": {
+        "bytes": 255535,
+        "sha256": "fa62452bb64b100c09004b4bb1dc9255a9940279a2209c060ac7db9ca76e827d"
+      },
+      "transformations": [
+        "Replace local path roots/private Registry URL; JSONL reserialized as UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "archive_comparison.json",
+      "durable_relative_path": "originals/archive_comparison.json",
+      "public_path": "evidence/archive_comparison.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 593,
+        "sha256": "c78511c79db5121ac3bcc2baeeff9998f4941c3fc3983dc4de651721b638dcac"
+      },
+      "durable_after_copy": {
+        "bytes": 593,
+        "sha256": "c78511c79db5121ac3bcc2baeeff9998f4941c3fc3983dc4de651721b638dcac"
+      },
+      "public": {
+        "bytes": 593,
+        "sha256": "c78511c79db5121ac3bcc2baeeff9998f4941c3fc3983dc4de651721b638dcac"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "originals_check.json",
+      "durable_relative_path": "originals/originals_check.json",
+      "public_path": "evidence/originals_check.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 3214,
+        "sha256": "4990a6c9364d82fdaa2e6fd3ba97b25077d2818d42ad98a6a2ea31a79bc5de28"
+      },
+      "durable_after_copy": {
+        "bytes": 3214,
+        "sha256": "4990a6c9364d82fdaa2e6fd3ba97b25077d2818d42ad98a6a2ea31a79bc5de28"
+      },
+      "public": {
+        "bytes": 3214,
+        "sha256": "4990a6c9364d82fdaa2e6fd3ba97b25077d2818d42ad98a6a2ea31a79bc5de28"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "metadata_comparison.json",
+      "durable_relative_path": "originals/metadata_comparison.json",
+      "public_path": "evidence/metadata_comparison.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 4230,
+        "sha256": "1798e53926d7f0433acd90c07b6844c5fc96ebbd73f270c52001d5dcd4af2cd7"
+      },
+      "durable_after_copy": {
+        "bytes": 4230,
+        "sha256": "1798e53926d7f0433acd90c07b6844c5fc96ebbd73f270c52001d5dcd4af2cd7"
+      },
+      "public": {
+        "bytes": 4230,
+        "sha256": "1798e53926d7f0433acd90c07b6844c5fc96ebbd73f270c52001d5dcd4af2cd7"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "build_manifest_hash_check.json",
+      "durable_relative_path": "originals/build_manifest_hash_check.json",
+      "public_path": "evidence/build_manifest_hash_check.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 3915,
+        "sha256": "61bb1ff3935acf3323f6e46007337201e45c5fd1613a97bd5d60018d29db6273"
+      },
+      "durable_after_copy": {
+        "bytes": 3915,
+        "sha256": "61bb1ff3935acf3323f6e46007337201e45c5fd1613a97bd5d60018d29db6273"
+      },
+      "public": {
+        "bytes": 3915,
+        "sha256": "61bb1ff3935acf3323f6e46007337201e45c5fd1613a97bd5d60018d29db6273"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "repository_preservation.json",
+      "durable_relative_path": "originals/repository_preservation.json",
+      "public_path": "evidence/repository_preservation.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 319,
+        "sha256": "60a793970627253c4d7a17bab2be7a2f02d23ffa648d6bc076d712a76a8acd40"
+      },
+      "durable_after_copy": {
+        "bytes": 319,
+        "sha256": "60a793970627253c4d7a17bab2be7a2f02d23ffa648d6bc076d712a76a8acd40"
+      },
+      "public": {
+        "bytes": 319,
+        "sha256": "60a793970627253c4d7a17bab2be7a2f02d23ffa648d6bc076d712a76a8acd40"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "repository_before.json",
+      "durable_relative_path": "originals/repository_before.json",
+      "public_path": "evidence/repository_before.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 123860,
+        "sha256": "67fb3755eb883bdf5d71149bc8da1de18638336af6a73aa8b36d1036a995e2b3"
+      },
+      "durable_after_copy": {
+        "bytes": 123860,
+        "sha256": "67fb3755eb883bdf5d71149bc8da1de18638336af6a73aa8b36d1036a995e2b3"
+      },
+      "public": {
+        "bytes": 123860,
+        "sha256": "67fb3755eb883bdf5d71149bc8da1de18638336af6a73aa8b36d1036a995e2b3"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "repository_after.json",
+      "durable_relative_path": "originals/repository_after.json",
+      "public_path": "evidence/repository_after.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 123860,
+        "sha256": "ee4578602556461feab05b1824e12c387c4c31a1390a86450f60ac313c179480"
+      },
+      "durable_after_copy": {
+        "bytes": 123860,
+        "sha256": "ee4578602556461feab05b1824e12c387c4c31a1390a86450f60ac313c179480"
+      },
+      "public": {
+        "bytes": 123860,
+        "sha256": "ee4578602556461feab05b1824e12c387c4c31a1390a86450f60ac313c179480"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "extracted_after_verifier.json",
+      "durable_relative_path": "originals/extracted_after_verifier.json",
+      "public_path": "evidence/extracted_after_verifier.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 86,
+        "sha256": "502aa866bfd56c913f5e1500241a3bf391ff995da8e144d407a81746241eae5c"
+      },
+      "durable_after_copy": {
+        "bytes": 86,
+        "sha256": "502aa866bfd56c913f5e1500241a3bf391ff995da8e144d407a81746241eae5c"
+      },
+      "public": {
+        "bytes": 86,
+        "sha256": "502aa866bfd56c913f5e1500241a3bf391ff995da8e144d407a81746241eae5c"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "verifier_execution.json",
+      "durable_relative_path": "originals/verifier_execution.json",
+      "public_path": "evidence/verifier_execution.json",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 1580,
+        "sha256": "d7108283fc1fa53b690123925b384765a70257f57c58472e1abc1c292175bdd3"
+      },
+      "durable_after_copy": {
+        "bytes": 1580,
+        "sha256": "d7108283fc1fa53b690123925b384765a70257f57c58472e1abc1c292175bdd3"
+      },
+      "public": {
+        "bytes": 1478,
+        "sha256": "83b7ae70ee8dd6d0afc7207a62bebe482a0568bcb914787fdd4b19302713b28b"
+      },
+      "transformations": [
+        "Replace local path roots/private Registry URL; JSON reserialized as UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "verifier.stdout.txt",
+      "durable_relative_path": "originals/verifier.stdout.txt",
+      "public_path": "evidence/verifier.stdout.txt",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 909,
+        "sha256": "fdcce96f6670880cda90acfa0ac50b96df6b791e37df05f4cb956724718d07a3"
+      },
+      "durable_after_copy": {
+        "bytes": 909,
+        "sha256": "fdcce96f6670880cda90acfa0ac50b96df6b791e37df05f4cb956724718d07a3"
+      },
+      "public": {
+        "bytes": 909,
+        "sha256": "fdcce96f6670880cda90acfa0ac50b96df6b791e37df05f4cb956724718d07a3"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "verifier.stderr.txt",
+      "durable_relative_path": "originals/verifier.stderr.txt",
+      "public_path": "evidence/verifier.stderr.txt",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "durable_after_copy": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "public": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "python_environment.json",
+      "durable_relative_path": "originals/python_environment.json",
+      "public_path": "evidence/python_environment.json",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 525,
+        "sha256": "8ed3f1f0c1947633ad0833b09e5705208ef4204b09b52bd4c66c434f18bad0a2"
+      },
+      "durable_after_copy": {
+        "bytes": 525,
+        "sha256": "8ed3f1f0c1947633ad0833b09e5705208ef4204b09b52bd4c66c434f18bad0a2"
+      },
+      "public": {
+        "bytes": 471,
+        "sha256": "bcf5eef42598f93cf5d7be694c65645e11f1099f0a37a0d7362bcce35ff4593f"
+      },
+      "transformations": [
+        "Replace local path roots/private Registry URL; JSON reserialized as UTF-8/LF."
+      ]
+    },
+    {
+      "source_relative_path": "github_release.json",
+      "durable_relative_path": "originals/github_release.json",
+      "public_path": "evidence/github_release.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 2554,
+        "sha256": "52c9a3fd39c29ed3d644c7d935c24dcdf195aefe2908870ba962e3dfa3e066c0"
+      },
+      "durable_after_copy": {
+        "bytes": 2554,
+        "sha256": "52c9a3fd39c29ed3d644c7d935c24dcdf195aefe2908870ba962e3dfa3e066c0"
+      },
+      "public": {
+        "bytes": 2554,
+        "sha256": "52c9a3fd39c29ed3d644c7d935c24dcdf195aefe2908870ba962e3dfa3e066c0"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "github_release.json.http.json",
+      "durable_relative_path": "originals/github_release.json.http.json",
+      "public_path": "evidence/github_release.json.http.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 1959,
+        "sha256": "5c9ed99791e0e92f7b7ad8593a69f75148879e094b52daa229df357c8ee1fc58"
+      },
+      "durable_after_copy": {
+        "bytes": 1959,
+        "sha256": "5c9ed99791e0e92f7b7ad8593a69f75148879e094b52daa229df357c8ee1fc58"
+      },
+      "public": {
+        "bytes": 1959,
+        "sha256": "5c9ed99791e0e92f7b7ad8593a69f75148879e094b52daa229df357c8ee1fc58"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "github_tag.json",
+      "durable_relative_path": "originals/github_tag.json",
+      "public_path": "evidence/github_tag.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 396,
+        "sha256": "9ee00b4552e2aed3395d89e6182078b64a4fa36c8ce5e8824f540c302b65e235"
+      },
+      "durable_after_copy": {
+        "bytes": 396,
+        "sha256": "9ee00b4552e2aed3395d89e6182078b64a4fa36c8ce5e8824f540c302b65e235"
+      },
+      "public": {
+        "bytes": 396,
+        "sha256": "9ee00b4552e2aed3395d89e6182078b64a4fa36c8ce5e8824f540c302b65e235"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "github_tag.json.http.json",
+      "durable_relative_path": "originals/github_tag.json.http.json",
+      "public_path": "evidence/github_tag.json.http.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 1986,
+        "sha256": "0a8320085933a54028ba3488f2619a38556db956cf7e53d8a5e7c75211ff48ae"
+      },
+      "durable_after_copy": {
+        "bytes": 1986,
+        "sha256": "0a8320085933a54028ba3488f2619a38556db956cf7e53d8a5e7c75211ff48ae"
+      },
+      "public": {
+        "bytes": 1986,
+        "sha256": "0a8320085933a54028ba3488f2619a38556db956cf7e53d8a5e7c75211ff48ae"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "zenodo_record.json",
+      "durable_relative_path": "originals/zenodo_record.json",
+      "public_path": "evidence/zenodo_record.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 5151,
+        "sha256": "229fc17a30964af505077768ee0df5ce71743fcbb84f0a30f59269f6903f8008"
+      },
+      "durable_after_copy": {
+        "bytes": 5151,
+        "sha256": "229fc17a30964af505077768ee0df5ce71743fcbb84f0a30f59269f6903f8008"
+      },
+      "public": {
+        "bytes": 5151,
+        "sha256": "229fc17a30964af505077768ee0df5ce71743fcbb84f0a30f59269f6903f8008"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "zenodo_record.json.http.json",
+      "durable_relative_path": "originals/zenodo_record.json.http.json",
+      "public_path": "evidence/zenodo_record.json.http.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 1555,
+        "sha256": "e596f73f796bde571f56d6c49dd4aa39f2df0051f69d09cd480166d14f086da8"
+      },
+      "durable_after_copy": {
+        "bytes": 1555,
+        "sha256": "e596f73f796bde571f56d6c49dd4aa39f2df0051f69d09cd480166d14f086da8"
+      },
+      "public": {
+        "bytes": 1555,
+        "sha256": "e596f73f796bde571f56d6c49dd4aa39f2df0051f69d09cd480166d14f086da8"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "zenodo_archive.zip.http.json",
+      "durable_relative_path": "originals/zenodo_archive.zip.http.json",
+      "public_path": "evidence/zenodo_archive.zip.http.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 1751,
+        "sha256": "d2662bf1803c4b5564cc72439034ac9f34165d8806489f5ba19a5517c78a6612"
+      },
+      "durable_after_copy": {
+        "bytes": 1751,
+        "sha256": "d2662bf1803c4b5564cc72439034ac9f34165d8806489f5ba19a5517c78a6612"
+      },
+      "public": {
+        "bytes": 1751,
+        "sha256": "d2662bf1803c4b5564cc72439034ac9f34165d8806489f5ba19a5517c78a6612"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "doi_resolution.html.http.json",
+      "durable_relative_path": "originals/doi_resolution.html.http.json",
+      "public_path": "evidence/doi_resolution.html.http.json",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 3373,
+        "sha256": "2b5583fd60e35ecce2f33e918030f096ab19eddcfb5a32321c2d53cbb6ed1f64"
+      },
+      "durable_after_copy": {
+        "bytes": 3373,
+        "sha256": "2b5583fd60e35ecce2f33e918030f096ab19eddcfb5a32321c2d53cbb6ed1f64"
+      },
+      "public": {
+        "bytes": 3373,
+        "sha256": "2b5583fd60e35ecce2f33e918030f096ab19eddcfb5a32321c2d53cbb6ed1f64"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "CITATION.tag.cff",
+      "durable_relative_path": "originals/CITATION.tag.cff",
+      "public_path": "evidence/CITATION.tag.cff",
+      "classification": "BYTE_IDENTICAL",
+      "source_before_copy": {
+        "bytes": 1757,
+        "sha256": "649c075980c6174a45e0ec827c6d48169878e6a5088daa7b475c7c53dab6eb23"
+      },
+      "durable_after_copy": {
+        "bytes": 1757,
+        "sha256": "649c075980c6174a45e0ec827c6d48169878e6a5088daa7b475c7c53dab6eb23"
+      },
+      "public": {
+        "bytes": 1757,
+        "sha256": "649c075980c6174a45e0ec827c6d48169878e6a5088daa7b475c7c53dab6eb23"
+      },
+      "transformations": []
+    },
+    {
+      "source_relative_path": "registry_state.json",
+      "durable_relative_path": "originals/registry_state.json",
+      "public_path": "evidence/registry_state.json",
+      "classification": "DERIVED",
+      "source_before_copy": {
+        "bytes": 767,
+        "sha256": "00c3d66e3b728c5ca8ca4e51753376c7e649487ed1afb424459192110681623d"
+      },
+      "durable_after_copy": {
+        "bytes": 767,
+        "sha256": "00c3d66e3b728c5ca8ca4e51753376c7e649487ed1afb424459192110681623d"
+      },
+      "public": {
+        "bytes": 571,
+        "sha256": "c642b406558669a0157a90cb241e01f968398a63afec8a8db65c79a3d4d9a31c"
+      },
+      "transformations": [
+        "Omit unrelated project rows; retain original queried-range label."
+      ]
+    }
+  ]
+}

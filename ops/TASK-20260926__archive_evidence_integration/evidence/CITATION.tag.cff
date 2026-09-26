@@ -19,8 +19,6 @@ url: "https://github.com/falker47/ringmin"
 license: "MIT"
 # Archival companion version, distinct from the Python package and arXiv versions.
 version: "1.1.0-dcg-presubmission"
-# Version DOI identifies the archived release at 80919666, not later commits.
-doi: "10.5281/zenodo.22849826"
 keywords:
   - minimum central circle
   - circle packing

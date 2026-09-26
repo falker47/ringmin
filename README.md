@@ -76,6 +76,11 @@ cite both when referring to the project across its finite and asymptotic scope.
 `CITATION.cff` remains the machine-readable citation metadata for the software
 and finite-certificate companion.
 
+The software [version DOI](https://doi.org/10.5281/zenodo.22849826) identifies
+release `v1.1.0-dcg-presubmission`, commit `80919666c3c54f8ce20cf66c456d413f6a2c075f`.
+The later [archive evidence dossier](ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md)
+preserves the completed audit; it and subsequent commits are outside that snapshot.
+
 ## Mathematical scope
 
 This project studies the geometric optimization problem of arranging circles

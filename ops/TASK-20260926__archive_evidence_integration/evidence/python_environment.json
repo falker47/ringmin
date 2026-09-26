@@ -1,0 +1,14 @@
+{
+  "time_utc": "2026-09-26T15:44:31.920161+00:00",
+  "command": [
+    "python",
+    "-I",
+    "-S",
+    "-c",
+    "import sys,platform;print(sys.version);print(sys.executable);print(platform.platform())"
+  ],
+  "cwd": "REPOSITORY_ROOT",
+  "exit_code": 0,
+  "stdout": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]\r\nUSER_HOME\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe\r\nWindows-11-10.0.26200-SP0\r\n",
+  "stderr": ""
+}

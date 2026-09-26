@@ -1,0 +1,2 @@
+# Hashes describe the actual evidence bytes, including original CRLF output.
+evidence/** -text whitespace=cr-at-eol,-blank-at-eof
