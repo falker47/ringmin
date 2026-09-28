@@ -1,0 +1,104 @@
+{
+  "accepted_baseline": "6749d6b165f982136117481be322c8beaec223ce",
+  "accepted_manuscript_sha256": {
+    "bracket_rows.tex": "58666265324e0cf9c3ad7cf811107f795893ccf0e43954fec2ce65d32d93a5d1",
+    "coverage_rows.tex": "4f4bf81b65c68fcd68d337b36ca43c1582f495ca6bf41ad71ccf3b90afceb87a",
+    "ringmin_dcg.pdf": "f5b3eed1374afe2f75b6195d8806825ae512dcf5eb3ad46cbf8a7ae07112e284",
+    "ringmin_dcg.tex": "91c83ec73121d3b9b5abce44da3a71bad2931f118d0bdd44409172603e3c54b2",
+    "seam_appendix.tex": "5d518283d993967489968ced9804d1476a41a49bad1596808862d1cffd66515d"
+  },
+  "archive_doi": "10.5281/zenodo.22849826",
+  "archive_scope": "Frozen software/certificate snapshot, not this submission package",
+  "artifact": "DCG submission package from unchanged accepted manuscript",
+  "build": {
+    "FORCE_SOURCE_DATE": "1",
+    "SOURCE_DATE_EPOCH": "1789776000",
+    "clean_builds": 2,
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-file-line-error",
+      "-no-shell-escape",
+      "-recorder",
+      "ringmin_dcg.tex"
+    ],
+    "compiler": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025)",
+    "matches_accepted_pdf_byte_for_byte": true,
+    "overfull_boxes": 0,
+    "pages": 19,
+    "passes_per_clean_build": 2,
+    "repository_inputs": [],
+    "unresolved_references": 0
+  },
+  "checksum_convention": "Raw bytes; manifest excludes itself and SHA256SUMS; SHA256SUMS hashes every other package file including this manifest",
+  "custom_styles_figures_bibliography_databases": [],
+  "generation_commit": "The commit containing this manifest; inspect git log for this path",
+  "payload": {
+    ".gitattributes": {
+      "bytes": 38,
+      "sha256": "9dda0445eb10b7cd44b0ddff91774404db0e3251d766c15bd39b7d1ab1cb798b"
+    },
+    "UPLOAD_CHECKLIST.md": {
+      "bytes": 5400,
+      "sha256": "c5de3c60fcd1d3194999d5a1b1aa15f2a558ebf71c62c8de9f63ad3b3cd96f3f"
+    },
+    "bracket_rows.tex": {
+      "bytes": 676,
+      "sha256": "58666265324e0cf9c3ad7cf811107f795893ccf0e43954fec2ce65d32d93a5d1"
+    },
+    "cover_letter.txt": {
+      "bytes": 2353,
+      "sha256": "69917c4e7699ebcf3f7b0cfb6a773eb4251779d2f421668138a3230177297301"
+    },
+    "coverage_rows.tex": {
+      "bytes": 515,
+      "sha256": "4f4bf81b65c68fcd68d337b36ca43c1582f495ca6bf41ad71ccf3b90afceb87a"
+    },
+    "ringmin_dcg.pdf": {
+      "bytes": 402481,
+      "sha256": "f5b3eed1374afe2f75b6195d8806825ae512dcf5eb3ad46cbf8a7ae07112e284"
+    },
+    "ringmin_dcg.tex": {
+      "bytes": 37085,
+      "sha256": "91c83ec73121d3b9b5abce44da3a71bad2931f118d0bdd44409172603e3c54b2"
+    },
+    "ringmin_dcg_sources.zip": {
+      "bytes": 60922,
+      "sha256": "d70173624d1e1eb748b71fe39a31fb0f865d65b51e4e96f4eed27e649c8d6b92"
+    },
+    "seam_appendix.tex": {
+      "bytes": 22190,
+      "sha256": "5d518283d993967489968ced9804d1476a41a49bad1596808862d1cffd66515d"
+    }
+  },
+  "portability": "PDF byte identity verified on the recorded local toolchain; other TeX/font versions may differ",
+  "prepared_on": "2026-09-28",
+  "schema_version": 1,
+  "scientific_supplementary_files": [],
+  "source_directory_at_accepted_commit": "paper_assets/journal_dcg",
+  "source_zip": {
+    "compression": "STORED",
+    "entries": [
+      "bracket_rows.tex",
+      "coverage_rows.tex",
+      "ringmin_dcg.tex",
+      "seam_appendix.tex"
+    ],
+    "entry_timestamp": "2026-09-28T00:00:00",
+    "unix_mode": "100644"
+  },
+  "standard_tex_dependencies": [
+    "article",
+    "fontenc (T1)",
+    "lmodern",
+    "geometry",
+    "amsmath",
+    "amssymb",
+    "amsthm",
+    "booktabs",
+    "tabularx",
+    "array",
+    "hyperref"
+  ]
+}

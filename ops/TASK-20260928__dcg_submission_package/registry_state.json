@@ -1,0 +1,22 @@
+{
+  "range": "State!A1:F2",
+  "majorDimension": "ROWS",
+  "values": [
+    [
+      "project_key",
+      "repository",
+      "accepted_baseline",
+      "updated_at_utc",
+      "baseline_status",
+      "schema_version"
+    ],
+    [
+      "ringmin",
+      "falker47/ringmin",
+      "6749d6b165f982136117481be322c8beaec223ce",
+      "2026-09-28T09:15:13Z",
+      "accepted",
+      "2"
+    ]
+  ]
+}

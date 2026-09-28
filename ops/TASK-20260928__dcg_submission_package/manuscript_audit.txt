@@ -1,0 +1,7 @@
+PASS: 27 seam displays preserved, 21 tags, six vectors, 12 endpoint and coverage rows.
+PASS: abstract 184 whitespace words; six keywords; all declarations; resolved source references.
+PASS: complete baseline TeX recovered outside three editorial blocks; entire seam appendix unchanged.
+PASS: six resolved bibliography entries; CFF/Zenodo citation; three distinct provenance identities and ancestry.
+PASS: fresh full report bound to twelve certificate rows and positive margins; verifier and artifact hashes.
+PASS: protected tracked paths and exempt ZIP unchanged; only allowed task paths; all text UTF-8/whitespace.
+LIMIT: transcription and scope audit, not independent mathematical review or hosted CI.

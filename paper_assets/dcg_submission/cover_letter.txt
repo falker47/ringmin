@@ -1,0 +1,44 @@
+Dear Editors-in-Chief,
+
+Please consider my manuscript, "Minimum central circles: chain order, seam
+obstructions, and exact finite certification", for publication in Discrete &
+Computational Geometry.
+
+The paper gives a standalone finite treatment of the minimum central circle
+externally tangent to pairwise non-overlapping circles of radii 1,2,...,n.
+It identifies a strict anti-Monge angular kernel and applies Supnick's
+classical tour theorem to the adjacent-chain relaxation, with a separate
+argument transferring the minimizing order to the chain-radius problem.
+A self-contained seam theorem characterizes full feasibility of the canonical
+Supnick necklace at its chain root, proves eventual persistent failure for
+each fixed starting radius, and gives the complete classifications for
+starting radii 1, 2 and 3. For the global geometric problem, exact-arithmetic
+certificates establish rational brackets L_n < R*(n) <= U_n of width 10^-11
+for every 3 <= n <= 14. These brackets distinguish global certification
+from chain optimality and numerical observations about floating circles.
+
+The geometric feasibility questions and their interaction with combinatorial
+optimization motivate submission to Discrete & Computational Geometry.
+The proofs needed for the seam result are included in the manuscript.
+The reproducible software and certificate archive is available on Zenodo at
+https://doi.org/10.5281/zenodo.22849826, with the computational source pin and
+the archive's precise scope stated in the paper. The finite certification
+does not rely on floating-point pruning in the historical search.
+
+An earlier finite version is publicly available as arXiv:2607.28654v2.
+The separate asymptotic sequel, "Minimum central circles: an effective
+characterization of the global asymptotic constant", is available as
+arXiv:2609.13630. The present submission is self-contained and does not
+depend on the sequel's asymptotic results.
+
+The manuscript includes funding, competing-interest, author-contribution
+and data-availability statements, together with a disclosure of substantive
+ChatGPT/Codex assistance extending beyond copy editing. I retain
+responsibility for the text, proofs and code.
+
+Thank you for considering the manuscript.
+
+Sincerely,
+Maurizio Falconi
+Independent researcher, Parma, Italy
+Corresponding author: maurizio.falconi47@gmail.com

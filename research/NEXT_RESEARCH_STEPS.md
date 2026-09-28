@@ -34,38 +34,20 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independently review the submission-compliance reconciliation
+## Priority 1 — Independently review the exact DCG submission package
 
-The accepted baseline is `b1480803749e08197bce37442f0953c550e2a5e4`,
-confirmed in the Review State Registry on 2026-09-28; the archive-evidence
-integration is accepted. The completed POST-RING-6 archival audit reports PASS
-for release `v1.1.0-dcg-presubmission` at
-`80919666c3c54f8ce20cf66c456d413f6a2c075f`, version DOI
-`10.5281/zenodo.22849826`; its
-[persisted evidence](../ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md)
-separates the historical audit from the later documentary integration.
+Review the [submission package](../paper_assets/dcg_submission/UPLOAD_CHECKLIST.md)
+and its manifest against accepted baseline
+`6749d6b165f982136117481be322c8beaec223ce`, confirmed in the Review State
+Registry on 2026-09-28. The [packaging evidence](../ops/TASK-20260928__dcg_submission_package/EVIDENCE.md)
+records source/PDF identity, isolated compilation and current upload conditions.
+If this exact package is accepted, the human author uploads it through
+Editorial Manager. No further research or manuscript revision is part of this
+step, and packaging does not promote the Registry baseline.
 
-The next atomic task is independent review of the exact submission-compliance
-commit; if accepted, prepare the final DCG submission package and cover letter.
-The editorial patch is not automatically accepted. The DOI identifies only the
-release snapshot; the accepted integration baseline and subsequent HEAD are
-outside the deposit.
-The [metadata preparation dossier](../ops/TASK-20260919__archival_metadata/TASK_STATUS.md)
-retains its historical pre-release wording.
-
-The numerical-certification blocker is closed for the accepted finite bracket
-claim through the new exact global route. Historical float64 pruning is not
-retroactively certified; checkpoint recovery, Stage A replay and a historical
-float64 error-envelope proof are no longer prerequisite gates for this claim.
-The [2026-09-16 journal dossier](../ops/TASK-20260916__journal_readiness/REFEREE_REPORT.md)
-records the issues as then open, not current priorities.
-
-The separate **Discrete & Computational Geometry** working manuscript now
-exists, with computational inputs pinned to an immutable accepted commit.
-Its construction and archiving are not peer review or permission to submit;
-it has not been submitted to DCG or received journal peer review. The fixed-order
-seam theorem is integrated. The public arXiv v2 and asymptotic
-sequel remain unchanged and on separate publication tracks.
+The finite certification's scope and archival boundaries remain in their
+owning ledgers. The public arXiv v2 and asymptotic sequel remain on separate
+publication tracks. No DCG submission or journal peer review has occurred.
 
 ## Separate asymptotic track — Independent external review
 

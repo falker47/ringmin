@@ -1,0 +1,20 @@
+{
+  "abstract_whitespace_words": 184,
+  "accepted_baseline": "6749d6b165f982136117481be322c8beaec223ce",
+  "accepted_manuscript_files_byte_identical": 5,
+  "checksums_verified": 10,
+  "exempt_zip_sha256": "e6abaf4cffadf8a72c520b71adf66bc13b1870ab8fe7bd25ad79aad5a04689db",
+  "keywords": 6,
+  "limitations": "Packaging/transcription checks, not fresh mathematical verification or independent review",
+  "manifest_sha256": "9a4a9fafec1dcd855702c3402acdd645dd05b064468e86859d3bbff7824ed01f",
+  "msc": [
+    "52C26",
+    "52C15",
+    "05C85",
+    "90C27"
+  ],
+  "package_files": 11,
+  "protected_files_byte_identical": 740,
+  "sha256sums_sha256": "10afe360c4bc9963e52ea66da5ff78a13b1fb20010b01364cc7ffa6502631e1a",
+  "status": "PASS_PACKAGE"
+}
