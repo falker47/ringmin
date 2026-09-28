@@ -49,7 +49,9 @@ def main():
         print("LAYOUT WARNINGS:", *overfull, sep="\n")
     pdf = HERE / "ringmin_dcg.pdf"
     shutil.copyfile(WORK / pdf.name, pdf)
-    inputs = sorted(HERE.glob("*.tex")) + [HERE / "build.py", HERE / "export_tables.py", HERE / ".gitattributes"]
+    inputs = sorted(HERE.glob("*.tex")) + [HERE / "build.py", HERE / "export_tables.py", HERE / ".gitattributes",
+        ROOT / "CITATION.cff",
+        ROOT / "ops/TASK-20260926__archive_evidence_integration/evidence/zenodo_record.json"]
     protected = [
         "paper_assets/v1_correction/ringmin_finite_v2.tex",
         "research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md",
@@ -58,9 +60,15 @@ def main():
     ]
     version = subprocess.check_output(["pdflatex", "--version"], env=env).decode().splitlines()[0]
     manifest = {
-        "artifact": "Pre-submission revision of the finite DCG working manuscript",
-        "revision_baseline_commit": "bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6",
+        "artifact": "Submission-compliance reconciliation of the finite DCG working manuscript",
+        "revision_baseline_commit": "b1480803749e08197bce37442f0953c550e2a5e4",
         "mathematical_source_commit": BASELINE,
+        "archival_snapshot": {
+            "tag": "v1.1.0-dcg-presubmission",
+            "commit": "80919666c3c54f8ce20cf66c456d413f6a2c075f",
+            "doi": "10.5281/zenodo.22849826",
+            "scope": "Frozen pre-submission snapshot; excludes the revision baseline and this editorial reconciliation",
+        },
         "manuscript_generation_commit": "The task commit containing this manifest; see git log -- paper_assets/journal_dcg/BUILD_MANIFEST.json",
         "command_from_repository_root": "python paper_assets/journal_dcg/build.py",
         "compiler": version, "passes": 2, "SOURCE_DATE_EPOCH": EPOCH,

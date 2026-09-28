@@ -34,18 +34,22 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independently review the archive evidence integration
+## Priority 1 — Independently review the submission-compliance reconciliation
 
-The accepted baseline remains `80919666c3c54f8ce20cf66c456d413f6a2c075f`,
-confirmed in the Review State Registry on 2026-09-26. The completed
-POST-RING-6 archival audit reports PASS for the release snapshot at that commit
-and version DOI `10.5281/zenodo.22849826`; its
+The accepted baseline is `b1480803749e08197bce37442f0953c550e2a5e4`,
+confirmed in the Review State Registry on 2026-09-28; the archive-evidence
+integration is accepted. The completed POST-RING-6 archival audit reports PASS
+for release `v1.1.0-dcg-presubmission` at
+`80919666c3c54f8ce20cf66c456d413f6a2c075f`, version DOI
+`10.5281/zenodo.22849826`; its
 [persisted evidence](../ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md)
 separates the historical audit from the later documentary integration.
 
-The next atomic task, after the integration commit is pushed, is independent
-review of that exact commit and the full delta from the accepted baseline.
-The DOI identifies the release snapshot, not the integration or subsequent HEAD.
+The next atomic task is independent review of the exact submission-compliance
+commit; if accepted, prepare the final DCG submission package and cover letter.
+The editorial patch is not automatically accepted. The DOI identifies only the
+release snapshot; the accepted integration baseline and subsequent HEAD are
+outside the deposit.
 The [metadata preparation dossier](../ops/TASK-20260919__archival_metadata/TASK_STATUS.md)
 retains its historical pre-release wording.
 
@@ -59,7 +63,8 @@ records the issues as then open, not current priorities.
 The separate **Discrete & Computational Geometry** working manuscript now
 exists, with computational inputs pinned to an immutable accepted commit.
 Its construction and archiving are not peer review or permission to submit;
-no submission is performed by this integration. The public arXiv v2 and asymptotic
+it has not been submitted to DCG or received journal peer review. The fixed-order
+seam theorem is integrated. The public arXiv v2 and asymptotic
 sequel remain unchanged and on separate publication tracks.
 
 ## Separate asymptotic track — Independent external review

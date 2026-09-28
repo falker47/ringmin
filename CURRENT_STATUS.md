@@ -2,49 +2,47 @@
 
 ```text
 repository=falker47/ringmin
-task=POST-RING-6_ARCHIVE_EVIDENCE_INTEGRATION
+task=TASK-20260928__dcg_submission_compliance
 phase=implementation
-observed_on=2026-09-26
+observed_on=2026-09-28
 mode=STRICT
 state=READY_FOR_REVIEW
-base_head=7201f788b586ae059078dde6221d58b0ce8f79a1
-accepted_review_baseline=80919666c3c54f8ce20cf66c456d413f6a2c075f
+base_head=b1480803749e08197bce37442f0953c550e2a5e4
+accepted_review_baseline=b1480803749e08197bce37442f0953c550e2a5e4
 ```
 
 ## Current task and scope
 
-Persisted the completed POST-RING-6 archival audit and reconciled current archive
-references. The [integration dossier](ops/TASK-20260926__archive_evidence_integration/TASK_STATUS.md)
-and [evidence](ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md) identify
-original copies, public derivatives, hashes and documentary checks.
+Reconcile the finite DCG manuscript's availability statement, archival citation
+and current provenance. The [task dossier](ops/TASK-20260928__dcg_submission_compliance/TASK_STATUS.md)
+and [evidence](ops/TASK-20260928__dcg_submission_compliance/EVIDENCE.md) separate
+observed facts, editorial edits and local verification. No new scientific claim.
 
-The previous audit reports PASS for release `v1.1.0-dcg-presubmission` at
-`80919666c3c54f8ce20cf66c456d413f6a2c075f`, archived under version DOI
-`10.5281/zenodo.22849826`. Its 701-file comparison, 13 original-input checks and
-single complete verifier execution are historical evidence, not repeated here.
-The integration and later HEAD are outside that archived snapshot.
+The DCG pre-submission package exists; its exact finite certification is already
+internally accepted and its fixed-order seam theorem is integrated. The
+mathematical/computational source pin remains
+`6c16af422d1cb38641c62d43b6e0e547921b9ba9`.
+Release `v1.1.0-dcg-presubmission`, commit
+`80919666c3c54f8ce20cf66c456d413f6a2c075f`, is the frozen snapshot archived under
+version DOI `10.5281/zenodo.22849826`. The later accepted baseline above, confirmed
+by a live Registry read, and this patch are outside that deposit.
 
-The accepted baseline above was read live from the Registry's `ringmin` row
-on 2026-09-26; it is unchanged. Neither main nor this implementation is thereby
-accepted. No scientific claim, fixed-order theorem or paper citation changes.
+The prior archive-evidence integration is accepted. This new editorial patch
+requires its own independent review; the Registry is unchanged. The manuscript
+has not been submitted to DCG and has not received journal peer review.
 
 ## Verification gates and blockers
 
-Originals have been copied outside Temp and the repository, without changing
-them. Public evidence distinguishes byte-identical copies from disclosed
-derivatives. Integrity, staged-blob hashes, CFF schema, local links and
-protected-path checks pass as recorded in the dossier. No scientific verifier, proof review,
-submission or Registry promotion is part of this task.
-
-All paths outside the four authorized current documents and the new dossier
-are protected. The pre-existing untracked arXiv source ZIP remains exempt,
-unchanged and unstaged. Historical dossiers retain their original wording.
-The authorized fast-forward resolved the initial local-checkout blocker.
-No implementation blocker remains. The final handoff records the scoped commit,
-normal push, remote SHA and exact-SHA CI observation; none implies acceptance.
+Local gates pass: normal PDF/manifest build (19 pages, zero overfull boxes and
+unresolved references), current manuscript audit, complete exact global verifier,
+STRICT symbolic seam checker and PDF visual inspection. Two builds are byte
+identical. The abstract remains 184 words with six keywords and all declarations.
+All 728 protected files, including the exempt untracked arXiv ZIP, retain their
+preflight bytes. No implementation blocker remains. Complete diff/whitespace
+inspection and scoped commit/normal push are recorded in the dossier and final
+handoff; they do not advance the accepted Registry baseline.
 
 ## Exactly one next atomic task
 
-After successful integration push: independent review of the exact new commit
-and the full delta from accepted baseline
-`80919666c3c54f8ce20cf66c456d413f6a2c075f`.
+Independent review of the exact submission-compliance commit; if accepted,
+prepare the final DCG submission package and cover letter.

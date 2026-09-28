@@ -70,8 +70,16 @@ from public v2 and the asymptotic sequel. Its
 [source map](../paper_assets/journal_dcg/SOURCE_MAP.md) and
 [local evidence](../ops/TASK-20260919__finite_journal_manuscript/EVIDENCE.md)
 distinguish accepted source claims from transposition and reproduction.
-The manuscript awaits independent STRICT review; it has not been submitted,
-peer reviewed, or declared journal-ready. No release or archival DOI is claimed.
+The pre-submission snapshot was archived as `v1.1.0-dcg-presubmission`,
+commit `80919666c3c54f8ce20cf66c456d413f6a2c075f`, under version DOI
+[10.5281/zenodo.22849826](https://doi.org/10.5281/zenodo.22849826); the
+[persisted archival evidence](../ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md)
+records its provenance. The Registry read on 2026-09-28 confirms the later
+`b1480803749e08197bce37442f0953c550e2a5e4` baseline as accepted. That baseline
+and the subsequent editorial reconciliation are outside the frozen deposit.
+The new reconciliation requires its own independent review. The manuscript
+has not been submitted to DCG or received journal peer review; repository
+acceptance and archival publication do not imply either.
 
 Historical venue and compliance planning is recorded in
 [`VENUE_AND_SUBMISSION_PLAN.md`](../ops/TASK-20260916__journal_readiness/VENUE_AND_SUBMISSION_PLAN.md).

@@ -5,8 +5,18 @@ of the source baseline and review of this manuscript are distinct. The user
 supplied revision baseline `bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6`.
 Initial preparation used `6c16af422d1cb38641c62d43b6e0e547921b9ba9` with
 the seam package explicitly accepted; that computational pin is unchanged.
-No Registry API was read
-or changed. Older pending-review wording is preserved as historical context.
+Those are historical preparation identities. For this editorial reconciliation,
+the Registry was read live on 2026-09-28 and returned accepted baseline
+`b1480803749e08197bce37442f0953c550e2a5e4`; it was not changed.
+The existing finite certification and integrated seam theorem retain their
+internally accepted scope. This does not accept the new editorial patch or
+imply journal peer review.
+
+The frozen archive is release `v1.1.0-dcg-presubmission`, commit
+`80919666c3c54f8ce20cf66c456d413f6a2c075f`, version DOI
+[10.5281/zenodo.22849826](https://doi.org/10.5281/zenodo.22849826).
+The accepted baseline and this patch postdate that snapshot and are outside
+the deposit. These identities do not replace the computational source pin.
 
 | Manuscript location | Classification | Controlling source and integration |
 |---|---|---|
@@ -53,8 +63,8 @@ Omitted: corrective narrative, high-digit reconstruction appendix, worst-chain
 comparisons, n>14 heuristic table, and historical asymptotic plots. Public
 assets are preserved. The story proceeds from chain structure and full
 geometry to seam theory, exact brackets, interpretation and limitations.
-Public preprints are mentioned in text; five published works appear
-in the numbered bibliography after the two additions below.
+Public preprints are mentioned in text; five published works and the Zenodo
+software/certificate snapshot appear in the numbered bibliography.
 
 The [DCG guidelines](https://link.springer.com/journal/454/submission-guidelines)
 and [aims and scope](https://link.springer.com/journal/454/aims-and-scope)
@@ -94,7 +104,23 @@ with fixed radii and enforcing all pairwise non-overlap. No convergence,
 optimality, or universal non-overlap assertion is attributed to that paper.
 
 Both references were checked on 2026-09-19 and supply context only. Neither
-is a new premise for the seam proof or finite certificate. No cover letter,
-submission, release, deposit or ORCID lookup is part of this task. A pinned,
-content-addressed Git commit identifies computational provenance; it is not
-a permanent archival repository deposit. Release/archival DOI is deferred.
+is a new premise for the seam proof or finite certificate. The existing release
+and deposit now supply a separate archival identity. No new release, deposit,
+cover letter, submission or ORCID lookup is part of this reconciliation.
+
+## Archival citation reconciliation, 2026-09-28
+
+The software citation takes author, title and DOI from
+[CITATION.cff](../../CITATION.cff), cross-checked against the
+[persisted Zenodo record](../../ops/TASK-20260926__archive_evidence_integration/evidence/zenodo_record.json).
+The record supplies publication date 2026-09-19, resource type Software and
+literal version `v1.1.0-dcg-presubmission`; CFF records the same version without
+the leading `v`. The paper cites the deposited version, with year 2026 and the
+full version DOI. This is an archival citation, not a new scientific premise.
+The public finite-paper preferred citation in CFF remains unchanged.
+
+Only reproduction/availability prose and the archival bibliography entry change
+in the main TeX. All theorem/proof text, abstract, six keywords, MSC, author
+information and other declarations are preserved. The manuscript has not been
+submitted to DCG or received journal peer review. The new patch awaits independent
+review; see the [task evidence](../../ops/TASK-20260928__dcg_submission_compliance/EVIDENCE.md).

@@ -5,7 +5,7 @@ The revised standalone **working submission manuscript** for Discrete
 asymptotic sequel. It has not been submitted, peer reviewed, or declared
 publication-ready by this task.
 
-The [18-page PDF](ringmin_dcg.pdf) is built from [ringmin_dcg.tex](ringmin_dcg.tex),
+The [19-page PDF](ringmin_dcg.pdf) is built from [ringmin_dcg.tex](ringmin_dcg.tex),
 [seam_appendix.tex](seam_appendix.tex), and two generated table inputs.
 There are no external figures, private style files or bibliography databases.
 Standard `article` formatting is used for this working version; the Springer
@@ -62,24 +62,36 @@ python -I -S verify_global_brackets.py
 
 It verifies all twelve cases, original-input binding, exact lower coverage
 and existential upper witnesses, without replaying the historical search.
-The paper pins code/data to the user-supplied accepted baseline
+The paper retains the mathematical/computational code/data pin
 `6c16af422d1cb38641c62d43b6e0e547921b9ba9`; the manuscript is identified by
 the task commit containing this directory. Source hashes are not execution
-attestation. No release/tag or archival DOI was created or inferred.
+attestation. The frozen pre-submission snapshot is release
+`v1.1.0-dcg-presubmission`, commit
+`80919666c3c54f8ce20cf66c456d413f6a2c075f`, archived under version DOI
+[10.5281/zenodo.22849826](https://doi.org/10.5281/zenodo.22849826).
+The accepted repository baseline read live on 2026-09-28 is
+`b1480803749e08197bce37442f0953c550e2a5e4`. It postdates the release and
+is outside that deposit, as is this editorial patch. The accepted exact
+finite certification and integrated fixed-order seam theorem retain their scope.
 
 ## Review package and metadata
 
 The [source map](SOURCE_MAP.md) records dependencies and editorial decisions.
-The [revision evidence](../../ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
-records actual local checks separately from inherited acceptance.
-The revision baseline is `bfc2caff2ae6b1d1f149eb52cac4dc220dcf85d6`;
-the earlier mathematical code/data pin remains unchanged. Both identify
-content-addressed Git commits, not archival repository deposits.
+The [historical revision evidence](../../ops/TASK-20260919__dcg_presubmission_revision/EVIDENCE.md)
+retains its preparation-time context. The
+[current compliance evidence](../../ops/TASK-20260928__dcg_submission_compliance/EVIDENCE.md)
+records fresh local checks separately from inherited acceptance. The current
+editorial baseline is `b1480803749e08197bce37442f0953c550e2a5e4`;
+the mathematical code/data pin remains unchanged. The software citation uses
+[CITATION.cff](../../CITATION.cff) and the
+[persisted Zenodo metadata](../../ops/TASK-20260926__archive_evidence_integration/evidence/zenodo_record.json).
 
 The paper has a 184-word abstract by whitespace count, six keywords, MSC,
 the author's already-public affiliation/contact details, declarations and
 disclosure of substantive AI assistance. The author confirmed no specific
 funding and no relevant conflicts during initial preparation. No ORCID was supplied or
 inferred. Actual submission requires author approval and portal metadata.
-The sole next atomic task is independent review of the pre-submission
-revision; if accepted, freeze release/archival DOI.
+This patch is not automatically accepted and does not update the Registry.
+The sole next atomic task is independent review of the exact
+submission-compliance commit; if accepted, prepare the final DCG submission
+package and cover letter.
