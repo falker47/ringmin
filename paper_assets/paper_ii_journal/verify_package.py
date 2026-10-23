@@ -14,7 +14,7 @@ REQUIRED = {
     "main.tex", "main.pdf", "upper_supplement.tex", "upper_supplement.pdf",
     "BUILD_REPORT.json", "README.md", "READINESS.md", "CLAIM_PROOF_MAP.md",
     "PRIOR_ART.md", "EDITORIAL_REQUIREMENTS.md", "UPPER_DEPENDENCIES.md",
-    "build.py", "verify_package.py", ".gitattributes",
+    "build.py", "verify_package.py", "check_reproducibility.py", ".gitattributes",
     "checks/check_line_recovery.py", "checks/check_word_lp.py", "verify_math.py",
     "checks/upper_lambda.py", "checks/upper_alpha_minimum.py", "checks/upper_boundary.py",
     "checks/upper_mixed_width.py", "checks/upper_fourth_block.py",

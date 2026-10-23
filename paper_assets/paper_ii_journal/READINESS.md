@@ -1,56 +1,54 @@
-# Editorial Readiness Report
+# JoCG Pre-Submission Readiness
 
-Candidate baseline: 75a2f448038d627b2661ea7c9d6fd0fcdb6d33ae.
-Assessment date: 2026-10-23. Mode STRICT. State: READY_FOR_REVIEW.
-This is a complete internally reviewed candidate, not external acceptance.
-JoCG remains the leading venue candidate, not an approved submission.
+Finalization baseline: fa32c99e9da0d639dca5735864c7c341d2e60059.
+Assessment date: 2026-10-24. Mode STRICT. State: READY_FOR_REVIEW.
+The author has approved JoCG as the destination. This revision completes
+editorial and reproducibility preparation; journal submission and external
+scientific acceptance have not occurred.
 
-| Gate | State at content freeze | Evidence / limit |
+| Gate | Evidence at content freeze | Scope / limit |
 |---|---|---|
-| Separate candidate and preserved public science | PASS | Dedicated branch/worktree; 774 protected baseline files and original untracked ZIP retain their bytes |
-| Global limit and finite-word LP analytic closure | PASS | Final main sections 2--4 independently read; no invalidating gap found; CORE_AUDIT.md binds the source hash |
-| Proposition 7 analytic/arithmetic reuse | PASS | Unchanged S1, fresh critical L1--L8 reading and exact certificate replay, 144 deletion fixtures and integrity controls |
-| Reflected-block upper dependency closure | PASS | Independent final S2 reading, implicit parameters, both arcs/all pairs, genuine finite/countable recovery and U4 saving; five exact scripts passed |
-| Scoped prior-art/overlap comparison | PASS | PRIOR_ART.md distinguishes Paper I, shelf/STN/contact-graph results; explicitly non-exhaustive |
-| JoCG review-format preparation | PASS | Official checklist retrieved; main/S2 11pt, numbered lines/pages, title case and DOI references; unchanged S1 indexed separately |
-| Isolated builds, citations and PDF inspection | PASS | Three no-shell passes for each document, 9/13/14 pages, zero reference/box warnings; all 36 pages inspected; all fonts embedded |
-| Portable package and tampering controls | PASS | Independent extracted build/math replay; exact inventories and source/PDF binding; stale, missing and external-input controls reject altered payloads |
-| Local regression suite | PASS | python -m pytest: 59 passed in 52.32s, exit 0 |
-| Hosted CI for the commit containing this report | PENDING at content freeze | Commit/push necessarily follow immutable content creation; use that exact SHA's PR checks and final handoff, not baseline CI |
-| External referee review / venue decision / submission | PENDING, outside this mission | No external acceptance or submission performed |
+| Preserved science | Complete main/S2 source comparison permits only enumerated editorial substitutions; both abstracts unchanged; 796 protected files retain preflight bytes | All S1, public science, research proofs, mathematical checkers and prior dossiers unchanged |
+| Earlier analytic review | Prior CORE_AUDIT, LOWER_REVIEW and UPPER_REVIEW in TASK-20261023__paper_ii_journal | Inherited internal evidence for the unchanged mathematical content; no new independent scientific review is claimed |
+| Arithmetic replay | Fresh verify_math.py --with-lp passes S1, its integrity controls, line recovery, five upper checks and six rational LP cases | Finite arithmetic support, not an all-n proof by testing |
+| JoCG review formatting | 11pt single-spaced main/S2; page and line numbers; title-case headings; available DOI references; provisional masthead labels removed | S1 preserved as separately indexed supporting material |
+| Metadata and disclosures | Main/S2 PDF titles and Maurizio Falconi; 17/18 embedded font subsets; preprints, Paper I DAM review and AI assistance disclosed | Human author supplies/confirms private portal metadata and copies the unchanged abstract |
+| PDF builds and visual inspection | 9/13/14 pages; three passes per build; no reference/box warnings; two fresh builds reproduce every delivered PDF; all 22 changed pages inspected | Byte equality requires the recorded TeX/fonts; S1 remains byte-identical |
+| Portable package | 24 outer / 36 inner payload hashes; extracted standalone verification and double builds pass; seven negative controls reject corruption/missing files/external inputs | Hashes bind content, not mathematical truth |
+| Local regression suite | python -m pytest: 59 passed in 49.09s, exit 0 | Production regression tests, separate from arithmetic replay |
+| CI integration | Existing Python job runs package integrity and aggregate math with LP, including S1 once; separate push/path-filtered LaTeX workflow, no artifact uploads | No TeX installation in ordinary Python CI; hosted TeX checks repeated builds within its own environment |
+| Hosted CI on containing commit | Pending until commit/push; final handoff supplies exact SHA and run links | No historical run substituted for this gate |
+| Independent review / human submission | Next action / not performed | READY_FOR_REVIEW does not advance the Review State Registry |
 
-Internal analytical reviews are in the task dossier: CORE_AUDIT.md,
-LOWER_REVIEW.md and UPPER_REVIEW.md; PACKAGE_REVIEW.md separately records
-engineering tests and the weaknesses found and repaired. Those review records
-are provenance, not mathematical premises: the autonomous proofs are in the
-main article and S1/S2. The final manifest binds the delivered package.
+## Evidence and Provenance
 
-## Evidence Classes
+Current checks and the explicit editorial source allowlist are in
+`ops/TASK-20261024__jocg_finalization/`. The earlier internal analytical reviews
+remain in `ops/TASK-20261023__paper_ii_journal/`. Those audit records are
+provenance, not proof premises; the proofs are in main and S1/S2.
+MANIFEST.json binds the package and identifies the Git revision containing it.
+BUILD_REPORT.json records the actual compiler, system inputs and output hashes.
+The deterministic epoch remains 2026-10-23 for compatibility with preserved S1;
+the manuscript and package revision date is 2026-10-24.
 
-Limit, LP, transfer and endpoint inequalities are analytic theorems under their
-stated hypotheses. Rational computations certify the stated finite signs and
-enclosures. The LP uses SciPy to discover candidates and Fraction arithmetic
-to validate them. Hash, source closure, build and rendering checks are
-engineering evidence. Internal adversarial agents are independent of the
-components they reviewed within this task; they are not external referees or
-formal proof assistants. Passing fixtures do not establish universal claims.
+## Evidence Classes and Limits
 
-## Editorial and Reproduction Limits
+The unchanged mathematical statements retain their original classifications:
+analytic theorems under their stated hypotheses and bounded rational
+certificates for specified signs/enclosures. LP candidates are discovered by
+SciPy and checked with exact Fraction arithmetic. New work in this revision is
+editorial and engineering. No new mathematical theorem, finite optimum or
+certification scope is asserted; no independent scientific acceptance is implied.
 
-The work does not identify a sharp endpoint, elementary closed form, efficient
-precision algorithm or universal optimizer/contact structure. Novelty comparison
-is targeted to primary related sources, not exhaustive. JoCG suitability and
-significance remain editorial judgments. Paper I's DAM submission is author-
-supplied information and is not journal acceptance.
+PDF byte equality across different TeX/font versions is not promised. The
+hosted LaTeX gate compares two fresh isolated builds without replacing delivered
+files; its log reports whether those bytes also match the recorded PDFs.
+`--require-delivered` enforces that stronger condition in the recorded local
+environment. Configured distribution TeX trees are recognized, while undeclared
+external .tex/.aux/.out/.toc inputs remain rejected. S1 retains its original
+A4 format without line numbering; main/S2 use the JoCG review format.
 
-Identical PDF bytes require the recorded TeX/font environment. The existing
-TeX installation lacked lineno; only the official lineno package was added.
-BUILD_REPORT.json records actual system input hashes. Reused S1 retains its
-original format and bytes. Five inherited upper scripts retain CRLF deliberately;
-.gitattributes prevents Git from changing their authenticated bytes.
-
-READY_FOR_REVIEW requests independent assessment of the frozen candidate.
-A stronger JOURNAL_READY decision must also inspect hosted CI for that exact
-commit and must not be interpreted as external scientific acceptance.
-Venue approval, author metadata confirmation and eventual submission remain
-outside this mission. No portal action or publication was performed.
+The sharp constant, efficient high-precision computation and universal contact
+structure remain open. Prior-art comparison is targeted, not exhaustive.
+Journal suitability and acceptance are external editorial judgments. No new
+capability, portal action, arXiv update or Registry change was performed.

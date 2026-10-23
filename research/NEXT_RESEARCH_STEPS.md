@@ -34,14 +34,14 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 - Review the exact Paper II journal candidate
+## Priority 1 - Review the Finalized Paper II JoCG Package
 
-Independently review the [separate Paper II candidate](../paper_assets/paper_ii_journal/README.md)
+Independently review the [separate Paper II manuscript](../paper_assets/paper_ii_journal/README.md)
 and its immutable manuscript, two supplements, claim/proof map and archive.
 The [readiness report](../paper_assets/paper_ii_journal/READINESS.md) separates
 analytic, finite-arithmetic, reproducibility and editorial gates. Review the
-exact committed SHA and its hosted checks before any human venue decision.
-JoCG is the leading candidate, not an approved submission destination.
+exact committed SHA and its hosted checks before human submission.
+The author approved JoCG as the submission destination on 2026-10-24.
 No submission or Review State promotion is part of this preparation.
 
 The public [asymptotic sequel](https://arxiv.org/abs/2609.13630) and both

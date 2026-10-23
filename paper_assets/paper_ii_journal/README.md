@@ -1,7 +1,8 @@
-# Paper II: Journal Candidate
+# Paper II: JoCG Submission Package
 
-This separate candidate of arXiv:2609.13630 is prepared for independent review.
-JoCG is the leading candidate venue, not an approved submission destination.
+This separate journal manuscript of arXiv:2609.13630 is prepared for submission
+to the Journal of Computational Geometry (JoCG), the destination approved by
+the author on 2026-10-24. Independent review of this revision remains required.
 No submission, arXiv replacement or external scientific acceptance is implied.
 
 Read [main.pdf](main.pdf), then the supplements needed for the claims under
@@ -38,20 +39,28 @@ From this directory, or an extracted source_bundle.zip:
 
 ```sh
 python -I -S verify_package.py
-python build.py
-python -I -S verify_math.py
+python -I -S check_reproducibility.py --require-delivered
 python -I verify_math.py --with-lp
 ```
 
-For S1, run `python -I -S verify.py` and
-`python -I -S check_integrity_controls.py` inside its directory.
+The aggregate `verify_math.py` already runs S1 verification and integrity
+controls once. Those scripts can also be run separately inside S1.
 Upper rational commands are indexed in UPPER_DEPENDENCIES.md.
 The builder copies only each standalone TeX input to a fresh external temporary
 directory, uses three no-shell-escape passes, rejects reference and box warnings,
 and rebuilds S1 without replacing its preserved PDF. It records actual output
 hashes and system input hashes. Other TeX versions may change bytes/pagination.
-After an intentional rebuild, the old manifest remains a check of the delivered
-revision; use `python build.py --export` only when authoring a new revision.
+The non-mutating `check_reproducibility.py` compiles every document twice in
+separate temporary directories and requires identical bytes within the current
+TeX environment. `--require-delivered` additionally requires the delivered PDF
+hashes; use it with the recorded environment. CI runs package integrity and
+`verify_math.py --with-lp` in its existing Python job. A separate push-only
+LaTeX workflow runs on package/S1/workflow changes, without duplicate PR builds
+or uploaded artifacts. Its TeX version may differ from the delivered build.
+For standard-library-only arithmetic replay, omit `--with-lp` and use `-I -S`.
+To author a new revision, run `python build.py`, then `python build.py --export`
+after all package documentation is final. Ordinary verification never exports
+or replaces the delivered PDFs or manifest.
 
 ## Scientific Scope
 

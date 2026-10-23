@@ -30,8 +30,8 @@ def manifest(files):
         "schema": "ringmin-paper-ii-journal-v1",
         "repository": "falker47/ringmin", "baseline_commit": BASE,
         "scientific_source_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
-        "candidate_revision": "The Git commit containing this manifest; output hashes bind its source files.",
-        "date": "2026-10-23", "excluded_from_self_hash": ["MANIFEST.json"],
+        "manuscript_revision": "The Git commit containing this manifest; output hashes bind its source files.",
+        "date": "2026-10-24", "excluded_from_self_hash": ["MANIFEST.json"],
         "outputs": {name: sha(data) for name, data in sorted(files.items())},
         "lower_supplement": {"baseline_commit": BASE,
             "manifest_sha256": sha((lower_dir() / "MANIFEST.json").read_bytes()),
@@ -47,6 +47,14 @@ def compile_document(source):
     for key in ("TEXMFROOT", "TEXMFDIST", "TEXMFLOCAL", "TEXMFVAR", "TEXMFCONFIG", "TEXMFSYSVAR", "TEXMFSYSCONFIG"):
         value = subprocess.check_output(["kpsewhich", "-var-value="+key], text=True).strip()
         if value and "{" not in value:
+            system_roots.append(Path(value).resolve())
+    # Distribution-managed trees can live outside TEXMFROOT (e.g. Debian's
+    # /usr/share/texmf fonts). Expand configured trees, never a broad parent.
+    expanded = subprocess.check_output(
+        ["kpsewhich", "-expand-path=$TEXMF"], text=True).strip()
+    for value in expanded.split(os.pathsep):
+        value = value.removeprefix("!!").rstrip("/")
+        if value and "{" not in value and Path(value).is_absolute():
             system_roots.append(Path(value).resolve())
     with tempfile.TemporaryDirectory(prefix="ringmin-paper-ii-") as temp:
         work = Path(temp)
@@ -118,7 +126,7 @@ def export():
     target = HERE/"source_bundle.zip"
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as out:
         for name, data in sorted(files.items()):
-            info = zipfile.ZipInfo(name, (2026,10,23,0,0,0))
+            info = zipfile.ZipInfo(name, (2026,10,24,0,0,0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             out.writestr(info, data)

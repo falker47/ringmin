@@ -53,7 +53,7 @@ is now cited in the candidate introduction. No broad citation-graph review was r
 
 The author's mission reports Paper I v2 submitted to Discrete Applied
 Mathematics on 2026-10-21, manuscript DA21348. This is author-supplied status,
-not independently verified acceptance. Paper II is a separate candidate and
+not independently verified acceptance. Paper II is a separate manuscript for the author-approved JoCG destination and
 has not been submitted by this task. Any eventual editor communication should
 disclose both arXiv versions and the related Paper I submission. No journal
 acceptance or publication is claimed for Paper I.

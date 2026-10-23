@@ -132,8 +132,8 @@
     "main": {
       "pages": 9,
       "passes": 3,
-      "pdf_sha256": "0001c5c4b5ae26d106715d4a25f452b2a0386b24308213262465f7bd14c5994a",
-      "source_sha256": "2e74ed7ca0385523d98d8573ce0a0b20b3fbe51a6e9c8adda29550b70df69b06",
+      "pdf_sha256": "6e1a25f88529450621ee368d798a05fa0e525d3e8e36039b4422ce02fea28470",
+      "source_sha256": "14cc73a3e3c1bb1c4f4fc3476ed3035fc6699e02f06f64cef178cf3516e7982f",
       "system_inputs": {
         "amsbsy.sty:c09b1b14dfe8a81b": "c09b1b14dfe8a81b6791673b3bc5a7fd8b794fb063b6e8b5ce79fc28c7e59c8c",
         "amsfonts.sty:dab8b0e621267acf": "dab8b0e621267acfd89736cf97bdcc02647c545c0719c4997be8a7d1bf98f9c3",
@@ -254,8 +254,8 @@
     "upper_supplement": {
       "pages": 13,
       "passes": 3,
-      "pdf_sha256": "bb6b2704151ced2464e76cf6272072d1185258ff2655b7baea5ed468285ba56b",
-      "source_sha256": "5dec1a8b5a246940288142c92d44817b1f4bb271bb46be5d90adee65e3c1d4c6",
+      "pdf_sha256": "b2b24051c77e0da72a854e2e36903823bd328066c1f868dba1370bd864b8340b",
+      "source_sha256": "0030d533cef944ca1cd5b73c01e2f85f117952e52170c9345405b9e506a95bbd",
       "system_inputs": {
         "amsbsy.sty:c09b1b14dfe8a81b": "c09b1b14dfe8a81b6791673b3bc5a7fd8b794fb063b6e8b5ce79fc28c7e59c8c",
         "amsfonts.sty:dab8b0e621267acf": "dab8b0e621267acfd89736cf97bdcc02647c545c0719c4997be8a7d1bf98f9c3",

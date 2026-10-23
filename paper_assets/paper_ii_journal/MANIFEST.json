@@ -1,7 +1,6 @@
 {
   "baseline_commit": "75a2f448038d627b2661ea7c9d6fd0fcdb6d33ae",
-  "candidate_revision": "The Git commit containing this manifest; output hashes bind its source files.",
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "excluded_from_self_hash": [
     "MANIFEST.json"
   ],
@@ -12,16 +11,18 @@
     "manifest_sha256": "626c97824ecb73c3f171ed7e786154d20dac8dda5d35277211115f3875ac7d92",
     "repository_path": "paper_assets/asymptotic_sequel/proposition7_supplement"
   },
+  "manuscript_revision": "The Git commit containing this manifest; output hashes bind its source files.",
   "outputs": {
     ".gitattributes": "c7ec60049f9b68ef246add8625fab5d2c75d366b3888c52de470f8d1f5e49e93",
-    "BUILD_REPORT.json": "7bc9752bc8112f6d24c2830463f8f8182f24d8e21df9fea115b9fd6700b39ba4",
+    "BUILD_REPORT.json": "a2722809fe80c05190b548ce19e89bbb569540b2e93bb12f1da80ce9b5cee55f",
     "CLAIM_PROOF_MAP.md": "59544e854a7c5b3472b2e5d0e0cec9142c4458076612934751b7aa1362223d58",
-    "EDITORIAL_REQUIREMENTS.md": "bb73befbc4fcbde5bd338987a46fa8c2f5959577198c9ff799f159626d22b79e",
-    "PRIOR_ART.md": "c2e8975ee599f4930f0626e14849e5d1b9a45da94a996b4fdec9bc6fd7b9c00d",
-    "READINESS.md": "6970ab1245cd5c1e9b09b1d6501191ef23b0cbcb3931238c4c143e498137334a",
-    "README.md": "60072ba343f04b89ab1872e04ae3874e65bac1111dd0ce4b02b3a1734fdb978a",
+    "EDITORIAL_REQUIREMENTS.md": "85423cb2fad7f7eb370e677944f3000a8f0fd3885001e39e4fab5f54aa60343a",
+    "PRIOR_ART.md": "102dda7a2827bd92e7612b5ce82ba7a7e3967e324882c065fc9b99f389896aa5",
+    "READINESS.md": "79484e106ebc547ad0e98cb8af30117bfeb72bd08ecc667e69ea10a34862d997",
+    "README.md": "3ed2e51e4a567e106bda0f22e1f89c49bcb936d97c32f30cc9963cbff77c19c6",
     "UPPER_DEPENDENCIES.md": "e3397e0cb1238103ccb6848730d09e885ec61ba0a58c4bdf090716e0b48220dd",
-    "build.py": "1b659df1077bf1a1d327db635a0c14fc17c6046d3f0cf6cee904b815ecf2ead3",
+    "build.py": "fa0eb203c5c26acbd4e0c32f04251a09417c7fdda773f7381c0469afab78c16e",
+    "check_reproducibility.py": "7b91a11ede11538c78bb5d717d9f3e99055ad013f41e58b94b2ebbe6b0408ab6",
     "checks/check_line_recovery.py": "c21d1a8a6dce49366100127a8649bcd66f320317cbad6e9f809b26e20b7d3900",
     "checks/check_word_lp.py": "3e9e7975507ecb776ea5f8309a7e45ea400d9ef197bedff44de73a60126d45b4",
     "checks/upper_alpha_minimum.py": "16668fb3bafb4d8cf8186710c72e39365fc723b4ac99540d9a4e763d87ba63b4",
@@ -29,13 +30,13 @@
     "checks/upper_fourth_block.py": "4b0f5d627fdcd800cb9402ea53de362962234a888faefd72b7f8d8be7b008935",
     "checks/upper_lambda.py": "e4172acd17d8a9d2658c72e0ce260496be428e0e750af48b5fc6dcf551bedacf",
     "checks/upper_mixed_width.py": "bc16372c27be8ee82b8248b891b1474c2c29172b765c6cb54e587e43cac340b6",
-    "main.pdf": "0001c5c4b5ae26d106715d4a25f452b2a0386b24308213262465f7bd14c5994a",
-    "main.tex": "2e74ed7ca0385523d98d8573ce0a0b20b3fbe51a6e9c8adda29550b70df69b06",
-    "source_bundle.zip": "e18901f944d150ce31c0a08decfb96781c165b8ed1f4b14f6012e94c3f21dbde",
-    "upper_supplement.pdf": "bb6b2704151ced2464e76cf6272072d1185258ff2655b7baea5ed468285ba56b",
-    "upper_supplement.tex": "5dec1a8b5a246940288142c92d44817b1f4bb271bb46be5d90adee65e3c1d4c6",
+    "main.pdf": "6e1a25f88529450621ee368d798a05fa0e525d3e8e36039b4422ce02fea28470",
+    "main.tex": "14cc73a3e3c1bb1c4f4fc3476ed3035fc6699e02f06f64cef178cf3516e7982f",
+    "source_bundle.zip": "c815847df3b8f6cea17ae0ca04210a49f642abf1523bf15a7c314c3ea2f03ea2",
+    "upper_supplement.pdf": "b2b24051c77e0da72a854e2e36903823bd328066c1f868dba1370bd864b8340b",
+    "upper_supplement.tex": "0030d533cef944ca1cd5b73c01e2f85f117952e52170c9345405b9e506a95bbd",
     "verify_math.py": "c027cc70aa370236c28a3fa001fe086c128d125b52b95d37cb380764114213dd",
-    "verify_package.py": "464ba83af37ae4eacbd07f434fb12f35277dd5c4f971ed0e3a8bca98885d8877"
+    "verify_package.py": "df013cf28ef33d138b13f92258e98e7597b85efb3b9764b8607e6c04401dbb78"
   },
   "repository": "falker47/ringmin",
   "schema": "ringmin-paper-ii-journal-v1",
