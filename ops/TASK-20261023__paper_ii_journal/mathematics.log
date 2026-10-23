@@ -1,0 +1,97 @@
+RUN verify.py
+PASS alternating rational Taylor gates: tau, q, pi
+PASS formal polynomial identities: global cubic remainder and scaling loss
+PASS exact cubic identities; G'<0 on [0,a]; isolated root signs
+PASS boundary floor failure for n=50000k+1; no eventual unchanged gate
+PASS strict scaling: t=9999/10000, N=1106195; loss < 5e-11
+PASS improved rational witness: both margins 1/100000, N=100000
+PASS literal Proposition 7 endpoints, D_i enclosures and positive KKT gates
+PASS 144 directed-rational deletion fixtures: 43E, 11E+2K, 54E+2K, runs, seam, all parity pairs
+PASS 48 prescribed measures: equal marginals, strips, single E, up to 8 crossings
+PASS 16 tour/cutoff cases: oriented mass, wrap, rotation, reversal, nesting, both parities
+PASS boundaries and sharpness: d=h, cutoff endpoints, adjacent necessity, bounded-domain exception
+PASS exact unseparated counterexample: 177/2500 > 7/100; excess 1/1250
+PASS scalar signs, finite errors, 2-cutoff recovery, 4-cutoff domain, finite-floor negative control
+PASS negative controls: independent budgets, on-grid cutoff, malformed parameters
+PASS all finite shared-crossing checks; universal claims are analytic
+PASS certificate equals fresh rational recomputation
+PASS manifest: 12 output hashes; 7 repository input hashes (LF-normalized inputs; 0 is valid standalone)
+PASS supplement checks; analytic proof supplies universal quantifiers
+RUN check_integrity_controls.py
+PASS standalone copy: full verifier exit 0 with no repository inputs
+PASS altered certificate rejected by fresh recomputation
+PASS altered packaged document rejected by manifest
+PASS Python -O rejected explicitly
+PASS package integrity controls; no delivered file modified
+RUN check_line_recovery.py
+PASS: 1089 rational words; 13995 independent paths; 13941 pair/closure checks; 1089 all-pair concatenations; 94620 genuine-label quantiles; 4 negative controls rejected.
+RUN upper_lambda.py
+PASS interval arithmetic: 2835 point and 297 box Fraction oracle checks; square and domain gates
+PASS analytic square gates: z(1/3)>2/7; Phi'>41/72 in the middle; Phi'<-1/420 in the tail
+EXACT D(53/500) in (-3/10000,-1/5000); enclosure=[-291784193,-291784192]/1000000000000
+EXACT D(107/1000) in (7/100000,9/100000); enclosure=[80028360,80028361]/1000000000000
+EXACT Phi(719/2500) in (-1/20000,-1/25000); enclosure=[-45419090,-45419089]/1000000000000
+EXACT Phi(2877/10000) in (1/10000,11/100000); enclosure=[102023574,102023575]/1000000000000
+EXACT Phi(4/5) in (-1/500,-1/1000); enclosure=[-1828639838,-1828639837]/1000000000000
+EXACT E(1) in (3/250,13/1000); enclosure=[12494451212,12494451213]/1000000000000
+EXACT alpha_* in (10678476019/100000000000,10678476021/100000000000); lambda_* in (159/500,319/1000)
+EXACT descending counterexample interval: [89/100,891/1000] lies after x=4/5 and before the wrap
+EXACT C_ref(159/500) in (14191368/100000000,14191369/100000000); enclosure=[141913685638,141913685659]/1000000000000
+EXACT C_30 in (14192459/100000000,14192460/100000000); enclosure=[141924592047,141924592066]/1000000000000
+PASS exact gates: C_rp<C_ref(159/500)<C_30-1/100000; C_rp<14191369/100000000
+RUN upper_alpha_minimum.py
+PASS analytic rational gates: wrap gap>1/15; Fsecond>46/405>1/9; Fprime(0)<-29/1245; Fprime(1/2)>13/108; Esecond<3
+EXACT E(5753/20000) in [-844268665,-844268070]/1000000000000
+EXACT E(x_*) in [-844272415,-844268070]/1000000000000
+EXACT D(1093/10000) in [935124205,935201790]/1000000000000
+EXACT Fprime(1093/10000) in [-1427184,-1344781]/1000000000000
+EXACT D(10931/100000) in [938842182,938919761]/1000000000000
+EXACT Fprime(10931/100000) in [2282349,2364747]/1000000000000
+PASS isolation/comparison: 1093/10000<alpha_hat<10931/100000; C_107-C_hat>1/22000000; C_hat<14191364/100000000
+PASS recovery: 120 exact cases, m=2..16; endpoint shifts, coincident seams, cyclic predecessors and 3/m errors
+RUN upper_boundary.py
+EXACT lower residual = 10516971471577279/21018800219582721
+EXACT lower signed square = -342531413518344092144807428477/441789962670730640526171361763841 < 0
+EXACT upper residual = 251647560246539/503426690473461
+EXACT upper signed square = 51974394530491111127115563/253438432681061908372345318521 > 0
+EXACT location slack = 8431/32000000 > 0
+PASS imported bracket order and two directed endpoint sign gates
+PASS analytic distance-bound implication: 43/1000 < epsilon_b < 11/250
+NOTE: continuum proof and imported minima are separate; no numerical root or integral is certified here
+RUN upper_mixed_width.py
+EXACT inherited epsilon slack = 431/32000000
+EXACT lower residual = 1088173975683910831/2175907136349689169
+EXACT lower signed square = -963745517404602389188679409068317/4734571866017504812540302482915910561 < 0
+EXACT upper residual = 226493965596937/453065245150063
+EXACT upper signed square = 34763358497298510706339907/205268116362886684743388903969 > 0
+EXACT stationary upper slack = 35511/800000000
+EXACT diagonal cutoff slack = 354539/3000000000
+EXACT cost denominator slack = 24416513/1000000000
+EXACT cost difference bracket = -2187/2048000000000 , -24389/72000000000000
+EXACT saving over 1/250 > 12389/72000000000000
+PASS two directed rational sign gates and positive pre-square residuals
+PASS inherited bounds and analytic location/cost implications
+NOTE: continuous proof supplies uniqueness; no finite recovery or geometric transfer
+RUN upper_fourth_block.py
+EXACT A-3w > 354539/1000000000 > 0
+EXACT A-3w-4eta_0 > 154539/1000000000 > 0
+EXACT a-w-eta_0 > 204539/3000000000 > 0
+EXACT b-w-eta_0 > 520991513/1000000000 > 0
+EXACT 3/2-M > 21016513/1000000000 > 0
+PASS 16 corner partitions, 448 reflection moments, 48 branch probes, 6 sign/tie controls
+EXACT 16-panel raw full-max increment <= -701561353/200000000000000000000000
+PASS raw enclosure < -1/288000000000000
+EXACT normalized saving > 1/4608000000000000 using pi<4
+PASS cutoff chain-excess/diagonal-tie control; 3 invalid chord gates rejected
+PASS bounded exact support; analytic proof supplies interval and cubic term
+NOTE no root solving, width scan, finite recovery, transfer or output files
+RUN check_word_lp.py (SciPy discovery; exact Fraction verification)
+PASS k=1 r=2: 1 words; 1 primal blocks; lambda in [0.500000000,0.500000000]; all rational primal/dual gates
+PASS k=1 r=5: 1 words; 1 primal blocks; lambda in [0.800000000,0.800000000]; all rational primal/dual gates
+PASS k=2 r=2: 4 words; 1 primal blocks; lambda in [0.353553390,0.353553391]; all rational primal/dual gates
+PASS k=2 r=3: 8 words; 2 primal blocks; lambda in [0.436886723,0.436886724]; all rational primal/dual gates
+PASS k=3 r=4: 81 words; 2 primal blocks; lambda in [0.409906398,0.409906399]; all rational primal/dual gates
+PASS k=4 r=5: 1024 words; 3 primal blocks; lambda in [0.396136075,0.396136076]; all rational primal/dual gates
+PASS 1119 complete word inequalities; 18 corrupt certificates rejected
+Scope: bounded exact LP certificates; no finite Ringmin optimum, simple closed form, or asymptotic proof by computation.
+PASS bounded arithmetic replay; universal quantifiers require the written proofs

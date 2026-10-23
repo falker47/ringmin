@@ -1,0 +1,864 @@
+\documentclass[11pt,letterpaper]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage[mathlines]{lineno}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Rstar}{R^*}
+\newcommand{\thR}{\theta_R}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\al}{\widehat\alpha}
+\newcommand{\epsb}{\epsilon_b}
+\newcommand{\Ds}{\Delta_*}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\title{Reflected Blocks, Implicit Parameters,\\and Full Geometric Recovery}
+\author{Maurizio Falconi}
+\date{Journal Candidate, 23 October 2026}
+\begin{document}
+\maketitle
+\linenumbers
+\begin{abstract}
+This supplement gives a complete proof of the reflected-block upper
+construction and of the implicit parameters defining
+$U_4=C_4(1/20000)$. It includes the all-pairs angular criterion, recovery
+by actual integer labels, a quantitative radius estimate, uniqueness of
+the successive parameters, and the rational gates used to isolate them.
+The universal statements are analytic theorems; the accompanying bounded
+rational computations establish specified constant inequalities. The
+construction is an upper bound and does not assert an optimal partition
+or a finite geometric optimum. These are existing results reorganized
+from the source proofs listed in the dependency document.
+\end{abstract}
+\tableofcontents
+
+\section{The Geometric Problem and the Target Bound}
+Circles of radii $1,\ldots,n$ are externally tangent to a central circle
+of radius $R>0$. Let $\Rstar(n)$ be the infimum of feasible central radii.
+For a prescribed cyclic order $\sigma$, let $R_{\rm full}(\sigma)$ use
+all pairs and let $R_{\rm chain}(\sigma)$ use only adjacent gaps. The
+cosine law gives the required angle
+\begin{equation}\label{eq:angle}
+ \thR(a,b)=2\arcsin\sqrt{\frac{ab}{(R+a)(R+b)}}.
+\end{equation}
+Both directed arcs between each pair must be at least this angle. This is
+equivalent to Cartesian non-overlap, since their sum is $2\pi$ and the
+shorter angle lies in $[0,\pi]$. Throughout, inverse trigonometric
+functions have their principal real branches. The kernel increases in
+each outer radius and decreases strictly in $R$. In general
+$R_{\rm chain}\le R_{\rm full}$; no equality is presumed here.
+
+Define, on $\mathcal D=[0,1]\times[1,2]^2$,
+\begin{equation}\label{eq:g}
+ g(t,X,Y)=\max\{\sqrt t(\sqrt X+\sqrt Y),\sqrt{XY}\},\qquad
+ C(\mu)=\frac1{4\pi}\int g\dd\mu.
+\end{equation}
+Sections~\ref{sec:x}--\ref{sec:widths} uniquely define $x_*,\al,
+\epsb,\Ds$. Set $A=1+\al$, $\lambda=Ax_*$,
+$v=\lambda+\epsb$, and $w=v+\Ds$. The measure $\mu_4(\eta)$ consists
+of four separate symmetric reflections on the consecutive intervals of
+lengths $(\lambda,\epsb,\Ds,\eta)$, followed by the shifted diagonal;
+its precise general definition is \eqref{eq:mu}. Put
+$C_3(d)=C(\mu_{\al;(\lambda,\epsb,d)})$ and
+$C_4(\eta)=C(\mu_4(\eta))$.
+The final result proved here is
+\begin{equation}\label{eq:target}
+ \limsup_{n\to\infty}\frac{\Rstar(n)}{n^2}
+ \le U_4:=C_4(1/20000)
+ <C_3(\Ds)-\frac1{4608000000000000}.
+\end{equation}
+If $C_*$ denotes the global limit established in the main article,
+the left side is $C_*$. Its existence is not needed for this supplement's
+upper-bound proof. Terminating decimal bounds below are exact rationals,
+never definitions of the implicit parameters.
+
+\section{An Exact All-Pairs Criterion}
+\begin{lemma}[High-Shell Inequality]\label{lem:shell}
+If $0<u\le v\le2u$, then $2\thR(u,u)>\thR(v,v)$.
+Consequently every path $H_0,\ldots,H_j$ in $[u,v]$, $j\ge1$, satisfies
+$\sum_{i=1}^j\thR(H_{i-1},H_i)\ge\thR(H_0,H_j)$.
+\end{lemma}
+\begin{proof}
+Write $x=u/(R+u)$ and $z=v/(R+v)\le2x/(1+x)$. If $x\ge1/\sqrt2$,
+then $2\arcsin x\ge\pi/2>\arcsin z$. Otherwise
+\[
+ (1+x)^2(1-x^2)-1=x(2-2x^2-x^3)>0,
+\]
+because $x^2<1/2$, $x<3/4$, and $2-2x^2-x^3>5/8$.
+Thus $z<2x\sqrt{1-x^2}=\sin(2\arcsin x)$. Both comparison angles
+are in $(0,\pi/2)$, so the same strict inequality follows. Multiplying
+by two proves the first assertion. For any $a,b,c\in[u,v]$,
+\[
+ \thR(a,b)+\thR(b,c)\ge2\thR(u,u)>\thR(v,v)\ge\thR(a,c).
+\]
+Induction contracts a path. The one-edge case is equality.
+\end{proof}
+
+Let $m\ge2$ and let $(P_1,\ldots,P_m)$ be any permutation of
+$\{m+1,\ldots,2m\}$. Subscripts are cyclic, with $P_0=P_m$.
+The order is $(1,P_1,2,P_2,\ldots,m,P_m)$. Define
+\begin{equation}\label{eq:cells}
+ a_i=\thR(P_{i-1},i),\quad b_i=\thR(i,P_i),\quad
+ c_i=\thR(P_{i-1},P_i),\quad d_i=\max\{a_i+b_i,c_i\}.
+\end{equation}
+\begin{theorem}[Full Cell Criterion]\label{thm:cells}
+The order is feasible exactly when $S_P(R):=\sum_i d_i\le2\pi$.
+More precisely its feasible gap vectors are exactly
+\begin{equation}\label{eq:gapset}
+ x_i\ge a_i,\quad y_i\ge b_i,\quad x_i+y_i\ge c_i,
+ \qquad\sum_i(x_i+y_i)=2\pi,
+\end{equation}
+where $x_i$ is the gap $P_{i-1}\to i$ and $y_i$ is $i\to P_i$.
+The full minimum is the unique positive root $\rho_P$ of $S_P(R)=2\pi$.
+\end{theorem}
+\begin{proof}
+Necessity follows from the two adjacent constraints and the high-pair
+constraint on each whole cell. For sufficiency first take any positive
+gaps satisfying the three local inequalities, without requiring closure.
+For each pair choose either simple cyclic path; the following arguments
+apply separately in both directions.
+
+For two highs, the path consists of whole cells. Replacing their lengths
+by $c_i$ and applying Lemma~\ref{lem:shell} on $[m+1,2m]$ gives the
+pair bound. For a low $i$ and a high $P_j$, the first high on the path is
+a neighbor $U$. If $U=P_j$, use adjacency. Otherwise the remaining
+whole-cell high path has length at least $\thR(U,P_j)>\thR(i,P_j)$.
+For two distinct lows $i,j$, let $U$ and $V$ be the first and last highs.
+If $U=V$, the simple path has two edges and its first gap alone is at
+least $\thR(i,U)>\thR(i,j)$. If $U\ne V$, the middle high path is at
+least $\thR(U,V)>\thR(i,j)$. These cases exhaust all pairs and both arcs,
+including paths crossing the cyclic cell $P_m\to1\to P_1$.
+For $m=2$ each directed high path is one whole cell; no third high is
+required. The low-high and low-low arguments remain valid.
+
+When $S_P(R)\le2\pi$, take $x_i=a_i$, $y_i=d_i-a_i$ and add the
+remaining $2\pi-S_P(R)$ to any single gap. Each directed path either
+increases or stays fixed; both bounds survive and closure holds. This
+also proves sufficiency of every vector in \eqref{eq:gapset}.
+Each of $a_i+b_i,c_i$ is positive, continuous and strictly decreasing
+in $R$; their maximum is strictly decreasing by choosing an attaining
+branch at the larger radius. Moreover $S_P(0+)=2\pi m$ and
+$S_P(\infty)=0$. The intermediate value theorem and monotonicity give
+the unique root and its feasible placement.
+\end{proof}
+
+\section{Recovery of General Reflected Blocks}\label{sec:transfer}
+Fix $0\le\alpha<1$ and nonnegative lengths $\ell_1,\ldots,\ell_k$,
+$k\ge1$, with $T=\sum_j\ell_j<1-\alpha$. Put $t_0=0$,
+$t_j=\sum_{h\le j}\ell_h$, $A=1+\alpha$, and
+$h_\alpha(t)=1+\{t+\alpha\}$. Define a probability measure by
+\begin{equation}\label{eq:mu}
+\begin{split}
+ \int F\dd\mu_{\alpha;\ell}
+ ={}&\frac12\sum_{j=1}^k\int_{t_{j-1}}^{t_j}
+ \bigl[F(t,A+t,A+t_{j-1}+t_j-t)\\
+ &\hspace{38mm}+F(t,A+t_{j-1}+t_j-t,A+t)\bigr]\dd t\\
+ &+\int_T^1F(t,h_\alpha(t),h_\alpha(t))\dd t.
+\end{split}
+\end{equation}
+Each high marginal and the low marginal are uniform on their respective
+intervals. Each slab reflection is a measure-preserving involution, and
+the unchanged shift is a bijection modulo its wrap. Zero lengths and
+endpoint assignments do not affect the measure. Adjacent slabs are
+reflected separately, never as their union.
+
+\begin{theorem}[Quantitative Full Transfer]\label{thm:transfer}
+Let $I=\int g\dd\mu_{\alpha;\ell}$ and
+$M_0=\max\{2,\lceil2/(1-\alpha-T)\rceil\}$.
+There are genuine orders on $1,\ldots,2m$ with full minimum $\rho_m$
+for every $m\ge M_0$, and, for $m\ge\max\{M_0,2048\}$,
+\begin{equation}\label{eq:radiuserror}
+ \left|\frac{\rho_m}{(2m)^2}-\frac I{4\pi}\right|
+ \le\frac1{4\pi}\left(\frac{6k^2+28k+1060}{m}
+                         +\frac{16384}{3m^2}\right).
+\end{equation}
+Consequently $\limsup_n\Rstar(n)/n^2\le C(\mu_{\alpha;\ell})$.
+No chord-dominance assumption on any slab is required.
+\end{theorem}
+\begin{proof}
+Define exact integers
+\[
+ s=\lfloor\alpha m\rfloor,\quad l_j=2\lfloor\ell_jm/2\rfloor,
+ \quad a_0=0,\quad a_j=\sum_{h\le j}l_h,\quad z=a_k,
+ \quad r=m-s,
+\]
+and $H(u)=m+1+((u+s-1)\bmod m)$. On the block $(a_{j-1},a_j]$ put
+$J(i)=2a_{j-1}+l_j+2-i$ when $i$ is even, and $J(i)=i$ otherwise.
+Set $P_i=H(J(i))$, $P_0=P_m$. Each block reverses its even ranks and
+fixes its odd ranks, giving a disjoint involution; $H$ is a bijection.
+Lengths zero and two cause no exception. Since
+$s+z\le m(\alpha+T)$, $r-z\ge2$. The blocks and their exits precede
+the high wrap.
+
+For completeness the cells have the following exhaustive inventory.
+A nonempty block $(a,a+l]$ has interior indices $a+2,\ldots,a+l$.
+The predecessor/current pair there is
+\[
+ \begin{cases}
+ (m+s+i-1,m+s+2a+l+2-i),&i\text{ even},\\
+ (m+s+2a+l+3-i,m+s+i),&i\text{ odd}.
+ \end{cases}
+\]
+The exceptional set is
+$\{1,r,r+1\}\cup\{a_j+1:l_j>0\}$, intersected with
+$\{1,\ldots,m\}$, with duplicates counted once. It has at most $k+3$
+members. Cell $1$ is $(H(m),H(1))$; the exit from $(a,a+l]$ is
+$(H(a+2),H(a+l+1))$. It is also the next nonempty block's entry even
+if zero lengths intervene. Cell $r$ is $(2m-1,2m)$, and cell $r+1$,
+when present, is $(2m,m+1)$. All other cells are ordinary
+$(H(i-1),H(i))$. The interiors exclude every shared entry index, and
+the wrap lies outside them, proving disjointness and completeness.
+
+Let $\mu_m=m^{-1}\sum_i\delta_{(i/m,P_{i-1}/m,P_i/m)}$.
+For a continuous, possibly nonsymmetric $F$, write
+$B_F=\norm F_\infty$ and $\omega_F$ for its max-norm modulus.
+Replace $\alpha,\ell_j$ in \eqref{eq:mu} by $s/m,l_j/m$ to obtain
+$\bar\mu_m$. On each double panel
+$[(a+2h-2)/m,(a+2h)/m]$, assign half the first-orientation integral
+to its even cell and half the reverse-orientation integral to its odd
+cell. Each mass is $1/m$. Interior coordinate errors are at most $4/m$;
+ordinary diagonal panels have errors at most $1/m$. Exceptional panel
+assignments each cost at most $2B_F/m$, so
+\[
+ \left|\int F\dd(\mu_m-\bar\mu_m)\right|
+ \le\omega_F(4/m)+2(k+3)B_F/m.
+\]
+The floor errors are less than $1/m$ for the shift and $2/m$ for each
+length. The intervals between $a_j/m$ and $t_j$, together with the wrap
+interval, have total length at most $[k(k+1)+1]/m$. This bound allows
+overlap and zero slabs. Off these intervals the same slab and orientation
+apply; the reflected coordinate error in slab $j$ is less than
+$(4j-1)/m$ and the other is less than $1/m$. Thus
+\begin{equation}\label{eq:weakerror}
+ \left|\int F\dd(\mu_m-\mu)\right|
+ \le\omega_F(4/m)+\omega_F((4k-1)/m)
+       +\frac{(2k^2+4k+8)B_F}{m}.
+\end{equation}
+
+The complete maximum $g$ obeys $1\le g<3$ and is $4$-Lipschitz.
+For $t\le1/4$ the chord dominates because
+$\sqrt{t/X}+\sqrt{t/Y}\le2\sqrt t\le1$. Above $1/4$, the sum of
+absolute partial derivatives of the chain is at most $2\sqrt2+1<4$,
+and that of the chord is less than two. The maximum of these Lipschitz
+functions has the same bound; splitting at $t=1/4$ proves it globally.
+Putting $G_m=\int g\dd\mu_m$, \eqref{eq:weakerror} yields
+\begin{equation}\label{eq:scoreerror}
+ |G_m-I|\le(6k^2+28k+36)/m.
+\end{equation}
+This estimate retains every finite maximum and seam even if its branch
+differs from its continuum counterpart.
+
+By Theorem~\ref{thm:cells}, the actual full minimum is the root of
+$S_m(R)=\sum_i\max\{\thR(P_{i-1},i)+\thR(i,P_i),
+\thR(P_{i-1},P_i)\}=2\pi$. For $R=4cm^2$, $c\ge1/32$, $m\ge32$,
+and $1\le u,v\le2m$, put $q=\sqrt{uv}/R$. Then $q\le1/(2cm)\le1/2$.
+The relative denominator change satisfies
+\[
+ 0\le1-\frac1{\sqrt{(1+u/R)(1+v/R)}}\le\frac{u+v}{2R}.
+\]
+Also $0\le\arcsin t-t\le t^3/3$ for $0\le t\le1/2$,
+by integrating $1/\sqrt{1-t^2}-1\le t^2$ on that interval.
+It follows that
+\[
+ \left|\thR(u,v)-\frac{2\sqrt{uv}}R\right|
+ \le\frac{512}{m^2}+\frac{8192}{3m^3},\qquad
+ \left|S_m(4cm^2)-\frac{G_m}{2c}\right|
+ \le E_m:=\frac{1024}m+\frac{16384}{3m^2}.
+\]
+The last step uses the one-Lipschitz property of the scalar maximum and
+two angles per chain. For $m\ge2048$, $E_m<1$; at $c=1/32$ the score
+exceeds $15>2\pi$, while at $c=1/2$ it is below $4<2\pi$.
+Thus the actual normalized root $c_m=\rho_m/(2m)^2$ is first bracketed
+in $(1/32,1/2)$. Substitution then gives
+$|4\pi c_m-G_m|\le2c_m E_m\le E_m$.
+Together with \eqref{eq:scoreerror} this is \eqref{eq:radiuserror}.
+The root placement is all-pairs feasible. Deleting only label $2m$
+keeps exactly $1,\ldots,2m-1$ and all their constraints; the normalization
+factor $(2m/(2m-1))^2$ tends to one. This proves the global limsup
+bound for both parities without identifying an odd fixed-order minimum.
+\end{proof}
+
+The same construction allows countably many lengths with total
+$T<1-\alpha$. Truncation after $k$ blocks and reversion of the tail to
+the diagonal changes any $F$ integral by at most
+$2B_F\sum_{j>k}\ell_j$. For $g$ the bound is six times that tail length.
+Apply the finite theorem and then let $k\to\infty$. A single recovery
+sequence also results by choosing increasing thresholds $M_k$ growing
+faster than $k^3$, each satisfying the common geometric gate, and using the largest $k\le m$ with $M_k\le m$.
+Both \eqref{eq:weakerror} for Lipschitz tests and the omitted tail vanish;
+density of Lipschitz functions on compact $\mathcal D$ gives continuous-test
+recovery. This supplies countable upper constructions, not an optimum
+over partitions.
+
+\section{The Exact Normalized Prefix Parameter}\label{sec:x}
+For $0\le u\le x\le1$, define
+\begin{align*}
+ c(u,x)&=\sqrt{(1+u)(1+x-u)},\\
+ k(u,x)&=\sqrt u(\sqrt{1+u}+\sqrt{1+x-u}),\\
+ d(u)&=\max\{1+u,2\sqrt{u(1+u)}\}.
+\end{align*}
+\begin{equation}\label{eq:E}
+ E(x)=\int_0^x[\max\{c(u,x),k(u,x)\}-d(u)]\dd u.
+\end{equation}
+\begin{theorem}\label{thm:x}
+The function $E$ has a unique global minimum $x_*$ on $[0,1]$, and
+$719/2500<x_*<2877/10000$. These are the exact bounds
+$0.2876<x_*<0.2877$.
+\end{theorem}
+\begin{proof}
+The ratio $v(u,x)=k/c=\sqrt{u/(1+u)}+\sqrt{u/(1+x-u)}$
+strictly increases in $u$. Its endpoint equals one at the unique
+$\tau\in(1/4,1/3)$ solving
+$\sqrt{\tau/(1+\tau)}+\sqrt\tau=1$.
+Set $z(x)=x$ for $x\le\tau$; for $x>\tau$ let $z\in(0,x)$ be
+the unique unsquared root $v(z,x)=1$. The block is chord up to $z$,
+then chain. The diagonal switches at $u=1/3$.
+For $x>\tau$, with $y=1+x-z$ and $r=\sqrt{z/(1+z)}$,
+\begin{equation}\label{eq:zprime}
+ z'=\frac{z}{(y/(1+z))^{3/2}+1+x}
+    =\frac{(1-r)^2}{2-r+2r^2}>0.
+\end{equation}
+The second equality uses $y=z/(1-r)^2$ and $z=r^2/(1-r^2)$.
+All denominators are positive.
+
+Let $\Phi=E'$. Cost equality at the switch cancels its first moving
+boundary term. The endpoint ties at $x=\tau,1/3$ also agree, so $E$
+is $C^1$ there. On the chord interval,
+\begin{gather*}
+ \Phi(x)=\sqrt{1+x}+(1+x/2)\arcsin\frac{x}{2+x}-(1+x),\\
+ \Phi(0)=\Phi'(0)=0,\qquad
+ \Phi''(x)=-\frac1{2(2+x)(1+x)^{3/2}}<0.
+\end{gather*}
+Thus $\Phi<0$ on $(0,\tau]$. On $x>\tau$, put
+\[
+ I_1=\int_0^z\sqrt{\frac{1+u}{1+x-u}}\dd u,\qquad
+ I_2=\int_z^x\sqrt{\frac u{1+x-u}}\dd u,\qquad
+ p=\sqrt x(\sqrt{1+x}+1).
+\]
+Differentiation yields
+\begin{equation}\label{eq:Phi}
+ \Phi=p-d(x)+(I_1+I_2)/2,\qquad
+ \Phi'=p'-d'(x)+\sqrt x/2-J/4+Q,
+\end{equation}
+where
+\[
+ J=\int_0^z\frac{\sqrt{1+u}}{(1+x-u)^{3/2}}\dd u
+   +\int_z^x\frac{\sqrt u}{(1+x-u)^{3/2}}\dd u,\quad
+ Q=\frac{z'(\sqrt{1+z}-\sqrt z)}{2\sqrt{1+x-z}}>0.
+\]
+For $\tau<x<1/3$, $d'=1$, $J\le x\sqrt{1+x}<7/18$ and
+$p'>1/\sqrt x\ge\sqrt3>5/3$. Hence $\Phi'>41/72>0$.
+At $x=1/3$, $v(2/7,x)<1$: the pre-square residual is $50/99>0$
+and its square minus $4(2/9)(3/11)$ is $124/9801>0$.
+Thus $z>2/7$, and
+\[
+ \Phi(1/3)>\frac1{\sqrt3}-\frac23+\frac{\sqrt3}{14}
+ =\frac{17\sqrt3}{42}-\frac23>0
+\]
+by $17^2\cdot3>28^2$. There is exactly one zero $x_*$ in
+$(\tau,1/3)$, with strict decrease then increase of $E$ on $[0,1/3]$.
+
+Global minimality needs a separate tail argument; convexity must not be
+extrapolated across $1/3$. On $1/3<x\le1$, \eqref{eq:Phi} becomes
+\[
+ \Phi'=-M-J/4+Q,\qquad
+ M=\frac{1+2x-(1+x)^{3/2}}{2\sqrt{x(1+x)}}.
+\]
+Since $z>2/7$, $r>\sqrt{2/9}>8/17$. The polynomial
+$5-13r+5r^2$ decreases on $(0,1)$ and is $-3/289$ at $8/17$;
+\eqref{eq:zprime} gives $z'<1/7$. Also
+$\sqrt{1+z}-\sqrt z<2/3$, so $Q<1/21$.
+Write $q=\sqrt{1+x}\in[2/\sqrt3,\sqrt2]$. Then
+\[
+ M=\sqrt{\frac{q-1}{q+1}}\frac{1+q-q^2}{2q}.
+\]
+For $q\le4/3$ the factors exceed $1/4$ and are at least $5/24$,
+respectively, so $M>5/96>1/20$. For $q\ge4/3$ they are at least
+$1/\sqrt7>3/8$ and $(2-\sqrt2)/4>1/7$, so again $M>1/20$.
+These comparisons follow by positive squares, using
+$2/\sqrt3>17/15$ and $\sqrt2<10/7$. Therefore
+$\Phi'<-1/420$ throughout the tail.
+The rational gates in Section~\ref{sec:gates} give $E(1)>3/250>0$.
+Strict concavity makes $E$ at least its endpoint chord on $[1/3,1]$.
+Both endpoint values exceed $E(x_*)<0$, proving unique global
+minimality. The same gates give opposite signs at $719/2500$ and
+$2877/10000$, both above $\tau$, locating this unique root. They also
+give $\Phi(4/5)<0$; thus a later local maximum exists, and does not
+invalidate the endpoint-chord argument.
+\end{proof}
+
+\section{The Exact Shift Parameter}\label{sec:alpha}
+For $0\le\alpha\le1/2$ let $A=1+\alpha$, $a=A/3$, $b=1-\alpha$,
+and
+\[
+ K(\alpha)=\int_0^1\max\{\sqrt{t h_\alpha(t)},h_\alpha(t)/2\}\dd t,
+ \qquad e=E(x_*),\qquad F(\alpha)=K(\alpha)+A^2e/2.
+\]
+The full prefix cost at length $Ax_*$ is $F(\alpha)/(2\pi)$.
+Indeed $Ax_*<a\le b$, the replaced diagonal is chord, and scaling
+$t=Au$ gives its increment $A^2E(x_*)$. Moreover
+$b-Ax_*>1/2-(3/2)(2877/10000)=1369/20000>1/15$,
+so the reflection stays before the wrap even at the closed endpoints.
+
+\begin{theorem}\label{thm:alpha}
+There is exactly one zero $\al$ of
+$F'(\alpha)=K'(\alpha)+(1+\alpha)e$ on $[0,1/2]$.
+It is the unique minimum of this fixed-$x_*$ prefix family, and
+$1093/10000<\al<10931/100000$.
+\end{theorem}
+\begin{proof}
+The split integral is
+\[
+ K=\int_0^a(A+t)/2\dd t+\int_a^b\sqrt{t(A+t)}\dd t
+                       +\int_b^1\sqrt{t(\alpha+t)}\dd t.
+\]
+Differentiation, including the moving wrap, gives
+\begin{equation}\label{eq:D}
+ D(\alpha):=K'(\alpha)
+ =\frac a2+\frac12\int_a^b\sqrt{\frac t{t+A}}\dd t
+ +\frac12\int_b^1\sqrt{\frac t{t+\alpha}}\dd t
+ -(\sqrt2-1)\sqrt b.
+\end{equation}
+For $0<x<1/3$, centering the chord at $M=1+x/2$ gives
+$E(x)\ge-\int_{-x/2}^{x/2}u^2/M\dd u=-x^3/(12M)>-1/324$.
+At $x=1/4$, which is strictly chord, rationalization gives
+$-E(1/4)>1/1728$. Theorem~\ref{thm:x} implies
+$-1/324<e<-1/1728$.
+A second differentiation of \eqref{eq:D} gives
+\[
+ K''=\frac1{12}+\frac{(1-1/\sqrt2)\sqrt b}{2}
+       +\frac{\sqrt2-1}{2\sqrt b}-\frac{T_1}{4},
+ \quad
+ T_1=\int_a^b\frac{\sqrt t}{(t+A)^{3/2}}\dd t
+       +\int_b^1\frac{\sqrt t}{(t+\alpha)^{3/2}}\dd t.
+\]
+Both denominator bases are at least one; $T_1\le1-a\le2/3$.
+Using $1/2\le b\le1$ and $\sqrt2>7/5$ yields $K''>7/60$,
+so $F''>7/60-1/324=46/405>1/9$ on the whole domain.
+
+At zero,
+$D(0)=5/6-\sqrt2/2-\tfrac12\log((1+\sqrt2)/\sqrt3)$.
+For $z>1$, $\log z>2(z-1)/(z+1)$ by differentiation. Since the
+argument exceeds $48/35$, using $\sqrt3<7/4$ gives
+$F'(0)<5/6-7/10-13/83=-29/1245<0$.
+At $1/2$ the surviving integrand in \eqref{eq:D} is at least
+$1/\sqrt2$, so $D(1/2)\ge5/(4\sqrt2)-3/4>1/8$ and
+$F'(1/2)>1/8-(3/2)/324=13/108>0$.
+Strict convexity proves uniqueness and minimality.
+
+For the tighter location set $x_0=5753/20000$, the midpoint of the
+$x_*$ bracket. On $(\tau,1/3)$, \eqref{eq:Phi} gives
+$E''<8/3-1+1/3+1/8=17/8<3$: here $p'<8/3$,
+$z'<x/(1+x)<1/4$, $Q<1/8$, and $J\ge0$.
+Taylor's theorem at the stationary minimum gives
+\begin{equation}\label{eq:ebox}
+ E(x_0)-3/800000000<e\le E(x_0).
+\end{equation}
+The directed gates in Section~\ref{sec:gates}, evaluating only this
+rational argument and the two rational $\alpha$ endpoints, give
+$F'(1093/10000)<0<F'(10931/100000)$. These isolate the same unique zero.
+\end{proof}
+
+\section{A Common Width Lemma and the Next Two Parameters}\label{sec:widths}
+Fix $A>1$ and $A/4<u<A/3$. Put $a=A/3$, $B=A+u$, and $h=a-u$,
+so $B>5A/4$, $0<h<A/12$, $h/B<1/15$. Reflect a diagonal slab
+$[u,u+d]$, $0\le d\le h$, separately from all preceding slabs. Its
+unnormalized complete-cost increment is exactly
+\begin{equation}\label{eq:widthcost}
+\begin{split}
+ D_{A,u}(d)=\int_0^d\bigl[\max\{&\sqrt{(B+s)(B+d-s)},\\
+ &\sqrt{u+s}(\sqrt{B+s}+\sqrt{B+d-s})\}-(B+s)\bigr]\dd s.
+\end{split}
+\end{equation}
+The removed diagonal is chord because $A-3(u+s)\ge0$; its only possible
+tie is $s=d=h$. Reflection preserves each marginal as in
+\eqref{eq:mu}, and unchanged slabs cancel with their full maxima.
+
+\begin{lemma}[Unique Mixed Width]\label{lem:width}
+The function $D_{A,u}$ has a unique minimum $d_*$ on $[0,h]$.
+Define $\tau_u$ as the unique unsquared root in $(0,h)$ of
+\[
+ W(d)=\sqrt{\frac{u+d}{B+d}}+\sqrt{\frac{u+d}B}=1.
+\]
+Then $\tau_u<d_*<\tau_u+\tau_u^2/(8B)$, and $d_*$ is the unique
+mixed-branch stationary point. The cost decreases strictly up to $d_*$
+and increases strictly afterwards.
+\end{lemma}
+\begin{proof}
+Set $t=u+s$, $X=B+s$, $Y=B+d-s$, $c=\sqrt{XY}$,
+$k=\sqrt t(\sqrt X+\sqrt Y)$, and $V=k/c$.
+Then
+\[
+ V_s=\frac{A/X^{3/2}+(Y+t)/Y^{3/2}}{2\sqrt t}>0.
+\]
+For $d>0$, $V(0,d)<1$ and
+$V(d/2,d)=2\sqrt{(u+d/2)/(A+u+d/2)}<1$.
+The endpoint $W$ strictly increases, with $W(0)<1$ and
+$W(h)=1/2+\sqrt{a/B}>1$. This proves the asserted entry width.
+For $d\le\tau_u$ set $z=d$. For $d>\tau_u$ there is a unique
+$z\in(d/2,d)$ with $V(z,d)=1$. The cost is
+\[
+ D_{A,u}=\int_0^z c\dd s+\int_z^d k\dd s-Bd-d^2/2.
+\]
+Let $\Psi=D_{A,u}'$. In the all-chord regime,
+\[
+ \Psi(d)=B\phi(d/B),\qquad
+ \phi(q)=\sqrt{1+q}+(1+q/2)\arcsin\frac q{2+q}-(1+q).
+\]
+Here $\phi(0)=\phi'(0)=0$ and
+$-1/4<\phi''(q)=-[2(2+q)(1+q)^{3/2}]^{-1}<0$ for $q>0$.
+Therefore $-\tau_u^2/(8B)<\Psi(\tau_u)<0$ and the positive-width
+chord cost is strictly decreasing.
+
+In the mixed regime put $q=u+d$,
+$p=\sqrt q(\sqrt{B+d}+\sqrt B)$,
+$I_c=\int_0^z\sqrt{X/Y}\dd s$ and $I_k=\int_z^d\sqrt{t/Y}\dd s$.
+Leibniz differentiation gives
+\begin{equation}\label{eq:Psi}
+ \Psi=p-(B+d)+(I_c+I_k)/2,\qquad
+ z'=\frac{t}{A(Y/X)^{3/2}+Y+t}\in(0,1/2),
+\end{equation}
+where $t,X,Y$ in $z'$ are evaluated at $s=z$.
+The first moving-boundary term cancels by $c(z)=k(z)$.
+The bound on $z'$ follows from $Y-t=A+d-2z>A-d>0$.
+The cost and first derivative are continuous at entry: the chain interval
+shrinks to zero and the endpoint costs agree. Equivalently put $s=dr$
+on $[0,1]$; positive radicands bound the difference quotients and the tie
+set has measure zero, permitting dominated differentiation. This also
+justifies the one-sided derivative at $h$.
+
+The second derivative retains a nonzero moving-switch term:
+\begin{equation}\label{eq:Psiprime}
+ \Psi'=p'-1+\tfrac12\sqrt{q/B}-J/4+Q,
+ \quad p'=\frac{A+2q}{2\sqrt{q(A+q)}}+\frac{\sqrt B}{2\sqrt q},
+\end{equation}
+where
+\[
+ J=\int_0^z\frac{\sqrt X}{Y^{3/2}}\dd s+
+       \int_z^d\frac{\sqrt t}{Y^{3/2}}\dd s,
+ \qquad Q=\frac{z'(\sqrt{B+z}-\sqrt{u+z})}{2\sqrt{B+d-z}}>0.
+\]
+The first term in $p'$ decreases in $q$ and equals $5/4$ at $q=a$.
+Thus $p'>5/4+\sqrt{15}/4>17/8$.
+Also $0<J\le d\sqrt{B+d}/B^{3/2}<2/15$, giving
+$\Psi'>131/120>1$ everywhere in the mixed regime.
+Cost equality cannot be used to drop $Q$, since the derivative integrands
+at the switch do not coincide.
+
+At $h$, $B=4a-h$, $u=a-h>3a/4$, and
+\[
+ \Psi(h)=\sqrt{aB}-2a+(I_c+I_k)/2,\qquad
+ 2a-\sqrt{aB}=\frac h{2+\sqrt{B/a}}<2h/7.
+\]
+On this slab $15a/4<X,Y\le4a$ and $3a/4<t\le a$, so
+$\sqrt{X/Y}>9/10$ and $\sqrt{t/Y}>2/5$.
+Since $z(h)>h/2$, $(I_c+I_k)/2>13h/40$, whence
+$\Psi(h)>11h/280>0$. Continuity and strict increase of $\Psi$ in the
+mixed regime give its unique zero $d_*$. The chord sign excludes earlier
+stationary points, proving the unique global minimum including both
+endpoints. Finally integrating $\Psi'>1$ from $\tau_u$ to $d_*$ gives
+$d_*-\tau_u<-\Psi(\tau_u)<\tau_u^2/(8B)$.
+\end{proof}
+
+We now fix $A=1+\al$ and $\lambda=Ax_*$. Define
+\begin{equation}\label{eq:epsdefinition}
+ \epsb=\mathop{\rm argmin}_{0\le d\le A/3-\lambda}D_{A,\lambda}(d).
+\end{equation}
+Lemma~\ref{lem:width} proves this is a unique mixed stationary minimum.
+The rational gates below give
+\[
+ 43/1000<\tau_\lambda<87/2000,
+ \quad 43/1000<\epsb<87/2000+(87/2000)^2/8<7/160.
+\]
+In particular $v=\lambda+\epsb$ remains in $(A/4,A/3)$.
+Define in turn
+\begin{equation}\label{eq:Deltadefinition}
+ \Ds=\mathop{\rm argmin}_{0\le d\le A/3-v}D_{A,v}(d).
+\end{equation}
+The same lemma proves its uniqueness and identifies its stationarity
+with $4\pi C_3'(\Ds)=0$. The second pair of rational gates gives
+\begin{equation}\label{eq:Deltabracket}
+\begin{gathered}
+ 29/5000<\tau_v<67/10000,\\
+ 29/5000<\Ds<67/10000+(67/10000)^2/8<27/4000<A/3-v.
+\end{gathered}
+\end{equation}
+These definitions retain all mixed branches. They do not use a chord-only
+stationary equation or a rounded parameter.
+
+\section{Rational Gates and Their Reproduction}\label{sec:gates}
+This section supplies the finite arithmetic premises used above. Every
+checker in the accompanying \texttt{checks} directory is self-contained;
+none imports production code, the independent geometric verifier, another
+checker, or task records. The first two have an optional numerical mode;
+use \texttt{--exact-only} for the theorem gates. Run with ordinary Python
+assertions enabled (do not use \texttt{-O}).
+
+\subsection{Prefix Gates}
+The file \texttt{upper\_lambda.py} uses interval endpoints on the grid
+$10^{-50}$. Each arithmetic operation rounds outwards, division across
+zero is rejected, and $\sqrt{n/10^{50}}$ is enclosed using the integer
+square root of $n10^{50}$. Two half-angle reductions express
+$\arctan y=4\arctan q$ with $|q|<1$. The first 64 alternating terms
+are widened by $|q|^{129}/129$ before multiplying by four.
+For $\log y$, take two square roots, set
+$q=(y^{1/4}-1)/(y^{1/4}+1)$, and use the 64-term odd series for
+$\log y=8\sum_{j\ge0}q^{2j+1}/(2j+1)$, with the corresponding
+tail bounded by $8|q|^{129}/[129(1-|q|^2)]$.
+Every operation in those formulas is itself enclosed.
+
+At rational $x>\tau$, 100 dyadic bisections of $[0,x]$ isolate the
+unsquared equation $v(z,x)=1$. An unseparated sign aborts the check.
+The exact primitives
+\[
+ \mathcal F(t,c)=\frac{(2t+c)\sqrt{t(t+c)}
+     -c^2\log((\sqrt t+\sqrt{t+c})/\sqrt c)}4,
+\]
+\[
+ \mathcal J(v,M)=\frac{v\sqrt{M^2-v^2}
+                +M^2\arctan(v/\sqrt{M^2-v^2})}2,
+ \qquad
+ \mathcal H(c,t)=c\arctan\sqrt{t/(c-t)}-\sqrt{t(c-t)}
+\]
+have derivatives $\sqrt{t(t+c)}$, $\sqrt{M^2-v^2}$ and
+$\sqrt{t/(c-t)}$, respectively. They evaluate the split integrals in
+\eqref{eq:E} and \eqref{eq:Phi}. Explicitly the block integral is
+\begin{align*}
+ &\mathcal J(z-x/2,1+x/2)-\mathcal J(-x/2,1+x/2)\\
+ &\quad+\mathcal F(x,1)-\mathcal F(z,1)\\
+ &\quad+\mathcal J(x-(1+x)/2,(1+x)/2)
+ -\mathcal J(z-(1+x)/2,(1+x)/2).
+\end{align*}
+The last four terms are omitted in the chord regime. Subtract
+$x+x^2/2$ for $x\le1/3$, or
+$7/18+2[\mathcal F(x,1)-\mathcal F(1/3,1)]$ otherwise.
+For \eqref{eq:Phi},
+$I_1=\mathcal H(2+x,1+z)-\mathcal H(2+x,1)$ and
+$I_2=\mathcal H(1+x,x)-\mathcal H(1+x,z)$.
+This gives the strict rational gates
+\begin{center}
+\begin{tabular}{lll}\toprule
+Quantity & Lower Bound & Upper Bound\\\midrule
+$\Phi(719/2500)$ & $-1/20000$ & $-1/25000$\\
+$\Phi(2877/10000)$ & $1/10000$ & $11/100000$\\
+$\Phi(4/5)$ & $-1/500$ & $-1/1000$\\
+$E(1)$ & $3/250$ & $13/1000$\\\bottomrule
+\end{tabular}
+\end{center}
+Direct directed square roots also show $719/2500>\tau$.
+These four gates establish constant signs, not the continuum derivative
+inequalities proved in Section~\ref{sec:x}.
+
+\subsection{Shift Gates}
+The file \texttt{upper\_alpha\_minimum.py} uses exact rational arithmetic
+and directed roots on the grid $10^{-24}$, checking each endpoint by
+squaring. It isolates $z(x_0)$ with 64 sign-separated bisections.
+On $[0,z_l]$ it integrates $c$ and on $[z_h,x_0]$ it integrates $k$,
+using 2048 panels each. Both integrands are concave: their second
+derivatives are $-M^2/c^3$ for the chord and the sum of
+$-1/[4(u(1+u))^{3/2}]$ and
+$-(1+x_0)^2/[4(u(1+x_0-u))^{3/2}]$ for the chain.
+Thus composite trapezoids are lower bounds and midpoints are upper bounds.
+The omitted interval contributes between zero and $4(z_h-z_l)$.
+Subtract the exact diagonal and apply \eqref{eq:ebox}.
+For each $D$ integral in \eqref{eq:D}, use 256 panels and the concavity
+\[
+ \frac{\mathrm d^2}{\mathrm dt^2}\sqrt{\frac t{t+c}}
+ =-\frac{c(4t+c)}{4t^{3/2}(t+c)^{5/2}}<0.
+\]
+The negative wrap term is bounded in the reversed direction.
+The resulting outward intervals have common denominator $10^{12}$:
+\begin{center}
+\begin{tabular}{lrr}\toprule
+Quantity & Lower Numerator & Upper Numerator\\\midrule
+$E(x_0)$ & $-844268665$ & $-844268070$\\
+$e$ & $-844272415$ & $-844268070$\\
+$D(1093/10000)$ & $935124205$ & $935201790$\\
+$F'(1093/10000)$ & $-1427184$ & $-1344781$\\
+$D(10931/100000)$ & $938842182$ & $938919761$\\
+$F'(10931/100000)$ & $2282349$ & $2364747$\\\bottomrule
+\end{tabular}
+\end{center}
+No evaluation at an uncertified irrational root or floating quadrature
+is used. The analytic convexity proof supplies uniqueness.
+
+\subsection{Second and Third Width Gates}
+Write $\alpha_L=1093/10000$, $\alpha_H=10931/100000$,
+$x_L=719/2500$, $x_H=2877/10000$, and $A_L=1+\alpha_L$,
+$A_H=1+\alpha_H$.
+For the second width, put
+$f(x,q)=\sqrt{(x+q)/(1+x+q)}+\sqrt{(x+q)/(1+x)}$.
+It increases in $q$ and, for $q<1$, in $x$; the squared summands'
+$x$ derivatives are $1/(1+x+q)^2$ and $(1-q)/(1+x)^2$.
+Consequently
+\[
+ W(43/1000)<f(x_H,(43/1000)/A_L)<1,
+ \quad W(87/2000)>f(x_L,(87/2000)/A_H)>1.
+\]
+For positive rational squared summands $p,q$ with residual $r=1-p-q>0$,
+\begin{equation}\label{eq:squaregate}
+ \operatorname{sign}(\sqrt p+\sqrt q-1)
+ =\operatorname{sign}(4pq-r^2).
+\end{equation}
+The file \texttt{upper\_boundary.py} checks the positive residuals and
+the respective exact signed differences
+\[
+ -\frac{342531413518344092144807428477}{441789962670730640526171361763841},
+ \qquad
+ \frac{51974394530491111127115563}{253438432681061908372345318521}.
+\]
+Also $B>1$ and
+$7/160-87/2000-(87/2000)^2/8=431/32000000>0$,
+which proves the sharpened upper bound for $\epsb$.
+
+Put $e_L=43/1000$, $e_U=7/160$ and
+\[
+ V_L=A_Lx_L+e_L=9050867/25000000,\qquad
+ V_U=A_Hx_H+e_U=362898487/10^9.
+\]
+Thus $V_L<v<V_U$. For
+$W(A,v,d)=\sqrt{(v+d)/(A+v+d)}+\sqrt{(v+d)/(A+v)}$,
+both squared summands decrease in $A$ and increase in $v$ when $d<A$.
+The file \texttt{upper\_mixed\_width.py} checks
+\[
+ W(A_L,V_U,29/5000)<1,\qquad W(A_H,V_L,67/10000)>1.
+\]
+Their signed differences \eqref{eq:squaregate}, with positive residuals,
+are respectively
+\[
+ -\frac{963745517404602389188679409068317}{4734571866017504812540302482915910561},
+ \qquad
+ \frac{34763358497298510706339907}{205268116362886684743388903969}.
+\]
+Finally
+\[
+ \frac{27}{4000}-\frac{67}{10000}-\frac{(67/10000)^2}{8}
+ =\frac{35511}{800000000}>0,\qquad
+ \frac{A_L}3-V_U-\frac{27}{4000}
+ =\frac{354539}{3000000000}>0.
+\]
+These show that all corner evaluations are admissible and prove
+\eqref{eq:Deltabracket}. The same margins give $A/4<v<A/3$ as required
+when Lemma~\ref{lem:width} is applied a second time.
+
+\section{The Fourth Block and the Final Upper Endpoint}\label{sec:fourth}
+Fix all four implicit parameters above and write $B_4=A+w$,
+$\eta_0=1/20000$, $M=B_4+\eta/2$.
+The independent rational enclosing corner
+$W_U=V_U+27/4000=369648487/10^9$ gives, for $0<\eta\le\eta_0$,
+\begin{align}
+ A-3w&>354539/10^9, & A-3w-4\eta&>154539/10^9,\nonumber\\
+ A/3-w-\eta&>204539/(3\cdot10^9),
+ &1-\al-w-\eta&>520991513/10^9,\label{eq:fourthgates}\\
+ 3/2-M&>21016513/10^9.&&\nonumber
+\end{align}
+Thus the fourth slab lies strictly before the diagonal cutoff and wrap.
+Only this slab changes. For every continuous, possibly nonsymmetric $F$,
+its measure increment is
+\begin{multline*}
+ \frac12\int_w^{w+\eta}
+ [F(t,A+t,A+2w+\eta-t)+F(t,A+2w+\eta-t,A+t)\\
+ -2F(t,A+t,A+t)]\dd t.
+\end{multline*}
+This preserves positivity and each marginal. The shared endpoint has zero
+mass; the third and fourth reflections remain separate. No stationarity
+of earlier blocks is used to cancel their unchanged full costs.
+
+At $t=w+s$, $X=B_4+s$, $Y=B_4+\eta-s$, $0\le s\le\eta$,
+\eqref{eq:fourthgates} implies
+\[
+ \frac{\sqrt t(\sqrt X+\sqrt Y)}{\sqrt{XY}}
+ \le2\sqrt{(w+\eta)/B_4}<1,
+ \qquad X-4t=A-3w-3s>0.
+\]
+Both the inserted and removed full maxima are strictly chord throughout
+the closed slab. The unnormalized increment is therefore
+\begin{align}
+ 4\pi[C_4(\eta)-C_3(\Ds)]
+ &=\int_0^\eta[\sqrt{(B_4+s)(B_4+\eta-s)}-(B_4+s)]\dd s\nonumber\\
+ &=-\int_{-\eta/2}^{\eta/2}
+       \frac{z^2}{M+\sqrt{M^2-z^2}}\dd z.\label{eq:decrement}
+\end{align}
+The radicand is at least $B_4(B_4+\eta)>0$. Equivalently this is
+\[ (\eta/2)\sqrt{B_4(B_4+\eta)}+M^2\arcsin(\eta/(2B_4+\eta))-\eta M. \]
+Since
+\[
+ 2B_4\le M+\sqrt{M^2-z^2}\le2M,\qquad
+ \int_{-\eta/2}^{\eta/2}z^2\dd z=\eta^3/12,
+\]
+we obtain, with $J_4=C_4-C_3(\Ds)$,
+\[
+ -\frac{\eta^3}{96\pi B_4}\le J_4(\eta)
+ \le-\frac{\eta^3}{96\pi M}< -\frac{\eta^3}{576}<0,
+\]
+using $M<3/2$ and $\pi<4$. Furthermore
+\[
+ J_4(\eta)=-\frac{\eta^3}{96\pi B_4}+\mathcal R_4(\eta),
+ \qquad0\le\mathcal R_4(\eta)\le\frac{\eta^4}{192\pi B_4^2}.
+\]
+Indeed the remainder is at most $\eta^3(1/B_4-1/M)/(96\pi)\le\eta^4/(192\pi B_4^2)$. This is a signed finite-interval remainder and proves the first nonzero
+unilateral term is cubic. It is not a negative first variation.
+At $\eta_0$, the strict saving is
+$\eta_0^3/576=1/4608000000000000$.
+
+The four lengths sum to $T=w+\eta_0<1-\al$, so
+Theorem~\ref{thm:transfer} applies with $k=4$. Its radius error is
+$[1268/m+16384/(3m^2)]/(4\pi)$. The actual full roots and the odd
+placements obtained by deletion prove \eqref{eq:target}. This establishes
+the upper construction independently of any finite-size optimization.
+It does not establish optimality of four blocks, of the marginal
+relaxation, or of the global geometric problem.
+
+\subsection{Independent Finite Check of the Fourth Saving}
+The file \texttt{upper\_fourth\_block.py} verifies
+\eqref{eq:fourthgates} with fractions and uses a 16-panel midpoint upper
+enclosure of the raw inserted full maximum, subtracting the exact
+diagonal integral. The branch gates above justify concavity in $s$.
+For the chord difference its derivative in $B_4$ is
+\[
+ \frac{2B_4+\eta}{2\sqrt{(B_4+s)(B_4+\eta-s)}}-1\ge0,
+\]
+since the numerator's square minus four times the radicand is
+$(\eta-2s)^2$. Therefore the upper enclosing $B_4$ corner gives an
+upper cost bound. Directed roots on a $10^{-40}$ grid make this an exact
+rational integral enclosure, independent of the antiderivative and the
+rationalized form in \eqref{eq:decrement}. The code also checks 16 corners,
+448 polynomial reflection moments and 48 branch probes, as bounded
+bookkeeping diagnostics. It rejects zero, negative, and cutoff widths
+for the strict chord-slab gate. Those probes are not the proofs of
+arbitrary-test marginal preservation, universal recovery, or the cubic
+coefficient; the preceding analytic arguments supply those quantifiers.
+
+\section{Scope, Provenance, and Reproduction}
+This text repackages existing exact theorems and proved corollaries from
+the seven research sources indexed in \texttt{UPPER\_DEPENDENCIES.md}.
+That document maps each section and checker to its original source at
+the frozen scientific snapshot. The two width arguments are written once
+with an explicit generic start, and checked under the hypotheses of both
+applications. No new mathematical coefficient, finite certificate, or
+claim of external mathematical acceptance is introduced.
+
+From the directory containing this source, run
+\begin{verbatim}
+python -I -S checks/upper_lambda.py --exact-only
+python -I -S checks/upper_alpha_minimum.py --exact-only
+python -I -S checks/upper_boundary.py
+python -I -S checks/upper_mixed_width.py
+python -I -S checks/upper_fourth_block.py
+\end{verbatim}
+The first four copied scripts use assertions, which must remain enabled.
+Their additional historical comparison outputs are not proof premises
+of this supplement. Optional floating diagnostics are numerical
+observations only. None of these checks certifies a finite Ringmin global
+optimum. The full all-pairs and infinite-parameter statements are proved
+in the text, including both cyclic arcs, actual-label recovery, all seams,
+the root scale before asymptotic substitution, and both parities.
+
+\end{document}

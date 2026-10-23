@@ -31,3 +31,8 @@ jobs:
 
       - name: Verify complete global brackets and original input binding
         run: python -I -S verify_global_brackets.py
+
+      - name: Verify Proposition 7 standalone supplement and integrity controls
+        run: |
+          python -I -S paper_assets/asymptotic_sequel/proposition7_supplement/verify.py
+          python -I -S paper_assets/asymptotic_sequel/proposition7_supplement/check_integrity_controls.py
