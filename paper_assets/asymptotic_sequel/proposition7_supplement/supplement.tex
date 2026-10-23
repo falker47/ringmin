@@ -1,0 +1,889 @@
+\documentclass[11pt,a4paper]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=27mm]{geometry}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=1em
+\hypersetup{pdftitle={Ringmin Proposition 7: standalone lower-bound supplement},pdfauthor={Maurizio Falconi}}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{2.5em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.5em}{3em}}
+\makeatother
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Rstar}{R^*}
+\newcommand{\Cterm}{C_{\rm term}}
+\newcommand{\etaw}{\eta_{\rm width}}
+\newcommand{\Rc}{R_{\rm chain}}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\DeclareMathOperator{\supp}{supp}
+\title{A standalone proof of the lower endpoint in Proposition 7\\
+of the Ringmin asymptotic sequel}
+\author{Maurizio Falconi}
+\date{23 October 2026\\Journal supplement for independent review}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a self-contained proof of the explicit lower bound
+$C_*\ge\Cterm+\etaw$ for the asymptotic central-circle constant of
+Ringmin. Three nested terminal deletions of one cyclic order share one
+quadratic energy. An explicit dual potential, signed deletion estimate,
+crossing lemma, scalar minimax and global cubic certificate yield the bound.
+All constants and directed rational checks are specified here and in two
+small included arithmetic scripts. In particular,
+\[
+0.14056946887766098063257<\Cterm+\etaw
+<0.14056946887766098063392.
+\]
+The coefficient is a lower bound, not an identified geometric optimum.
+This supplement reconstructs Proposition 7 of arXiv:2609.13630 and does
+not revise that manuscript or assert external scientific acceptance.
+\end{abstract}
+{\small\tableofcontents}
+\clearpage
+
+\section{Statement, notation and proof dependencies}\label{sec:statement}
+The Ringmin problem places circles of radii $1,\ldots,n$ externally
+tangent to a central circle of radius $R$, requiring the interiors of
+every pair of outer circles to be disjoint. Write $\Rstar(n)$ for the
+infimum of such feasible $R$. For a cyclic order $\omega$ of at least
+three distinct positive radii, $\Rc(\omega)$ is the adjacent angular
+closure root defined in Section~\ref{sec:geometry}. It is only a necessary
+bound for a full feasible placement of that order.
+
+Let $\tau$ be the unique solution of $\cos\tau=\tau$ in $(0,1)$ and put
+\begin{equation}\label{eq:parameters}
+q=\frac{1-\sin\tau}{1+\sin\tau},\qquad
+\Cterm=\frac{\tau(1+q)}{2\pi},\qquad
+(\beta_1,\beta_2,\beta_3)=
+\left(\frac{2091}{10000},\frac{10907}{50000},\frac{23}{100}\right).
+\end{equation}
+Define
+\begin{align}
+D_i&=\int_q^{\beta_i}\left[1+q-x-2\sqrt{x(1+q-x)}\right]\dd x,
+\label{eq:Di}\\
+a&=\beta_2-\beta_1=\frac{113}{12500},\qquad
+b=\beta_3-\beta_2=\frac{593}{50000},\nonumber\\
+\mathcal P&=\{h\in[0,\infty)^3:h_1+h_2\le a,\ h_2+h_3\le b\},\nonumber\\
+F(h)&=\sum_{i=1}^3h_iD_i-8\sum_{i=1}^3h_i^3,\qquad
+\mathcal L(h)=16+432\sum_{i=1}^3h_i,\label{eq:objective}\\
+\eta(h)&=\frac{\pos{F(h)}}{\pi\mathcal L(h)},\qquad
+\etaw=\max_{h\in\mathcal P}\eta(h),\quad r_+=\max\{r,0\}.\nonumber
+\end{align}
+
+\begin{theorem}\label{thm:main}
+The limit $C_*=\lim_{n\to\infty}\Rstar(n)/n^2$ exists. The maximum
+in \eqref{eq:objective} is positive and uniquely attained at
+$u=(a-z_*,z_*,b-z_*)$, where $z_*$ is the unique root on $[0,a]$ of
+the polynomial $G$ defined in \eqref{eq:G}. Moreover
+\begin{equation}\label{eq:mainbound}
+\begin{gathered}
+C_*\ge\Cterm+\etaw,\\
+\frac{14056946887766098063257}{10^{23}}
+<\Cterm+\etaw<
+\frac{14056946887766098063392}{10^{23}}.
+\end{gathered}
+\end{equation}
+\end{theorem}
+
+Every terminating decimal in this document denotes an exact rational.
+We use $\alpha=k/n$ for the finite grid's lower endpoint; $a,b$ are
+reserved for the two width constraints. The root $z_*$ belongs solely
+to this lower bound and has no connection to an upper-bound parameter.
+The proof is organized as follows.
+
+\begin{center}\small
+\begin{tabular}{@{}cll@{}}\toprule
+Input & Complete argument & Dependency\\\midrule
+L1 & Angular geometry and deletion (\S\ref{sec:geometry}) & definitions\\
+L2 & Exact terminal parameters (\S\ref{sec:terminal}) & elementary calculus\\
+L3 & Dual and common energy (\S\ref{sec:dual}) & L2 grid domain\\
+L4 & Signed deletion and floors (\S\ref{sec:deletion}) & L3\\
+L5 & Shared crossings (\S\ref{sec:crossings}) & common measure\\
+L6 & Finite minimax (\S\ref{sec:minimax}) & L1, L3--L5\\
+L7 & Width optimum and enclosure (\S\ref{sec:width}, \S\ref{sec:arithmetic}) & L2\\
+L8 & Ordered limits (\S\ref{sec:limit}) & L6, L7; limit existence\\\bottomrule
+\end{tabular}
+\end{center}
+The final limit-existence argument is included in Section~\ref{sec:existence}.
+The references identify provenance; no external proof or operational log is
+needed to follow the arguments below.
+
+\section{Angular geometry and deletion (L1)}\label{sec:geometry}
+For radii $u,v>0$ the angle required by non-overlap is
+\begin{equation}\label{eq:kernel}
+\theta_R(u,v)=2\arcsin\frac{\sqrt{uv}}{\sqrt{(R+u)(R+v)}}
+=2\arctan\frac{\sqrt{uv}}{\sqrt{R(R+u+v)}}.
+\end{equation}
+Indeed the centers lie at distances $R+u,R+v$ from the origin. The cosine
+law says that their distance is at least $u+v$ exactly when the smaller
+angular separation is at least \eqref{eq:kernel}. The second identity
+uses $1-uv/((R+u)(R+v))=R(R+u+v)/((R+u)(R+v))$.
+Both directed angular arcs must therefore be at least $\theta_R(u,v)$.
+
+\begin{lemma}[Uniform root sandwich]\label{lem:sandwich}
+For a cycle $\omega$ of at least three radii in $\{1,\ldots,n\}$, put
+$S(\omega)=\sum_{\{u,v\}\in\omega}\sqrt{uv}$, counting every cyclic edge
+once, including the closing edge. Then the equation
+$\sum_{\omega}\theta_R(u,v)=2\pi$ has a unique positive root and
+\begin{equation}\label{eq:sandwich}
+\frac{S(\omega)}\pi-n\le\Rc(\omega)\le\frac{S(\omega)}\pi.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Each angle is continuous and strictly decreasing from $\pi$ to zero as
+$R$ increases from zero to infinity. The sum starts above $2\pi$.
+For $1\le u,v\le n$, $\arcsin t\ge t$, $\arctan t\le t$ and
+\eqref{eq:kernel} give
+\[
+\frac{2\sqrt{uv}}{R+n}\le\theta_R(u,v)\le\frac{2\sqrt{uv}}R.
+\]
+At the root these give $S/(R+n)\le\pi\le S/R$, which is precisely
+\eqref{eq:sandwich}. No scale assumption or parity restriction is used.
+\end{proof}
+
+\begin{lemma}[Deletion from full geometry]\label{lem:deletiongeometry}
+Delete any outer circles from a full feasible configuration, retaining
+at least three circles with their original radii. If $\omega'$ is the
+cyclic order of the survivors, then $\Rc(\omega')\le R$.
+\end{lemma}
+\begin{proof}
+Every surviving pair remains non-overlapping. If $g$ is the directed gap
+between successive surviving centers, then
+$\min\{g,2\pi-g\}\ge\theta_R(u,v)$, hence $g\ge\theta_R(u,v)$.
+All these gaps, including closure, sum to $2\pi$. Thus the chain sum
+at $R$ is at most $2\pi$; strict decrease gives the assertion.
+This proof uses full pair feasibility before deletion. It never reconstructs
+a full placement from a chain root.
+\end{proof}
+
+\section{Exact terminal parameters (L2)}\label{sec:terminal}
+\begin{lemma}\label{lem:terminal}
+The parameters in \eqref{eq:parameters} are uniquely defined, with
+$3/17<q<1/5<\beta_1$. Furthermore
+\begin{equation}\label{eq:J}
+J:=\int_q^1\sqrt{x(1+q-x)}\dd x=\pi\Cterm.
+\end{equation}
+Among $0<r<1$ the expression
+$\pi^{-1}\int_r^1\sqrt{x(1+r-x)}\dd x$ has a unique global maximum
+at $r=q$.
+\end{lemma}
+\begin{proof}
+The function $\cos t-t$ is continuous, positive at zero, negative at one
+and strictly decreasing on $(0,1)$, since its derivative is $-1-\sin t$.
+This proves existence and uniqueness of $\tau$. The rational gates in
+Section~\ref{sec:arithmetic} prove $3/17<q<1/5$ without assuming rounded
+approximations.
+
+For arbitrary $r\in(0,1)$ put $v=(1-r)/(1+r)$. Substitution
+$y=(2x-1-r)/(1+r)$ gives
+\[
+\frac1\pi\int_r^1\sqrt{x(1+r-x)}\dd x
+=\frac{\arcsin v+v\sqrt{1-v^2}}{\pi(1+v)^2}=:\Phi(v).
+\]
+Here $r\mapsto v$ is a bijection of $(0,1)$ onto itself, reversing order.
+Writing $A(v)=\arcsin v+v\sqrt{1-v^2}$ gives
+\[
+A'(v)=2\sqrt{1-v^2},\qquad
+\Phi'(v)=\frac{2(\sqrt{1-v^2}-\arcsin v)}{\pi(1+v)^3}.
+\]
+With $t=\arcsin v$, the numerator changes sign exactly at $t=\tau$.
+Thus $v=\sin\tau$ is the unique global maximum. The endpoint limits
+are $0$ and $1/8$, and strict monotonicity on either side excludes
+boundary maximizers. At this point $\sqrt{1-v^2}=\tau$, so
+$A(v)=\tau(1+v)$ and $\Phi(v)=\tau/(\pi(1+v))$.
+Since $1+q=2/(1+v)$, this proves \eqref{eq:J} and the claimed value.
+Each $D_i$ is now an ordinary integral of a continuous, exactly specified
+function over a uniquely specified interval. Its sign and enclosure are
+proved arithmetically in Section~\ref{sec:arithmetic}.
+\end{proof}
+The optimization just made concerns a terminal integral. The lower-bound
+proof below uses its identity \eqref{eq:J}; no theorem about an exactly
+minimizing finite Supnick cycle is required as an additional premise.
+
+\section{One outer order, its dual and its energy (L3)}\label{sec:dual}
+Let $n\ge102$, $k=\lfloor qn\rfloor$, $\alpha=k/n$, $s=1+\alpha$,
+$V=\{k/n,(k+1)/n,\ldots,1\}$. The strict bound $q>3/17$ gives
+\begin{equation}\label{eq:gridgate}
+\alpha>q-1/n>3/17-1/102=1/6,\qquad \alpha\le q<1/5.
+\end{equation}
+Fix one genuine cyclic order $\sigma$ of the original labels $k,\ldots,n$.
+Use normalized coordinates $x=j/n$ in its edges and set
+\[
+\begin{gathered}
+f(x,y)=\sqrt{xy},\qquad r(x)=s-x,\\
+W_0=\frac1n\sum_{\{x,y\}\in\sigma} f(x,y),\quad
+J_n=\frac1n\sum_{x\in V} f(x,r(x)),\quad e=W_0-J_n.
+\end{gathered}
+\]
+Thus $W_0=S(\sigma)/n^2$. The reflection $r$ permutes $V$ exactly.
+
+\begin{lemma}[Assignment dual]\label{lem:dual}
+For $c=s/2$ define
+\[
+\psi(x)=\frac c2+\frac12\int_c^x\sqrt{\frac{s-t}{t}}\dd t.
+\]
+Then for $x,y\in[\alpha,1]$,
+\begin{equation}\label{eq:dual}
+\frac{(x+y-s)^2}{8}\le f(x,y)-\psi(x)-\psi(y)
+\le\frac{(x+y-s)^2}{8\alpha}.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:E}
+e\ge0,\qquad E:=\frac1n\sum_{\{x,y\}\in\sigma}(x+y-s)^2\le8e.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Differentiation shows that $\psi(x)+\psi(s-x)$ and $f(x,s-x)$ have
+equal derivatives; at $x=c$ both equal $c$. For
+$H(x,y)=f(x,y)-\psi(x)-\psi(y)$ this gives $H(x,s-x)=0$, and
+\[
+\partial_yH(x,y)=
+\frac{x+y-s}{2\sqrt y(\sqrt x+\sqrt{s-y})}.
+\]
+The denominator lies between $4\alpha$ and $4$. Integrate from $s-x$
+to $y$. If $y<s-x$, the integration direction and numerator both
+reverse sign. In both cases integrating the linear numerator gives
+\eqref{eq:dual}. Reflection and degree two imply
+$\sum_{x\in V}f(x,r(x))=2\sum_{x\in V}\psi(x)
+=\sum_{\{x,y\}\in\sigma}(\psi(x)+\psi(y))$.
+Summing \eqref{eq:dual} proves \eqref{eq:E}.
+\end{proof}
+The reference $J_n$ need not be the cost of a realizable cycle:
+reflection can have two-cycles and a middle fixed point. Only its exact
+assignment identity was used. No loop or duplicate neighbor is inserted
+into $\sigma$.
+
+Replace each cyclic edge by its two orientations and define
+\begin{equation}\label{eq:measure}
+\mu=\frac1{2n}\sum_{(x,y)\text{ oriented edge}}\delta_{(x,r(y))},
+\qquad \nu=\frac1n\sum_{x\in V}\delta_x.
+\end{equation}
+Both marginals of $\mu$ are $\nu$, since each vertex occurs twice in
+each endpoint position and reflection permutes the grid. Hence
+\begin{equation}\label{eq:marginals}
+\int[A(x)-A(z)]\dd\mu(x,z)=0,\qquad
+\int(x-z)^2\dd\mu(x,z)=E
+\end{equation}
+for any function $A$ on $V$. The total mass is $(n-k+1)/n$, not
+artificially renormalized to one. Every restriction below uses this
+same $\sigma$, $\mu$ and $E$.
+
+\section{Signed deletion, seams and finite errors (L4)}\label{sec:deletion}
+Consider any $\beta\in(q,23/100]$ and let
+$\ell=\lfloor\beta n\rfloor$. Assume in addition
+\begin{equation}\label{eq:cutgate}
+\ell/n>q,\qquad \ell\le n-2.
+\end{equation}
+These gates ensure a nonempty deleted set and at least three survivors.
+Write $\gamma=\ell/n$ and $B=(\ell-1/2)/n$. A grid vertex is deleted
+exactly when $x<B$. Since
+$s-2\gamma>7/6-46/100=53/75>1/2$, deleted vertices lie below $s/2$.
+Put
+\begin{align*}
+D_\alpha(x)&=s-x-2\sqrt{x(s-x)},&
+D_n&=\frac1n\sum_{j=k}^{\ell-1}D_\alpha(j/n),\\
+W_\beta&=\frac1n\sum_{\{x,y\}\in\sigma|\{\ell,\ldots,n\}}f(x,y),&
+\Delta&=W_\beta-W_0-D_n,\\
+K&=\int |x-z|\ind_{(x-B)(z-B)<0}\dd\mu(x,z).
+\end{align*}
+
+\begin{lemma}[Midpoint strip mass]\label{lem:strip}
+For every $h>0$, $\nu\{x:|x-B|\le h\}\le4h$.
+\end{lemma}
+\begin{proof}
+No grid point is within $1/(2n)$ of $B$. Below this radius the set is
+empty. Otherwise it has at most $2nh+1$ points, of total mass at most
+$2h+1/n\le4h$. Truncating the grid at either endpoint only reduces mass.
+\end{proof}
+
+\begin{lemma}[Signed first variation]\label{lem:variation}
+Let
+\[
+p(x)=\tfrac12\left(1-\sqrt{x/(s-x)}\right),\quad
+P(x)=p(x)\ind_{x<B},\quad
+\Lambda=\frac1n\sum_{x<B}p(x)\sum_{y\sim x}(x+y-s).
+\]
+The neighbors $y\sim x$ are those in the original outer cycle. Then
+\begin{equation}\label{eq:43}
+\Lambda=2\int P(x)(x-z)\dd\mu,\qquad
+|\Delta-\Lambda|\le43E.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The first identity follows directly from the oriented mass $1/(2n)$.
+Partition deleted vertices into maximal cyclic runs. Rotate the written
+cycle to a survivor if necessary. Every removed edge and every replacement
+edge is then accounted for exactly once, including the seam.
+
+For an isolated deleted vertex $x$ with surviving neighbors $y,z$ the
+change in unnormalized $f$-cost is
+$g(x;y,z)=f(y,z)-f(x,y)-f(x,z)$. At $y=z=t=s-x$ it equals
+$D_\alpha(x)$, and both first derivatives in $y,z$ equal $p(x)$.
+The Hessian entries are
+\[
+g_{yy}=\frac{\sqrt{x}-\sqrt z}{4y^{3/2}},\quad
+g_{zz}=\frac{\sqrt{x}-\sqrt y}{4z^{3/2}},\quad
+g_{yz}=\frac1{4\sqrt{yz}}.
+\]
+On $[\alpha,1]^3$ their absolute values are respectively less than
+$4,4,2$: $1/(4\alpha^{3/2})<3\sqrt6/2<4$ and
+$1/(4\alpha)<3/2<2$. The symmetric Hessian therefore has operator
+norm at most $6$ (each absolute row sum is at most $6$). Taylor's
+integral remainder along the segment from $(t,t)$ to $(y,z)$ yields
+\[
+|g-D_\alpha(x)-p(x)(y-t+z-t)|
+\le3((y-t)^2+(z-t)^2).
+\]
+The segment stays in $[\alpha,1]^2$. Across isolated deletions each
+incident edge occurs at most once, so their total normalized error is
+at most $3E$.
+
+For runs of length $m\ge2$, let $M_{LL}$ be the total number of outer
+edges with both endpoints deleted and $V_{\rm bad}$ the number of
+vertices in these runs. Since $m\le2(m-1)$,
+$V_{\rm bad}\le2M_{LL}$. A run replaces $m+1$ edges by one edge;
+all weights lie in $[0,1]$, so its cost change has absolute value at
+most $m+1\le2m$. Since $|D_\alpha(x)|\le2$, its discrepancy from
+the $m$ ideal changes is at most $4m$. The total normalized discrepancy
+of these runs is at most $8M_{LL}/n$.
+For a deleted vertex, $0<p(x)<1/2$ and each defect has absolute value
+at most $1-\alpha<1$. The part of $\Lambda$ from bad vertices therefore
+has absolute value at most $V_{\rm bad}/n\le2M_{LL}/n$; this includes
+both incidences of each $LL$ edge. On each such edge
+$|x+y-s|>1/2$, so $M_{LL}/n\le4E$. Combining contributions gives
+$3E+(8+2)M_{LL}/n\le43E$.
+\end{proof}
+
+\begin{lemma}[Cancellation and signed deletion]\label{lem:54}
+Under the same hypotheses,
+\begin{equation}\label{eq:54}
+|\Lambda|\le11E+2K,\qquad
+|W_\beta-W_0-D_n|\le54E+2K.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Throughout $[\alpha,1]$, $|p(x)|<1$ and
+\[
+p'(x)=-\frac{s}{4\sqrt x(s-x)^{3/2}},\qquad
+|p'(x)|\le\frac{s}{4\alpha^2}<\frac{54}{5}<11.
+\]
+The first bound follows from $\sqrt{x/(s-x)}<\sqrt6<3$;
+the second uses $s<6/5$ and $\alpha>1/6$.
+Let $A(u)=\int_\alpha^u P(v)\dd v$, a continuous primitive with a
+piecewise continuous derivative. For grid points $x,z$, integrate
+\[
+P(x)-P(v)=\ind_{x<B}(p(x)-p(v))
++p(v)(\ind_{x<B}-\ind_{v<B})
+\]
+along the segment from $z$ to $x$. The smooth term contributes at most
+$11|x-z|^2/2$. The jump term vanishes unless the segment crosses $B$
+and otherwise contributes at most $|x-z|$. Both orientations give
+\[
+|P(x)(x-z)-(A(x)-A(z))|
+\le\tfrac{11}{2}(x-z)^2+|x-z|\ind_{(x-B)(z-B)<0}.
+\]
+Neither endpoint equals the midpoint $B$. Equal marginals in
+\eqref{eq:marginals} cancel the primitive exactly. Multiply the remaining
+bound by two and use \eqref{eq:43} to obtain $11E+2K$, then add $43E$.
+Thus the constant is $43+11=54$, with no mesh error in this estimate.
+\end{proof}
+
+\begin{lemma}[Uniform floor estimates]\label{lem:floors}
+Set $D(\beta)=\int_q^\beta D_q(x)\dd x$.
+For every cutoff satisfying \eqref{eq:cutgate},
+\begin{equation}\label{eq:floorerrors}
+|J_n-\pi\Cterm|\le5/n,\qquad |D_n-D(\beta)|\le19/(2n).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $F_\alpha(x)=\sqrt{x(1+\alpha-x)}$. All factors in the
+comparisons below lie in $[1/6,1]$, and direct differentiation gives
+\[
+|\partial_xF_\alpha|\le3,\quad
+|\partial_\alpha F_\alpha|\le3/2,\quad |F_\alpha|\le1,
+\qquad
+|\partial_xD_\alpha|\le7,\quad
+|\partial_\alpha D_\alpha|\le2,\quad |D_\alpha|\le2.
+\]
+For example each coordinate derivative of $\sqrt{xt}$ is at most
+$\sqrt6/2<3/2$, and
+$\partial_\alpha D_\alpha=1-\sqrt{x/(1+\alpha-x)}$.
+For a Lipschitz function with constant $M$, the left-rectangle error
+on each mesh interval is at most $M/(2n^2)$. There are at most $n$
+intervals. The inclusive sum $J_n$ also has its last endpoint term;
+its error against $\int_\alpha^1F_\alpha$ is at most $(3/2+1)/n$.
+Removing $[\alpha,q]$ costs at most $1/n$ and changing the parameter
+from $\alpha$ to $q$ on $[q,1]$ costs at most $3/(2n)$. Their sum is $5/n$.
+
+The sum $D_n$ is exactly a left sum on $[\alpha,\gamma]$; its error
+is at most $7/(2n)$. Removing $[\alpha,q]$, changing the parameter on
+$[q,\gamma]$ and adding $[\gamma,\beta]$ cost at most $2/n$ each.
+Here $\gamma>q$ is an explicit hypothesis. Their sum is $19/(2n)$.
+Only $0\le q-\alpha<1/n$ and $0\le\beta-\gamma<1/n$ are used.
+No numerical evaluation of a transcendental floor or parity selection occurs.
+\end{proof}
+
+\section{One shared crossing budget (L5)}\label{sec:crossings}
+\begin{lemma}\label{lem:crossing}
+Let $B_1<\cdots<B_m$, $h_i>0$, and let $\mu$ be a finite nonnegative
+measure with first marginal $\nu$, finite energy
+$E=\int|x-z|^2\dd\mu$ and strip bounds
+$\nu\{|x-B_i|\le h_i\}\le4h_i$. Define
+$K_i=\int|x-z|\ind_{(x-B_i)(z-B_i)<0}\dd\mu$.
+If $h_i+h_{i+1}\le B_{i+1}-B_i$ for every adjacent pair, then
+\begin{equation}\label{eq:shared}
+\sum_{i=1}^m h_iK_i\le4\sum_{i=1}^m h_i^3+E.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $d=|x-z|$. At cutoff $i$ split crossings into short ($d\le h_i$)
+and long ($d>h_i$). A short crossing has $|x-B_i|\le h_i$, so its
+weighted integrand is at most $h_i^2\ind_{|x-B_i|\le h_i}$. Integrating
+and summing gives at most $4\sum h_i^3$.
+The strictly crossed cutoffs form a consecutive block $p,\ldots,r$.
+With no crossing the long contribution is zero; with one it is at most
+$h_pd<d^2$ if long. If $r>p$, summing adjacent separation gives
+\[
+\sum_{i=p}^r h_i
+=\sum_{i=p}^{r-1}(h_i+h_{i+1})-\sum_{i=p+1}^{r-1}h_i
+\le B_r-B_p-\sum_{i=p+1}^{r-1}h_i\le B_r-B_p<d.
+\]
+Thus every crossing in this block is long, and their combined weighted
+integrand is $d\sum_{i=p}^rh_i\le d^2$. Integration spends $E$ once,
+even when the same pair crosses all three thresholds. The equality case
+$d=h_i$ was included in the short part; endpoints at a cutoff do not
+strictly cross it. No pair is omitted or charged to several energy budgets.
+\end{proof}
+
+\section{Finite minimax and transfer to the global problem (L6)}\label{sec:minimax}
+Use the fixed three cutoffs of \eqref{eq:parameters}. Let
+$\ell_i=\lfloor\beta_i n\rfloor$, $B_i=(\ell_i-1/2)/n$ and
+$\sigma_i=\sigma|\{\ell_i,\ldots,n\}$, with $\sigma_0=\sigma$.
+Put $W_i=S(\sigma_i)/n^2$ and let $D_{i,n}$ denote $D_n$ at cutoff $i$.
+Define the common-order minimax
+\[
+M_{n,4}=\min_{\sigma\text{ cyclic on }\{\lfloor qn\rfloor,\ldots,n\}}
+\max_{0\le i\le3}\Rc(\sigma_i).
+\]
+Only sufficiently large $n$ are needed; all its cycles then have at least
+three positive radii. For positive widths define
+\[
+H=\sum_i h_i,\quad Q_3=\sum_i h_i^3,\quad L=16+432H,
+\quad F_n=\sum_i h_iD_{i,n}-8Q_3.
+\]
+
+\begin{proposition}\label{prop:finite}
+Suppose
+\begin{equation}\label{eq:finitegates}
+n\ge102,\quad \ell_1/n>q,\quad
+\ell_1<\ell_2<\ell_3\le n-2,\quad
+h_i+h_{i+1}\le\frac{\ell_{i+1}-\ell_i}{n}\quad(i=1,2).
+\end{equation}
+Then
+\begin{align}
+\Rstar(n)&\ge M_{n,4},\label{eq:globalfinite}\\
+\frac{M_{n,4}}{n^2}&\ge\frac{J_n+(F_n)_+/L}{\pi}-\frac1n
+\ge\Cterm+\eta(h)-\frac{A(h)}n,\label{eq:finite}\\
+A(h)&=1+\frac{5+19H/(2L)}\pi.\nonumber
+\end{align}
+\end{proposition}
+\begin{proof}
+All three cutoffs satisfy Section~\ref{sec:deletion}'s hypotheses. With
+the same outer measure, Lemmas~\ref{lem:54} and \ref{lem:crossing} give
+\begin{align*}
+\sum_i h_iW_i
+&\ge H(J_n+e)+\sum_i h_iD_{i,n}-54HE-2\sum_i h_iK_i\\
+&\ge H(J_n+e)+F_n-(54H+2)E\\
+&\ge H(J_n+e)+F_n-Le.
+\end{align*}
+Here $L=8(54H+2)$ because $E\le8e$; the factor $16$ is not
+multiplied by the number of cutoffs. Retaining the outer cost and the
+positive weighted mean of the inner costs yields
+\[
+\max_{0\le i\le3}W_i\ge J_n+
+\max\left\{e,\frac{F_n}{H}-\left(\frac LH-1\right)e\right\}.
+\]
+Since $L>H>0$, if $F_n>0$ the increasing and decreasing branches meet
+at $e=F_n/L\ge0$. Below that point the decreasing branch is at least
+its meeting value, and above it the increasing branch is at least that
+value. If $F_n\le0$, the first branch is always nonnegative and $e=0$
+makes the maximum zero. The infimum over all $e\ge0$ is therefore
+$(F_n)_+/L$ in every case. This scalar infimum need not be realized by
+a tour. The lower sandwich \eqref{eq:sandwich} and a finite minimum
+over orders prove the first inequality in \eqref{eq:finite}.
+
+Lemma~\ref{lem:floors} gives $F_n\ge F(h)-19H/(2n)$ and
+$J_n\ge\pi\Cterm-5/n$. The positive-part function is increasing and
+1-Lipschitz, so $(F_n)_+\ge F(h)_+-19H/(2n)$. This proves the second
+inequality even when $F_n$ or $F(h)$ is nonpositive.
+
+For \eqref{eq:globalfinite}, take any full feasible original placement
+at radius $R$. Delete the labels below $\lfloor qn\rfloor$ to obtain
+one common order $\sigma$. Its three further restrictions are exactly
+$\sigma_i$. Lemma~\ref{lem:deletiongeometry} bounds each chain root by
+$R$. Thus $M_{n,4}\le R$ for every full feasible placement. Taking the
+infimum over $R$ proves the assertion without an attainment assumption.
+\end{proof}
+All estimates are uniform in the order, include the seam and consecutive
+deleted runs, and apply to both cardinality parities. No implication from
+chain feasibility to full feasibility was used.
+
+\section{The unique global width optimum (L7)}\label{sec:width}
+Set $d=a+b$ and $\ell=16+432d$; these are width constants, not grid
+parameters. On the edge where both separation constraints are active set
+\begin{align}
+N(z)&=F(a-z,z,b-z)=c_0+c_1z-24dz^2+8z^3,\nonumber\\
+c_0&=aD_1+bD_3-8(a^3+b^3),\qquad
+c_1=D_2-D_1-D_3+24(a^2+b^2),\nonumber\\
+L(z)&=\ell-432z,\nonumber\\
+G(z)&=N'(z)L(z)+432N(z)\label{eq:G}\\
+&=\ell c_1+432c_0-48\ell dz+(24\ell+10368d)z^2-6912z^3.\nonumber
+\end{align}
+Its exact derivative is
+\begin{equation}\label{eq:Gprime}
+G'(z)=N''(z)L(z)=48(z-d)L(z)<0\qquad(0\le z\le a),
+\end{equation}
+since $a<d$ and $L(z)\ge16+432b>0$.
+
+The rational computations proved in Section~\ref{sec:arithmetic} give
+$G(0)>0$, $G(a)<0$ and the more precise opposite signs at
+\begin{equation}\label{eq:zbracket}
+z_-=0.00451910758124826,\qquad z_+=0.00451910758124827.
+\end{equation}
+Together with \eqref{eq:Gprime}, continuity proves the existence and
+uniqueness of $z_*\in(z_-,z_+)$. All coordinates of
+$u=(a-z_*,z_*,b-z_*)$ are strictly positive.
+
+\begin{lemma}[Global cubic certificate]\label{lem:KKT}
+Let $\rho=F(u)/\mathcal L(u)$ and
+$g_i=D_i-24u_i^2-432\rho$. Then $F(u)>0$ and
+\[
+\lambda_1=g_1>0.00035,\qquad \lambda_2=g_3>0.00059,
+\qquad(g_1,g_2,g_3)=(\lambda_1,\lambda_1+\lambda_2,\lambda_2).
+\]
+For every $h\in\mathcal P$,
+\begin{align}\label{eq:cubiccertificate}
+F(h)-\rho\mathcal L(h)
+={}&\lambda_1(h_1+h_2-a)+\lambda_2(h_2+h_3-b)\nonumber\\
+&-8\sum_{i=1}^3(h_i-u_i)^2(h_i+2u_i)\le0,
+\end{align}
+with strict inequality unless $h=u$. Thus $u$ is the unique global
+maximizer of $\eta$ on the entire closed polyhedron.
+\end{lemma}
+\begin{proof}
+The positivity gates are rational consequences of the integral and root
+intervals in Section~\ref{sec:arithmetic}. Since $G(z_*)=0$, division
+by $L(z_*)$ gives $N'(z_*)+432\rho=0$. On substituting $N'$ this is
+$-g_1+g_2-g_3=0$. The gradient of $F-\rho\mathcal L$ at $u$ is
+therefore the stated positive combination of the two constraint normals.
+For each coordinate the exact identity
+\[
+h_i^3-u_i^3-3u_i^2(h_i-u_i)=(h_i-u_i)^2(h_i+2u_i)
+\]
+gives \eqref{eq:cubiccertificate}, since $F(u)-\rho\mathcal L(u)=0$
+and the two constraints are equalities at $u$. The linear terms are
+nonpositive on $\mathcal P$. Because $h_i\ge0$ and $u_i>0$, the cubic
+remainder is strictly negative if any coordinate differs. Hence
+$F(h)/\mathcal L(h)<\rho$ for $h\ne u$. If $F(h)\le0$, the
+positive-part objective is zero and is also strictly smaller than
+$\rho/\pi>0$. This covers zero widths, all faces and vertices, and the
+whole nonpositive region without assuming beforehand that an optimum
+must lie on the chosen edge. Existence also follows directly from
+compactness of $\mathcal P$ and continuity of $\eta$.
+\end{proof}
+
+\section{Reproducible rational arithmetic (L2 and L7)}\label{sec:arithmetic}
+The included \texttt{check\_width\_optimum.py} uses only Python's standard
+library integers and \texttt{Fraction}. It starts from the rational
+intervals below, proves that they contain the named exact constants,
+and does not import a saved numerical result or an optimizer. To make
+the arithmetic reproducible by an independent implementation, we specify
+every enclosure formula.
+
+\subsection{Trigonometric gates}
+Use the intervals
+\begin{align*}
+T_-&=0.7390851332151606416553120876738734040134,\\
+T_+&=0.7390851332151606416553120876738734040135,\\
+q_-&=0.1950200913506069300798071259134151019366,\\
+q_+&=0.1950200913506069300798071259134151019367,\\
+\pi_-&=3.1415926535897932384626433832795028841971,\\
+\pi_+&=3.1415926535897932384626433832795028841972.
+\end{align*}
+Let
+\[
+C_m(x)=\sum_{j=0}^{m-1}\frac{(-1)^jx^{2j}}{(2j)!},\quad
+S_m(x)=\sum_{j=0}^{m-1}\frac{(-1)^jx^{2j+1}}{(2j+1)!},\quad
+A_m(x)=\sum_{j=0}^{m-1}\frac{(-1)^jx^{2j+1}}{2j+1}.
+\]
+For $0<x<1$ the terms decrease to zero, so an even number of terms
+is a lower bound and an odd number is an upper bound. Exact rational
+comparisons give
+\[
+C_{30}(T_-)>T_-,\qquad C_{31}(T_+)<T_+.
+\]
+Monotonicity of $\cos t-t$ isolates $\tau$. Sine is increasing on
+$(0,1)$, so $s_-=S_{30}(T_-)<\sin\tau<S_{31}(T_+)=s_+$.
+The decreasing map $s\mapsto(1-s)/(1+s)$ and exact comparisons give
+\[
+q_-<\frac{1-s_+}{1+s_+}<q<\frac{1-s_-}{1+s_-}<q_+.
+\]
+In particular $q_->3/17$ and $q_+<1/5$ are checked as rational
+inequalities.
+
+For $\pi$ use Machin's identity
+$\pi=16\arctan(1/5)-4\arctan(1/239)$. Here is a branch justification:
+two tangent doublings give $\tan(4\arctan(1/5))=120/119$,
+and the tangent of $4\arctan(1/5)-\arctan(1/239)$ is exactly one.
+This angle lies strictly between zero and $4/5<\pi/2$ (the elementary
+inequality $\pi>2$ follows, for example, by comparing a semicircle
+with its diameter). Positivity follows from
+$\arctan(1/5)>1/5-(1/5)^3/3$ and $\arctan(1/239)<1/239$.
+The angle is therefore $\pi/4$. Alternating sums give the exact gates
+\[
+\pi_-<16A_{32}(1/5)-4A_{31}(1/239)
+<\pi<16A_{31}(1/5)-4A_{32}(1/239)<\pi_+.
+\]
+
+\subsection{Integral certificates}
+For each $\beta_i$ use $s_0=1+q_-$,
+$v=(1-q_-)/s_0$, $w=(s_0-2\beta_i)/s_0$. These satisfy $0<w<v<1$.
+The convergent binomial expansion is
+\[
+\sqrt{1-y^2}=1-\sum_{j\ge1}c_jy^{2j},\qquad
+c_j=\frac{\binom{2j}{j}}{4^j(2j-1)}>0.
+\]
+Its coefficients decrease, since $c_{j+1}/c_j=(2j-1)/(2j+2)<1$.
+Termwise integration is valid uniformly on $[w,v]$, which lies inside
+the radius of convergence. Define the rational quantities
+\begin{align*}
+P&=v-w-\sum_{j=1}^{80}c_j\frac{v^{2j+1}-w^{2j+1}}{2j+1},\\
+T&=(v-w)c_{81}\frac{v^{162}}{1-v^2},\qquad
+I_-=\frac{s_0^2}{4}(P-T),\quad I_+=\frac{s_0^2}{4}P.
+\end{align*}
+For every $y\in[w,v]$ the omitted positive tail is at most
+$c_{81}v^{162}/(1-v^2)$, hence
+\[
+I_-\le\int_{q_-}^{\beta_i}\sqrt{x(1+q_--x)}\dd x\le I_+.
+\]
+Write $D(r,\beta)=\int_r^\beta D_r(x)\dd x$. The endpoint and
+integrand bounds are $|D_r(r)|\le2$ and $|\partial_rD_r(x)|\le2$.
+Differentiation under the integral therefore gives
+$|\partial_rD(r,\beta)|\le4$ on $r\in[q_-,q_+]$.
+Thus valid rational endpoints for $D_i$ are
+\begin{align*}
+d_{i,-}&=s_0(\beta_i-q_-)-(\beta_i^2-q_-^2)/2-2I_+-4(q_+-q_-),\\
+d_{i,+}&=s_0(\beta_i-q_-)-(\beta_i^2-q_-^2)/2-2I_-+4(q_+-q_-).
+\end{align*}
+Before further propagation the script enlarges these endpoints to
+30-place rationals: for an interval $[l,r]$ it uses
+\[
+\left[\frac{\lfloor10^{30}l\rfloor-1}{10^{30}},
+\frac{\lceil10^{30}r\rceil+1}{10^{30}}\right].
+\]
+The extra unit makes the printed enclosures strict; it is an outward
+rounding, never a decimal approximation used as an exact input value.
+
+\subsection{Polynomial signs, multipliers and final enclosure}
+Interval addition and subtraction use matching and opposite endpoints;
+multiplication takes the minimum and maximum of all four products.
+Division by a positive interval multiplies by its reversed reciprocal.
+Positive powers use monotonic endpoints. These operations remain safe
+when a variable appears repeatedly, although dependency can widen them.
+Evaluate $G$ at $0,a,z_-,z_+$ using the intervals for $D_i$.
+Their signs are respectively $+,-,+,-$ with strict rational margins.
+With $Z=[z_-,z_+]$ use the interval vector
+\[
+U=([a-z_+,a-z_-],\ Z,\ [b-z_+,b-z_-]).
+\]
+Evaluate $F(U)$, $\rho=F(U)/\mathcal L(U)$ and
+$D_i-24U_i^2-432\rho$ outwardly. These certify $F(u)>0$ and the
+two positive multipliers in Lemma~\ref{lem:KKT}. The accompanying
+\texttt{certificate.json} gives the rational endpoints of these gates,
+including the four signs, so they can be checked without interpreting
+floating output. The enclosed quantities include
+\begin{align*}
+0.00136820131190299900276&<D_1<0.00136820131190299900279,\\
+0.00196196296152142894680&<D_2<0.00196196296152142894683,\\
+0.00241410289623904895464&<D_3<0.00241410289623904895467,\\
+0.00000038803240421408705&<\etaw<0.00000038803240421408841.
+\end{align*}
+Finally enclose $\Cterm=\tau(1+q)/(2\pi)$ by multiplying the positive
+intervals for $\tau,1+q$ and dividing by opposite endpoints of $2\pi$.
+Add the interval for $\rho/\pi$. Exact comparisons with the two rationals
+in \eqref{eq:mainbound} prove the strict enclosure in that equation.
+The script \texttt{verify.py} checks those literal target endpoints, the
+certificate content and the input/output manifest; a replay that merely
+prints a plausible decimal is not the acceptance condition.
+
+\section{The ordered passage to the limit (L8)}\label{sec:limit}
+For any fixed positive width vector with strict macroscopic margins
+$\delta_i=\beta_{i+1}-\beta_i-h_i-h_{i+1}>0$, choose an integer $N$
+such that $N\ge102$, $N(\beta_1-q)>1$, and $N\delta_i\ge1$.
+For every $n\ge N$,
+\[
+\ell_1/n>\beta_1-1/n>q,\qquad
+\frac{\ell_{i+1}-\ell_i}{n}>
+\beta_{i+1}-\beta_i-1/n\ge h_i+h_{i+1}.
+\]
+Also $n-\ell_3\ge77n/100\ge2$. The gates \eqref{eq:finitegates}
+hold for every such integer $n$. Proposition~\ref{prop:finite} therefore
+implies, at fixed $h$,
+\begin{equation}\label{eq:fixedlimit}
+\liminf_{n\to\infty}\frac{M_{n,4}}{n^2}\ge\Cterm+\eta(h),\qquad
+\liminf_{n\to\infty}\frac{\Rstar(n)}{n^2}\ge\Cterm+\eta(h).
+\end{equation}
+
+The optimum $u$ saturates both macroscopic constraints and cannot be
+substituted blindly into the finite gates. For any fixed $0<t<1$, use
+$h=tu$. Its strict margins are $(1-t)a$ and $(1-t)b$. The rational
+gates $\beta_1-q>a$ and $1/a>102$ show that
+\[
+N(t)=\left\lceil\frac1{(1-t)a}\right\rceil
+\]
+is a sufficient threshold. Apply \eqref{eq:fixedlimit} with this fixed
+$t$ and only then let $t\uparrow1$. By continuity $\eta(tu)\to\eta(u)$,
+so
+\begin{equation}\label{eq:liminf}
+\liminf_n M_{n,4}/n^2\ge\Cterm+\etaw,\qquad
+\liminf_n\Rstar(n)/n^2\ge\Cterm+\etaw.
+\end{equation}
+The quantity $M_{n,4}$ depends on the three cutoffs and common order,
+not on the auxiliary widths. The same liminf is bounded for every
+fixed $t$; no minimum over orders has been exchanged with a limit.
+
+For completeness, unchanged $u$ fails both finite separation gates at
+every $n=50000j+1$, $j\ge1$. The exact floors are
+\[
+(\ell_1,\ell_2,\ell_3)=(10455j,10907j,11500j),
+\]
+and their normalized differences are respectively $a(n-1)/n<a$ and
+$b(n-1)/n<b$. This explains why the order of limits is essential.
+It is not a failure of \eqref{eq:liminf}.
+
+\section{Existence of the global limit}\label{sec:existence}
+We include only the line comparison and concatenation argument needed
+to identify the liminf in \eqref{eq:liminf} with $C_*$. No finite-word
+linear programming characterization or upper-bound construction is needed.
+
+For a finite list of nonnegative marks $v_1,\ldots,v_N$, let $b(v)$ be
+the least span of line points carrying those marks, with
+\begin{equation}\label{eq:line}
+|x_i-x_j|\ge\sqrt{v_iv_j}\quad(i\ne j).
+\end{equation}
+Equal marks still label distinct objects; zero marks may coincide.
+For a fixed order $w$, the minimal increasing placement is
+\[
+x_1=0,\qquad x_i=\max_{j<i}\{x_j+\sqrt{w_iw_j}\}.
+\]
+It satisfies all constraints. Induction shows that every feasible
+placement in this order starting at zero has coordinates at least these.
+Thus the minimum span for a fixed order is attained; minimizing over
+finitely many orders proves attainment of $b(v)$. Deleting or decreasing
+marks cannot increase $b$; scaling marks by $h\ge0$ scales $b$ by $h$.
+For $h>0$ the latter follows by scaling positions in both directions,
+and for $h=0$ both sides are zero. These assertions also hold for marks
+temporarily larger than one.
+
+For marks in $[0,1]$, let $B(v)$ be the infimum circumference of a circle
+on which both directed arcs between each pair are at least
+$\sqrt{v_iv_j}$. Cutting a feasible circle gives a feasible line
+placement. Conversely close an optimal line placement with a gap of
+length one: one arc is the line distance and the complementary arc
+contains the new gap, at least $1\ge\sqrt{v_iv_j}$. Hence
+\begin{equation}\label{eq:bB}
+b(v)\le B(v)\le b(v)+1.
+\end{equation}
+Write $b_n=b(1/n,2/n,\ldots,1)$. From a full feasible original circle
+at radius $R$, scale angles by $(R+n)/(2n)$. The lower kernel bound
+in Lemma~\ref{lem:sandwich} produces a $B$-circle of circumference
+$\pi(R+n)/n$. Conversely a $B$-circle of circumference $b_n+1$ exists
+by the preceding gap construction. Scale it to angular circumference
+$2\pi$ and set $R=n(b_n+1)/\pi$. Every directed arc is then at least
+$2\sqrt{uv}/R$, hence at least $\theta_R(u,v)$ by the upper kernel
+bound. The cosine law gives full original feasibility for all pairs.
+Taking infima proves for every $n\ge3$
+\begin{equation}\label{eq:globalsqueeze}
+\frac{b_n}{\pi n}-\frac1n\le\frac{\Rstar(n)}{n^2}
+\le\frac{b_n+1}{\pi n}.
+\end{equation}
+
+\begin{lemma}\label{lem:existence}
+The limit $E_\infty=\lim_n b_n/n$ exists and equals
+$\inf_{n\ge2}(b_n+1)/n$. Consequently $C_*=E_\infty/\pi$ exists.
+\end{lemma}
+\begin{proof}
+Fix $n\ge2$. For any $N\ge n$, put $k=\lceil N/n\rceil$ and
+concatenate $k$ copies of an optimal $b_n$ arrangement with inter-block
+gaps one. All cross-block distances are at least one, so all pair
+constraints hold. Its span is $k(b_n+1)-1$, with exactly $k$ copies
+of each of the $n$ marks. Retain the $N$ smallest marks. In sorted
+mark order their $i$th value is $\lceil i/k\rceil/n$.
+Scale all positions and marks by $h=nk/N$, so this value is at least
+$i/N$. Decrease the retained marks to $i/N$, assigning each label once
+(ties may be broken arbitrarily). Feasibility is preserved. Thus
+\[
+b_N\le\frac{nk}{N}\,[k(b_n+1)-1].
+\]
+Since $k/N\to1/n$, division by $N$ gives
+$\limsup_N b_N/N\le(b_n+1)/n$ for every fixed $n$.
+Equally spaced points with gaps one give $0\le b_N/N\le1$.
+Choose $n$ along an unbounded subsequence attaining the liminf; then
+$\limsup_N b_N/N\le\liminf_n b_n/n$, proving existence.
+The preceding upper bounds and $n\to\infty$ identify the limit with
+the displayed infimum. Equation~\eqref{eq:globalsqueeze} now proves
+the final assertion for the full geometric problem.
+\end{proof}
+Combining Lemma~\ref{lem:existence}, \eqref{eq:liminf} and the rational
+enclosure proves Theorem~\ref{thm:main}. The concatenation construction
+uses actual labeled points and every integer $N$, not only a subsequence
+or a coupling with correct marginals.
+
+\section{Verification scope and provenance}\label{sec:scope}
+The proof establishes exact theorems and corollaries. The parameter
+enclosures are finite rational computations supporting their stated
+signs and constants. Bounded tour and measure checks test implementation
+invariants and failure modes; they do not prove the universal statements
+by enumeration. Neither endpoint of a geometric asymptotic interval is
+claimed sharp. The optimized width value is sharp only for the function
+$\eta$ on the specified polyhedron at the fixed cutoffs.
+
+The analytic provenance is the immutable scientific snapshot
+\begin{center}\small\texttt{3beb8d70c5b3748d370a92855847bdf574e5a14f}.\end{center}
+The four source notes are identified in the bibliography. The published
+target is\par\smallskip
+{\small\path{paper_assets/asymptotic_sequel/ringmin_asymptotic.tex}},\par\smallskip
+Proposition 7; the older finite-paper v2 source is not used as the target.
+The package includes a dependency map, \path{DEPENDENCIES.md}, recording source sections,
+hypotheses and verification limits. Its \texttt{MANIFEST.json} records
+input and output SHA-256 hashes, and \texttt{VERIFICATION.md} reports
+only checks actually run. These supporting files are included alongside
+this source and PDF; no checkout history or old task dossier is required.
+
+\begin{thebibliography}{9}\small
+\bibitem{paper} M. Falconi, Ringmin asymptotic sequel,
+\href{https://arxiv.org/abs/2609.13630}{arXiv:2609.13630}, Proposition 7.
+\bibitem{terminal} M. Falconi, \emph{Optimized induced-terminal-subset
+asymptotic lower bound}, Sections 5--7, scientific snapshot above;
+\texttt{research/INDUCED\_SUBSET\_ASYMPTOTIC\_LOWER\_BOUND.md}.
+\bibitem{stability} M. Falconi, \emph{Quantitative stability for one common
+pair of terminal chain tours}, Sections 2--5, 11.1--11.3, same snapshot;
+\texttt{research/COMMON\_CHAIN\_QUANTITATIVE\_STABILITY.md}.
+\bibitem{crossing} M. Falconi, \emph{A three-level common-chain lower bound
+from two shared cutoff budgets}, Sections 7, 9, 11--12, same snapshot;
+\texttt{research/THREE\_LEVEL\_COMMON\_CHAIN.md}.
+\bibitem{limit} M. Falconi, \emph{The global asymptotic limit and finite-word
+variational certificates}, Sections 1--3, same snapshot;
+\texttt{research/GLOBAL\_ASYMPTOTIC\_VARIATIONAL\_LIMIT.md}.
+\end{thebibliography}
+\end{document}

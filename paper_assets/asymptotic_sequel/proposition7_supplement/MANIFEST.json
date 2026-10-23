@@ -1,0 +1,89 @@
+{
+  "authoring_base_commit": "6167e36cf6f80a6a7a7a6b41518a6b3f7155295d",
+  "date": "2026-10-23",
+  "excluded_from_self_hash": [
+    "MANIFEST.json"
+  ],
+  "generation_commands": [
+    "python -I -S verify.py --write-certificate --skip-manifest",
+    "pdflatex -interaction=nonstopmode -halt-on-error -recorder -output-directory=build supplement.tex (three passes from a fresh directory)",
+    "python -I -S ops/TASK-20261023__proposition7_supplement/make_manifest.py"
+  ],
+  "generation_context": "New supplement sources over authoring_base_commit; output hashes pin every new generating source. The Git commit containing this manifest is the package revision.",
+  "inputs": [
+    {
+      "commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+      "git_blob_sha256": "97ef6456c646db0d9c1c2b43fecc041561408d573485b8c61bf23e951fdfe4e0",
+      "lf_normalized_sha256": "97ef6456c646db0d9c1c2b43fecc041561408d573485b8c61bf23e951fdfe4e0",
+      "path": "research/COMMON_CHAIN_QUANTITATIVE_STABILITY.md",
+      "sections": "2-5, 11.1-11.3",
+      "working_tree_sha256": "0bb5c8bcd59cf491c357d28f2691ecbfac9d061389f143d282abea124688e63d"
+    },
+    {
+      "commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+      "git_blob_sha256": "42f2fc55d8d7740ab9bf1c14e4f2191339c647db147aecc1ac9907a48d645360",
+      "lf_normalized_sha256": "42f2fc55d8d7740ab9bf1c14e4f2191339c647db147aecc1ac9907a48d645360",
+      "path": "research/INDUCED_SUBSET_ASYMPTOTIC_LOWER_BOUND.md",
+      "sections": "5-7",
+      "working_tree_sha256": "5f558ddf50f2a9b9493ba2069872b18719a2bcf20a590d1ab7bf9d8c54844e86"
+    },
+    {
+      "commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+      "git_blob_sha256": "d0035afdd6f2b7f004159928f8babe9830dce073198f63b2b9a9419e2be3723c",
+      "lf_normalized_sha256": "d0035afdd6f2b7f004159928f8babe9830dce073198f63b2b9a9419e2be3723c",
+      "path": "research/THREE_LEVEL_COMMON_CHAIN.md",
+      "sections": "7, 9, 11-12",
+      "working_tree_sha256": "aac93711de5cffff0fb07e0fd220e0a1a6f853c11a93f954bfa62fb600cb36e0"
+    },
+    {
+      "commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+      "git_blob_sha256": "f4a6e5fddf3cb9cd5f26e1375a03de5a4cf556ec497be8ff0b6573413cb86e4f",
+      "lf_normalized_sha256": "f4a6e5fddf3cb9cd5f26e1375a03de5a4cf556ec497be8ff0b6573413cb86e4f",
+      "path": "research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md",
+      "sections": "1-3",
+      "working_tree_sha256": "4648e053f89b3ca110ee4615f87c1171f750469a5b81a593bbb678f809614bdd"
+    },
+    {
+      "commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+      "git_blob_sha256": "048261ae2e552cf99311eee4202ea407c3cae1ff1a500774a0d64fb5d351e16f",
+      "lf_normalized_sha256": "048261ae2e552cf99311eee4202ea407c3cae1ff1a500774a0d64fb5d351e16f",
+      "path": "ops/TASK-20260911__four_level_width_optimum/check_width_optimum.py",
+      "sections": "entire checker",
+      "working_tree_sha256": "c8bf1d9a22331ec76c6ea2675f30aacaf8f81311cbbfca66cdad98483b377dbf"
+    },
+    {
+      "commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+      "git_blob_sha256": "3c12de7d153a653ba9794d1a6f054abe842497c01ec68659eafe1d381e3376d3",
+      "lf_normalized_sha256": "3c12de7d153a653ba9794d1a6f054abe842497c01ec68659eafe1d381e3376d3",
+      "path": "ops/TASK-20260911__finite_shared_crossing/check_finite_crossing.py",
+      "sections": "entire checker",
+      "working_tree_sha256": "9c1cc352cda1fcd65ca4eb42603bbba44d550ec43bc9491e85409e9436c1ddf5"
+    },
+    {
+      "commit": "6167e36cf6f80a6a7a7a6b41518a6b3f7155295d",
+      "git_blob_sha256": "5248445a3a1b92c494466fdfe266555023bbc13606f93ffc07ec229538b886e6",
+      "lf_normalized_sha256": "5248445a3a1b92c494466fdfe266555023bbc13606f93ffc07ec229538b886e6",
+      "path": "paper_assets/asymptotic_sequel/ringmin_asymptotic.tex",
+      "sections": "Proposition 7 and definitions",
+      "working_tree_sha256": "5248445a3a1b92c494466fdfe266555023bbc13606f93ffc07ec229538b886e6"
+    }
+  ],
+  "nondeterminism": "Arithmetic certificate is deterministic. PDF timestamps, trailer ID and optional PTEX metadata are suppressed; same-engine isolated rebuild reproduced the delivered PDF. Other TeX versions may differ.",
+  "outputs": {
+    ".gitattributes": "25a2d031c43a7a14acf4fb77dd905a7eb9c5cd7fa457c6139851e4e2acde35f3",
+    "DEPENDENCIES.md": "d6e37317eb41fa3c1ed063d08b5469e8fcc04d247fb9311ca446d699f4d08cca",
+    "README.md": "52d819d35944bf1c4a044be333434293d92f27a9a3a6efe8a0b9d68f543ef908",
+    "VERIFICATION.md": "c42e0671e48d865aa953ce43e8f0da7dcc3f35c4996df9591d5831df44691055",
+    "arithmetic.log": "4943f6a61f92b531cf966fd2c7cff81000537d491a4e37c1369c0f66f9ed42b9",
+    "certificate.json": "d8cf058a5d31a2651e603e14b907b09445b2cf563b9142a71d20e47517a1de46",
+    "check_finite_crossing.py": "3c12de7d153a653ba9794d1a6f054abe842497c01ec68659eafe1d381e3376d3",
+    "check_integrity_controls.py": "3e6b01afa73874ca35f1a32d0cb4ec7253c7576d52dabab9f6e84b347d8da938",
+    "check_width_optimum.py": "048261ae2e552cf99311eee4202ea407c3cae1ff1a500774a0d64fb5d351e16f",
+    "supplement.pdf": "a18eb1ed78155f5c8d8476a35e2f62c95d445c03b65ebeadf522d79ccaaa5568",
+    "supplement.tex": "ce376ae3521b172379c2a37f7a0905f8eff8b9591d44f423192c54acd56616b4",
+    "verify.py": "c98cb1978701c50c546f3061c0f4f246a157794bf2e22259904525c032eaa1f7"
+  },
+  "repository": "falker47/ringmin",
+  "schema": "ringmin-proposition7-manifest-v1",
+  "scientific_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f"
+}

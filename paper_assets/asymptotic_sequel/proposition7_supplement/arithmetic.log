@@ -1,0 +1,17 @@
+PASS alternating rational Taylor gates: tau, q, pi
+PASS formal polynomial identities: global cubic remainder and scaling loss
+PASS exact cubic identities; G'<0 on [0,a]; isolated root signs
+PASS boundary floor failure for n=50000k+1; no eventual unchanged gate
+PASS strict scaling: t=9999/10000, N=1106195; loss < 5e-11
+PASS improved rational witness: both margins 1/100000, N=100000
+PASS literal Proposition 7 endpoints, D_i enclosures and positive KKT gates
+PASS 144 directed-rational deletion fixtures: 43E, 11E+2K, 54E+2K, runs, seam, all parity pairs
+PASS 48 prescribed measures: equal marginals, strips, single E, up to 8 crossings
+PASS 16 tour/cutoff cases: oriented mass, wrap, rotation, reversal, nesting, both parities
+PASS boundaries and sharpness: d=h, cutoff endpoints, adjacent necessity, bounded-domain exception
+PASS exact unseparated counterexample: 177/2500 > 7/100; excess 1/1250
+PASS scalar signs, finite errors, 2-cutoff recovery, 4-cutoff domain, finite-floor negative control
+PASS negative controls: independent budgets, on-grid cutoff, malformed parameters
+PASS all finite shared-crossing checks; universal claims are analytic
+PASS certificate equals fresh rational recomputation
+PASS supplement checks; analytic proof supplies universal quantifiers
