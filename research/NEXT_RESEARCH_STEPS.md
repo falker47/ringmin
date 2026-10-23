@@ -34,38 +34,24 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independently review the exact DCG submission package
+## Priority 1 - Review the Finalized Paper II JoCG Package
 
-Review the [submission package](../paper_assets/dcg_submission/UPLOAD_CHECKLIST.md)
-and its manifest against accepted baseline
-`6749d6b165f982136117481be322c8beaec223ce`, confirmed in the Review State
-Registry on 2026-09-28. The [packaging evidence](../ops/TASK-20260928__dcg_submission_package/EVIDENCE.md)
-records source/PDF identity, isolated compilation and current upload conditions.
-If this exact package is accepted, the human author uploads it through
-Editorial Manager. No further research or manuscript revision is part of this
-step, and packaging does not promote the Registry baseline.
+Independently review the [separate Paper II manuscript](../paper_assets/paper_ii_journal/README.md)
+and its immutable manuscript, two supplements, claim/proof map and archive.
+The [readiness report](../paper_assets/paper_ii_journal/READINESS.md) separates
+analytic, finite-arithmetic, reproducibility and editorial gates. Review the
+exact committed SHA and its hosted checks before human submission.
+The author approved JoCG as the submission destination on 2026-10-24.
+No submission or Review State promotion is part of this preparation.
 
-The finite certification's scope and archival boundaries remain in their
-owning ledgers. The public arXiv v2 and asymptotic sequel remain on separate
-publication tracks. No DCG submission or journal peer review has occurred.
-
-## Separate asymptotic track — Independent external review
-
-The research goal concluded at the effective-characterization level. The
-publication architecture separates a standalone asymptotic sequel from
-a conservative correction of the finite paper. The standalone sequel now has
-the permanent identifier [arXiv:2609.13630](https://arxiv.org/abs/2609.13630);
-the corrective replacement publication is recorded in
-[PUBLICATION_HISTORY.md](../knowledge/PUBLICATION_HISTORY.md). Independent external review
-remains pending for this distinct manuscript. Review the
-[standalone manuscript](../paper_assets/asymptotic_sequel/README.md), using the
-[architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
-and the scientific dependency checks in the historical
-[final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md), under
-RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; the corrective
-v2 remains the separate public finite-paper correction. The finite-bracket
-acceptance does not accept the asymptotic theorem or settle this manuscript's
-external review. Submission preparation does not advance Review State.
+The public [asymptotic sequel](https://arxiv.org/abs/2609.13630) and both
+finite-paper arXiv versions remain unchanged. The author's 2026-10-23 task
+reports Paper I v2 submitted to Discrete Applied Mathematics on 2026-10-21,
+reference DA21348; that is author-supplied status, not external acceptance.
+The earlier DCG preparation is retained as historical material, not the
+current submission instruction. Publication provenance remains in
+[PUBLICATION_HISTORY.md](../knowledge/PUBLICATION_HISTORY.md); this editorial
+priority does not change any scientific claim or accepted baseline.
 
 ## Subsequent asymptotic scientific questions
 

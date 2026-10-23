@@ -2,51 +2,46 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20261023__proposition7_supplement
-phase=independent_review_handoff
-observed_on=2026-10-23
+task=TASK-20261024__jocg_finalization
+phase=pre_submission_handoff
+observed_on=2026-10-24
 mode=STRICT
 state=READY_FOR_REVIEW
-base_head=6167e36cf6f80a6a7a7a6b41518a6b3f7155295d
-scientific_snapshot=3beb8d70c5b3748d370a92855847bdf574e5a14f
+base_head=fa32c99e9da0d639dca5735864c7c341d2e60059
+branch=codex/paper-ii-journal-candidate
+pull_request=4
 ```
 
-## Current task and scope
+## Current Task and Scope
 
-The [standalone Proposition 7 supplement](paper_assets/asymptotic_sequel/proposition7_supplement/README.md)
-contains a 14-page PDF, complete LaTeX proof of L1--L8 and global-limit
-existence, dependency matrix, exact arithmetic checkers/certificate,
-manifest and [technical report](paper_assets/asymptotic_sequel/proposition7_supplement/VERIFICATION.md).
-It reconstructs the fixed lower endpoint in Paper II (arXiv:2609.13630).
-The [STRICT dossier](ops/TASK-20261023__proposition7_supplement/TASK_STATUS.md)
-and [evidence](ops/TASK-20261023__proposition7_supplement/EVIDENCE.md) record
-the checks and scope. No new mathematical coefficient or published-paper
-revision is introduced, and no Review State baseline is advanced.
+The [Paper II package](paper_assets/paper_ii_journal/README.md) is finalized
+for the author-approved Journal of Computational Geometry destination.
+The [dossier](ops/TASK-20261024__jocg_finalization/TASK_STATUS.md) and
+[evidence](ops/TASK-20261024__jocg_finalization/EVIDENCE.md) record this STRICT
+editorial/reproducibility delta from the prior candidate. Provisional masthead
+labels are removed; main/S2 metadata and the available v1 DOI are complete.
+No mathematical result or abstract changed. S1 and all published science remain
+preserved; no submission or external acceptance is asserted.
 
-## Verification gates and blockers
+## Verification Gates and Blockers
 
-Exact rational checks reproduce the literal strict enclosure
-`0.14056946887766098063257 < C_term+eta_width < 0.14056946887766098063392`.
-All 144 new directed-rational deletion fixtures, inherited crossing checks,
-certificate equality, 12 output hashes, seven source-input hashes and
-standalone/tampering controls passed. A separate internal technical reviewer
-found no actionable mathematical/verifier gap; external acceptance remains
-separate. Full universal quantifiers are supported by the written proofs.
+Local pytest: 59 passed. Fresh aggregate arithmetic with LP passed, including
+S1 and negative controls. All three PDFs reproduce byte for byte in repeated
+isolated builds and from the extracted archive, with no reference/box warnings.
+All 22 changed PDF pages were inspected. Package manifests, protected bytes,
+editorial source substitutions and corruption/external-input controls pass.
+Main/S2 comply with the JoCG review checklist; S1 remains unchanged supporting
+material. The [readiness report](paper_assets/paper_ii_journal/READINESS.md)
+distinguishes inherited analytical review from fresh local engineering checks.
 
-The standalone outside-repository three-pass TeX build passed without
-warnings or bad boxes and reproduced the delivered PDF byte for byte.
-All 14 pages were visually checked. The 759 pre-existing tracked files
-outside CURRENT_STATUS.md retain their preflight hashes; published sources,
-research, production code and result artifacts are protected. The original
-untracked ZIP remains untouched in the original checkout.
+CI now includes package integrity and aggregate mathematics without repeating
+S1 as a separate step. LaTeX has a separate push/path-filtered workflow with no
+artifact uploads. Exact-SHA hosted results follow commit/push and are reported
+in the final handoff; they are not inferred from earlier successful runs.
+No local blocker remains. Private portal metadata and actual submission remain
+human actions. Main, its existing untracked ZIP and the Registry are untouched.
 
-No mathematical or packaging blocker remains. Scoped commit/push is
-authorized; the final chat handoff identifies the exact persisted SHA and
-remote result. Hosted CI for that SHA is not asserted. The original local
-main checkout remains at its starting commit; work is integrated from the
-isolated detached worktree without altering those original working files.
+## Exactly One Next Atomic Task
 
-## Exactly one next atomic task
-
-Independent review of the exact committed Proposition 7 supplement,
-including the complete proof, rational certificate, PDF and package hashes.
+Independently review the finalized JoCG package at its exact committed SHA,
+including hosted checks, before human submission.
