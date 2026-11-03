@@ -14,6 +14,7 @@ REQUIRED = {
     "main.tex", "main.pdf", "upper_supplement.tex", "upper_supplement.pdf",
     "BUILD_REPORT.json", "README.md", "READINESS.md", "CLAIM_PROOF_MAP.md",
     "PRIOR_ART.md", "EDITORIAL_REQUIREMENTS.md", "UPPER_DEPENDENCIES.md",
+    "REVIEW_COVERAGE.md", "EDITORIAL_CHECKLIST.md",
     "build.py", "verify_package.py", "check_reproducibility.py", ".gitattributes",
     "checks/check_line_recovery.py", "checks/check_word_lp.py", "verify_math.py",
     "checks/upper_lambda.py", "checks/upper_alpha_minimum.py", "checks/upper_boundary.py",
@@ -23,14 +24,29 @@ def validate_build_report(here, lower):
     require(all((here/name).is_file() for name in REQUIRED), "required candidate payload missing")
     report=json.loads((here/"BUILD_REPORT.json").read_text())
     require(set(report["documents"])=={"main","upper_supplement","lower"}, "incomplete build report")
+    lower_manifest=json.loads((lower/"MANIFEST.json").read_text())
+    require({"supplement.tex", "supplement.pdf"} <= set(lower_manifest["outputs"]),
+            "required lower manifest payload missing")
     for name, record in report["documents"].items():
         source=lower/"supplement.tex" if name=="lower" else here/(name+".tex")
         pdf=lower/"supplement.pdf" if name=="lower" else here/(name+".pdf")
         require(digest(source.read_bytes())==record["source_sha256"], "stale build source: "+name)
-        require(digest(pdf.read_bytes())==record["pdf_sha256"], "stale build PDF: "+name)
+        delivered=digest(pdf.read_bytes())
+        preserved=name=="lower" and (
+            "delivery_policy" in record or "delivered_pdf_sha256" in record)
+        if preserved:
+            require(record.get("delivery_policy")=="preserved-baseline", "unknown lower delivery policy")
+            require(delivered==record.get("delivered_pdf_sha256"), "stale preserved PDF: lower")
+            require(delivered==lower_manifest["outputs"]["supplement.pdf"], "lower payload hash: supplement.pdf")
+            require("matches_preserved_pdf" in record, "missing preserved PDF comparison")
+        else:
+            require(delivered==record["pdf_sha256"], "stale build PDF: "+name)
+        if name=="lower" and "matches_preserved_pdf" in record:
+            require(type(record["matches_preserved_pdf"]) is bool and
+                    record["matches_preserved_pdf"]==(delivered==record["pdf_sha256"]),
+                    "inconsistent preserved PDF comparison")
         require(record["passes"]>=3 and record["pages"]>0, "incomplete build: "+name)
         require(not record["unresolved_or_box_warnings"], "build warnings: "+name)
-    lower_manifest=json.loads((lower/"MANIFEST.json").read_text())
     for name, expected in lower_manifest["outputs"].items():
         require(digest((lower/name).read_bytes())==expected,"lower payload hash: "+name)
 def check_mapping(manifest, files):

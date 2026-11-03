@@ -25,7 +25,7 @@
 \DeclareMathOperator{\asin}{arcsin}
 \title{Minimum central circles:\\an effective characterization of the global asymptotic constant}
 \author{Maurizio Falconi}
-\date{24 October 2026}
+\date{3 November 2026}
 \begin{document}
 \maketitle
 \linenumbers
@@ -344,9 +344,10 @@ It follows that $\CC\le C(\mu)$. Countably many slabs also transfer
 if their total length is strictly below $1-\alpha$.
 \end{theorem}
 \begin{proof}[Proof with explicit construction]
-Let $s=\lfloor\alpha m\rfloor$, $l_j=2\lfloor\ell_jm/2\rfloor$ and
-$a_j=\sum_{h\le j}l_h$. Reverse only the even ranks within each
-$(a_{j-1},a_j]$, fixing odd ranks, to obtain a permutation $J$.
+Let $s=\lfloor\alpha m\rfloor$, $l_j=2\lfloor\ell_jm/2\rfloor$,
+$a_0=0$ and $a_j=\sum_{h\le j}l_h$. Reverse only the even ranks within
+each $(a_{j-1},a_j]$ to obtain a permutation $J$ of $\{1,\ldots,m\}$.
+Set $J(i)=i$ on odd ranks and on every index outside these blocks.
 Set $P_i=m+1+((J(i)+s-1)\bmod m)$ and
 $\sigma_m=(1,P_1,\ldots,m,P_m)$, with $P_0=P_m$.
 Disjoint involutions and the cyclic shift prove bijectivity, including

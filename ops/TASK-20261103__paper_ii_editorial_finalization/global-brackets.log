@@ -1,0 +1,21 @@
+{
+  "status": "PASS_GLOBAL_BRACKETS",
+  "certificate_sha256": "6f6c15e1db037a3faadadc52893a9a90ae7b59d6d5b42e934c81c1a0abd21cc0",
+  "angles_verified_by_cosine": 908,
+  "tau_verified_by_cosine_zero": true,
+  "witnesses": 47,
+  "central_tangencies": 540,
+  "outer_pairs": 3004,
+  "angular_inequalities": 6008,
+  "explicit_order_classes": 268648,
+  "all_order_classes_covered": 3374988556,
+  "preserved_original_files": 13,
+  "pinned_input_verification": "PASS",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "seconds": 4.746629065000889,
+  "verifier_sha256": "599b49afc3718738a4adf04ec797c4c0e52c5d53076bfbb00e826dde260d4e95",
+  "unchecked_metadata": [
+    "Historical runtime/platform/timestamps, regression labels, input frontier blob provenance and generation-execution authenticity."
+  ]
+}

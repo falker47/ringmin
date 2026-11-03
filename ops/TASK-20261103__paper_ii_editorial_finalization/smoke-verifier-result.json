@@ -1,0 +1,5 @@
+{
+  "command": "python verify.py --start 3 --stop 8 --skip-frontier",
+  "returncode": 0,
+  "elapsed_seconds": 0.197
+}

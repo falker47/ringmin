@@ -34,24 +34,26 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 - Review the Finalized Paper II JoCG Package
+## Priority 1 - Author Review of the Finalized Paper II Package
 
-Independently review the [separate Paper II manuscript](../paper_assets/paper_ii_journal/README.md)
-and its immutable manuscript, two supplements, claim/proof map and archive.
+Review the [neutral Paper II package](../paper_assets/paper_ii_journal/README.md)
+and complete its [author checklist](../paper_assets/paper_ii_journal/EDITORIAL_CHECKLIST.md).
+The [coverage record](../paper_assets/paper_ii_journal/REVIEW_COVERAGE.md)
+consolidates the completed S1, Theorem 5, Theorem 6/S2 and Theorem 4 reviews,
+including the 3 November closure of the limit/squeeze and C* <= U4 dependency.
 The [readiness report](../paper_assets/paper_ii_journal/READINESS.md) separates
-analytic, finite-arithmetic, reproducibility and editorial gates. Review the
-exact committed SHA and its hosted checks before human submission.
-The author approved JoCG as the submission destination on 2026-10-24.
-No submission or Review State promotion is part of this preparation.
+inherited analysis from fresh checks of the editorial revision. Reopen a proof
+only for a concrete issue, uncovered dependency or relevant mathematical change.
 
-The public [asymptotic sequel](https://arxiv.org/abs/2609.13630) and both
-finite-paper arXiv versions remain unchanged. The author's 2026-10-23 task
-reports Paper I v2 submitted to Discrete Applied Mathematics on 2026-10-21,
-reference DA21348; that is author-supplied status, not external acceptance.
-The earlier DCG preparation is retained as historical material, not the
-current submission instruction. Publication provenance remains in
-[PUBLICATION_HISTORY.md](../knowledge/PUBLICATION_HISTORY.md); this editorial
-priority does not change any scientific claim or accepted baseline.
+JoCG submission #6357 was declined after preliminary assessment on 28 October.
+The 24 October JoCG preparation is historical; DMTCS, EJC and SIDMA are now
+proposals, with no next destination selected. The author must supply the
+remaining AI-use details and personal attestations before submission.
+
+The public [asymptotic sequel](https://arxiv.org/abs/2609.13630), both finite
+arXiv versions and S1 remain unchanged. This editorial priority changes no
+scientific claim or accepted baseline. Merge, Registry promotion, arXiv
+replacement and journal submission remain separate decisions.
 
 ## Subsequent asymptotic scientific questions
 

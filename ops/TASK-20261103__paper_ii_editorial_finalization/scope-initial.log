@@ -1,0 +1,11 @@
+PASS exact editorial source substitutions and unchanged abstract: main
+PASS exact editorial source substitutions and unchanged abstract: upper_supplement
+PASS 804 protected baseline files byte-identical, including all S1 and earlier dossiers
+Traceback (most recent call last):
+  File "<repository>/ops/TASK-20261103__paper_ii_editorial_finalization/check_scope.py", line 103, in <module>
+    main()
+  File "<repository>/ops/TASK-20261103__paper_ii_editorial_finalization/check_scope.py", line 92, in main
+    require(line == line.rstrip(" \t"), f"Trailing whitespace: {path}:{number}")
+  File "<repository>/ops/TASK-20261103__paper_ii_editorial_finalization/check_scope.py", line 30, in require
+    raise RuntimeError(message)
+RuntimeError: Trailing whitespace: ops/TASK-20261103__paper_ii_editorial_finalization/pytest-verbose.log:72

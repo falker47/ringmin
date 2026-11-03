@@ -30,8 +30,9 @@ def manifest(files):
         "schema": "ringmin-paper-ii-journal-v1",
         "repository": "falker47/ringmin", "baseline_commit": BASE,
         "scientific_source_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+        "editorial_base_commit": "d925f85c8aee2b26bca460bf33618eb65fb996b8",
         "manuscript_revision": "The Git commit containing this manifest; output hashes bind its source files.",
-        "date": "2026-10-24", "excluded_from_self_hash": ["MANIFEST.json"],
+        "date": "2026-11-03", "excluded_from_self_hash": ["MANIFEST.json"],
         "outputs": {name: sha(data) for name, data in sorted(files.items())},
         "lower_supplement": {"baseline_commit": BASE,
             "manifest_sha256": sha((lower_dir() / "MANIFEST.json").read_bytes()),
@@ -103,7 +104,9 @@ def build(names):
         source = lower_dir()/"supplement.tex" if name == "lower" else HERE/(name+".tex")
         pdf, record = compile_document(source)
         if name == "lower":
-            record["matches_preserved_pdf"] = sha(pdf) == sha((lower_dir()/"supplement.pdf").read_bytes())
+            record["delivery_policy"] = "preserved-baseline"
+            record["delivered_pdf_sha256"] = sha((lower_dir()/"supplement.pdf").read_bytes())
+            record["matches_preserved_pdf"] = record["pdf_sha256"] == record["delivered_pdf_sha256"]
         else:
             (HERE/(name+".pdf")).write_bytes(pdf)
         records[name] = record
@@ -126,7 +129,7 @@ def export():
     target = HERE/"source_bundle.zip"
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as out:
         for name, data in sorted(files.items()):
-            info = zipfile.ZipInfo(name, (2026,10,24,0,0,0))
+            info = zipfile.ZipInfo(name, (2026,11,3,0,0,0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             out.writestr(info, data)

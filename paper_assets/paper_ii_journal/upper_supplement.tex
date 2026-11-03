@@ -23,7 +23,7 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \title{Reflected Blocks, Implicit Parameters,\\and Full Geometric Recovery}
 \author{Maurizio Falconi}
-\date{24 October 2026}
+\date{3 November 2026}
 \begin{document}
 \maketitle
 \linenumbers
@@ -191,8 +191,10 @@ Define exact integers
  \quad a_0=0,\quad a_j=\sum_{h\le j}l_h,\quad z=a_k,
  \quad r=m-s,
 \]
-and $H(u)=m+1+((u+s-1)\bmod m)$. On the block $(a_{j-1},a_j]$ put
-$J(i)=2a_{j-1}+l_j+2-i$ when $i$ is even, and $J(i)=i$ otherwise.
+and $H(u)=m+1+((u+s-1)\bmod m)$. For every $i\in\{1,\ldots,m\}$,
+put $J(i)=2a_{j-1}+l_j+2-i$ if $i$ is even and belongs to a block
+$(a_{j-1},a_j]$, and put $J(i)=i$ otherwise. In particular, $J$ fixes
+every index outside the inversion blocks.
 Set $P_i=H(J(i))$, $P_0=P_m$. Each block reverses its even ranks and
 fixes its odd ranks, giving a disjoint involution; $H$ is a bijection.
 Lengths zero and two cause no exception. Since

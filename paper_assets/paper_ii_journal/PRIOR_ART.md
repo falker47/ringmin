@@ -51,9 +51,15 @@ is now cited in the candidate introduction. No broad citation-graph review was r
 
 ## Publication Separation
 
-The author's mission reports Paper I v2 submitted to Discrete Applied
-Mathematics on 2026-10-21, manuscript DA21348. This is author-supplied status,
-not independently verified acceptance. Paper II is a separate manuscript for the author-approved JoCG destination and
-has not been submitted by this task. Any eventual editor communication should
-disclose both arXiv versions and the related Paper I submission. No journal
-acceptance or publication is claimed for Paper I.
+The 23 October preparation recorded the author's report that Paper I v2 was
+submitted to Discrete Applied Mathematics on 2026-10-21, manuscript DA21348.
+That is dated history, not a fresh check of its current editorial disposition.
+Paper II is separate. Its JoCG submission #6357 was declined after preliminary
+assessment on 2026-10-28; the supplied record communicates no specific
+mathematical objection. The next venue is not selected. Any eventual editor
+communication should disclose the preprints and accurately describe the related
+Paper I, using its live status if needed. No journal acceptance is claimed.
+
+This publication-state paragraph was updated on 2026-11-03. The targeted
+literature comparison above retains its original 2026-10-23 scope and date;
+no new literature or novelty audit is implied.
