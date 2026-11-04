@@ -1,10 +1,10 @@
 # ringmin
 
-Ringmin is a computational-geometry research project studying the **minimum central circle problem**: given circles of radii \(1,2,\ldots,n\), arrange them around a central circle so that every surrounding circle is externally tangent to the central one, no two surrounding circles overlap, and the central radius \(R\) is as small as possible.
+Ringmin is a computational-geometry research project studying the **minimum central circle problem**: given circles of radii $1,2,\ldots,n$, arrange them around a central circle so that every surrounding circle is externally tangent to the central one, no two surrounding circles overlap, and the central radius $R$ is as small as possible.
 
-The project combines mathematical analysis, geometric optimization, computational certificates, and reproducible research code. Its two public arXiv preprints address complementary questions: **finite global optimization** and **asymptotic behavior as \(n\to\infty\)**.
+The project combines mathematical analysis, geometric optimization, computational certificates, and reproducible research code. Its two public arXiv preprints address complementary questions: **finite global optimization** and **asymptotic behavior as $n\to\infty$**.
 
-The repository also contains a standalone exact-arithmetic verifier establishing rigorous global radius brackets for \(3\le n\le14\). Those computer-certified results are distinct from theoretical results for arbitrary \(n\), numerical reconstructions, and heuristic observations.
+The repository also contains a standalone exact-arithmetic verifier establishing rigorous global radius brackets for $3\le n\le14$. Those computer-certified results are distinct from theoretical results for arbitrary $n$, numerical reconstructions, and heuristic observations.
 
 **Navigate:** [Publications](#publications) · [Mathematical scope](#mathematical-scope) · [Certified finite results](#certified-finite-results) · [Quick verification](#quick-verification) · [Full certification and regeneration](#full-certification-and-regeneration) · [How to cite](#how-to-cite) · [Repository layout](#repository-layout) · [Non-technical explainer (Italian)](SPIEGAMI.md)
 
@@ -16,11 +16,11 @@ The repository also contains a standalone exact-arithmetic verifier establishing
 
 [arXiv:2607.28654v2](https://arxiv.org/abs/2607.28654v2) · 2026 · Computational Geometry (cs.CG)
 
-The finite paper establishes the Supnick/anti-Monge structure of the adjacent-chain ordering problem, develops an all-pairs geometric feasibility model, and reports computer-certified global optima for \(3\le n\le14\).
+The finite paper establishes the Supnick/anti-Monge structure of the adjacent-chain ordering problem, develops an all-pairs geometric feasibility model, and reports computer-certified global optima for $3\le n\le14$.
 
 Its central distinction is that **an optimal adjacent-chain order need not produce a feasible arrangement of all the circles**. Nonadjacent pairs impose additional constraints, and some smaller circles may become floating circles, touching only the central circle.
 
-The public corrective v2 preserves the finite results while correcting the asymptotic conjectures made in v1. In particular, the former conjecture \(R^\ast(n)\sim n^2/8\) was disproved by subsequent work.
+The public corrective v2 preserves the finite results while correcting the asymptotic conjectures made in v1. In particular, the former conjecture $R^\ast(n)\sim n^2/8$ was disproved by subsequent work.
 
 Repository materials:
 
@@ -37,17 +37,17 @@ Repository materials:
 
 The standalone sequel studies what happens as the number of surrounding circles grows. It establishes the quadratic-scale asymptotic relation
 
-\[
+$
 R^\ast(n)=C_\ast n^2+o(n^2)
-\]
+$
 
-and characterizes \(C_\ast\) through finite balanced-word linear programs.
+and characterizes $C_\ast$ through finite balanced-word linear programs.
 
-For \(k\) mark types and words of length \(r\), the construction provides rigorous upper and lower bounds whose gap is
+For $k$ mark types and words of length $r$, the construction provides rigorous upper and lower bounds whose gap is
 
-\[
+$
 \frac{1/k+1/r}{\pi},
-\]
+$
 
 before directed arithmetic error.
 
@@ -55,17 +55,17 @@ This gives an effective characterization of the constant to arbitrary prescribed
 
 The explicit bounds include
 
-\[
+$
 C_{\mathrm{term}}+\eta_{\mathrm{width}}
 \le C_\ast\le U_4,
-\]
+$
 
 with
 
-\[
+$
 C_{\mathrm{term}}+\eta_{\mathrm{width}}
 >0.14056946887766098063257>\frac18.
-\]
+$
 
 Neither endpoint is claimed to equal the true constant. The four-block upper construction includes genuine-permutation recovery and full geometric feasibility.
 
@@ -86,32 +86,32 @@ Both papers are publicly available as arXiv preprints. Journal preparation and a
 
 ### The geometric model
 
-For surrounding radii \(a,b>0\) and central radius \(R>0\), the minimum angular separation required to prevent overlap is
+For surrounding radii $a,b>0$ and central radius $R>0$, the minimum angular separation required to prevent overlap is
 
-\[
+$
 \theta_R(a,b)
 =2\arcsin\sqrt{\frac{ab}{(R+a)(R+b)}}.
-\]
+$
 
-For a cyclic order \(\sigma\), three quantities must be distinguished:
+For a cyclic order $\sigma$, three quantities must be distinguished:
 
-- \(R_{\mathrm{chain}}(\sigma)\): the radius obtained by closing the chain of consecutive angular separations.
-- \(R_{\mathrm{full}}(\sigma)\): the minimum radius permitting a placement satisfying **all pairwise non-overlap constraints** in that fixed cyclic order.
-- \(R^\ast(n)=\min_\sigma R_{\mathrm{full}}(\sigma)\): the global minimum over all cyclic orders.
+- $R_{\mathrm{chain}}(\sigma)$: the radius obtained by closing the chain of consecutive angular separations.
+- $R_{\mathrm{full}}(\sigma)$: the minimum radius permitting a placement satisfying **all pairwise non-overlap constraints** in that fixed cyclic order.
+- $R^\ast(n)=\min_\sigma R_{\mathrm{full}}(\sigma)$: the global minimum over all cyclic orders.
 
 For every order,
 
-\[
+$
 R_{\mathrm{chain}}(\sigma)
 \le R_{\mathrm{full}}(\sigma).
-\]
+$
 
 Consequently,
 
-\[
+$
 \min_\sigma R_{\mathrm{chain}}(\sigma)
 \le R^\ast(n).
-\]
+$
 
 The Supnick/anti-Monge theorem identifies a minimizing order for the adjacent-chain relaxation. Its geometric realizability is a separate question. The full fixed-order feasibility problem is represented through pairwise angular constraints, equivalently a Simple Temporal Network (STN).
 
@@ -124,7 +124,7 @@ The project distinguishes several forms of evidence:
 | Claim type | Supported scope |
 |---|---|
 | Mathematical theorems | Results proved in the cited manuscripts and research notes, subject to their stated assumptions |
-| Exact-arithmetic computer certification | Rigorous global intervals for \(R^\ast(n)\), for \(n=3,\ldots,14\), using finite combinatorial coverage and rational arithmetic |
+| Exact-arithmetic computer certification | Rigorous global intervals for $R^\ast(n)$, for $n=3,\ldots,14$, using finite combinatorial coverage and rational arithmetic |
 | Historical numerical certification | The finite solver, frontier artifacts and independent 50-digit checks, subject to the documented numerical guards |
 | High-precision reconstruction | Numerical values and reported geometric structures for saved candidate configurations |
 | Heuristic optimization | Candidate arrangements and patterns beyond the certified finite range |
@@ -140,27 +140,27 @@ The authoritative classification of the project's stable claims is maintained in
 
 ### Exact global radius brackets
 
-The repository contains a standalone exact-arithmetic verification route supporting, for every integer \(n=3,\ldots,14\),
+The repository contains a standalone exact-arithmetic verification route supporting, for every integer $n=3,\ldots,14$,
 
-\[
+$
 \boxed{L_n<R^\ast(n)\le U_n,\qquad U_n-L_n=10^{-11}.}
-\]
+$
 
-Here \(L_n\) and \(U_n\) are exact rational endpoints supplied by the preserved certificate. They are not assertions that \(R^\ast(n)\) has a known exact decimal expansion.
+Here $L_n$ and $U_n$ are exact rational endpoints supplied by the preserved certificate. They are not assertions that $R^\ast(n)$ has a known exact decimal expansion.
 
 The certificate combines:
 
 1. Rigorous outward-checked angular intervals.
 2. Complete canonical-order coverage, using integer dynamic programming, pruning and explicit insertion cases.
-3. Strict lower-bound margins excluding feasible configurations at and immediately above \(L_n\).
-4. Exact rational Cartesian witnesses establishing feasible arrangements at \(U_n\).
+3. Strict lower-bound margins excluding feasible configurations at and immediately above $L_n$.
+4. Exact rational Cartesian witnesses establishing feasible arrangements at $U_n$.
 5. Input-integrity and provenance checks tied to the preserved certificate.
 
 The complete verifier is [`verify_global_brackets.py`](verify_global_brackets.py). It uses the Python standard library only and does not rely on the production solver, historical floating-point frontier pruning, checkpoint files or an exhaustive-search replay.
 
 The [global bracket proof note](research/GLOBAL_BRACKET_CERTIFICATE.md) documents the mathematical derivation, completeness argument, exact inequalities, witness verification and limitations. [Certification](knowledge/CERTIFICATION.md#independent-exact-arithmetic-global-brackets) records the separate review and acceptance history for this finite result.
 
-**Scope limitation:** these brackets certify the global radius to the stated interval width. They do not, by themselves, establish an exact optimal cyclic order, uniqueness, a universally valid contact graph, or any result for \(n>14\).
+**Scope limitation:** these brackets certify the global radius to the stated interval width. They do not, by themselves, establish an exact optimal cyclic order, uniqueness, a universally valid contact graph, or any result for $n>14$.
 
 ### Reported optimal configurations
 
@@ -168,7 +168,7 @@ The following 30-digit numerical reconstructions and representative configuratio
 
 The table retains the finite study's reported incumbent orders and floating sets. A floating circle is tangent to the central circle but need not touch any other surrounding circle in the reported placement.
 
-| \(n\) | Reported \(R^\ast\) (numerical reconstruction) | Reported incumbent cycle | Floating circles |
+| $n$ | Reported $R^\ast$ (numerical reconstruction) | Reported incumbent cycle | Floating circles |
 |---:|---|---|---|
 | 3 | 0.260869565217391304347826086957 | `[3, 1, 2]` | `{}` |
 | 4 | 0.844453589560855604347528524674 | `[4, 1, 3, 2]` | `{}` |
@@ -183,7 +183,7 @@ The table retains the finite study's reported incumbent orders and floating sets
 | 13 | 18.3175630472173206282821941532 | `[13, 3, 1, 12, 2, 10, 6, 8, 7, 9, 5, 11, 4]` | `{1}` |
 | 14 | 21.6653951822145150956462891793 | `[14, 3, 13, 2, 9, 8, 7, 10, 6, 11, 5, 1, 12, 4]` | `{1,2}` |
 
-The printed precision is numerical reconstruction precision, **not a claim of 30 certified decimal places**. The historical finite certification reports an absolute global-radius guard of \(10^{-10}\), with local checks near \(R^\ast\pm10^{-12}\) and 50-digit arithmetic. The later exact-arithmetic route establishes the separate \(10^{-11}\)-wide global brackets.
+The printed precision is numerical reconstruction precision, **not a claim of 30 certified decimal places**. The historical finite certification reports an absolute global-radius guard of $10^{-10}$, with local checks near $R^\ast\pm10^{-12}$ and 50-digit arithmetic. The later exact-arithmetic route establishes the separate $10^{-11}$-wide global brackets.
 
 The reported orders and floating sets describe saved representative configurations. Their appearance in the table does not establish uniqueness or the same floating structure for every global optimum.
 
@@ -242,8 +242,8 @@ The smoke command checks the selected incumbent configurations and local-radius 
 [GitHub Actions CI](.github/workflows/ci.yml) runs on pushes and pull requests. The workflow currently installs the pinned dependencies with Python 3.14 and executes:
 
 - The pytest suite.
-- The historical verifier smoke test for \(n=3,\ldots,8\), with frontier checks skipped.
-- The complete standalone exact-arithmetic global bracket verifier for \(n=3,\ldots,14\).
+- The historical verifier smoke test for $n=3,\ldots,8$, with frontier checks skipped.
+- The complete standalone exact-arithmetic global bracket verifier for $n=3,\ldots,14$.
 
 The workflow does not regenerate exhaustive searches or run the full historical frontier audit.
 
@@ -301,13 +301,13 @@ See the [historical evidence restoration dossier](ops/TASK-20260911__portable_fr
 
 These commands are intended for research-level regeneration, not ordinary installation or CI.
 
-The recorded historical sweep used `K=20000` for \(n\le13\) and `K=50000` for \(n=14\).
+The recorded historical sweep used `K=20000` for $n\le13$ and `K=50000` for $n=14$.
 
 ```bash
 python scripts/sweep_certified.py --start 3 --stop 13 --k 20000 --workers 8 --resume
 ```
 
-For \(n=14\), the sweep can be run directly:
+For $n=14$, the sweep can be run directly:
 
 ```bash
 python scripts/sweep_certified.py --start 14 --stop 14 --k 50000 --workers 8 --resume
@@ -319,9 +319,9 @@ A Windows detached execution wrapper is also provided:
 powershell -File scripts/start_detached_sweep.ps1 -Start 14 -Stop 14 -K 50000 -Workers 8 -Resume
 ```
 
-These searches can be computationally expensive, especially for \(n=13,14\). Checkpoint pickle files are not tracked by Git and cannot be reconstructed merely by restoring archived progress logs.
+These searches can be computationally expensive, especially for $n=13,14$. Checkpoint pickle files are not tracked by Git and cannot be reconstructed merely by restoring archived progress logs.
 
-The saved \(n=14\) historical frontier was extracted from the existing `K=50000` checkpoint heaps; the documented extraction did not require a new Stage-A sweep.
+The saved $n=14$ historical frontier was extracted from the existing `K=50000` checkpoint heaps; the documented extraction did not require a new Stage-A sweep.
 
 ### Regenerate high-precision and frontier artifacts
 
