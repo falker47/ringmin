@@ -37,17 +37,17 @@ Repository materials:
 
 The standalone sequel studies what happens as the number of surrounding circles grows. It establishes the quadratic-scale asymptotic relation
 
-$
+$$
 R^\ast(n)=C_\ast n^2+o(n^2)
-$
+$$
 
 and characterizes $C_\ast$ through finite balanced-word linear programs.
 
 For $k$ mark types and words of length $r$, the construction provides rigorous upper and lower bounds whose gap is
 
-$
+$$
 \frac{1/k+1/r}{\pi},
-$
+$$
 
 before directed arithmetic error.
 
@@ -55,17 +55,17 @@ This gives an effective characterization of the constant to arbitrary prescribed
 
 The explicit bounds include
 
-$
+$$
 C_{\mathrm{term}}+\eta_{\mathrm{width}}
 \le C_\ast\le U_4,
-$
+$$
 
 with
 
-$
+$$
 C_{\mathrm{term}}+\eta_{\mathrm{width}}
 >0.14056946887766098063257>\frac18.
-$
+$$
 
 Neither endpoint is claimed to equal the true constant. The four-block upper construction includes genuine-permutation recovery and full geometric feasibility.
 
@@ -88,10 +88,10 @@ Both papers are publicly available as arXiv preprints. Journal preparation and a
 
 For surrounding radii $a,b>0$ and central radius $R>0$, the minimum angular separation required to prevent overlap is
 
-$
+$$
 \theta_R(a,b)
 =2\arcsin\sqrt{\frac{ab}{(R+a)(R+b)}}.
-$
+$$
 
 For a cyclic order $\sigma$, three quantities must be distinguished:
 
@@ -101,17 +101,17 @@ For a cyclic order $\sigma$, three quantities must be distinguished:
 
 For every order,
 
-$
+$$
 R_{\mathrm{chain}}(\sigma)
 \le R_{\mathrm{full}}(\sigma).
-$
+$$
 
 Consequently,
 
-$
+$$
 \min_\sigma R_{\mathrm{chain}}(\sigma)
 \le R^\ast(n).
-$
+$$
 
 The Supnick/anti-Monge theorem identifies a minimizing order for the adjacent-chain relaxation. Its geometric realizability is a separate question. The full fixed-order feasibility problem is represented through pairwise angular constraints, equivalently a Simple Temporal Network (STN).
 
@@ -142,9 +142,9 @@ The authoritative classification of the project's stable claims is maintained in
 
 The repository contains a standalone exact-arithmetic verification route supporting, for every integer $n=3,\ldots,14$,
 
-$
+$$
 \boxed{L_n<R^\ast(n)\le U_n,\qquad U_n-L_n=10^{-11}.}
-$
+$$
 
 Here $L_n$ and $U_n$ are exact rational endpoints supplied by the preserved certificate. They are not assertions that $R^\ast(n)$ has a known exact decimal expansion.
 
