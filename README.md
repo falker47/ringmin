@@ -1,168 +1,174 @@
 # ringmin
 
-Ringmin is a computational-geometry research project on the **minimum central
-circle problem**: circles of radii `1,2,...,n` are externally tangent to a
-central circle, and the goal is to minimize the central radius `R`.
+Ringmin is a computational-geometry research project studying the **minimum central circle problem**: given circles of radii $1,2,\ldots,n$, arrange them around a central circle so that every surrounding circle is externally tangent to the central one, no two surrounding circles overlap, and the central radius $R$ is as small as possible.
 
-The project has produced **two public papers** covering complementary sides of
-the problem: certified finite optimization and global asymptotic theory.
+The project combines mathematical analysis, geometric optimization, computational certificates, and reproducible research code. Its two public arXiv preprints address complementary questions: **finite global optimization** and **asymptotic behavior as $n\to\infty$**.
 
-**Navigate:** [Publications](#publications) · [How to cite](#how-to-cite) · [Mathematical scope](#mathematical-scope) · [Quick verification](#quick-verification) · [Certified results](#certified-results) · [Full certification and regeneration](#full-certification-and-regeneration) · [Repository layout](#layout) · [Non-technical explainer (IT)](SPIEGAMI.md)
+The repository also contains a standalone exact-arithmetic verifier establishing rigorous global radius brackets for $3\le n\le14$. Those computer-certified results are distinct from theoretical results for arbitrary $n$, numerical reconstructions, and heuristic observations.
+
+**Navigate:** [Publications](#publications) · [Mathematical scope](#mathematical-scope) · [Certified finite results](#certified-finite-results) · [Quick verification](#quick-verification) · [Full certification and regeneration](#full-certification-and-regeneration) · [How to cite](#how-to-cite) · [Repository layout](#repository-layout) · [Non-technical explainer (Italian)](SPIEGAMI.md)
 
 ## Publications
 
-### Paper I — finite problem and certified optima
+### Paper I — finite optimization and certified optima
 
-**arXiv:** [2607.28654v2](https://arxiv.org/abs/2607.28654)
+**Maurizio Falconi**, *Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima*.
 
-> Maurizio Falconi, *Arranging circles of radii 1,2,...,n around a central
-> circle: a Supnick TSP and certified finite optima*, arXiv:2607.28654
-> [cs.CG], 2026.
+[arXiv:2607.28654v2](https://arxiv.org/abs/2607.28654v2) · 2026 · Computational Geometry (cs.CG)
 
-The finite paper is accompanied here by the solver code, independent verifier,
-certificate artifacts, and paper source/PDF. The repository certifies the
-global optimum for `n=3..14`; larger-`n` candidate optima remain heuristic.
+The finite paper establishes the Supnick/anti-Monge structure of the adjacent-chain ordering problem, develops an all-pairs geometric feasibility model, and reports computer-certified global optima for $3\le n\le14$.
+
+Its central distinction is that **an optimal adjacent-chain order need not produce a feasible arrangement of all the circles**. Nonadjacent pairs impose additional constraints, and some smaller circles may become floating circles, touching only the central circle.
+
+The public corrective v2 preserves the finite results while correcting the asymptotic conjectures made in v1. In particular, the former conjecture $R^\ast(n)\sim n^2/8$ was disproved by subsequent work.
+
+Repository materials:
+
+- [Corrective v2 manuscript and source](paper_assets/v1_correction/README.md)
+- [Historical finite-paper source](paper_assets/ringmin_paper.tex)
+- [Finite certification evidence](knowledge/CERTIFICATION.md)
+- [Publication history](knowledge/PUBLICATION_HISTORY.md)
 
 ### Paper II — global asymptotic theory
 
-**arXiv:** [2609.13630](https://arxiv.org/abs/2609.13630)
+**Maurizio Falconi**, *Minimum central circles: an effective characterization of the global asymptotic constant*.
 
-> Maurizio Falconi, *Minimum central circles: an effective characterization of
-> the global asymptotic constant*, arXiv:2609.13630, 2026.
+[arXiv:2609.13630](https://arxiv.org/abs/2609.13630) · 2026 · Metric Geometry (math.MG), Computational Geometry (cs.CG)
 
-The standalone sequel studies the asymptotic regime. It proves
-<em>R</em><sup>*</sup>(<em>n</em>) = <em>C</em><sub>*</sub><em>n</em><sup>2</sup> + o(<em>n</em><sup>2</sup>) and characterizes <em>C</em><sub>*</sub> by finite balanced-word linear
-programs with rigorous bracket width $(1/k+1/r)/\pi$. This gives an effective
-arbitrary-precision characterization in principle; an elementary formula and
-an efficient evaluation algorithm remain open.
+The standalone sequel studies what happens as the number of surrounding circles grows. It establishes the quadratic-scale asymptotic relation
 
-The [current explicit bounds](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md) give
-<em>C</em><sub>term</sub> + η<sub>width</sub> ≤ <em>C</em><sub>*</sub> ≤ <em>U</em><sub>4</sub>, with the lower endpoint greater than
-$0.14056946887766098063257 > 1/8$. The four-block upper bound has
-[genuine-permutation recovery and full feasibility](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md).
-These post-v1 theorems have passed internal adversarial review; independent
-external acceptance is pending.
+$$
+R^\ast(n)=C_\ast n^2+o(n^2)
+$$
 
-The two-paper publication architecture is preserved in the repository: the
-[standalone asymptotic sequel](paper_assets/asymptotic_sequel/README.md) and the
-[conservative corrective v2 of the finite paper](paper_assets/v1_correction/README.md).
-See the [publication history](knowledge/PUBLICATION_HISTORY.md) and
-[finalization dossier](ops/TASK-20260915__finalize_corrective_v2/TASK_STATUS.md).
-The former [replacement candidate](paper_assets/v2/README.md) is superseded
-provenance, not the recommended next upload.
+and characterizes $C_\ast$ through finite balanced-word linear programs.
 
-The historical v1 artifact is unchanged. The fixed-order
-feasibility oracle is a high-precision Simple Temporal Network check over all
-pairwise angular constraints; chain-only values are used only as lower bounds.
+For $k$ mark types and words of length $r$, the construction provides rigorous upper and lower bounds whose gap is
 
-> 🇮🇹 Per una spiegazione semplice e non tecnica del problema e dei risultati principali, consulta il documento [SPIEGAMI.md](SPIEGAMI.md).
+$$
+\frac{1/k+1/r}{\pi},
+$$
 
-## How to cite
+before directed arithmetic error.
 
-Ringmin has two public papers. Cite the one corresponding to the result you use;
-cite both when referring to the project across its finite and asymptotic scope.
+This gives an effective characterization of the constant to arbitrary prescribed precision in principle. It does not provide an elementary closed form or an established efficient high-precision evaluation algorithm.
 
-**Paper I — finite problem and certified optima**
+The explicit bounds include
 
-> Maurizio Falconi, *Arranging circles of radii 1,2,...,n around a central
-> circle: a Supnick TSP and certified finite optima*, arXiv:2607.28654
-> [cs.CG], 2026.
+$$
+C_{\mathrm{term}}+\eta_{\mathrm{width}}
+\le C_\ast\le U_4,
+$$
 
-**Paper II — global asymptotic theory**
+with
 
-> Maurizio Falconi, *Minimum central circles: an effective characterization of
-> the global asymptotic constant*, arXiv:2609.13630, 2026.
+$$
+C_{\mathrm{term}}+\eta_{\mathrm{width}}
+>0.14056946887766098063257>\frac18.
+$$
 
-`CITATION.cff` remains the machine-readable citation metadata for the software
-and finite-certificate companion.
+Neither endpoint is claimed to equal the true constant. The four-block upper construction includes genuine-permutation recovery and full geometric feasibility.
 
-The software [version DOI](https://doi.org/10.5281/zenodo.22849826) identifies
-release `v1.1.0-dcg-presubmission`, commit `80919666c3c54f8ce20cf66c456d413f6a2c075f`.
-The later [archive evidence dossier](ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md)
-preserves the completed audit; it and subsequent commits are outside that snapshot.
+The theoretical arguments, their dependencies, and the internal adversarial reviews are documented in the repository. Internal verification is not a substitute for independent external peer review or journal acceptance.
+
+Repository materials:
+
+- [Standalone sequel, source and PDF](paper_assets/asymptotic_sequel/README.md)
+- [Global asymptotic results and limitations](knowledge/GLOBAL_BOUNDS_ASYMPTOTICS.md)
+- [Global variational-limit proof](research/GLOBAL_ASYMPTOTIC_VARIATIONAL_LIMIT.md)
+- [Four-block geometric recovery](research/PERMUTED_HALVES_GENERAL_BLOCK_TRANSFER.md)
+
+Both papers are publicly available as arXiv preprints. Journal preparation and any subsequent editorial review are separate from these public versions; this README does not claim journal acceptance.
+
+> **Italian introduction:** [SPIEGAMI.md](SPIEGAMI.md) explains the geometric problem, the main results, and the distinction between finite certification and asymptotic theory without requiring specialist background.
 
 ## Mathematical scope
 
-This project studies the geometric optimization problem of arranging circles
-of radii `1,2,...,n` around a central circle while minimizing the central
-radius. **Paper I** treats the finite problem: it proves that the chain-ordering
-lower-bound problem is a fixed Supnick/anti-Monge TSP and uses explicit
-certificate artifacts plus an independent verifier to certify global optima for
-`3 <= n <= 14`. Larger-`n` global optima remain uncertified.
+### The geometric model
 
-**Paper II** treats the global asymptotic regime, proving the existence of the
-quadratic-scale limit and giving an effective finite-word LP characterization
-of its constant <em>C</em><sub>*</sub>. Current exact results, publication boundaries, and
-remaining open claims are recorded in [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md).
+For surrounding radii $a,b>0$ and central radius $R>0$, the minimum angular separation required to prevent overlap is
 
-## Environment
+$$
+\theta_R(a,b)
+=2\arcsin\sqrt{\frac{ab}{(R+a)(R+b)}}.
+$$
 
+For a cyclic order $\sigma$, three quantities must be distinguished:
 
-The submission-gate environment is pinned in `requirements.txt` and was:
+- $R_{\mathrm{chain}}(\sigma)$: the radius obtained by closing the chain of consecutive angular separations.
+- $R_{\mathrm{full}}(\sigma)$: the minimum radius permitting a placement satisfying **all pairwise non-overlap constraints** in that fixed cyclic order.
+- $R^\ast(n)=\min_\sigma R_{\mathrm{full}}(\sigma)$: the global minimum over all cyclic orders.
 
-- Python `3.14.3`
-- `numpy==2.4.3`
-- `scipy==1.17.1`
-- `mpmath==1.3.0`
-- `matplotlib==3.10.9`
-- `pytest==9.0.2`
+For every order,
 
-Install:
+$$
+R_{\mathrm{chain}}(\sigma)
+\le R_{\mathrm{full}}(\sigma).
+$$
 
-```bash
-python -m pip install -r requirements.txt
-python -m pip install -e ".[test]"
-```
+Consequently,
 
-`pyproject.toml` intentionally leaves runtime dependencies unpinned for normal
-editable development; use `requirements.txt` for the exact submission
-reproduction environment.
+$$
+\min_\sigma R_{\mathrm{chain}}(\sigma)
+\le R^\ast(n).
+$$
 
-## Quick Verification
+The Supnick/anti-Monge theorem identifies a minimizing order for the adjacent-chain relaxation. Its geometric realizability is a separate question. The full fixed-order feasibility problem is represented through pairwise angular constraints, equivalently a Simple Temporal Network (STN).
 
-These checks are intended for a quick local or CI smoke test. They do not
-regenerate the long-run certificates.
+See [Definitions and Core Model](knowledge/DEFINITIONS.md) and [Fixed-Order Theory](knowledge/FIXED_ORDER_THEORY.md).
 
-```bash
-python -m pip install -r requirements.txt
-python -m pip install -e ".[test]"
-python -m pytest
-python verify.py --start 3 --stop 8 --skip-frontier
-```
+### Evidence and claim boundaries
 
-The smoke verifier skips the frontier/progress-log audit. To run the complete
-certified scope from a fresh clone, restore the exact historical logs from
-their tracked, hash-checked archives first:
+The project distinguishes several forms of evidence:
 
-```bash
-python scripts/frontier_logs.py restore
-python verify.py --start 3 --stop 14
-```
+| Claim type | Supported scope |
+|---|---|
+| Mathematical theorems | Results proved in the cited manuscripts and research notes, subject to their stated assumptions |
+| Exact-arithmetic computer certification | Rigorous global intervals for $R^\ast(n)$, for $n=3,\ldots,14$, using finite combinatorial coverage and rational arithmetic |
+| Historical numerical certification | The finite solver, frontier artifacts and independent 50-digit checks, subject to the documented numerical guards |
+| High-precision reconstruction | Numerical values and reported geometric structures for saved candidate configurations |
+| Heuristic optimization | Candidate arrangements and patterns beyond the certified finite range |
+| Conjectures and open questions | Claims not established by the available proofs or certificates |
 
-This restores original evidence; it does not rerun exhaustive searches.
-The [reproduction dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENCE.md)
-records a successful clean-source Windows run and its failure controls.
-POSIX execution and hosted CI for the current SHA are not inferred from it.
+In particular, a feasible arrangement establishes an **upper bound**, not global optimality. Local optimality for one cyclic order is not global optimality over every order.
 
-With `pdflatex` available, rebuild the standalone sequel artifact from a
-clean source-only tree and record its input/PDF hashes and metadata with:
+The finite results do not prove that a floating-circle pattern continues indefinitely, that a reported contact structure is unique, or that every global minimizer has the same geometry.
 
-```bash
-python paper_assets/build_publications.py sequel
-```
+The authoritative classification of the project's stable claims is maintained in [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md), with detailed evidence in its linked thematic ledgers.
 
-The [sequel](paper_assets/asymptotic_sequel/README.md) and
-[corrective-v2](paper_assets/v1_correction/README.md) build notes identify their
-source bundles and distinct publication states. Each bundle compiles directly with
-pdflatex. Historical v1 source/PDF and citation metadata remain the original
-publication record.
+## Certified finite results
 
-## Certified Results
+### Exact global radius brackets
 
-The 30-digit values are generated in `results/highprec.csv` and copied into
-`paper_assets/appendix_tables.tex`.
+The repository contains a standalone exact-arithmetic verification route supporting, for every integer $n=3,\ldots,14$,
 
-| n | R* | optimal cycle | floaters |
+$$
+\boxed{L_n<R^\ast(n)\le U_n,\qquad U_n-L_n=10^{-11}.}
+$$
+
+Here $L_n$ and $U_n$ are exact rational endpoints supplied by the preserved certificate. They are not assertions that $R^\ast(n)$ has a known exact decimal expansion.
+
+The certificate combines:
+
+1. Rigorous outward-checked angular intervals.
+2. Complete canonical-order coverage, using integer dynamic programming, pruning and explicit insertion cases.
+3. Strict lower-bound margins excluding feasible configurations at and immediately above $L_n$.
+4. Exact rational Cartesian witnesses establishing feasible arrangements at $U_n$.
+5. Input-integrity and provenance checks tied to the preserved certificate.
+
+The complete verifier is [`verify_global_brackets.py`](verify_global_brackets.py). It uses the Python standard library only and does not rely on the production solver, historical floating-point frontier pruning, checkpoint files or an exhaustive-search replay.
+
+The [global bracket proof note](research/GLOBAL_BRACKET_CERTIFICATE.md) documents the mathematical derivation, completeness argument, exact inequalities, witness verification and limitations. [Certification](knowledge/CERTIFICATION.md#independent-exact-arithmetic-global-brackets) records the separate review and acceptance history for this finite result.
+
+**Scope limitation:** these brackets certify the global radius to the stated interval width. They do not, by themselves, establish an exact optimal cyclic order, uniqueness, a universally valid contact graph, or any result for $n>14$.
+
+### Reported optimal configurations
+
+The following 30-digit numerical reconstructions and representative configurations are recorded in [`results/highprec.csv`](results/highprec.csv) and the saved `results/nNN/optimum.json` artifacts.
+
+The table retains the finite study's reported incumbent orders and floating sets. A floating circle is tangent to the central circle but need not touch any other surrounding circle in the reported placement.
+
+| $n$ | Reported $R^\ast$ (numerical reconstruction) | Reported incumbent cycle | Floating circles |
 |---:|---|---|---|
 | 3 | 0.260869565217391304347826086957 | `[3, 1, 2]` | `{}` |
 | 4 | 0.844453589560855604347528524674 | `[4, 1, 3, 2]` | `{}` |
@@ -177,33 +183,96 @@ The 30-digit values are generated in `results/highprec.csv` and copied into
 | 13 | 18.3175630472173206282821941532 | `[13, 3, 1, 12, 2, 10, 6, 8, 7, 9, 5, 11, 4]` | `{1}` |
 | 14 | 21.6653951822145150956462891793 | `[14, 3, 13, 2, 9, 8, 7, 10, 6, 11, 5, 1, 12, 4]` | `{1,2}` |
 
-Certified means global optimality up to absolute tolerance `1e-10` in `R`.
-The bisection tolerances are `1e-12`/`1e-13`, and the displayed binding
-structures are rechecked to 50 decimal digits.
+The printed precision is numerical reconstruction precision, **not a claim of 30 certified decimal places**. The historical finite certification reports an absolute global-radius guard of $10^{-10}$, with local checks near $R^\ast\pm10^{-12}$ and 50-digit arithmetic. The later exact-arithmetic route establishes the separate $10^{-11}$-wide global brackets.
 
-## Submission-Gate Verification
+The reported orders and floating sets describe saved representative configurations. Their appearance in the table does not establish uniqueness or the same floating structure for every global optimum.
 
-Run the independent verifier:
+The reconstructed values are also reproduced in [`paper_assets/appendix_tables.tex`](paper_assets/appendix_tables.tex).
+
+## Quick verification
+
+Run the following commands from the repository root.
+
+### Requirements
+
+The Python project supports Python **3.11 or newer**. The recorded submission-gate environment uses Python 3.14.3 and the exact package versions in [`requirements.txt`](requirements.txt):
+
+- `numpy==2.4.3`
+- `scipy==1.17.1`
+- `mpmath==1.3.0`
+- `matplotlib==3.10.9`
+- `pytest==9.0.2`
+
+The package configuration in [`pyproject.toml`](pyproject.toml) intentionally leaves ordinary development dependencies unpinned. Use `requirements.txt` when reproducing the recorded submission environment.
+
+Install the development and test dependencies:
 
 ```bash
+python -m pip install -r requirements.txt
+python -m pip install -e ".[test]"
+```
+
+### Verify all exact global brackets
+
+This is the recommended first check for the complete finite certified range:
+
+```bash
+python -I -S verify_global_brackets.py
+```
+
+It requires only Python 3.11+ and the tracked certificate files. Third-party packages and installation of `ringmin` are unnecessary for this standalone command.
+
+The verifier checks all twelve cases, mathematical certificate content, and the pinned original-input identities. It has no partial-case or skipped-proof success mode.
+
+Its optional `--mathematical-only` mode retains the complete mathematical checks but deliberately omits historical input-identity verification. See [the verifier documentation](reproducibility/global_brackets/README.md) before using that option.
+
+For the exact mathematical argument and the limits of the preserved evidence, consult [`research/GLOBAL_BRACKET_CERTIFICATE.md`](research/GLOBAL_BRACKET_CERTIFICATE.md). Re-executing the verifier is a reproducibility check, not a new independent mathematical peer review.
+
+### Run tests and the historical verifier smoke check
+
+```bash
+python -m pytest
+python verify.py --start 3 --stop 8 --skip-frontier
+```
+
+The smoke command checks the selected incumbent configurations and local-radius behavior, but explicitly skips the historical frontier audit. It must not be presented as a complete global certificate.
+
+### Continuous integration
+
+[GitHub Actions CI](.github/workflows/ci.yml) runs on pushes and pull requests. The workflow currently installs the pinned dependencies with Python 3.14 and executes:
+
+- The pytest suite.
+- The historical verifier smoke test for $n=3,\ldots,8$, with frontier checks skipped.
+- The complete standalone exact-arithmetic global bracket verifier for $n=3,\ldots,14$.
+
+The workflow does not regenerate exhaustive searches or run the full historical frontier audit.
+
+A successful CI run verifies the configured checks for its specific commit, not the correctness of every mathematical proof or unpublished conjecture.
+
+## Full certification and regeneration
+
+The following procedures serve different purposes. The exact global bracket verifier is self-contained; the historical frontier route and long-running search regeneration are separate.
+
+### Historical high-precision and frontier verification
+
+The historical verifier, [`verify.py`](verify.py), is implemented using the Python standard library and `mpmath`, independently of `src/ringmin`.
+
+It checks three layers:
+
+1. **Incumbent feasibility:** reads the saved `optimum.json` artifacts, reconstructs angular constraints at 50-digit precision, and examines witness positions, all-pairs non-overlap, essential pairs and floating circles.
+2. **Local optimality:** checks feasibility at the reported radius plus a small tolerance and infeasibility at the reported radius minus that tolerance for the saved order.
+3. **Historical global pruning evidence:** checks frontier hashes, canonical enumeration metadata, progress logs, saved lower bounds and numerical guards.
+
+On a fresh clone, restore the exact archived historical progress logs before performing the complete historical verification:
+
+```bash
+python scripts/frontier_logs.py restore
 python verify.py --start 3 --stop 14
 ```
 
-`verify.py` imports only the Python standard library and `mpmath`. It does not
-import `src/ringmin`. It checks three layers for every certified `n`:
+The restoration checks archive hashes and original log bytes and refuses to overwrite differing evidence. It **restores the saved historical logs**; it does not regenerate the exhaustive search.
 
-1. Incumbent feasibility: reloads `results/nNN/optimum.json`, rebuilds the
-   theta matrix at 50 digits, checks the saved witness angles, all pairwise
-   angular constraints, Cartesian non-overlap, essential pairs, and floating
-   circles.
-2. Local optimality for the incumbent order: verifies feasibility at
-   `R* + 1e-12` and infeasibility at `R* - 1e-12`.
-3. Global pruning certificate: reloads `results/frontiers/nNN_frontier.json`,
-   verifies enumeration counts, canonicalization metadata, progress-log proof,
-   frontier hash, top-excluded guard, and recomputes every frontier lower bound
-   at 50 digits.
-
-Current verifier summary:
+A recorded historical full-verifier run reports:
 
 ```text
 n=03 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=1 total=1
@@ -220,56 +289,64 @@ n=13 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=10 total=
 n=14 incumbent=PASS local=PASS frontier=PASS eta=1.0e-12 frontier_size=11 total=3113510400
 ```
 
-The n=14 frontier was extracted from the existing `K=50000` checkpoint heaps;
-no Stage-A rerun was needed.
+These are recorded results, not a claim that the complete historical verifier runs on every CI commit.
 
-## Full Certification And Regeneration
+The historical frontier method used floating-point lower bounds during Stage A and high-precision rechecking of saved frontier candidates. Its retained Top-K comparisons and frontier-completeness assumptions have documented limitations.
 
-The following commands are for full audit or artifact regeneration. They are not
-CI checks: the certified sweeps, especially `n=13` and `n=14`, are long-running
-jobs.
+High-precision verification of retained orders does not independently prove every historical exclusion decision. The accepted exact-arithmetic global bracket route avoids that dependency for its stated finite claim.
 
-Run tests:
+See the [historical evidence restoration dossier](ops/TASK-20260911__portable_frontier_evidence/EVIDENCE.md), [Certification](knowledge/CERTIFICATION.md) and [Implementation](knowledge/IMPLEMENTATION.md).
 
-```bash
-python -m pytest
-```
+### Regenerate exhaustive searches
 
-Regenerate certified searches:
+These commands are intended for research-level regeneration, not ordinary installation or CI.
+
+The recorded historical sweep used `K=20000` for $n\le13$ and `K=50000` for $n=14$.
 
 ```bash
 python scripts/sweep_certified.py --start 3 --stop 13 --k 20000 --workers 8 --resume
-powershell -ExecutionPolicy Bypass -File scripts/start_detached_sweep.ps1 -Start 14 -Stop 14 -K 50000 -Workers 8 -Resume
 ```
 
-Run the full independent certificate verifier:
+For $n=14$, the sweep can be run directly:
 
 ```bash
-python verify.py --start 3 --stop 14
+python scripts/sweep_certified.py --start 14 --stop 14 --k 50000 --workers 8 --resume
 ```
 
-Regenerate high-precision values and certificate metadata:
+A Windows detached execution wrapper is also provided:
+
+```powershell
+powershell -File scripts/start_detached_sweep.ps1 -Start 14 -Stop 14 -K 50000 -Workers 8 -Resume
+```
+
+These searches can be computationally expensive, especially for $n=13,14$. Checkpoint pickle files are not tracked by Git and cannot be reconstructed merely by restoring archived progress logs.
+
+The saved $n=14$ historical frontier was extracted from the existing `K=50000` checkpoint heaps; the documented extraction did not require a new Stage-A sweep.
+
+### Regenerate high-precision and frontier artifacts
+
+After the required search evidence is available:
 
 ```bash
 python scripts/highprec_verify.py --start 3 --stop 14 --digits 50
-```
-
-Regenerate frontier certificates:
-
-```bash
 python scripts/extract_frontiers.py --start 3 --stop 14 --margin 2e-10
 ```
 
-Run the float64-vs-mpmath calibration:
+The frontier extraction requires the relevant original checkpoint artifacts. A clean clone containing only the tracked frontier JSON and archived progress logs is not, by itself, sufficient to regenerate those frontier files.
+
+### Numerical calibration
+
+Run the historical float64-versus-mpmath sampling procedure:
 
 ```bash
 python scripts/calibrate_float64.py --start 8 --stop 14 --samples 100000 --workers 8 --batch-size 500
 ```
 
-The current global maximum absolute deviation is
-`1.75137506176142662e-14`, below the `1e-11` submission threshold.
+The recorded sampled maximum absolute deviation was approximately `1.75137506176142662e-14`, below the historical `1e-11` submission threshold.
 
-Regenerate paper tables, figures, and report artifacts:
+This is an empirical calibration result for the tested samples, **not a rigorous universal error bound** for all excluded search orders.
+
+### Regenerate tables, figures and reports
 
 ```bash
 python scripts/refresh_heuristic_artifacts.py
@@ -282,52 +359,110 @@ python scripts/build_report.py
 python scripts/export_paper_assets.py
 ```
 
-Compile the paper:
+These scripts regenerate research and presentation artifacts from the available inputs. They do not extend the certified range.
+
+### Rebuild the public manuscripts
+
+With `pdflatex` and the required LaTeX packages installed, use the dedicated builders:
+
+```bash
+python paper_assets/build_publications.py correction
+```
+
+This rebuilds the finite corrective-v2 package.
+
+```bash
+python paper_assets/build_publications.py sequel
+```
+
+This rebuilds the standalone asymptotic sequel.
+
+The source bundles can also be compiled directly with `pdflatex`, following the instructions in their respective directories.
+
+The older root manuscript can be compiled separately as historical provenance:
 
 ```bash
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory=paper_assets paper_assets/ringmin_paper.tex
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory=paper_assets paper_assets/ringmin_paper.tex
 ```
 
-## Run Logs And Data-Generation Hash
+Rebuilding a manuscript does not submit, replace or update its arXiv record. Historical builder metadata may still describe the original pre-submission workflow.
 
-The M6 artifacts record `generation_commit_hash` in every
-`results/nNN/optimum.json`. The current data-generating commit recorded there is:
+Matching PDF bytes across different LaTeX installations requires compatible source files, packages, fonts and build settings. See the corresponding build manifests for the recorded environments and hashes.
+
+## Provenance and data-generation records
+
+The original M6 data artifacts record their generation commit in each `results/nNN/optimum.json` file:
 
 ```text
 fea000523a1ec4193d8ba9c4637563fd65e86d1a
 ```
 
-Long-run evidence:
+This is the historical data-generating commit, not the current `main` HEAD.
 
-- n=13 progress log: `results/checkpoints/progress_n13_lb3.log`
-- n=14 progress log: `results/checkpoints/progress_n14_lb3.log`
-- n=14 detached stdout: `results/logs/sweep_14_14_20260610_221502.out.log`
-- n=14 detached stderr: `results/logs/sweep_14_14_20260610_221502.err.log`
+Historical long-run evidence includes:
 
-Checkpoint `.pkl` files under `results/checkpoints/` are intentionally ignored
-because they are large and regenerated by `--resume`; the frontier JSON files
-under `results/frontiers/` are the portable pruning certificates.
+- `results/checkpoints/progress_n13_lb3.log`
+- `results/checkpoints/progress_n14_lb3.log`
+- `results/logs/sweep_14_14_20260610_221502.out.log`
+- `results/logs/sweep_14_14_20260610_221502.err.log`
 
-## Workflow And AI Assistance
+The original progress logs can be restored from [`reproducibility/frontier_logs/`](reproducibility/frontier_logs/). Large checkpoint `.pkl` files are intentionally ignored by Git. The portable historical frontier JSON artifacts are tracked under [`results/frontiers/`](results/frontiers/).
 
-The project was built in an AI-assisted workflow under the author's direction
-and final review. AI assistance supported research design, mathematical
-argument development, software implementation, tests, scripts, and repository
-artifacts. All certified numerical claims are backed by the independent
-`verify.py` verifier and the saved result artifacts.
+The exact-arithmetic global bracket evidence is preserved separately under [`reproducibility/global_brackets/`](reproducibility/global_brackets/).
 
-## Layout
+These evidence chains must not be conflated. Preserving original files and checking their hashes establishes input identity, while the mathematical certificate verification establishes the stated finite bounds.
 
-- `src/ringmin/`: solver library and CLI.
-- `tests/`: pytest coverage for geometry, evaluator, search, patterns, and SLSQP
-  cross-validation.
-- `scripts/`: reproducibility and artifact-generation scripts.
-- `verify.py`: standalone mpmath/stdlib-only certificate verifier.
-- `results/`: certified optima, frontier certificates, calibration data, and logs.
-- `figures/`: regenerated per-n figures.
-- `paper_assets/`: paper source, PDF, figures, tables, and appendix snippets.
+## How to cite
+
+Cite the paper corresponding to the result used:
+
+- **Finite Supnick theory and certified optima:** Falconi, *Arranging circles of radii 1,2,...,n around a central circle: a Supnick TSP and certified finite optima*, arXiv:2607.28654v2 (2026).
+- **Global asymptotic theory:** Falconi, *Minimum central circles: an effective characterization of the global asymptotic constant*, arXiv:2609.13630 (2026).
+
+Cite both when discussing the research program across its finite and asymptotic scope.
+
+The machine-readable [`CITATION.cff`](CITATION.cff) describes the software and finite-certificate companion, with Paper I as its preferred citation. It does not replace the separate citation of Paper II when asymptotic results are used.
+
+The archived software companion has version DOI [10.5281/zenodo.22849826](https://doi.org/10.5281/zenodo.22849826), identifying release `v1.1.0-dcg-presubmission` at commit:
+
+```text
+80919666c3c54f8ce20cf66c456d413f6a2c075f
+```
+
+The deposit is a frozen versioned snapshot, not a citation of every subsequent repository change. Its provenance is documented in the [archive evidence dossier](ops/TASK-20260926__archive_evidence_integration/EVIDENCE.md).
+
+## Research workflow and AI assistance
+
+Ringmin was developed through an AI-assisted research workflow under the author's direction and review.
+
+AI assistance supported mathematical exploration and argument development, software implementation, testing, verification tools, documentation, and research artifacts.
+
+The project's mathematical and computational claims should be evaluated through their explicit proofs, assumptions, certificates and reproducibility evidence. AI assistance and internal adversarial review do not independently establish mathematical correctness or replace external scientific review.
+
+Scientific responsibility and decisions concerning the public manuscripts remain with the author.
+
+The repository separates durable mathematical knowledge, current research work, historical provenance and independent verification so that results can be examined without relying on an AI-generated summary or an unverified status label.
+
+## Repository layout
+
+- [`src/ringmin/`](src/ringmin/) — solver library, geometric evaluation, search, numerical methods and CLI.
+- [`tests/`](tests/) — pytest coverage for geometry, search, numerical cross-checks, certificate verification and adversarial cases.
+- [`verify.py`](verify.py) — standalone high-precision verifier for the historical finite certificate route.
+- [`verify_global_brackets.py`](verify_global_brackets.py) — complete exact-arithmetic global bracket verifier.
+- [`results/`](results/) — reported finite optima, saved frontier certificates, heuristic results, calibration data and recorded outputs.
+- [`reproducibility/`](reproducibility/) — preserved exact certificate evidence, historical log archives and reproducibility material.
+- [`scripts/`](scripts/) — search, calibration, analysis and artifact-generation utilities.
+- [`knowledge/`](knowledge/) — thematic ledgers classifying established results, limitations, disproved claims and open questions.
+- [`research/`](research/) — detailed mathematical arguments, constructions, proof notes and research directions.
+- [`paper_assets/`](paper_assets/) — public manuscript sources and PDFs, supporting material, tables, figures and separate journal-preparation packages.
+- [`paper_assets/figures/`](paper_assets/figures/) — tracked publication figures; additional output under root `figures/` is generated locally.
+- [`ops/`](ops/) — dated task dossiers, review records, commands and historical evidence.
+- [`PROJECT_KNOWLEDGE.md`](PROJECT_KNOWLEDGE.md) — index of durable mathematical knowledge and source authority.
+- [`SPIEGAMI.md`](SPIEGAMI.md) — non-technical explanation in Italian.
 
 ## License
 
-MIT - see `LICENSE`.
+The repository includes the [MIT License](LICENSE) for its software.
+
+The public manuscripts have their own publication records and applicable arXiv licensing terms. Consult those records when reusing manuscript content; the software license should not be assumed to determine every publication or third-party reuse right.
