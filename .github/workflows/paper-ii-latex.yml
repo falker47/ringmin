@@ -1,0 +1,32 @@
+name: Paper II LaTeX
+
+# Push-only avoids a second expensive TeX job for the same open-PR commit.
+on:
+  push:
+    paths:
+      - "paper_assets/paper_ii_journal/**"
+      - "paper_assets/asymptotic_sequel/proposition7_supplement/**"
+      - ".github/workflows/paper-ii-latex.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install review-document TeX packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y texlive-latex-extra texlive-fonts-recommended lmodern
+      - name: Reproduce PDFs twice in isolated directories
+        run: python -I -S paper_assets/paper_ii_journal/check_reproducibility.py
+      - name: Confirm delivered files remain intact
+        run: git diff --exit-code

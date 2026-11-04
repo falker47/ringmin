@@ -31,3 +31,9 @@ jobs:
 
       - name: Verify complete global brackets and original input binding
         run: python -I -S verify_global_brackets.py
+
+      - name: Verify Paper II package integrity
+        run: python -I -S paper_assets/paper_ii_journal/verify_package.py
+
+      - name: Verify Paper II bounded mathematics including LP and S1 controls
+        run: python -I paper_assets/paper_ii_journal/verify_math.py --with-lp

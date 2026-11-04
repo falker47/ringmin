@@ -1,0 +1,16 @@
+PASS candidate manifest: 38 payload hashes; lower-supplement provenance
+PASS reproducible main: 9 pages; SHA256 ae9b816c7825122c40bfbf6beed9866ba4308780ada88dd7827a93508a44f1ce; delivered_match=True
+PASS reproducible upper_supplement: 13 pages; SHA256 3e63ad0132d9a328c7f35f3af100f20c6473e74624ef5220278ca88cca91e11a; delivered_match=True
+PASS reproducible lower: 14 pages; SHA256 338848bc5d9b92193ce5db565a83e32dcfa8af2752383d9d1401788aa3dff302; delivered_match=False
+PASS two isolated builds per document; delivered files unchanged
+PASS rejected Rebuild differs from delivered PDF: lower
+PASS extracted standalone package and non-mutating builds
+PASS rejected Rebuild differs from delivered PDF: main
+PASS rejected hash mismatch: main.pdf
+PASS rejected manifest file inventory mismatch
+PASS rejected undeclared external input .tex
+PASS rejected undeclared external input .aux
+PASS rejected undeclared external input .out
+PASS rejected undeclared external input .toc
+PASS candidate manifest: 38 payload hashes; lower-supplement provenance
+PASS portable reproduction and seven negative controls; delivered package untouched

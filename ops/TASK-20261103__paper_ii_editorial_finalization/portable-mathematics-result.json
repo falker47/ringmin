@@ -1,0 +1,4 @@
+{
+  "command": "python -I verify_math.py --with-lp (extracted archive outside repository)",
+  "returncode": 0
+}

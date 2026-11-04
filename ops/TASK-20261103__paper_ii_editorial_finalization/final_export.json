@@ -1,0 +1,19 @@
+{
+  "export_repeat_identical": true,
+  "sha256": {
+    "source_bundle.zip": "99365502198e79003565adf3201dcbff5289ffd5a7713a690093db81788f5b9e",
+    "MANIFEST.json": "e0bc3e4ae45747b15c2500a309223e3bf9c707e5a07fd4232af76b30d6b2060f"
+  },
+  "archive_files": 39,
+  "outer_payloads": 26,
+  "documents": {
+    "main.pdf": {
+      "bytes": 351934,
+      "sha256": "ae9b816c7825122c40bfbf6beed9866ba4308780ada88dd7827a93508a44f1ce"
+    },
+    "upper_supplement.pdf": {
+      "bytes": 389589,
+      "sha256": "3e63ad0132d9a328c7f35f3af100f20c6473e74624ef5220278ca88cca91e11a"
+    }
+  }
+}

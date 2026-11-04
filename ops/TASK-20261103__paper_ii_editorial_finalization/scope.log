@@ -1,0 +1,5 @@
+PASS exact editorial source substitutions and unchanged abstract: main
+PASS exact editorial source substitutions and unchanged abstract: upper_supplement
+PASS 804 protected baseline files byte-identical, including all S1 and earlier dossiers
+PASS explicit whitespace check for tracked and untracked task text
+PASS declared task scope; unchanged science and public records

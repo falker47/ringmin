@@ -2,51 +2,54 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20261023__proposition7_supplement
-phase=independent_review_handoff
-observed_on=2026-10-23
+task=TASK-20261103__paper_ii_editorial_finalization
+phase=author_review_package
+observed_on=2026-11-03
 mode=STRICT
 state=READY_FOR_REVIEW
-base_head=6167e36cf6f80a6a7a7a6b41518a6b3f7155295d
-scientific_snapshot=3beb8d70c5b3748d370a92855847bdf574e5a14f
+base_head=d925f85c8aee2b26bca460bf33618eb65fb996b8
+branch=codex/paper-ii-journal-candidate
+pull_request=4
 ```
 
-## Current task and scope
+## Current Task and Scope
 
-The [standalone Proposition 7 supplement](paper_assets/asymptotic_sequel/proposition7_supplement/README.md)
-contains a 14-page PDF, complete LaTeX proof of L1--L8 and global-limit
-existence, dependency matrix, exact arithmetic checkers/certificate,
-manifest and [technical report](paper_assets/asymptotic_sequel/proposition7_supplement/VERIFICATION.md).
-It reconstructs the fixed lower endpoint in Paper II (arXiv:2609.13630).
-The [STRICT dossier](ops/TASK-20261023__proposition7_supplement/TASK_STATUS.md)
-and [evidence](ops/TASK-20261023__proposition7_supplement/EVIDENCE.md) record
-the checks and scope. No new mathematical coefficient or published-paper
-revision is introduced, and no Review State baseline is advanced.
+Finalize the [Paper II package](paper_assets/paper_ii_journal/README.md) for
+author review after JoCG submission #6357 was declined on 28 October.
+The next destination is unselected. DMTCS, EJC and SIDMA remain proposals;
+their current official requirements are recorded in the package.
+The original 24 October preparation remains in its dated dossier.
 
-## Verification gates and blockers
+The two TeX sources now define J on its full domain, explicitly fixing every
+index outside the inversion blocks. This clarifies the already reviewed
+construction. Results, constants, abstracts, all S1 files, mathematical
+checkers and public arXiv sources remain protected.
 
-Exact rational checks reproduce the literal strict enclosure
-`0.14056946887766098063257 < C_term+eta_width < 0.14056946887766098063392`.
-All 144 new directed-rational deletion fixtures, inherited crossing checks,
-certificate equality, 12 output hashes, seven source-input hashes and
-standalone/tampering controls passed. A separate internal technical reviewer
-found no actionable mathematical/verifier gap; external acceptance remains
-separate. Full universal quantifiers are supported by the written proofs.
+[REVIEW_COVERAGE.md](paper_assets/paper_ii_journal/REVIEW_COVERAGE.md)
+consolidates the four supplied component reports. The 3 November Theorem 4
+review closes the specific limit/squeeze dependency reservation and the
+connection to C* <= U4. This documentary closure is not a new general audit,
+external peer review or acceptance of the whole PR.
 
-The standalone outside-repository three-pass TeX build passed without
-warnings or bad boxes and reproduced the delivered PDF byte for byte.
-All 14 pages were visually checked. The 759 pre-existing tracked files
-outside CURRENT_STATUS.md retain their preflight hashes; published sources,
-research, production code and result artifacts are protected. The original
-untracked ZIP remains untouched in the original checkout.
+## Verification Gates and Remaining Decisions
 
-No mathematical or packaging blocker remains. Scoped commit/push is
-authorized; the final chat handoff identifies the exact persisted SHA and
-remote result. Hosted CI for that SHA is not asserted. The original local
-main checkout remains at its starting commit; work is integrated from the
-isolated detached worktree without altering those original working files.
+Fresh builds, arithmetic, 68 tests plus four subtests, isolated archive replay,
+seven negative controls and visual inspection of all 22 regenerated pages pass.
+All 804 protected baseline files remain byte-identical. The
+[dossier](ops/TASK-20261103__paper_ii_editorial_finalization/TASK_STATUS.md)
+and [evidence](ops/TASK-20261103__paper_ii_editorial_finalization/EVIDENCE.md)
+record actual results, separately from inherited review evidence. Exact-commit
+hosted outcomes are recorded after the content freeze in the draft PR handoff;
+this file does not infer them from earlier successful runs.
+The new environment rebuilds S1 differently from its preserved original PDF;
+build metadata explicitly separates these hashes without modifying S1.
 
-## Exactly one next atomic task
+The [author checklist](paper_assets/paper_ii_journal/EDITORIAL_CHECKLIST.md)
+contains the remaining venue, AI-detail, personal-review and metadata decisions.
+No merge, Registry promotion, arXiv replacement, journal submission or editor
+communication is part of this finalization.
 
-Independent review of the exact committed Proposition 7 supplement,
-including the complete proof, rational certificate, PDF and package hashes.
+## Exactly One Next Atomic Task
+
+Author review of the neutral package and completion of its editorial checklist
+before any separately authorized venue adaptation or submission.

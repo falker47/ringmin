@@ -1,0 +1,281 @@
+{
+  "main": {
+    "pages": 9,
+    "metadata": {
+      "format": "PDF 1.5",
+      "title": "Minimum central circles: an effective characterization of the global asymptotic constant",
+      "author": "Maurizio Falconi",
+      "subject": "",
+      "keywords": "",
+      "creator": "LaTeX with hyperref",
+      "producer": "pdfTeX-1.40.25",
+      "creationDate": "",
+      "modDate": "",
+      "trapped": "",
+      "encryption": null
+    },
+    "page_sizes": [
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    ],
+    "unresolved_marker": false,
+    "links": 34,
+    "bad_internal_links": []
+  },
+  "upper": {
+    "pages": 13,
+    "metadata": {
+      "format": "PDF 1.5",
+      "title": "Reflected Blocks, Implicit Parameters, and Full Geometric Recovery",
+      "author": "Maurizio Falconi",
+      "subject": "",
+      "keywords": "",
+      "creator": "LaTeX with hyperref",
+      "producer": "pdfTeX-1.40.25",
+      "creationDate": "",
+      "modDate": "",
+      "trapped": "",
+      "encryption": null
+    },
+    "page_sizes": [
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    ],
+    "unresolved_marker": false,
+    "links": 48,
+    "bad_internal_links": []
+  },
+  "lower": {
+    "pages": 14,
+    "metadata": {
+      "format": "PDF 1.7",
+      "title": "Ringmin Proposition 7: standalone lower-bound supplement",
+      "author": "Maurizio Falconi",
+      "subject": "",
+      "keywords": "",
+      "creator": "LaTeX with hyperref",
+      "producer": "pdfTeX-1.40.28",
+      "creationDate": "",
+      "modDate": "",
+      "trapped": "",
+      "encryption": null
+    },
+    "page_sizes": [
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ],
+      [
+        0.0,
+        0.0,
+        595.2760009765625,
+        841.8900146484375
+      ]
+    ],
+    "unresolved_marker": false,
+    "links": 68,
+    "bad_internal_links": []
+  }
+}

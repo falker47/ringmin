@@ -1,0 +1,21 @@
+{
+  "purpose": "Remove transient checkout paths from committed evidence; test outcomes and timings unchanged. Raw copies retained locally.",
+  "files": {
+    "pytest-result.json": {
+      "raw_sha256": "0a2bbfe765c4ff48c40a9e9ef93775ceb7006a3f49accb8df888cc5e8fa840bd",
+      "normalization": "Repository absolute path replaced by <repository>; XML runtime host normalized."
+    },
+    "pytest-results.xml": {
+      "raw_sha256": "305f1cdb7333082ae47bd31c9d510ac74a8588c65e72c2d70b36997e0c94c688",
+      "normalization": "Repository absolute path replaced by <repository>; XML runtime host normalized."
+    },
+    "pytest-verbose.log": {
+      "raw_sha256": "730aa3c6ec7dcd6b9ed87dfc4caee18d0e2f42e59eddd01a27407a13fe25c029",
+      "normalization": "Repository absolute path replaced by <repository>; XML runtime host normalized."
+    },
+    "scope-initial.log": {
+      "raw_sha256": "74f366c72479ad71c7e7b9e6b97a9314f4798aff58611de0fd9c6188fcbcf339",
+      "normalization": "Repository absolute path replaced by <repository>; XML runtime host normalized."
+    }
+  }
+}

@@ -34,38 +34,26 @@ claim and historical float64 boundary are owned by the
 Existing exact fixed-order Supnick classification remains distinct from global
 contact/cascade claims.
 
-## Priority 1 — Independently review the exact DCG submission package
+## Priority 1 - Author Review of the Finalized Paper II Package
 
-Review the [submission package](../paper_assets/dcg_submission/UPLOAD_CHECKLIST.md)
-and its manifest against accepted baseline
-`6749d6b165f982136117481be322c8beaec223ce`, confirmed in the Review State
-Registry on 2026-09-28. The [packaging evidence](../ops/TASK-20260928__dcg_submission_package/EVIDENCE.md)
-records source/PDF identity, isolated compilation and current upload conditions.
-If this exact package is accepted, the human author uploads it through
-Editorial Manager. No further research or manuscript revision is part of this
-step, and packaging does not promote the Registry baseline.
+Review the [neutral Paper II package](../paper_assets/paper_ii_journal/README.md)
+and complete its [author checklist](../paper_assets/paper_ii_journal/EDITORIAL_CHECKLIST.md).
+The [coverage record](../paper_assets/paper_ii_journal/REVIEW_COVERAGE.md)
+consolidates the completed S1, Theorem 5, Theorem 6/S2 and Theorem 4 reviews,
+including the 3 November closure of the limit/squeeze and C* <= U4 dependency.
+The [readiness report](../paper_assets/paper_ii_journal/READINESS.md) separates
+inherited analysis from fresh checks of the editorial revision. Reopen a proof
+only for a concrete issue, uncovered dependency or relevant mathematical change.
 
-The finite certification's scope and archival boundaries remain in their
-owning ledgers. The public arXiv v2 and asymptotic sequel remain on separate
-publication tracks. No DCG submission or journal peer review has occurred.
+JoCG submission #6357 was declined after preliminary assessment on 28 October.
+The 24 October JoCG preparation is historical; DMTCS, EJC and SIDMA are now
+proposals, with no next destination selected. The author must supply the
+remaining AI-use details and personal attestations before submission.
 
-## Separate asymptotic track — Independent external review
-
-The research goal concluded at the effective-characterization level. The
-publication architecture separates a standalone asymptotic sequel from
-a conservative correction of the finite paper. The standalone sequel now has
-the permanent identifier [arXiv:2609.13630](https://arxiv.org/abs/2609.13630);
-the corrective replacement publication is recorded in
-[PUBLICATION_HISTORY.md](../knowledge/PUBLICATION_HISTORY.md). Independent external review
-remains pending for this distinct manuscript. Review the
-[standalone manuscript](../paper_assets/asymptotic_sequel/README.md), using the
-[architecture dossier](../ops/TASK-20260911__publication_architecture/TASK_STATUS.md)
-and the scientific dependency checks in the historical
-[final packet](../ops/GOAL-20260911__conclude_study/FINAL_REVIEW_PACKET.md), under
-RINGMIN_REVIEW_PROTOCOL.md. Historical v1 remains unchanged; the corrective
-v2 remains the separate public finite-paper correction. The finite-bracket
-acceptance does not accept the asymptotic theorem or settle this manuscript's
-external review. Submission preparation does not advance Review State.
+The public [asymptotic sequel](https://arxiv.org/abs/2609.13630), both finite
+arXiv versions and S1 remain unchanged. This editorial priority changes no
+scientific claim or accepted baseline. Merge, Registry promotion, arXiv
+replacement and journal submission remain separate decisions.
 
 ## Subsequent asymptotic scientific questions
 

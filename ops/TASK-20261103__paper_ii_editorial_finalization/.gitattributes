@@ -1,0 +1,2 @@
+# Preserve generated stdout padding as verification evidence.
+*.log whitespace=-blank-at-eol

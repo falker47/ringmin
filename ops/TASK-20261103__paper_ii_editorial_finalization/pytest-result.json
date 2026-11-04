@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-u",
+    "-m",
+    "pytest",
+    "-vv",
+    "-o",
+    "addopts=",
+    "--junitxml=<repository>/ops/TASK-20261103__paper_ii_editorial_finalization/pytest-results.xml"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 74.88
+}
