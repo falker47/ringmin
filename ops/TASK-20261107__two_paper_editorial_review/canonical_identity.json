@@ -1,0 +1,12 @@
+{
+  "base_commit": "7d257221d9034ca5f895f062e45e782d8e77b6c2",
+  "paper_i_source": "paper_assets/journal_dcg/ringmin_dcg.tex",
+  "paper_i_baseline_matches_frozen_package": true,
+  "paper_i_baseline_matches_remote_main_c26400b": true,
+  "paper_i_baseline_git_sha256": "91c83ec73121d3b9b5abce44da3a71bad2931f118d0bdd44409172603e3c54b2",
+  "paper_ii_source": "paper_assets/paper_ii_journal/main.tex",
+  "paper_ii_remote_branch_at_startup": "codex/paper-ii-journal-candidate",
+  "paper_ii_remote_commit_at_startup": "7d257221d9034ca5f895f062e45e782d8e77b6c2",
+  "DAM_DA21348_identity": "User supplied; corroborated in dated editorial requirements; no live disposition query",
+  "supplement_boundary": "S1 is Proposition 7; S2 is upper_supplement. Both preserved."
+}

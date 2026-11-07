@@ -1,0 +1,20 @@
+{
+  "paper_i": {
+    "baseline_pages": 19,
+    "identical_repeat_pdf": true,
+    "new_warnings": [],
+    "pdf_sha256": "c1a693f28e37bdfc0c0b2724a18204d71dc41a14adc4fd9d83b46009e6ed711c",
+    "revised_pages": 19,
+    "unchanged_bibliography_numbers": 6,
+    "unchanged_label_numbers": 58
+  },
+  "paper_ii": {
+    "baseline_pages": 9,
+    "identical_repeat_pdf": true,
+    "new_warnings": [],
+    "pdf_sha256": "deda77d01c02d33c7f921b9fedc13db78f7ebe6deda3c25cac7c683f1c929766",
+    "revised_pages": 9,
+    "unchanged_bibliography_numbers": 8,
+    "unchanged_label_numbers": 20
+  }
+}

@@ -33,19 +33,24 @@
 Let $\Rstar(n)$ be the minimum radius of a central circle externally tangent
 to nonoverlapping circles of radii $1,\ldots,n$. We prove that
 $\Rstar(n)=\CC n^2+o(n^2)$ and give finite linear programs that enclose
-$\CC$ with prescribed error. An exact angular comparison reduces the problem
+$\CC$ with prescribed error.
+
+An exact angular comparison reduces the problem
 to marked points on a line with separation at least the geometric mean of
 each pair of marks. Concatenation with bounded joining cost and reassignment
 to genuine labels prove existence of the limit. Balanced finite-word
 programs give a bracket of width $(1/k+1/r)/\pi$, before directed arithmetic
 error, using $k$ types and words of length $r$.
-For explicit geometric upper bounds, we recover finite and countable
-reflected-block constructions by actual permutations, retaining all pair
-constraints. A coupled terminal-subset argument gives an explicit lower
-bound strictly above $1/8$. Together these give
+
+We also obtain explicit geometric bounds. For the upper bound, we recover
+finite and countable reflected-block constructions by actual permutations,
+retaining all pair constraints. A coupled terminal-subset argument gives
+an explicit lower bound strictly above $1/8$. Together these give
 $C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$, with neither endpoint
-asserted sharp. The finite-word scheme establishes computability; efficient
-high-precision evaluation and the structure of global optimizers remain open.
+asserted sharp.
+
+The finite-word scheme establishes computability; efficient high-precision
+evaluation and the structure of global optimizers remain open.
 \end{abstract}
 \noindent\textbf{Keywords:} circle packing; geometric optimization; asymptotic
 limits; linear programming; rigorous computation.
@@ -54,13 +59,20 @@ limits; linear programming; rigorous computation.
 
 \section{Problem and Relation to Prior Finite Work}
 
-All outer circles are tangent to the central circle; outer circles need
-not be tangent to each other. For a cyclic order $\sigma$, the adjacent
+We seek the smallest central circle to which all the prescribed outer
+circles can be externally tangent without overlapping. The outer radii
+are consecutive positive integers starting at one; outer circles need not
+be tangent to each other. For a cyclic order $\sigma$, the adjacent
 chain radius $\ch(\sigma)$ ignores nonadjacent constraints, whereas
 $\full(\sigma)$ is the least radius satisfying every pair constraint in
 that order. The global quantity is $\Rstar(n)=\min_\sigma\full(\sigma)$.
 Always $\ch(\sigma)\le\full(\sigma)$. A feasible construction supplies
 an upper bound, not an optimum certificate.
+
+The question here is the leading growth of this global minimum as the
+number of outer circles increases. We prove existence of the limiting
+coefficient and characterize it by finite linear programs with a prescribed
+error.
 
 Paper I, in its corrective version~\cite{v2}, develops the angular model,
 the anti-Monge/Supnick chain-ordering connection and finite optimization.
@@ -78,10 +90,10 @@ not replace either public preprint. The current package's contribution over
 that preprint is proof exposition and reproducibility, not a new asymptotic
 coefficient.
 
-Our main result is an effective characterization of the true global leading
-coefficient. Sections~\ref{sec:line}--\ref{sec:lp} give its proof directly
-from the angular model, through an all-pair line problem, genuine-label
-concatenation and balanced finite-word programs. The lower and upper bounds
+Sections~\ref{sec:line}--\ref{sec:lp} develop the proof of the effective
+characterization. The argument passes from the angular model to an all-pair
+line problem, then uses genuine-label concatenation and balanced finite-word
+programs. The lower and upper bounds
 converge to the same constant with a prescribed error. Separate explicit
 constructions give the interval stated in the abstract and disprove the
 coefficient conjecture of \cite{v1}. Their complete proof dependencies are
@@ -130,6 +142,10 @@ $\ch(\sigma)$ is the unique positive root of
 $\sum_{i=1}^n\theta_R(u_i,u_{i+1})=2\pi$.
 Indeed, the sum decreases continuously from $n\pi$ to zero. Summing the
 adjacent constraints in any full placement proves $\ch(\sigma)\le\full(\sigma)$.
+
+We next introduce an auxiliary problem on a line. Its comparison with the
+circle problem will follow after a bound on the cost of closing a line
+placement.
 
 \begin{definition}
 For a finite multiset $a=(a_1,\ldots,a_N)$ of marks in $[0,1]$, let $b(a)$
@@ -188,6 +204,10 @@ adjacency reduction or assumption on the optimal order was used.
 
 \section{Existence by Genuine-Label Concatenation}
 
+The closing estimate makes concatenation useful: copies of a finite line
+placement can be joined at bounded cost. The next theorem combines this
+construction with reassignment to the prescribed radii.
+
 \begin{theorem}[The leading limit exists]\label{thm:existence}
 There is a constant $\CC$ such that
 \begin{equation}\label{eq:limit}
@@ -225,6 +245,11 @@ separations are at least $1/2$, so $E\ge1/4$ and $\CC>0$.
 
 \section{Effective Finite-Word Characterization}\label{sec:lp}
 
+We now turn from existence of the limit to approximation with a prescribed
+error. There are two steps: replace the radii by finitely many types, then
+replace long orderings by distributions of finite words. Each step contributes
+one term to the bracket width.
+
 \subsection{Finite Types and a Uniform Quantization Error}
 For $k\ge1$, let $A_{k,q}$ contain $q$ copies of each mark
 $1/k,\ldots,1$, and let $A^-_{k,q}$ instead contain $q$ copies of
@@ -249,6 +274,10 @@ type multisets. Theorem~\ref{thm:existence} and monotonicity imply
 \end{equation}
 
 \subsection{Balanced Words and the Quantified Boundary Relaxation}
+A word records a short consecutive piece of an ordering. The linear program
+balances type counts across a distribution of words; the proof below controls
+the cost of joining them.
+
 Fix $k\ge1$ and $r\ge2$, and use all $k^r$ words
 $w\in\{1/k,\ldots,1\}^r$, including repetitions. Let $c_j(w)$ count
 occurrences of $j/k$. Compute $\ell(w)$ by \eqref{eq:recurrence}, and define
@@ -314,6 +343,11 @@ arithmetic validates every equality and word inequality. Small word programs
 need not improve the stronger explicit endpoint bounds below.
 
 \section{Explicit Geometric Upper Constructions}\label{sec:upper}
+
+The finite-word characterization gives a convergent scheme for the constant.
+For explicit upper bounds, we use reflected-block constructions. The key step
+is to recover actual permutations satisfying every pair constraint from the
+continuous description.
 
 Fix $0\le\alpha<1$ and nonnegative adjacent slab lengths
 $\ell_1,\ldots,\ell_k$ of total $T<1-\alpha$. Put $A=1+\alpha$,
@@ -509,11 +543,12 @@ that this particular lower mechanism reaches $\CC$.
 
 The review package contains this manuscript, the unchanged Proposition~7
 supplement S1~\cite{lower}, the standalone upper supplement S2~\cite{upper},
-and a claim--lemma--hypothesis--proof--verification map. The limit and
-finite-word proofs are complete in Sections~3--4; S1 independently includes
+and a map from each claim to its hypotheses, proof and verification. The
+limit and finite-word proofs are complete in Sections~3--4; S1 independently includes
 limit existence for its own use. S2 includes the implicit-parameter
 definitions, their isolation gates, all-pairs feasibility and geometric
-transfer. No task-log reconstruction is a proof prerequisite.
+transfer. These sources contain the proofs without requiring reconstruction
+from task logs.
 
 The package includes isolated build instructions, source hashes and bounded
 checks for line placements, label reassignment and rational word-LP

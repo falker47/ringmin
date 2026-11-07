@@ -1,6 +1,6 @@
 # Author Review and Submission Decisions
 
-Prepared 3 November 2026. This is an author-review worksheet, not a signed
+Prepared 3 November 2026; abstract pointer updated for the local prose review on 7 November. This is an author-review worksheet, not a signed
 declaration or permission to submit. The next venue is unselected. Technical
 readiness and component-review coverage are recorded separately in READINESS.md
 and REVIEW_COVERAGE.md.
@@ -13,7 +13,7 @@ and REVIEW_COVERAGE.md.
 | Author | Maurizio Falconi |
 | Existing Paper II preprint | arXiv:2609.13630; this new GitHub candidate has not been deposited by this task |
 | Related Paper I | arXiv:2607.28654; finite certified geometry, distinct from this asymptotic manuscript |
-| Abstract | The exact unchanged text between the abstract delimiters in main.tex; adapt portal markup only after choosing the venue |
+| Abstract | The current text between the abstract delimiters in main.tex, revised locally on 7 November; author review is required before adapting portal markup |
 | Review files | main.pdf, upper_supplement.pdf and preserved S1 supplement.pdf, all included in source_bundle.zip |
 | Previous Paper II decision | JoCG #6357 declined after preliminary review on 28 October 2026; no specific mathematical objection communicated in the supplied record |
 

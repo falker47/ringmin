@@ -1,5 +1,25 @@
 # Paper II Author-Review Readiness
 
+## Current Local Prose Review - 7 November 2026
+
+Editorial base: 7d257221d9034ca5f895f062e45e782d8e77b6c2.
+The current change is limited to the main manuscript's exposition and its
+synchronized PDF/package. S1, S2, mathematical statements, proofs, formulas,
+checkers and public preprints are preserved. See the
+[task evidence](../../ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md)
+for fresh build, scope, visual and package checks, and the
+[editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
+for deferred author decisions. No mathematical checker or hosted CI is
+represented as freshly run for this local prose task.
+
+## Historical Readiness at the 3 November Freeze
+
+The remainder records the earlier revision's evidence. Its abstract-preservation
+claim and counts refer to that earlier diff; the current abstract is edited.
+The main build now has a fresh per-document record, while S1/S2 records retain
+their earlier environment and hashes. These historical results do not attest
+the current local commit.
+
 Editorial base: `d925f85c8aee2b26bca460bf33618eb65fb996b8`.
 Assessment date: 3 November 2026. Mode STRICT. State: READY_FOR_REVIEW.
 The next journal is unselected; this is a neutral author-review candidate.

@@ -31,21 +31,25 @@
 
 \begin{abstract}
 We minimize the radius of a central circle externally tangent to pairwise
-non-overlapping circles of radii $1,2,\ldots,n$. The adjacent-chain relaxation
-has an angular kernel with strict anti-Monge structure. Supnick's classical
-theorem therefore supplies a fixed minimizing cyclic order at every central
-radius, and a monotonicity argument transfers this order to the chain-radius
-problem. The full geometry additionally requires every pairwise angular
-constraint. We give a self-contained criterion for feasibility of the
+non-overlapping circles of radii $1,2,\ldots,n$. We first study the
+adjacent-chain relaxation, which imposes only the constraints between
+consecutive circles. Its angular kernel has strict anti-Monge structure, so
+Supnick's classical theorem supplies a fixed minimizing cyclic order at every
+central radius. A monotonicity argument transfers this order to the
+chain-radius problem. Full geometric feasibility requires every pairwise
+angular constraint. We give a self-contained criterion for feasibility of the
 canonical Supnick necklace on $\{k,\ldots,n\}$ at its chain root, expressed
 by one seam deficit. For every fixed $k$ the seam eventually fails and its
 failure persists. We prove the complete classifications for $k=1,2,3$, whose
-first failures occur at $n=8,13,17$, respectively. For the global problem,
-we certify rational brackets $L_n<R^*(n)\le U_n$ of exact width $10^{-11}$
+first failures occur at $n=8,13,17$, respectively.
+
+For the global infimum, we certify rational brackets
+$L_n<R^*(n)\le U_n$ of exact width $10^{-11}$
 for every $3\le n\le14$. The lower proof combines independently enclosed
 angles, integer dynamic programming, and complete cyclic-order coverage;
-the upper proof uses exact rational Cartesian witnesses. It does not depend
-on floating-point pruning in the numerical search. We distinguish these
+the upper proof uses exact rational Cartesian witnesses. The certificate
+does not depend on floating-point pruning in the numerical search. We
+distinguish these
 finite brackets and fixed-order theorems from numerical descriptions of
 floating circles and from unresolved claims about all optimal placements.
 \end{abstract}
@@ -77,17 +81,20 @@ that a printed decimal is an exact optimum:
 \end{equation}
 All endpoints are stated explicitly in Section~\ref{sec:results}.
 
-There are four mathematical contributions. First, the geometric angular
-kernel is strictly anti-Monge for every central radius. Applying the
+The argument has four parts. First, the geometric angular kernel is
+strictly anti-Monge for every central radius. Applying the
 classical extreme-tour theorem of Supnick~\cite{supnick} and then comparing
 closure roots solves the adjacent-chain relaxation, including for arbitrary
 distinct positive radii. Second, we formulate full fixed-order feasibility
-using both directed angular constraints for every pair. Third, a single
-seam deficit characterizes feasibility at the chain root of the canonical
-order on $\{k,\ldots,n\}$. Its eventual persistent failure is proved for
+using both directed angular constraints for every pair.
+
+Third, a single seam deficit characterizes feasibility at the chain root
+of the canonical order on $\{k,\ldots,n\}$. Its eventual persistent failure is proved for
 each fixed $k$; the complete strict classifications proved here are precisely
-those for $k=1,2,3$. Fourth, an exact finite certificate proves
-\eqref{eq:mainclaim} by combining exhaustive lower-bound coverage with
+those for $k=1,2,3$.
+
+Fourth, an exact finite certificate proves \eqref{eq:mainclaim} by combining
+exhaustive lower-bound coverage with
 rational geometric existence witnesses.
 
 The new geometric conclusions are not part of Supnick's tour theorem.
@@ -123,7 +130,8 @@ No asymptotic theorem or conjectural asymptotic coefficient is needed for
 any result proved here.
 
 \section{Geometric angular reformulation}\label{sec:geometry}
-Place the central center at the origin. An outer circle of radius $a>0$
+Place the center of the central circle at the origin. An outer circle
+of radius $a>0$
 has center $(R+a)(\cos\phi_a,\sin\phi_a)$. For $R,a,b>0$ put
 \begin{equation}\label{eq:kernel}
  \theta_R(a,b)=2\arcsin\sqrt{\frac{ab}{(R+a)(R+b)}}\in(0,\pi).
@@ -184,8 +192,8 @@ Analytic diagonal values are allowed in this calculation; they are not
 self-pair constraints in the geometric model.
 \end{proof}
 
-Here is an unambiguous definition of the relevant tour on $N$ ranked
-vertices. Set $H=\lceil N/2\rceil$. For successive $j=0,1,\ldots$,
+Define the relevant tour on $N$ ranked vertices as follows.
+Set $H=\lceil N/2\rceil$. For successive $j=0,1,\ldots$,
 append $1+2j$ to list $A$ when it is at most $H$, and then append
 $N-1-2j$ when it is greater than $H$. Construct list $B$ by appending
 $2+2j$ when it is at most $H$, followed by $N-2-2j$ when it is greater
@@ -302,10 +310,11 @@ concerns the specified chain root, not a global optimizing contact graph.
 \end{proof}
 
 \section{Exact finite global certification}\label{sec:cert}
-The finite proof has two independent mathematical obligations: exclude
-every order at and slightly above $L_n$, and exhibit a feasible placement
-at $U_n$. It uses the exact certificate data and verifier pinned in
-Section~\ref{sec:repro}. Historical floating-point candidate generation,
+The finite certificate requires two independent arguments. For the lower
+bound, we exclude every order at and slightly above $L_n$. For the upper bound,
+we exhibit a feasible placement at $U_n$. The exact certificate data and
+verifier are pinned in Section~\ref{sec:repro}. Historical floating-point
+candidate generation,
 Stage-A pruning and retained Top-K lists are not premises of either obligation.
 
 \subsection{Necessary induced-cycle inequalities}
@@ -381,7 +390,8 @@ completion cost $D[M\cup\{j\},j]$. Prune precisely when
 Every true angular completion then violates the skeleton's necessary cycle
 inequality. Equality is retained. At the root use the root cycle cost.
 At a leaf the completion is the closing edge. All remaining choices are
-visited without a candidate cap. The DP has $O(n2^n)$ states and
+visited without a candidate cap. The dynamic program (DP) has
+$O(n2^n)$ states and
 $O(n^2 2^n)$ arithmetic operations; traversal can still be factorial.
 
 A pruned prefix with $h$ unvisited labels covers exactly $h!$ oriented
@@ -527,8 +537,8 @@ in the direction $\theta_R(a,\rho)+\theta_R(\rho,b)<\theta_R(a,b)$
 permits slack against the two boundary circles. Strict floating in the
 whole placement still requires all the other pair constraints.
 
-The new upper witnesses illustrate the quantifier issue sharply: every
-outer pair is strictly separated at $U_n$, so every outer circle is
+The upper witnesses show why the radius must be specified: every outer
+pair is strictly separated at $U_n$, so every outer circle is
 strictly floating there under the placement-level definition. This does
 not imply that every circle can float at $\Rstar(n)$; slack can disappear
 as the radius decreases. Likewise, the exact seam onsets $8,13,17$ are
@@ -562,14 +572,15 @@ pinned, content-addressed Git commit
 \href{https://github.com/falker47/ringmin/tree/6c16af422d1cb38641c62d43b6e0e547921b9ba9}{\texttt{falker47/ringmin}, commit \texttt{6c16af4}}.
 The full commit identifier is
 \begin{center}\small\texttt{\snapshot}\end{center}
-From its repository root, Python 3.11 or later with only the standard
-library suffices for the complete command:
+Run the complete verifier from that repository root with Python 3.11 or
+later; only the standard library is required:
 \begin{verbatim}
 python -I -S verify_global_brackets.py
 \end{verbatim}
 There is no partial-case or skip-frontier success mode in this entrypoint.
-It checks all twelve cases and their pinned input binding. The local
-reproduction for this manuscript used Python 3.14.3 and returned
+It checks all twelve cases and their pinned input binding.
+
+The manuscript's local Python 3.14.3 run returned
 \texttt{PASS\_GLOBAL\_BRACKETS}, 908 angle intervals, 47 witnesses,
 540 central tangencies, 3,004 outer pairs and 6,008 angular inequalities.
 No runtime claim is needed for the theorem.

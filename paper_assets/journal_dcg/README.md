@@ -1,5 +1,27 @@
 # Ringmin finite journal manuscript for DCG
 
+## Local editorial review - 7 November 2026
+
+The source and main PDF in this isolated branch include the current prose
+revision of Paper I (identified by the author as DAM DA21348). The historical
+directory name does not identify its current venue. See the
+[editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_I_REPORT.md)
+and [verification evidence](../../ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md).
+Statements, proofs, formulas, tables, bibliography and AI disclosure are
+preserved. The earlier submission package and all public arXiv assets remain
+unchanged. No submission, transfer, push or venue decision is made here.
+
+Reproduce this revision's two-paper comparison and main-only delivery with
+the task-local editorial_build.py from the repository root, choosing baseline,
+revised, repeat or deliver. The task manifest records actual inputs and
+environment. The earlier builder below retains its historical metadata and
+is not the provenance command for this editorial revision.
+
+## Earlier preparation record
+
+The following describes the prior preparation, including its dated word count,
+review status and venue assumptions; current checks are in the linked dossier.
+
 The revised standalone **working submission manuscript** for Discrete
 & Computational Geometry is separate from the public finite arXiv v2 and the
 asymptotic sequel. It has not been submitted, peer reviewed, or declared

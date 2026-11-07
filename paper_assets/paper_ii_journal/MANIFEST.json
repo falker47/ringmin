@@ -1,11 +1,11 @@
 {
   "baseline_commit": "75a2f448038d627b2661ea7c9d6fd0fcdb6d33ae",
-  "date": "2026-11-03",
-  "editorial_base_commit": "d925f85c8aee2b26bca460bf33618eb65fb996b8",
+  "date": "2026-11-07",
+  "editorial_base_commit": "7d257221d9034ca5f895f062e45e782d8e77b6c2",
   "excluded_from_self_hash": [
     "MANIFEST.json"
   ],
-  "generation": "python build.py; python build.py --export",
+  "generation": "python ops/TASK-20261107__two_paper_editorial_review/editorial_build.py export",
   "limitations": "Hashes bind files, not truth. Identical PDF bytes require the recorded TeX/font environment. Universal mathematical claims depend on written proofs.",
   "lower_supplement": {
     "baseline_commit": "75a2f448038d627b2661ea7c9d6fd0fcdb6d33ae",
@@ -15,13 +15,13 @@
   "manuscript_revision": "The Git commit containing this manifest; output hashes bind its source files.",
   "outputs": {
     ".gitattributes": "c7ec60049f9b68ef246add8625fab5d2c75d366b3888c52de470f8d1f5e49e93",
-    "BUILD_REPORT.json": "82c9c8a498e0acae78d733cbb19fd4f8fa9272a79033556bac0e3f5bbd19775c",
+    "BUILD_REPORT.json": "11d9683188fad9a83f1d17c612bfe2831d7ee2fd953cfeb7ad137ef107592278",
     "CLAIM_PROOF_MAP.md": "59544e854a7c5b3472b2e5d0e0cec9142c4458076612934751b7aa1362223d58",
-    "EDITORIAL_CHECKLIST.md": "1976e405001f76084824a6c8af8921a90b2eedba0596e7304cf30be929defc2e",
+    "EDITORIAL_CHECKLIST.md": "41f306c1fbe39e01bda96a563d4d7e6b8e4c8186e5e08fc10ec786aa10ad49d1",
     "EDITORIAL_REQUIREMENTS.md": "bffc19c12fef07b9d56a994a568040488d3736ec3311899b49bddbcd86d34c9f",
     "PRIOR_ART.md": "d332a7fb98f11deb8db7d44f69e7a8696f4414801f44f26f65d5acc436bc1e29",
-    "READINESS.md": "3f4b9205e2c95564f41fb51036c139a504dbd3ed40a0edbb0e02e712d26cefb3",
-    "README.md": "3e92105c237734d1dd7dd33ddd56e5656e4adfcb3159735b7fbc605e08ff2b34",
+    "READINESS.md": "e1209a53d2775e77601a674250eb286faad3b7dae6b89386fab6ad0446e06610",
+    "README.md": "cfde6c39ce510467b98251eee9913b79c3490528364ec00ba64556c7f73d8daa",
     "REVIEW_COVERAGE.md": "c995421cde83b276a76337206167f30eb1cda89ce604e72d73974b00bea1d6d9",
     "UPPER_DEPENDENCIES.md": "e3397e0cb1238103ccb6848730d09e885ec61ba0a58c4bdf090716e0b48220dd",
     "build.py": "65275c82e10df8a75ba15a14e56e7d1b65d5947e5dc97a2c881a5b2ff5af6e47",
@@ -33,9 +33,9 @@
     "checks/upper_fourth_block.py": "4b0f5d627fdcd800cb9402ea53de362962234a888faefd72b7f8d8be7b008935",
     "checks/upper_lambda.py": "e4172acd17d8a9d2658c72e0ce260496be428e0e750af48b5fc6dcf551bedacf",
     "checks/upper_mixed_width.py": "bc16372c27be8ee82b8248b891b1474c2c29172b765c6cb54e587e43cac340b6",
-    "main.pdf": "ae9b816c7825122c40bfbf6beed9866ba4308780ada88dd7827a93508a44f1ce",
-    "main.tex": "bcbf680f8d50c5ae42d83280d828f09c231cb937aa829e2d36001a642e97a44f",
-    "source_bundle.zip": "99365502198e79003565adf3201dcbff5289ffd5a7713a690093db81788f5b9e",
+    "main.pdf": "deda77d01c02d33c7f921b9fedc13db78f7ebe6deda3c25cac7c683f1c929766",
+    "main.tex": "652ba43d477ab47485ebb65709af4674048e83f9bb886198afaf88a38d8f3d9b",
+    "source_bundle.zip": "98de8db15430ded9c2ab3e82f0d0ca94ac10e6e09db15512a5dac32a63de3c8b",
     "upper_supplement.pdf": "3e63ad0132d9a328c7f35f3af100f20c6473e74624ef5220278ca88cca91e11a",
     "upper_supplement.tex": "941d6ae995a7f7f23ab80f7db73d1a73c1c2d9ed97d160cd35e95bcfd2c6cb42",
     "verify_math.py": "c027cc70aa370236c28a3fa001fe086c128d125b52b95d37cb380764114213dd",
@@ -43,5 +43,6 @@
   },
   "repository": "falker47/ringmin",
   "schema": "ringmin-paper-ii-journal-v1",
-  "scientific_source_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f"
+  "scientific_source_commit": "3beb8d70c5b3748d370a92855847bdf574e5a14f",
+  "scope": "Local prose revision; S1/S2 retained byte for byte; no submission or push."
 }

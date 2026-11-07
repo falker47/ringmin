@@ -2,54 +2,44 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20261103__paper_ii_editorial_finalization
-phase=author_review_package
-observed_on=2026-11-03
+task=TASK-20261107__two_paper_editorial_review
 mode=STRICT
 state=READY_FOR_REVIEW
-base_head=d925f85c8aee2b26bca460bf33618eb65fb996b8
-branch=codex/paper-ii-journal-candidate
-pull_request=4
+observed_on=2026-11-07
+base_head=7d257221d9034ca5f895f062e45e782d8e77b6c2
+branch=codex/ringmin-editorial-review
+integration=local_commit_only_no_push
 ```
 
-## Current Task and Scope
+## Current task and scope
 
-Finalize the [Paper II package](paper_assets/paper_ii_journal/README.md) for
-author review after JoCG submission #6357 was declined on 28 October.
-The next destination is unselected. DMTCS, EJC and SIDMA remain proposals;
-their current official requirements are recorded in the package.
-The original 24 October preparation remains in its dated dossier.
+The two complete main manuscripts have received a localized prose review in
+this isolated branch. Paper I is the finite manuscript associated by the author
+with DAM DA21348; Paper II is the separate asymptotic candidate. See the
+[Paper I report](ops/TASK-20261107__two_paper_editorial_review/PAPER_I_REPORT.md),
+[Paper II report](ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
+and [complete manuscript diff](ops/TASK-20261107__two_paper_editorial_review/MANUSCRIPT_DIFF.patch).
+No scientific claim or accepted mathematical baseline is advanced.
 
-The two TeX sources now define J on its full domain, explicitly fixing every
-index outside the inversion blocks. This clarifies the already reviewed
-construction. Results, constants, abstracts, all S1 files, mathematical
-checkers and public arXiv sources remain protected.
+## Verification gates and remaining decisions
 
-[REVIEW_COVERAGE.md](paper_assets/paper_ii_journal/REVIEW_COVERAGE.md)
-consolidates the four supplied component reports. The 3 November Theorem 4
-review closes the specific limit/squeeze dependency reservation and the
-connection to C* <= U4. This documentary closure is not a new general audit,
-external peer review or acceptance of the whole PR.
+Baseline, revised and repeated isolated three-pass builds produce 19 and
+9 pages with zero final-log warnings; revised/repeat PDF bytes agree.
+Formula, statement, proof, bibliography and AI-disclosure checks pass.
+Both supplements, public deposits, scientific code/results and all 835
+protected tracked files retain their bytes. The package verifier passes.
+All 28 revised main pages were visually inspected. Paper II has a minor
+definition continuation across pages 2-3, recorded explicitly.
 
-## Verification Gates and Remaining Decisions
+[Evidence](ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md) separates
+fresh engineering checks from inherited mathematics. No mathematical verifier,
+hosted CI, S1/S2 compile or independent-review checkpoint was rerun or changed.
+The original checkout, its untracked arXiv ZIP and other worktrees are preserved.
+Only a local commit is authorized for this task; no push, merge, PR, submission,
+transfer or arXiv update is performed. Dates/venue history and the explicitly
+deferred wording decisions remain for the author.
 
-Fresh builds, arithmetic, 68 tests plus four subtests, isolated archive replay,
-seven negative controls and visual inspection of all 22 regenerated pages pass.
-All 804 protected baseline files remain byte-identical. The
-[dossier](ops/TASK-20261103__paper_ii_editorial_finalization/TASK_STATUS.md)
-and [evidence](ops/TASK-20261103__paper_ii_editorial_finalization/EVIDENCE.md)
-record actual results, separately from inherited review evidence. Exact-commit
-hosted outcomes are recorded after the content freeze in the draft PR handoff;
-this file does not infer them from earlier successful runs.
-The new environment rebuilds S1 differently from its preserved original PDF;
-build metadata explicitly separates these hashes without modifying S1.
+## Exactly one next atomic task
 
-The [author checklist](paper_assets/paper_ii_journal/EDITORIAL_CHECKLIST.md)
-contains the remaining venue, AI-detail, personal-review and metadata decisions.
-No merge, Registry promotion, arXiv replacement, journal submission or editor
-communication is part of this finalization.
-
-## Exactly One Next Atomic Task
-
-Author review of the neutral package and completion of its editorial checklist
-before any separately authorized venue adaptation or submission.
+Author review of the two editorial diffs and the deferred wording/version
+decisions in their reports.

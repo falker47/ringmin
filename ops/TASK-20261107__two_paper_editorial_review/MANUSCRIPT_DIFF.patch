@@ -1,0 +1,174 @@
+diff --git a/paper_assets/journal_dcg/ringmin_dcg.tex b/paper_assets/journal_dcg/ringmin_dcg.tex
+index c63e991..5595e34 100644
+--- a/paper_assets/journal_dcg/ringmin_dcg.tex
++++ b/paper_assets/journal_dcg/ringmin_dcg.tex
+@@ -34,6 +34,7 @@ We minimize the radius of a central circle externally tangent to pairwise
+-non-overlapping circles of radii $1,2,\ldots,n$. The adjacent-chain relaxation
+-has an angular kernel with strict anti-Monge structure. Supnick's classical
+-theorem therefore supplies a fixed minimizing cyclic order at every central
+-radius, and a monotonicity argument transfers this order to the chain-radius
+-problem. The full geometry additionally requires every pairwise angular
+-constraint. We give a self-contained criterion for feasibility of the
++non-overlapping circles of radii $1,2,\ldots,n$. We first study the
++adjacent-chain relaxation, which imposes only the constraints between
++consecutive circles. Its angular kernel has strict anti-Monge structure, so
++Supnick's classical theorem supplies a fixed minimizing cyclic order at every
++central radius. A monotonicity argument transfers this order to the
++chain-radius problem. Full geometric feasibility requires every pairwise
++angular constraint. We give a self-contained criterion for feasibility of the
+@@ -43,2 +44,4 @@ failure persists. We prove the complete classifications for $k=1,2,3$, whose
+-first failures occur at $n=8,13,17$, respectively. For the global problem,
+-we certify rational brackets $L_n<R^*(n)\le U_n$ of exact width $10^{-11}$
++first failures occur at $n=8,13,17$, respectively.
++
++For the global infimum, we certify rational brackets
++$L_n<R^*(n)\le U_n$ of exact width $10^{-11}$
+@@ -47,2 +50,3 @@ angles, integer dynamic programming, and complete cyclic-order coverage;
+-the upper proof uses exact rational Cartesian witnesses. It does not depend
+-on floating-point pruning in the numerical search. We distinguish these
++the upper proof uses exact rational Cartesian witnesses. The certificate
++does not depend on floating-point pruning in the numerical search. We
++distinguish these
+@@ -80,2 +84,2 @@ All endpoints are stated explicitly in Section~\ref{sec:results}.
+-There are four mathematical contributions. First, the geometric angular
+-kernel is strictly anti-Monge for every central radius. Applying the
++The argument has four parts. First, the geometric angular kernel is
++strictly anti-Monge for every central radius. Applying the
+@@ -85,3 +89,4 @@ distinct positive radii. Second, we formulate full fixed-order feasibility
+-using both directed angular constraints for every pair. Third, a single
+-seam deficit characterizes feasibility at the chain root of the canonical
+-order on $\{k,\ldots,n\}$. Its eventual persistent failure is proved for
++using both directed angular constraints for every pair.
++
++Third, a single seam deficit characterizes feasibility at the chain root
++of the canonical order on $\{k,\ldots,n\}$. Its eventual persistent failure is proved for
+@@ -89,2 +94,4 @@ each fixed $k$; the complete strict classifications proved here are precisely
+-those for $k=1,2,3$. Fourth, an exact finite certificate proves
+-\eqref{eq:mainclaim} by combining exhaustive lower-bound coverage with
++those for $k=1,2,3$.
++
++Fourth, an exact finite certificate proves \eqref{eq:mainclaim} by combining
++exhaustive lower-bound coverage with
+@@ -126 +133,2 @@ any result proved here.
+-Place the central center at the origin. An outer circle of radius $a>0$
++Place the center of the central circle at the origin. An outer circle
++of radius $a>0$
+@@ -187,2 +195,2 @@ self-pair constraints in the geometric model.
+-Here is an unambiguous definition of the relevant tour on $N$ ranked
+-vertices. Set $H=\lceil N/2\rceil$. For successive $j=0,1,\ldots$,
++Define the relevant tour on $N$ ranked vertices as follows.
++Set $H=\lceil N/2\rceil$. For successive $j=0,1,\ldots$,
+@@ -305,4 +313,5 @@ concerns the specified chain root, not a global optimizing contact graph.
+-The finite proof has two independent mathematical obligations: exclude
+-every order at and slightly above $L_n$, and exhibit a feasible placement
+-at $U_n$. It uses the exact certificate data and verifier pinned in
+-Section~\ref{sec:repro}. Historical floating-point candidate generation,
++The finite certificate requires two independent arguments. For the lower
++bound, we exclude every order at and slightly above $L_n$. For the upper bound,
++we exhibit a feasible placement at $U_n$. The exact certificate data and
++verifier are pinned in Section~\ref{sec:repro}. Historical floating-point
++candidate generation,
+@@ -384 +393,2 @@ At a leaf the completion is the closing edge. All remaining choices are
+-visited without a candidate cap. The DP has $O(n2^n)$ states and
++visited without a candidate cap. The dynamic program (DP) has
++$O(n2^n)$ states and
+@@ -530,2 +540,2 @@ whole placement still requires all the other pair constraints.
+-The new upper witnesses illustrate the quantifier issue sharply: every
+-outer pair is strictly separated at $U_n$, so every outer circle is
++The upper witnesses show why the radius must be specified: every outer
++pair is strictly separated at $U_n$, so every outer circle is
+@@ -565,2 +575,2 @@ The full commit identifier is
+-From its repository root, Python 3.11 or later with only the standard
+-library suffices for the complete command:
++Run the complete verifier from that repository root with Python 3.11 or
++later; only the standard library is required:
+@@ -571,2 +581,3 @@ There is no partial-case or skip-frontier success mode in this entrypoint.
+-It checks all twelve cases and their pinned input binding. The local
+-reproduction for this manuscript used Python 3.14.3 and returned
++It checks all twelve cases and their pinned input binding.
++
++The manuscript's local Python 3.14.3 run returned
+diff --git a/paper_assets/paper_ii_journal/main.tex b/paper_assets/paper_ii_journal/main.tex
+index 151c1b5..f0adc31 100644
+--- a/paper_assets/paper_ii_journal/main.tex
++++ b/paper_assets/paper_ii_journal/main.tex
+@@ -36 +36,3 @@ $\Rstar(n)=\CC n^2+o(n^2)$ and give finite linear programs that enclose
+-$\CC$ with prescribed error. An exact angular comparison reduces the problem
++$\CC$ with prescribed error.
++
++An exact angular comparison reduces the problem
+@@ -42,4 +44,5 @@ error, using $k$ types and words of length $r$.
+-For explicit geometric upper bounds, we recover finite and countable
+-reflected-block constructions by actual permutations, retaining all pair
+-constraints. A coupled terminal-subset argument gives an explicit lower
+-bound strictly above $1/8$. Together these give
++
++We also obtain explicit geometric bounds. For the upper bound, we recover
++finite and countable reflected-block constructions by actual permutations,
++retaining all pair constraints. A coupled terminal-subset argument gives
++an explicit lower bound strictly above $1/8$. Together these give
+@@ -47,2 +50,4 @@ $C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$, with neither endpoint
+-asserted sharp. The finite-word scheme establishes computability; efficient
+-high-precision evaluation and the structure of global optimizers remain open.
++asserted sharp.
++
++The finite-word scheme establishes computability; efficient high-precision
++evaluation and the structure of global optimizers remain open.
+@@ -57,2 +62,4 @@ limits; linear programming; rigorous computation.
+-All outer circles are tangent to the central circle; outer circles need
+-not be tangent to each other. For a cyclic order $\sigma$, the adjacent
++We seek the smallest central circle to which all the prescribed outer
++circles can be externally tangent without overlapping. The outer radii
++are consecutive positive integers starting at one; outer circles need not
++be tangent to each other. For a cyclic order $\sigma$, the adjacent
+@@ -64,0 +72,5 @@ an upper bound, not an optimum certificate.
++The question here is the leading growth of this global minimum as the
++number of outer circles increases. We prove existence of the limiting
++coefficient and characterize it by finite linear programs with a prescribed
++error.
++
+@@ -81,4 +93,4 @@ coefficient.
+-Our main result is an effective characterization of the true global leading
+-coefficient. Sections~\ref{sec:line}--\ref{sec:lp} give its proof directly
+-from the angular model, through an all-pair line problem, genuine-label
+-concatenation and balanced finite-word programs. The lower and upper bounds
++Sections~\ref{sec:line}--\ref{sec:lp} develop the proof of the effective
++characterization. The argument passes from the angular model to an all-pair
++line problem, then uses genuine-label concatenation and balanced finite-word
++programs. The lower and upper bounds
+@@ -133,0 +146,4 @@ adjacent constraints in any full placement proves $\ch(\sigma)\le\full(\sigma)$.
++We next introduce an auxiliary problem on a line. Its comparison with the
++circle problem will follow after a bound on the cost of closing a line
++placement.
++
+@@ -190,0 +207,4 @@ adjacency reduction or assumption on the optimal order was used.
++The closing estimate makes concatenation useful: copies of a finite line
++placement can be joined at bounded cost. The next theorem combines this
++construction with reassignment to the prescribed radii.
++
+@@ -227,0 +248,5 @@ separations are at least $1/2$, so $E\ge1/4$ and $\CC>0$.
++We now turn from existence of the limit to approximation with a prescribed
++error. There are two steps: replace the radii by finitely many types, then
++replace long orderings by distributions of finite words. Each step contributes
++one term to the bracket width.
++
+@@ -251,0 +277,4 @@ type multisets. Theorem~\ref{thm:existence} and monotonicity imply
++A word records a short consecutive piece of an ordering. The linear program
++balances type counts across a distribution of words; the proof below controls
++the cost of joining them.
++
+@@ -317,0 +347,5 @@ need not improve the stronger explicit endpoint bounds below.
++The finite-word characterization gives a convergent scheme for the constant.
++For explicit upper bounds, we use reflected-block constructions. The key step
++is to recover actual permutations satisfying every pair constraint from the
++continuous description.
++
+@@ -512,2 +546,2 @@ supplement S1~\cite{lower}, the standalone upper supplement S2~\cite{upper},
+-and a claim--lemma--hypothesis--proof--verification map. The limit and
+-finite-word proofs are complete in Sections~3--4; S1 independently includes
++and a map from each claim to its hypotheses, proof and verification. The
++limit and finite-word proofs are complete in Sections~3--4; S1 independently includes
+@@ -516 +550,2 @@ definitions, their isolation gates, all-pairs feasibility and geometric
+-transfer. No task-log reconstruction is a proof prerequisite.
++transfer. These sources contain the proofs without requiring reconstruction
++from task logs.

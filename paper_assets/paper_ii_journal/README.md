@@ -1,7 +1,7 @@
 # Paper II: Author Review Package
 
-This separate journal manuscript of arXiv:2609.13630 is the 3 November 2026
-editorial candidate for the author's review. The next journal is not selected.
+This separate journal manuscript of arXiv:2609.13630 includes the local
+7 November 2026 prose revision of the 3 November author-review candidate. The next journal is not selected.
 JoCG submission #6357 was declined after preliminary assessment on 28 October;
 the supplied decision record contains no specific mathematical objection.
 The 24 October JoCG preparation remains historical provenance.
@@ -14,6 +14,26 @@ those inherited reviews from verification of this editorial revision.
 [EDITORIAL_CHECKLIST.md](EDITORIAL_CHECKLIST.md) identifies the remaining author
 decisions. [EDITORIAL_REQUIREMENTS.md](EDITORIAL_REQUIREMENTS.md) records the
 current official requirements of the proposed venues without selecting one.
+
+## Local Prose Revision - 7 November 2026
+
+The abstract and narrative transitions in main.tex have been revised for
+readability. All mathematical expressions, statements, proofs, the entire
+lower-endpoint section, references and AI acknowledgment are preserved.
+S1 and S2, including their sources, PDFs and checkers, remain byte-identical
+to the 3 November baseline. Their previous build/review evidence is inherited,
+not rerun here. The current main PDF has its own environment record in
+BUILD_REPORT.json; top-level historical environment fields still describe
+the inherited supplement records.
+
+See the [editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
+and [current verification evidence](../../ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md).
+The task-local editorial_build.py runs the two main-document comparisons,
+delivers only the main PDFs and refreshes this portable bundle while preserving
+every supplement byte. Use its revised, repeat, deliver, then export
+modes from the repository root for this edition. The earlier general authoring
+commands below rebuild all documents and are not this task's generation route.
+This local review does not update the existing PR or the original branch.
 
 ## Package Index
 
@@ -57,13 +77,16 @@ missing characters and box warnings. It records actual input and output
 hashes. The reproducibility command builds each document twice and requires
 identical results within that environment, without changing delivered files.
 
-Main and S2 were regenerated with the environment recorded in BUILD_REPORT.json.
-S1's original TeX Live 2025 PDF is deliberately preserved. Its new TeX Live 2023
-check build has different bytes; the report records both digests and explicitly
-marks the difference. S1's original manifest still binds its delivered bytes.
+At the 3 November freeze, main and S2 were regenerated with TeX Live 2023.
+S1's original TeX Live 2025 PDF was preserved; that recorded TeX Live 2023
+check build had different bytes. BUILD_REPORT.json retains those historical
+supplement records, including both S1 digests and the explicit difference.
+This prose revision rebuilds only main with its separately recorded environment.
+S1's original manifest still binds its unchanged delivered bytes.
 `check_reproducibility.py --require-delivered` remains a stronger optional check
-requiring all three delivered PDFs to match fresh builds. It fails for S1 in
-this mixed-provenance package; this is not recorded as a passing gate.
+requiring all three delivered PDFs to match fresh builds. The recorded
+3 November TeX Live 2023 replay failed that stronger gate for S1. It was not
+rerun in this prose task; no current all-document build result is claimed.
 
 To author a later revision, run `python build.py`, finalize package documentation,
 then run `python build.py --export`. Re-export after any packaged file changes.
@@ -73,9 +96,10 @@ artifact upload. Exact-commit CI evidence belongs in the draft PR handoff.
 
 ## Scientific and Editorial Scope
 
-This revision makes the total permutation J explicit and updates documentary
-state. Results, constants, abstracts, S1 and the public arXiv sources are
-unchanged. Neither endpoint is claimed sharp, and no new finite optimum or
+The 3 November revision made the total permutation J explicit and updated
+documentary state. This 7 November revision changes only main-manuscript prose
+and its synchronized outputs. Results, constants, formal arguments, S1, S2
+and the public arXiv sources are unchanged. Neither endpoint is claimed sharp, and no new finite optimum or
 efficient high-precision algorithm is claimed. The component reviews are
 internal AI-assisted evidence, not external peer review or approval of the
 whole PR. Merge, Registry promotion, arXiv replacement, journal submission and
