@@ -15,7 +15,7 @@ those inherited reviews from verification of this editorial revision.
 decisions. [EDITORIAL_REQUIREMENTS.md](EDITORIAL_REQUIREMENTS.md) records the
 current official requirements of the proposed venues without selecting one.
 
-## Local Prose Revision - 7 November 2026
+## Approved Prose Refinements - 7 November 2026
 
 The abstract and narrative transitions in main.tex have been revised for
 readability. All mathematical expressions, statements, proofs, the entire
@@ -26,12 +26,16 @@ not rerun here. The current main PDF has its own environment record in
 BUILD_REPORT.json; top-level historical environment fields still describe
 the inherited supplement records.
 
-See the [editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
-and [current verification evidence](../../ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md).
-The task-local editorial_build.py runs the two main-document comparisons,
-delivers only the main PDFs and refreshes this portable bundle while preserving
-every supplement byte. Use its revised, repeat, deliver, then export
-modes from the repository root for this edition. The earlier general authoring
+See the [earlier editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
+and [current verification evidence](../../ops/TASK-20261107__two_paper_approved_refinements/EVIDENCE.md).
+The approved follow-up clarifies finite-word convergence, endpoint provenance
+and the two references to prescribed normalized radii.
+Run `python ops/TASK-20261107__two_paper_approved_refinements/approved_build.py build`
+from the repository root for repeated main-only builds and delivery.
+For export, copy that task wrapper to an ignored work directory outside this
+package and run its `export --root <repository-root>` mode. It preserves every
+supplement byte and records the current main compiler separately from inherited
+supplement contexts in both manifests. The earlier general authoring
 commands below rebuild all documents and are not this task's generation route.
 This local review does not update the existing PR or the original branch.
 

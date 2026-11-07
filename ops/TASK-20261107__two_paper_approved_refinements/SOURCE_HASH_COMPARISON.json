@@ -1,0 +1,12 @@
+{
+  "paper_assets/journal_dcg/ringmin_dcg.tex": {
+    "actual_sha256": "9bd9a8d605c207fb8e81d1abd024d8d536ac839a9eadbf18d63dc3c23e559d90",
+    "expected_sha256": "9bd9a8d605c207fb8e81d1abd024d8d536ac839a9eadbf18d63dc3c23e559d90",
+    "matches": true
+  },
+  "paper_assets/paper_ii_journal/main.tex": {
+    "actual_sha256": "11aef17bba8e0b0eb264553fb5e06d83fea361b22fe5eaf7a91d464151f5366d",
+    "expected_sha256": "11aef17bba8e0b0eb264553fb5e06d83fea361b22fe5eaf7a91d464151f5366d",
+    "matches": true
+  }
+}

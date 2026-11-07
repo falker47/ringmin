@@ -38,7 +38,7 @@ $\CC$ with prescribed error.
 An exact angular comparison reduces the problem
 to marked points on a line with separation at least the geometric mean of
 each pair of marks. Concatenation with bounded joining cost and reassignment
-to genuine labels prove existence of the limit. Balanced finite-word
+to the prescribed normalized radii prove existence of the limit. Balanced finite-word
 programs give a bracket of width $(1/k+1/r)/\pi$, before directed arithmetic
 error, using $k$ types and words of length $r$.
 
@@ -46,8 +46,9 @@ We also obtain explicit geometric bounds. For the upper bound, we recover
 finite and countable reflected-block constructions by actual permutations,
 retaining all pair constraints. A coupled terminal-subset argument gives
 an explicit lower bound strictly above $1/8$. Together these give
-$C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$, with neither endpoint
-asserted sharp.
+$C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$.
+The lower endpoint comes from the terminal-subset argument, and the upper
+endpoint from the four-block construction; neither is asserted sharp.
 
 The finite-word scheme establishes computability; efficient high-precision
 evaluation and the structure of global optimizers remain open.
@@ -93,8 +94,9 @@ coefficient.
 Sections~\ref{sec:line}--\ref{sec:lp} develop the proof of the effective
 characterization. The argument passes from the angular model to an all-pair
 line problem, then uses genuine-label concatenation and balanced finite-word
-programs. The lower and upper bounds
-converge to the same constant with a prescribed error. Separate explicit
+programs. The lower and upper bounds supplied by these finite-word programs
+converge to the same constant, with the explicit error bound stated in
+Theorem~\ref{thm:lp}. Separate explicit
 constructions give the interval stated in the abstract and disprove the
 coefficient conjecture of \cite{v1}. Their complete proof dependencies are
 given in the supplementary material; the main variational characterization does
@@ -206,7 +208,7 @@ adjacency reduction or assumption on the optimal order was used.
 
 The closing estimate makes concatenation useful: copies of a finite line
 placement can be joined at bounded cost. The next theorem combines this
-construction with reassignment to the prescribed radii.
+construction with reassignment to the prescribed normalized radii.
 
 \begin{theorem}[The leading limit exists]\label{thm:existence}
 There is a constant $\CC$ such that

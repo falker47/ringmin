@@ -1,12 +1,41 @@
 {
   "FORCE_SOURCE_DATE": "1",
   "SOURCE_DATE_EPOCH": "1792713600",
+  "build_context_by_document": {
+    "lower": {
+      "FORCE_SOURCE_DATE": "1",
+      "SOURCE_DATE_EPOCH": "1792713600",
+      "command": "pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder <source> (three passes in a new external temporary directory)",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+      "inherited_from_commit": "4303fe4d937c5f2c7915070a0aaffa67f9b448ca",
+      "scope": "Original context of the unchanged supplement build record; not a current execution.",
+      "status": "inherited_not_recompiled"
+    },
+    "main": {
+      "FORCE_SOURCE_DATE": "1",
+      "SOURCE_DATE_EPOCH": "1792713600",
+      "command": "pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder <source> (three passes in a new external temporary directory)",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025)",
+      "invocation": "python ops/TASK-20261107__two_paper_approved_refinements/approved_build.py build; direct runpy compile_document(main.tex)",
+      "observed_on": "2026-11-07",
+      "status": "recompiled"
+    },
+    "upper_supplement": {
+      "FORCE_SOURCE_DATE": "1",
+      "SOURCE_DATE_EPOCH": "1792713600",
+      "command": "pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder <source> (three passes in a new external temporary directory)",
+      "compiler": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+      "inherited_from_commit": "4303fe4d937c5f2c7915070a0aaffa67f9b448ca",
+      "scope": "Original context of the unchanged supplement build record; not a current execution.",
+      "status": "inherited_not_recompiled"
+    }
+  },
   "command": "pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder <source> (three passes in a new external temporary directory)",
   "compiler": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
   "document_provenance": {
-    "lower": "Inherited unchanged from 7d257221d9034ca5f895f062e45e782d8e77b6c2; not compiled or edited in this task.",
-    "main": "Fresh 2026-11-07 local build; compiler and system-input hashes in this document record.",
-    "upper_supplement": "Inherited unchanged from 7d257221d9034ca5f895f062e45e782d8e77b6c2; not compiled or edited in this task."
+    "lower": "Entire record and delivered files inherited unchanged from 4303fe4d937c5f2c7915070a0aaffa67f9b448ca; no S1 compilation.",
+    "main": "Recompiled twice on 2026-11-07 using direct compile_document(main.tex); identical PDF bytes and build records.",
+    "upper_supplement": "Entire record and delivered files inherited unchanged from 4303fe4d937c5f2c7915070a0aaffa67f9b448ca; no S2 compilation."
   },
   "documents": {
     "lower": {
@@ -141,28 +170,10 @@
       "unresolved_or_box_warnings": []
     },
     "main": {
-      "FORCE_SOURCE_DATE": "1",
-      "SOURCE_DATE_EPOCH": "1792713600",
-      "command": [
-        "pdflatex",
-        "-no-shell-escape",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-file-line-error",
-        "-recorder",
-        "main.tex"
-      ],
-      "compiler": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025)",
-      "inputs_sha256": {
-        "paper_assets/paper_ii_journal/main.tex": "652ba43d477ab47485ebb65709af4674048e83f9bb886198afaf88a38d8f3d9b"
-      },
       "pages": 9,
       "passes": 3,
-      "pdf_sha256": "deda77d01c02d33c7f921b9fedc13db78f7ebe6deda3c25cac7c683f1c929766",
-      "phase": "revised",
-      "source_base_commit": "7d257221d9034ca5f895f062e45e782d8e77b6c2",
-      "source_commit": "The local task commit containing these source and output hashes",
-      "source_sha256": "652ba43d477ab47485ebb65709af4674048e83f9bb886198afaf88a38d8f3d9b",
+      "pdf_sha256": "f8bdd74a5f951b07d1cb9d3f7c07b3c3e12a0b46545940817fb671f823150419",
+      "source_sha256": "11aef17bba8e0b0eb264553fb5e06d83fea361b22fe5eaf7a91d464151f5366d",
       "system_inputs": {
         "amsbsy.sty:c09b1b14dfe8a81b": "c09b1b14dfe8a81b6791673b3bc5a7fd8b794fb063b6e8b5ce79fc28c7e59c8c",
         "amsfonts.sty:dab8b0e621267acf": "dab8b0e621267acfd89736cf97bdcc02647c545c0719c4997be8a7d1bf98f9c3",
@@ -278,8 +289,7 @@
         "uniquecounter.sty:9d11c81501953d68": "9d11c81501953d689787ff14c073d2f1eda5874068db9e882b8dbbf9a9d863b0",
         "url.sty:2373f56849ac6064": "2373f56849ac606473e77053e5c1d14c92aba312b3f684e02a130eaf36f2de47"
       },
-      "unresolved_or_box_warnings": [],
-      "warnings": []
+      "unresolved_or_box_warnings": []
     },
     "upper_supplement": {
       "pages": 13,
@@ -410,5 +420,5 @@
       "unresolved_or_box_warnings": []
     }
   },
-  "top_level_environment_scope": "Historical environment of unchanged S1/S2 records. The main record carries its own current environment."
+  "top_level_environment_scope": "Historical environment of the inherited lower/upper_supplement records only. Use build_context_by_document for each document; main was recompiled with its own current compiler. S1 delivered PDF remains preserved-baseline, distinct from its historical check-build PDF."
 }

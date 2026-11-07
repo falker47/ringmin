@@ -7,10 +7,10 @@
     "scope": "Frozen pre-submission snapshot; excludes the revision baseline and this editorial reconciliation",
     "tag": "v1.1.0-dcg-presubmission"
   },
-  "artifact": "Local editorial revision of the finite manuscript; no submission",
-  "command_from_repository_root": "python ops/TASK-20261107__two_paper_editorial_review/editorial_build.py revised; python ops/TASK-20261107__two_paper_editorial_review/editorial_build.py deliver",
+  "artifact": "Approved editorial refinements of the finite manuscript; no submission",
+  "command_from_repository_root": "python ops/TASK-20261107__two_paper_approved_refinements/approved_build.py build",
   "compiler": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025)",
-  "editorial_build_evidence": "ops/TASK-20261107__two_paper_editorial_review/build_revised_paper_i.json",
+  "editorial_build_evidence": "ops/TASK-20261107__two_paper_approved_refinements/build_revised_paper_i.json",
   "inputs_sha256": {
     "CITATION.cff": "0bcb64fb77654674612fe9c9adeee4a358c79e25f25690e957f738cc0f7658a3",
     "ops/TASK-20260926__archive_evidence_integration/evidence/zenodo_record.json": "229fc17a30964af505077768ee0df5ce71743fcbb84f0a30f59269f6903f8008",
@@ -19,16 +19,16 @@
     "paper_assets/journal_dcg/build.py": "5a619b1dfcfed279dd06738c0d1755575ea6517a00fa0a76dee5da985ac44968",
     "paper_assets/journal_dcg/coverage_rows.tex": "4f4bf81b65c68fcd68d337b36ca43c1582f495ca6bf41ad71ccf3b90afceb87a",
     "paper_assets/journal_dcg/export_tables.py": "773caaee77afc74a6a887e1550647962a7202e3c864959cb1cb1bc1a533d86ba",
-    "paper_assets/journal_dcg/ringmin_dcg.tex": "cccbf47849706ed2abfc5184c02792884adbf4886acd665da6b49d62a9696ab4",
+    "paper_assets/journal_dcg/ringmin_dcg.tex": "9bd9a8d605c207fb8e81d1abd024d8d536ac839a9eadbf18d63dc3c23e559d90",
     "paper_assets/journal_dcg/seam_appendix.tex": "5d518283d993967489968ced9804d1476a41a49bad1596808862d1cffd66515d"
   },
   "manuscript_generation_commit": "The task commit containing this manifest; see git log -- paper_assets/journal_dcg/BUILD_MANIFEST.json",
   "mathematical_source_commit": "6c16af422d1cb38641c62d43b6e0e547921b9ba9",
   "output_sha256": {
-    "paper_assets/journal_dcg/ringmin_dcg.pdf": "c1a693f28e37bdfc0c0b2724a18204d71dc41a14adc4fd9d83b46009e6ed711c"
+    "paper_assets/journal_dcg/ringmin_dcg.pdf": "b21e4affeac604702f2bae88616d8f9e49e8a6f1a1fbdd51d11c21520462844a"
   },
   "overfull_boxes": [],
-  "pages": 19,
+  "pages": 18,
   "passes": 3,
   "pdf_dates_and_path_identifiers": "suppressed in source",
   "portability": "Byte identity tested only with the recorded local TeX toolchain; other TeX/font versions may differ.",
@@ -40,7 +40,7 @@
     "research/JOURNAL_FIXED_ORDER_SEAM_THEOREM.md": "dadcb9584ce58fbd0fbbd693a55f8651e6866f1035e3321e68468f0f38b6a1b7",
     "verify_global_brackets.py": "599b49afc3718738a4adf04ec797c4c0e52c5d53076bfbb00e826dde260d4e95"
   },
-  "revision_baseline_commit": "7d257221d9034ca5f895f062e45e782d8e77b6c2",
+  "revision_baseline_commit": "4303fe4d937c5f2c7915070a0aaffa67f9b448ca",
   "shell_escape": false,
   "unresolved_references": []
 }

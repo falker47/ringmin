@@ -1,20 +1,23 @@
 # Ringmin finite journal manuscript for DCG
 
-## Local editorial review - 7 November 2026
+## Approved editorial refinements - 7 November 2026
 
 The source and main PDF in this isolated branch include the current prose
 revision of Paper I (identified by the author as DAM DA21348). The historical
 directory name does not identify its current venue. See the
 [editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_I_REPORT.md)
-and [verification evidence](../../ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md).
+and the [current verification evidence](../../ops/TASK-20261107__two_paper_approved_refinements/EVIDENCE.md).
+The author-approved follow-up refines the contribution sentence and archival
+wording. The previous chronology is preserved verbatim as a historical statement
+in [PAPER_I_PROVENANCE.md](../../ops/TASK-20261107__two_paper_approved_refinements/PAPER_I_PROVENANCE.md).
 Statements, proofs, formulas, tables, bibliography and AI disclosure are
 preserved. The earlier submission package and all public arXiv assets remain
 unchanged. No submission, transfer, push or venue decision is made here.
 
-Reproduce this revision's two-paper comparison and main-only delivery with
-the task-local editorial_build.py from the repository root, choosing baseline,
-revised, repeat or deliver. The task manifest records actual inputs and
-environment. The earlier builder below retains its historical metadata and
+Reproduce the repeated main-only builds with
+`python ops/TASK-20261107__two_paper_approved_refinements/approved_build.py build`
+from the repository root. The task manifest records actual inputs and
+environment; no supplement is compiled. The earlier builder below retains its historical metadata and
 is not the provenance command for this editorial revision.
 
 ## Earlier preparation record
@@ -27,7 +30,7 @@ The revised standalone **working submission manuscript** for Discrete
 asymptotic sequel. It has not been submitted, peer reviewed, or declared
 publication-ready by this task.
 
-The [19-page PDF](ringmin_dcg.pdf) is built from [ringmin_dcg.tex](ringmin_dcg.tex),
+The [18-page PDF](ringmin_dcg.pdf) is built from [ringmin_dcg.tex](ringmin_dcg.tex),
 [seam_appendix.tex](seam_appendix.tex), and two generated table inputs.
 There are no external figures, private style files or bibliography databases.
 Standard `article` formatting is used for this working version; the Springer

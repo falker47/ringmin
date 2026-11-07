@@ -1,0 +1,48 @@
+diff --git a/paper_assets/journal_dcg/ringmin_dcg.tex b/paper_assets/journal_dcg/ringmin_dcg.tex
+index 5595e34..af64e35 100644
+--- a/paper_assets/journal_dcg/ringmin_dcg.tex
++++ b/paper_assets/journal_dcg/ringmin_dcg.tex
+@@ -84 +84 @@ All endpoints are stated explicitly in Section~\ref{sec:results}.
+-The argument has four parts. First, the geometric angular kernel is
++The paper makes four contributions. First, the geometric angular kernel is
+@@ -593,8 +593,3 @@ This archival identity is distinct from the mathematical/computational
+-source pin above. The repository baseline accepted under the internal
+-review protocol, confirmed on September 28, 2026, is
+-\begin{center}\small\texttt{b1480803749e08197bce37442f0953c550e2a5e4}\end{center}
+-That baseline postdates the frozen snapshot and is not contained in the
+-Zenodo deposit. The present editorial reconciliation also lies outside
+-that deposit and requires separate review. Internal acceptance does not
+-constitute journal peer review; this manuscript has not been submitted
+-to Discrete \& Computational Geometry.
++source pin above. The DOI identifies only the frozen snapshot, not later
++manuscript revisions. Subsequent version and internal-review history are
++recorded separately in the repository.
+@@ -645,3 +640,3 @@ DOI \url{https://doi.org/10.5281/zenodo.22849826}.
+-Section~\ref{sec:repro} distinguishes the computational source pin, the
+-archived release commit and the later accepted repository baseline; the
+-DOI identifies only the archived snapshot. The proof of the selected
++Section~\ref{sec:repro} distinguishes the computational source pin from
++the archived release commit; the DOI identifies only the archived snapshot.
++The proof of the selected
+diff --git a/paper_assets/paper_ii_journal/main.tex b/paper_assets/paper_ii_journal/main.tex
+index f0adc31..c4b5226 100644
+--- a/paper_assets/paper_ii_journal/main.tex
++++ b/paper_assets/paper_ii_journal/main.tex
+@@ -41 +41 @@ each pair of marks. Concatenation with bounded joining cost and reassignment
+-to genuine labels prove existence of the limit. Balanced finite-word
++to the prescribed normalized radii prove existence of the limit. Balanced finite-word
+@@ -49,2 +49,3 @@ an explicit lower bound strictly above $1/8$. Together these give
+-$C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$, with neither endpoint
+-asserted sharp.
++$C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$.
++The lower endpoint comes from the terminal-subset argument, and the upper
++endpoint from the four-block construction; neither is asserted sharp.
+@@ -96,2 +97,3 @@ line problem, then uses genuine-label concatenation and balanced finite-word
+-programs. The lower and upper bounds
+-converge to the same constant with a prescribed error. Separate explicit
++programs. The lower and upper bounds supplied by these finite-word programs
++converge to the same constant, with the explicit error bound stated in
++Theorem~\ref{thm:lp}. Separate explicit
+@@ -209 +211 @@ placement can be joined at bounded cost. The next theorem combines this
+-construction with reassignment to the prescribed radii.
++construction with reassignment to the prescribed normalized radii.

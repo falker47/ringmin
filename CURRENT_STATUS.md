@@ -2,44 +2,42 @@
 
 ```text
 repository=falker47/ringmin
-task=TASK-20261107__two_paper_editorial_review
+task=TASK-20261107__two_paper_approved_refinements
 mode=STRICT
 state=READY_FOR_REVIEW
 observed_on=2026-11-07
-base_head=7d257221d9034ca5f895f062e45e782d8e77b6c2
+base_head=4303fe4d937c5f2c7915070a0aaffa67f9b448ca
 branch=codex/ringmin-editorial-review
 integration=local_commit_only_no_push
 ```
 
 ## Current task and scope
 
-The two complete main manuscripts have received a localized prose review in
-this isolated branch. Paper I is the finite manuscript associated by the author
-with DAM DA21348; Paper II is the separate asymptotic candidate. See the
-[Paper I report](ops/TASK-20261107__two_paper_editorial_review/PAPER_I_REPORT.md),
-[Paper II report](ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
-and [complete manuscript diff](ops/TASK-20261107__two_paper_editorial_review/MANUSCRIPT_DIFF.patch).
-No scientific claim or accepted mathematical baseline is advanced.
+The seven author-approved follow-up prose replacements are present in the two
+journal manuscripts, with the exact supplied source SHA-256 values. Paper I's
+removed chronology is preserved as a historical statement in
+[PAPER_I_PROVENANCE.md](ops/TASK-20261107__two_paper_approved_refinements/PAPER_I_PROVENANCE.md).
+The two main PDFs and build/package provenance are synchronized; three current
+accompanying-document pointers/page counts are updated. No mathematical claim,
+certified scope or accepted baseline is promoted.
 
-## Verification gates and remaining decisions
+## Verification gates and blockers
 
-Baseline, revised and repeated isolated three-pass builds produce 19 and
-9 pages with zero final-log warnings; revised/repeat PDF bytes agree.
-Formula, statement, proof, bibliography and AI-disclosure checks pass.
-Both supplements, public deposits, scientific code/results and all 835
-protected tracked files retain their bytes. The package verifier passes.
-All 28 revised main pages were visually inspected. Paper II has a minor
-definition continuation across pages 2-3, recorded explicitly.
+Repeated three-pass main builds produce 18 and 9 pages, zero final-log warnings,
+and identical repeat PDFs. Source/proof/formula/citation/disclosure preservation,
+all 20 S1/S2 files and complete inherited records, 857 protected tracked files,
+per-document compiler context, both package manifests, and the unchanged package
+validators pass. Eight relevant PDF pages were visually inspected. See
+[EVIDENCE.md](ops/TASK-20261107__two_paper_approved_refinements/EVIDENCE.md)
+for commands, hashes, limits, and the distinction between fresh and inherited checks.
 
-[Evidence](ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md) separates
-fresh engineering checks from inherited mathematics. No mathematical verifier,
-hosted CI, S1/S2 compile or independent-review checkpoint was rerun or changed.
-The original checkout, its untracked arXiv ZIP and other worktrees are preserved.
-Only a local commit is authorized for this task; no push, merge, PR, submission,
-transfer or arXiv update is performed. Dates/venue history and the explicitly
-deferred wording decisions remain for the author.
+No technical blocker remains. Complete diff, untracked-content and whitespace
+checks pass; integration is a scoped local commit. Public arXiv assets, scientific certificates, prior dossiers and
+supplements remain unchanged. Mathematical verification, hosted CI, external
+acceptance and current submission status are not claimed. This task is limited
+to a local commit: no push, merge, PR, submission or Registry change.
 
 ## Exactly one next atomic task
 
-Author review of the two editorial diffs and the deferred wording/version
-decisions in their reports.
+Independent editorial/provenance review of the resulting local commit, without
+scientific baseline promotion.

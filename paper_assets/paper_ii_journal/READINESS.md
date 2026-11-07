@@ -1,15 +1,16 @@
 # Paper II Author-Review Readiness
 
-## Current Local Prose Review - 7 November 2026
+## Current Approved Prose Refinements - 7 November 2026
 
-Editorial base: 7d257221d9034ca5f895f062e45e782d8e77b6c2.
+Editorial base: 4303fe4d937c5f2c7915070a0aaffa67f9b448ca.
 The current change is limited to the main manuscript's exposition and its
 synchronized PDF/package. S1, S2, mathematical statements, proofs, formulas,
 checkers and public preprints are preserved. See the
-[task evidence](../../ops/TASK-20261107__two_paper_editorial_review/EVIDENCE.md)
+[task evidence](../../ops/TASK-20261107__two_paper_approved_refinements/EVIDENCE.md)
 for fresh build, scope, visual and package checks, and the
 [editorial report](../../ops/TASK-20261107__two_paper_editorial_review/PAPER_II_REPORT.md)
-for deferred author decisions. No mathematical checker or hosted CI is
+for the preceding prose review. The author-approved follow-up wording is now
+incorporated. No mathematical checker or hosted CI is
 represented as freshly run for this local prose task.
 
 ## Historical Readiness at the 3 November Freeze
