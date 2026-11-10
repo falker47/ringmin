@@ -1,0 +1,8 @@
+# Preserve the exact source members used to construct both arXiv ZIPs on Windows.
+*.tex text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+SHA256SUMS text eol=lf
+*.pdf binary
+*.zip binary

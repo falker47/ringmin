@@ -1,43 +1,28 @@
-# Current Status
+# Current status
 
 ```text
-repository=falker47/ringmin
-task=TASK-20261107__two_paper_approved_refinements
-mode=STRICT
+task=TASK-20261110__arxiv_editorial_replacements
 state=READY_FOR_REVIEW
-observed_on=2026-11-07
-base_head=4303fe4d937c5f2c7915070a0aaffa67f9b448ca
-branch=codex/ringmin-editorial-review
-integration=local_commit_only_no_push
+mode=STRICT
+observed_on=2026-11-10
+branch=codex/arxiv-editorial-replacements
+editorial_base=4b3721df8061f1992cfd242df69b1a0643216d8f
 ```
 
-## Current task and scope
+Both [replacement candidates](paper_assets/arxiv_replacements/README.md)
+have been built twice and compared with the public sources (Paper I v3,
+Paper II v2). The 18- and 9-page previews, upload ZIPs, portal metadata
+and digest manifest are available there. The existing Paper I verifier
+and the two printed Paper II companion commands were replayed within
+their published scopes. The mathematical sources, journal packages and
+Registry were not changed. See the [verification record](ops/TASK-20261110__arxiv_editorial_replacements/EVIDENCE.md).
 
-The seven author-approved follow-up prose replacements are present in the two
-journal manuscripts, with the exact supplied source SHA-256 values. Paper I's
-removed chronology is preserved as a historical statement in
-[PAPER_I_PROVENANCE.md](ops/TASK-20261107__two_paper_approved_refinements/PAPER_I_PROVENANCE.md).
-The two main PDFs and build/package provenance are synchronized; three current
-accompanying-document pointers/page counts are updated. No mathematical claim,
-certified scope or accepted baseline is promoted.
-
-## Verification gates and blockers
-
-Repeated three-pass main builds produce 18 and 9 pages, zero final-log warnings,
-and identical repeat PDFs. Source/proof/formula/citation/disclosure preservation,
-all 20 S1/S2 files and complete inherited records, 857 protected tracked files,
-per-document compiler context, both package manifests, and the unchanged package
-validators pass. Eight relevant PDF pages were visually inspected. See
-[EVIDENCE.md](ops/TASK-20261107__two_paper_approved_refinements/EVIDENCE.md)
-for commands, hashes, limits, and the distinction between fresh and inherited checks.
-
-No technical blocker remains. Complete diff, untracked-content and whitespace
-checks pass; integration is a scoped local commit. Public arXiv assets, scientific certificates, prior dossiers and
-supplements remain unchanged. Mathematical verification, hosted CI, external
-acceptance and current submission status are not claimed. This task is limited
-to a local commit: no push, merge, PR, submission or Registry change.
+Independent editorial acceptance and portal processing are separate gates.
+Both existing records are public; the authenticated account showed no
+pending replacement on 10 November. Neither new candidate was submitted.
 
 ## Exactly one next atomic task
 
-Independent editorial/provenance review of the resulting local commit, without
-scientific baseline promotion.
+On or after 16 November 2026 at 14:05 Europe/Rome, resume the two
+replacements on the [author page](https://arxiv.org/user): recheck drafts,
+verify the portal-compiled previews and submit the prepared source ZIPs.

@@ -1,0 +1,33 @@
+{
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "main.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "anc/README.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "anc/lower_supplement/supplement.pdf"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "anc/upper_supplement.pdf"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "lower_supplement/supplement.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "upper_supplement.tex"
+      }
+   ],
+   "spec_version" : 1,
+   "texlive_version" : "2025",
+   "process" : {
+      "compiler" : "pdflatex"
+   }
+}
