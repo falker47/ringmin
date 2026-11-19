@@ -56,3 +56,19 @@ The two source files were inspected in full in the staged patch and passed `git 
 ## Residual uncertainty
 
 Independent mathematical review and repository integration are pending. Finite brackets do not identify exact optimal radii or contact graphs. Runtime and space beyond the tested instances depend on the core and remaining insertions.
+
+## Second internal attempt
+
+The second attempt checked the generic coverage and strictness proof at `6fb2af8d506d7efd5f27b4f9f473a9510fcb8a4f`. Fix an oriented core and its anchor. Choose $k-1$ places among the other $n-1$ full-word slots for the surviving labels in their prescribed order, then permute the $d$ deleted labels in the remaining slots. This gives $\binom{n-1}{k-1}d!=(n-1)!/(k-1)!$ extensions. Reversal of the core accounts for the other oriented representatives. For a positive directed simple cycle, including one with several windings, the strict integer excess is at least one grid unit. Over $[L,L+\varepsilon]$ the derivative bound consumes at most half that margin.
+
+The [finite replay](second_attempt.py) enumerates ordered integer positions at integer periods. This is a complete feasibility oracle for these experimental integer inequalities since flooring all coordinates preserves every difference inequality with integer right side. A five-vertex example uses weight one on the polygon edges and three on the diagonals. Every induced cyclic sum is at most seven. The star cycle requires 15 across two turns of period seven. The graph test excludes that case, while period eight permits a placement. On authentic size-eight and size-nine matrices the replay projects complete words onto their cores using the smallest remaining anchor and compares all fibres with the production-independent verifier's traversal.
+
+`python -I -S -B ops/TASK-20261119__p1_general_radii_certification/second_attempt.py` returned 0 and printed:
+
+~~~text
+DISCRETE_CIRCLE_ORACLE 5584 {'feasible': 2847, 'prefix_exclusions': 2255, 'graph_exclusions': 482}
+PENTAGRAM 16 induced subsets, period 7 excluded, period 8 feasible
+AUTHENTIC_CORE_FIBRES 16 181440 148008
+~~~
+
+In an additional finite check the generator and standalone verifier produced and accepted 11-decimal brackets for the triples $(1,2,3),(1,4,9),(2,3,7),(3,4,5),(1,11,97),(7,30,45),(1,100,10000),(71,113,157)$. At three disks the tangency configuration is given by the positive inner Soddy radius. Put $K=\sum 1/r_i$, $H=4\sum_{i<j}1/(r_ir_j)$. Its reciprocal is $K+\sqrt H$. Exact rational comparisons proved $1/L-K>0$ and $(1/L-K)^2>H$ in all eight cases. At $U$ each satisfied $1/U-K\le0$ or $(1/U-K)^2\le H$. This comparison uses Descartes' circle theorem independently of the angular bounds. The original 24-file verifier replay also passed again. The external research review remains pending.

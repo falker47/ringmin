@@ -21,3 +21,7 @@
 
 - READY_FOR_REVIEW. The final data and dossier commit follows the generation-source commit on the local task branch. The published snapshot and the shared research ledgers are protected.
 - Next atomic task is independent review of the generalized coverage proof and exact replay of both families.
+
+## 2026-11-20 — Second internal attempt
+
+An independent enumeration of integer-circle placements, a two-winding graph example and direct projection of complete words verified the reported graph decisions and fibre counts. Eight arbitrary triples also matched the inner Soddy radius by rational comparisons. The numerical endpoints and certificates still correspond to the recorded generation-source commit. The additional verification is confined to the dossier.
