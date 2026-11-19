@@ -1,0 +1,38 @@
+\section*{A finite line certificate for the limiting constant}
+
+Write $b_n$ for the least span of $n$ points on a line with all
+separations at least $\sqrt{ij}/n$ for labels $1\le i<j\le n$.
+The genuine-label concatenation theorem of Paper II
+(arXiv:2609.13630v3, \emph{The leading limit exists})
+gives $\pi C_*=\inf_{n\ge2}(b_n+1)/n$.
+A single feasible placement can therefore improve the upper endpoint.
+
+\begin{proposition}
+For outer radii $1,\ldots,n$, the asymptotic constant satisfies
+\[
+                 \CstarLower<C_*<\CstarLineUpper .
+\]
+\end{proposition}
+\begin{proof}
+The lower endpoint follows by rounding down the explicit lower bound in
+Paper II. For the upper endpoint take $n=3200$ and
+$D=3200\cdot10^{12}$. The file
+\texttt{certificates/p1\_n03200.json} gives an integer $X_i$ for each label.
+Exact integer comparisons establish
+\[
+ n^2(X_i-X_j)^2\ge ijD^2\qquad (1\le i<j\le n).
+\]
+Thus $x_i=X_i/D$ is feasible with span
+$S=4\,531\,424\,532\,506\,678\,377/D$.
+An alternating-series lower bound for $\pi$ gives the strict comparison
+\[
+ C_*\le\frac{b_n+1}{\pi n}\le\frac{S+1}{\pi n}<\CstarLineUpper.
+\]
+\end{proof}
+
+From the \texttt{paper\_assets/line\_upper} directory the complete check is
+\begin{verbatim}
+python -I -S verify_line_certificate.py certificates/p1_n03200.json
+\end{verbatim}
+The verifier checks all $5\,118\,400$ pairs and the rational ceiling using
+the Python standard library.
