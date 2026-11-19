@@ -1,0 +1,212 @@
+{
+  "checked_on": "2026-11-20",
+  "sources": "Crossref work records. For the shelf article and arXiv papers, DOI.org Handle registration and versioned arXiv metadata were checked separately. S1 and S2 are components of the same versioned deposit.",
+  "references": [
+    {
+      "key": "supnick",
+      "doi": "10.2307/1970124",
+      "title": "Extreme Hamiltonian Lines",
+      "authors": [
+        "Fred Supnick"
+      ],
+      "year": 1957,
+      "venue": "The Annals of Mathematics",
+      "publisher": "JSTOR",
+      "verification_url": "https://api.crossref.org/works/10.2307/1970124",
+      "status": "VERIFIED",
+      "page": "179",
+      "volume": "66",
+      "issue": "1"
+    },
+    {
+      "key": "burkard",
+      "doi": "10.1137/s0036144596297514",
+      "title": "Well-Solvable Special Cases of the Traveling Salesman Problem: A Survey",
+      "authors": [
+        "Rainer E. Burkard",
+        "Vladimir G. Deineko",
+        "René van Dal",
+        "Jack A. A. van der Veen",
+        "Gerhard J. Woeginger"
+      ],
+      "year": 1998,
+      "venue": "SIAM Review",
+      "publisher": "Society for Industrial & Applied Mathematics (SIAM)",
+      "verification_url": "https://api.crossref.org/works/10.1137/S0036144596297514",
+      "status": "VERIFIED",
+      "page": "496-546",
+      "volume": "40",
+      "issue": "3",
+      "abstract_excerpt": "The traveling salesman problem (TSP) belongs to the most basic, most important, and most investigated problems in combinatorial optimization. Although it is an ${\\cal NP}$-hard problem, many of its special cases can be solved efficiently in polynomial time. We survey these special cases with emphasis on the results that have been obtained during the decade 1985--1995. This survey complements an earlier survey from 1985 compiled by Gilmore, Lawler, and Shmoys [The Traveling Salesman Problem---A Guided Tour of Combinatorial Optimization, Wiley, Chichester, pp. 87--143]."
+    },
+    {
+      "key": "temporal",
+      "doi": "10.1016/0004-3702(91)90006-6",
+      "title": "Temporal constraint networks",
+      "authors": [
+        "Rina Dechter",
+        "Itay Meiri",
+        "Judea Pearl"
+      ],
+      "year": 1991,
+      "venue": "Artificial Intelligence",
+      "publisher": "Elsevier BV",
+      "verification_url": "https://api.crossref.org/works/10.1016/0004-3702(91)90006-6",
+      "status": "VERIFIED",
+      "page": "61-95",
+      "volume": "49",
+      "issue": "1-3"
+    },
+    {
+      "key": "contact",
+      "doi": "10.1007/978-3-319-27261-0_36",
+      "title": "Recognizing Weighted Disk Contact Graphs",
+      "authors": [
+        "Boris Klemz",
+        "Martin Nöllenburg",
+        "Roman Prutkin"
+      ],
+      "year": 2015,
+      "venue": "Lecture Notes in Computer Science",
+      "publisher": "Springer International Publishing",
+      "verification_url": "https://api.crossref.org/works/10.1007/978-3-319-27261-0_36",
+      "status": "VERIFIED",
+      "page": "433-446"
+    },
+    {
+      "key": "bhh",
+      "doi": "10.1017/s0305004100034095",
+      "title": "The shortest path through many points",
+      "authors": [
+        "Jillian Beardwood",
+        "J. H. Halton",
+        "J. M. Hammersley"
+      ],
+      "year": 1959,
+      "venue": "Mathematical Proceedings of the Cambridge Philosophical Society",
+      "publisher": "Cambridge University Press (CUP)",
+      "verification_url": "https://api.crossref.org/works/10.1017/S0305004100034095",
+      "status": "VERIFIED",
+      "page": "299-327",
+      "volume": "55",
+      "issue": "4",
+      "abstract_excerpt": "ABSTRACT We prove that the length of the shortest closed path through n points in a bounded plane region of area v is ‘almost always’ asymptotically proportional to √( nv ) for large n ; and we extend this result to bounded Lebesgue sets in k –dimensional Euclidean space. The constants of proportionality depend only upon the dimensionality of the space, and are independent of the shape of the region. We give numerical bounds for these constants for various values of k ; and we estimate the constant in the particular case k = 2. The results are relevant to the travelling-salesman problem, Steiner's street network problem, and the Loberman—Weinberger wiring problem. They have possible generalizations in the direction of Plateau's problem and Douglas' problem."
+    },
+    {
+      "key": "steele",
+      "doi": "10.1137/1.9781611970029",
+      "title": "Probability Theory and Combinatorial Optimization",
+      "authors": [
+        "J. Michael Steele"
+      ],
+      "year": 1997,
+      "venue": "Society for Industrial and Applied Mathematics",
+      "publisher": "Society for Industrial and Applied Mathematics",
+      "verification_url": "https://api.crossref.org/works/10.1137/1.9781611970029",
+      "status": "VERIFIED"
+    },
+    {
+      "key": "walters",
+      "doi": "10.1007/978-1-4612-5775-2",
+      "title": "An Introduction to Ergodic Theory",
+      "authors": [
+        "Peter Walters"
+      ],
+      "year": 1982,
+      "venue": "Graduate Texts in Mathematics",
+      "publisher": "Springer New York",
+      "verification_url": "https://api.crossref.org/works/10.1007/978-1-4612-5775-2",
+      "status": "VERIFIED",
+      "text_locator": "Theorem 4.9",
+      "locator_crosscheck": "https://arxiv.org/abs/1209.6458",
+      "locator_note": "Proposition 3 of the locator cross-check explicitly directs the reader to Walters, Theorem 4.9, for a proof of Fekete's lemma."
+    },
+    {
+      "key": "rump",
+      "doi": "10.1017/s096249291000005x",
+      "title": "Verification methods: Rigorous results using floating-point arithmetic",
+      "authors": [
+        "Siegfried M. Rump"
+      ],
+      "year": 2010,
+      "venue": "Acta Numerica",
+      "publisher": "Cambridge University Press (CUP)",
+      "verification_url": "https://api.crossref.org/works/10.1017/S096249291000005X",
+      "status": "VERIFIED",
+      "page": "287-449",
+      "volume": "19",
+      "abstract_excerpt": "A classical mathematical proof is constructed using pencil and paper. However, there are many ways in which computers may be used in a mathematical proof. But ‘proof by computer’, or even the use of computers in the course of a proof, is not so readily accepted (the December 2008 issue of the Notices of the American Mathematical Society is devoted to formal proofs by computer). In the following we introduce verification methods and discuss how they can assist in achieving a mathematically rigorous result. In particular we emphasize how floating-point arithmetic is used."
+    },
+    {
+      "key": "tucker",
+      "doi": "10.1515/9781400838974",
+      "title": "Validated Numerics",
+      "authors": [
+        "Warwick Tucker"
+      ],
+      "year": 2011,
+      "venue": "Princeton University Press",
+      "publisher": "Princeton University Press",
+      "verification_url": "https://api.crossref.org/works/10.1515/9781400838974",
+      "status": "VERIFIED"
+    },
+    {
+      "key": "shelf",
+      "doi": "10.20382/jocg.v9i1a10",
+      "title": "Placing your Coins on a Shelf",
+      "authors": [
+        "Helmut Alt",
+        "Kevin Buchin",
+        "Steven Chaplick",
+        "Otfried Cheong",
+        "Philipp Kindermann",
+        "Christian Knauer",
+        "Fabian Stehn"
+      ],
+      "year": 2018,
+      "venue": "Journal of Computational Geometry",
+      "verification_url": "https://doi.org/api/handles/10.20382/jocg.v9i1a10",
+      "metadata_url": "https://export.arxiv.org/api/query?id_list=1707.01239v2",
+      "registered_target": "https://jocg.org/index.php/jocg/article/view/3056",
+      "version": "1707.01239v2",
+      "status": "VERIFIED",
+      "journal_ref": "J. Comput. Geom. 9(1): 312-327 (2018)",
+      "abstract_excerpt": "We consider the problem of packing a family of disks \"on a shelf\", that is, such that each disk touches the $x$-axis from above and such that no two disks overlap. We prove that the problem of minimizing the distance between the leftmost point and the rightmost point of any disk is NP-hard. On the positive side, we show how to approximate this problem within a factor of 4/3 in $O(n \\log n)$ time, and provide an $O(n \\log n)$-time exact algorithm for a special case, in particular when the ratio between the largest and smallest radius is at most four."
+    },
+    {
+      "key": "paperI",
+      "doi": "10.48550/arXiv.2607.28654",
+      "title": "Minimum central circles: chain order, seam obstructions, and exact finite certification",
+      "authors": [
+        "Maurizio Falconi"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "verification_url": "https://doi.org/api/handles/10.48550/arXiv.2607.28654",
+      "metadata_url": "https://export.arxiv.org/api/query?id_list=2607.28654v4",
+      "registered_target": "https://arxiv.org/abs/2607.28654",
+      "version": "2607.28654v4",
+      "status": "VERIFIED",
+      "earlier_conjecture_version_url": "https://arxiv.org/abs/2607.28654v1"
+    },
+    {
+      "key": "supp",
+      "doi": "10.48550/arXiv.2609.13630",
+      "title": "Minimum central circles: an effective characterization of the global asymptotic constant",
+      "authors": [
+        "Maurizio Falconi"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "verification_url": "https://doi.org/api/handles/10.48550/arXiv.2609.13630",
+      "metadata_url": "https://export.arxiv.org/api/query?id_list=2609.13630v3",
+      "registered_target": "https://arxiv.org/abs/2609.13630",
+      "version": "2609.13630v3",
+      "status": "VERIFIED",
+      "components": [
+        "S1, lower_supplement/supplement.tex",
+        "S2, upper_supplement.tex"
+      ]
+    }
+  ]
+}
