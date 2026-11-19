@@ -21,3 +21,7 @@ The initial standalone PDF had a 3.0549 pt overfull line. Reworded the paragraph
 The requested branch contains the proof note, paper package, tests and task-local evidence. Source hashes, actual command outcomes and numerical limitations are in [EVIDENCE.md](EVIDENCE.md). Shared updates remain proposals for the author. Next atomic task is independent mathematical review of the profile theorem and quadratic corollary.
 
 An automatic review rejected a proposed restatement of the measurable-profile counterexample in the evidence table. The retained statement explicitly records failure of unrestricted measurable sampling. Its classification now identifies the proved counterexample.
+
+## 2026-11-20 — Second internal attempt
+
+An independent derivation found the exactly balanced subsequence proof of the lower finite-word bound and a closed form for binary atomic laws. The isolated control in this dossier reproduced all three reported counts. The mathematical deliverables and the three-page PDF are those of the first commit. External review remains the next atomic task.

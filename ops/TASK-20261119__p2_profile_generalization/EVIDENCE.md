@@ -72,3 +72,19 @@ The acceptance boundary comprises one proof file, the new profile package, one n
 Before staging, Git listed exactly 13 allowed additions. The direct file audit checked all 12 UTF-8 texts for final LF, trailing spaces, conflict markers, host paths and local Markdown targets. It checked the PDF SHA-256 and reported “13 files audited (12 UTF-8 texts and 1 verified PDF)”. The tracked base, including source manuscripts, status, ledgers, roadmap, existing tests, production code, results, configuration and certificate verifiers, had an empty diff and passed the unstaged whitespace check.
 
 The full staged diff contained only the 13 additions. Both staged and unstaged whitespace checks returned 0, the unstaged diff was empty, and a byte-for-byte readback of each index blob matched the inspected file. This handoff uses a local branch and commit, as requested.
+
+## Second internal attempt
+
+A fresh derivation at commit `cc87fb039465606d33c5f222c7dd18210722ef52` checked the line squeeze, genuine-label reassignment, stability under sorted square-root matching, normalization for $i^p$, and the finite-word bounds. For the lower LP bound one can choose the replication count $q$ divisible by the word length $r$. Cutting a minimizing $kq$-word into whole $r$-words then satisfies every balance constraint exactly at that finite size. This subsequence has the same limit.
+
+For the binary law with mass $t$ at zero and the rest at $M$, the energy is $M(1-t)$. A word with $h$ positive letters costs $M\max(h-1,0)$. With $K=k-\lfloor kt\rfloor$ positive types in the upper quantile sample, convexity gives a lower LP value of at least $M\max(K/k-1/r,0)$. Mixing the two adjacent integer counts of positive letters attains it. Within each count, sample uniformly among the indexed types of each sign to obtain the required balance, including the constant endpoint cases.
+
+The standard-library [replay](second_attempt.py) enumerates all word paths on square-root alphabets, checks the binary LP estimates and tests the donor-rank inequality over the recorded ranges. It imports no profile implementation. The command `python -I -S -B ops/TASK-20261119__p2_profile_generalization/second_attempt.py` returned 0 and printed:
+
+~~~text
+EXHAUSTIVE_ROOT_ARRAYS 205 STABILITY 11917 REVERSE_PAIR 205
+BINARY_ATOMIC_LP 30240
+TOP_DONOR_COMPARISONS 38744
+~~~
+
+The binary count includes repeated rational values of $t$ represented by different denominators. These are independently reproduced finite controls. External mathematical review of the general theorem remains pending.
