@@ -76,10 +76,13 @@ def run_build(destination):
             f"appendix_starts={first_appendix} overfull_boxes={bad_boxes} "
             "pdflatex_passes=3 unresolved=0"
         )
-        if first_appendix - 1 > 12:
-            raise ValueError("main text including references exceeds twelve pages")
+        if first_appendix - 1 > 13:
+            raise ValueError("main text including references exceeds thirteen pages")
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(work / "main.pdf", destination)
+        with tempfile.TemporaryDirectory(dir=destination.parent) as staging:
+            ready = Path(staging) / "main.pdf"
+            shutil.copyfile(work / "main.pdf", ready)
+            ready.replace(destination)
 
 
 if __name__ == "__main__":

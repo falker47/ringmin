@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+from fractions import Fraction
 from pathlib import Path
 
 import mpmath as mp
@@ -86,8 +87,6 @@ def test_verified_bibliography_matches_the_cited_entries():
 
 
 def test_exact_witness_and_collapsed_direction(graphics):
-    from fractions import Fraction
-
     data = json.loads(graphics.CERTIFICATE.read_bytes())["certificate"]
     row = next(case for case in data["cases"] if case["n"] == 14)
     radius, centers = graphics.witness14(row)
@@ -105,6 +104,47 @@ def test_exact_witness_and_collapsed_direction(graphics):
     params[1] = params[0]
     with pytest.raises(ValueError, match="strict separation"):
         graphics.witness14(invalid)
+
+
+def test_published_tables_and_normalized_plot_match_all_certificates(graphics):
+    archive = ROOT / "paper_assets" / "general_radii"
+    quadratic = "quadratic_brackets.tex"
+    assert (DRAFT / quadratic).read_text(encoding="utf-8") == (
+        archive / quadratic
+    ).read_text(encoding="utf-8")
+
+    fig, ax = graphics.plt.subplots()
+    try:
+        graphics.ratio_plot(ax)
+        series = {line.get_label(): line for line in ax.lines}
+        families = (
+            ("linear", 1, "bracket_rows.tex", r"$R^*(n)/n^2$"),
+            ("quadratic", 2, quadratic, r"$R_2^*(n)/n^3$"),
+        )
+        for intervals, (family, power, filename, label) in zip(
+            ax.collections, families, strict=True
+        ):
+            rows = graphics.bracket_rows(filename)
+            assert list(series[label].get_xdata()) == list(range(3, 15))
+            for n, point, segment in zip(
+                range(3, 15), series[label].get_ydata(), intervals.get_segments(), strict=True
+            ):
+                cert = json.loads((archive / "certificates" / f"{family}_{n:02}.json").read_bytes())
+                assert cert["radii"] == [i**power for i in range(1, n + 1)]
+                lo, hi = Fraction(cert["lower"]), Fraction(cert["upper"])
+                assert rows[n] == (lo, hi) and hi - lo == Fraction(1, 10**11)
+                scale = n ** (power + 1)
+                assert segment.tolist() == [[n, float(lo / scale)], [n, float(hi / scale)]]
+                assert point == float((lo + hi) / (2 * scale))
+        (band,) = ax.patches
+        bounds = band.get_window_extent().transformed(ax.transData.inverted())
+        assert (bounds.ymin, bounds.ymax) == pytest.approx(
+            (0.1405694688, 0.140958576058), rel=0, abs=1e-14
+        )
+        (upper_line,) = (line for line in ax.lines if line.get_linestyle() == ":")
+        assert list(upper_line.get_ydata()) == [0.088581212993] * 2
+    finally:
+        graphics.plt.close(fig)
 
 
 def test_chain_diagrams_and_three_sign_changes(graphics):
@@ -156,6 +196,7 @@ def test_figures_repeat_across_interpreter_runs(tmp_path, graphics):
 )
 def test_three_pass_build(tmp_path):
     output = tmp_path / "proof.pdf"
+    output.write_bytes(b"previous build")
     run = subprocess.run(
         [sys.executable, str(DRAFT / "build.py"), "--output", str(output)],
         check=True,
@@ -164,4 +205,5 @@ def test_three_pass_build(tmp_path):
         text=True,
     )
     assert "pdflatex_passes=3 unresolved=0" in run.stdout
+    assert int(re.search(r"before_appendices=(\d+)", run.stdout)[1]) <= 13
     assert output.read_bytes().startswith(b"%PDF-")

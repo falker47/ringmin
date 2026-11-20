@@ -11,7 +11,7 @@
 \setlength{\textfloatsep}{11pt plus 2pt minus 2pt}
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Exact global bounds for minimum central circle packings},pdfauthor={Maurizio Falconi}}
+\hypersetup{pdftitle={Exact global bounds for minimum central circles with prescribed integer radii},pdfauthor={Maurizio Falconi}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -25,7 +25,7 @@
 \newcommand{\Rstar}{R^*}
 \newcommand{\snapshot}{6c16af422d1cb38641c62d43b6e0e547921b9ba9}
 \setlength{\emergencystretch}{2em}
-\title{Exact global bounds for minimum central circle packings}
+\title{Exact global bounds for minimum central circles with prescribed integer radii}
 \author{Maurizio Falconi\\[3pt]\small Independent researcher, Parma, Italy\\
 \small Corresponding author: \texttt{maurizio.falconi47@gmail.com}}
 \date{September 19, 2026}
@@ -33,22 +33,22 @@
 \maketitle
 
 \begin{abstract}
-We certify rational brackets of width $10^{-11}$ for the global infimum of
-the central radius, for every $3\le n\le14$. The disks of radii $1,\ldots,n$ must
-touch the central circle externally and have pairwise disjoint interiors. The lower bound covers every cyclic
-order by combining outward enclosures of the required angles with integer
-dynamic programming on induced cycles. Rational Cartesian coordinates give
-a feasible placement at each upper endpoint. A separate exact verifier
-checks both bounds. The geometry also explains when a local relaxation
-solves the global problem. The required contact angles form a strictly
-anti-Monge kernel, so Supnick's tour minimizes the radius needed for the
-adjacent contacts of any distinct prescribed radii. For the consecutive
-radii $k,\ldots,n$, a single angular deficit decides whether this tour can
-close with disjoint interiors. For fixed $k$ the obstruction eventually
-persists. Its first occurrence for $k=1,2,3$ is at $n=8,13,17$,
-respectively. Thus the adjacent-contact necklace gives a global optimum
+Given at least three distinct positive integer radii, how small can a circle
+be if disks of those radii touch it externally and have pairwise disjoint
+interiors? We give an exact certification method for any such finite list.
+For radii $1,\ldots,n$ and $1^2,\ldots,n^2$, it certifies brackets of
+width $10^{-11}$ for each $3\le n\le14$. At the lower endpoint, rigorously
+enclosed angles and integer dynamic programming on induced cycles exclude
+every cyclic order. A rational buffer preserves these exclusions above
+the endpoint. At the upper endpoint, rational Cartesian coordinates give
+a feasible placement. A second implementation reproduces all twelve linear
+brackets. For arbitrary distinct positive radii, the strictly anti-Monge
+angular kernel makes Supnick's tour optimal for the adjacent-chain
+relaxation. For consecutive radii $k,\ldots,n$, a single seam deficit
+decides feasibility at the chain root. For fixed $k$ its failure eventually
+persists. The first failures for $k=1,2,3$ occur at $n=8,13,17$,
+respectively. For $1,\ldots,n$ the canonical necklace is globally optimal
 through $n=7$.
-
 \end{abstract}
 
 \noindent\textbf{Keywords:} circle packing; discrete geometry; computational
@@ -58,18 +58,23 @@ geometry; traveling salesman problem; Monge matrices; certified computation.
 52C26, 52C15, 05C85, 90C27.
 
 \section{The packing problem and its global bounds}
-Place disks of radii $1,\ldots,n$ around a central circle so that every disk
-touches it and all disk interiors are disjoint. Which cyclic order and
-placement minimize the central radius? Dan posed the problem and proposed
+Prescribe $n\ge3$ distinct positive integer radii and place one disk of
+each radius around a central circle. Every disk must touch that circle
+externally and all disk interiors must be disjoint. How small can the
+central radius be when the cyclic order and placement are both free?
+For radii $1,\ldots,n$, Dan posed the problem and proposed
 a pyramid order on \href{https://math.stackexchange.com/q/4619480}{Mathematics Stack Exchange}
-in January 2023. Write $\Rstar(n)$ for the infimum over all orders and
-placements. Our finite result is
+in January 2023. Write $\Rstar(n)$ for the infimum in this linear family
+and $R_2^*(n)$ for the corresponding infimum with radii $1^2,\ldots,n^2$.
+For the linear family we certify
 \begin{equation}\label{eq:mainclaim}
  L_n<\Rstar(n)\le U_n,\qquad U_n-L_n=\frac1{10^{11}},
  \qquad n=3,\ldots,14.
 \end{equation}
-The endpoints appear in Table~\ref{tab:brackets}. Three steps connect a
-feasible placement to a bound on the global infimum.
+Table~\ref{tab:brackets} gives these endpoints. The same method applies to
+any finite list of distinct positive integer radii of size at least three.
+For the quadratic family it gives twelve brackets of the same exact width
+(Table~\ref{tab:quadratic}). We use three properties of the geometry.
 \begin{itemize}
 \item For arbitrary distinct positive radii, the angular kernel is strictly
 anti-Monge. Supnick's tour minimizes the adjacent-angle sum at every fixed
@@ -107,10 +112,11 @@ salesman problems by Burkard and coauthors~\cite{survey} supply the tour
 ordering used below. Dechter and coauthors~\cite{stn} provide the
 difference-constraint framework for testing a fixed order.
 
-The companion paper~\cite{paper-ii} proves
-$\Rstar(n)=C_*n^2+o(n^2)$ with $C_*>\CstarLower$ and gives an upper
-construction (\CstarUpper). Figure~\ref{fig:ratios} compares its lower
-bound on the limit with the finite values.
+The revised companion paper~\cite{paper-ii} proves
+$\Rstar(n)=C_*n^2+o(n^2)$ with $\CstarLower<C_*<\CstarUpper$.
+For quadratic radii it proves that $R_2^*(n)/n^3$ converges to a constant
+$C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places these bounds on the
+limiting constants alongside the finite brackets.
 
 \section{Geometric angular reformulation}\label{sec:geometry}
 Place the center of the central circle at the origin. An outer circle
@@ -144,8 +150,9 @@ positive radii define
 It decreases continuously from $N\pi>2\pi$ to zero. Thus
 $C_\sigma(\Rchain(\sigma))=2\pi$ defines a unique positive
 \emph{chain radius}. Let $\Rfull(\sigma)$ be the infimum of radii
-admitting an all-pairs-feasible placement in this order. Summing adjacent
-gap constraints, including the closing gap, gives
+admitting an all-pairs-feasible placement in this order. For any prescribed
+radii the sum of adjacent gaps, including the closing gap, bounds
+$\Rfull(\sigma)$ below by the chain radius. In the linear family this gives
 \begin{equation}\label{eq:hierarchy}
  \Rchain(\sigma)\le\Rfull(\sigma),\qquad
  \min_\sigma\Rchain(\sigma)\le\Rstar(n)=\min_\sigma\Rfull(\sigma).
@@ -302,9 +309,14 @@ Apply Theorems~\ref{thm:chain} and~\ref{thm:seam}.
 \end{figure}
 
 \section{Exact finite global certification}\label{sec:cert}
-The certificate excludes every order at and slightly above $L_n$ and
-supplies a placement at $U_n$. Section~\ref{sec:repro} identifies the
-complete inputs and verifier.
+For radii $1,\ldots,n$, the original certificate excludes every order at
+and slightly above $L_n$ and supplies a placement at $U_n$. We describe
+its verification below. A second, independent implementation for
+prescribed integer radii reproduces all twelve linear brackets. It takes
+the published endpoint pairs and one witness order per size as inputs,
+recomputes the full lower coverage and constructs fresh rational witnesses.
+Its standalone verifier checks each resulting certificate independently.
+Section~\ref{sec:repro} identifies both sets of inputs and commands.
 
 \subsection{Necessary induced-cycle inequalities}
 In any feasible placement, take any subset with at least three members
@@ -494,18 +506,7 @@ with smaller left side permits slack against those two disks. Appendix
 \ref{app:seam} derives the pocket curvature. At $U_n$ the Cartesian
 witnesses have strict separation for every outer pair (Figure~\ref{fig:witness}).
 
-\begin{figure}[htbp]
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/05_ratios.pdf}
-\caption{Certified intervals for $R^*(n)/n^2$. Each interval is narrower than its marker. The dashed line bounds the limiting coefficient $C_*$ from below.}\label{fig:ratios}
-\end{minipage}\hfill
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/06_deficits.pdf}
-\caption{Computed seam deficits in radians. Open rings mark the first negative value for each $k$. Theorem~\ref{thm:seam} proves the onsets and persistence.}\label{fig:deficits}
-\end{minipage}
-\end{figure}
-
-\paragraph{Scope.} The brackets characterize the global infimum for
+\paragraph{Scope.} The linear brackets characterize the global infimum for
 $3\le n\le14$. Optimal orders and contact graphs beyond the exhibited
 small necklaces remain open. The floating sets for $n\ge8$ describe
 individual numerical reconstructions. Establishing strict floating at the
@@ -513,9 +514,46 @@ exact optimum requires a placement with simultaneous slack against every
 other outer disk. A statement about every optimizer requires a further
 argument. The seam onsets address only the specified chain roots.
 
+\clearpage
+\section{Quadratic radii}\label{sec:quadratic}
+For disks of radii $1^2,\ldots,n^2$, Table~\ref{tab:quadratic} gives
+$L_n^{(2)}<R_2^*(n)\le U_n^{(2)}$ with $U_n^{(2)}-L_n^{(2)}=10^{-11}$
+for every $3\le n\le14$. Both families use the same general-radii
+certificate format. Its independent verifier proves the lower exclusion
+for each row and checks every pair of disks in its rational upper witness.
+
+For the lower exclusion we may delete the $d$ smallest radii, leaving
+$k=n-d\ge3$ disks. A violating cycle on these retained disks excludes
+every full order that induces it. For each surviving core order we restore
+the deleted disks in all possible gaps, including the closing gap. At
+quadratic $n=14$, for example, $d=4$ and each surviving ten-disk core
+gives $10\cdot11\cdot12\cdot13$ full orders. Appendix~\ref{app:general}
+proves complete coverage and strictness for any prescribed list of distinct
+positive integer radii of size at least three.
+
+\begin{table}[!htbp]\centering
+\caption{Certified global brackets for quadratic radii. The endpoints are
+exact rationals. Each witness gives a feasible placement at $U_n^{(2)}$.}
+\label{tab:quadratic}
+\input{quadratic_brackets.tex}
+\end{table}
+
+\begin{figure}[!htbp]
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/05_ratios.pdf}
+\caption{Normalized linear and quadratic brackets. Each interval is narrower
+than its marker. The band bounds $C_*$ and the dotted line is the upper
+bound on $C_2$ from revised Paper~II~\cite{paper-ii}.}\label{fig:ratios}
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/06_deficits.pdf}
+\caption{Computed seam deficits in radians. Open rings mark the first negative value for each $k$. Theorem~\ref{thm:seam} proves the onsets and persistence.}\label{fig:deficits}
+\end{minipage}
+\end{figure}
+
 \section{Data and code availability}\label{sec:repro}
 The \href{https://github.com/falker47/ringmin}{Ringmin repository} contains
-the certificate and independent verifier. The pinned source commit is
+the original linear certificate and its independent verifier at commit
 \begin{center}\small\texttt{\snapshot}\end{center}
 From its root, run \texttt{python -I -S verify\_global\_brackets.py} with
 Python 3.11 or later. The standard-library verifier bounds the cosines of
@@ -531,6 +569,16 @@ ae7b59d6d5b42e934c81c1a0abd21cc0
 The manifest lists the original files. Zenodo~\cite{ringmin-archive}
 archives release \texttt{v1.1.0-dcg-}\allowbreak\texttt{presubmission}
 under DOI \href{https://doi.org/10.5281/zenodo.22849826}{10.5281/\allowbreak zenodo.22849826}.
+
+The \href{https://github.com/falker47/ringmin/tree/d93fca92714fc9e59e69ed036fab734c9c5edb2d/paper_assets/general_radii}{general-radii implementation}
+includes the generator, the standalone verifier and the 24 certificates.
+From the root of the linked revision, run
+\begin{center}\footnotesize
+\verb|python -I -S paper_assets/general_radii/verify_radii_certificate.py --all|
+\end{center}
+The inputs are \path{paper_assets/general_radii/certificates/linear_NN.json}
+and \path{paper_assets/general_radii/certificates/quadratic_NN.json},
+where \texttt{NN} runs from \texttt{03} to \texttt{14}.
 
 \section*{Statements and Declarations}
 \paragraph{Funding and competing interests.} The author received no
@@ -582,4 +630,5 @@ also evaluates every pruning margin exactly. Rational arithmetic evaluates
 in Section~\ref{sec:strict}. Thus analytic enclosure, combinatorial coverage
 and geometric existence are separate, explicitly checked parts of the proof.
 
+\input{general_radii_appendix.tex}
 \end{document}

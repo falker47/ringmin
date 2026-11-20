@@ -80,10 +80,10 @@ def chain(k, n):
         return r, centers, deficit
 
 
-def bracket_rows():
+def bracket_rows(filename="bracket_rows.tex"):
     rows = {}
     pattern = r"^\s*(\d+)\s*&\s*([\d.]+)\s*&\s*([\d.]+)\s*&\s*(\d+)"
-    for row in (HERE / "bracket_rows.tex").read_text(encoding="utf-8").splitlines():
+    for row in (HERE / filename).read_text(encoding="utf-8").splitlines():
         hit = re.match(pattern, row)
         if hit:
             n, lower, upper, _ = hit.groups()
@@ -185,37 +185,43 @@ def kernel_plot(ax):
 
 
 def number(name):
-    pat = r"\\newcommand\{\\" + name + r"\}\{([^\n]+)\}"
+    pat = r"^\\newcommand\{\\" + name + r"\}\{(\d+\.\d+)\}$"
     content = (HERE / "numbers.tex").read_text(encoding="utf-8")
-    value = re.search(pat, content).group(1)
-    return Fraction(value) if re.fullmatch(r"\d+(?:\.\d+)?", value) else None
+    match = re.search(pat, content, re.MULTILINE)
+    if not match:
+        raise ValueError(f"missing numeric Paper II bound: {name}")
+    return Fraction(match[1])
 
 
 def ratio_plot(ax):
-    rows = bracket_rows()
-    lower = number("CstarLower")
-    upper = number("CstarUpper")
-    if lower is None:
-        raise ValueError("missing numeric Paper II lower bound")
-    ax.axhline(
-        float(lower),
-        ls="--",
-        lw=1,
-        color="0.22",
-        label=r"Paper II lower bound on $C_*$",
+    linear_lo = float(number("CstarLower"))
+    linear_hi = float(number("CstarUpper"))
+    quadratic_hi = float(number("CtwoUpper"))
+    ax.axhspan(linear_lo, linear_hi, color="0.55", zorder=0)
+    ax.axhline(quadratic_hi, ls=":", lw=1, color="0.25")
+    ax.text(3, linear_hi + 0.002, r"$C_*$ bounds", va="bottom")
+    ax.text(3, quadratic_hi + 0.002, r"$C_2$ upper bound", va="bottom")
+    series = (
+        ("bracket_rows.tex", 2, "o", "black", r"$R^*(n)/n^2$"),
+        ("quadratic_brackets.tex", 3, "^", "white", r"$R_2^*(n)/n^3$"),
     )
-    if upper is not None:
-        ax.axhspan(float(lower), float(upper), color="0.9", zorder=0)
-    for n, (lo, hi) in rows.items():
-        ax.vlines(n, float(lo / n**2), float(hi / n**2), colors="black")
-        ax.plot(n, float((lo + hi) / (2 * n * n)), "ko", ms=3)
+    for filename, exponent, marker, face, label in series:
+        rows = bracket_rows(filename)
+        ns = list(rows)
+        lower = [lo / n**exponent for n, (lo, _) in rows.items()]
+        upper = [hi / n**exponent for n, (_, hi) in rows.items()]
+        mid = [float((lo + hi) / 2) for lo, hi in zip(lower, upper, strict=True)]
+        ax.vlines(ns, list(map(float, lower)), list(map(float, upper)), colors="black")
+        ax.plot(ns, mid, ls="none", marker=marker, ms=3.6, color="black",
+                markerfacecolor=face, label=label)
     ax.set(
         xlabel=r"Number of outer circles $n$",
-        ylabel=r"$R^*(n)/n^2$",
+        ylabel="Normalized central radius",
         xticks=[3, 5, 7, 9, 11, 14],
         xlim=(2.5, 14.5),
+        ylim=(0, 0.165),
     )
-    ax.legend(frameon=False, fontsize=7, loc="lower right")
+    ax.legend(frameon=False, fontsize=8, loc="lower right", handlelength=1)
 
 
 def deficits_plot(ax):
