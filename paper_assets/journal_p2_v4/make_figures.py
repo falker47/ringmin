@@ -1,5 +1,6 @@
-"""Produce three deterministic vector figures for the Paper II journal draft."""
+"""Produce the two journal figures for the Paper II journal draft."""
 import argparse
+from decimal import Decimal
 from fractions import Fraction
 import hashlib
 from math import sqrt
@@ -9,7 +10,7 @@ import re
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle, FancyArrowPatch
+from matplotlib.patches import Circle
 
 HERE = Path(__file__).resolve().parent
 TABLE_SHA = "58666265324e0cf9c3ad7cf811107f795893ccf0e43954fec2ce65d32d93a5d1"
@@ -45,36 +46,6 @@ def line_model():
     return fig
 
 
-def reflected_cells():
-    fig,(cell,perm) = plt.subplots(1,2,figsize=(6.3,1.85),
-                                    gridspec_kw={"width_ratios":[1.35,1]})
-    cell.axis("off")
-    cell.set(xlim=(-0.35,4.35),ylim=(-0.53,1.03))
-    xs = list(range(5))
-    cell.plot(xs,[0]*5,color="0.3",lw=1.4,zorder=1)
-    labels = [r"$P_{i-1}$",r"$i$",r"$P_i$",r"$i+1$",r"$P_{i+1}$"]
-    for x,label in zip(xs,labels):
-        cell.plot(x,0,"o",mec="0.12",mfc="white" if x%2 else "0.23",ms=6)
-        cell.text(x,-0.13,label,ha="center",va="top")
-    for x in (0,2):
-        cell.add_patch(FancyArrowPatch((x,0.07),(x+2,0.07),
-                       connectionstyle="arc3,rad=-0.48",arrowstyle="-",
-                       linestyle="--",lw=1,color="0.35"))
-    cell.text(2,0.91,"Alternating cells",ha="center")
-    ranks = range(1,9)
-    images = [1,6,3,4,5,2,7,8]
-    perm.set(xlim=(0.45,8.55),ylim=(0.35,8.65),xticks=[1,2,4,6,8],yticks=[1,2,4,6,8],
-             xlabel=r"rank $i$",ylabel=r"$J(i)$")
-    perm.axvspan(0.55,6.45,facecolor="0.94")
-    perm.plot([1,8],[1,8],":",color="0.48",lw=0.9)
-    for i,j in zip(ranks,images):
-        perm.plot(i,j,"o",mec="0.13",mfc="0.18" if i!=j else "white",ms=4.4)
-    perm.set_title("Even-rank reversal",fontsize=9,pad=3)
-    perm.tick_params(labelsize=7,length=2)
-    fig.subplots_adjust(left=0.025,right=0.98,bottom=0.24,top=0.90,wspace=0.33)
-    return fig
-
-
 def finite_brackets(table, numbers):
     raw = table.read_bytes()
     if hashlib.sha256(raw.replace(b"\r\n",b"\n")).hexdigest() != TABLE_SHA:
@@ -84,31 +55,43 @@ def finite_brackets(table, numbers):
     if [n for n,_,_ in bounds] != list(range(3,15)) or any(
             u-l != Fraction(1,10**11) for _,l,u in bounds):
         raise ValueError("expected the twelve displayed Paper I enclosures")
-    text = numbers.read_text(encoding="utf-8")
-    def macro(key):
-        match = re.search(r"\\newcommand\{\\"+key+r"\}\{([0-9]+\.[0-9]+)\}",text)
-        return Fraction(match[1]) if match else None
-    lower,upper = macro("CstarLower"),macro("CstarUpper")
-    if lower is None or (upper is None and
-            r"\newcommand{\CstarUpper}{\textbf{[certified upper bound pending]}}" not in text):
-        raise ValueError("unrecognized bound macro")
-    if upper is not None and upper <= lower:
-        raise ValueError("the numeric upper endpoint must exceed the lower one")
-    fig,ax = plt.subplots(figsize=(5.45,2.2))
-    n = [i for i,_,_ in bounds]
-    middle = [float((l+u)/(2*i*i)) for i,l,u in bounds]
-    ax.errorbar(n,middle,yerr=[[float((u-l)/(2*i*i)) for i,l,u in bounds]]*2,
-                fmt="o",color="0.14",ms=3.8,lw=1,capsize=2,
-                label=r"Finite bracket for $R^*(n)/n^2$")
-    ax.axhline(float(lower),color="0.28",ls="--",lw=1.0,
-               label=r"Lower bound for $C_*$")
-    if upper is not None:
-        ax.axhline(float(upper),color="0.1",ls=":",lw=1.2,label=r"Upper bound for $C_*$")
-    ax.set(xlim=(2.55,14.45),xticks=n,xlabel=r"Number of outer circles $n$",
-           ylabel=r"Normalized radius",ylim=(0.015,max(0.155,float(upper or 0)+0.012)))
-    ax.grid(axis="y",alpha=0.27,ls=":",lw=0.7)
-    ax.legend(frameon=False,fontsize=7.8,loc="lower right")
-    fig.subplots_adjust(left=0.13,right=0.98,top=0.96,bottom=0.22)
+    definitions = numbers.read_text(encoding="utf-8")
+
+    def endpoint(key):
+        match = re.search(r"\\newcommand\{\\" + key + r"\}\{(\d+\.\d+)\}", definitions)
+        if match is None:
+            raise ValueError(f"expected a decimal value for {key}")
+        return Decimal(match[1])
+
+    lower, upper = endpoint("CstarLower"), endpoint("CstarUpper")
+    if upper <= lower:
+        raise ValueError("the upper endpoint must exceed the lower endpoint")
+
+    fig, (ax, detail) = plt.subplots(
+        1, 2, figsize=(6.3, 2.4), gridspec_kw={"width_ratios": [4, 1]})
+    n = [i for i, _, _ in bounds]
+    middle = [float((l+u)/(2*i*i)) for i, l, u in bounds]
+    half_width = [float((u-l)/(2*i*i)) for i, l, u in bounds]
+    ax.errorbar(n, middle, yerr=half_width, fmt="o", color="0.14",
+                ms=3.8, lw=1, capsize=2, label=r"Finite $R^*(n)/n^2$")
+    lo, hi = float(lower), float(upper)
+    for panel in (ax, detail):
+        panel.axhspan(lo, hi, facecolor="0.76", label=r"Band for $C_*$")
+        panel.axhline(lo, color="0.25", lw=0.65)
+        panel.axhline(hi, color="0.25", lw=0.65)
+    ax.set(xlim=(2.55, 14.45), xticks=n, xlabel=r"Number of outer circles $n$",
+           ylabel="Normalized radius", ylim=(0.015, max(0.155, hi+0.012)))
+    ax.grid(axis="y", alpha=0.27, ls=":", lw=0.7)
+    ax.legend(frameon=False, fontsize=8, loc="lower right")
+
+    margin = (hi-lo)*0.65
+    detail.set(xticks=[], ylim=(lo-margin, hi+margin), yticks=[lo, hi],
+               yticklabels=[str(lower), str(upper)], title=r"$C_*$ band")
+    detail.yaxis.tick_right()
+    detail.tick_params(axis="y", labelsize=8, length=0, pad=4)
+    for spine in detail.spines.values():
+        spine.set_visible(False)
+    fig.subplots_adjust(left=0.11, right=0.83, bottom=0.22, top=0.87, wspace=0.22)
     return fig
 
 
@@ -120,8 +103,8 @@ def main():
     options = args.parse_args()
     options.output.mkdir(parents=True,exist_ok=True)
     with plt.rc_context(MAT_STYLE):
-        plots = [("line_geometry",line_model()),("reflected_cells",reflected_cells()),
-                 ("finite_brackets",finite_brackets(options.brackets,options.numbers))]
+        plots = [("line_geometry", line_model()),
+                 ("finite_brackets", finite_brackets(options.brackets, options.numbers))]
         for name,fig in plots:
             path = options.output/(name+".pdf")
             fig.savefig(path,format="pdf",metadata=META)

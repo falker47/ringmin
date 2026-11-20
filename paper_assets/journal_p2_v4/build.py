@@ -35,8 +35,14 @@ def build(destination):
         pdf = staging/"main.pdf"
         info = subprocess.check_output(["pdfinfo",str(pdf)],text=True,encoding="utf-8",errors="replace")
         count = int(re.search(r"(?m)^Pages:\s+(\d+)",info)[1])
-        if count>12:
-            raise RuntimeError(f"draft has {count} pages, including bibliography")
+        # The last scientific paragraph precedes data availability and acknowledgments.
+        aux = (staging/"main.aux").read_text(encoding="utf-8")
+        marker = re.search(r"\\newlabel\{page:main-end\}\{\{[^}]*\}\{(\d+)\}", aux)
+        if marker is None:
+            raise RuntimeError("missing end-of-main-text page label")
+        main_pages = int(marker[1])
+        if not 1 <= main_pages <= count or main_pages > 14:
+            raise RuntimeError(f"draft has {main_pages} main-text pages out of {count} total")
         destination.parent.mkdir(parents=True,exist_ok=True)
         with tempfile.NamedTemporaryFile(dir=destination.parent,suffix=".pdf",delete=False) as f:
             tmp=Path(f.name)
@@ -45,7 +51,7 @@ def build(destination):
             os.replace(tmp,destination)
         finally:
             tmp.unlink(missing_ok=True)
-        print(f"BUILD_PASS pages={count} passes=3 unresolved=0 overfull={log.count('Overfull')}")
+        print(f"BUILD_PASS pages={count} main_pages={main_pages} passes=3 unresolved=0 overfull={log.count('Overfull')}")
 
 
 if __name__=="__main__":

@@ -1,3 +1,11 @@
 # Positioning for SIAM Journal on Discrete Mathematics
 
-For circles of successive integer radii arranged around a common tangent circle, the global optimum has a quadratic leading term. Its coefficient can be expressed through a deterministic problem on ordered marked points. Concatenation and label reassignment prove the limit, while a balanced-word linear program separates the errors from discretizing marks and cutting orderings into finite words. The recovery theorem turns reflected-block descriptions into actual permutations that satisfy every geometric pair constraint. These connections between discrete orderings, optimization and geometric feasibility are the central points for a SIAM Journal on Discrete Mathematics readership.
+For disks tangent to a central circle, the leading coefficient of the
+optimal radius depends only on the limiting law of the bounded marks,
+after normalization by the disk count and the common radius scale. The proof
+relates pairwise geometric feasibility to a discrete ordering problem on
+a line. Quantile reassignment controls the passage between sizes, and a
+balanced-word linear program gives explicit errors for discretization and
+concatenation. Consecutive integer radii give a worked example in which
+a finite rational placement improves the asymptotic upper bound. The same
+argument yields a certified upper bound for square radii.

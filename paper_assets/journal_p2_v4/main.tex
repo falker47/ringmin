@@ -12,7 +12,7 @@
 \usepackage{lmodern}
 \usepackage[mathlines]{lineno}
 \emergencystretch=1em
-\hypersetup{pdftitle={The quadratic growth of the minimum central circle},
+\hypersetup{pdftitle={The minimum central circle for prescribed radius profiles},
  pdfauthor={Maurizio Falconi}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -26,27 +26,29 @@
 \newcommand{\CC}{C_\ast}
 \DeclareMathOperator{\atan}{arctan}
 \DeclareMathOperator{\asin}{arcsin}
-\title{The quadratic growth of the minimum central circle}
+\title{The minimum central circle for prescribed radius profiles}
 \author{Maurizio Falconi}
 \date{3 November 2026}
 \begin{document}
 \maketitle
 \nolinenumbers
 \begin{abstract}
-For outer circles of consecutive positive integer radii up to $n$, the
-minimum radius of a central circle tangent to them all satisfies
-$\Rstar(n)=\CC n^{\QuadraticExponent}+o(n^{\QuadraticExponent})$ as $n\to\infty$.
-The bracket for the limiting coefficient is
-$\CstarLower<\CC<\CstarUpper$.
-An exact angular comparison reduces the problem to marked points on a line
-whose pairwise separations are bounded below by the geometric mean of
-their marks. Finite placements can be joined and their marks reassigned
-to the prescribed radii, giving a limit over all sizes and cyclic orders.
-A linear program on words of fixed length characterizes this limit with
-an explicit error for both mark discretization and word boundaries.
-A coupled estimate on terminal subsets supplies the lower endpoint.
-Reflected blocks yield upper constructions realized by actual
-circle placements satisfying every pair constraint.
+Let $R_n$ be the infimum radius of a central circle externally tangent
+to $n$ disks with pairwise disjoint interiors. Write the outer radii as
+$N_n a_{n,i}$, with positive scales $N_n$ and uniformly bounded
+nonnegative marks. If the empirical laws of the marks converge weakly
+to $\mu$, then $R_n/(N_n n)\to E(\mu)/\pi$. Here $E(\mu)$ is the limiting
+mean span of points on a line whose pairwise separations are at least the
+geometric means of their marks. A linear program on $k$ quantile types
+and words of length $r$ encloses the limiting ring coefficient within an
+interval of width $M(k+r)/(\pi kr)$ before numerical evaluation of the
+word costs, where $M$ is the common mark bound.
+For consecutive integer radii the minimum grows quadratically, with leading
+coefficient $\CstarLower<\CC<\CstarUpper$. Coupled terminal subsets give
+the lower bound and a rational line placement gives the upper bound. The
+profile theorem also applies to every fixed positive power of the labels.
+For square radii the growth is cubic, with leading coefficient less than
+$\CtwoUpper$.
 \end{abstract}
 \noindent\textbf{Keywords:} circle packing; geometric optimization; asymptotic
 limits; linear programming; rigorous computation.
@@ -55,26 +57,38 @@ limits; linear programming; rigorous computation.
 
 \section{The minimum central circle}
 
-Place circles of radii $1,\ldots,n$ around a central circle, all externally
-tangent to it and with pairwise disjoint interiors. For an outer cyclic
-order $\sigma$, let $\full(\sigma)$ be the least feasible central radius.
-We seek the growth of $\Rstar(n)=\min_\sigma\full(\sigma)$. The adjacent
-chain closure $\ch(\sigma)$ gives a lower bound on $\full(\sigma)$.
-Paper~I~\cite{paperI} treats the ordering of these chains and certifies
-the global finite optima for $3\le n\le14$ by tight brackets.
+Consider $n$ disks externally tangent to a central circle, with pairwise
+disjoint interiors. Write their prescribed radii as $N_n a_{n,i}$, with
+scale $N_n>0$ and marks $a_{n,i}\in[0,M]$ for a fixed $M<\infty$.
+We minimize the central radius over all orders and placements. Our main
+example has $N_n=n$ and $a_{n,i}=i/n$, so the outer radii are
+$1,\ldots,n$ and their normalized distribution tends to the uniform law.
+For this example, write $\full(\sigma)$ for the least feasible radius
+in cyclic order $\sigma$ and $\Rstar(n)=\min_\sigma\full(\sigma)$.
+The adjacent-chain closure $\ch(\sigma)$ bounds $\full(\sigma)$ from
+below. Paper~I~\cite{paperI} treats these chains and certifies tight
+global brackets for $3\le n\le14$.
 
 \paragraph{Main results.}
-Theorem~\ref{thm:existence} identifies $\pi\CC$ with the limiting mean
-span of a line placement and with an infimum over finite templates.
-Theorem~\ref{thm:lp} encloses $\CC$ by a finite linear program with
-error width $(1/k+1/r)/\pi$ for $k$ types and words of length $r$.
-The explicit lower bound in Proposition~\ref{prop:lower} exceeds $1/8$
-and disproves the coefficient conjectured in Paper~I~\cite{paperI}.
-For the upper endpoint, Theorem~\ref{thm:blocks} recovers feasible
-finite permutations from reflected-block measures with a quantitative
-error. Together the endpoint arguments give
-$C_{\rm term}+\eta_{\rm width}\le\CC\le U_4$ (Proposition~\ref{prop:lower}
-and~\eqref{eq:U4}).
+\begin{enumerate}
+\item If the empirical laws of the marks converge weakly to $\mu$, the
+normalized radius converges to $E(\mu)/\pi$
+(Theorem~\ref{thm:profile-law}). A stability estimate for the square
+roots of matched marks allows atoms and zero radii. For $k$ quantile
+types and words of length $r$, Theorem~\ref{thm:profile-words} bounds
+the limiting coefficient within an interval of width $M(1/k+1/r)/\pi$.
+\item For consecutive integer radii,
+$\Rstar(n)=\CC n^2+o(n^2)$. Theorems~\ref{thm:existence}
+and~\ref{thm:lp} give the finite-template infimum and the uniform
+finite-word program. Proposition~\ref{prop:lower} and the certificate
+in Proposition~\ref{prop:cert-upper} give $\CstarLower<\CC<\CstarUpper$.
+In particular the lower endpoint excludes the coefficient $1/8$ proposed
+in the first version of Paper~I~\cite{paperI}.
+\item For each fixed $p>0$, radii $i^p$ have a leading term
+$C_p n^{p+1}$ (Corollary~\ref{cor:profile-powers}). For square radii,
+the adjacent-pair bound and the second line certificate give
+$1/(6\pi)\le C_2<\CtwoUpper$.
+\end{enumerate}
 
 \paragraph{Related work.}
 Alt et al.~\cite{shelf} study disks resting on a shelf and minimizing
@@ -112,9 +126,9 @@ The cosine law gives the required pair angle
 \end{equation}
 Both directed cyclic arcs between a pair must be at least this angle.
 This is equivalent to non-overlap, since their smaller separation belongs
-to $[0,\pi]$. The angle is positive, symmetric, increasing in either
+to $[0,\pi]$. For positive outer radii the angle is positive, symmetric, increasing in either
 outer radius and strictly decreasing in $R>0$.
-For a cyclic order $\sigma=(u_1,\ldots,u_n)$, $n\ge3$, with $u_{n+1}=u_1$,
+For a cyclic order $\sigma=(u_1,\ldots,u_n)$ of positive radii, $n\ge3$, with $u_{n+1}=u_1$,
 $\ch(\sigma)$ is the unique positive root of
 $\sum_{i=1}^n\theta_R(u_i,u_{i+1})=2\pi$.
 Indeed, the sum decreases continuously from $n\pi$ to zero. Summing the
@@ -324,153 +338,217 @@ arbitrary-precision computability of $\CC$ in principle.
 
 For example, $k=r=64$ gives width $1/(32\pi)<0.01$ before directed
 arithmetic error, with $64^{64}$ words in the displayed formulation.
-The endpoint constructions below provide bounds directly.
+For the uniform profile the explicit endpoint bounds below bypass this enumeration.
 
-\section{Explicit Geometric Upper Constructions}\label{sec:upper}
+\section{Prescribed radius profiles}\label{sec:profiles}
 
-The finite-word characterization gives a convergent scheme for the constant.
-For explicit upper bounds, we use reflected-block constructions
-(Figure~\ref{fig:cells}). The key step
-is to recover actual permutations satisfying every pair constraint from the
-continuous description.
+Let $a_n=(a_{n,1},\ldots,a_{n,n})$ be a list of marks in $[0,M]$,
+where $M<\infty$ is independent of $n$. Write $R_n$ for the infimum
+central radius for outer radii $N_n a_{n,i}$, with $N_n>0$. A zero mark
+represents a point on the central circle and imposes no separation.
+Use $b(a_n)$ for the least span under the same geometric-mean constraints
+as in~\eqref{eq:line}. The recurrence~\eqref{eq:recurrence} applies to
+these marks, with no change of units.
 
-\begin{figure}[tb]
-\centering
-\includegraphics[width=.84\linewidth]{figures/reflected_cells.pdf}
-\caption{Left, filled vertices denote high labels and open vertices low labels.
-Each cell must accommodate the solid high--low--high path and the dashed
-direct high-pair constraint. Right, one six-rank slab reverses its even
-ranks before the cyclic high-label shift. Ranks outside the slab stay fixed.}
-\label{fig:cells}
-\end{figure}
-
-Fix $0\le\alpha<1$ and nonnegative adjacent slab lengths
-$\ell_1,\ldots,\ell_k$ of total $T<1-\alpha$. Put $A=1+\alpha$,
-$t_0=0$, $t_j=\sum_{h\le j}\ell_h$. On each slab
-$[t_{j-1},t_j]$, use equal masses at
-\[
- (t,A+t,A+t_{j-1}+t_j-t),\qquad
- (t,A+t_{j-1}+t_j-t,A+t).
-\]
-After $T$, use the diagonal $(t,1+\{t+\alpha\},1+\{t+\alpha\})$.
-This defines a measure $\mu$ on $[0,1]\times[1,2]^2$ with uniform low
-and separate high marginals. Its complete cell cost is
-\begin{equation}\label{eq:blockcost}
- C(\mu)=\frac1{4\pi}\int
- \max\{\sqrt t(\sqrt X+\sqrt Y),\sqrt{XY}\}\,d\mu.
+\begin{lemma}[Geometric comparison for bounded marks]\label{lem:profile-squeeze}
+For $n\ge3$,
+\begin{equation}\label{eq:profile-squeeze}
+ \frac{b(a_n)}{\pi n}-\frac{M}{n}
+ \ \le\ \frac{R_n}{N_n n}\ \le\ \frac{b(a_n)+M}{\pi n}.
 \end{equation}
-Correct marginals alone do not establish finite recovery.
-
-\begin{theorem}[General block transfer]\label{thm:blocks}
-Every such finite partition has genuine alternating-half permutations with
-all-pairs-feasible radii $\rho_m=\full(\sigma_m)$ and
-\[
- \left|\frac{\rho_m}{(2m)^2}-C(\mu)\right|
- \le\frac{(6k^2+28k+1060)/m+16384/(3m^2)}{4\pi}
-\]
-for $m\ge\max\{2048,\lceil2/(1-\alpha-T)\rceil\}$.
-It follows that $\CC\le C(\mu)$. Countably many slabs also transfer
-if their total length is strictly below $1-\alpha$.
-\end{theorem}
-\begin{proof}[Proof with explicit construction]
-Let $s=\lfloor\alpha m\rfloor$, $l_j=2\lfloor\ell_jm/2\rfloor$,
-$a_0=0$ and $a_j=\sum_{h\le j}l_h$. Reverse only the even ranks within
-each $(a_{j-1},a_j]$ to obtain a permutation $J$ of $\{1,\ldots,m\}$.
-Set $J(i)=i$ on odd ranks and on every index outside these blocks.
-Set $P_i=m+1+((J(i)+s-1)\bmod m)$ and
-$\sigma_m=(1,P_1,\ldots,m,P_m)$, with $P_0=P_m$.
-Disjoint involutions and the cyclic shift prove bijectivity, including
-zero blocks and length-two identities. The lower bound on $m$ keeps the final
-block endpoint at least two ranks before the high wrap, and its exit
-strictly before that wrap.
-
-Double panels of width $2/m$, allocated half to each parity, recover
-the two reflected orientations. Interior coordinate error is at most
-$4/m$. There are at most $k+3$ exceptional actual cells: shared exits,
-the cyclic predecessor, and the two wrap cells. Rounded slab boundaries
-and wrap differ on a set of length at most $[k(k+1)+1]/m$, with remaining
-coordinate error at most $(4k-1)/m$. Write
-$g(t,X,Y)=\max\{\sqrt t(\sqrt X+\sqrt Y),\sqrt{XY}\}$ for the integrand
-in \eqref{eq:blockcost}. It is $4$-Lipschitz and lies in $[1,3)$.
-The actual normalized full-cell moment is
-\[
- G_m=\frac1m\sum_{i=1}^m g(i/m,P_{i-1}/m,P_i/m).
-\]
-It differs from
-$\int g\,d\mu$ by at most $(6k^2+28k+36)/m$.
-
-For arbitrary distinct highs in $[m+1,2m]$, the exact full-feasibility
-criterion for this alternating order is
-\[
- \sum_{i=1}^m\max\{\theta_R(P_{i-1},i)+\theta_R(i,P_i),
-                         \theta_R(P_{i-1},P_i)\}\le2\pi.
-\]
-Its sufficiency follows from the high-shell triangle inequality
-$2\theta_R(m+1,m+1)>\theta_R(2m,2m)$ and high/low separation:
-each directed high path contracts through whole cells, and paths with
-low endpoints either contain such a high path or an incident high gap
-that already exceeds the endpoint requirement. Both directions are
-treated separately. At its unique root, choose the first half of each
-cell at its required low/high angle and put any excess in the other half.
-This closes at $2\pi$ and satisfies all pairs.
-
-At $R=4cm^2$, $c\ge1/32$, the full score differs from $G_m/(2c)$ by
-at most $1024/m+16384/(3m^2)$. For $m\ge2048$ this first brackets
-the actual normalized root in $(1/32,1/2)$, then yields the stated error.
-Deleting label $2m$ gives the odd upper bound. For countably many slabs,
-truncate and use that the omitted complete-cost integral is at most six
-times the omitted length. A diagonal sequence with $m$ growing faster
-than $k^3$ pays both finite and tail errors. Full cell/seam formulas and
-the angle estimate are supplied in the upper supplement S2 of~\cite{supp}.
+\end{lemma}
+\begin{proof}
+For $u,v\le N_nM$ and $R>0$, \eqref{eq:theta} gives
+$2\sqrt{uv}/(R+N_nM)\le\theta_R(u,v)\le2\sqrt{uv}/R$.
+Scale both arcs of a feasible ring by $(R+N_nM)/(2N_n)$ and cut
+the ring. The resulting line placement has span at most $\pi(R/N_n+M)$.
+Conversely, join the ends of a minimizing line placement with a gap $M$.
+Each pair has its line separation on one arc and the gap on the other.
+Scaling the circumference $b(a_n)+M$ to $2\pi$ gives full feasibility
+at $R=N_n(b(a_n)+M)/\pi$. If $M=0$, the infimum is zero.
 \end{proof}
 
-For the explicit four-block construction, let $x_*$ be the unique minimizer
-on $[0,1]$ of
-\[
- E(x)=\int_0^x\!\left[
- \max\{\sqrt{(1+t)(1+x-t)},\sqrt t(\sqrt{1+t}+\sqrt{1+x-t})\}
- -\max\{1+t,2\sqrt{t(1+t)}\}\right]dt.
-\]
-Let $K(\alpha)=\int_0^1\max\{\sqrt{t h_\alpha(t)},h_\alpha(t)/2\}\,dt$,
-where $h_\alpha(t)=1+\{t+\alpha\}$, and let $\widehat\alpha$ be the
-unique zero of $K'(\alpha)+(1+\alpha)E(x_*)$ on $[0,1/2]$.
-Set $A=1+\widehat\alpha$ and $\lambda=Ax_*$.
-The second width $\epsilon_b$ is the unique mixed-branch stationary
-minimum for a separate reflection starting at $\lambda$; the third width
-$\Delta_*$ is the analogous unique minimum starting at
-$v=\lambda+\epsilon_b$. Each width is minimized over
-$[0,A/3-u]$ at its fixed start $u$, retaining the full max.
-Supplement S2 of~\cite{supp} gives their exact defining integrals,
-existence/uniqueness proofs and rational isolations:
-\[
-\begin{gathered}
- .1093<\widehat\alpha<.10931,\qquad .2876<x_*<.2877,\\
- .043<\epsilon_b<7/160,\qquad 29/5000<\Delta_*<27/4000.
-\end{gathered}
-\]
-These terminating decimals are rational bracket endpoints, not definitions
-or numerical replacements for the parameters.
+\subsection{From a quantile template to a limit law}
 
-Let $C_3(d)$ be \eqref{eq:blockcost} for the three lengths
-$(\lambda,\epsilon_b,d)$, and $C_4(\eta)$ the same cost for the four
-lengths $(\lambda,\epsilon_b,\Delta_*,\eta)$.
-Use $\eta=1/20000$ and define $U_4=C_4(1/20000)$.
-If $w=\lambda+\epsilon_b+\Delta_*$, $B=A+w$ and
-$M=B+\eta/2$, the fourth increment at $0<\eta\le1/20000$ is exactly
+For a nondecreasing function $Q:(0,1]\to[0,M]$, write
+$b_n^Q=b(Q(1/n),\ldots,Q(1))$. For a probability law $\mu$ on $[0,M]$,
+its quantile is $Q_\mu(t)=\inf\{x\in[0,M]:\mu([0,x])\ge t\}$,
+$0<t\le1$.
+
+\begin{lemma}[Replication of a quantile template]\label{lem:profile-copy}
+If $m\ge n\ge2$ and $q=\lceil m/n\rceil$, then
 \[
- C_4(\eta)-C_3(\Delta_*)=
- -\frac1{4\pi}\int_{-\eta/2}^{\eta/2}
-       \frac{z^2}{M+\sqrt{M^2-z^2}}\,dz.
+ b_m^Q\le q(b_n^Q+M)-M,\qquad
+ \lim_{m\to\infty}\frac{b_m^Q}{m}=\inf_{n\ge2}\frac{b_n^Q+M}{n}.
 \]
-Rational input margins keep both changed maxima strictly chord.
-Since $2B\le M+\sqrt{M^2-z^2}\le2M$, $M<3/2$ and $\pi<4$,
-\begin{equation}\label{eq:U4}
- \CC\le U_4<C_3(\Delta_*)-\frac1{4608000000000000}.
+\end{lemma}
+\begin{proof}
+Place $q$ optimal copies with gaps $M$ and discard the $d=nq-m$
+smallest donors. The $i$th remaining mark in sorted order has argument
+$\lceil(i+d)/q\rceil/n\ge i/m$, because $m(i+d)-nqi=d(m-i)\ge0$.
+Replace it by $Q(i/m)$. This assigns every target once and preserves
+all separations, including for tied marks. At fixed $n$ the span bound
+gives $\limsup_m b_m^Q/m\le(b_n^Q+M)/n$. The infimum of the right side
+is at most $\liminf_n b_n^Q/n$, since $M/n\to0$ and
+$0\le b_n^Q\le(n-1)M$.
+\end{proof}
+
+Denote the limit in Lemma~\ref{lem:profile-copy} for $Q=Q_\mu$ by $E(\mu)$.
+
+\begin{theorem}[Radius-profile limit]\label{thm:profile-law}
+If $n^{-1}\sum_{i=1}^n\delta_{a_{n,i}}$ converges weakly to $\mu$, then
+\[
+ \frac{b(a_n)}{n}\longrightarrow E(\mu),\qquad
+ \frac{R_n}{N_n n}\longrightarrow\frac{E(\mu)}{\pi}.
+\]
+For a Riemann-integrable profile $f:[0,1]\to[0,M]$ sampled at $i/n$,
+the limit law is that of $f(U)$, where $U$ is uniform on $(0,1)$.
+\end{theorem}
+\begin{proof}
+For two matched lists $a,c$ of $n$ marks in $[0,M]$,
+\begin{equation}\label{eq:profile-change}
+ |b(a)-b(c)|\le2\sqrt M\sum_i|\sqrt{a_i}-\sqrt{c_i}|.
 \end{equation}
-The leading decrement is $-\eta^3/(96\pi B)$, with remainder between
-zero and $\eta^4/(192\pi B^2)$. The theorem transfers this literal
-continuous saving to genuine full geometry. It does not make four blocks
-globally optimal or optimize an infinite partition.
+Indeed, each edge product changes by at most $\sqrt M$ times the sum
+of the changes in its endpoint square roots. A path uses each vertex
+at most twice as an endpoint. Take the longest path in each fixed word
+as in~\eqref{eq:recurrence}, then minimize over the orders.
+
+Match the sorted square roots of $a_n$ to those of $Q_\mu(i/n)$.
+Their mean absolute difference equals the integral over $[0,\sqrt M]$
+of the absolute difference of the two empirical distribution functions.
+At each threshold the two sorted indicator lists are nested, so
+integrating their count difference gives the sum of the matched distances
+after normalization. At threshold $s$, the quantile sample counts
+$\lfloor n\mu([0,s^2])\rfloor$ entries. Its distribution function is
+therefore within $1/n$ of that of $\sqrt{Q_\mu(U)}$. The distribution
+functions of the array converge to that same function at its continuity
+points. Bounded convergence gives a vanishing mean distance. Now
+apply~\eqref{eq:profile-change}, Lemma~\ref{lem:profile-copy}
+and~\eqref{eq:profile-squeeze}. For a Riemann-integrable profile, the
+right-endpoint sums of each continuous test function composed with $f$
+converge to its integral, giving the stated weak convergence.
+\end{proof}
+
+Applying~\eqref{eq:profile-change} to quantile samples and taking their
+Riemann-sum limit gives, for laws $\mu,\nu$ on $[0,M]$,
+\[
+ |E(\mu)-E(\nu)|\le2\sqrt M
+ \int_0^1|\sqrt{Q_\mu(t)}-\sqrt{Q_\nu(t)}|\,dt .
+\]
+Both quantiles are bounded and monotone, so the integrand is Riemann
+integrable. In the uniform example $Q_\mu(t)=t$, Lemma~\ref{lem:profile-copy}
+recovers the finite-template infimum for $\pi\CC$ in~\eqref{eq:limit}.
+
+\subsection{Finite words and power radii}
+
+Put $Q=Q_\mu$ and set $Q(0)=0$. Use the $k$ indexed types $v_j=Q(j/k)$,
+retaining separate indices even if some values agree. Let
+$\lambda_{k,r}(\mu)$ denote the program~\eqref{eq:lp} with these
+types, where $\ell(w)$ uses the actual marks and $c_j(w)$ counts index $j$.
+
+\begin{theorem}[Finite-word bounds for a law]\label{thm:profile-words}
+For $k\ge1$ and $r\ge2$,
+\[
+ \lambda_{k,r}(\mu)-M/k\ \le\ E(\mu)\ \le\ \lambda_{k,r}(\mu)+M/r.
+\]
+The resulting bracket for $E(\mu)/\pi$ has width $M(1/k+1/r)/\pi$
+before numerical evaluation of the type costs.
+\end{theorem}
+\begin{proof}
+Let $e^+$ and $e^-$ be the limiting spans per mark for $q$ copies of
+each upper type $Q(j/k)$ and each lower type $Q((j-1)/k)$, respectively,
+as $q\to\infty$. These limits exist by Theorem~\ref{thm:profile-law}.
+The sorted quantile grid of size $kq$ lies between the two lists.
+Deleting the $q$ extra zeros in the lower list and appending $q$ top
+marks costs at most $qM$, including the join. This also holds when the
+common list is empty. Thus $e^+-M/k\le e^-\le E(\mu)\le e^+$.
+
+Cut an optimal upper-type word into consecutive words of length $r$.
+Their minimum spans sum to at most the full span. Fewer than $r$ leftover
+marks are discarded, so a subsequential limit of the word distributions
+has mean count $r/k$ for each index. This gives $\lambda_{k,r}(\mu)\le e^+$.
+Conversely, the rational feasible polytope in~\eqref{eq:lp} contains the
+uniform mixture of constant words and has a minimizing rational vertex,
+even when the costs are real. A common denominator $D$ yields $D$ words
+with exactly $Dr/k$ copies of each index. Repeat the batch with gaps $M$
+between successive words. All pairs are feasible and the asymptotic cost
+per mark is $\lambda_{k,r}(\mu)+M/r$, an upper bound on $e^+$.
+\end{proof}
+
+\begin{corollary}[Adjacent-pair lower bound]\label{cor:profile-adjacent}
+For any probability law on $[0,M]$,
+\[
+ E(\mu)\ge\int_0^1\sqrt{Q_\mu(t)Q_\mu(1-t)}\,dt .
+\]
+\end{corollary}
+\begin{proof}
+Let $s_1\le\cdots\le s_n$ be the sorted square roots of the quantile
+sample. In a feasible line order, successive gaps dominate the adjacent
+products. Adding the closing product costs at most $M$. The cyclic
+successor map permutes the square roots, so the rearrangement inequality
+bounds the cyclic sum below by $\sum_i s_i s_{n+1-i}$. Hence the span
+is at least this sum minus $M$. After division by $n$, the reverse-paired
+sum converges to the displayed integral by bounded convergence, since
+$Q_\mu$ is continuous at both $t$ and $1-t$ for almost every $t$.
+\end{proof}
+
+\begin{corollary}[Power radii]\label{cor:profile-powers}
+For fixed real $p>0$ and outer radii $i^p$,
+\[
+ R_p^*(n)=C_p n^{p+1}+o(n^{p+1}),\qquad
+ C_p=E(\operatorname{law}(U^p))/\pi .
+\]
+For square radii, $C_2\ge 1/(6\pi)$.
+\end{corollary}
+\begin{proof}
+Take $N_n=n^p$ and $a_{n,i}=(i/n)^p$ in Theorem~\ref{thm:profile-law}.
+The quantile is $Q(t)=t^p$. For $p=2$ the integral in
+Corollary~\ref{cor:profile-adjacent} is $\int_0^1 t(1-t)\,dt=1/6$.
+\end{proof}
+
+\section{A certified upper bound}\label{sec:upper}
+
+\begin{proposition}\label{prop:cert-upper}
+The leading coefficients for consecutive integer radii and for square
+radii satisfy, respectively,
+\[
+ \CC<\CstarUpper,\qquad C_2<\CtwoUpper .
+\]
+\end{proposition}
+\begin{proof}
+Write $Q_p(t)=t^p$ and $C_1=\CC$. By~\eqref{eq:limit} for $p=1$, and
+by Lemma~\ref{lem:profile-copy} and Corollary~\ref{cor:profile-powers}
+for $p=2$, $\pi C_p=\inf_{m\ge2}(b_m^{Q_p}+1)/m$.
+Take $m=3200$. For each profile the certificate gives an integer
+coordinate $X_i$ for each label. The following are the denominator $D$,
+the span numerator $H=\max_i X_i-\min_i X_i$, and the strict decimal
+ceiling $B$.
+\[
+\begin{array}{c r r l}
+ p & D & H & B\\ \hline
+ 1 & m\,10^{12} & 4\,531\,424\,532\,506\,678\,377 & \CstarUpper\\
+ 2 & m^2 & 9\,108\,638\,531 & \CtwoUpper
+\end{array}
+\]
+For every $i<j$, integer comparisons give
+$m^2(X_i-X_j)^2\ge ijD^2$ for $p=1$ and
+$m^2|X_i-X_j|\ge ijD$ for $p=2$. Thus $X_i/D$ realizes all required
+separations and $b_m^{Q_p}\le H/D$. Using a rational lower bound for
+$\pi$ from the alternating series in Machin's formula, the verifier checks
+$(H/D+1)/(\pi m)<B$ in each case. The infimum formula gives the two
+strict upper bounds.
+\end{proof}
+
+\begin{remark}
+Reflected-block constructions with full geometric recovery appear in
+arXiv:2609.13630v3 and its supplement S2~\cite{supp}. With the rational
+choice $\alpha=0.1093$ and slab lengths
+$(0.31903,\allowbreak 0.0437,\allowbreak 0.0058,\allowbreak 0.00005)$,
+their cost lies in
+$[0.14191330499527,0.14191330499528]$. The finite certificate in
+Proposition~\ref{prop:cert-upper} improves this value.
+\end{remark}
 
 \section{An Explicit Global Lower Endpoint}
 
@@ -508,8 +586,8 @@ In particular $\CC>1/8$, ruling out the proposed coefficient
 and the stronger estimate $n^2/8-\Rstar(n)=O(\sqrt n)$.
 \end{proposition}
 \begin{proof}[Proof outline]
-The complete proof L1--L8 and exact arithmetic certificates are in the
-standalone lower supplement S1 of~\cite{supp}.
+Supplement S1 gives the complete proof L1--L8 and the exact arithmetic
+certificates for Proposition~7 of~\cite{supp}.
 Its essential coupled information is one shared crossing energy for the
 same order and all three nested terminal restrictions. An explicit assignment
 dual bounds the reflected-grid energy by eight times the excess chain cost.
@@ -536,41 +614,42 @@ that this particular lower mechanism reaches $\CC$.
 
 \section{Finite values and open questions}
 
-Figure~\ref{fig:finite} compares the twelve finite brackets with the
-lower bound for the limit. The proofs of existence and of the
-linear-programming bracket use the angular model and genuine labels
-directly. The values of $n$ in the figure illustrate how finite optima
-compare with the limiting scale.
+Figure~\ref{fig:finite} compares the twelve certified finite brackets
+with the asymptotic interval for consecutive integer radii. The shaded
+band concerns the limiting coefficient $\CC$.
 
 \begin{figure}[tb]
 \centering
-\includegraphics[width=.80\linewidth]{figures/finite_brackets.pdf}
+\includegraphics[width=.95\linewidth]{figures/finite_brackets.pdf}
 \caption{Certified brackets for $\Rstar(n)/n^2$ from Paper~I
 \cite{paperI}. Each interval has width $10^{-11}/n^2$, smaller than
-its marker. The dashed line is the rounded lower bound $\CstarLower$
-for the limiting coefficient.}
+its marker. The band between $\CstarLower$ and $\CstarUpper$ encloses the
+limiting coefficient $\CC$. The right panel enlarges the band.}
 \label{fig:finite}
 \end{figure}
 
 Sharper endpoint constructions, tractable evaluation of the finite
 linear programs, the structure of optimizing orders and subleading
 terms remain open. Bounds on the limiting coefficient alone place
-no contact requirements on an individual finite optimizer.
+no contact requirements on an individual finite optimizer.\label{page:main-end}
 
 \section*{Data and code availability}
 
-The source deposit for Paper~II contains S1, the standalone proof
-and verifier of the terminal-subset lower bound, and S2, the parameter
-isolations and all-pairs recovery of the upper construction~\cite{supp}.
-The \href{https://github.com/falker47/ringmin/raw/4b3721df8061f1992cfd242df69b1a0643216d8f/paper_assets/paper_ii_journal/source_bundle.zip}{frozen companion ZIP}
-includes a claim-to-proof map, a file manifest with source hashes and
-build instructions. S1 is preserved from commit
-\texttt{75a2f448038d627b2661ea7c9d6fd0fcdb6d33ae}.
-Run \texttt{python -I -S verify.py} in \texttt{lower\_supplement/}
-or \texttt{python -I -S verify\_math.py} at the archive root for the
-aggregate checks. Candidate word-LP solutions are found with SciPy and
-checked by exact rational arithmetic. The source of each figure and
-its reproduction command are given in the draft package.
+Supplement S1 gives the proof and exact verifier for
+Proposition~\ref{prop:lower}. In the
+\href{https://github.com/falker47/ringmin/raw/4b3721df8061f1992cfd242df69b1a0643216d8f/paper_assets/paper_ii_journal/source_bundle.zip}{frozen archive}
+run \texttt{python -I -S verify.py} from \texttt{lower\_supplement/}.
+The \href{https://github.com/falker47/ringmin/tree/eb9467dfa1429d622402e26e2f33017f984d2b1f/paper_assets/line_upper}{line-certificate package}
+contains both witnesses and the four-block cost calculation. From
+\texttt{paper\_assets/line\_upper/} run
+{\small
+\begin{verbatim}
+python -I -S verify_line_certificate.py certificates/p1_n03200.json
+python -I -S verify_line_certificate.py certificates/p2_n03200.json
+\end{verbatim}
+}
+Each command checks the permutation, the span, all $5\,118\,400$ pairs and
+the strict ceiling using the Python standard library.
 
 \section*{Acknowledgment}
 AI assistance was used for proof exploration, software, drafting and
@@ -590,8 +669,8 @@ presentation rests with the author.
 \bibitem{paperI} M. Falconi, \emph{Minimum central circles: chain order, seam obstructions, and exact finite certification}, arXiv:2607.28654v4 (2026).
 The \href{https://arxiv.org/abs/2607.28654v1}{original conjecture} is recorded in the first edition.
 \href{https://doi.org/10.48550/arXiv.2607.28654}{doi:10.48550/arXiv.2607.28654}.
-\bibitem{supp} M. Falconi, \emph{Minimum central circles: an effective characterization of the global asymptotic constant}, arXiv:2609.13630v3 (2026), with supplementary works S1 and S2.
-See the \href{https://arxiv.org/src/2609.13630v3}{versioned source deposit} for both supplements.
+\bibitem{supp} M. Falconi, \emph{Minimum central circles: an effective characterization of the global asymptotic constant}, arXiv:2609.13630v3 (2026), with supplementary material.
+See the \href{https://arxiv.org/src/2609.13630v3}{versioned source deposit}.
 \href{https://doi.org/10.48550/arXiv.2609.13630}{doi:10.48550/arXiv.2609.13630}.
 \bibitem{contact} B. Klemz, M. N\"ollenburg and R. Prutkin, \emph{Recognizing Weighted Disk Contact Graphs}, Lecture Notes in Computer Science 9411 (2015), 433--446.
 \href{https://doi.org/10.1007/978-3-319-27261-0_36}{doi:10.1007/978-3-319-27261-0\_36}.
