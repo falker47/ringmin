@@ -1,0 +1,3 @@
+# Positioning for SIAM Journal on Discrete Mathematics
+
+For circles of successive integer radii arranged around a common tangent circle, the global optimum has a quadratic leading term. Its coefficient can be expressed through a deterministic problem on ordered marked points. Concatenation and label reassignment prove the limit, while a balanced-word linear program separates the errors from discretizing marks and cutting orderings into finite words. The recovery theorem turns reflected-block descriptions into actual permutations that satisfy every geometric pair constraint. These connections between discrete orderings, optimization and geometric feasibility are the central points for a SIAM Journal on Discrete Mathematics readership.
