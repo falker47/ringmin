@@ -1,0 +1,173 @@
+\section{Prescribed radius profiles}\label{sec:profiles}
+
+Let \(a_{n,1},\ldots,a_{n,n}\) lie in \([0,M]\), where \(M<\infty\) is
+independent of \(n\), and let \(N_n>0\). Write \(R_n\) for the infimum
+central radius for disks of radii \(N_na_{n,i}\), with all outer pairs
+nonoverlapping. A mark of value zero is a point and can be placed at a
+central tangency point. For a list \(a\) let \(b(a)\) be its least line
+span under \(|x_i-x_j|\ge\sqrt{a_ia_j}\). This is the geometric-mean
+separation used in the shelf model~\cite{shelf}. Our principal examples
+are \(a_{n,i}=f(i/n)\), including \(f(t)=t^p\). The law of the marks will
+determine the limiting cost.
+
+\begin{lemma}[Geometric comparison]\label{lem:profile-squeeze}
+For \(n\ge3\), writing \(b_n=b(a_{n,1},\ldots,a_{n,n})\), we have
+\begin{equation}\label{eq:profile-squeeze}
+ \frac{b_n}{\pi n}-\frac{M}{n}\ \le\ \frac{R_n}{N_n n}\
+ \le\ \frac{b_n+M}{\pi n}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For radii \(u,v\le N_nM\), the required angle satisfies
+\[
+ \frac{2\sqrt{uv}}{R+N_nM}\le
+ 2\arcsin\sqrt{\frac{uv}{(R+u)(R+v)}}=
+ 2\arctan\sqrt{\frac{uv}{R(R+u+v)}}\le\frac{2\sqrt{uv}}R .
+\]
+Both arcs of every feasible ring obey the lower bound. Scaling its angles
+by \((R+N_nM)/(2N_n)\) and cutting gives a feasible line of span at most
+\(\pi(R/N_n+M)\). Conversely, close an optimal line placement with a gap
+\(M\). For each pair the first arc is its line separation and the second
+contains the gap. Scaling the circumference \(b_n+M\) to \(2\pi\) gives
+a feasible ring at \(R=N_n(b_n+M)/\pi\) by the upper angle inequality.
+If \(M=0\), the infimum is zero.
+\end{proof}
+
+\subsection{Quantile templates and existence}
+
+For bounded nonnegative nondecreasing \(Q\) on \((0,1]\), put
+\(b_n^Q=b(Q(1/n),\ldots,Q(1))\). A fixed-order span is the largest
+weight of an increasing path from the first to the last label, with
+edge weight \(\sqrt{a_i a_j}\). Indeed placing each vertex at the largest
+predecessor coordinate plus the corresponding separation gives the
+componentwise least feasible coordinates. In particular all line minima
+are attained over the finitely many orders.
+
+\begin{lemma}[Replication]\label{lem:profile-copy}
+If \(0\le Q\le M\), and \(m\ge n\ge2\), then, for \(q=\lceil m/n\rceil\),
+\[
+ b_m^Q\le q(b_n^Q+M)-M,\qquad
+ E(Q):=\lim_{m\to\infty} b_m^Q/m=\inf_{n\ge2}(b_n^Q+M)/n .
+\]
+\end{lemma}
+\begin{proof}
+Separate \(q\) optimal copies by gaps \(M\) and discard
+the \(d=nq-m\) smallest donors. The \(i\)-th of the surviving marks in
+sorted order has argument \(\lceil(i+d)/q\rceil/n\ge i/m\), since
+\(m(i+d)-nqi=d(m-i)\ge0\). Match it to \(Q(i/m)\), a genuine target
+of no greater size. This preserves every separation, including when ties
+arise. At fixed \(n\), dividing by \(m\) and taking the upper limit
+gives \(\limsup_m b_m^Q/m\le(b_n^Q+M)/n\). Taking the infimum in \(n\)
+bounds this upper limit by the lower limit, since \(M/n\to0\) and the
+span is between zero and \((n-1)M\).
+\end{proof}
+
+For a probability law \(\mu\) on \([0,M]\), use the quantile
+\(Q_\mu(t)=\inf\{x:\mu([0,x])\ge t\}\), \(0<t\le1\), and write
+\(E(\mu)=E(Q_\mu)\).
+
+\begin{theorem}[Profile limit]\label{thm:profile-law}
+Suppose the empirical measures \(n^{-1}\sum_i\delta_{a_{n,i}}\)
+converge weakly to \(\mu\). For every sequence \(N_n>0\),
+\[
+ \frac{b_n}{n}\longrightarrow E(\mu),\qquad
+ \frac{R_n}{N_n n}\longrightarrow\frac{E(\mu)}{\pi}.
+\]
+For bounded Riemann-integrable \(f\) sampled at \(i/n\), take
+\(\mu=\operatorname{law}(f(U))\) for \(U\) uniform on \((0,1)\).
+\end{theorem}
+\begin{proof}
+Two matched lists \(a,c\) in \([0,M]\) satisfy
+\begin{equation}\label{eq:profile-change}
+ |b(a)-b(c)|\le 2\sqrt M\sum_i|\sqrt{a_i}-\sqrt{c_i}|.
+\end{equation}
+An edge product changes by at most \(\sqrt M\) times the sum of its
+endpoint changes in square root. Each vertex occurs at most twice along
+a path. Take longest paths in a fixed order, then minimize over orders.
+
+Sort and match the square roots in the array to the sorted
+\(\sqrt{Q_\mu(i/n)}\). Their mean absolute difference is the integral
+of the absolute difference of the empirical distribution functions of
+the two lists. At each threshold the lists of indicators are ordered. Integrating the number of differing indicators counts their total
+distance. The quantile-sample distribution function differs by at most
+\(1/n\) from that of \(\sqrt{Q_\mu(U)}\), by rounding its cumulative count
+down to an integer. The other distribution functions converge at every
+continuity point by weak convergence. Bounded convergence on \([0,\sqrt M]\)
+makes the integral tend to zero. Apply \eqref{eq:profile-change},
+Lemma~\ref{lem:profile-copy} and \eqref{eq:profile-squeeze}.
+For Riemann-integrable \(f\), the right endpoint averages of each
+continuous test function composed with \(f\) converge to its integral.
+\end{proof}
+
+Scaling marks and coordinates gives homogeneity of degree one. Decreasing
+marks gives monotonicity under quantile domination. For laws \(\mu,\nu\)
+on \([0,M]\), passing to the limit in \eqref{eq:profile-change} gives
+\[
+ |E(\mu)-E(\nu)|\le
+ 2\sqrt M \int_0^1 |\sqrt{Q_\mu(t)}-\sqrt{Q_\nu(t)}|\,dt .
+\]
+The integrand is Riemann integrable since each quantile is monotone.
+If a positive fraction of marks have value at least \(s>0\), their
+successive line separations are at least \(s\), giving \(E(\mu)>0\).
+For constant unit marks \(b_n=n-1\), \(E=1\), and equal angular spacing
+realizes \(R_n=N_n(\csc(\pi/n)-1)\) by the adjacent angle constraints.
+The indicator of the rationals equals one at every grid point and vanishes
+almost everywhere. Thus the distribution of a measurable profile can
+differ from its grid limit.
+
+\subsection{Finite words and power radii}
+
+Set \(Q=Q_\mu\), \(Q(0)=0\), and \(v_j=Q(j/k)\), \(1\le j\le k\).
+Use a separate symbol for each index even when two mark values agree.
+For a length-\(r\) word \(w\), let \(\ell(w)\) be its least span and
+\(c_j(w)\) its count of symbol \(j\). Define the finite linear program
+\[
+ \lambda_{k,r}=\min_p \frac1r\sum_w p_w\ell(w),\qquad
+ p_w\ge0,\quad\sum_w p_w=1,\quad
+ \sum_w p_w c_j(w)=r/k\quad(1\le j\le k).
+\]
+\begin{theorem}[Finite-word bounds]\label{thm:profile-words}
+For \(k\ge1,\ r\ge2\),
+\[
+ \lambda_{k,r}-M/k\le E(\mu)\le\lambda_{k,r}+M/r.
+\]
+\end{theorem}
+\begin{proof}
+Consider the limiting mean spans \(e^+\), \(e^-\) for equal counts of
+the \(k\) upper types \(Q(j/k)\) and lower types \(Q((j-1)/k)\).
+They exist by Theorem~\ref{thm:profile-law}. The sorted quantile grid
+of size \(kq\) lies between these two lists with multiplicities \(q\).
+Delete the extra zero block from the lower list, then adjoin the \(q\)
+copies of the top mark at a total cost at most \(qM\), including the join.
+Consequently \(e^+-M/k\le e^-\le E(\mu)\le e^+\).
+
+Cut an optimal upper-type order into consecutive words of length \(r\). The sum of their minimum spans is at most the full span. The discarded vertices number fewer than \(r\), so their fraction tends to zero. Taking
+a convergent subsequence of empirical word distributions gives the LP
+balance constraints, hence \(\lambda_{k,r}\le e^+\). For the other
+direction, the rational feasible polytope contains an equally weighted
+mixture of constant words and has a minimizing rational vertex. A common
+denominator \(D\) yields \(D\) words containing exactly \(Dr/k\) copies
+of each indexed type. Repeat optimal placements of these words separated
+by gaps \(M\). The normalized cost tends to
+\(\lambda_{k,r}+M/r\), which bounds \(e^+\).
+\end{proof}
+
+\begin{corollary}[Power radii]\label{cor:profile-powers}
+For every fixed real \(p>0\), the minimum radius for outer radii \(i^p\)
+satisfies
+\[
+ R_p^*(n)= C_p n^{p+1}+o(n^{p+1}),\qquad C_p=E(t^p)/\pi .
+\]
+The finite program with types \((j/k)^p\) encloses \(C_p\) with width
+\((1/k+1/r)/\pi\) before evaluating the costs. In particular,
+\[
+ \frac{434+4\sqrt2}{1587\pi}\ \le\
+ \lim_{n\to\infty}\frac{R_2^*(n)}{n^3}\
+ \le\frac{857}{3000\pi}.
+\]
+\end{corollary}
+\begin{proof}
+Take \(N_n=n^p,\ Q(t)=t^p,\ M=1\) in the preceding theorems.
+For \(p=2\) apply the established lower-liminf and upper-limsup
+inequalities of the quadratic problem~\cite{sqprofile} to this limit.
+\end{proof}
