@@ -1,0 +1,315 @@
+{
+  "checked_on": "2026-11-20",
+  "references": [
+    {
+      "key": "supnick",
+      "doi": "10.2307/1970124",
+      "title": "Extreme Hamiltonian Lines",
+      "authors": [
+        "Fred Supnick"
+      ],
+      "year": 1957,
+      "venue": "The Annals of Mathematics",
+      "verification_url": "https://api.crossref.org/works/10.2307/1970124",
+      "status": "VERIFIED",
+      "print_year": 1957,
+      "volume": "66",
+      "issue": "1",
+      "page": "179",
+      "publisher": "JSTOR"
+    },
+    {
+      "key": "survey",
+      "doi": "10.1137/s0036144596297514",
+      "title": "Well-Solvable Special Cases of the Traveling Salesman Problem: A Survey",
+      "authors": [
+        "Rainer E. Burkard",
+        "Vladimir G. Deineko",
+        "René van Dal",
+        "Jack A. A. van der Veen",
+        "Gerhard J. Woeginger"
+      ],
+      "year": 1998,
+      "venue": "SIAM Review",
+      "verification_url": "https://api.crossref.org/works/10.1137/S0036144596297514",
+      "status": "VERIFIED",
+      "print_year": 1998,
+      "volume": "40",
+      "issue": "3",
+      "page": "496-546",
+      "publisher": "Society for Industrial & Applied Mathematics (SIAM)",
+      "abstract_excerpt": "The traveling salesman problem (TSP) belongs to the most basic, most important, and most investigated problems in combinatorial optimization. Although it is an ${\\cal NP}$-hard problem, many of its special cases can be solved efficiently in polynomial time. We survey these special cases with emphasis on the results that have been obtained during the decade 1985--1995. This survey complements an earlier survey from 1985 compiled by Gilmore, Lawler, and Shmoys [The Traveling Salesman Problem---A Guided Tour of Combinatorial Optimization, Wiley, Chichester, pp. 87--143]."
+    },
+    {
+      "key": "stn",
+      "doi": "10.1016/0004-3702(91)90006-6",
+      "title": "Temporal constraint networks",
+      "authors": [
+        "Rina Dechter",
+        "Itay Meiri",
+        "Judea Pearl"
+      ],
+      "year": 1991,
+      "venue": "Artificial Intelligence",
+      "verification_url": "https://api.crossref.org/works/10.1016/0004-3702%2891%2990006-6",
+      "status": "VERIFIED",
+      "print_year": 1991,
+      "volume": "49",
+      "issue": "1-3",
+      "page": "61-95",
+      "publisher": "Elsevier BV"
+    },
+    {
+      "key": "mathews-zymaris",
+      "doi": "10.1016/j.geomphys.2025.105458",
+      "title": "Spinors and the Descartes circle theorem",
+      "authors": [
+        "Daniel V. Mathews",
+        "Orion Zymaris"
+      ],
+      "year": 2025,
+      "venue": "Journal of Geometry and Physics",
+      "verification_url": "https://api.crossref.org/works/10.1016/j.geomphys.2025.105458",
+      "status": "VERIFIED",
+      "print_year": 2025,
+      "volume": "212",
+      "page": "105458",
+      "publisher": "Elsevier BV"
+    },
+    {
+      "key": "collins-stephenson",
+      "doi": "10.1016/s0925-7721(02)00099-8",
+      "title": "A circle packing algorithm",
+      "authors": [
+        "Charles R. Collins",
+        "Kenneth Stephenson"
+      ],
+      "year": 2003,
+      "venue": "Computational Geometry",
+      "verification_url": "https://api.crossref.org/works/10.1016/S0925-7721%2802%2900099-8",
+      "status": "VERIFIED",
+      "print_year": 2003,
+      "volume": "25",
+      "issue": "3",
+      "page": "233-256",
+      "publisher": "Elsevier BV"
+    },
+    {
+      "key": "markot05",
+      "doi": "10.1137/s1052623403425617",
+      "title": "A New Verified Optimization Technique for the \"Packing Circles in a Unit Square\" Problems",
+      "authors": [
+        "Mihály Csaba Markót",
+        "Tibor Csendes"
+      ],
+      "year": 2005,
+      "venue": "SIAM Journal on Optimization",
+      "verification_url": "https://api.crossref.org/works/10.1137/S1052623403425617",
+      "status": "VERIFIED",
+      "print_year": 2005,
+      "volume": "16",
+      "issue": "1",
+      "page": "193-219",
+      "publisher": "Society for Industrial & Applied Mathematics (SIAM)",
+      "abstract_excerpt": "This paper presents a new verified optimization method for the problem of finding the densest packings of nonoverlapping equal circles in a square. In order to provide reliable numerical results, the developed algorithm is based on interval analysis. As one of the most efficient parts of the algorithm, an interval-based version of a previous elimination procedure is introduced. This method represents the remaining areas still of interest as polygons fully calculated in a reliable way. Currently the most promising strategy of finding optimal circle packing configurations is to partition the original problem into subproblems. Still, as a result"
+    },
+    {
+      "key": "markot21",
+      "doi": "10.1007/s10898-021-01086-z",
+      "title": "Improved interval methods for solving circle packing problems in the unit square",
+      "authors": [
+        "Mihály Csaba Markót"
+      ],
+      "year": 2021,
+      "venue": "Journal of Global Optimization",
+      "verification_url": "https://api.crossref.org/works/10.1007/s10898-021-01086-z",
+      "status": "VERIFIED",
+      "print_year": 2021,
+      "volume": "81",
+      "issue": "3",
+      "page": "773-803",
+      "publisher": "Springer Science and Business Media LLC",
+      "abstract_excerpt": "Abstract In this work computer-assisted optimality proofs are given for the problems of finding the densest packings of 31, 32, and 33 non-overlapping equal circles in a square. In a study of 2005, a fully interval arithmetic based global optimization method was introduced for the problem class, solving the cases 28, 29, 30. Until now, these were the largest problem instances solved on a computer. Using the techniques of that paper, the estimated solution time for the next three cases would have been 3–6 CPU months. In the present paper this former method is improved in both its local and global search phases. We discuss a new interval-based"
+    },
+    {
+      "key": "markot19",
+      "doi": "10.1007/s10898-018-0711-5",
+      "title": "Rigorous packing of unit squares into a circle",
+      "authors": [
+        "Tiago Montanher",
+        "Arnold Neumaier",
+        "Mihály Csaba Markót",
+        "Ferenc Domes",
+        "Hermann Schichl"
+      ],
+      "year": 2018,
+      "venue": "Journal of Global Optimization",
+      "verification_url": "https://api.crossref.org/works/10.1007/s10898-018-0711-5",
+      "status": "VERIFIED",
+      "print_year": 2019,
+      "volume": "73",
+      "issue": "3",
+      "page": "547-565",
+      "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+      "key": "rump",
+      "doi": "10.1017/s096249291000005x",
+      "title": "Verification methods: Rigorous results using floating-point arithmetic",
+      "authors": [
+        "Siegfried M. Rump"
+      ],
+      "year": 2010,
+      "venue": "Acta Numerica",
+      "verification_url": "https://api.crossref.org/works/10.1017/S096249291000005X",
+      "status": "VERIFIED",
+      "print_year": 2010,
+      "volume": "19",
+      "page": "287-449",
+      "publisher": "Cambridge University Press (CUP)",
+      "abstract_excerpt": "A classical mathematical proof is constructed using pencil and paper. However, there are many ways in which computers may be used in a mathematical proof. But ‘proof by computer’, or even the use of computers in the course of a proof, is not so readily accepted (the December 2008 issue of the Notices of the American Mathematical Society is devoted to formal proofs by computer). In the following we introduce verification methods and discuss how they can assist in achieving a mathematically rigorous result. In particular we emphasize how floating-point arithmetic is used."
+    },
+    {
+      "key": "tucker",
+      "doi": "10.1515/9781400838974",
+      "title": "Validated Numerics",
+      "authors": [
+        "Warwick Tucker"
+      ],
+      "year": 2011,
+      "venue": "Princeton University Press",
+      "verification_url": "https://api.crossref.org/works/10.1515/9781400838974",
+      "status": "VERIFIED",
+      "print_year": 2011,
+      "subtitle": "A Short Introduction to Rigorous Computations",
+      "publisher": "Princeton University Press"
+    },
+    {
+      "key": "hales",
+      "doi": "10.1017/fmp.2017.1",
+      "title": "A FORMAL PROOF OF THE KEPLER CONJECTURE",
+      "authors": [
+        "THOMAS HALES",
+        "MARK ADAMS",
+        "GERTRUD BAUER",
+        "TAT DAT DANG",
+        "JOHN HARRISON",
+        "LE TRUONG HOANG",
+        "CEZARY KALISZYK",
+        "VICTOR MAGRON",
+        "SEAN MCLAUGHLIN",
+        "TAT THANG NGUYEN",
+        "QUANG TRUONG NGUYEN",
+        "TOBIAS NIPKOW",
+        "STEVEN OBUA",
+        "JOSEPH PLESO",
+        "JASON RUTE",
+        "ALEXEY SOLOVYEV",
+        "THI HOAI AN TA",
+        "NAM TRUNG TRAN",
+        "THI DIEP TRIEU",
+        "JOSEF URBAN",
+        "KY VU",
+        "ROLAND ZUMKELLER"
+      ],
+      "year": 2017,
+      "venue": "Forum of Mathematics, Pi",
+      "verification_url": "https://api.crossref.org/works/10.1017/fmp.2017.1",
+      "status": "VERIFIED",
+      "print_year": 2017,
+      "volume": "5",
+      "publisher": "Cambridge University Press (CUP)",
+      "abstract_excerpt": "This article describes a formal proof of the Kepler conjecture on dense sphere packings in a combination of the HOL Light and Isabelle proof assistants. This paper constitutes the official published account of the now completed Flyspeck project."
+    },
+    {
+      "key": "klemz",
+      "doi": "10.1007/978-3-319-27261-0_36",
+      "title": "Recognizing Weighted Disk Contact Graphs",
+      "authors": [
+        "Boris Klemz",
+        "Martin Nöllenburg",
+        "Roman Prutkin"
+      ],
+      "year": 2015,
+      "venue": "Lecture Notes in Computer Science",
+      "verification_url": "https://api.crossref.org/works/10.1007/978-3-319-27261-0_36",
+      "status": "VERIFIED",
+      "print_year": 2015,
+      "page": "433-446",
+      "publisher": "Springer International Publishing"
+    },
+    {
+      "key": "alt",
+      "doi": "10.20382/jocg.v9i1a10",
+      "title": "Placing your Coins on a Shelf",
+      "authors": [
+        "Helmut Alt",
+        "Kevin Buchin",
+        "Steven Chaplick",
+        "Otfried Cheong",
+        "Philipp Kindermann",
+        "Christian Knauer",
+        "Fabian Stehn"
+      ],
+      "year": 2018,
+      "venue": "Journal of Computational Geometry",
+      "volume": "9",
+      "issue": "1",
+      "page": "312–327",
+      "verification_url": "https://doi.org/api/handles/10.20382/jocg.v9i1a10",
+      "registered_target": "https://jocg.org/index.php/jocg/article/view/3056",
+      "metadata_source": "https://export.arxiv.org/api/query?id_list=1707.01239v2",
+      "journal_ref": "J. Comput. Geom. 9(1): 312-327 (2018)",
+      "abstract_excerpt": "We consider the problem of packing a family of disks \"on a shelf\", that is, such that each disk touches the $x$-axis from above and such that no two disks overlap. We prove that the problem of minimizing the distance between the leftmost point and the rightmost point of any disk is NP-hard. On the positive side, we show how to approximate this problem within a factor of 4/3 in $O(n \\log n)$ time, and provide an $O(n \\log n)$-time exact algorithm for a special case, in particular when the ratio between the largest and smallest radius is at most four.",
+      "status": "VERIFIED"
+    },
+    {
+      "key": "ringmin-archive",
+      "doi": "10.5281/zenodo.22849826",
+      "title": "Ringmin: minimum central circle software and exact finite certificates",
+      "authors": [
+        "Maurizio Falconi"
+      ],
+      "year": 2026,
+      "venue": "Zenodo",
+      "version": "v1.1.0-dcg-presubmission",
+      "verification_url": "https://doi.org/api/handles/10.5281/zenodo.22849826",
+      "registered_target": "https://zenodo.org/doi/10.5281/zenodo.22849826",
+      "metadata_source": "ops/TASK-20260926__archive_evidence_integration/evidence/zenodo_record.json",
+      "status": "VERIFIED"
+    },
+    {
+      "key": "paper-ii",
+      "doi": "10.48550/arXiv.2609.13630",
+      "title": "Minimum central circles: an effective characterization of the global asymptotic constant",
+      "authors": [
+        "Maurizio Falconi"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "version": "2609.13630v3",
+      "verification_url": "https://doi.org/api/handles/10.48550/arXiv.2609.13630",
+      "registered_target": "https://arxiv.org/abs/2609.13630",
+      "metadata_source": "https://arxiv.org/abs/2609.13630v3",
+      "status": "VERIFIED"
+    },
+    {
+      "key": "szabo-bounds",
+      "doi": "10.1007/978-1-4613-0295-7_14",
+      "title": "Packing Equal Circles in a Square I. — Problem Setting and Bounds for Optimal Solutions",
+      "authors": [
+        "P. G. Szabó",
+        "T. Csendes",
+        "L. G. Casado",
+        "I. García"
+      ],
+      "year": 2001,
+      "venue": "Applied Optimization",
+      "volume": null,
+      "page": "191-206",
+      "publisher": "Springer US",
+      "verification_url": "https://api.crossref.org/works/10.1007/978-1-4613-0295-7_14",
+      "status": "VERIFIED"
+    }
+  ]
+}
