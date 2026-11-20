@@ -1,0 +1,88 @@
+\section{Coverage and strictness for prescribed integer radii}\label{app:general}
+Fix $n\ge3$ distinct positive integers $a_1<\cdots<a_n$, rational
+endpoints $0<L<U$, and an integer scale $S=2^b$. The general-radii
+verifier establishes symmetric integer weights $w_{ij}$ and an integer
+threshold $T$ satisfying
+\[
+  0\le w_{ij}/S\le\theta_L(a_i,a_j),\qquad 2\pi<T/S.
+\]
+It encloses $2\pi=32\arctan(1/5)-8\arctan(1/239)$ by rational alternating
+sums. For each positive $w_{ij}$ it checks $w_{ij}/S<\pi$ and uses an
+outward-rounded cosine series to prove
+$\cos(w_{ij}/S)>1-2a_i a_j/((L+a_i)(L+a_j))$. Monotonicity of cosine
+on $[0,\pi]$ gives the angular bound. A zero weight is valid directly.
+
+\paragraph{Lifting a retained cycle.}
+Delete the $d$ smallest radii, where $0\le d\le n-3$, and put $k=n-d$.
+Represent each cyclic order of the $k$ retained labels by anchoring its
+largest label and choosing the orientation in which the successor is
+smaller than the predecessor. These neighbors are distinct because
+$k\ge3$. Insert the deleted labels in a fixed sequence. With $s$ labels
+present there are $s$ choices of gap, including the closing gap. Removing
+the inserted labels in reverse sequence recovers every choice. Conversely,
+a full unoriented cyclic order inducing this core has exactly one
+orientation that restricts to the chosen core orientation, even if an
+insertion changes an anchor neighbor. Hence the number of full classes
+above each core is
+\[
+ I_{n,k}=\prod_{s=k}^{n-1}s=\frac{(n-1)!}{(k-1)!}.
+\]
+For $d=0$ this is one. The verifier enumerates the lifts independently of
+sequential insertion. It chooses a weakly increasing list of $d$ core-gap
+indices and a permutation of the deleted labels, then fills the designated
+gaps in that order. Reading each gap in turn recovers both choices.
+
+\paragraph{Partition of the full orders.}
+Apply recurrence~\eqref{eq:dp} to the retained labels with anchor $a_n$.
+Reversing the completion path gives the least possible total integer
+cycle cost for a prefix, as in~\eqref{eq:prune}. Prune only when that
+minimum exceeds $T$. The induced-cycle inequality~\eqref{eq:induced}
+then excludes every lift of every completion. A pruned prefix with $h$
+remaining labels accounts for $h!$ oriented cores. Let $P$ sum these
+counts over the disjoint pruned prefixes, and let $K$ count the surviving
+canonical cores. Survival is invariant under reversal since the complete
+cycle cost is symmetric. Each core has two distinct orientations, so $P$
+is even. With $E$ explicit full orders the partition satisfies
+\[
+ P+2K=(k-1)!,\qquad E=K I_{n,k},\qquad
+ \frac{P}{2}I_{n,k}+E=\frac{(n-1)!}{2}.
+\]
+The verifier recomputes the traversal and checks every lift of every
+survivor. It first tests induced cycles obtained by deleting initial
+segments of the ranked radii, including the empty segment. These tests
+exclude all explicit orders in the two reported families.
+
+For a general input there is also a difference-constraint test. Write
+$x_i$ for the unwrapped angles in word order, scaled by $S$, and write
+$w_{ij}$ for the weight of the labels at positions $i,j$. By
+\eqref{eq:difference}, feasibility implies
+$x_j\ge x_i+w_{ij}$ and $x_i\ge x_j+w_{ij}-T$ for $i<j$.
+A directed cycle of positive integer weight contradicts these inequalities
+by summation. The verifier tests for such a cycle by maximizing path
+weights in the Floyd--Warshall recurrence. A positive closed walk contains
+a positive simple cycle, by decomposition at repeated vertices. An order
+for which neither test gives a violation leaves the lower audit incomplete.
+
+\paragraph{A rational buffer above the lower endpoint.}
+An excluded induced cycle has integer weight at least $T+1$, hence true
+angular excess at least $1/S$ at $L$. A positive simple constraint cycle
+with $h$ backward edges similarly gives
+$\sum\theta_L(a_i,a_j)-h\,2\pi\ge1/S$. Each of these cycles has at most
+$n$ edges. For $R\ge L$, differentiating~\eqref{eq:kernel} gives
+\[
+ \left|\frac{\partial\theta_R(a,b)}{\partial R}\right|
+ =\sqrt{\frac{ab}{R(R+a+b)}}\left(\frac1{R+a}+\frac1{R+b}\right)
+ \le\frac{2a_n}{L^2}.
+\]
+Indeed the square root is at most $a_n/L$ and the sum is at most $2/L$.
+The excess in each necessary inequality can therefore decrease by at most
+$D\delta$ between $L$ and $L+\delta$, where $D=2na_n/L^2$. Set
+\[
+ \varepsilon=\min\{(U-L)/2,\ 1/(2SD)\}>0.
+\]
+Every violation retains at least $1/(2S)$ throughout $[L,L+\varepsilon]$.
+For smaller positive radii the angles only increase. Complete lower
+coverage thus places the global infimum at or above $L+\varepsilon>L$.
+At $U$, the verifier checks the claimed order, central tangencies and
+all outer-pair separations of the rational centers in~\eqref{eq:stereo},
+using the prescribed radii. This proves the closed upper endpoint.
