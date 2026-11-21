@@ -1,0 +1,3 @@
+# Preserve the publisher's original bytes, including legacy line endings.
+sn-jnl.cls -text -diff
+sn-mathphys-num.bst -text -diff
