@@ -36,7 +36,7 @@ Each decimal in this table represents its exact rational value. The last two col
 
 ## Reproduction and arbitrary inputs
 
-The generator requires mpmath. For the linear regression it reads the public Paper I v4 endpoint table from `.codex_inputs/arxiv/p1_v4/bracket_rows.tex` and takes one word per row from the tracked original certificate. The quadratic search uses only $n$. Run each family command for the desired values of $n$.
+The generator requires mpmath. For the linear regression it reads the published endpoints and one witness order per row from the [tracked original certificate](../../reproducibility/global_brackets/originals/source/ringmin_global_interval_candidate.json). The quadratic search uses only $n$. Run each family command for the desired values of $n$.
 
 ```console
 python paper_assets/general_radii/certify_radii.py --linear 14 --output linear_14.json

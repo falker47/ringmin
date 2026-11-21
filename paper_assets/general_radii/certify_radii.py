@@ -3,7 +3,6 @@
 import argparse
 import json
 import math
-import re
 import sys
 from fractions import Fraction
 from functools import lru_cache
@@ -264,16 +263,13 @@ def make_certificate(radii, deleted, bits=128, digits=11, endpoints=None, propos
 
 
 def linear_reference(n):
-    path = ROOT / ".codex_inputs/arxiv/p1_v4/bracket_rows.tex"
-    text = path.read_text(encoding="utf-8")
-    row = re.search(rf"^{n}\s*&\s*([0-9.]+)\s*&\s*([0-9.]+)", text, re.M)
-    if not row:
-        raise ValueError("no published bracket for that n")
     data = ROOT / "reproducibility/global_brackets/originals/source/ringmin_global_interval_candidate.json"
     cases = json.loads(data.read_text(encoding="utf-8"))["certificate"]["cases"]
-    case = next(case for case in cases if case["n"] == n)
+    case = next((row for row in cases if row["n"] == n), None)
+    if case is None:
+        raise ValueError("no published bracket for that n")
     order = tuple(i - 1 for i in case["upper_witnesses"][0]["order"])
-    return tuple(map(Fraction, row.groups())), order
+    return (Fraction(case["L"]), Fraction(case["U"])), order
 
 
 def main():

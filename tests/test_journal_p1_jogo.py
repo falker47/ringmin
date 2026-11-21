@@ -70,6 +70,17 @@ def test_six_original_artworks_and_two_official_style_files():
     assert r"\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}" in source
 
 
+def test_exported_table_bodies_match_every_printed_table(tmp_path):
+    exporter = runpy.run_path(str(JOGO / "export_tables.py"))
+    exporter["export"](tmp_path)
+    blocks = re.findall(r"\\begin\{table\}.*?\\end\{table\}", tex(JOGO), re.S)
+    assert len(blocks) == len(list(tmp_path.glob("*.tex"))) == 8
+    for block in blocks:
+        name = re.search(r"\\label\{tab:(\w+)\}", block)[1]
+        body = re.search(r"\\begin\{tabularx?\}.*?\\end\{tabularx?\}", block, re.S)[0]
+        assert tex(tmp_path, f"{name}.tex").strip() == body
+
+
 def test_editorial_fixes_declarations_and_front_matter():
     old, new = tex(REVIEWED), tex(JOGO)
     abstract = new.split(r"\abstract{", 1)[1].split("}\n\n" + r"\keywords", 1)[0]
@@ -139,3 +150,5 @@ def test_three_pass_build_and_single_source_upload(tmp_path):
         bibliography = archive.read("main.bbl")
         assert len(re.findall(rb"\\bibitem(?:\[|\{)", bibliography)) == 16
         assert b"???" not in bibliography
+        assert b"arXiv:2609.13630v3" in bibliography
+        assert b"7dcad4f6c40ff0e48eb53cb7a8c6f5622d361509" in bibliography

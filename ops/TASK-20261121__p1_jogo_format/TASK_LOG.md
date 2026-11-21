@@ -27,3 +27,7 @@ Reproduced the original handle error deliberately in a disposable process, then 
 ## 2026-11-21 · Flat export from Git objects
 
 Rebuilt the PDF from the 15 committed journal files in an empty directory. The PDF matched byte for byte. The optional ZIP initially differed because the Windows working copy had 159 CRLF endings in the authored BibTeX file and the Git blob used LF. The builder now exports that database with LF. Two independent builds with opposite input line endings produced identical PDFs and complete ZIPs. The two publisher files still match their original bytes.
+
+## 2026-11-21 · Referee and reproduction audit
+
+A fresh checkout reproduced the PDF and figures but failed to regenerate the first linear certificate because the generator opened an untracked arXiv table. Switched the reference inputs to the endpoints and witness order in the tracked original certificate and regenerated both families. Added a table export with a regression covering all eight manuscript tables. The public companion preprint identifies itself as v3. Updated its bibliography entry with a separate immutable link to the revised manuscript for the quadratic limit and sharper upper bounds. Rebuilt the PDF with the revised entry. The author-facing open points and reproduction commands are in the [referee notes](../../paper_assets/journal_p1_jogo/REFEREE_NOTES.md).

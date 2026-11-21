@@ -26,3 +26,5 @@ The date is September 19, 2026. The visible general-radii revision marker is awa
 **Proposed ledger text.** “The JOGO-format journal source at `paper_assets/journal_p1_jogo/` reproduces the mathematical body, figure sources and numbered references of integrated Paper I at `040d301`. See its MATH_DIFF and template provenance.” The existing scientific claims keep their current owners.
 
 **Next atomic task.** Independently review the JOGO-format draft PR against its integrated parent.
+
+The subsequent [referee audit](../../paper_assets/journal_p1_jogo/REFEREE_NOTES.md) covers clean-checkout reproduction, the source for Figure 5 and the two pre-submission dependencies above. The scientific body and certificate records retain their reviewed contents.
