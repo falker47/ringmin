@@ -47,13 +47,16 @@ def test_protected_article_text():
     expected = abstract(old)
     for macro, value in re.findall(r"\\newcommand\{(\\\w+)\}\{([^{}]+)\}", read(V4 / "numbers.tex")):
         expected = expected.replace(macro, value)
-    assert abstract(new) == expected.replace(r"\CC", r"C_\ast")
+    expected = expected.replace(r"\CC", r"C_\ast").replace(
+        "with leading coefficient less than\n$0.088581212993$",
+        "with leading coefficient\n" + r"$(434+4\sqrt2)/(1587\pi)\le C_2<0.088581212993$",
+    )
+    assert abstract(new) == expected
 
     commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
-    attribution = r"\newcommand{\SquaredLowerVerified}[2]{#2}"
-    assert new.count(attribution) == 1
-    assert re.findall(commands, new.replace(attribution, ""), re.M) == re.findall(commands, old, re.M)
-    assert r"\SquaredLowerVerified{" in scientific_body(new)
+    assert re.findall(commands, new, re.M) == re.findall(commands, old, re.M)
+    assert r"\ref{s1-thm:square-lower}" in new
+    assert r"\frac{434+4\sqrt2}{1587\pi}\ \le\ C_2\ <\ \CtwoUpper" in new
 
     for label in ("prop:cert-upper", "prop:lower"):
         pattern = rf"\\label\{{{label}\}}(.*?)\\end\{{proposition\}}"
@@ -70,12 +73,19 @@ def test_supplement_mathematical_text():
     assert sha256(old.encode()).hexdigest() == "ce376ae3521b172379c2a37f7a0905f8eff8b9591d44f423192c54acd56616b4"
     commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
     assert re.findall(commands, new, re.M) == re.findall(commands, old, re.M)
-    assert abstract(new) == abstract(old)
+    assert abstract(new) == abstract(old) + (
+        "\nAn additional argument for square radii gives the lower bound\n"
+        + r"$(434+4\sqrt2)/(1587\pi)$ for their cubic growth coefficient."
+    )
     expected = scientific_body(old).replace(r"\texttt{check\_width\_optimum.py}", r"\path{check_width_optimum.py}", 1)
     expected = expected.replace("These supporting files are included alongside\nthis source and PDF;",
                                 "The companion " + r"\href{s1_support.zip}{\texttt{s1\_support.zip}}"
                                 + " contains these\nsupporting files with the original source and PDF;")
-    assert scientific_body(new) == expected
+    assert scientific_body(new) == expected + "\n\n" + r"\input{sections/square_lower}"
+    square = read(SIDMA / "sections/square_lower.tex")
+    assert r"\begin{theorem}\label{thm:square-lower}" in square
+    assert r"\ \ge\ \frac{434+4\sqrt2}{1587\pi}" in square
+    assert r"\cite[(22)--(23)]{squared}" in square
 
 
 def test_law_and_specializations_are_included():
@@ -111,7 +121,7 @@ def test_submission_metadata_and_bibliographies():
     shared = read(SIDMA / "shared.tex")
     assert r"\externaldocument[s1-][nocite]{supplement}" in main
     assert r"\externaldocument[article-][nocite]{main}" in supplement
-    assert r"Proposition~\ref{article-prop:lower}" in supplement
+    assert r"\ref{article-prop:lower}" in supplement
     assert r"\newsiamremark{remark}{Remark}" in shared
     for text in (main, supplement):
         assert r"\input{shared}" in text
@@ -125,9 +135,8 @@ def test_submission_metadata_and_bibliographies():
         source = reviewed(name)
         entries = read(SIDMA / bib)
         keys = re.findall(r"\\bibitem\{([^}]+)\}", source)
-        if name == "main":
-            keys.append("squared")
-            assert "1d0a5dea10cd09783a9c0e2d54ede79b790cce2b" in entries
+        keys.append("squared")
+        assert "1d0a5dea10cd09783a9c0e2d54ede79b790cce2b" in entries
         assert sorted(keys) == sorted(re.findall(r"@\w+\{([^,]+),", entries))
         assert sorted(re.findall(r"\\href\{https://doi.org/([^}]+)\}", source)) == sorted(re.findall(r"doi = \{([^}]+)\}", entries))
 

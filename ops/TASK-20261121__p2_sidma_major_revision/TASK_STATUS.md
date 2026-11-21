@@ -21,4 +21,4 @@ The revised manuscript has one general closing, replication and finite-word argu
 
 ## Handoff
 
-The independent quadratic review and worked nonuniform LP example are external to this revision. The draft uses attributed wording and reserves the insertion point. Author review of the revision is the next atomic task.
+The subsequent integration fills the reserved input with the square-radius example from PR #17 and checks the table against the exact witnesses. The supplement derives the lower endpoint using the independently reviewed charging argument from PR #16. The article identifies its source and reports a non-strict lower and a strict upper bound. Author review is pending.

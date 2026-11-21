@@ -11,3 +11,7 @@ Checked the shelf results and the earlier uniform paper against their primary so
 ## 2026-11-21 — Checks and handoff
 
 Read the proof sections against the referee baseline. Clarified that the general normalization is N_n n, that the earlier quadratic upper bounds a limsup, and that finite shelf hardness concerns a different input problem. Rebuilt and checked both PDFs, including a scratch build selecting the alternate wording. Replayed the full test suite with optional fixtures and the independent numerical checks. Verified fixture removal. Final gate results and protected paths appear in [EVIDENCE.md](EVIDENCE.md).
+
+## 2026-11-21 — Integration of the square-radius example
+
+The revision at `213bda3` reserved an empty input for a parallel calculation. Integrated the example and witnesses from PR #17 at `b9b4b49`, added reproducible LaTeX table output and put the independent checks in the existing PR workflow. Transferred the geometric and limiting argument from PR #16 at `201164c` to S1, replayed its arithmetic and gave the verified interval in the abstract. Rebuilt the article and S1.

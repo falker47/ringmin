@@ -7,8 +7,6 @@
 \newcommand{\ch}{R_{\mathrm{chain}}}
 \newcommand{\full}{R_{\mathrm{full}}}
 \newcommand{\CC}{C_\ast}
-% Arguments: independently verified comparison, cited comparison (submission default).
-\newcommand{\SquaredLowerVerified}[2]{#2}
 \DeclareMathOperator{\atan}{arctan}
 \DeclareMathOperator{\asin}{arcsin}
 \begin{document}
@@ -28,8 +26,8 @@ For consecutive integer radii the minimum grows quadratically, with leading
 coefficient $0.1405694688<C_\ast<0.140958576058$. Coupled terminal subsets give
 the lower bound and a rational line placement gives the upper bound. The
 profile theorem also applies to every fixed positive power of the labels.
-For square radii the growth is cubic, with leading coefficient less than
-$0.088581212993$.
+For square radii the growth is cubic, with leading coefficient
+$(434+4\sqrt2)/(1587\pi)\le C_2<0.088581212993$.
 \end{abstract}
 \begin{keywords}
 circle packing, geometric optimization, asymptotic limits, linear programming,
@@ -157,18 +155,11 @@ Proposition~\ref{prop:cert-upper} improves this value.
 Corollary~\ref{cor:profile-powers} and the line witness already give
 $1/(6\pi)\le C_2<\CtwoUpper$. A sharper comparison is available in the
 quadratic project~\cite[bounds (22)--(23)]{squared}.
-\SquaredLowerVerified{%
-Its lower bound and Proposition~\ref{prop:cert-upper} yield the bracket
+Theorem~\ref{s1-thm:square-lower} in the supplement proves its lower
+bound for the same sequence. Combining it with Proposition~\ref{prop:cert-upper} gives
 \[
    \frac{434+4\sqrt2}{1587\pi}\ \le\ C_2\ <\ \CtwoUpper .
 \]
-}{%
-That source reports a lower bound of $(434+4\sqrt2)/(1587\pi)$ on the
-liminf of $R_2^*(n)/n^3$. Taking its lower bound as given, the comparison is
-\[
-   \frac{434+4\sqrt2}{1587\pi}\ \le\ C_2\ <\ \CtwoUpper .
-\]
-}%
 The cited lower endpoint is approximately $0.08818344$. The same source
 bounds the limsup above by $857/(3000\pi)$, approximately $0.09093052$.
 The law theorem identifies the common limit and the new line witness

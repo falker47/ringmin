@@ -123,7 +123,7 @@ def published_values(main, numbers, p, checked):
     # The abstract repeats the decimals. Bind each to its own coefficient.
     abstract = main.split(r"\begin{abstract}", 1)[1].split(r"\end{abstract}", 1)[0]
     pattern = (
-        r"C_\s*\\ast\s*<\s*(\d+\.\d+)" if p == 1 else r"less than\s*\$(\d+\.\d+)\$"
+        r"C_\s*\\ast\s*<\s*(\d+\.\d+)" if p == 1 else r"C_2\s*<\s*(\d+\.\d+)"
     )
     advertised = re.findall(pattern, abstract)
     yield (

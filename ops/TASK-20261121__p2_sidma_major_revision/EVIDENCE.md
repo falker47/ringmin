@@ -57,3 +57,20 @@ The bibliography adds the pinned quadratic note. The sources for [shelf packing]
 ## Diff review and limits
 
 The review set covers only the SIDMA revision, checker source locations, their regression tests, the task dossier and current handoff. Checked complete task sources, new files, projected Git paths and whitespace before commit. The abstract, AI-use declaration, date settings, S1 source and supporting archive, certificate inputs, figures, publication packages, cover letters and arXiv metadata are protected. The only committed PDF changes are the requested article and supplement. The source regression compares the full S1 mathematical text with the frozen copy. Hosted CI and the live draft PR are reported separately at the delivered commit. The work selects no sharp constant, optimizer, finite-size convergence rate or journal submission.
+
+## Square-radius proof and worked-example integration
+
+The square-radius example uses the witnesses and manuscript section from [PR #17 at b9b4b49](https://github.com/falker47/ringmin/pull/17). It fills the input that was empty at `213bda3`. The three finite LP optima are `7/32`, `41/216` and `37/162`. The two larger grids report only their word counts and analytic widths. The table distinguishes the two cases. S1 now proves the square lower bound and credits its source. The proof passes to the liminf in the full integer sequence at each fixed mesh before refining the mesh. The exact left endpoint is non-strict. The rational line witness gives the strict upper endpoint. The separate [quadratic proof check](https://github.com/falker47/ringmin/actions/runs/44955806394) covers the lower endpoint at the revision reviewed in [PR #16](https://github.com/falker47/ringmin/pull/16).
+
+| Command from the repository root | Local result |
+|---|---|
+| `python -I -S -B independent_check/p2_lp_example/check_example.py --latex` | Regenerated all five printed table rows. |
+| `python -I -B -m unittest discover -s independent_check/p2_lp_example` | Six tests passed, including comparison with the actual TeX rows and rejection of an invalid dual certificate. |
+| `python -I -B independent_check/p2` and `python -I -B -m unittest discover -s independent_check/p2` | 130 independent arithmetic/geometry checks and four control tests passed. |
+| `python -I -S -B independent_check/p2_squared/check.py` | Pinned proof source verified. The exact charging identities and all 360 unoriented seven-cycles at two weight choices passed. The 3,200-label upper witness passed all 5,118,400 pair inequalities. |
+| `python -I -B paper_assets/journal_p2_v4/make_figures.py --output ../ringmin-ii-figures` | Both generated figure PDFs matched the tracked SIDMA figure bytes. |
+| `python -I -S paper_assets/journal_p2_sidma/build.py` | Article, 10 pages. Supplement, 15 pages. Final logs passed all reference and box checks. A second build in a separate output directory reproduced both PDFs byte for byte. Extracted PDF text contains the square-radius table, its strict upper endpoint on page 1, and the lower-bound proof in S1. |
+| Bibliography and static checks | The article uses all 13 distinct bibliography keys. S1 has six bibliography entries, including the pinned quadratic note. Ruff passed on the independent verifiers and the changed source tests. |
+| Full repository pytest suite | 110 passed and four subtests passed. The external reference test used the tracked Paper I figure table and four small-n JSON certificates from the pinned Ringmin-squared commit, each checked against its Git blob ID. |
+
+The SIAM class and bibliography style are taken from the digest-checked archive in the build script. The rendered article SHA-256 is `30f9cfc530b1ecec12a87a64a0a7e1d758fac820494f2ccbe439773fa1388e00`. S1 SHA-256 is `0179b6929f0ee00a29e5264a372c4c74bae000fbecaa31c6d1018c268b44229e`. The [SIDMA instructions](https://epubs.siam.org/journal/sidma/instructions-for-authors) link to the [publisher's current macro package](https://epubs.siam.org/journal-authors).

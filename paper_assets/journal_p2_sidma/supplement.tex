@@ -13,7 +13,9 @@
 \begin{document}
 \maketitle
 \begin{center}
-\textbf{A standalone proof of the lower endpoint in Proposition~\ref{article-prop:lower}}
+\textbf{Lower bounds for consecutive integer and square radii}
+
+Proposition~\ref{article-prop:lower} of the article concerns the integer radii.
 \end{center}
 \begin{abstract}
 We give a self-contained proof of the explicit lower bound
@@ -30,6 +32,8 @@ small included arithmetic scripts. In particular,
 The coefficient is a lower bound, not an identified geometric optimum.
 This supplement reconstructs Proposition 7 of arXiv:2609.13630 and does
 not revise that manuscript or assert external scientific acceptance.
+An additional argument for square radii gives the lower bound
+$(434+4\sqrt2)/(1587\pi)$ for their cubic growth coefficient.
 \end{abstract}
 
 \section{Statement, notation and proof dependencies}\label{sec:statement}
@@ -850,6 +854,8 @@ hypotheses and verification limits. Its \texttt{MANIFEST.json} records
 input and output SHA-256 hashes, and \texttt{VERIFICATION.md} reports
 only checks actually run. The companion \href{s1_support.zip}{\texttt{s1\_support.zip}} contains these
 supporting files with the original source and PDF; no checkout history or old task dossier is required.
+
+\input{sections/square_lower}
 
 \nocite{paper,terminal,stability,crossing,limit}
 \bibliographystyle{siamplain}

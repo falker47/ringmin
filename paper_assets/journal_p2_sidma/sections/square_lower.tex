@@ -1,0 +1,98 @@
+\section{The lower bound for square radii}\label{sec:square-lower}
+
+\begin{theorem}\label{thm:square-lower}
+Let $R_2^*(n)$ be the infimum of the feasible central radii for the
+outer radii $1^2,\ldots,n^2$. Then
+\[
+ \liminf_{n\to\infty}\frac{R_2^*(n)}{n^3}
+ \ \ge\ \frac{434+4\sqrt2}{1587\pi}.
+\]
+\end{theorem}
+\begin{proof}
+We derive the lower endpoint of \cite[(22)--(23)]{squared} using the
+cycles induced by a single feasible placement. If labels $u,v$ have
+angular gap $d\in(0,2\pi)$, the cosine law and nonoverlap give
+\[
+ d\ge2\sin(d/2)\ge
+ \frac{2uv}{\sqrt{(R+u^2)(R+v^2)}}\ge \frac{2uv}{R+n^2}.
+\]
+For a cycle $D$ induced by at least three labels, its consecutive
+clockwise gaps sum to $2\pi$. Thus all such cycles in this placement
+obey $P(D):=\sum_{\{u,v\}\in E(D)}uv\le\pi(R+n^2)$.
+
+Let $2\le r\le n-2$, put $S=n+r$, and let $D_t$ be the induced cycle
+on the labels $t,\ldots,n$. On $D_r$, expanding squares and counting
+each vertex twice gives
+\[
+ P(D_r)=P_{r,n}+\sum_{e\in E(D_r)}\Delta_e,\qquad
+ P_{r,n}=\sum_{x=r}^n x(S-x),\quad
+ \Delta_{\{u,v\}}=\tfrac12(u+v-S)^2.
+\]
+Restore labels in decreasing order starting at $r-1$. When $t$ splits
+the edge $\{u,v\}$, its signed increment is
+$A_t=t(u+v)-uv=t^2-(u-t)(v-t)$.
+For $0\le\lambda\le1$ write
+\[
+ G_\lambda(t)=\frac{\lambda(4St-S^2-2\lambda t^2)}{2(2-\lambda)}.
+\]
+If the split edge is original, setting $w=u+v$ gives
+\[
+ \Delta_{\{u,v\}}+\lambda A_t-G_\lambda(t)
+ =\frac{\lambda(u-v)^2}{4}
+ +\frac{2-\lambda}{4}
+ \left(w-\frac{2(S-\lambda t)}{2-\lambda}\right)^2\ge0.
+\]
+Otherwise one endpoint is a previously restored label at most $r-1$.
+Since $u,v>t$, this gives $A_t\ge (S-1)t-n(r-1)$, and
+\[
+ \lambda((S-1)t-n(r-1))-G_\lambda(t)
+ =\frac{\lambda((n-r)^2+4(n-t)+2\lambda(r-1-t)(n-t))}
+        {2(2-\lambda)}\ge0 .
+\]
+Each original edge can be split only once. Its slack therefore pays
+for at most one increment, including a split at the cyclic seam.
+
+Choose $r=s_0>s_1>\cdots>s_k\ge1$ and weights
+$1\ge\lambda_1\ge\cdots\ge\lambda_k\ge0$. Take the convex combination
+of $P(D_{s_0}),\ldots,P(D_{s_k})$ with coefficients
+$1-\lambda_1,\lambda_1-\lambda_2,\ldots,\lambda_k$. Each increment in
+$s_i\le t<s_{i-1}$ then has coefficient $\lambda_i$.
+The difference $G_\lambda(t+1)-G_\lambda(t)
+=\lambda(2S-\lambda(2t+1))/(2-\lambda)$ is nonnegative on this range.
+Summing the split estimates, discarding unused nonnegative slack, and
+taking the infimum over placements yields
+\begin{equation}\label{eq:square-finite}
+ \pi(R_2^*(n)+n^2)\ \ge\
+ P_{r,n}+\sum_{i=1}^k(s_{i-1}-s_i)G_{\lambda_i}(s_i).
+\end{equation}
+
+Fix $1/3<\alpha<1/2$, $s=1+\alpha$, $A=3\alpha-1$, and $k\ge1$.
+For $0\le i\le k$ set $x_i=1-i/(k+1)$ and
+$\beta_i=(s+Ax_i)/4$. Take $\lambda_i=Ax_i/\beta_i$ for $i\ge1$.
+Since $s/4<\beta_k<\cdots<\beta_0=\alpha<s/3$ and
+$\lambda_i=4-s/\beta_i$, the weights lie in $(0,1)$ in decreasing order.
+With $r=\lfloor\alpha n\rfloor$ and $s_i=\lceil\beta_i n\rceil$
+for $i\ge1$, the required strict separations hold for all sufficiently
+large $n$ at each fixed $k$. Dividing \eqref{eq:square-finite} by $n^3$,
+the base term tends to
+$p(\alpha)=\int_\alpha^1 x(s-x)\,dx
+=(1-\alpha)(\alpha^2+4\alpha+1)/6$. Substitution of
+$s=(4-\lambda_i)\beta_i$ shows that
+$G_{\lambda_i}(s_i)/n^2\to(\lambda_i\beta_i)^2/2=A^2x_i^2/2$.
+As $\beta_{i-1}-\beta_i=A(x_{i-1}-x_i)/4$, we get
+\[
+ \pi\liminf_n R_2^*(n)/n^3 \ \ge\
+ p(\alpha)+\frac{A^3}{8}\sum_{i=1}^k(x_{i-1}-x_i)x_i^2 .
+\]
+The same liminf satisfies this inequality for each fixed $k$. The sum
+is $k(2k+1)/(6(k+1)^2)$ and tends to $1/3$. Choosing
+$\alpha=(13-2\sqrt2)/23\in(1/3,1/2)$ gives
+\[
+ p(\alpha)+A^3/24
+ = (23\alpha^3-39\alpha^2+21\alpha+3)/24
+ = (434+4\sqrt2)/1587 .
+\]
+This proves the stated inequality. The power-radius corollary in the
+article takes $N_n=n^2$ and marks $(i/n)^2$, so its coefficient $C_2$
+is the limit of this same sequence.
+\end{proof}

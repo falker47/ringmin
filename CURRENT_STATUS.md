@@ -11,8 +11,8 @@ branch=codex/p2-sidma-major-revision
 observed_on=2026-11-21
 ```
 
-The [revised article](paper_assets/journal_p2_sidma/main.pdf) puts the general empirical-law limit first, derives the uniform results, and separates the prior quadratic lower bound from the new convergence theorem and upper witness. The [supplement](paper_assets/journal_p2_sidma/supplement.pdf) retains its standalone proof. The worked nonuniform LP input is intentionally empty for the parallel task. The [task evidence](ops/TASK-20261121__p2_sidma_major_revision/EVIDENCE.md) records the manuscript comparison, reproducible builds, tests and independent replay.
+The [revised article](paper_assets/journal_p2_sidma/main.pdf) puts the empirical-law limit first and works through a square-radius example. Three exact finite-word linear programs and two projected widths illustrate the cost of the general bound. The [supplement](paper_assets/journal_p2_sidma/supplement.pdf) gives the proofs of the integer and square lower bounds. The abstract reports the resulting square-radius interval. The [task evidence](ops/TASK-20261121__p2_sidma_major_revision/EVIDENCE.md) records the builds and independent replay.
 
 ## Exactly one next atomic task
 
-Review the SIDMA major-revision draft against the [referee report](docs/referee/p2-sidma-referee-2026-11.md), retaining cited-only quadratic wording pending the independent quadratic review.
+The author reviews the integrated article and supplement, including the non-strict square lower bound and the nonuniform LP example, before deciding whether to submit.
