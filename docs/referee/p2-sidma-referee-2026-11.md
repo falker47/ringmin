@@ -99,6 +99,8 @@ With Python and `python-flint==0.9.0` installed, run `python -I -B independent_c
 - S1 uses $E$ for a finite common-order energy, while the article uses $E(\mu)$ for a limiting mean span. A reminder would help readers moving between the two PDFs.
 - The lower bound's three cutoffs and the two selected line orders are witnesses for separate inequalities. The manuscript would be easier to assess if their provenance and freedom of choice were visible before the long decimals.
 
+The first hosted workflow failed to parse its dependency-install command. The review branch corrects that YAML and records the failure separately from the numerical results. [Workflow correction](https://github.com/falker47/ringmin/compare/f0b38d5...codex/p2-sidma-referee)
+
 ## SIDMA go/no-go
 
 **No-go for submission of this version; major revision with SIDMA retained as a target.** The generalization passes its mathematical gate. A law-stable limit and a recoverable finite-word variational bound are plausible contributions to discrete optimization. In this draft, duplicate uniform proofs, the missing quadratic comparison and the absence of a worked nonuniform LP example make their significance harder to judge than their correctness. SIDMA explicitly seeks significant theoretical contributions in discrete mathematics, including optimization and discrete geometry. Beiträge is a credible alternative if the author prefers to foreground geometric inequalities, witnesses and their proofs. This is an editorial recommendation; neither coverage by a journal's scope nor internal verification predicts acceptance. [SIDMA editorial policy](https://epubs.siam.org/journal/sidma/editorial-policy) · [Beiträge aims and scope](https://link.springer.com/journal/13366/aims-and-scope)

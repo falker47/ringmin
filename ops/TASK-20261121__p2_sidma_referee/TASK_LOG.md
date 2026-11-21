@@ -15,3 +15,7 @@ Verified the older square-radius comparison against the pinned source and the fi
 The first full-suite invocation hit an invalid Windows subprocess stdin handle. A rerun with a null input handle passed with one external-fixture skip. Located the five existing reference files and reran with those fixtures and the isolated clone's source path. All 109 tests and four subtests passed. Temporary inputs were removed after the run. The 130-item checker and its controls also passed independently.
 
 Inspected each task path, the staged diffs and the protected-file exclusions. Recorded the scientific verdict, editorial reservation, archive hashes and local evidence. The draft PR is the handoff for independent review.
+
+## 2026-11-21 — Hosted workflow correction
+
+Draft PR #15 opened against the verified SIDMA base. The first push triggered a workflow-file failure before a runner was allocated. The new pip command used an unquoted colon followed by a space in a YAML plain scalar. Reproduced the line-20 scanner error locally and changed the command to a block scalar. A fresh YAML parse recovered the intended PR event and all five steps, including the exact pip command. The new PR-head run is the verification gate for the correction.

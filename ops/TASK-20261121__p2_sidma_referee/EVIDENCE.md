@@ -54,3 +54,7 @@ The 13 companion archive members match the frozen package. The line files are th
 ## Review limits and final inspection
 
 The working changes, full staged diff, protected-path diff against the base and whitespace checks were inspected before push. The review provides an independent numerical implementation and an internal review of analytic proofs. It does not formally verify the proofs, determine sharp constants, establish priority against all literature, or decide a venue's acceptance. The external quadratic result is cited from its pinned proof. The two limiting upper certificates establish feasible constructions regardless of heuristic search quality. Exact-head hosted conclusions are recorded in the draft PR's checks and handoff, separately from this local record.
+
+## Hosted workflow correction
+
+[First attempt](https://github.com/falker47/ringmin/actions/runs/44953838509) failed at workflow parsing on head f0b38d5, before any scientific check ran. PyYAML independently reproduced the scanner error at line 20. Encoding the pip invocation as a block scalar then produced the local result `valid workflow: Paper II independent verification 5 steps`. The [draft PR](https://github.com/falker47/ringmin/pull/15) links the subsequent hosted runs.
