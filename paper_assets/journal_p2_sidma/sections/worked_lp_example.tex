@@ -1,0 +1,61 @@
+\subsection{The word LP for square radii}\label{sec:worked-lp-example}
+
+For the profile $f(x)=x^2$, the law $\mu$ of $f(U)$ has quantile
+$Q_\mu(t)=t^2$ and mark bound $M=1$, so the bracket applies directly to
+the square-radius coefficient $C_2=E(\mu)/\pi$.
+This choice also makes the computation exact in integers because the edge between
+type indices $i,j$ has length $ij/k^2$.
+
+Take $k=r=6$ and write a word as a string of type indices.
+The primal distribution has three words of positive mass, with scaled
+spans and probabilities as follows.
+\[
+ (w,36\ell(w),p_w)\ \in\
+ \{(511135,30,1/6),\ (612326,36,1/2),\ (534445,79,1/3)\}.
+\]
+The probabilities sum to one and the mean count of each index is one.
+Taking one, three and two copies, respectively, gives a balanced batch.
+A unit gap at each join recovers a feasible line placement.
+The spans use all predecessors in \eqref{eq:recurrence}. For instance, in
+$511135$ the path through the indices $5,3,5$ already costs $30/36$.
+For the dual of \eqref{eq:lp} take
+\[
+ y_0=0,\qquad 648(y_1,\ldots,y_6)=(-9,-8,13,40,52,60).
+\]
+For every word, the integer check is
+$\sum_j(648y_j)c_j(w)\le 3(36\ell(w))$.
+Checking this inequality on all $6^6$ words certifies dual feasibility.
+The weighted mean of $\ell(w)/6$ and the dual value $\sum_j y_j$ both
+equal $37/162$. Theorem~\ref{thm:profile-words} therefore gives
+\[
+ \frac{5}{81\pi}\le C_2\le\frac{32}{81\pi}.
+\]
+
+\begin{table}[htbp]
+\centering
+\caption{Square-radius LP bounds. Multiplying the bracket and its width by
+$\pi$ gives the rational entries shown. Dashes indicate sizes for which
+only the word count and guaranteed width were calculated.}
+\label{tab:worked-lp-example}
+\begin{tabular}{rrrrcc}
+\toprule
+$k$ & $r$ & Words $k^r$ & $\lambda_{k,r}(\mu)$ &
+Interval for $\pi C_2$ & $\pi$ times width \\
+\midrule
+4 & 4 & $256$ & $7/32$ & $[-1/32,15/32]$ & $1/2$ \\
+6 & 4 & $1296$ & $41/216$ & $[5/216,95/216]$ & $5/12$ \\
+6 & 6 & $46656$ & $37/162$ & $[5/81,32/81]$ & $1/3$ \\
+16 & 16 & $16^{16}$ & --- & --- & $1/8$ \\
+64 & 64 & $64^{64}$ & --- & --- & $1/32$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:worked-lp-example} displays the raw theorem bounds. Its
+first lower endpoint is vacuous since spans are nonnegative.
+At fixed $r$, finer quantiles reduce the $1/k$ contribution to the scaled
+width. At fixed $k$, longer words reduce the $1/r$ contribution.
+Even in the tightest computed row, Corollary~\ref{cor:profile-powers}
+gives a stronger lower bound and Proposition~\ref{prop:cert-upper} a
+stronger upper bound. At $k=r=16$, even one byte per word would require
+$2^{64}$ bytes for full enumeration in memory.
