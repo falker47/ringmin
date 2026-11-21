@@ -120,7 +120,7 @@ def test_three_pass_build_and_single_source_upload(tmp_path):
     output, package = tmp_path / "review.pdf", tmp_path / "upload.zip"
     result = subprocess.run(
         [sys.executable, str(JOGO / "build.py"), "--output", str(output), "--submission-zip", str(package)],
-        check=True, capture_output=True, text=True,
+        check=True, stdin=subprocess.DEVNULL, capture_output=True, text=True,
     )
     assert "pdflatex_passes=3 bibtex_runs=1 unresolved=0" in result.stdout
     assert "overfull_above_1pt=0" in result.stdout

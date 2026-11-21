@@ -17,3 +17,9 @@ Ported the title block, abstract, keywords, MSCs, theorems, tables, figure float
 The first full suite gave 98 passes and one failure. The regression isolated an extra wording change in the availability sentence. Restored the surrounding reviewed wording and kept the requested revision macro. The first auxiliary-file comparison recognized only 46 plain-number fields. A brace-aware reader then compared all 67 keys, including the 21 explicit appendix tags, and found zero numbering differences.
 
 Rebuilt the final PDF, compared both scientific texts and all figures, compiled the flat export independently, inspected the rendered layout and verified all 48 endpoint strings and 16 DOI targets in the PDF. The final local suite passed all 99 tests. The [evidence](EVIDENCE.md) records the environment and reproduction commands. The handoff is independent review of the formatted draft.
+
+## 2026-11-21 · Noninteractive test launch on Windows
+
+On a second full run at commit `85954f2`, Windows rejected duplication of the pytest process's inherited standard-input handle before the new build subprocess could start. The suite reported 98 passes and one failure. The standalone three-pass build on that commit succeeded. Set the new test's child stdin to the null device, as in the existing journal test.
+
+Reproduced the original handle error deliberately in a disposable process, then ran the corrected upload test with the same invalid parent handle. It passed. The full repository suite passed all 99 tests with the fix. Reviewed the three affected paths for the follow-up commit.
