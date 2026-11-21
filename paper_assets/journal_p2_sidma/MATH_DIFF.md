@@ -1,5 +1,11 @@
 # Mathematical comparison
 
+## SIDMA major revision
+
+The comparison below records the original format port. Its statement numbers, counts and hashes describe that historical article. The [referee baseline](https://github.com/falker47/ringmin/tree/b70e280203b8261814de2eb669ed752b2b31a86c/paper_assets/journal_p2_sidma) includes the subsequent proceedings-citation correction. The revised article reorders the proofs. Its [task evidence](../../ops/TASK-20261121__p2_sidma_major_revision/EVIDENCE.md) maps the revised results and verification to the referee's numbering. The supplement retains its standalone proof.
+
+## Historical SIAM format port
+
 The SIDMA port preserves the reviewed mathematical text of the article and S1. The regression test compares the entire scientific body of each document, including the proofs, quantifiers, prose constants, tables, figure captions and data-availability instructions. It also compares both abstracts and every notation definition. It reads the source documents directly and pins their SHA-256 digests after LF normalization. [Comparison test](../../tests/test_journal_p2_sidma.py)
 
 | Reviewed source | SHA-256 |
@@ -101,4 +107,4 @@ The reviewed decimal definitions are `0.1405694688`, `0.140958576058` and `0.088
 
 S1 has no external figures. The 13 entries in its companion ZIP are byte-identical to the corresponding frozen package entries. SIAM BibTeX retains all 12 article references and 5 S1 references, including the original 12 DOI values in the article.
 
-Run `python -m pytest tests/test_journal_p2_sidma.py` from the repository root to repeat the source, figure, certificate-input and bibliographic checks. The analytic results and finite certificate claims retain their classifications from the reviewed sources.
+The format-port test at the linked referee baseline reproduces the historical comparisons. The current test protects the retained source, figures, certificate inputs and bibliography through the revision. The analytic results and finite certificate claims retain their classifications from the reviewed sources.

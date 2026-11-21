@@ -58,6 +58,7 @@ def build(output_dir):
         for name in ("main.tex", "supplement.tex", "shared.tex", "numbers.tex",
                      "references.bib", "supplement-references.bib"):
             shutil.copyfile(HERE / name, stage / name)
+        shutil.copytree(HERE / "sections", stage / "sections")
         (stage / "figures").mkdir()
         for name in FIGURES:
             shutil.copyfile(HERE / "figures" / name, stage / "figures" / name)

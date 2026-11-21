@@ -57,7 +57,12 @@ def slab_cost(left, right, x0, y0, slope):
 
 
 def run(root):
-    main = (root / "paper_assets/journal_p2_sidma/main.tex").read_text(encoding="utf-8")
+    paper = root / "paper_assets/journal_p2_sidma"
+    main = (paper / "main.tex").read_text(encoding="utf-8")
+    words_input = r"\input{sections/words}"
+    if main.count(words_input) != 1:
+        raise ValueError("expected the finite-word section in the article")
+    words = (paper / "sections/words.tex").read_text(encoding="utf-8")
     remark = main.split(r"\begin{remark}", 1)[1].split(r"\end{remark}", 1)[0]
     remark = remark.replace(r"\allowbreak", "").replace(" ", "").replace("\n", "")
     (alpha,) = re.findall(r"\\alpha=(0\.\d+)", remark)
@@ -80,7 +85,7 @@ def run(root):
         value = total / (4 * arb.pi())
         lo, hi = (arb(exact(Fraction(s))) for s in endpoints.split(","))
         yield (
-            "Remark 6.2 fixed four-block cost (both decimal endpoints)",
+            "Reflected-block comparison: fixed four-block cost (both decimal endpoints)",
             lo < value < hi,
         )
         numbers = (root / "paper_assets/journal_p2_sidma/numbers.tex").read_text(
@@ -88,28 +93,28 @@ def run(root):
         )
         (macro,) = re.findall(r"\\newcommand\{\\CstarUpper\}\{(\d+\.\d+)\}", numbers)
         yield (
-            "Remark 6.2 strict improvement over the fixed parameter choice",
+            "Reflected-block comparison: strict improvement over the fixed parameter choice",
             arb(exact(Fraction(macro))) < lo,
         )
-        (k,) = re.findall(r"For example, \$k=r=(\d+)\$", main)
+        (k,) = re.findall(r"For example, \$k=r=(\d+)\$", words)
         denominator, tolerance = re.search(
-            r"gives width \$1/\((\d+)\\pi\)<(\d+\.\d+)\$", main
+            r"gives width \$1/\((\d+)\\pi\)<(\d+\.\d+)\$", words
         ).groups()
         width = 2 / (int(k) * arb.pi())
         yield (
-            "Theorem 4.1 LP width example",
+            "Uniform LP width example",
             int(k) == 2 * int(denominator) and width < arb(exact(Fraction(tolerance))),
         )
 
         # On the square profile the integrand is t(1-t). Compare its exact
         # primitive at 0 and 1 with both occurrences of the printed bound.
         mass = Fraction(1, 2) - Fraction(1, 3)
-        (abstract_denominator,) = re.findall(r"1/\((\d+)\\pi\)\\le C_2", main)
-        (corollary_denominator,) = re.findall(r"C_2\\ge 1/\((\d+)\\pi\)", main)
+        (comparison_denominator,) = re.findall(r"1/\((\d+)\\pi\)\\le C_2", main)
+        (corollary_denominator,) = re.findall(r"C_2\\ge 1/\((\d+)\\pi\)", words)
         yield (
-            "Corollary 5.6 square-profile adjacent integral",
+            "Square-profile adjacent integral",
             all(
                 mass == Fraction(1, int(d))
-                for d in (abstract_denominator, corollary_denominator)
+                for d in (comparison_denominator, corollary_denominator)
             ),
         )

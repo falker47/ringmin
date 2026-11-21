@@ -1,4 +1,4 @@
-"""Compare the SIDMA documents with the two reviewed sources independently of TeX."""
+"""Guard the SIDMA revision, its protected source material, and the frozen supplement."""
 from hashlib import sha256
 from pathlib import Path
 import re
@@ -38,39 +38,56 @@ def scientific_body(tex):
     return re.split(r"\\(?:begin\{thebibliography\}|bibliographystyle\{|nocite\{)", body, maxsplit=1)[0].strip()
 
 
-@pytest.mark.parametrize(("name", "digest"), [
-    ("main", "18f810d43aecb651c9c529583d9aabba796d093cac0e73be050dfef587d42c40"),
-    ("supplement", "ce376ae3521b172379c2a37f7a0905f8eff8b9591d44f423192c54acd56616b4"),
-])
-def test_mathematical_text(name, digest):
-    old = reviewed(name)
-    new = read(SIDMA / f"{name}.tex")
-    assert sha256(old.encode()).hexdigest() == digest
-    commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
-    assert re.findall(commands, old, re.M) == re.findall(commands, new, re.M)
+def test_protected_article_text():
+    old = reviewed("main")
+    new = read(SIDMA / "main.tex")
+    assert sha256(old.encode()).hexdigest() == "18f810d43aecb651c9c529583d9aabba796d093cac0e73be050dfef587d42c40"
 
-    expected_abstract = abstract(old)
-    expected = scientific_body(old)
-    actual = scientific_body(new)
-    if name == "main":
-        # Front-matter metadata must stand on its own without document-local macros.
-        for macro, value in re.findall(r"\\newcommand\{(\\\w+)\}\{([^{}]+)\}", read(V4 / "numbers.tex")):
-            expected_abstract = expected_abstract.replace(macro, value)
-        expected_abstract = expected_abstract.replace(r"\CC", r"C_\ast")
-        for title in ("Main results", "Related work"):
-            expected = expected.replace(r"\paragraph{" + title + ".}", r"\paragraph*{" + title + "}")
-        expected = expected.replace("Supplement S1 gives the complete proof",
-                                    r"Supplement S1 (Theorem~\ref{s1-thm:main}) gives the complete proof")
-        expected = expected.replace("0.14191330499527,0.14191330499528",
-                                    r"0.14191330499527,\allowbreak 0.14191330499528")
-        expected += "\n" + AUTHOR_NOTE + "\n\n" + r"\clearpage"
-    else:
-        expected = expected.replace(r"\texttt{check\_width\_optimum.py}", r"\path{check_width_optimum.py}", 1)
-        expected = expected.replace("These supporting files are included alongside\nthis source and PDF;",
-                                    "The companion " + r"\href{s1_support.zip}{\texttt{s1\_support.zip}}"
-                                    + " contains these\nsupporting files with the original source and PDF;")
-    assert abstract(new) == expected_abstract
-    assert actual == expected
+    # SIAM front matter uses the expanded form of the reviewed decimal macros.
+    expected = abstract(old)
+    for macro, value in re.findall(r"\\newcommand\{(\\\w+)\}\{([^{}]+)\}", read(V4 / "numbers.tex")):
+        expected = expected.replace(macro, value)
+    assert abstract(new) == expected.replace(r"\CC", r"C_\ast")
+
+    commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
+    attribution = r"\newcommand{\SquaredLowerVerified}[2]{#2}"
+    assert new.count(attribution) == 1
+    assert re.findall(commands, new.replace(attribution, ""), re.M) == re.findall(commands, old, re.M)
+    assert r"\SquaredLowerVerified{" in scientific_body(new)
+
+    for label in ("prop:cert-upper", "prop:lower"):
+        pattern = rf"\\label\{{{label}\}}(.*?)\\end\{{proposition\}}"
+        assert re.search(pattern, new, re.S)[1] == re.search(pattern, old, re.S)[1]
+
+    old_note = old.split(r"\section*{Acknowledgment}", 1)[1].split(r"\begin{thebibliography}", 1)[0].strip()
+    new_note = new.split(r"\section*{Acknowledgment}", 1)[1].split(AUTHOR_NOTE, 1)[0].strip()
+    assert new_note == old_note
+
+
+def test_supplement_mathematical_text():
+    old = reviewed("supplement")
+    new = read(SIDMA / "supplement.tex")
+    assert sha256(old.encode()).hexdigest() == "ce376ae3521b172379c2a37f7a0905f8eff8b9591d44f423192c54acd56616b4"
+    commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
+    assert re.findall(commands, new, re.M) == re.findall(commands, old, re.M)
+    assert abstract(new) == abstract(old)
+    expected = scientific_body(old).replace(r"\texttt{check\_width\_optimum.py}", r"\path{check_width_optimum.py}", 1)
+    expected = expected.replace("These supporting files are included alongside\nthis source and PDF;",
+                                "The companion " + r"\href{s1_support.zip}{\texttt{s1\_support.zip}}"
+                                + " contains these\nsupporting files with the original source and PDF;")
+    assert scientific_body(new) == expected
+
+
+def test_law_and_specializations_are_included():
+    main = read(SIDMA / "main.tex")
+    law = read(SIDMA / "sections/law.tex")
+    words = read(SIDMA / "sections/words.tex")
+    section_inputs = r"^\\input\{sections/([^}]+)\}\s*$"
+    assert re.findall(section_inputs, main, re.M) == ["law", "words"]
+    assert re.findall(section_inputs, words, re.M) == ["worked_lp_example"]
+    assert (SIDMA / "sections/worked_lp_example.tex").is_file()
+    assert law.index(r"\label{thm:profile-law}") < law.index(r"\label{eq:limit}")
+    assert words.index(r"\label{thm:profile-words}") < words.index(r"\label{thm:lp}")
 
 
 def test_figures_decimal_inputs_and_companion():
@@ -107,7 +124,11 @@ def test_submission_metadata_and_bibliographies():
     for name, bib in (("main", "references.bib"), ("supplement", "supplement-references.bib")):
         source = reviewed(name)
         entries = read(SIDMA / bib)
-        assert sorted(re.findall(r"\\bibitem\{([^}]+)\}", source)) == sorted(re.findall(r"@\w+\{([^,]+),", entries))
+        keys = re.findall(r"\\bibitem\{([^}]+)\}", source)
+        if name == "main":
+            keys.append("squared")
+            assert "1d0a5dea10cd09783a9c0e2d54ede79b790cce2b" in entries
+        assert sorted(keys) == sorted(re.findall(r"@\w+\{([^,]+),", entries))
         assert sorted(re.findall(r"\\href\{https://doi.org/([^}]+)\}", source)) == sorted(re.findall(r"doi = \{([^}]+)\}", entries))
 
 

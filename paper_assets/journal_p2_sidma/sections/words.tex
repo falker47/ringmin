@@ -1,0 +1,133 @@
+\section{Finite-word bounds for a law}\label{sec:lp}
+
+Let $Q=Q_\mu$ for a law on $[0,M]$, and set $Q(0)=0$ for the lower
+grid. Choose $k\ge1$ and $r\ge2$. Type $j$ has mark $v_j=Q(j/k)$.
+The indices $1,\ldots,k$ remain distinct even when two marks coincide.
+For each of the $k^r$ words $w$ of length $r$ in these indices, let
+$c_j(w)$ count index $j$, and let $\ell(w)$ be the least span in that
+order, evaluated on the marks by~\eqref{eq:recurrence}. Define
+\begin{equation}\label{eq:lp}
+\begin{split}
+ \lambda_{k,r}(\mu)=\min_p\ &\frac1r\sum_w p_w\ell(w),\\
+ p_w\ge0,\quad &\sum_w p_w=1,\qquad
+ \sum_w p_wc_j(w)=\frac rk\quad(1\le j\le k).
+\end{split}
+\end{equation}
+An individual word can omit entire types. The constraints require balance
+only in expectation, and the uniform mixture of the $k$ constant words
+is feasible.
+
+\begin{theorem}[Finite-word bounds for a law]\label{thm:profile-words}
+For every $k\ge1$ and $r\ge2$,
+\[
+ \lambda_{k,r}(\mu)-M/k\ \le\ E(\mu)\ \le\ \lambda_{k,r}(\mu)+M/r.
+\]
+The resulting bracket for $E(\mu)/\pi$ has width $M(1/k+1/r)/\pi$
+before numerical evaluation of the word costs.
+\end{theorem}
+\begin{proof}
+Form two lists with $q$ copies of each indexed type, using $Q(j/k)$
+for the upper list and $Q((j-1)/k)$ for the lower. Write $e^+$ and $e^-$
+for their limiting spans per mark as $q\to\infty$, which exist by
+Theorem~\ref{thm:profile-law} applied to their discrete laws. In the
+uniform case these type limits were obtained in~\cite{supp} by applying
+subadditivity~\cite[Theorem~4.9]{walters} to the span plus one.
+The sorted
+quantile sample of size $kq$ lies between the two sorted lists. They
+share $k-1$ indexed types. Starting with a minimizing lower placement,
+delete the $q$ extra zeros and append $q$ copies of the top mark at
+spacing $M$, with a gap $M$ to the retained points. This costs at most
+$qM$, also when $k=1$ and the retained list is empty. Monotonicity under
+decreasing marks now gives
+\begin{equation}\label{eq:types}
+ e^+-M/k\le e^-\le E(\mu)\le e^+ .
+\end{equation}
+
+Take $q$ divisible by $r$ and cut a minimizing upper placement into
+$kq/r$ successive words of length $r$. Their empirical distribution
+satisfies the balance equations in~\eqref{eq:lp} since each index occurs $q$ times.
+Their minimum spans sum to at most the full span. Dividing by $kq$
+and sending $q$ to infinity along these multiples gives
+$\lambda_{k,r}(\mu)\le e^+$.
+
+For the converse, the feasible polytope in~\eqref{eq:lp} is rational
+and bounded. Its real linear objective attains a minimum at a rational
+vertex $p$. Clear its denominators with $D$ and take $Dp_w$ copies of
+each word. This batch has $Dr/k$ occurrences of each index, an integer
+by the balance equations. Lay out repeated batches with every word at
+its minimum span and a gap $M$ between successive words. By
+Lemma~\ref{lem:closing} every cross-word pair has enough separation.
+The mean span of these placements tends to $\lambda_{k,r}(\mu)+M/r$,
+so $e^+$ is at most this value. Combine with~\eqref{eq:types}.
+\end{proof}
+
+\begin{corollary}[Uniform finite-word bounds]\label{thm:lp}
+For the uniform law on $[0,1]$ the types are $j/k$. Writing
+$\lambda_{k,r}$ for the value of~\eqref{eq:lp} on these types gives
+\begin{equation}\label{eq:effective}
+ \frac{\lambda_{k,r}-1/k}{\pi}\le\CC\le
+ \frac{\lambda_{k,r}+1/r}{\pi}.
+\end{equation}
+In particular $\pi\CC=\lim_{k,r\to\infty}\lambda_{k,r}$ jointly.
+\end{corollary}
+
+\subsection{Evaluating the word costs}
+For example, $k=r=64$ gives width $1/(32\pi)<0.01$ at $M=1$, with $64^{64}$
+words in~\eqref{eq:lp}. If directed rational enclosures of all edge
+weights $\sqrt{v_i v_j}$ have width at most $\epsilon$, applying
+\eqref{eq:recurrence} at both endpoints encloses each word span in
+$[\ell^-(w),\ell^+(w)]$ of width at most $(r-1)\epsilon$ since each path has
+at most $r-1$ edges. The two rational endpoint programs thus add at most
+$(r-1)\epsilon/r$ to the width in mean-span units. They admit exact
+vertex enumeration. For a certificate of an upper value, any feasible rational $p$
+gives $\sum_w p_w\ell^+(w)/r$. Any rational $y_0,y_j$
+satisfying
+\[
+ y_0+\sum_j y_jc_j(w)\le\ell^-(w)/r\qquad\text{for every word }w
+\]
+gives the lower value $y_0+(r/k)\sum_j y_j$. Both certificates use
+only rational comparisons.
+
+For uniform types, directed square-root and $\pi$ enclosures therefore
+compute $\CC$ to arbitrary prescribed accuracy in principle. For a
+general law the same procedure requires an effective bound $M$ and
+access to arbitrarily accurate enclosures of the indicated quantiles.
+Even the sole type at $k=1$ for $\delta_c$ requires access to the atom location
+$c$. The theorem gives a structural width for every bounded law.
+
+\input{sections/worked_lp_example}
+
+\subsection{Power radii}
+A second use of the line problem gives an elementary lower bound without
+enumerating words.
+
+\begin{corollary}[Adjacent-pair lower bound]\label{cor:profile-adjacent}
+For any probability law on $[0,M]$,
+\[
+ E(\mu)\ge\int_0^1\sqrt{Q_\mu(t)Q_\mu(1-t)}\,dt .
+\]
+\end{corollary}
+\begin{proof}
+Let $s_1\le\cdots\le s_n$ be the sorted square roots of the quantile
+sample. Each successive gap in a minimizing line order dominates its
+adjacent product. Add the product for the last and first marks, at most
+$M$. The successor map permutes the square roots, so the rearrangement
+inequality bounds the cyclic sum below by $\sum_i s_i s_{n+1-i}$.
+Hence $b_n^Q+M$ dominates that sum. After division by $n$, the reverse
+pairing tends to the displayed integral by bounded convergence, since
+$Q_\mu$ is continuous at both $t$ and $1-t$ for almost every $t$.
+\end{proof}
+
+\begin{corollary}[Power radii]\label{cor:profile-powers}
+For each fixed real $p>0$ and outer radii $i^p$,
+\[
+ R_p^*(n)=C_p n^{p+1}+o(n^{p+1}),\qquad
+ C_p=E(\operatorname{law}(U^p))/\pi ,
+\]
+where $U$ is uniform on $(0,1)$. For square radii, $C_2\ge 1/(6\pi)$.
+\end{corollary}
+\begin{proof}
+Take $N_n=n^p$ and $a_{n,i}=(i/n)^p$ in Theorem~\ref{thm:profile-law}.
+The quantile is $Q(t)=t^p$. For $p=2$ the integral in
+Corollary~\ref{cor:profile-adjacent} is $\int_0^1t(1-t)\,dt=1/6$.
+\end{proof}
