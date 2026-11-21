@@ -1,0 +1,6 @@
+Repository: https://github.com/falker47/ringmin-squared
+Commit: 1d0a5dea10cd09783a9c0e2d54ede79b790cce2b
+Path: research/ALL_N_LOWER_BOUND.md
+Git blob (SHA-1): ab21727593fe9acbc0a28fffc50ef2dcf2cc4d84
+File SHA-256: a5b32177e4f3832b2d7b202fcd6e80f598ac0d4f962326a6aa8af60b6feddd2b
+Bytes: 89591

@@ -1,0 +1,18 @@
+name: Paper II quadratic lower bound
+
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  quadratic-lower-bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check pinned proof arithmetic and Paper II comparison
+        run: python3 -I -S -B independent_check/p2_squared/check.py
