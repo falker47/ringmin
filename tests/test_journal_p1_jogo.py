@@ -132,7 +132,10 @@ def test_three_pass_build_and_single_source_upload(tmp_path):
             r"\input{numbers.tex}", tex(JOGO, "numbers.tex").rstrip()
         )
         for filename in BUILD["INPUTS"]:
-            assert archive.read(filename) == (JOGO / filename).read_bytes()
+            expected = (JOGO / filename).read_bytes()
+            if filename == "references.bib":
+                expected = expected.replace(b"\r\n", b"\n")
+            assert archive.read(filename) == expected
         bibliography = archive.read("main.bbl")
         assert len(re.findall(rb"\\bibitem(?:\[|\{)", bibliography)) == 16
         assert b"???" not in bibliography

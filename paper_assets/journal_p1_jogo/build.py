@@ -60,7 +60,14 @@ def build(output, submission_zip=None):
     with tempfile.TemporaryDirectory(prefix="ringmin-jogo-") as folder:
         work = Path(folder)
         for filename in INPUTS:
-            shutil.copyfile(HERE / filename, work / filename)
+            source_path = HERE / filename
+            if filename == "references.bib":
+                # Git checkouts may use CRLF. Export one canonical bibliography.
+                (work / filename).write_text(
+                    source_path.read_text(encoding="utf-8"), encoding="utf-8", newline="\n"
+                )
+            else:
+                shutil.copyfile(source_path, work / filename)
         # Springer requests a single manuscript .tex. Keep numbers.tex editable
         # in the repository and compile exactly the source exported to the journal.
         source = (HERE / "main.tex").read_text(encoding="utf-8")

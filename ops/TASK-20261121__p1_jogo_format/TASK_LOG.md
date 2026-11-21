@@ -23,3 +23,7 @@ Rebuilt the final PDF, compared both scientific texts and all figures, compiled 
 On a second full run at commit `85954f2`, Windows rejected duplication of the pytest process's inherited standard-input handle before the new build subprocess could start. The suite reported 98 passes and one failure. The standalone three-pass build on that commit succeeded. Set the new test's child stdin to the null device, as in the existing journal test.
 
 Reproduced the original handle error deliberately in a disposable process, then ran the corrected upload test with the same invalid parent handle. It passed. The full repository suite passed all 99 tests with the fix. Reviewed the three affected paths for the follow-up commit.
+
+## 2026-11-21 · Flat export from Git objects
+
+Rebuilt the PDF from the 15 committed journal files in an empty directory. The PDF matched byte for byte. The optional ZIP initially differed because the Windows working copy had 159 CRLF endings in the authored BibTeX file and the Git blob used LF. The builder now exports that database with LF. Two independent builds with opposite input line endings produced identical PDFs and complete ZIPs. The two publisher files still match their original bytes.

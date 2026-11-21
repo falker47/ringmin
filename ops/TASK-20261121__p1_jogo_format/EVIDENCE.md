@@ -27,14 +27,14 @@ The existing TinyTeX installation lacked four runtime packages. Installed them w
 | Command or check | Result and scope |
 | --- | --- |
 | `python paper_assets/journal_p1_jogo/build.py` | Exit 0. `PDF pages=27 pdflatex_passes=3 bibtex_runs=1 unresolved=0 max_overfull_pt=0 overfull_above_1pt=0`. The final log is checked for citation, cross-reference, figure and box diagnostics. The builder rejects missing publication data emitted as question marks by BibTeX. |
-| `python -m pytest` | Exit 0, `99 passed in 60.92s`. For this process, set `PYTHONPATH` to the checkout's `src` directory and verified the imported package path before running. Includes the paper-specific comparison and upload-package build tests. |
+| `python -m pytest` | Exit 0, `99 passed in 62.34s` with the final export. For this process, set `PYTHONPATH` to the checkout's `src` directory and verified the imported package path before running. Includes the paper-specific comparison and upload-package build tests. |
 | `python -m ruff check paper_assets/journal_p1_jogo/build.py tests/test_journal_p1_jogo.py --no-cache` | Exit 0, `All checks passed!`. |
 | `python paper_assets/journal_p1_jogo/build.py --output <tmp>/second.pdf --submission-zip <tmp>/handoff.zip` | Exit 0. The second PDF matched the delivered PDF byte for byte. The 12-member flat archive contains one expanded manuscript TeX file, six figures, the original class and style, the BibTeX database, generated bibliography and PDF. Compiling its extracted contents again produced the same PDF. |
 | Independent TeX numbering check | Compiled the reviewed article and extracted flat port in separate temporary directories and compared the numeric fields in their final auxiliary files, parsing nested braces. All 67 cross-reference keys and their printed numbers matched. Page numbers vary with typesetting. |
 | Independent PDF inspection | pypdf found the original author details, date and MSCs, all 48 printed endpoints from the 24 rational certificate files, all three Paper II constants, and all 16 source DOI targets. The requested commit placeholder is visible once. The source-only author note is absent from the PDF. Zero unresolved markers. |
 | Visual inspection | Rendered the 27-page layout with Poppler and examined the final quadratic table and availability/declarations page at higher resolution. The complete table is on page 12, Figure 5 on page 13, declarations on page 14, references on pages 15–16, and Appendix A begins on page 17. |
 
-The delivered PDF is 596176 bytes, SHA-256 `fb39aafa831569f5b4036e066ca280e6847293ecae7c483815834f1db5a63ee0`. The flat ZIP reproduced in the local check has SHA-256 `524edacc61174344fb5d47fe4e52ccd326b832ec3f70479260c86f668e9a9bb0`. Byte reproducibility applies to the recorded toolchain and fonts.
+The delivered PDF is 596176 bytes, SHA-256 `fb39aafa831569f5b4036e066ca280e6847293ecae7c483815834f1db5a63ee0`. The final flat ZIP has SHA-256 `8d02cb6be9b001ddd16fcc1657cc2becd77128d6bfca6d27baeec39d63e3ebd1`. Two separate builds from explicitly LF and CRLF copies of the BibTeX database produced identical archives and PDFs. Binary identity applies to the recorded toolchain and fonts.
 
 ## Claim status and final scope
 
