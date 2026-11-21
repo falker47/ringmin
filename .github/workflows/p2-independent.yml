@@ -1,0 +1,23 @@
+name: Paper II independent verification
+
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  referee-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          python -m pip install --only-binary=:all: python-flint==0.9.0
+      - run: python -I -B independent_check/p2
+      - run: python -I -B -m unittest discover -s independent_check/p2
