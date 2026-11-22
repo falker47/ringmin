@@ -176,3 +176,10 @@ def test_isolated_cli_rejects_truncated_json(tmp_path):
     result = subprocess.run([sys.executable, "-I", "-S", str(ASSETS / "verify_radii_certificate.py"),
                              str(bad)], cwd=tmp_path, stdin=subprocess.DEVNULL, capture_output=True, text=True, check=False)
     assert result.returncode == 1 and "FAIL" in result.stderr
+
+
+def test_linear_generator_reproduces_tracked_certificate_from_a_clean_checkout(tmp_path):
+    output = tmp_path / "linear_03.json"
+    subprocess.run([sys.executable, str(ASSETS / "certify_radii.py"), "--linear", "3",
+                    "--output", str(output)], cwd=tmp_path, stdin=subprocess.DEVNULL, check=True)
+    assert json.loads(output.read_bytes()) == json.loads((CERTS / output.name).read_bytes())
