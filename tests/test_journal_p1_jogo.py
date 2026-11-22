@@ -151,4 +151,4 @@ def test_three_pass_build_and_single_source_upload(tmp_path):
         assert len(re.findall(rb"\\bibitem(?:\[|\{)", bibliography)) == 16
         assert b"???" not in bibliography
         assert b"arXiv:2609.13630v3" in bibliography
-        assert b"7dcad4f6c40ff0e48eb53cb7a8c6f5622d361509" in bibliography
+        assert b"6157a64f7628e327b390d9ddd21dd3507d6035a2" in bibliography
