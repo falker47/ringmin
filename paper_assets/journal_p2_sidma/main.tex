@@ -69,13 +69,15 @@ counts, at a cost of at most $M$ per join.
 
 Two finite line placements sharpen the geometric upper bounds. For
 consecutive radii, the inherited terminal-subset lower bound and the new
-upper witness give $\CstarLower<\CC<\CstarUpper$. The upper witness
+upper witness give $\CstarLower<\CC<\CstarUpper$. In particular the
+lower endpoint excludes the coefficient $1/8$ proposed in the first
+version of Paper~I~\cite{paperI}. The upper witness
 improves on the explicit four-block construction evaluated in
 Section~\ref{sec:upper}. For square radii the law theorem gives convergence
 of $R_2^*(n)/n^3$ to a coefficient $C_2$. The second witness gives
 $C_2<\CtwoUpper$, improving the previous bound $857/(3000\pi)$ on the
 limsup~\cite{squared}. Section~\ref{sec:upper} compares both sides of
-the quadratic bracket. Search produced the two line orders. All-pairs
+the square-radius bracket. Search produced the two line orders. All-pairs
 checks on their rational coordinates certify the upper bounds.
 
 \paragraph*{What the finite shelf problem supplies}
@@ -165,7 +167,7 @@ bounds the limsup above by $857/(3000\pi)$, approximately $0.09093052$.
 The law theorem identifies the common limit and the new line witness
 improves its upper bound.
 
-\section{An Explicit Global Lower Endpoint}
+\section{An explicit global lower endpoint}
 
 Define $\tau$ as the unique root of $\cos\tau=\tau$ in $(0,1)$, set
 $q=(1-\sin\tau)/(1+\sin\tau)$ and
@@ -285,6 +287,8 @@ python -I -S verify_line_certificate.py certificates/p2_n03200.json
 }
 Each command checks the permutation, the span, all $5\,118\,400$ pairs and
 the strict ceiling using the Python standard library.
+The \href{https://github.com/falker47/ringmin/tree/e99cbd6a3dafdb6d6ddc26592b02ca2e703cd5d0/independent_check/p2_lp_example}{word-LP certificates}
+for Table~\ref{tab:worked-lp-example} are replayed by \texttt{check\_example.py}.
 
 \section*{Acknowledgment}
 AI assistance was used for proof exploration, software, drafting and
