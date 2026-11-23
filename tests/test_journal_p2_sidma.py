@@ -141,6 +141,21 @@ def test_submission_metadata_and_bibliographies():
         assert sorted(re.findall(r"\\href\{https://doi.org/([^}]+)\}", source)) == sorted(re.findall(r"doi = \{([^}]+)\}", entries))
 
 
+RELEASE_TAG = "paper-ii-sidma-r1"
+
+
+def test_repository_links_use_the_release_tag():
+    # Squash merges keep branch commits off main, so a link pinned to one of them
+    # can stop resolving. Each repository link names the release tag that will be
+    # created on the merged commit, and each linked path must exist in this tree.
+    link = r"https://github\.com/falker47/ringmin/(?:raw|tree|blob)/([^/}]+)/([^}]+)\}"
+    links = [found for name in ("main.tex", "supplement.tex") for found in re.findall(link, read(SIDMA / name))]
+    assert len(links) == 3
+    for ref, path in links:
+        assert ref == RELEASE_TAG
+        assert (ASSETS.parent / path).exists(), path
+
+
 def test_final_log_gate():
     check = runpy.run_path(str(SIDMA / "build.py"))["check_log"]
     clean = "Output written on main.pdf (10 pages, 300000 bytes).\n"
