@@ -56,6 +56,14 @@ EDITORIAL = (
     ("At quadratic $n=14$", "For square radii and $n=14$"),
     ("Certified global brackets for quadratic radii.", "Certified global brackets for square radii."),
     ("Normalized linear and quadratic brackets.", "Normalized brackets for linear and square radii."),
+    # Cite the lower bound on C_2 from revised Paper II. Figure 5 still draws
+    # only the upper bound, so the sentence about the figure names both.
+    (
+        r"constant $C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places these bounds on the "
+        r"limiting constants alongside the finite brackets.",
+        r"constant $C_2$ with $\CtwoLower\le C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places "
+        r"the bounds on $C_*$ and the upper bound on $C_2$ alongside the finite brackets.",
+    ),
 )
 
 
@@ -110,7 +118,10 @@ def test_editorial_fixes_declarations_and_front_matter():
     assert abstract.split(start)[1] == old.split(start, 1)[1].split(r"\end{abstract}", 1)[0].rstrip()
     assert r"\date{September 19, 2026}" in new
     assert r"\pacs[Mathematics Subject Classification (2020)]{52C26,52C15,05C85,90C27}" in new
-    assert tex(JOGO, "numbers.tex") == tex(REVIEWED, "numbers.tex") + (
+    upper = "\\newcommand{\\CtwoUpper}"
+    lower = "\\newcommand{\\CtwoLower}{(434+4\\sqrt{2})/(1587\\pi)}\n"
+    assert tex(REVIEWED, "numbers.tex").count(upper) == 1
+    assert tex(JOGO, "numbers.tex") == tex(REVIEWED, "numbers.tex").replace(upper, lower + upper) + (
         "\\newcommand{\\GeneralRadiiCommit}{[commit after merge]}\n"
     )
     marker = r"\section{Data and code availability}"

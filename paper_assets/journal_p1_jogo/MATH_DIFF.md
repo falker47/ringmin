@@ -4,11 +4,11 @@ The mathematical text, table contents, figure captions and plotted data agree wi
 
 ## Normalized source comparison
 
-The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 54,785 characters. The UTF-8 SHA-256 digests are:
+The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 54,820 characters. The UTF-8 SHA-256 digests are:
 
 ~~~text
 reviewed  2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a
-JOGO      5a28477ca66bf734dc8b21d31a18dce936e6c2fc9a454c2c0d1a76bbcbf8ec1c
+JOGO      813ec02659127b248193db1a94cfe14825e8843d0188a4f193566a58a5a8e6c7
 ~~~
 
 | Material compared | Result |
@@ -17,7 +17,7 @@ JOGO      5a28477ca66bf734dc8b21d31a18dce936e6c2fc9a454c2c0d1a76bbcbf8ec1c
 | Equations and inequalities | All 13 equation environments, one numbered align environment, two unnumbered align environments, 37 bracket-delimited displays and the inline mathematics agree. All 21 explicit Appendix A equation tags are retained. |
 | Tables | All eight tables agree in order, labels, cell contents and source precision. Their captions agree apart from the square-radius wording in Table 5. This includes both 12-row finite-bracket tables and all three appendix tables. |
 | Figures | All six original vector PDFs have identical bytes in the new directory. Their cross-reference labels and reading order agree. Their captions agree apart from the square-radius wording in Figure 5. Each illustration now occupies its own single-column float. |
-| Material outside the scientific body | The abstract retains the complete results passage beginning with “For radii”. The numerical macros and the revised Paper II comment are identical to the base. The declaration text, including the AI paragraph, agrees verbatim. All 16 cited keys retain their DOI bindings. |
+| Material outside the scientific body | The abstract retains the complete results passage beginning with “For radii”. The numerical macros and the revised Paper II comment are identical to the base, apart from the added macro `\CtwoLower` for the cited lower bound on $C_2$. The declaration text, including the AI paragraph, agrees verbatim. All 16 cited keys retain their DOI bindings. |
 
 ## Figure files
 
@@ -46,6 +46,8 @@ The radii $1^2,\ldots,n^2$ are called square radii, as in the revised Paper II. 
 | §9, deletion example | At quadratic $n=14$ | For square radii and $n=14$ |
 | Table 5 caption | Certified global brackets for quadratic radii. | Certified global brackets for square radii. |
 | Figure 5 caption | Normalized linear and quadratic brackets. | Normalized brackets for linear and square radii. |
+
+The companion summary in §1 also cites the lower bound $(434+4\sqrt2)/(1587\pi)\le C_2$ from the revised Paper II, whose abstract states it and whose supplement proves it. Figure 5 still draws only the upper bound on $C_2$, since the lower bound lies about 0.0004 below it. The sentence that introduces the figure therefore names the bounds on $C_*$ and the upper bound on $C_2$. The regression applies this seventh replacement after the six above.
 
 These changes leave the evidence and epistemic status of every claim as recorded in the [integrated claim map](../journal_p1_v5/CLAIMS_DIFF.md).
 
