@@ -1,22 +1,22 @@
 # Mathematical comparison with the integrated draft
 
-The mathematical text, table contents, figure captions and plotted data agree with the integrated Paper I at commit `040d301e600acc12430f76333ec3243268dd3d3e`. The comparison covers all nine scientific sections and all three appendices, including ordinary prose between displays. [Reviewed source](https://github.com/falker47/ringmin/tree/040d301e600acc12430f76333ec3243268dd3d3e/paper_assets/journal_p1_v5) · [Executable comparison](../../tests/test_journal_p1_jogo.py)
+The mathematical text, table contents, figure captions and plotted data agree with the integrated Paper I at commit `040d301e600acc12430f76333ec3243268dd3d3e`, apart from the wording changes listed under [Editorial and typesetting changes](#editorial-and-typesetting-changes). The comparison covers all nine scientific sections and all three appendices, including ordinary prose between displays. [Reviewed source](https://github.com/falker47/ringmin/tree/040d301e600acc12430f76333ec3243268dd3d3e/paper_assets/journal_p1_v5) · [Executable comparison](../../tests/test_journal_p1_jogo.py)
 
 ## Normalized source comparison
 
-The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. Both normalized strings contain 54,787 characters and have the same UTF-8 SHA-256.
+The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 54,785 characters. The UTF-8 SHA-256 digests are:
 
 ~~~text
 reviewed  2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a
-JOGO      2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a
+JOGO      5a28477ca66bf734dc8b21d31a18dce936e6c2fc9a454c2c0d1a76bbcbf8ec1c
 ~~~
 
 | Material compared | Result |
 | --- | --- |
 | Formal statements and proofs | Three theorem environments, two lemmas, one corollary and five proof environments agree. The restated seam theorem, Lemmas A.1 and A.2 and their proofs in Appendix A are included in the full-text comparison. The shared theorem counters and the mathematical macros agree separately. |
 | Equations and inequalities | All 13 equation environments, one numbered align environment, two unnumbered align environments, 37 bracket-delimited displays and the inline mathematics agree. All 21 explicit Appendix A equation tags are retained. |
-| Tables | All eight tables agree in order, captions, labels, cell contents and source precision. This includes both 12-row finite-bracket tables and all three appendix tables. |
-| Figures | All six original vector PDFs have identical bytes in the new directory. Their captions, cross-reference labels and reading order agree. Each illustration now occupies its own single-column float. |
+| Tables | All eight tables agree in order, labels, cell contents and source precision. Their captions agree apart from the square-radius wording in Table 5. This includes both 12-row finite-bracket tables and all three appendix tables. |
+| Figures | All six original vector PDFs have identical bytes in the new directory. Their cross-reference labels and reading order agree. Their captions agree apart from the square-radius wording in Figure 5. Each illustration now occupies its own single-column float. |
 | Material outside the scientific body | The abstract retains the complete results passage beginning with “For radii”. The numerical macros and the revised Paper II comment are identical to the base. The declaration text, including the AI paragraph, agrees verbatim. All 16 cited keys retain their DOI bindings. |
 
 ## Figure files
@@ -34,7 +34,20 @@ The reviewed filenames are relative to the integrated draft's figures directory.
 
 ## Editorial and typesetting changes
 
-The Springer Nature class supplies the author block, keywords, MSCs, theorem styles, captions, and numerical bibliography in citation order. The manuscript date is printed on the title page. The abstract names the input domain explicitly and then gives the two computed families. Data and code availability displays the requested commit marker. The author reminder beside the AI declaration is a TeX comment. The bibliography supplies publisher locations for the two chapters and the book. These changes leave the evidence and epistemic status of every claim as recorded in the [integrated claim map](../journal_p1_v5/CLAIMS_DIFF.md).
+The Springer Nature class supplies the author block, keywords, MSCs, theorem styles, captions, and numerical bibliography in citation order. The manuscript date is printed on the title page. The abstract names the input domain explicitly and then gives the two computed families. Data and code availability displays the requested commit marker. The author reminder beside the AI declaration is a TeX comment. The bibliography supplies publisher locations for the two chapters and the book.
+
+The radii $1^2,\ldots,n^2$ are called square radii, as in the revised Paper II. The regression applies these six replacements to the reviewed text. Each reviewed phrase occurs exactly once. Labels, file names and the TeX comment above Table 5 keep the word “quadratic”.
+
+| Location | Reviewed | JOGO |
+| --- | --- | --- |
+| §1, method overview | For the quadratic family it gives | For square radii it gives |
+| §1, companion results | For quadratic radii it proves | For square radii it proves |
+| §9 heading | Quadratic radii | Square radii |
+| §9, deletion example | At quadratic $n=14$ | For square radii and $n=14$ |
+| Table 5 caption | Certified global brackets for quadratic radii. | Certified global brackets for square radii. |
+| Figure 5 caption | Normalized linear and quadratic brackets. | Normalized brackets for linear and square radii. |
+
+These changes leave the evidence and epistemic status of every claim as recorded in the [integrated claim map](../journal_p1_v5/CLAIMS_DIFF.md).
 
 Run the comparisons from the repository root.
 

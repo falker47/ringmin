@@ -46,10 +46,30 @@ def scientific_text(folder):
     return " ".join(body.split())
 
 
+# Editorial changes to the reviewed scientific text, in whitespace-collapsed
+# form. Each reviewed phrase must occur exactly once. The radii 1^2,...,n^2
+# are called square radii, as in the revised Paper II.
+EDITORIAL = (
+    ("For the quadratic family it gives", "For square radii it gives"),
+    ("For quadratic radii it proves", "For square radii it proves"),
+    (r"\section{Quadratic radii}", r"\section{Square radii}"),
+    ("At quadratic $n=14$", "For square radii and $n=14$"),
+    ("Certified global brackets for quadratic radii.", "Certified global brackets for square radii."),
+    ("Normalized linear and quadratic brackets.", "Normalized brackets for linear and square radii."),
+)
+
+
+def edited(text):
+    for old, new in EDITORIAL:
+        assert text.count(old) == 1, old
+        text = text.replace(old, new)
+    return text
+
+
 def test_every_scientific_section_and_appendix_matches_the_reviewed_source():
     reviewed = scientific_text(REVIEWED)
-    assert scientific_text(JOGO) == reviewed
     assert hashlib.sha256(reviewed.encode()).hexdigest() == "2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a"
+    assert scientific_text(JOGO) == edited(reviewed)
     theorem = r"\\newtheorem[^\n]+"
     assert re.findall(theorem, tex(JOGO)) == re.findall(theorem, tex(REVIEWED))
     macros = r"\\newcommand\{\\(?:Rchain|Rfull|Rstar|snapshot)\}[^\n]+"

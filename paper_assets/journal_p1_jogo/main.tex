@@ -69,7 +69,7 @@ For the linear family we certify
 \end{equation}
 Table~\ref{tab:brackets} gives these endpoints. The same method applies to
 any finite list of distinct positive integer radii of size at least three.
-For the quadratic family it gives twelve brackets of the same exact width
+For square radii it gives twelve brackets of the same exact width
 (Table~\ref{tab:quadratic}). We use three properties of the geometry.
 \begin{itemize}
 \item For arbitrary distinct positive radii, the angular kernel is strictly
@@ -110,7 +110,7 @@ difference-constraint framework for testing a fixed order.
 
 The revised companion paper~\cite{paper-ii} proves
 $\Rstar(n)=C_*n^2+o(n^2)$ with $\CstarLower<C_*<\CstarUpper$.
-For quadratic radii it proves that $R_2^*(n)/n^3$ converges to a constant
+For square radii it proves that $R_2^*(n)/n^3$ converges to a constant
 $C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places these bounds on the
 limiting constants alongside the finite brackets.
 
@@ -542,7 +542,7 @@ exact optimum requires a placement with simultaneous slack against every
 other outer disk. A statement about every optimizer requires a further
 argument. The seam onsets address only the specified chain roots.
 
-\section{Quadratic radii}\label{sec:quadratic}
+\section{Square radii}\label{sec:quadratic}
 For disks of radii $1^2,\ldots,n^2$, Table~\ref{tab:quadratic} gives
 $L_n^{(2)}<R_2^*(n)\le U_n^{(2)}$ with $U_n^{(2)}-L_n^{(2)}=10^{-11}$
 for every $3\le n\le14$. Both families use the same general-radii
@@ -552,14 +552,14 @@ for each row and checks every pair of disks in its rational upper witness.
 For the lower exclusion we may delete the $d$ smallest radii, leaving
 $k=n-d\ge3$ disks. A violating cycle on these retained disks excludes
 every full order that induces it. For each surviving core order we restore
-the deleted disks in all possible gaps, including the closing gap. At
-quadratic $n=14$, for example, $d=4$ and each surviving ten-disk core
+the deleted disks in all possible gaps, including the closing gap. For
+square radii and $n=14$, for example, $d=4$ and each surviving ten-disk core
 gives $10\cdot11\cdot12\cdot13$ full orders. Appendix~\ref{app:general}
 proves complete coverage and strictness for any prescribed list of distinct
 positive integer radii of size at least three.
 
 \begin{table}[!htbp]\centering
-\caption{Certified global brackets for quadratic radii. The endpoints are
+\caption{Certified global brackets for square radii. The endpoints are
 exact rationals. Each witness gives a feasible placement at $U_n^{(2)}$.}
 \label{tab:quadratic}
 % Exact rational endpoints for quadratic radii. One Cartesian witness per row.
@@ -583,7 +583,7 @@ $n$ & $L_n^{(2)}$ & $U_n^{(2)}$ & Witnesses\\\midrule
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.80\linewidth]{Fig5.pdf}
-\caption{Normalized linear and quadratic brackets. Each interval is narrower
+\caption{Normalized brackets for linear and square radii. Each interval is narrower
 than its marker. The band bounds $C_*$ and the dotted line is the upper
 bound on $C_2$ from revised Paper~II~\cite{paper-ii}.}\label{fig:ratios}
 \end{figure}
