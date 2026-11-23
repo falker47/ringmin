@@ -21,3 +21,5 @@ jobs:
           python -m pip install --only-binary=:all: python-flint==0.9.0
       - run: python -I -B independent_check/p2
       - run: python -I -B -m unittest discover -s independent_check/p2
+      - run: python -I -B -m unittest discover -s independent_check/p2_lp_example
+      - run: python -I -S -B independent_check/p2_squared/check.py

@@ -1,4 +1,4 @@
-"""Compare the SIDMA documents with the two reviewed sources independently of TeX."""
+"""Guard the SIDMA revision, its protected source material, and the frozen supplement."""
 from hashlib import sha256
 from pathlib import Path
 import re
@@ -38,39 +38,66 @@ def scientific_body(tex):
     return re.split(r"\\(?:begin\{thebibliography\}|bibliographystyle\{|nocite\{)", body, maxsplit=1)[0].strip()
 
 
-@pytest.mark.parametrize(("name", "digest"), [
-    ("main", "18f810d43aecb651c9c529583d9aabba796d093cac0e73be050dfef587d42c40"),
-    ("supplement", "ce376ae3521b172379c2a37f7a0905f8eff8b9591d44f423192c54acd56616b4"),
-])
-def test_mathematical_text(name, digest):
-    old = reviewed(name)
-    new = read(SIDMA / f"{name}.tex")
-    assert sha256(old.encode()).hexdigest() == digest
-    commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
-    assert re.findall(commands, old, re.M) == re.findall(commands, new, re.M)
+def test_protected_article_text():
+    old = reviewed("main")
+    new = read(SIDMA / "main.tex")
+    assert sha256(old.encode()).hexdigest() == "18f810d43aecb651c9c529583d9aabba796d093cac0e73be050dfef587d42c40"
 
-    expected_abstract = abstract(old)
-    expected = scientific_body(old)
-    actual = scientific_body(new)
-    if name == "main":
-        # Front-matter metadata must stand on its own without document-local macros.
-        for macro, value in re.findall(r"\\newcommand\{(\\\w+)\}\{([^{}]+)\}", read(V4 / "numbers.tex")):
-            expected_abstract = expected_abstract.replace(macro, value)
-        expected_abstract = expected_abstract.replace(r"\CC", r"C_\ast")
-        for title in ("Main results", "Related work"):
-            expected = expected.replace(r"\paragraph{" + title + ".}", r"\paragraph*{" + title + "}")
-        expected = expected.replace("Supplement S1 gives the complete proof",
-                                    r"Supplement S1 (Theorem~\ref{s1-thm:main}) gives the complete proof")
-        expected = expected.replace("0.14191330499527,0.14191330499528",
-                                    r"0.14191330499527,\allowbreak 0.14191330499528")
-        expected += "\n" + AUTHOR_NOTE + "\n\n" + r"\clearpage"
-    else:
-        expected = expected.replace(r"\texttt{check\_width\_optimum.py}", r"\path{check_width_optimum.py}", 1)
-        expected = expected.replace("These supporting files are included alongside\nthis source and PDF;",
-                                    "The companion " + r"\href{s1_support.zip}{\texttt{s1\_support.zip}}"
-                                    + " contains these\nsupporting files with the original source and PDF;")
-    assert abstract(new) == expected_abstract
-    assert actual == expected
+    # SIAM front matter uses the expanded form of the reviewed decimal macros.
+    expected = abstract(old)
+    for macro, value in re.findall(r"\\newcommand\{(\\\w+)\}\{([^{}]+)\}", read(V4 / "numbers.tex")):
+        expected = expected.replace(macro, value)
+    expected = expected.replace(r"\CC", r"C_\ast").replace(
+        "with leading coefficient less than\n$0.088581212993$",
+        "with leading coefficient\n" + r"$(434+4\sqrt2)/(1587\pi)\le C_2<0.088581212993$",
+    )
+    assert abstract(new) == expected
+
+    commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
+    assert re.findall(commands, new, re.M) == re.findall(commands, old, re.M)
+    assert r"\ref{s1-thm:square-lower}" in new
+    assert r"\frac{434+4\sqrt2}{1587\pi}\ \le\ C_2\ <\ \CtwoUpper" in new
+
+    for label in ("prop:cert-upper", "prop:lower"):
+        pattern = rf"\\label\{{{label}\}}(.*?)\\end\{{proposition\}}"
+        assert re.search(pattern, new, re.S)[1] == re.search(pattern, old, re.S)[1]
+
+    old_note = old.split(r"\section*{Acknowledgment}", 1)[1].split(r"\begin{thebibliography}", 1)[0].strip()
+    new_note = new.split(r"\section*{Acknowledgment}", 1)[1].split(AUTHOR_NOTE, 1)[0].strip()
+    assert new_note == old_note
+
+
+def test_supplement_mathematical_text():
+    old = reviewed("supplement")
+    new = read(SIDMA / "supplement.tex")
+    assert sha256(old.encode()).hexdigest() == "ce376ae3521b172379c2a37f7a0905f8eff8b9591d44f423192c54acd56616b4"
+    commands = r"^\\(?:newcommand|DeclareMathOperator)\{.*$"
+    assert re.findall(commands, new, re.M) == re.findall(commands, old, re.M)
+    assert abstract(new) == abstract(old) + (
+        "\nAn additional argument for square radii gives the lower bound\n"
+        + r"$(434+4\sqrt2)/(1587\pi)$ for their cubic growth coefficient."
+    )
+    expected = scientific_body(old).replace(r"\texttt{check\_width\_optimum.py}", r"\path{check_width_optimum.py}", 1)
+    expected = expected.replace("These supporting files are included alongside\nthis source and PDF;",
+                                "The companion " + r"\href{s1_support.zip}{\texttt{s1\_support.zip}}"
+                                + " contains these\nsupporting files with the original source and PDF;")
+    assert scientific_body(new) == expected + "\n\n" + r"\input{sections/square_lower}"
+    square = read(SIDMA / "sections/square_lower.tex")
+    assert r"\begin{theorem}\label{thm:square-lower}" in square
+    assert r"\ \ge\ \frac{434+4\sqrt2}{1587\pi}" in square
+    assert r"\cite[(22)--(23)]{squared}" in square
+
+
+def test_law_and_specializations_are_included():
+    main = read(SIDMA / "main.tex")
+    law = read(SIDMA / "sections/law.tex")
+    words = read(SIDMA / "sections/words.tex")
+    section_inputs = r"^\\input\{sections/([^}]+)\}\s*$"
+    assert re.findall(section_inputs, main, re.M) == ["law", "words"]
+    assert re.findall(section_inputs, words, re.M) == ["worked_lp_example"]
+    assert (SIDMA / "sections/worked_lp_example.tex").is_file()
+    assert law.index(r"\label{thm:profile-law}") < law.index(r"\label{eq:limit}")
+    assert words.index(r"\label{thm:profile-words}") < words.index(r"\label{thm:lp}")
 
 
 def test_figures_decimal_inputs_and_companion():
@@ -94,7 +121,7 @@ def test_submission_metadata_and_bibliographies():
     shared = read(SIDMA / "shared.tex")
     assert r"\externaldocument[s1-][nocite]{supplement}" in main
     assert r"\externaldocument[article-][nocite]{main}" in supplement
-    assert r"Proposition~\ref{article-prop:lower}" in supplement
+    assert r"\ref{article-prop:lower}" in supplement
     assert r"\newsiamremark{remark}{Remark}" in shared
     for text in (main, supplement):
         assert r"\input{shared}" in text
@@ -107,8 +134,26 @@ def test_submission_metadata_and_bibliographies():
     for name, bib in (("main", "references.bib"), ("supplement", "supplement-references.bib")):
         source = reviewed(name)
         entries = read(SIDMA / bib)
-        assert sorted(re.findall(r"\\bibitem\{([^}]+)\}", source)) == sorted(re.findall(r"@\w+\{([^,]+),", entries))
+        keys = re.findall(r"\\bibitem\{([^}]+)\}", source)
+        keys.append("squared")
+        assert "1d0a5dea10cd09783a9c0e2d54ede79b790cce2b" in entries
+        assert sorted(keys) == sorted(re.findall(r"@\w+\{([^,]+),", entries))
         assert sorted(re.findall(r"\\href\{https://doi.org/([^}]+)\}", source)) == sorted(re.findall(r"doi = \{([^}]+)\}", entries))
+
+
+RELEASE_TAG = "paper-ii-sidma-r1"
+
+
+def test_repository_links_use_the_release_tag():
+    # Squash merges keep branch commits off main, so a link pinned to one of them
+    # can stop resolving. Each repository link names the release tag that will be
+    # created on the merged commit, and each linked path must exist in this tree.
+    link = r"https://github\.com/falker47/ringmin/(?:raw|tree|blob)/([^/}]+)/([^}]+)\}"
+    links = [found for name in ("main.tex", "supplement.tex") for found in re.findall(link, read(SIDMA / name))]
+    assert len(links) == 3
+    for ref, path in links:
+        assert ref == RELEASE_TAG
+        assert (ASSETS.parent / path).exists(), path
 
 
 def test_final_log_gate():
