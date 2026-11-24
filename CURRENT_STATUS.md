@@ -1,52 +1,40 @@
-# Current Status
+# Current status
 
 ```text
 repository=falker47/ringmin
-task=TASK-20261023__proposition7_supplement
-phase=independent_review_handoff
-observed_on=2026-10-23
+task=TASK-20261124__fable_proofcheck
 mode=STRICT
 state=READY_FOR_REVIEW
-base_head=6167e36cf6f80a6a7a7a6b41518a6b3f7155295d
-scientific_snapshot=3beb8d70c5b3748d370a92855847bdf574e5a14f
+paper_i_base=review/p1-square-radii@91ce1cbf42543b6bcaea8ac94688c34d29066087
+paper_ii_base=review/p2-square-radius-project@51dfc1b8c9ba02faa665cb20f60ce2d87f761c00
+branches=fable/proofcheck-p1, fable/proofcheck-p2
+observed_on=2026-11-24
 ```
 
 ## Current task and scope
 
-The [standalone Proposition 7 supplement](paper_assets/asymptotic_sequel/proposition7_supplement/README.md)
-contains a 14-page PDF, complete LaTeX proof of L1--L8 and global-limit
-existence, dependency matrix, exact arithmetic checkers/certificate,
-manifest and [technical report](paper_assets/asymptotic_sequel/proposition7_supplement/VERIFICATION.md).
-It reconstructs the fixed lower endpoint in Paper II (arXiv:2609.13630).
-The [STRICT dossier](ops/TASK-20261023__proposition7_supplement/TASK_STATUS.md)
-and [evidence](ops/TASK-20261023__proposition7_supplement/EVIDENCE.md) record
-the checks and scope. No new mathematical coefficient or published-paper
-revision is introduced, and no Review State baseline is advanced.
+An independent proof check of Paper I (angular reformulation through the
+seam criterion, with Appendices A–C) and of lemmas L1–L8 in supplement S1 of
+Paper II. The [report](docs/referee/proofcheck-2026-11.md) lists every
+statement with its verdict and evidence. The
+[checks](independent_check/fable_proofcheck/README.md) run with
+`python -I -B independent_check/fable_proofcheck`. The
+[dossier](ops/TASK-20261124__fable_proofcheck/TASK_STATUS.md) and its
+[evidence](ops/TASK-20261124__fable_proofcheck/EVIDENCE.md) record the
+commands and their limits.
 
 ## Verification gates and blockers
 
-Exact rational checks reproduce the literal strict enclosure
-`0.14056946887766098063257 < C_term+eta_width < 0.14056946887766098063392`.
-All 144 new directed-rational deletion fixtures, inherited crossing checks,
-certificate equality, 12 output hashes, seven source-input hashes and
-standalone/tampering controls passed. A separate internal technical reviewer
-found no actionable mathematical/verifier gap; external acceptance remains
-separate. Full universal quantifiers are supported by the written proofs.
-
-The standalone outside-repository three-pass TeX build passed without
-warnings or bad boxes and reproduced the delivered PDF byte for byte.
-All 14 pages were visually checked. The 759 pre-existing tracked files
-outside CURRENT_STATUS.md retain their preflight hashes; published sources,
-research, production code and result artifacts are protected. The original
-untracked ZIP remains untouched in the original checkout.
-
-No mathematical or packaging blocker remains. Scoped commit/push is
-authorized; the final chat handoff identifies the exact persisted SHA and
-remote result. Hosted CI for that SHA is not asserted. The original local
-main checkout remains at its starting commit; work is integrated from the
-isolated detached worktree without altering those original working files.
+No error and no gap was found; four imprecisions and five style remarks are
+recorded. No manuscript, certificate, result artifact or production code was
+changed. Paper I: 40 checks and 6 negative controls pass. Paper II: 20 checks
+and 8 negative controls pass. The existing test suite passes on both
+branches, except for one intermittent failure of a pre-existing test,
+observed once in three runs and described in the evidence. Not verified
+here: cited sources, certificates, upper witnesses for `n >= 8`,
+square-radius results. Hosted CI is not asserted. No blocker.
 
 ## Exactly one next atomic task
 
-Independent review of the exact committed Proposition 7 supplement,
-including the complete proof, rational certificate, PDF and package hashes.
+The author decides, finding by finding, whether to apply the wording
+suggested for the four imprecisions in the report.
