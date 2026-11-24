@@ -4,11 +4,11 @@ The mathematical text, table contents, figure captions and plotted data agree wi
 
 ## Normalized source comparison
 
-The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 54,820 characters. The UTF-8 SHA-256 digests are:
+The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 54,877 characters. The UTF-8 SHA-256 digests are:
 
 ~~~text
 reviewed  2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a
-JOGO      813ec02659127b248193db1a94cfe14825e8843d0188a4f193566a58a5a8e6c7
+JOGO      39b3de31ea27b2b964624341068be7dbbe2cfb118ff14bfae2ce21eb3458bd36
 ~~~
 
 | Material compared | Result |
@@ -48,6 +48,12 @@ The radii $1^2,\ldots,n^2$ are called square radii, as in the revised Paper II. 
 | Figure 5 caption | Normalized linear and quadratic brackets. | Normalized brackets for linear and square radii. |
 
 The companion summary in §1 also cites the lower bound $(434+4\sqrt2)/(1587\pi)\le C_2$ from the revised Paper II, whose abstract states it and whose supplement proves it. Figure 5 still draws only the upper bound on $C_2$, since the lower bound lies about 0.0004 below it. The sentence that introduces the figure therefore names the bounds on $C_*$ and the upper bound on $C_2$. The regression applies this seventh replacement after the six above.
+
+Further wording changes follow the November 2026 proof check, whose [report](../../docs/referee/proofcheck-2026-11.md) found no error and no gap. The regression applies them after the seven replacements above. Each reviewed phrase occurs exactly once.
+
+| Location | Reviewed | JOGO |
+| --- | --- | --- |
+| §5, outline of Appendix A | A fan decomposition bounds every triangle defect below by $\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$. | Every triangle defect is bounded below by $\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan decomposition writes each path slack as a sum of such defects. |
 
 These changes leave the evidence and epistemic status of every claim as recorded in the [integrated claim map](../journal_p1_v5/CLAIMS_DIFF.md).
 

@@ -64,6 +64,16 @@ EDITORIAL = (
         r"constant $C_2$ with $\CtwoLower\le C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places "
         r"the bounds on $C_*$ and the upper bound on $C_2$ alongside the finite brackets.",
     ),
+    # Wording changes after the November 2026 proof check
+    # (docs/referee/proofcheck-2026-11.md). Lemma A.2 bounds the triangle
+    # defects; the fan identity (A.10) then sums them along a path.
+    (
+        r"A fan decomposition bounds every triangle defect below by "
+        r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$.",
+        r"Every triangle defect is bounded below by "
+        r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan "
+        r"decomposition writes each path slack as a sum of such defects.",
+    ),
 )
 
 
