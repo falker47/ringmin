@@ -29,8 +29,8 @@ No error and no gap was found; four imprecisions and five style remarks are
 recorded. No manuscript, certificate, result artifact or production code was
 changed. Paper I: 40 checks and 6 negative controls pass. Paper II: 20 checks
 and 8 negative controls pass. The existing test suite passes on both
-branches, except for one intermittent failure of a pre-existing test,
-observed once in three runs and described in the evidence. Not verified
+branches in most runs; intermittent failures of pre-existing tests, not
+reproducible on demand, are described in the evidence. Not verified
 here: cited sources, certificates, upper witnesses for `n >= 8`,
 square-radius results. Hosted CI is not asserted. No blocker.
 

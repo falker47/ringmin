@@ -53,6 +53,13 @@ Append entries; do not erase failed attempts or contradictory evidence.
 - command: `python -m pytest` (existing suite) on both branches: see EVIDENCE.
 - limitation: local runs only; no hosted CI is asserted.
 
+## 2026-11-24 — Verification after the commits
+
+- command: the existing suite on the committed state of both branches, several full runs.
+- result: `fable/proofcheck-p1` `101 passed`. `fable/proofcheck-p2` `110 passed, 1 skipped` in six runs, and 13 and 12 transient `OSError` failures in `tests/test_line_upper.py` in two runs.
+- interpretation: intermittent, not reproduced on demand, in tests that do not touch the new files. Recorded in EVIDENCE with its limits; cause not established.
+- command: `python -I -B independent_check/fable_proofcheck` on the committed state: `46 items, 0 failures` and `28 items, 0 failures`.
+
 ## 2026-11-24 — Handoff
 
 - final state: READY_FOR_REVIEW.
