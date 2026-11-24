@@ -1,0 +1,13 @@
+k=400 onset=1606 (2s)
+k=800 onset=3206 (4s)
+k=1200 onset=4806 (6s)
+k=1600 onset=6406 (9s)
+k=2000 onset=8006 (13s)
+k=2400 onset=9606 (18s)
+k=2800 onset=11206 (23s)
+k=3200 onset=12806 (29s)
+k=3600 onset=14406 (36s)
+k=4000 onset=16006 (44s)
+k=4400 onset=17606 (53s)
+k=4800 onset=19206 (64s)
+wrote seam_certificate.json: 18910 records in 69s

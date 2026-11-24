@@ -1,0 +1,163 @@
+% Draft section for Paper II (SIDMA draft, paper_assets/journal_p2_sidma at
+% commit 51dfc1b).  It is NOT included by any manuscript.  It uses the labels
+% and macros of that draft (lem:closing, lem:profile-copy, lem:profile-squeeze,
+% eq:profile-change, thm:profile-law, cor:profile-powers, \CC, \Rstar) and
+% could be \input after sections/law.tex.  The Markdown note
+% NOTE_QUANTILE_RATE.md is the authoritative version of the argument.
+
+\section{An explicit rate for quantile templates}\label{sec:rate}
+
+Theorem~\ref{thm:profile-law} carries no rate, and none is possible for
+arbitrary arrays. For the quantile template the rate is explicit and does
+not depend on the law.
+
+\begin{theorem}[Rate for a quantile template]\label{thm:rate}
+Let $Q:(0,1]\to[0,M]$ be nondecreasing and let $E$ be the limit in
+Lemma~\ref{lem:profile-copy}. For every $n\ge2$,
+\begin{equation}\label{eq:rate}
+ -M\ \le\ b_n^Q-nE\ \le\ \tfrac52M\sqrt{n\log_2 n}.
+\end{equation}
+More precisely, let $0\le\kappa\le\rho$ be integers, $k=2^\kappa$,
+$r=2^\rho$ and $T=\lceil\lceil n/k\rceil k/r\rceil$. Then
+\begin{equation}\label{eq:rate-two}
+ b_n^Q\ \le\ Tr\Bigl(E+\frac Mk\Bigr)+\bigl(T+(k-1)\rho-1\bigr)M .
+\end{equation}
+\end{theorem}
+
+\begin{corollary}[Ring radius and power radii]\label{cor:rate-ring}
+Let $n\ge3$, $N_n>0$, and let $R_n$ be the infimum central radius for the
+outer radii $N_nQ(i/n)$, $1\le i\le n$. Then
+\begin{equation}\label{eq:rate-ring}
+ -\Bigl(1+\frac1\pi\Bigr)\frac Mn\ \le\ \frac{R_n}{N_n n}-\frac E\pi
+ \ \le\ \frac{\bigl(\frac52\sqrt{n\log_2 n}+1\bigr)M}{\pi n}.
+\end{equation}
+In particular, for every fixed $p>0$ and every $n\ge3$,
+\[
+ -\Bigl(1+\frac1\pi\Bigr)n^{p}\ \le\ R_p^*(n)-C_pn^{p+1}
+ \ \le\ \frac{\frac52\sqrt{n\log_2 n}+1}{\pi}\,n^{p},
+\]
+so that $\Rstar(n)=\CC n^2+O(n^{3/2}\sqrt{\log n})$.
+For an arbitrary list $a$ of $n\ge2$ marks in $[0,M]$ and any law $\mu$
+on $[0,M]$, put
+$W_n=n^{-1}\sum_i|\sqrt{a_{(i)}}-\sqrt{Q_\mu(i/n)}|$ for the sorted marks
+$a_{(1)}\le\cdots\le a_{(n)}$. Then
+\[
+ \Bigl|\frac{b(a)}{n}-E(\mu)\Bigr|\ \le\ 2\sqrt M\,W_n
+ +\tfrac52M\sqrt{\frac{\log_2 n}{n}} .
+\]
+\end{corollary}
+
+The lower bound in~\eqref{eq:rate} is the infimum formula of
+Lemma~\ref{lem:profile-copy}. For the upper bound fix $n,\kappa,\rho$ and put
+$v_j=Q(j/k)$, $1\le j\le k$. A \emph{type} is an index $j$; types remain
+distinct when their marks coincide. Let $U_q$ be the list with $q$ points
+of each type and $V_T$ the list with $Tr/k$ points of each type.
+
+\begin{lemma}\label{lem:rate-types}
+For every $q\ge1$, $b(U_q)\le b_{kq}^Q+qM$.
+\end{lemma}
+\begin{proof}
+Set $Q(0)=0$ and let $\Lambda_q$ contain $q$ copies of $Q((j-1)/k)$,
+$1\le j\le k$. For $(j-1)q<i\le jq$ we have $(j-1)/k<i/(kq)$, so the sorted
+list $\Lambda_q$ is termwise at most the sorted quantile sample of size
+$kq$, and $b(\Lambda_q)\le b_{kq}^Q$. Delete the $q$ zero marks of the
+first type from a minimizing placement of $\Lambda_q$ and append $q$ points
+of mark $v_k$ at successive spacing $M$, with a gap $M$ to the retained
+points.
+\end{proof}
+
+Fix a feasible placement $P$ of $U_q$, where $(r/k)\mid q$, and list its
+points from left to right. A \emph{block} is a set of consecutive points.
+Its \emph{extent} $\operatorname{ext}(B)$ is the difference of its last and
+first coordinates, and $c(B)\in\mathbb Z^k$ counts its points of each
+type. A block is a feasible placement of its own marks. Cutting a block
+into a left and a right part does not increase the total extent and
+preserves the total count vector. Let $\mathcal F_0$ be the family of the
+$kq/r$ successive blocks of $r$ points, and let $\mathcal F_l$ consist of
+the two halves of every block of $\mathcal F_{l-1}$, $1\le l\le\rho$.
+
+\begin{lemma}[Dyadic rounding]\label{lem:rate-rounding}
+Let $d\in\mathbb Z_{\ge0}^k$ have coordinate sum divisible by $r$, and let
+$g\ge0$ be weights on $\mathcal F_0$ with $\sum_Bg_Bc(B)=d$. There are
+nonnegative integers $m_B$, $B\in\mathcal F_0\cup\cdots\cup\mathcal F_\rho$,
+such that $\sum_Bm_Bc(B)=d$,
+\[
+ \sum_Bm_B\operatorname{ext}(B)\le\sum_{B\in\mathcal F_0}g_B\operatorname{ext}(B),
+ \qquad
+ \sum_Bm_B\le\frac{|d|}{r}+(k-1)\rho,
+\]
+where $|d|$ is the coordinate sum of $d$.
+\end{lemma}
+\begin{proof}
+Let $h\ge0$ be weights on $\mathcal F_l$ with $\sum_Bh_Bc(B)=d'$. If the
+count vectors on the support of $h$ are linearly dependent, take $z\ne0$
+supported there with $\sum_Bz_Bc(B)=0$. Summing coordinates gives
+$\sum_Bz_B=0$, so $z$ has entries of both signs. Choose its sign so that
+$\sum_Bz_B\operatorname{ext}(B)\le0$ and move along $z$ until a weight
+vanishes. The combination is unchanged, the cost does not increase and the
+support shrinks. We may therefore assume that the support has at most $k$
+blocks, with linearly independent count vectors.
+
+Suppose $d^{(l)}\in\mathbb Z_{\ge0}^k$ has sum divisible by $r2^{-l}$ and
+$g^{(l)}\ge0$ on $\mathcal F_l$ represents it. Reduce its support to
+obtain $h$, put $m_B=\lfloor h_B\rfloor$ and $f_B=h_B-m_B$. Since
+$H_l=\sum_Bh_B=|d^{(l)}|2^l/r$ is an integer, so is $\Phi_l=\sum_Bf_B$; it
+is smaller than the size of the support, hence at most $k-1$. The remainder
+$d^{(l+1)}=\sum_Bf_Bc(B)$ is a nonnegative integer vector whose sum is
+divisible by $r2^{-l-1}$. If $l<\rho$, give both halves of each support
+block the weight $f_B$. This represents $d^{(l+1)}$ on $\mathcal F_{l+1}$
+at cost at most $\sum_Bf_B\operatorname{ext}(B)$ and with total weight
+$H_{l+1}=2\Phi_l$. At $l=\rho$ the blocks are single points with unit count
+vectors. Independence leaves one support block per type, so every $h_B$
+is an integer and $\Phi_\rho=0$. Start from $d^{(0)}=d$, $g^{(0)}=g$ and
+add the costs over the levels. Level $l$ contributes $H_l-\Phi_l$ blocks,
+and $\sum_l(H_l-\Phi_l)=H_0+\Phi_0+\cdots+\Phi_{\rho-1}\le|d|/r+(k-1)\rho$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:rate}]
+Apply Lemma~\ref{lem:rate-rounding} to $d=(Tr/k)(1,\ldots,1)$ and the
+constant weights $g_B=Tr/(kq)$ on $\mathcal F_0$. The count vectors of
+$\mathcal F_0$ sum to $q(1,\ldots,1)$ and its extents sum to at most the
+span of $P$. Lay out $m_B$ translated copies of every selected block with
+gaps $M$ between successive copies. By Lemma~\ref{lem:closing} this is a
+feasible placement of $V_T$ made of at most $T+(k-1)\rho$ copies, so
+\begin{equation}\label{eq:rate-finite}
+ b(V_T)\le\frac{Tr}{kq}\operatorname{span}(P)+\bigl(T+(k-1)\rho-1\bigr)M .
+\end{equation}
+Take $P$ minimizing, use Lemma~\ref{lem:rate-types}, and let $q\to\infty$
+along multiples of $r/k$; Lemma~\ref{lem:profile-copy} gives
+$b(V_T)\le Tr(E+M/k)+(T+(k-1)\rho-1)M$. For $1\le i\le n$ put
+$j(i)=\lceil ik/n\rceil$. Then $Q(i/n)\le v_{j(i)}$ and each type is used
+at most $\lceil n/k\rceil\le Tr/k$ times, so the quantile sample of size
+$n$ is obtained from $V_T$ by deletion and decrease. This proves
+\eqref{eq:rate-two}.
+
+Since $T$ is the least integer with $Tr/k\ge\lceil n/k\rceil$, we have
+$n\le Tr\le n+r-1$. With $0\le E\le M$, the right side
+of~\eqref{eq:rate-two} exceeds $nE$ by less than
+$M\bigl(r+n/r+n/k+k\rho+r/k\bigr)$. Let $L=\log_2n\ge11$. Take
+$\rho=\lceil L/2\rceil$ and the power of two $k$ with
+$c/\sqrt2<k\le c\sqrt2$, $c=\sqrt{2n/(L+2)}$, so that
+$1\le k<\sqrt n\le r$. Then $r+n/r\le\frac52\sqrt n$,
+$n/k+k\rho\le\frac32\sqrt{n(L+2)}$ and $r/k<2\sqrt{L+2}$, whose sum is
+below $2.44\sqrt{nL}$. For $2\le n<2^{11}$ replace $E$ by $M$ in the
+difference of the right side of~\eqref{eq:rate-two} and $nE$. Its minimum
+over $\kappa\le\rho$ was evaluated in exact integer arithmetic and is at
+most $\frac52M\sqrt{n\log_2n}$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:rate-ring}]
+Insert~\eqref{eq:rate} in~\eqref{eq:profile-squeeze}. For the powers take
+$Q(t)=t^p$, $M=1$ and $N_n=n^p$ as in Corollary~\ref{cor:profile-powers}.
+For the last assertion apply~\eqref{eq:profile-change} to the sorted marks
+and the quantile sample of $\mu$, then~\eqref{eq:rate}.
+\end{proof}
+
+\begin{remark}
+The lower bound in~\eqref{eq:rate} is attained by a single atom. The
+difference $b_n^Q-nE$ can be positive: for $Q=0$ on $(0,\frac12)$,
+$Q=M/4$ on $[\frac12,1)$ and $Q(1)=M$ it equals $M/4$ for every even $n$.
+We do not know whether it is bounded above. The exponent and the logarithm
+in~\eqref{eq:rate} come from the selection argument and are not claimed to
+be sharp.
+\end{remark}

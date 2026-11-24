@@ -1,0 +1,24 @@
+PASS  0 p=1 k= 2 r= 2 q= 8 T= 5 pieces/level=[5, 0] span=7.535534 <= bound=11.714150
+PASS  1 p=1 k= 4 r= 4 q= 8 T= 3 pieces/level=[2, 2, 0] span=7.425525 <= bound=14.765376
+PASS  2 p=1 k= 4 r= 8 q=64 T= 7 pieces/level=[6, 2, 0, 0] span=32.716088 <= bound=47.716042
+PASS  3 p=1 k= 4 r=16 q=32 T= 5 pieces/level=[4, 0, 4, 0, 0] span=52.000000 <= bound=65.582470
+PASS  4 p=1 k= 8 r= 8 q=24 T= 7 pieces/level=[4, 4, 1, 6] span=34.623289 <= bound=56.147130
+PASS  5 p=1 k= 8 r=32 q=48 T= 5 pieces/level=[2, 3, 4, 1, 6, 0] span=89.002294 <= bound=122.942494
+PASS  6 p=1 k=16 r=16 q=48 T= 9 pieces/level=[1, 13, 1, 10, 0] span=80.565968 <= bound=139.281513
+PASS  7 p=1 k=16 r=64 q=64 T= 3 pieces/level=[0, 0, 8, 8, 0, 0, 0] span=100.027606 <= bound=185.515523
+PASS  8 p=2 k= 2 r= 4 q=16 T= 3 pieces/level=[3, 0, 0] span=5.750000 <= bound=10.562500
+PASS  9 p=2 k= 4 r= 4 q=16 T= 5 pieces/level=[5, 0, 0] span=9.625000 <= bound=18.457031
+PASS 10 p=2 k= 4 r= 8 q=64 T= 7 pieces/level=[6, 2, 0, 0] span=27.000000 <= bound=39.363281
+PASS 11 p=2 k= 8 r= 8 q=40 T= 9 pieces/level=[6, 2, 8, 0] span=31.593750 <= bound=54.737891
+PASS 12 p=2 k= 8 r=16 q=64 T=11 pieces/level=[8, 2, 8, 0, 0] span=69.921875 <= bound=100.927734
+PASS 13 p=2 k=16 r=16 q=64 T=13 pieces/level=[7, 5, 5, 14, 8] span=88.921875 <= bound=140.276184
+PASS 14 p=2 k=16 r=32 q=64 T= 7 pieces/level=[0, 0, 16, 16, 16, 0] span=111.281250 <= bound=162.696289
+PASS 15 p=2 k=32 r=32 q=32 T= 9 pieces/level=[0, 5, 12, 15, 25, 2] span=122.742188 <= bound=253.310638
+PASS 16 p=3 k= 8 r=16 q=32 T= 5 pieces/level=[1, 2, 12, 0, 0] span=29.166865 <= bound=54.580399
+PASS 17 p=1 k=32 r=32 q=32 T=17 pieces/level=[0, 19, 15, 14, 32, 0] span=295.127273 <= bound=431.452252
+PASS V7 counting step on 25158 parameter triples
+ALL PASS: 18 instances, 3602455 exact pair checks, 10.8s
+
+real	0m10.909s
+user	0m0.000s
+sys	0m0.061s

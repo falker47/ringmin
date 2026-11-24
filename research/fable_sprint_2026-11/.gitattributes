@@ -1,0 +1,7 @@
+# Keep sprint sources, certificates and logs LF on every OS so that the
+# recorded SHA-256 values match a fresh checkout.
+*.json text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.tex text eol=lf
+*.log text eol=lf
