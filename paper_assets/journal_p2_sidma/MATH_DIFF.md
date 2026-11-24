@@ -4,6 +4,10 @@
 
 The comparison below records the original format port. Its statement numbers, counts and hashes describe that historical article. The [referee baseline](https://github.com/falker47/ringmin/tree/b70e280203b8261814de2eb669ed752b2b31a86c/paper_assets/journal_p2_sidma) includes the subsequent proceedings-citation correction. The revised article reorders the proofs. Its [task evidence](../../ops/TASK-20261121__p2_sidma_major_revision/EVIDENCE.md) maps the revised results and verification to the referee's numbering. The supplement retains its standalone proof.
 
+## November 2026 proof check
+
+The proof check of lemmas L1–L8 found no error and no gap in S1. [Report](../../docs/referee/proofcheck-2026-11.md). One sentence in the proof of Lemma SM5.1 was reworded: “No grid point is at distance less than $1/(2n)$ from $B$” replaces “No grid point is within $1/(2n)$ of $B$”, because the two nearest grid points lie at distance exactly $1/(2n)$. The statement of the lemma, every formula and the order of the formulas are unchanged. The frozen S1 source, the companion ZIP and the standalone Proposition 7 supplement keep the original sentence; the [comparison test](../../tests/test_journal_p2_sidma.py) applies this one replacement to the frozen text.
+
 ## Historical SIAM format port
 
 The SIDMA port preserves the reviewed mathematical text of the article and S1. The regression test compares the entire scientific body of each document, including the proofs, quantifiers, prose constants, tables, figure captions and data-availability instructions. It also compares both abstracts and every notation definition. It reads the source documents directly and pins their SHA-256 digests after LF normalization. [Comparison test](../../tests/test_journal_p2_sidma.py)
