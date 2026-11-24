@@ -1,0 +1,9 @@
+PASS R1 pi in (3.141592653590, 3.141592653590), E_UP = 0.4428345
+PASS R2 15 table rows (values, minimality on the box, ceilings)
+PASS R3 2 <= n <= 32768: min B <= (5/2) sqrt(n log2 n); largest (min B)^2/(n L) = 5.3333 at n = 3 (must be <= 6.25)
+PASS R4 threshold constant at L = 11: 2.432494 < 5/2
+ALL PASS in 2.3s
+
+real	0m2.460s
+user	0m0.000s
+sys	0m0.015s

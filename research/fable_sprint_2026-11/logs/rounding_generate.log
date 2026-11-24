@@ -1,0 +1,23 @@
+p=1 k=2 r=2 q=8 T=5 order=shuffle: 1 piece kinds, 0.0s
+p=1 k=4 r=4 q=8 T=3 order=shuffle: 4 piece kinds, 0.0s
+p=1 k=4 r=8 q=64 T=7 order=shuffle: 4 piece kinds, 0.1s
+p=1 k=4 r=16 q=32 T=5 order=sorted: 8 piece kinds, 0.0s
+p=1 k=8 r=8 q=24 T=7 order=shuffle: 11 piece kinds, 0.1s
+p=1 k=8 r=32 q=48 T=5 order=shuffle: 15 piece kinds, 0.2s
+p=1 k=16 r=16 q=48 T=9 order=shuffle: 23 piece kinds, 1.0s
+p=1 k=16 r=64 q=64 T=3 order=zigzag: 16 piece kinds, 0.9s
+p=2 k=2 r=4 q=16 T=3 order=shuffle: 1 piece kinds, 0.0s
+p=2 k=4 r=4 q=16 T=5 order=shuffle: 1 piece kinds, 0.0s
+p=2 k=4 r=8 q=64 T=7 order=zigzag: 4 piece kinds, 0.0s
+p=2 k=8 r=8 q=40 T=9 order=shuffle: 13 piece kinds, 0.1s
+p=2 k=8 r=16 q=64 T=11 order=shuffle: 16 piece kinds, 0.2s
+p=2 k=16 r=16 q=64 T=13 order=shuffle: 35 piece kinds, 1.4s
+p=2 k=16 r=32 q=64 T=7 order=sorted: 48 piece kinds, 0.7s
+p=2 k=32 r=32 q=32 T=9 order=shuffle: 58 piece kinds, 7.6s
+p=3 k=8 r=16 q=32 T=5 order=shuffle: 9 piece kinds, 0.1s
+p=1 k=32 r=32 q=32 T=17 order=shuffle: 69 piece kinds, 8.5s
+wrote rounding_certificates.regen.json (18 instances) in 21.0s
+
+real	0m21.163s
+user	0m0.015s
+sys	0m0.015s

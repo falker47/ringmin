@@ -1,0 +1,10 @@
+PASS S1-S3 on 18910 records at 128 bits
+PASS onsets for 1 <= k <= 5000: s_1=8, s_k=4k+5 (2<=k<=5), s_k=4k+6 (6<=k<=5000)
+PASS full sign pattern on k+2 <= n <= 4k+60 for 1 <= k <= 60
+first rows: [(1, 8), (2, 13), (3, 17), (4, 21), (5, 25), (6, 30), (7, 34), (8, 38), (9, 42), (10, 46)]
+smallest certified |Delta| lower bound: 2.372e-09 at (k, n) = (5000, 20006)
+ALL PASS in 57s
+
+real	0m57.186s
+user	0m0.000s
+sys	0m0.030s

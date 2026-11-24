@@ -1,0 +1,5 @@
+ALL PASS: onsets s_1=8, s_k=4k+5 (2<=k<=5), s_k=4k+6 (6<=k<=100) re-proved in exact rationals; 64376 angle enclosures, 45s
+
+real	0m45.294s
+user	0m0.000s
+sys	0m0.031s

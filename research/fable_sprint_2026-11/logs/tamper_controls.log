@@ -1,0 +1,25 @@
+ok   seam_unmodified_arb seam_verify.py 0 ALL PASS in 4s
+ok   seam_unmodified_stdlib seam_verify_stdlib.py 0 ALL PASS: onsets s_1=8, s_k=4k+5 (2<=k<=5), s_k=4k+6 (6<=k<=12) re-proved in exact rationals; 1368 a
+ok   seam_flip_sign seam_verify.py 1 FAIL: k=7 n=34: S3 recorded sign is wrong
+ok   seam_shift_bracket_arb seam_verify.py 1 FAIL: k=9 n=41: S2 root not bracketed
+ok   seam_shift_bracket_stdlib seam_verify_stdlib.py 1 FAIL: k=9 n=41: C(lo) > 2 pi not proved
+ok   seam_wide_bracket_arb seam_verify.py 1 FAIL: k=5 n=24: S3 sign of the deficit is not decided
+ok   seam_wide_bracket_stdlib seam_verify_stdlib.py 1 FAIL: k=5 n=24: Delta > 0 not proved
+ok   seam_drop_onset_record seam_verify.py 1 FAIL: k=70: no unique certified sign change
+ok   seam_drop_window_record seam_verify.py 1 FAIL: k=20 n=120: window sign pattern broken
+ok   rounding_unmodified rounding_verify.py 0 ALL PASS: 6 instances, 152327 exact pair checks, 1.6s
+ok   rounding_shrunk_placement rounding_verify.py 1 FAIL: instance 2: V1 placement P is infeasible
+ok   rounding_extra_copy rounding_verify.py 1 FAIL: instance 4: V3 composition mismatch
+ok   rounding_shifted_piece rounding_verify.py 1 FAIL: instance 3: V2 piece is not a dyadic sub-block
+ok   rounding_single_points_only rounding_verify.py 1 FAIL: instance 1: V4 too many pieces at some level: [0, 0, 12]
+ok   rounding_relabelled_point rounding_verify.py 1 FAIL: instance 5: type 1 does not occur q times
+ok   rate_table_unmodified rate_bound_verify.py 0 ALL PASS in 0.1s
+ok   rate_table_lower_B rate_bound_verify.py 1 FAIL: R2 n=10000 law_free: B mismatch
+ok   rate_table_low_ratio rate_bound_verify.py 1 FAIL: R2 n=100000 law_free: ratio ceiling invalid
+ok   rate_table_low_ring_error rate_bound_verify.py 1 FAIL: R2 n=3200: ring error ceiling invalid
+ok   rate_table_e_up_too_small rate_bound_verify.py 1 FAIL: R1 E_UP does not exceed pi_up * C_star_up
+ALL 20 CONTROLS BEHAVE AS EXPECTED
+
+real	0m31.512s
+user	0m0.030s
+sys	0m0.000s
