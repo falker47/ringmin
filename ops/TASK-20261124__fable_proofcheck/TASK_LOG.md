@@ -66,3 +66,24 @@ Append entries; do not erase failed attempts or contradictory evidence.
 - files changed: new files under `docs/referee/`, `independent_check/fable_proofcheck/`, `ops/TASK-20261124__fable_proofcheck/`; `CURRENT_STATUS.md`.
 - unresolved items: none blocking; the not-verified list is in the report.
 - exactly one next atomic task: the author decides whether to apply the suggested wording for the four imprecisions.
+
+## 2026-11-24 — Wording applied after the author's approval
+
+- decision: the author answered “Sì, applicale” to the question whether to apply the four suggested rewordings in separate commits.
+- preflight: in this environment `build.py` reproduced the three tracked PDFs byte for byte before any edit (Paper I `main.pdf`; Paper II `main.pdf` and `supplement.pdf`).
+- action, Paper I: three commits, one per finding. Each changes `main.tex`, adds the replacement to `EDITORIAL` in `tests/test_journal_p1_jogo.py`, updates the character count, digest and table in `MATH_DIFF.md`, and rebuilds `main.pdf`.
+- action, Paper II: one commit. It changes one sentence of the proof of Lemma SM5.1 in `supplement.tex`, adds that replacement to `tests/test_journal_p2_sidma.py`, notes it in `MATH_DIFF.md`, and rebuilds `supplement.pdf`. The article PDF came out byte-identical and is not part of the commit.
+- not done: no theorem number was added to the survey citation, since no source was consulted. The frozen S1 bundle, `s1_support.zip` and `paper_assets/asymptotic_sequel/proposition7_supplement/` were not touched. The five style remarks were not applied.
+- claim status: wording only. Theorem 3.2 now states the hypothesis `N >= 3`, which the definition of the chain radius already required.
+
+## 2026-11-24 — Verification after the wording commits
+
+- `python -m pytest tests/test_journal_p1_jogo.py`: `7 passed` after each of the three commits; `python -m pytest tests/test_journal_p2_sidma.py`: `7 passed`.
+- `python -I -B independent_check/p2` (pre-existing checker, Paper II branch): `130 passed, 0 failed`.
+- `python -I -B independent_check/fable_proofcheck`: `46 items, 0 failures` (Paper I) and `28 items, 0 failures` (Paper II).
+- full existing suite: Paper I branch `two runs: 1 failed, 100 passed (the intermittent generator test again), then 101 passed`; Paper II branch `110 passed, 1 skipped`.
+
+## 2026-11-24 — Second handoff
+
+- final state: READY_FOR_REVIEW.
+- exactly one next atomic task: the author reviews the four wording commits in Draft PRs #23 and #24.

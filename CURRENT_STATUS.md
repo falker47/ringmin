@@ -26,8 +26,9 @@ commands and their limits.
 ## Verification gates and blockers
 
 No error and no gap was found; four imprecisions and five style remarks are
-recorded. No manuscript, certificate, result artifact or production code was
-changed. Paper I: 40 checks and 6 negative controls pass. Paper II: 20 checks
+recorded. With the author's approval the four imprecisions were reworded in
+separate commits, each with its regression test, `MATH_DIFF.md` and rebuilt
+PDF. No certificate, result artifact or production code was changed. Paper I: 40 checks and 6 negative controls pass. Paper II: 20 checks
 and 8 negative controls pass. The existing test suite passes on both
 branches in most runs; intermittent failures of pre-existing tests, not
 reproducible on demand, are described in the evidence. Not verified
@@ -36,5 +37,5 @@ square-radius results. Hosted CI is not asserted. No blocker.
 
 ## Exactly one next atomic task
 
-The author decides, finding by finding, whether to apply the wording
-suggested for the four imprecisions in the report.
+The author reviews the four wording commits in Draft PRs #23 and #24 and
+decides whether to merge them into the review branches.

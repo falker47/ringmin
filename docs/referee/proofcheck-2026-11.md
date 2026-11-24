@@ -8,7 +8,9 @@ No ERROR and no GAP was found in the statements examined. Every proof in
 scope was reconstructed before reading the author's argument and then
 compared with it step by step; every step that a machine can check was
 checked with new code. The findings are four imprecisions and five remarks
-on style. No manuscript text was changed.
+on style. The check itself changed no manuscript text. The author then
+approved the wording for the four imprecisions, which was applied in
+separate commits; see [Follow-up](#follow-up-wording-applied).
 
 | Class | Paper I | Paper II (S1, L1–L8) |
 |---|---|---|
@@ -152,6 +154,8 @@ heuristic spans up to `n = 150` all exceed it (least value 0.46424).
 
 ## Findings
 
+Line numbers refer to the heads examined, before the follow-up commits.
+
 ### ERROR
 
 None.
@@ -202,6 +206,33 @@ None.
 5. Paper II, S1: the constants 43, 54, 5 and 19/2 are far from tight on
    every instance tested (ratios at most 0.1). This is an observation, with
    no consequence for the proof.
+
+## Follow-up: wording applied
+
+On 2026-11-24 the author approved the wording for the four imprecisions.
+Each is a separate commit on the proof-check branch of its paper.
+
+| Finding | Change | Branch |
+|---|---|---|
+| 1 | Paper I, §5: the lemma bounds the triangle defects, and the fan decomposition sums them along a path | `fable/proofcheck-p1` |
+| 2 | Paper I, Theorem 3.2: `N >= 3` is stated, and the proof derives the lower bound from the general remark before (4) | `fable/proofcheck-p1` |
+| 3 | Paper I, §3: the matrix is named, with its diagonal given by the kernel formula, and (5) is cited for its Monge property | `fable/proofcheck-p1` |
+| 4 | Paper II, S1, proof of Lemma SM5.1: “at distance less than `1/(2n)`” | `fable/proofcheck-p2` |
+
+Each commit also updates the regression test of its paper, which lists the
+replacement explicitly, the file `MATH_DIFF.md`, and the rebuilt PDF. Paper I
+still has 27 pages and S1 still has 15. The article PDF of Paper II is
+byte-identical to the one examined.
+
+Two things were deliberately left alone. The survey citation in finding 3
+still has no theorem number, because no source was consulted. The frozen S1
+source, `s1_support.zip` and the standalone Proposition 7 supplement keep the
+original sentence of Lemma SM5.1; only the SIDMA draft is reworded, and its
+comparison test applies that one replacement to the frozen text.
+
+The five style remarks were not applied. After the commits, the Paper I
+checks (`46 items, 0 failures`) and the Paper II checks
+(`28 items, 0 failures`) pass unchanged.
 
 ## Not verified
 
