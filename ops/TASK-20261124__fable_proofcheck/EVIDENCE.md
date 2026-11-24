@@ -39,8 +39,8 @@ All commands were run locally in this task, from the root of the respective work
 | `python -I -B independent_check/fable_proofcheck` on `fable/proofcheck-p1` | exit 0, `46 items, 0 failures` (40 checks, 6 controls) | Paper I statements listed in the report | certificates, upper witnesses for `n >= 8`, square radii |
 | `python -I -B independent_check/fable_proofcheck` on `fable/proofcheck-p2` | exit 0, `28 items, 0 failures` (20 checks, 8 controls) | S1 lemmas L1–L8, limit existence, enclosure (SM1.4) | Section SM13, upper bounds of Paper II |
 | `python -m pytest independent_check/fable_proofcheck -q -p no:cacheprovider` on both branches | all passed (47 and 29 tests) | the same items through pytest, plus a registry test | — |
-| `python -m pytest -p no:cacheprovider -o addopts=""` on `fable/proofcheck-p2` | `110 passed, 1 skipped` | the existing suite is unaffected by the new files | the skip is pre-existing: “official external setup inputs unavailable” |
-| `python -m pytest -p no:cacheprovider` on `fable/proofcheck-p1`, three full runs | run 1: exit 0; run 2: `1 failed, 100 passed`; run 3: `101 passed` | the existing suite is unaffected by the new files | see the intermittent failure below |
+| `python -m pytest -p no:cacheprovider -o addopts=""` on `fable/proofcheck-p2`, eight full runs (two before the commits, six after) | six runs `110 passed, 1 skipped`; two runs with 13 and 12 failures | the existing suite is unaffected by the new files | the skip is pre-existing: “official external setup inputs unavailable”; see the intermittent failures below |
+| `python -m pytest -p no:cacheprovider -o addopts=""` on `fable/proofcheck-p1`, four full runs (three before the commits, one after) | three runs `101 passed`; one run `1 failed, 100 passed` | the existing suite is unaffected by the new files | see the intermittent failures below |
 
 ## Artifact and provenance checks
 
@@ -50,8 +50,8 @@ as data and write nothing.
 
 ## Failed checks and negative evidence
 
-* **Intermittent failure of a pre-existing test.** In one of three full runs
-  on `fable/proofcheck-p1`,
+* **Intermittent failure of a pre-existing test, Paper I branch.** In one of
+  four full runs on `fable/proofcheck-p1`,
   `tests/test_general_radii.py::test_linear_generator_reproduces_tracked_certificate_from_a_clean_checkout`
   failed. It passed in the other two full runs and in three isolated runs,
   and 25 consecutive runs of
@@ -59,6 +59,16 @@ as data and write nothing.
   tracked certificate each time. The test does not import or read any file
   added by this task. The cause was not determined. It is reported, not
   fixed, because it is outside the scope.
+* **Intermittent failures of pre-existing tests, Paper II branch.** In two
+  of eight full runs on `fable/proofcheck-p2`, 13 and 12 tests of
+  `tests/test_line_upper.py` (the `test_rejects_tampering` cases among them)
+  failed with a Windows `OSError`. Only the truncated summary line
+  `OSError: [Win...` was captured; the failure did not recur in three further
+  logged runs, so the error code is unknown. The file passes when run alone
+  (`14 passed`). These tests use temporary directories and do not read any
+  file added by this task. A race in temporary-directory handling between
+  consecutive pytest sessions on Windows is my conjecture, not an
+  established cause.
 * **Defects found in the new checker during development**, all repaired and
   none concerning a manuscript claim: a sympy relational rejected by the
   strict truth test; two sympy identities needing the assumption
@@ -89,4 +99,4 @@ as data and write nothing.
 * The certificates and the upper witnesses for `n >= 8` were not re-verified.
 * Interval results depend on Arb, symbolic results on sympy.
 * No hosted CI run exists for these commits; nothing is claimed about it.
-* The intermittent test failure above is unexplained.
+* The intermittent test failures above are unexplained.
