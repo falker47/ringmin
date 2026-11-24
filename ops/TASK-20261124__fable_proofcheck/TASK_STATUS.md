@@ -43,12 +43,17 @@ and never replace, a proof of a statement quantified over all `n`.
 
 ## Expected delta
 
-New files only, plus `CURRENT_STATUS.md`. A manuscript would change only for
-an ERROR or a GAP; none was found, so no manuscript changed.
+New files, plus `CURRENT_STATUS.md`. The check changed no manuscript: a
+manuscript would change only for an ERROR or a GAP, and none was found.
+After the author's approval on 2026-11-24, four wording changes were applied
+in separate commits, each with its regression test, `MATH_DIFF.md` and
+rebuilt PDF.
 
 ## Protected paths potentially affected
 
-- `paper_assets/journal_p1_jogo/**`, `paper_assets/journal_p2_sidma/**`: read only, unchanged;
+- `paper_assets/journal_p1_jogo/{main.tex,main.pdf,MATH_DIFF.md}` and `tests/test_journal_p1_jogo.py`: changed only by the three approved wording commits;
+- `paper_assets/journal_p2_sidma/{supplement.tex,supplement.pdf,MATH_DIFF.md}` and `tests/test_journal_p2_sidma.py`: changed only by the one approved wording commit;
+- every other file under `paper_assets/`, including the frozen S1 bundle, `s1_support.zip` and the Paper II article: unchanged;
 - `results/**`, `verify.py`, `verify_global_brackets.py`, `src/**`: not read by the checks, unchanged.
 
 ## Completion gates
@@ -57,7 +62,7 @@ an ERROR or a GAP; none was found, so no manuscript changed.
 - [x] claims classified (machine / hand / not verified) in the report;
 - [x] new checks run: Paper I 40 checks and 6 controls, Paper II 20 checks and 8 controls, all passing;
 - [x] existing repository test suite run on both branches (see EVIDENCE);
-- [x] artifacts and provenance: not applicable, no artifact generated or changed;
+- [x] artifacts and provenance: the two rebuilt PDFs are recorded in EVIDENCE with command, environment and hashes;
 - [x] durable memory: report added; `PROJECT_KNOWLEDGE.md` and `knowledge/*.md` unchanged because no stable claim changed;
 - [x] `git status --short` inspected;
 - [x] complete diff of the new files inspected;
@@ -71,11 +76,11 @@ None.
 
 ## Handoff
 
-No error and no gap in the statements examined; four imprecisions and five
-style remarks are listed in the report with suggested wording. No manuscript
-was edited. Residual uncertainty: the cited sources, the certificates and
+No error and no gap in the statements examined. The four imprecisions were
+reworded after the author's approval, in separate commits; the five style
+remarks were not applied. Residual uncertainty: the cited sources, the certificates and
 the upper witnesses for `n >= 8` were not re-verified here.
 
-Exactly one next atomic task: the author decides, finding by finding,
-whether to apply the suggested wording for the four imprecisions listed in
-`docs/referee/proofcheck-2026-11.md`.
+Exactly one next atomic task: the author reviews the four wording commits in
+Draft PRs #23 and #24 and decides whether to merge them into the review
+branches.
