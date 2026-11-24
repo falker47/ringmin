@@ -86,6 +86,15 @@ EDITORIAL = (
         r"radius at least $\Rfull(\sigma)\ge\Rchain(\sigma)$, by the remark before "
         r"\eqref{eq:hierarchy}. This gives the lower bound.",
     ),
+    # Supnick's hypothesis includes Monge inequalities on the diagonal; say
+    # which matrix is meant and why it satisfies them.
+    (
+        r"Apply it to the Monge matrix $-\theta_R$.",
+        r"Apply it to the matrix $-\theta_R$ on the ranked radii, with diagonal entries "
+        r"given by the same formula~\eqref{eq:kernel}. By~\eqref{eq:antimonge}, which holds "
+        r"for all positive arguments, this matrix is Monge, including the inequalities that "
+        r"involve its diagonal.",
+    ),
 )
 
 

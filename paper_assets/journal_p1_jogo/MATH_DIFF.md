@@ -4,11 +4,11 @@ The mathematical text, table contents, figure captions and plotted data agree wi
 
 ## Normalized source comparison
 
-The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 55,060 characters. The UTF-8 SHA-256 digests are:
+The regression expands the reviewed table and appendix inputs in their original positions. It discards float placement, panel wrappers, image sizing and the page break before §9, maps the six graphic filenames, and collapses whitespace. It retains the captions, labels, mathematical delimiters, signs, tolerances, indices, row entries and proof text. The reviewed string contains 54,787 characters. Applying the listed wording changes to it yields the JOGO string exactly, with 55,282 characters. The UTF-8 SHA-256 digests are:
 
 ~~~text
 reviewed  2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a
-JOGO      5ecb6ca406b6102c1b63b1dc0c472549e0ce0e1771fca6f2ddfbb109dfe7ed4c
+JOGO      44f819695a43b7586ad1e024d08a05d9fda7bdbec089b4c9387192f6d440992a
 ~~~
 
 | Material compared | Result |
@@ -56,6 +56,7 @@ Further wording changes follow the November 2026 proof check, whose [report](../
 | §5, outline of Appendix A | A fan decomposition bounds every triangle defect below by $\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$. | Every triangle defect is bounded below by $\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan decomposition writes each path slack as a sum of such defects. |
 | Theorem 3.2, hypothesis | $0<r_1<\cdots<r_N$, the order obtained by | $0<r_1<\cdots<r_N$ with $N\ge3$, the order obtained by |
 | Theorem 3.2, proof | Now use (4). | For any prescribed radii, a feasible placement in order $\sigma$ has central radius at least $R_{\rm full}(\sigma)\ge R_{\rm chain}(\sigma)$, by the remark before (4). This gives the lower bound. |
+| §3, application of Supnick's theorem | Apply it to the Monge matrix $-\theta_R$. | Apply it to the matrix $-\theta_R$ on the ranked radii, with diagonal entries given by the same formula (2). By (5), which holds for all positive arguments, this matrix is Monge, including the inequalities that involve its diagonal. |
 
 These changes leave the evidence and epistemic status of every claim as recorded in the [integrated claim map](../journal_p1_v5/CLAIMS_DIFF.md).
 
