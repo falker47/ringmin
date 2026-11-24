@@ -74,6 +74,18 @@ EDITORIAL = (
         r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan "
         r"decomposition writes each path slack as a sum of such defects.",
     ),
+    # Theorem 3.2 covers arbitrary radii: state N >= 3, and derive its lower
+    # bound from the general remark instead of the linear-family display (4).
+    (
+        r"$0<r_1<\cdots<r_N$, the order obtained by",
+        r"$0<r_1<\cdots<r_N$ with $N\ge3$, the order obtained by",
+    ),
+    (
+        r"Now use \eqref{eq:hierarchy}.",
+        r"For any prescribed radii, a feasible placement in order $\sigma$ has central "
+        r"radius at least $\Rfull(\sigma)\ge\Rchain(\sigma)$, by the remark before "
+        r"\eqref{eq:hierarchy}. This gives the lower bound.",
+    ),
 )
 
 
