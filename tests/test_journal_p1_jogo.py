@@ -64,6 +64,37 @@ EDITORIAL = (
         r"constant $C_2$ with $\CtwoLower\le C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places "
         r"the bounds on $C_*$ and the upper bound on $C_2$ alongside the finite brackets.",
     ),
+    # Wording changes after the November 2026 proof check
+    # (docs/referee/proofcheck-2026-11.md). Lemma A.2 bounds the triangle
+    # defects; the fan identity (A.10) then sums them along a path.
+    (
+        r"A fan decomposition bounds every triangle defect below by "
+        r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$.",
+        r"Every triangle defect is bounded below by "
+        r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan "
+        r"decomposition writes each path slack as a sum of such defects.",
+    ),
+    # Theorem 3.2 covers arbitrary radii: state N >= 3, and derive its lower
+    # bound from the general remark instead of the linear-family display (4).
+    (
+        r"$0<r_1<\cdots<r_N$, the order obtained by",
+        r"$0<r_1<\cdots<r_N$ with $N\ge3$, the order obtained by",
+    ),
+    (
+        r"Now use \eqref{eq:hierarchy}.",
+        r"For any prescribed radii, a feasible placement in order $\sigma$ has central "
+        r"radius at least $\Rfull(\sigma)\ge\Rchain(\sigma)$, by the remark before "
+        r"\eqref{eq:hierarchy}. This gives the lower bound.",
+    ),
+    # Supnick's hypothesis includes Monge inequalities on the diagonal; say
+    # which matrix is meant and why it satisfies them.
+    (
+        r"Apply it to the Monge matrix $-\theta_R$.",
+        r"Apply it to the matrix $-\theta_R$ on the ranked radii, with diagonal entries "
+        r"given by the same formula~\eqref{eq:kernel}. By~\eqref{eq:antimonge}, which holds "
+        r"for all positive arguments, this matrix is Monge, including the inequalities that "
+        r"involve its diagonal.",
+    ),
 )
 
 

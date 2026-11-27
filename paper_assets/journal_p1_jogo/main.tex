@@ -201,13 +201,17 @@ $\sigma^*_4=(1,3,2,4)$ and $\sigma^*_7=(1,6,3,4,5,2,7)$.
 
 For a symmetric Monge cost matrix, Supnick's extreme-tour theorem
 identifies this rank cycle as a maximum-cost tour; see the maximum-tour
-discussion in~\cite{survey}. Apply it to the Monge matrix $-\theta_R$.
+discussion in~\cite{survey}. Apply it to the matrix $-\theta_R$ on the
+ranked radii, with diagonal entries given by the same
+formula~\eqref{eq:kernel}. By~\eqref{eq:antimonge}, which holds for all
+positive arguments, this matrix is Monge, including the inequalities that
+involve its diagonal.
 The sign reversal makes $\sigma^*_N$ a minimum-angle tour. The classical
 tour theorem is the only imported ordering theorem.
 
 \begin{theorem}[Chain optimization]\label{thm:chain}
-For arbitrary distinct radii $0<r_1<\cdots<r_N$, the order obtained by
-replacing rank $i$ in $\sigma^*_N$ by $r_i$ minimizes $C_\sigma(R)$
+For arbitrary distinct radii $0<r_1<\cdots<r_N$ with $N\ge3$, the order
+obtained by replacing rank $i$ in $\sigma^*_N$ by $r_i$ minimizes $C_\sigma(R)$
 at every $R>0$, and hence minimizes $\Rchain(\sigma)$. Its chain
 radius is a lower bound for the global geometric optimum. If its cumulative
 adjacent-angle placement is all-pairs feasible at that radius, the bound
@@ -217,9 +221,11 @@ is attained and the placement is globally optimal.
 The fixed-radius assertion follows from \eqref{eq:antimonge} and Supnick's
 theorem. At $R=\Rchain(\sigma)$ for any competing order, the minimizing
 tour has angle sum at most $2\pi$. Strict decrease of its sum in $R$
-places its root no higher than $\Rchain(\sigma)$. Now use
-\eqref{eq:hierarchy}. An all-pairs-feasible placement at the lower bound
-proves equality.
+places its root no higher than $\Rchain(\sigma)$. For any prescribed radii,
+a feasible placement in order $\sigma$ has central radius at least
+$\Rfull(\sigma)\ge\Rchain(\sigma)$, by the remark before
+\eqref{eq:hierarchy}. This gives the lower bound. An all-pairs-feasible
+placement at the lower bound proves equality.
 \end{proof}
 
 \section{Fixed-order geometric feasibility}\label{sec:fixed}
@@ -279,8 +285,9 @@ $k$ & $\Delta_{k,n}>0$ & $\Delta_{k,n}<0$ & $s_k$\\\midrule
 \end{table}
 
 Appendix~\ref{app:seam} proves the criterion for both parities and both
-directed paths. A fan decomposition bounds every triangle defect below by
-$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$.
+directed paths. Every triangle defect is bounded below by
+$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan
+decomposition writes each path slack as a sum of such defects.
 The two paths around the necklace total $2\pi$ at the root. For persistence
 the proof compares an increasing chain root with a decreasing algebraic
 threshold. Six rational bridges settle the three strict onsets. Figures
