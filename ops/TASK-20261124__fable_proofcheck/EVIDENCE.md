@@ -54,6 +54,21 @@ All commands were run locally in this task, from the root of the respective work
 | `python -I -B independent_check/fable_proofcheck` on both branches | `46 items, 0 failures`; `28 items, 0 failures` | the new checks still read the tables and constants they verify | — |
 | full existing suite on both branches | Paper I `two runs: 1 failed, 100 passed (the intermittent generator test again), then 101 passed`; Paper II `110 passed, 1 skipped` | nothing else depends on the reworded sentences | hosted CI |
 
+## Commands after the precision fix (2026-11-27)
+
+Local, Windows 11, Python 3.14.3 run as `pythoncore-3.14-64\python.exe` (not the Install Manager alias), python-flint 0.9.0. Branches `fable/proofcheck-precision-p1` and `fable/proofcheck-precision-p2`, cut from the review branches after PRs #23, #24, #26 and #27.
+
+| Command/check | Exit/result | What it checks | What it does not check |
+|---|---|---|---|
+| `python -m pytest independent_check/fable_proofcheck -k caller_precision`, new test before the fix | Paper I `4 failed, 36 passed`; Paper II `5 failed, 15 passed` | the new test detects checks that depend on the caller's precision | — |
+| `python -m pytest independent_check/fable_proofcheck` after the fix | Paper I `87 passed`; Paper II `49 passed` | every check passes at the default and at a 53-bit caller precision, leaves that precision unchanged, and every control is still rejected | — |
+| `python -I -B independent_check/fable_proofcheck` after the fix | `46 items, 0 failures`; `28 items, 0 failures` | the documented command is unchanged in result | — |
+| Paper II, `PYTHONPATH=src python -m pytest tests/test_line_upper.py independent_check/fable_proofcheck` | before the fix `2 failed` (`P2-L3a`, `P2-L2b`); after `63 passed` | the observed failure is gone | other orders and other modules that change the precision |
+| caller precision set to 77 bits, Paper II modules imported inside `working_precision()`, one check run | precision still 77 afterwards | the package no longer changes the precision of other code | — |
+| `git diff --check` and staged diff inspection | no output; only the files named in the log changed | — | — |
+
+Not run: the full repository suite (`python -m pytest` collects only `tests/`, not this package). Hosted CI is not asserted here.
+
 ## Artifact and provenance checks
 
 The checks themselves read `main.tex`, `supplement.tex` and `numbers.tex` as

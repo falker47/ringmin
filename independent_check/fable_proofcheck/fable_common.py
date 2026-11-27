@@ -15,12 +15,13 @@ This file is identical on the Paper I and Paper II proof-check branches.
 
 from __future__ import annotations
 
+import functools
 from fractions import Fraction
 from pathlib import Path
 
 from flint import arb, ctx, fmpq
 
-ctx.prec = 256
+PREC = 256
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -30,9 +31,28 @@ CHECKS: list[tuple[str, str, str, object]] = []
 CONTROLS: list[tuple[str, str, object]] = []
 
 
+def working_precision():
+    """Context for importing the check modules and running each check.
+
+    Arb's precision is global to the process, and other code may leave any
+    value set.  Inside this context it is PREC bits; on exit the caller's value
+    is restored, so the checks neither depend on nor change it.
+    """
+    return ctx.workprec(PREC)
+
+
+def _at_working_precision(function):
+    @functools.wraps(function)
+    def run():
+        with working_precision():
+            return function()
+
+    return run
+
+
 def check(ident: str, kind: str, claim: str):
     def wrap(function):
-        CHECKS.append((ident, kind, claim, function))
+        CHECKS.append((ident, kind, claim, _at_working_precision(function)))
         return function
 
     return wrap
@@ -43,7 +63,7 @@ def control(ident: str, description: str):
     checking code must reject by raising AssertionError."""
 
     def wrap(function):
-        CONTROLS.append((ident, description, function))
+        CONTROLS.append((ident, description, _at_working_precision(function)))
         return function
 
     return wrap

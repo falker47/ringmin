@@ -87,3 +87,12 @@ Append entries; do not erase failed attempts or contradictory evidence.
 
 - final state: READY_FOR_REVIEW.
 - exactly one next atomic task: the author reviews the four wording commits in Draft PRs #23 and #24.
+
+## 2026-11-27 — Precision made local to each check
+
+- trigger: while PRs #24 and #27 were merged, `P2-L3a` and `P2-L2b` failed when `tests/test_line_upper.py` and this package ran in one pytest process. `fable_common.py` set `ctx.prec = 256` once, at import; `paper_assets/line_upper/block_antiderivatives.py` later sets 192 bits, and an undecided Arb comparison counts as a failure. Alone, and with the documented command, every check passed.
+- decision: the author answered “Sì, correggila” to the question whether to fix it.
+- action: `fable_common.py` no longer sets the global precision. `working_precision()` gives 256 bits inside a context and restores the caller's value on exit. Every registered check and control runs inside it, and both loaders (`__main__.py`, `test_proofcheck.py`) import the check modules inside it, which covers the module-level constants of `p2_base.py`. The new test `test_check_ignores_caller_precision` runs every check with the caller's precision at 53 bits and requires that precision unchanged afterwards. The three shared files remain identical on both lines.
+- not changed: no check module, manuscript, certificate, result artifact or production code.
+- claim status: unchanged. Every check and control is evaluated at 256 bits, as before.
+- verification: see “Commands after the precision fix” in EVIDENCE.
