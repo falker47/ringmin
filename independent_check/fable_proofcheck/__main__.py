@@ -27,8 +27,9 @@ if str(HERE) not in sys.path:
 def load():
     import fable_common as common
 
-    for path in sorted(HERE.glob("p[12]_*.py")):
-        importlib.import_module(path.stem)
+    with common.working_precision():
+        for path in sorted(HERE.glob("p[12]_*.py")):
+            importlib.import_module(path.stem)
 
     def natural(item):
         return [int(part) if part.isdigit() else part for part in re.split(r"(\d+)", item[0])]

@@ -40,6 +40,11 @@ its regression test, `MATH_DIFF.md` and rebuilt PDF; the five style remarks
 were not applied. The test change touched no manuscript, certificate, result
 artifact, generator, verifier or production code. Hosted CI passed on the
 four PR heads `dd2c06e`, `2ec4e9e`, `5a1d8b4` and `3ec3e64` before merging.
+On 2026-11-27 the proof check stopped depending on the Arb precision that
+other code in the same process leaves set; every check still runs at 256
+bits ([log](ops/TASK-20261124__fable_proofcheck/TASK_LOG.md)). That fix is on
+`fable/proofcheck-precision-p1` and `fable/proofcheck-precision-p2`, not yet
+merged.
 
 Merging is the author's integration decision, not an independent review;
 the test change has not been independently reviewed. Not verified: cited
