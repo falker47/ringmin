@@ -69,7 +69,7 @@ For the linear family we certify
 \end{equation}
 Table~\ref{tab:brackets} gives these endpoints. The same method applies to
 any finite list of distinct positive integer radii of size at least three.
-For the quadratic family it gives twelve brackets of the same exact width
+For square radii it gives twelve brackets of the same exact width
 (Table~\ref{tab:quadratic}). We use three properties of the geometry.
 \begin{itemize}
 \item For arbitrary distinct positive radii, the angular kernel is strictly
@@ -110,9 +110,10 @@ difference-constraint framework for testing a fixed order.
 
 The revised companion paper~\cite{paper-ii} proves
 $\Rstar(n)=C_*n^2+o(n^2)$ with $\CstarLower<C_*<\CstarUpper$.
-For quadratic radii it proves that $R_2^*(n)/n^3$ converges to a constant
-$C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places these bounds on the
-limiting constants alongside the finite brackets.
+For square radii it proves that $R_2^*(n)/n^3$ converges to a constant
+$C_2$ with $\CtwoLower\le C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places
+the bounds on $C_*$ and the upper bound on $C_2$ alongside the finite
+brackets.
 
 \section{Geometric angular reformulation}\label{sec:geometry}
 Place the center of the central circle at the origin. An outer circle
@@ -200,13 +201,17 @@ $\sigma^*_4=(1,3,2,4)$ and $\sigma^*_7=(1,6,3,4,5,2,7)$.
 
 For a symmetric Monge cost matrix, Supnick's extreme-tour theorem
 identifies this rank cycle as a maximum-cost tour; see the maximum-tour
-discussion in~\cite{survey}. Apply it to the Monge matrix $-\theta_R$.
+discussion in~\cite{survey}. Apply it to the matrix $-\theta_R$ on the
+ranked radii, with diagonal entries given by the same
+formula~\eqref{eq:kernel}. By~\eqref{eq:antimonge}, which holds for all
+positive arguments, this matrix is Monge, including the inequalities that
+involve its diagonal.
 The sign reversal makes $\sigma^*_N$ a minimum-angle tour. The classical
 tour theorem is the only imported ordering theorem.
 
 \begin{theorem}[Chain optimization]\label{thm:chain}
-For arbitrary distinct radii $0<r_1<\cdots<r_N$, the order obtained by
-replacing rank $i$ in $\sigma^*_N$ by $r_i$ minimizes $C_\sigma(R)$
+For arbitrary distinct radii $0<r_1<\cdots<r_N$ with $N\ge3$, the order
+obtained by replacing rank $i$ in $\sigma^*_N$ by $r_i$ minimizes $C_\sigma(R)$
 at every $R>0$, and hence minimizes $\Rchain(\sigma)$. Its chain
 radius is a lower bound for the global geometric optimum. If its cumulative
 adjacent-angle placement is all-pairs feasible at that radius, the bound
@@ -216,9 +221,11 @@ is attained and the placement is globally optimal.
 The fixed-radius assertion follows from \eqref{eq:antimonge} and Supnick's
 theorem. At $R=\Rchain(\sigma)$ for any competing order, the minimizing
 tour has angle sum at most $2\pi$. Strict decrease of its sum in $R$
-places its root no higher than $\Rchain(\sigma)$. Now use
-\eqref{eq:hierarchy}. An all-pairs-feasible placement at the lower bound
-proves equality.
+places its root no higher than $\Rchain(\sigma)$. For any prescribed radii,
+a feasible placement in order $\sigma$ has central radius at least
+$\Rfull(\sigma)\ge\Rchain(\sigma)$, by the remark before
+\eqref{eq:hierarchy}. This gives the lower bound. An all-pairs-feasible
+placement at the lower bound proves equality.
 \end{proof}
 
 \section{Fixed-order geometric feasibility}\label{sec:fixed}
@@ -278,8 +285,9 @@ $k$ & $\Delta_{k,n}>0$ & $\Delta_{k,n}<0$ & $s_k$\\\midrule
 \end{table}
 
 Appendix~\ref{app:seam} proves the criterion for both parities and both
-directed paths. A fan decomposition bounds every triangle defect below by
-$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$.
+directed paths. Every triangle defect is bounded below by
+$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan
+decomposition writes each path slack as a sum of such defects.
 The two paths around the necklace total $2\pi$ at the root. For persistence
 the proof compares an increasing chain root with a decreasing algebraic
 threshold. Six rational bridges settle the three strict onsets. Figures
@@ -542,7 +550,7 @@ exact optimum requires a placement with simultaneous slack against every
 other outer disk. A statement about every optimizer requires a further
 argument. The seam onsets address only the specified chain roots.
 
-\section{Quadratic radii}\label{sec:quadratic}
+\section{Square radii}\label{sec:quadratic}
 For disks of radii $1^2,\ldots,n^2$, Table~\ref{tab:quadratic} gives
 $L_n^{(2)}<R_2^*(n)\le U_n^{(2)}$ with $U_n^{(2)}-L_n^{(2)}=10^{-11}$
 for every $3\le n\le14$. Both families use the same general-radii
@@ -552,14 +560,14 @@ for each row and checks every pair of disks in its rational upper witness.
 For the lower exclusion we may delete the $d$ smallest radii, leaving
 $k=n-d\ge3$ disks. A violating cycle on these retained disks excludes
 every full order that induces it. For each surviving core order we restore
-the deleted disks in all possible gaps, including the closing gap. At
-quadratic $n=14$, for example, $d=4$ and each surviving ten-disk core
+the deleted disks in all possible gaps, including the closing gap. For
+square radii and $n=14$, for example, $d=4$ and each surviving ten-disk core
 gives $10\cdot11\cdot12\cdot13$ full orders. Appendix~\ref{app:general}
 proves complete coverage and strictness for any prescribed list of distinct
 positive integer radii of size at least three.
 
 \begin{table}[!htbp]\centering
-\caption{Certified global brackets for quadratic radii. The endpoints are
+\caption{Certified global brackets for square radii. The endpoints are
 exact rationals. Each witness gives a feasible placement at $U_n^{(2)}$.}
 \label{tab:quadratic}
 % Exact rational endpoints for quadratic radii. One Cartesian witness per row.
@@ -583,7 +591,7 @@ $n$ & $L_n^{(2)}$ & $U_n^{(2)}$ & Witnesses\\\midrule
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.80\linewidth]{Fig5.pdf}
-\caption{Normalized linear and quadratic brackets. Each interval is narrower
+\caption{Normalized brackets for linear and square radii. Each interval is narrower
 than its marker. The band bounds $C_*$ and the dotted line is the upper
 bound on $C_2$ from revised Paper~II~\cite{paper-ii}.}\label{fig:ratios}
 \end{figure}

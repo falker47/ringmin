@@ -46,10 +46,69 @@ def scientific_text(folder):
     return " ".join(body.split())
 
 
+# Editorial changes to the reviewed scientific text, in whitespace-collapsed
+# form. Each reviewed phrase must occur exactly once. The radii 1^2,...,n^2
+# are called square radii, as in the revised Paper II.
+EDITORIAL = (
+    ("For the quadratic family it gives", "For square radii it gives"),
+    ("For quadratic radii it proves", "For square radii it proves"),
+    (r"\section{Quadratic radii}", r"\section{Square radii}"),
+    ("At quadratic $n=14$", "For square radii and $n=14$"),
+    ("Certified global brackets for quadratic radii.", "Certified global brackets for square radii."),
+    ("Normalized linear and quadratic brackets.", "Normalized brackets for linear and square radii."),
+    # Cite the lower bound on C_2 from revised Paper II. Figure 5 still draws
+    # only the upper bound, so the sentence about the figure names both.
+    (
+        r"constant $C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places these bounds on the "
+        r"limiting constants alongside the finite brackets.",
+        r"constant $C_2$ with $\CtwoLower\le C_2<\CtwoUpper$. Figure~\ref{fig:ratios} places "
+        r"the bounds on $C_*$ and the upper bound on $C_2$ alongside the finite brackets.",
+    ),
+    # Wording changes after the November 2026 proof check
+    # (docs/referee/proofcheck-2026-11.md). Lemma A.2 bounds the triangle
+    # defects; the fan identity (A.10) then sums them along a path.
+    (
+        r"A fan decomposition bounds every triangle defect below by "
+        r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$.",
+        r"Every triangle defect is bounded below by "
+        r"$\delta_R=\theta_R(n,k)+\theta_R(k,n-1)-\theta_R(n,n-1)$, and a fan "
+        r"decomposition writes each path slack as a sum of such defects.",
+    ),
+    # Theorem 3.2 covers arbitrary radii: state N >= 3, and derive its lower
+    # bound from the general remark instead of the linear-family display (4).
+    (
+        r"$0<r_1<\cdots<r_N$, the order obtained by",
+        r"$0<r_1<\cdots<r_N$ with $N\ge3$, the order obtained by",
+    ),
+    (
+        r"Now use \eqref{eq:hierarchy}.",
+        r"For any prescribed radii, a feasible placement in order $\sigma$ has central "
+        r"radius at least $\Rfull(\sigma)\ge\Rchain(\sigma)$, by the remark before "
+        r"\eqref{eq:hierarchy}. This gives the lower bound.",
+    ),
+    # Supnick's hypothesis includes Monge inequalities on the diagonal; say
+    # which matrix is meant and why it satisfies them.
+    (
+        r"Apply it to the Monge matrix $-\theta_R$.",
+        r"Apply it to the matrix $-\theta_R$ on the ranked radii, with diagonal entries "
+        r"given by the same formula~\eqref{eq:kernel}. By~\eqref{eq:antimonge}, which holds "
+        r"for all positive arguments, this matrix is Monge, including the inequalities that "
+        r"involve its diagonal.",
+    ),
+)
+
+
+def edited(text):
+    for old, new in EDITORIAL:
+        assert text.count(old) == 1, old
+        text = text.replace(old, new)
+    return text
+
+
 def test_every_scientific_section_and_appendix_matches_the_reviewed_source():
     reviewed = scientific_text(REVIEWED)
-    assert scientific_text(JOGO) == reviewed
     assert hashlib.sha256(reviewed.encode()).hexdigest() == "2d6c96dd7319ea76b820c9968746c4a3a60284c343761631fd6eb2829569cd7a"
+    assert scientific_text(JOGO) == edited(reviewed)
     theorem = r"\\newtheorem[^\n]+"
     assert re.findall(theorem, tex(JOGO)) == re.findall(theorem, tex(REVIEWED))
     macros = r"\\newcommand\{\\(?:Rchain|Rfull|Rstar|snapshot)\}[^\n]+"
@@ -90,7 +149,10 @@ def test_editorial_fixes_declarations_and_front_matter():
     assert abstract.split(start)[1] == old.split(start, 1)[1].split(r"\end{abstract}", 1)[0].rstrip()
     assert r"\date{September 19, 2026}" in new
     assert r"\pacs[Mathematics Subject Classification (2020)]{52C26,52C15,05C85,90C27}" in new
-    assert tex(JOGO, "numbers.tex") == tex(REVIEWED, "numbers.tex") + (
+    upper = "\\newcommand{\\CtwoUpper}"
+    lower = "\\newcommand{\\CtwoLower}{(434+4\\sqrt{2})/(1587\\pi)}\n"
+    assert tex(REVIEWED, "numbers.tex").count(upper) == 1
+    assert tex(JOGO, "numbers.tex") == tex(REVIEWED, "numbers.tex").replace(upper, lower + upper) + (
         "\\newcommand{\\GeneralRadiiCommit}{[commit after merge]}\n"
     )
     marker = r"\section{Data and code availability}"
