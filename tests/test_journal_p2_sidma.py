@@ -81,6 +81,13 @@ def test_supplement_mathematical_text():
     expected = expected.replace("These supporting files are included alongside\nthis source and PDF;",
                                 "The companion " + r"\href{s1_support.zip}{\texttt{s1\_support.zip}}"
                                 + " contains these\nsupporting files with the original source and PDF;")
+    # Proof of Lemma SM5.1, reworded after the November 2026 proof check: the two
+    # nearest grid points lie at distance exactly 1/(2n) from B. The frozen S1
+    # source keeps the original sentence.
+    strip = "No grid point is within $1/(2n)$ of $B$. Below this radius the set is\nempty."
+    assert expected.count(strip) == 1
+    expected = expected.replace(strip, "No grid point is at distance less than $1/(2n)$ from $B$. "
+                                "Below this\nradius the set is empty.")
     assert scientific_body(new) == expected + "\n\n" + r"\input{sections/square_lower}"
     square = read(SIDMA / "sections/square_lower.tex")
     assert r"\begin{theorem}\label{thm:square-lower}" in square
