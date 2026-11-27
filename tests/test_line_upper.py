@@ -24,7 +24,7 @@ def module(name):
 def cli(path):
     return subprocess.run([sys.executable, "-I", "-S",
                            str(ROOT / "verify_line_certificate.py"), str(path)],
-                          capture_output=True, text=True)
+                          stdin=subprocess.DEVNULL, capture_output=True, text=True)
 
 
 @pytest.mark.parametrize("case", ["position", "labels", "size", "bound", "truncated",
