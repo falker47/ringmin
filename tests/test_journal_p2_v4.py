@@ -26,7 +26,7 @@ def digest(s):
 
 def run(script, *args, cwd=PACKAGE):
     return subprocess.run([sys.executable, str(cwd/script), *map(str,args)],
-                          capture_output=True, text=True)
+                          stdin=subprocess.DEVNULL, capture_output=True, text=True)
 
 
 def test_abstract_numbers_and_targets():
